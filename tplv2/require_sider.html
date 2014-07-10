@@ -1,0 +1,87 @@
+
+{if !islogin()}
+	<script src="{$syskin}/js/login.js"></script>
+	<script src="{$syskin}/js/jquery.dpwd.js"></script>
+	{literal}
+	<script>
+	$(document).ready(function(){
+		$('#mini_login input').focus(function(){
+			$(this).addClass('curr');
+		}).blur(function(){
+			$(this).removeClass('curr');
+		})
+	});
+	</script>
+	{/literal}
+
+        <div class="menu_login">
+		    <form action="{spUrl c=main a=login}" method="post" id="loginForm"  callback="{spUrl c=main}">
+			<input type="hidden" value="{$callback}" name="callback">
+            <input type="hidden" value="" name="formKey">
+		    <div id="mini_login" class="login_area">
+		        <div class="login_email in_put">
+				    <input type="text" id="email" name="email" autocomplete="off" class="input tip" title="请输入邮箱地址"  tabindex="1" value="{if $smarty.post.email}{$smarty.post.email}{else}{$email}{/if}">
+			    </div>
+			    <div class="login_pw in_put">
+				    <input type="password" id="password" class="input tip" title="请输入密码" value="{$smarty.post.password}" name="password" tabindex="2">
+			    </div>
+				 <input name="savename" type="hidden" id="savename" value="1" checked="checked" />
+			    {if $yb.loginCodeSwitch != 0}
+			    <div class="login_code in_put">
+				    <img src="{spUrl c=main a=vcode t=$time}" class="vericode" onClick="reloadcode('vericode')" title="看不清楚，换一张" id="vericode" />
+				    <input type="text" id="verifycode" class="input_code tip" title="请输入验证码"  name="verifycode" tabindex="3">
+			    </div>
+			    {/if}
+			</div>
+			
+			<div class="login_btn">
+			    <input type="button" name="loginSubmit" id="loginSubmit"  value="登录" />
+				<a href="{spUrl c=main a=reg}">注册</a>
+				<div class="clear"></div>
+			</div>			
+			</form>
+		</div>
+{/if}
+
+
+{if islogin()}
+    {if !$in_tagindex}
+	    <div class="menu_fl">
+		    <div class="show_fl"><a href="{spUrl c=user a=myfollow}" {$myfollow_current}>管理</a></div>
+		    <a href="{spUrl c=main}"><span>关注 {$user.flow} 个博客</span></a>
+		</div>
+		<div class="menu_fc">
+		    <li>{if $user.likenum > 0}<div class="pop">{$user.likenum}</div>{/if}<a href="{spUrl c=user a=mylikes}" {$mylike_current}><span class="mylike"></span><div class="infoname">我喜欢</div></a></li>
+			<li class="mid">{if $user.num > 0}<div class="pop">{$user.num}</div>{/if}<a href="{spUrl c=user a=mypost}" {$mypost_current}><span class="mypost"></span><div class="infoname">我发布</div></a></li>
+			<li><a href="{spUrl c=user a=myreplay}" {$myreply_current}><span class="myreplay"></span><div class="infoname">我回复</div></a></li>
+		</div>
+		<div class="menu_sc" id="search">
+		    <input type="button" class="btn" value="搜索" onClick="tag_search()">
+		    <input type="text" id="searchtag" value="搜索标签,发现兴趣" class="ipt">
+		</div>
+		<div class="menu_tag">
+        {foreach $favatag as $d}
+		    <li><a href="{spUrl c=blog a=tag tid=$d.tid}"><span>{$d.title}</span></a></li>
+         {/foreach}
+			<li class="more"><a href="{spUrl c=blog a=tag}">更多热门标签</a></li>
+		</div>
+	{/if}
+{/if}
+
+	<div class="menu_fr" id="recommendImg"></div>
+	<script> $(document).ready(function(){ recommendImg(); }); </script>
+
+
+	{if isset($adunit.1) && $adunit.1.is_show == 1}
+		<div class="ad" id="ad_index_aside"></div>
+		<script>
+			$(document).ready(function(){
+				$(document).ready(function(){
+					ad_aside('#ad_index_aside',1);
+					setInterval(function(){
+						ad_aside('#ad_index_aside',1);
+					}, 30000);
+				})
+			})
+		</script>
+	{/if}

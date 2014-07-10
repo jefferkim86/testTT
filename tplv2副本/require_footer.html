@@ -1,0 +1,31 @@
+<div id="footer">
+   <div id="copy">
+    {foreach $custompage_cate as $cate}
+      <a href="{spUrl c=site page=$cate.tags}" title="{$cate.title}">{$cate.title}</a>
+	{/foreach}
+      <a href="http://www.thinksaas.cn/index.php/group/group/groupid-129" target="_blank" class="powered">Powered by {$yb.soft} <b>{$yb.version}</b></a> ©2011-2012 {$yb.site_icp} {$yb.site_count}
+   </div>
+   <div class="clear"></div>
+</div>
+
+{if $top==yes}
+<script>
+$(document).ready(function(){
+	(function() {
+		var $backToTopTxt = "返回顶部", $backToTopEle = $('<div class="backToTop"></div>').appendTo($("body"))
+			.text($backToTopTxt).attr("title", $backToTopTxt).click(function() {
+				$("html, body").animate({ scrollTop: 0 }, 120);
+		}), $backToTopFun = function() {
+			var st = $(document).scrollTop(), winh = $(window).height();
+			(st > 0)? $backToTopEle.show(): $backToTopEle.hide();    
+			//IE6下的定位
+			if (!window.XMLHttpRequest) {
+				$backToTopEle.css("top", st + winh - 166);    
+			}
+		};
+		$(window).bind("scroll", $backToTopFun);
+		$(function() { $backToTopFun(); });
+	})();
+});
+</script>
+{/if}

@@ -1,0 +1,19 @@
+    <div id="avatar"><a href="{goUserHome domain=$domain uid=$touid}" title="我的博客"><div class="head_bg"><img src="{avatar uid=$touid size=middle}" alt="{$username}" class="face"/></div></a></div>
+		
+		<div id="usertitle" >
+		    <div class="blogname" id="title"><a href="{goUserHome domain=$domain uid=$touid}">{$username}</a></div>
+			{if $isfollow == 1}
+				<div class="btn_follow_1" id="follow_unlink_{$touid}"><a href="javascript:;" id="followed"  onclick="fllow('unlink',{$touid})">已关注</a></div>
+				<div class="btn_follow_0" id="follow_link_{$touid}" style="display:none"><a href="javascript:;" id="followed"  onclick="fllow('link',{$touid})">加为关注</a></div>
+			{elseif $isfollow == 0}
+				<div class="btn_follow_0" id="follow_link_{$touid}"><a href="javascript:;" onclick="fllow('link',{$touid})">加为关注</a></div>
+				<div class="btn_follow_1" id="follow_unlink_{$touid}"  style="display:none"><a href="javascript:;" id="followed"  onclick="fllow('unlink',{$touid})">已关注</a></div>
+			{/if}
+		</div>
+		{if $signhtml}
+		<div id="sign" class="userinfo">
+		    <div class="quote">
+		    <blockquote>{$signhtml}</blockquote>
+			</div>
+		</div>
+		{/if}

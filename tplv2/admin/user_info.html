@@ -1,0 +1,71 @@
+{include file='admin/header.html'}
+<div id="content">
+
+    <div class="t_con">
+	    <h3>用户搜索</h3>
+		<form id="form1" name="form1" method="post" action="">
+		       <table width="100%" cellpadding="0" cellspacing="0" border="0" class="table_padding">
+			       <tr>
+				      <td width="110" class="t_title">邮箱、昵称、域名</td>
+					  <td width="315" class="c_input"><input name="where" type="text" value="{$get.niname}"/></td>
+					  
+					  <td><input name="submit" class="btn_return"  type="submit" value="搜索" />
+					  </td>
+				   </tr>
+			   </table>
+		 </form>
+		
+		<div class="navpage">{$systagpager}<div class="clear"></div></div>
+		
+		
+		    <h3>用户信息</h3>
+		    
+			<table width="100%" cellpadding="0" cellspacing="0" border="0" class="table_padding">
+			       <tr>
+				       <td width="90" class="t_title">{if $info.admin == 1}管理员{/if}账号</td>
+					   <td class="co_link"><font><a href="{goUserHome domain=$info.domain uid=$info.uid}" target="_blank">{$info.email}</a>&nbsp;{if $info.open == 1}允许{else}禁止{/if}</font></td>
+				   </tr>
+				   <tr>
+				       <td class="t_title">头像</td>
+					   <td class="m_avata"><img src="{avatar uid=$info.uid size=middle}" alt="{$info.username}"/></td>
+				   </tr>
+				   <tr>
+				       <td class="t_title">注册时间</td>
+					   <td class="c_font">{$info.regtime|date_format:'%Y-%m-%d %H:%M:%S'}</td>
+				   </tr>
+				   <tr>
+				       <td class="t_title">最近登陆</td>
+					   <td class="c_font">{$info.logtime|date_format:'%Y-%m-%d %H:%M:%S'}</td>
+				   </tr>
+                   <tr>
+				       <td class="t_title">博客统计</td>
+					   <td class="c_font m_num">
+					       发布(<font>{$info.num}</font>) | 跟随(<font>{$info.flow}</font>) | 喜欢(<font>{$info.likenum}</font>)
+                       </td>
+				   </tr>
+                   <tr>
+				       <td class="t_title">用户操作</td>
+					   <td class="fun_con c_font">
+						{if $info.admin != 1}
+						{if $info.open == 1}
+						<a class="f_novisit" href="javascript:;" onclick="nologin({$info.uid})" title="禁止访问">禁访</a>
+						{else}
+						<a class="f_visit" href="javascript:"  onclick="nologin({$info.uid})" title="解除禁止">解禁</a>
+						{/if}
+						{/if}
+						<a class="f_password" href="javascript:resetpwd({$info.uid},'{$info.username}')" title="修改密码">重设密码</a>
+						<a class="f_delhead" href="{spUrl c=admin a=user mod=info uid=$info.uid delface=$info.uid}" title="删除头像">删除头像</a>
+					   </td>
+				   </tr>
+                   
+			   </table>
+		 
+		 
+		 <div class="btn_area">
+		<input name="button" class="btn_return" type="button" value="返回上一页" onclick="window.history.go(-1)" />
+		</div>
+			
+		</div>
+
+</div>
+{include file='admin/footer.html'}

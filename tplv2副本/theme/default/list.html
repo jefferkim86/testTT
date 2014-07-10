@@ -1,0 +1,73 @@
+{include file="theme/default/header.html" titles=$data.title}
+{include file="require_models_js.html"}
+
+<div id="wrap">
+
+    <div id="main">
+	{include file="theme/default/userheader.html"}
+	
+		<div id="mytag">
+		{if !empty($data.0.tag)}
+			{foreach $data.0.tag as $d}
+		    <li><a href="{spUrl c=blog a=tag tag=$d}"><span>{$d}</span></a></li>
+			{/foreach}
+		{/if}
+		
+			<div class="clear"></div>
+		</div>
+		
+		<div id="feedArea">
+			<script type="text/javascript">
+				$(document).ready(function(){  
+					yb_load_feeds('blog','getOneBlog',{
+					bid:{$bid}
+					}
+				);	
+				})
+			</script>
+			<div id="feed_loading"></div>
+			<div id="feed_box"></div>
+			<div class="clear"></div>
+			
+
+			{if isset($adunit.6) && $adunit.6.is_show == 1}
+				<div id="ad_theme_list"></div>
+				<script>
+					$(document).ready(function(){
+						ad_aside('#ad_theme_list',6);
+							setInterval(function(){
+								ad_aside('#ad_theme_list',6);
+							}, 30000);
+					})
+				</script>
+			{/if}
+			
+			<div class="favatitle">谁喜欢<span>{$fava.count}</span></div>
+			{if $fava.count !=0}
+			<div class="fava">
+			
+				{foreach from=$fava.rs item=d}
+				<a href="{goUserHome domain=$d.domain uid=$d.uid}" title="{$d.username} - {ybtime time=$d.time}"><img src="{avatar uid=$d.uid size=small}" alt="{$d.username}"/></a>
+				{/foreach}  
+			    <div class="clear"></div>
+			</div>
+			{/if}
+			
+			<div id="comment"></div>
+			<script>
+				$(document).ready(function(){  
+					loadCommend('comment',{$bid});
+				});
+			</script>
+
+		</div>
+	
+	</div>
+	
+	<div id="aside">
+    {include file="theme/default/aside.html"}
+	</div>
+
+</div>
+
+{include file="theme/default/footer.html"}

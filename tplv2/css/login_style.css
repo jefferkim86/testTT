@@ -1,0 +1,39 @@
+/*
+/////////////////////////////////////////////////////////////////
+//云边开源轻博, Copyright (C)   2010 - 2011  qing.thinksaas.cn
+//$Id$
+*/
+/* login userinfo Style */
+.ca-container{ position:relative; margin:0 auto; width:626px; height:170px; }
+.ca-wrapper{ width:626px; height:170px; position:relative; }
+.ca-item{ position:relative; float:left; width:210px; height:160px; text-align:center; }
+.ca-more{ border:1px #C64444 solid; background-color:#E96D6D; padding:0px 0px; line-height:23px; display:block; text-align:center; color:#fff; text-decoration:none; margin:0 10px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; -moz-box-shadow:0px 1px 0px #FBBDBD inset; -webkit-box-shadow:0px 1px 0px #FBBDBD inset; box-shadow:0px 1px 0px #FBBDBD inset; text-shadow:0px -1px 0px #C64444; }
+.ca-close{ position:absolute; top:5px; right:10px; background:url(../image/comm/close.png) no-repeat 0 0; width:25px; height:25px; text-indent:-9000px; outline:none; }
+.ca-close:hover{ background:url(../image/comm/close.png) no-repeat 0 -25px; }
+
+.ca-item-main{ padding:0; text-align:left; position:absolute; top:5px; left:5px; right:5px; bottom:5px; overflow:hidden; }
+.ca-item-main h3 { width:100%; line-height:40px; height:40px; color:#666; font-size:14px; overflow:hidden; }
+.ca-item-main h3 font a { margin:0 3px; color:#333; text-decoration:none; }
+.ca-item-main h3 font a:hover { color:#666; }
+.ca-item-main .ca-head a span{ width:60px; height:60px; float:left; border:1px #227CAC solid; padding:3px; margin:2px; background:url(../image/login/reply_headerbg.png) repeat-x 0 0; -moz-border-radius:6px; -webkit-border-radius:6px; border-radius:6px; }
+.ca-item-main .ca-head a:hover span { border:1px #C64444 solid; background:url(../image/login/reply_fheaderbg.png) repeat-x 0 0; }
+.ca-item-main .ca-head a img {width:60px; height:60px; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; }
+
+.ca-item-main .ca-contentbox { float:left; margin-left:10px; max-width:100px; line-height:22px; max-height:88px; color:#666; padding:5px 8px 4px 8px; border:1px #ccc solid; -moz-border-radius:6px; -webkit-border-radius:6px; border-radius:6px; background:url(../image/login/reply_bg.png) repeat-x 0 0 #fff; text-shadow:0px 1px 0px #fff; position:relative; }
+.ca-item-main .ca-contentbox .ca-cc { line-height:22px; max-height:88px; overflow:hidden; }
+.ca-item-main .ca-contentbox .ca-replyp { width:6px; height:12px; position:absolute; left:-6px; top:9px; background:url(../image/login/reply_pbg.gif) no-repeat 0 0; }
+
+.ca-item-main .ca-bottom { position:absolute; width:72px; bottom:0; left:0; height:30px; }
+
+.ca-content-wrapper{ position:absolute; width:0px; /* expands to width of the wrapper minus 1 element */ height:150px; top:5px; text-align:left; z-index:10000; overflow:hidden; }
+
+.ca-content { width:396px; height:140px; overflow:hidden; padding:0 10px 9px 10px; margin:0;  -moz-box-shadow:0px 1px 3px #999 inset; -webkit-box-shadow:0px 1px 3px #999 inset; box-shadow:0px 1px 3px #999 inset;  background-color:#f2f2f2; -moz-border-radius:6px; -webkit-border-radius:6px; border-radius:6px; }
+.ca-content h6 { font-size:18px; color:#666; font-weight:700; line-height:50px; margin:0; }
+.ca-content h6 font { font-size:14px; color:#666; font-weight:normal; margin-left:10px; }
+.ca-content ul{ margin:0 10px; height:100px; padding:0; overflow:hidden; }
+.ca-content ul li{ float:left; margin:5px 10px 10px 0; list-style:none; display:block; padding:0; }
+.ca-content ul li a{ color:#fff; background-color:#999; padding:3px 6px; font-size:12px; text-decoration:none; -moz-border-radius:6px; -webkit-border-radius:6px; border-radius:6px; }
+.ca-content ul li a:hover{ background-color:#4AB1E8; }
+.ca-nav span{width:17px;height:29px;background:transparent url(../image/login/arrows.png) no-repeat top left;position:absolute;top:50%;margin-top:-19px;left:-40px;text-indent:-9000px;opacity:0.7;cursor:pointer;z-index:100;}
+.ca-nav span.ca-nav-next{background-position:top right;left:auto;right:-40px;}
+.ca-nav span:hover{opacity:1.0;}

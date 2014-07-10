@@ -1,0 +1,47 @@
+<script>
+var urlpath = '{$url}';
+var skinpath = '{$syskin}';
+
+var uid = '{$smarty.session.uid}';
+{if isset($adunit.3) && $adunit.3.is_show == 1}
+var unit_3 = true;
+{/if}
+			
+</script>
+
+<script type="text/javascript" src="{$syskin}/js/jquery.js"></script>
+<script type="text/javascript" src="{$syskin}/js/dialog.js"></script>
+<script type="text/javascript" src="{$syskin}/js/global.js"></script>
+<script type="text/javascript" src="{$syskin}/js/jquery.mousedelay.js"></script>
+
+<script type="text/javascript" src="{$syskin}/js/model.js"></script>
+<script type="text/javascript" src="{$syskin}/js/template.js"></script>
+<link href="{$syskin}/js/dialog/default.css" rel="stylesheet" />
+<script type="text/javascript" src="{$syskin}/js/template_models.js"></script>
+
+
+
+
+    {if $login ==yes}
+  	  <script src="{$syskin}/js/login.js"></script>
+  	  <script src="{$syskin}/js/jquery.dpwd.js"></script>
+    {else}
+    	<link rel="stylesheet" type="text/css" media="screen" href="{$syskin}/css/page.css" />
+		<script type="text/javascript" src="{$syskin}/js/jquery.rotate.js"></script>
+    {/if}
+
+
+    {if $editor == yes}
+    <script type="text/javascript" src="{$syskin}/js/editor/xheditor.js"></script>
+    <script type="text/javascript" src="{$syskin}/js/model.global.js"></script>
+    {/if}
+
+    {if $custom == yes}
+      <script type="text/javascript" src="{$syskin}/js/custom.js"></script>
+      <script type="text/javascript" src="{$syskin}/js/colorselect/jquery.modcoder.excolor.js"></script>
+    {/if}
+
+
+    {if $addcss == yes}
+    <link rel="stylesheet" type="text/css" media="screen" href="{$syskin}/css/add.css" />
+    {/if}

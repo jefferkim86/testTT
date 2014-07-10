@@ -1,0 +1,55 @@
+<div class="my_data">
+    <li class="data_follow">{$user.flow}<span>关注数</span></li>
+	<li class="data_fans">{$myLook}<span>粉丝数</span></li>
+	<li class="data_post">{$user.num}<span>发布数</span></li>
+	<div class="clear"></div>
+</div>
+{if $user.uid != $smarty.session.uid}
+<div class="my_pm">
+    <a href="{spUrl c=pm a=detail uid=$user.uid}" target="_blank">
+	    <div class="pm_btn">
+		    <div class="icon"></div>
+			<div class="text">发送私信</div>
+			<div class="pmdata">{$pmnum}个对话</div>
+		</div>
+	</a>
+</div>
+{/if}
+
+{if $user.local != ''}
+<div class="my_location">
+    <div class="my_login">最近登陆<span>{ybtime time=$user.logtime}</span></div>
+	<div class="my_site">{$user.local}</div>
+</div>
+{/if}
+
+{if $user.flow !=0}
+<div class="my_follow">
+    <div class="f_title">{$username}的关注</div>
+	<div class="f_list">
+	
+	{foreach from=$follow item=da}
+	    <li>
+		    <a href="{goUserHome domain=$da.tome.domain uid=$da.touid}" title="{$da.tome.username}" target="_blank">
+			<img src="{avatar uid=$da.touid size=middle}" alt="{$da.tome.username}" style="max-width:40px" />
+			</a>
+		</li>
+    {/foreach}
+		<div class="clear"></div>
+	</div>
+</div>   
+{/if}
+
+
+
+{if isset($adunit.5) && $adunit.5.is_show == 1}
+	<div id="ad_theme_aside"></div>
+	<script>
+		$(document).ready(function(){
+			ad_aside('#ad_theme_aside',5);
+				setInterval(function(){
+					ad_aside('#ad_theme_aside',5);
+				}, 30000);
+		})
+	</script>
+{/if}

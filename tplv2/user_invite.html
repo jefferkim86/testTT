@@ -1,0 +1,77 @@
+{include file="require_header.html"}
+<script>
+var regurl = '{spUrl c=main a=reg invitecode=''}'
+template.helper('regurl',function(code){
+	return  urlpath+regurl+code;
+})
+
+</script>
+{literal}
+
+
+<script>
+
+$(document).ready(function(){
+	load_invite();
+	load_friend();
+});
+
+</script>
+{/literal}
+
+<div id="index">
+	<div id="article">
+	    
+		<div id="userfollow">
+	        <div class="post_bg">
+			 <a href="javascript:void(0)"><span class="current">我的邀请</span></a>		    </div>
+	    </div>
+	    <div class="clear"></div>
+	    <div id="loading" class="m_loading"></div>
+		
+		{if $yb.invite_switch == 0}
+		<div id="followfeed">
+		    <div class="follow_search">
+			    <h2>系统没有启用</h2>
+			</div>
+			<div class="follow_font">
+				系统没有启用该功能
+			</div>
+		</div>
+		{else}
+		
+		<div id="followfeed">
+		    <div class="follow_search">
+			    <div class="get_code"><a href="javascript:;" onclick="getCode()">获取邀请码</a></div>
+			    <h2>可以拥有 <b>{$yb.invite_count}个</b> 邀请码，已拥有<span id="current_total">0</span>个，共邀请 <span id="invited_friends">0</span>个好友</a></h2>
+			</div>
+			<div class="follow_font">
+			    <h3>邀请码:</h3>
+			    <div class="invite_num" id="invite_num">
+				</div>
+			</div>
+		</div>
+		{/if}
+
+		<div class="invite_list">
+		    <div class="follow_search">
+			    <h2>已邀请的好友</h2>
+			</div>
+			<div class="follow_font" id="invite_follow_list">
+			    <!--邀请好友列表-->
+				
+
+			</div>
+			<div class="clear"></div>
+		</div>
+		
+		<div class="invite_list" id="no_friend" style="display:none">
+		    <h3>还没有邀请任何好友</h3>
+		</div>
+
+	</div>     
+	<div id="aside">
+		{include file="require_sider.html"}
+	</div>
+</div>
+{include file="require_footer.html"}

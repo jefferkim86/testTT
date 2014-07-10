@@ -1,0 +1,153 @@
+{include file='admin/header.html'}
+<div id="content">
+  
+    <div class="t_con">
+	    <h3>推荐管理</h3>
+		<form action="" method="post">
+		<div class="con_system">
+		       <table width="100%" cellpadding="0" cellspacing="0" border="0" class="table_padding">
+			       <tr>
+				      <td width="60" class="t_title">推荐博客</td>
+					  <td width="230" class="c_input_small">
+					     <input type="text" name="bid"/><font>输入博客ID</font>
+					  </td>
+					  <td><input type="submit" name="recommendadd" class="btn_return" value="添加推荐" /></td>
+					  
+				 </tr>
+			   </table>
+		</div>
+		</form>
+		
+		<form action="" method="post">
+		<div class="con_system">
+		       <table width="100%" cellpadding="0" cellspacing="0" border="0" class="table_padding">
+			       <tr>
+				      <td width="60" class="t_title">推荐用户</td>
+					  <td class="c_select">
+				       <select name="cid" id="cid">
+					      {foreach from=$scate item=d}
+						  <option value="{$d.cid}">{$d.catename}</option>
+						  {/foreach}
+					   </select>
+					   </td>
+					</tr>
+					<tr>
+				      <td width="60" class="t_title">用户UID</td>
+					  <td class="c_input">
+				           <input type="text" name="uid" id="uid"/>
+					  </td>
+					</tr>
+					<tr>
+				      <td width="60" class="t_title">推荐理由</td>
+					  <td class="c_textarea">
+				       <textarea name="desc" id="desc" cols="60" rows="5"></textarea>
+					</td>
+					<tr>
+				      <td width="60" class="t_title"></td>
+					  <td>
+				          <input type="submit" name="recommenduser"  value="添加推荐" id="recommenduser" class="btn_return" style="margin:10px 0 5px" />     
+					  </td>
+					  
+				 </tr>
+			   </table>
+		</div>
+		</form>
+	</div>
+	
+<div class="artTabs">
+     <ul id="tabs">
+	    <li><a href="#tabBlog" class="current">审核博客<div class="point"></div></a></li>
+		<li><a href="#tabUser">审核用户<div class="point"></div></a></li>
+		<div class="clear"></div>
+	</ul>
+</div>
+
+    <div id="tabBlog" class="t_con" style="display:block">
+	    <div class="navpage">{$pager}</div>
+		<h3>
+		    <div class="filter_menu">
+			    <a href="{spUrl c=admin a=recommend filter=$filter order=close}"{if $order =='close'} class="current"{/if}>待审核的</a>
+				<span>|</span>
+				<a href="{spUrl c=admin a=recommend filter=$filter order=open}"{if $order =='open'} class="current"{/if}>审核通过的</a>
+			</div>
+		</h3>
+		<form action="" method="post">
+		<div class="con_system">
+		       <table width="100%" cellpadding="0" cellspacing="0" border="0" class="table_model">
+			       <tr class="table_title">
+				     <th width="50" class="m_title">ID</th>
+					 <th>推荐的博客</th>
+					 <th>推荐人</th>
+					 <th>推荐次数</th>
+					 <th>推荐时间</th>
+					 <th class="cn_link">审核[<a href="javascript:void(0)" onclick="checkAll('checkall')">全选</a>]</th>
+					 <th class="cn_link">删除[<a href="javascript:void(0)" onclick="checkAll('delall')">全选</a>]</th>
+				 </tr>
+				 {foreach from=$recommend item=d}
+				 <tr id="systag_{$d.id}" class="table_hover">
+				       <td class="m_title">{$d.id}</td>
+					   <td class="co_link link_w"><a href="{goUserBlog bid=$d.blog.bid}" target="_blank">博客ID#{$d.blog.bid}</a> - {if $d.blog.type == 1} 文字{else if $d.blog.type == 2}音乐{else if $d.blog.type == 3}图片 {else if $d.blog.type == 4} 视频 {else if $d.blog.type == 5} 宝贝{/if}{if $d.open == 0}<br /> {$d.desc} {/if}
+					   </td>
+					   <td>{$d.user.username}</td>
+					   <td>{$d.num}</td>
+					   <td>{$d.time|date_format:"%Y-%m-%d %H:%M"}</td>
+					   <td>{if $d.open ==1}通过{else}
+					      <input type="checkbox" name="opened[]" id="checkbox" value="{$d.id}" class="checkall" />{/if}
+					   </td>
+					   <td><input type="checkbox" name="delall[]" id="checkbox2" value="{$d.id}" class="delall" /></td>
+				</tr>
+				{/foreach}
+			   </table>
+		</div>
+		<div class="navpage">{$pager}</div>
+		<div class="btn_area">
+		<input name="usercate" class="btn_save" type="submit" value="提交" />
+		</div>
+		</form>
+	</div>
+	
+	<div id="tabUser" class="t_con" style="display:none">
+		<div class="navpage">{$pager}</div>
+		<h3>
+		    <div class="filter_menu">
+			    <a href="{spUrl c=admin a=recommend filter=$filter order=close}"{if $order =='close'} class="current"{/if}>待审核的</a>
+				<span>|</span>
+				<a href="{spUrl c=admin a=recommend filter=$filter order=open}"{if $order =='open'} class="current"{/if}>审核通过的</a>
+			</div>
+		</h3>
+		<form action="" method="post">
+		<div class="con_system">
+		       <table width="100%" cellpadding="0" cellspacing="0" border="0" class="table_model">
+			       <tr class="table_title">
+				      <th width="50" class="m_title">ID</th>
+					  <th>被推荐人</th>
+					  <th>推荐人</th>
+					  <th>推荐次数</th>
+					  <th>推荐时间</th>
+					  <th class="cn_link">审核[<a href="javascript:void(0)" onclick="checkAll('checkall')">全选</a>]</th>
+					  <th width="100" class="cn_link">删除[<a href="javascript:void(0)" onclick="checkAll('delall')">全选</a>]</th>
+				 </tr>
+				 {foreach from=$recommend item=d}
+				 <tr id="systag_{$d.id}" class="table_hover">
+				       <td class="m_title">{$d.id}</td>
+					   <td class="co_link link_w"><a href="{goUserHome uid=$d.tuiuid}" target="_blank">{$d.tuiuid}</a></td>
+					  <td>{$d.user.username}</td>
+					  <td>{$d.num}</td>
+					  <td>{$d.time|date_format:"%Y-%m-%d %H:%M"}</td>
+					  <td>{if $d.open ==1}通过{else}<input type="checkbox" name="opened[]" id="checkbox2" value="{$d.id}" class="checkall" />{/if}</td>
+					  <td><input type="checkbox" name="delall[]" id="checkbox2" value="{$d.id}" class="delall" /></td>
+				</tr>
+				{/foreach}
+			   </table>
+		</div>
+		<div class="navpage">{$pager}</div>
+		<div class="btn_area">
+		<input name="usercate" class="btn_save" type="submit" value="提交" />
+		</div>
+		
+		</form>
+	</div>
+	
+
+</div>
+{include file='admin/footer.html'}

@@ -1,0 +1,170 @@
+{include file='admin/header.html'}
+{if $isshow ==1}
+<div id="content">
+
+    <div class="t_con">
+	    <h3>广告位信息</h3>
+		
+		<table width="100%" cellpadding="0" cellspacing="0" border="0" class="table_padding">
+			       <tr>
+				       <td width="90" class="t_title">广告位ID</td>
+					   <td class="c_font">{$rs.id}</td>
+				   </tr>
+				   <tr>
+				       <td class="t_title">广告位标题</td>
+					   <td class="c_font">{$rs.title}</td>
+				   </tr>
+				   <tr>
+				       <td class="t_title">广告描述</td>
+					   <td class="c_font">{$rs.adesc}</td>
+				   </tr>    
+				   <tr>
+				       <td class="t_title">广告位置截图</td>
+					   <td class="co_img"><img src="{$syskin}/admin/style/ad_unit/{$rs.img}" alt="#" /></td>
+				   </tr>    
+				   <tr>
+                       <td class="t_title">排序:</td>
+                       <td class="c_font">{$rs.orders}</td>
+				   </tr>
+				   <tr>
+                       <td class="t_title">是否显示:</td>
+                       <td>{if $rs.is_show == 1}<div class="fun_yes" title="显示"></div>{else}<div class="fun_no" title="隐藏"></div>{/if}</td>
+                   </tr>
+				   {if $rs.system != 1}
+				   <tr>
+                       <td class="t_title">调用脚本</td>
+                       <td>
+					       <table class="table_code" cellpadding="0" cellspacing="0">
+						       <tr>
+								   <td colspan="3" class="table_tip">
+								       <p>请把如下代码的：UNITID 替换成: {$rs.id}</p>
+									   <p>请把如下代码的：#DOM_ID 替换成你要展示广告的div</p>
+									   <p>请把如下代码的：TIMELIMIT 替换成你需要刷新广告位的时间（3000为30秒）</p>
+								   </td>
+							   </tr>
+							   <pre>
+							   {literal}
+							   <tr class="table_tr">
+							       <td class="table_left">1.</td>
+								   <td class="table_center"></td>
+								   <td class="table_right tbpl_10">{if isset($adunit.UNITID) &amp;&amp; $adunit.UNITID.is_show == 1}</td>
+							   </tr>
+							   <tr class="table_tr">
+							       <td class="table_left">2.</td>
+								   <td class="table_center"></td>
+								   <td class="table_right tbpl_10">&lt;div id=&quot;DOM_ID&quot;&gt;&lt;/div&gt;</td>
+							   </tr>
+							   <tr class="table_tr">
+							       <td class="table_left">3.</td>
+								   <td class="table_center"></td>
+								   <td class="table_right tbpl_10">&lt;script&gt;</td>
+							   </tr>
+							   <tr class="table_tr">
+							       <td class="table_left">4.</td>
+								   <td class="table_center"></td>
+								   <td class="table_right tbpl_30">$(document).ready(function(){</td>
+							   </tr>
+							   <tr class="table_tr">
+							       <td class="table_left">5.</td>
+								   <td class="table_center"></td>
+								   <td class="table_right tbpl_50">ad_aside('#DOM_ID',UNITID);</td>
+							   </tr>
+							   <tr class="table_tr">
+							       <td class="table_left">6.</td>
+								   <td class="table_center"></td>
+								   <td class="table_right tbpl_50">setInterval(function(){</td>
+							   </tr>
+							   <tr class="table_tr">
+							       <td class="table_left">7.</td>
+								   <td class="table_center"></td>
+								   <td class="table_right tbpl_50">ad_aside('#DOM_ID',UNITID);</td>
+							   </tr>
+							   <tr class="table_tr">
+							       <td class="table_left">8.</td>
+								   <td class="table_center"></td>
+								   <td class="table_right tbpl_50">}, TIMELIMIT);</td>
+							   </tr>
+							   <tr class="table_tr">
+							       <td class="table_left">9.</td>
+								   <td class="table_center"></td>
+								   <td class="table_right tbpl_30">})</td>
+							   </tr>
+							   <tr class="table_tr">
+							       <td class="table_left">10.</td>
+								   <td class="table_center"></td>
+								   <td class="table_right tbpl_10">&lt;/script&gt;</td>
+							   </tr>
+							   <tr class="table_tr">
+							       <td class="table_left">11.</td>
+								   <td class="table_center"></td>
+								   <td class="table_right tbpl_10">{/if}</td>
+							   </tr>
+							   {/literal}
+							   </pre>
+						   </table>
+					   </td>
+                   </tr>
+				   {/if}
+				   
+				   
+		 </table>
+		
+	</div>
+
+	
+	<div class="btn_area">
+	    <input  type="button" value="返回" class="btn_return" id="_back" onclick="javascript:history.go(-1)" style="float:left;" />
+	</div>
+
+</div>
+{else}
+
+<div id="content">
+<form action="" method="post"  name="form1" id="form1">
+    <div class="t_con">
+	    <h3>编辑广告位</h3>
+		
+		<table width="100%" cellpadding="0" cellspacing="0" border="0" class="table_padding">
+			       <tr>
+				       <td width="90" class="t_title">广告位标题</td>
+					   <td class="c_input"><input type="text" value="{$rs.title}" name="title" /></td>
+				   </tr>
+				   <tr>
+				       <td class="t_title">广告描述:</td>
+                       <td class="c_input"><input type="text" value="{$rs.adesc}" name="adesc" /></td>
+				   </tr>
+				   <tr>
+				       <td class="t_title">广告位置截图:</td>
+                       <td class="co_img c_input">
+					       <img src="{$rs.img}" alt="#" /><br />
+						   <input type="text" name="img" value="{$rs.img}" />
+						</td>
+				   </tr>    
+				   <tr>
+				       <td class="t_title">是否显示:</td>
+                       <td class="c_radio"><label><input type="radio" name="is_show" id="is_show" value="1" {if $rs.is_show == 1}checked="checked"{/if}/>启用</label>
+                                <label><input type="radio" name="is_show" id="is_show" value="0" {if $rs.is_show == 0}checked="checked"{/if}/>停用</label>
+					   </td>
+				   </tr>    
+				   
+	    </table>
+		<input type="hidden" name="id" value="{$rs.id}" />
+		
+	</div>
+	<div class="btn_area">
+	    <input  type="submit" class="btn_save" name="editUp" value="修改"/>
+		<input  type="button" class="btn_return" value="返回" id="_back" />
+    </div>
+ 
+</form>   
+</div>
+<script type="text/javascript">
+    $(function(){
+        $("#_back").click(function(){
+            window.location.href="{spUrl('admin','adUnit')}";
+        });
+        //复制调用地址
+    });
+</script>
+{/if}
+{include file='admin/footer.html'}

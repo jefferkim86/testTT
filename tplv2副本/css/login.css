@@ -1,0 +1,144 @@
+/*
+/////////////////////////////////////////////////////////////////
+//云边开源轻博, Copyright (C)   2010 - 2011  qing.thinksaas.cn
+//$Id$
+*/
+@charset "utf-8";
+
+/*reset*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,input,textarea,p,th,td{padding:0;margin:0;}
+img{border:0;}
+
+h1,h2,h3,h4,h5,h6{font-weight: normal;font-size: 100%;}
+q:before,q:after{content:'';}
+abbr,acronym{border:0;}
+a, a:hover { outline:none; cursor:pointer; }
+
+/**resetend**/
+body{ background:url(../image/comm/background.gif) repeat #DCDDE2; font-family:'Microsoft Yahei','Arail'; font-size:12px;}
+#wrap{width:100%;}
+#main{ width:960px; margin:0 auto; position:relative;}
+#main .logo{ width:420px; height:103px; margin:80px auto;}
+
+#titlep { padding:0 10px; height:30px; line-height:30px; position:absolute;  background-color:#FFFF99; color:#666; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; margin-top:-10px; -moz-box-shadow:0px 1px 3px #bbb; -webkit-box-shadow:0px 1px 3px #bbb; box-shadow:0px 1px 3px #bbb; display:none; border:1px #ccc solid\9;}
+
+#rbtn, #lbtn{ position:absolute; top:20px; right:20px;}
+#rbtn a,#rbtn a:hover,#lbtn a,#lbtn a:hover {text-decoration:none; outline:none;}
+
+#rbtn a span { width:90px; height:40px; display:block; font-size:18px; color:#fff; line-height:40px; background:url(../image/login/regbtn.png) no-repeat 0 0; text-align:center; font-weight:700; text-shadow:0px -1px 0px #61A701;}
+#rbtn a:hover span { background:url(../image/login/regbtn.png) no-repeat 0 -40px; }
+#rbtn a:active span { background:url(../image/login/regbtn.png) no-repeat 0 -80px; }
+#lbtn a span { width:90px; height:40px; display:block; line-height:40px; font-size:18px; text-align:center; font-weight:700; color:#fff; text-shadow:0px -1px 0px #31759D; border:none; background:url(../image/login/login.png) no-repeat 0 0; }
+#lbtn a:hover span { background:url(../image/login/login.png) no-repeat 0 -40px; }
+#lbtn a:active span { background:url(../image/login/login.png) no-repeat 0 -80px; }
+
+/*登陆框、注册字段*/
+#main .login { width:960px; padding:0; margin:0; text-align:center; }
+#main .user { width:960px; padding:0; margin:0; text-align:center; min-height:130px; }
+#main .loginarea { margin:0 auto; padding:0;}
+#main .loginarea .in_put { float:left; }
+#main .loginarea .input { width:162px; height:31px; line-height:30px; border:none; padding:5px 5px 5px 33px; font-family:'Microsoft Yahei','Arail'; font-size:14px; outline:none; text-shadow:0px 1px 0px #fff; }
+#main .login_email .input { background:url(../image/login/input_email.png) no-repeat 0 0; color:#666; margin-right:15px; z-index:999; }
+#main .login_email .curr { background:url(../image/login/input_email.png) no-repeat 0 -41px; color:#333; }
+
+#main .login_pw .input { background:url(../image/login/input_pw.png) no-repeat 0 0; color:#666; margin-right:15px; }
+#main .login_pw .curr { background:url(../image/login/input_pw.png) no-repeat 0 -41px; color:#333; }
+
+#main .login_name .input { background:url(../image/login/input_uname.png) no-repeat 0 0; color:#666; margin-right:15px; }
+#main .login_name .curr { background:url(../image/login/input_uname.png) no-repeat 0 -41px; color:#333; }
+
+#main .login_invite .input { background:url(../image/login/input_invite.png) no-repeat 0 0; color:#666; margin-right:15px; }
+#main .login_invite .curr { background:url(../image/login/input_invite.png) no-repeat 0 -41px; color:#333; }
+
+#main .login_code { width:135px; height:41px; background:url(../image/login/input_code.png) no-repeat 0 0; margin-right:15px; }
+#main .login_code img { margin-top:2px; margin-left:3px; float:left; }
+#main .login_code .input_code {float:right; width:55px; height:26px; line-height:26px; padding:5px; border:none; margin:2px 2px; font-family:'Microsoft Yahei','Arail'; font-size:14px; color:#666; font-weight:700; text-align:center;  outline:none; _margin:0; #margin:0; border:none; }
+
+#main .login_err { height:40px; line-height:40px; font-size:14px; color:#666; text-shadow:0px 1px 0px #fff; padding:0 15px 0 0; }
+
+#main .login_btn input{ width:90px; height:40px; padding:0; line-height:40px; font-family:'Microsoft Yahei','Arail'; font-size:18px; font-weight:700; color:#fff; text-shadow:0px -1px 0px #31759D; border:none; background:url(../image/login/login.png) no-repeat 0 0; cursor:pointer;  }
+#main .login_btn input:hover { background:url(../image/login/login.png) no-repeat 0 -40px; }
+#main .login_btn input:active { background:url(../image/login/login.png) no-repeat 0 -80px; }
+
+#main .reg_btn input{ width:90px; height:40px; line-height:40px; font-family:'Microsoft Yahei','Arail'; font-size:18px; font-weight:700; color:#fff; text-shadow:0px -1px 0px #31759D; border:none; background:url(../image/login/regbtn.png) no-repeat 0 0; cursor:pointer;  }
+#main .reg_btn input:hover { background:url(../image/login/regbtn.png) no-repeat 0 -40px; }
+#main .reg_btn input:active { background:url(../image/login/regbtn.png) no-repeat 0 -80px; }
+
+#main .save_name { margin-top:10px; }
+#main .save_name a, #main .save_name label { display:block; width:75px; height:25px; overflow:hidden; text-decoration:none; text-align:left; }  
+#main .save_name a { background:url(../image/login/input_checkbox.png) no-repeat 0 0; line-height:25px; font-size:12px; color:#666; text-shadow:0px 1px 0px #fff;  padding-left:20px;  }  
+#main .save_name a:hover { background:url(../image/login/input_checkbox.png) no-repeat 0 0; color:#333; }  
+#main .save_name a#nosave { background:url(../image/login/input_checkbox.png) no-repeat 0 -25px; } 
+
+#main .forget_pw { margin-top:10px; color:#666; line-height:25px; text-shadow:0px 1px 0px #fff; }
+#main .forget_pw a { line-height:25px; color:#666; text-shadow:0px 1px 0px #fff; text-decoration:none; margin-left:140px; }
+#main .forget_pw a:hover { color:#333; }
+
+#main .invite_code { margin-top:10px; }
+#main .invite_code a { line-height:25px; color:#666; text-shadow:0px 1px 0px #fff; text-decoration:none; margin-left:160px; }
+#main .invite_code a:hover { color:#333; }
+
+#main .reg_service { margin-top:10px; margin-bottom:100px; }
+#main .reg_service a { line-height:25px; color:#666; text-shadow:0px 1px 0px #fff; text-decoration:none; }
+#main .reg_service a:hover { color:#333; }
+
+#main .top_h { padding-top:10px; }
+
+/*热门评论*/
+#main .user_main { position:relative; padding:0; width:700px; overflow:hidden; }
+#main .container { width:626px; margin:30px auto 0; padding:0; }
+
+/*找回密码*/
+#main .r_margin { margin-bottom:130px; }
+
+/*合作登陆*/
+#openconnent { width:600px; margin:20px auto 0; height:30px; }
+#openconnent #area { float:left; height:30px;}
+#openconnent h3 { color:#666; text-shadow:0px 1px 0px #fff; float:left; height:30px; line-height:30px; margin-right:10px; }
+
+#openconnent #area li { width:30px; height:30px; float:left; display:block; list-style:none; margin-right:10px; }
+#openconnent #area li a .qq_login { width:30px; height:30px; display:block; background:url(../image/login/openconnent_login.png) no-repeat 0 0; }
+#openconnent #area li a .sina_login { width:30px; height:30px; display:block; background:url(../image/login/openconnent_login.png) no-repeat 0 -30px; }
+#openconnent #area li a:hover span { filter:alpha(opacity=60); -moz-opacity:0.6; opacity: 0.6; }
+
+/*合作登陆-详细页面*/
+#userpost { width:500px; margin:0 auto; }
+#userpost .post_bg { background-color:#ccc; float:left; border:1px #ccc solid; -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px; overflow:hidden; -moz-box-shadow:0px 1px 0px #fff; -webkit-box-shadow:0px 1px 0px #fff; box-shadow:0px 1px 0px #fff;  }
+#userpost .post_bg a { font-size:22px; display:block; float:left; font-weight:700; line-height:48px; outline:none; color:#fff; }
+#userpost .post_bg a span { padding:0 20px; }
+#userpost .post_bg a .current { background-color:#f2f2f2; border-top:1px #fff solid; border-bottom:2px #e3e3e3 solid; line-height:45px; height:45px; display:block; color:#999; -moz-border-radius:7px; -webkit-border-radius:7px; border-radius:7px; }
+
+.oauth_box { width:470px; padding:15px; margin:15px auto 0; background-color:#F2F2F2; border:1px #ccc solid; -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px; -moz-box-shadow:0px 1px 3px ddd; -webkit-box-shadow:0px 1px 3px #ddd; box-shadow:0px 1px 3px #ddd; }
+.oauth_con { margin:0; width:100%; padding:0; }
+.oauth_con .in_put { width:100%; margin:0 0 10px; height:41px; }
+.oauth_con span { margin-left:5px; line-height:40px; color:#999999; }
+.oauth_con .input { width:162px; height:31px; line-height:30px; border:none; padding:5px 5px 5px 33px; font-family:'Microsoft Yahei','Arail'; font-size:14px; outline:none; text-shadow:0px 1px 0px #fff; }
+.oauth_con .login_email .input { background:url(../image/login/input_email.png) no-repeat 0 0; color:#666; margin-right:15px; z-index:999; }
+.oauth_con .login_email .curr { background:url(../image/login/input_email.png) no-repeat 0 -41px; color:#333; }
+.oauth_con .login_name .input { background:url(../image/login/input_uname.png) no-repeat 0 0; color:#666; margin-right:15px; }
+.oauth_con .login_name .curr { background:url(../image/login/input_uname.png) no-repeat 0 -41px; color:#333; }
+.oauth_con .login_pw .input { background:url(../image/login/input_pw.png) no-repeat 0 0; color:#666; margin-right:15px; }
+.oauth_con .login_pw .curr { background:url(../image/login/input_pw.png) no-repeat 0 -41px; color:#333; }
+.oauth_con .login_info { width:100%; line-height:25px; height:25px; margin:0; }
+.oauth_btn { width:500px; margin:15px auto; height:40px; padding:0; }
+.oauth_btn .submit_tip { width:100%; float:left; line-height:40px; margin:0; color:#999; background:url(../image/comm/small_loading.gif) no-repeat 0 12px; padding-left:20px; }
+.oauth_btn input { width:90px; height:40px; float:right; margin:0; line-height:40px; font-family:'Microsoft Yahei','Arail'; font-size:18px; font-weight:700; color:#fff; text-shadow:0px -1px 0px #31759D; border:none; background:url(../image/login/regbtn.png) no-repeat 0 0; cursor:pointer;  }
+.oauth_btn input:hover { background:url(../image/login/regbtn.png) no-repeat 0 -40px; }
+.oauth_btn input:active { background:url(../image/login/regbtn.png) no-repeat 0 -80px; }
+
+
+/*footer_line*/
+#footer_line { width:100%; height:10px; background:url(../image/login/footer_line.png) repeat-x 0 0; margin:20px auto 15px; }
+
+/*footer*/
+#footer { width:960px; text-align:center; bottom:10px; margin:0 auto 10px; }
+#copy { width:100%; font-size:12px; text-align:center; color:#999; text-shadow:0px 1px 0px #fff; }
+#copy a{ color:#999; text-decoration:none; margin-right:5px; }
+#copy a:hover { color:#666; }
+#copy a.powered { margin-left:100px; margin-right:5px; }
+
+.clear{clear:both;}
+.clearfix{overflow:auto; zoom:1;}
+
+
+

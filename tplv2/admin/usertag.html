@@ -1,0 +1,54 @@
+{include file='admin/header.html'}
+<div id="content">
+
+<div class="artTabs">
+     <ul id="tabs">
+	    <li><a href="{spUrl c=admin a=systag}">系统标签<div class="point"></div></a></li>
+		<li><a href="{spUrl c=admin a=usertag}" class="current">用户标签<div class="point"></div></a></li>
+		<div class="clear"></div>
+	</ul>
+</div>
+
+
+	<div id="tabContent2" class="t_con">
+	    <h3><span><a href="{spUrl c=admin a=usertag clean=true}" class="clear_btn">清除无效tag</a><a href="{spUrl c=admin a=usertag rebuilt=true}" class="clear_btn">重新更新收藏</a></span>用户标签</h3>
+		
+		<div class="navpage">{$usrtagpage}<div class="clear"></div></div>
+
+		
+		<form action="" method="post">
+		<div class="con_system">
+		       <table width="100%" cellpadding="0" cellspacing="0" border="0" class="table_model">
+			       <tr class="table_title">
+				    <th width="50"  class="m_title">ID</th>
+				    <th>标签</th>
+					<th width="150">添加人</th>
+					<th width="80">关联博客</th>
+					<th width="47">操作</th>
+				   </tr>
+				   {foreach from=$usrtag item=d}
+				 <tr id="usertag_{$d.tid}" class="table_hover">
+					<td  class="m_title">{$d.tid}</td>
+				    <td class="c_input"><input name="tag[{$d.tid}]" type="text"  value="{$d.title}" /></td>
+					<td>{$d.user.username}</td>
+					<td>{$d.bid}</td>
+					<td class="c_del"><a href="javascript:void(0)" onclick="delusertag({$d.tid})">删除</a></td>
+				 </tr>
+				 {/foreach}
+			   </table>
+		</div>
+		
+		
+		<div class="navpage">{$usrtagpage}<div class="clear"></div></div>
+		
+		<div class="btn_area">
+		<input name="usercate" class="btn_save" type="submit" value="保存修改" />
+		</div>
+		</form>
+		
+	</div>
+	
+
+    
+</div>
+{include file='admin/footer.html'}

@@ -1,0 +1,39 @@
+/*
+/////////////////////////////////////////////////////////////////
+//云边开源轻博, Copyright (C)   2010 - 2011  qing.thinksaas.cn
+//$Id$
+*/
+/*css flickr style pagination*/
+
+div.flickr { float:right; margin-right:-20px; }
+div.flickr a { padding:5px 10px; background:url(../image/comm/nav_bg.png) repeat-x 0 0; border:1px #aaa solid; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; font-weight:700; font-size:14px; color:#666; text-shadow:0px 1px 0px #fff; -moz-box-shadow:0px 1px 0px #fff; -webkit-box-shadow:0px 1px 0px #fff; box-shadow:0px 1px 0px #fff; margin:0 5px; }
+div.flickr a:hover { background-color:#e3e3e3; background-image:none; }
+div.flickr a:avtive { -moz-box-shadow:0px 1px 3px #bbb inset; -webkit-box-shadow:0px 1px 3px #bbb inset; box-shadow:0px 1px 3px #bbb inset; }
+
+div.meneame a:active {
+	border-right: #000 1px solid; border-top: #000 1px solid; background-image: none; border-left: #000 1px solid; color: #fff; border-bottom: #000 1px solid; background-color: #0061de
+}
+div.flickr span.current {
+	padding-right: 6px; padding-left: 6px; font-weight: bold; padding-bottom: 2px; color: #ff0084; margin-right: 3px; padding-top: 2px
+}
+div.flickr span.disabled {
+	padding-right: 6px; padding-left: 6px; padding-bottom: 2px; color: #adaaad; margin-right: 3px; padding-top: 2px
+}
+
+.load {
+	background:url(../images/loading.gif) no-repeat left center;
+	padding:20px;
+	color:#999;
+	font-size:12px;
+}
+
+/*css page common style*/
+div.ybpage { width:540px; float:right; margin:15px 10px 20px 0; display:block; padding:0; }
+div.ybpage a, div.ybpage span {color:#999; border:1px #ccc solid;  padding:0 8px; line-height:23px; height:23px; margin:0 2px 0 0; background:url(../image/comm/nav_bg.png) repeat-x 0 0; display:block; float:left; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; -moz-box-shadow:0px 1px 0px #fff; -webkit-box-shadow:0px 1px 0px #fff; box-shadow:0px 1px 0px #fff; }
+div.ybpage  a:hover { color:#666; background-color:#e3e3e3; background-image:none; border:1px #aaa solid; text-shadow:0px 1px 0px #fff; -moz-box-shadow:0px 1px 0px #fff; -webkit-box-shadow:0px 1px 0px #fff; box-shadow:0px 1px 0px #fff; }
+div.ybpage .current { color:#fff; background-color:#40A8E2; background-image:none; border:1px #227CAC solid; -moz-box-shadow:0px 1px 0px #9DE3F4 inset; -webkit-box-shadow:0px 1px 0px #9DE3F4 inset; box-shadow:0px 1px 0px #9DE3F4 inset; }
+div.ybpage .disabled { color:#fff; background-color:#e3e3e3; background-image:none; border:1px #ccc solid; text-shadow:0px 1px 0px #ccc; -moz-box-shadow:0px 1px 0px #fff; -webkit-box-shadow:0px 1px 0px #fff; box-shadow:0px 1px 0px #fff; }
+div.ybpage input { width:22px; height:23px; border:1px #ccc solid; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; -moz-box-shadow:0px 1px 0px #fff; -webkit-box-shadow:0px 1px 0px #fff; box-shadow:0px 1px 0px #fff; background: url(../image/comm/btn_bg.png) repeat-x 0 -240px; margin:0 5px; text-align:center; }
+
+/*css page reply list style*/
+div.paging { width:510px; float:left; margin:10px 0 0 0px; }

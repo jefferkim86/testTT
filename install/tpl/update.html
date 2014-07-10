@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>云边开源轻博客系统安装向导</title>
+<link href="image/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="?step=run">
+<div id="wrap">
+    
+	<div class="container">
+	    
+		<div class="header">
+		     <div class="logo"><img src="image/logo.png" /></div>
+			 <div class="clear"></div>
+		</div>
+		
+		<div class="box">
+		    <div class="title">
+			   <h3>从旧系统升级</h3>
+			</div>
+			
+			<div class="content">
+
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">  
+    <tr>
+	    <td colspan="2" align="left" scope="col">
+		
+		    <table width="100%" cellspacing="1" border="0" bgcolor="#3DA6E0" align="center">
+			    <tbody>
+				<tr>
+				    <td class="message">
+					    <li>您目前的系统版本是 <strong><?Php echo $version;?></strong>(此版本为系统文件版本,并不代表数据库版本)</li>
+						<li>该功能可以将您的系统升级到以下版本，请在升级前备份数据库！！！！升级如出现问题造成数据损失本系统概不负责。</li>
+						<li>在一般情况下升级时您需要将所有程序文件上传到服务器，当然除了config.php、 attachs、avatar目录是您的存档目录不需要覆盖。</li>
+						<li>根据升级文件的文档您可能会修改config.php部分内容，请阅读升级帮助。</li>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+			
+			<?php if($err != '') { ?>
+			<div style="height:10px"></div>
+			<table width="100%" cellspacing="1" border="0" bgcolor="#E96D6D" align="center">
+			    <tbody>
+				<tr>
+					<td class="message" style="color:#fff; text-align:center; font-weight:700;"><?php echo $err; ?></td>
+				</tr>
+				</tbody>
+			</table>
+			<?php  } ?>
+			
+			<table class="form-table">
+			    <tbody>
+				<tr>
+				    <td><b>请选择要升级的版本</b> (注意仅能一个版本一个版本升级，不能跨版本升级)</td>
+				</tr>
+				<tr>
+				    <td scope="row">
+					    <select name="upfile" size="5" id="select" style=" line-height:2em">
+						<option value="0">请选择要升级的版本</option>
+						<?php foreach($versiondata as $k=>$d){ ?>
+						<option value="<?php echo $k; ?>"> <?php echo $d; ?></option>
+						<?php } ?>
+						</select>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+			
+		</td>
+	</tr>
+</table>
+
+			</div>
+			
+		</div>
+		
+	</div>
+	
+	<div class="btn_area">
+	    <input type="submit" name="button" id="button" value="开始升级，升级前注意备份数据库" class="btn_install"/>
+		<div class="clear"></div>
+	</div>
+	
+	
+	
+</div>
+
+</form>
+<div id="footer">Powered by 云边轻博客 V2.0</div>
+</body>
+</html>

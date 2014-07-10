@@ -1,0 +1,36 @@
+{include file="require_header.html" gallery=yes}
+<script type="text/javascript">
+$(document).ready(function(){ 
+	do_run_post();
+})
+</script>
+<div id="index">
+    <div id="article">
+	{include file="require_post.html"}
+	<div class="clear"></div>
+	<div id="userpost">
+	    <div class="post_bg">
+	        <a href="javascript:;" onclick="do_run_post('')"><span class="current" id="curr_post">我发布</span></a>
+	        <a href="javascript:;" onclick="do_run_post('draft')"><span id="curr_draft">草稿</span></a>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<div id="feedArea">
+		<div id="feed_loading"></div>
+		<div id="feed_box"></div>
+	</div>
+	<div class="feed_none" id="feed_none" style="display:none">
+		<div class="follow_font">
+			<h2>暂时没有内容</h2>
+		</div>
+	</div>
+	
+	<div id="paging"></div>  
+	<div class="clear"></div>
+	
+	</div>
+	<div id="aside">
+        {include file="require_sider.html"}
+    </div>
+</div>
+{include file="require_footer.html"}

@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$yb.site_title} - 连接{$app}</title>
+<link rel="shortcut icon" href="{$syskin}/image/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" media="screen" href="{$syskin}/css/login.css" />
+{literal} 
+<script>
+function dosubmit()
+{
+	document.getElementById('submit_button').style.display = 'none';
+	document.getElementById('submit_tip').style.display = 'inline';
+}
+
+$(document).ready(function(){
+
+    $('#email').focus(function(){
+		$(this).addClass('curr');
+	}).blur(function(){
+		$(this).removeClass('curr');
+	})
+	
+	$('#username').focus(function(){
+		$(this).addClass('curr');
+	}).blur(function(){
+		$(this).removeClass('curr');
+	})
+	
+	$('#password').focus(function(){
+		$(this).addClass('curr');
+	}).blur(function(){
+		$(this).removeClass('curr');
+	})
+})
+
+</script>
+{/literal} 
+</head>
+
+<body>
+
+<div id="wrap">
+
+    <div id="main">
+	
+	    <div class="logo"><a href="{spUrl c=main}"><img src="{$syskin}/image/logo_big.png" width="420" height="103" alt="{$yb.site_title}" title="{$yb.site_title}" /></a></div>
+		
+		<div class="login">
+		    <form action="" method="post">
+			{if $type != 'login'}
+			<div id="userpost">
+			    <div class="post_bg">
+				    <a href="{spUrl c=openconnect a=$app login=yes}"><span class="current">立即注册</span></a>
+					<a href="{spUrl c=openconnect a=$app login=yes type=login}" ><span>账号绑定</span></a>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="clear"></div>
+			
+			<div class="oauth_box">
+			    <div class="oauth_con">
+			        <div class="login_email in_put">
+					    <input name="email" type="text" id="email" size="25" maxlength="50" value="{if $smarty.post.email}{$smarty.post.email}{else}{$email}{/if}" class="ipt" tabindex="1" /><span>{verifierMsg set=$errmsg_arr in=email msg='最多30字符'}</span>
+					</div>
+					<div class="login_name in_put">
+					    <input type="text"  name="username" id="username"  size="25"  class="ipt" tabindex="4" value="{$user.nickname}" title="请输入昵称"><span>{verifierMsg set=$errmsg_arr in=username msg='请输入昵称'}</span>
+					</div>
+					<div class="login_pw in_put">
+					    <input name="password" type="password" id="password" size="25" value="{$smarty.post.password}" class="ipt"  tabindex="2"/><span>{verifierMsg set=$errmsg_arr in=password msg='输入您的密码'}</span>
+					</div>
+					
+					<div class="login_pw in_put">
+					    <input name="password2" type="password" id="password2" size="25" value="{$smarty.post.password}" class="ipt"  tabindex="3"/><span>{verifierMsg set=$errmsg_arr in=password2 msg='请重复密码'}</span>
+					</div>
+
+					<div class="login_info">
+					    <label><input name="face" type="checkbox" value="1" checked="checked" />使用{$app}头像作为我的默认头像</label>
+					</div>
+				
+				</div>
+			</div>
+			{else}
+
+			<div id="userpost">
+			    <div class="post_bg">
+				    <a href="{spUrl c=openconnect a=$app login=yes}"><span>立即注册</span></a>
+					<a href="{spUrl c=openconnect a=$app login=yes type=login}" ><span class="current">账号绑定</span></a>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="clear"></div>
+			
+			<div class="oauth_box">
+			    <div class="oauth_con">
+			        <div class="login_email in_put">
+					    <input name="email" type="text" id="email" size="25" maxlength="50" value="{if $smarty.post.email}{$smarty.post.email}{else}{$email}{/if}" class="ipt" tabindex="1" /><span>{verifierMsg set=$errmsg_arr in=email msg='最多30字符'}</span>
+					</div>
+					<div class="login_pw in_put">
+					    <input name="password" type="password" id="password" size="25" value="{$smarty.post.password}" class="ipt"  tabindex="2"/><span>{verifierMsg set=$errmsg_arr in=password msg='输入您的密码'}</span>
+					</div>
+					<div class="login_info">
+					    <label><input name="face" type="checkbox" value="1" checked="checked" />使用{$app}头像作为我的默认头像</label>
+					</div>
+				    <div class="clear"></div>
+				</div>
+			</div>
+			
+			{/if}
+			
+			<div class="oauth_btn">
+                <span id="submit_tip" style="display:none;">正在登录...</span>
+     		    <input name="linkSubmit" type="submit" id="submit_button" class="submit"  value="完成" onclick="dosubmit('submit');" tabindex="4"/>
+				<div class="clear"></div>
+			</div>
+			
+			</form>
+		</div>
+	
+	</div>
+
+</div>
+
+</body>
+</html>

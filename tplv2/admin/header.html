@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>yunbian - Administrator Control panel</title>
+<script>var urlpath = '{$url}'</script> 
+<script type="text/javascript" src="{$syskin}/js/jquery.js"></script>
+<script type="text/javascript" src="{$syskin}/js/dialog.js"></script>
+<script type="text/javascript" src="{$syskin}/admin/style/global.js"></script>
+<script type="text/javascript" src="{$syskin}/js/global.js"></script>
+<link rel="shortcut icon" href="{$syskin}/image/favicon.ico" type="image/x-icon">
+<link href="{$syskin}/js/dialog/default.css" rel="stylesheet" />
+<link href="{$syskin}/admin/style/reset.css" rel="stylesheet" type="text/css">
+<link href="{$syskin}/admin/style/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="wrap_admin">
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr><td width="160" valign="top">
+    <div id="admin_area">
+	    <div id="admin_shadow"></div> 
+	    <div class="logo"><a href="{spUrl c=admin a=index}">logo</a></div>
+		<div class="logo_line"></div>
+		<div class="admin_menu">
+
+		    <ul id="nav">
+			    <li><a href="{spUrl c=admin a=index}" {$curr_index}><span class="f_index">管理平台</span></a></li>
+				
+				<li><a href="{spUrl c=admin a=system}" {$curr_system}><span class="f_system">系统管理</span></a></li>
+                <div {$curr_systemdisplay}>
+				    <a href="{spUrl c=admin a=models}" {$curr_models}>模型管理</a>
+                    <a href="{spUrl c=admin a=cpage}" {$curr_cpage}>自定义页面管理</a>
+				</div>
+
+				<li><a href="{spUrl c=admin a=blog}" {$curr_blog}><span class="f_blog">内容管理</span></a></li>
+				<div {$curr_blogdisplay}>
+				    <a href="{spUrl c=admin a=blog}" {$curr_ablog}>博客内容</a>
+					 <a href="{spUrl c=admin a=blogverify}" {$curr_ablogverify}>内容审核</a>
+				    <a href="{spUrl c=admin a=systag}" {$curr_systag}>系统标签</a>
+					 <a href="{spUrl c=admin a=usertag}" {$curr_usertag}>用户标签</a>
+					 <a href="{spUrl c=admin a=sort}" {$curr_sort}>分类管理</a>
+					<!--
+					<a href="{spUrl c=admin a=recommend}" {$curr_recommend}>推荐</a>
+					-->
+				</div>
+				
+                <li><a href="{spUrl c=admin a=adUnit}" {$curr_adUnit}><span class="f_ad">广告管理</span></a></li>
+                 <div {$curr_addisplay}>
+				    <a href="{spUrl c=admin a=adUnit}" {$curr_aadUnit}>广告位管理</a>
+				    <a href="{spUrl c=admin a=adContent}" {$curr_aadlist}>广告管理</a>
+				</div>
+				
+				<li><a href="{spUrl c=admin a=user}" {$curr_user}><span class="f_user">用户管理</span></a></li>
+				<div {$curr_noticedisplay}>
+				    <a href="{spUrl c=admin a=notice}" {$curr_anotice}>系统通知</a>
+				  
+				</div>
+				<li><a href="{spUrl c=admin a=theme}" {$curr_theme}><span class="f_theme">主题管理</span></a></li>
+				<li><a href="{spUrl c=admin a=database}" {$curr_database}><span class="f_database">数据管理</span></a></li>
+				
+			</ul>
+		</div>
+		
+	</div>
+	
+	</td>
+	<td valign="top">
+    <div id="admin_header">
+	    <div class="administrator">
+		    <li class="headinfo"><a href="{goUserHome uid=$smarty.session.uid}" target="_blank">
+            <img src="{avatar uid=$smarty.session.uid size=middle}" alt="{$info.username}"/></a></li>
+			<li><a href="{goUserHome uid=$smarty.session.uid}" target="_blank">欢迎 {$smarty.session.username}</a></li>
+			<li><a href="{spUrl c=main}" target="_blank">返回网站</a></li>
+		</div>
+	    <div class="ws_title">{$yb.site_title}</div>
+	</div>
+   {if isset($get.ac)} <script>showprccmsg('{$get.ac}')</script> {/if}

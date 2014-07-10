@@ -1,0 +1,200 @@
+/*
+/////////////////////////////////////////////////////////////////
+//云边开源轻博, Copyright (C)   2010 - 2011  qing.thinksaas.cn
+//$Id$
+*/
+
+a:link, a:visited { color: #999; text-decoration: none; }
+a:hover { color: #666; text-decoration:none; cursor:pointer; }
+
+#box { position:relative; float:left; width:600px; padding:20px 30px; background-color:#fff; -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px; -moz-box-shadow:0px 1px 3px #bbb; -webkit-box-shadow:0px 1px 3px #bbb; box-shadow:0px 1px 3px #bbb; border-bottom:2px #ddd solid\9; margin:0 0 20px; }
+#box h2 { font-size:26px; color:#666; line-height:30px; height:30px; margin:0; }
+
+#post_area { width:100%; margin:0; }
+#post_area h3 { color:#666; font-size:16px; line-height:25px; height:25px; }
+#post_area h3 span { color:#999; font-size:12px; line-height:25px; }
+
+#post_area .p_area { width:100%; margin:0; padding:0; }
+#post_area #title { border:1px #bbb solid; width:588px; padding:5px; height:38px; line-height:38px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; background:url(../image/comm/btn_bg.png) repeat-x 0 -240px; margin:0; font-family:'Microsoft Yahei','Arail'; }
+
+/*右侧功能*/
+#aside_box { float:right; width:238px; padding:2px 2px 2px 0; background-color:#fff; -moz-border-radius:0px 8px 8px 0px; -webkit-border-radius:0px 8px 8px 0px; border-radius:0px 8px 8px 0px; -moz-box-shadow:0px 1px 3px #bbb; -webkit-box-shadow:0px 1px 3px #bbb; box-shadow:0px 1px 3px #bbb; border-bottom:2px #ddd solid\9; margin:20px 0 20px; #margin:20px 0 20px -10px; }
+#aside_box .aside_area { width:212px; padding:13px; background-color:#ebebeb; -moz-border-radius:0px 6px 6px 0px; -webkit-border-radius:0px 6px 6px 0px; border-radius:0px 6px 6px 0px; }
+.aside_item { width:212px; margin:0; padding:0; -moz-box-shadow:0px 1px 0px #fff; -webkit-box-shadow:0px 1px 0px #fff; box-shadow:0px 1px 0px #fff; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; }
+.aside_item select { border: 1px solid #ccc; font-size:14px; height:34px; width:212px; padding:5px; font-family:'Microsoft Yahei','Arail'; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; outline:none; }
+#recommand-tag-holder h3 { font-size:12px; color:#666; text-shadow:0px 1px 0px #fff; }
+
+.aside_con { width:212px; margin:0; padding:0; }
+
+#post-tag { background:url(../image/comm/btn_bg.png) repeat-x 0 -295px #fff;   border: 1px solid #ccc; width:200px; min-height: 120px; overflow: hidden;   padding:5px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; }
+#post-tag-list, #recommand-tag-list { width:200px; margin:0; padding:0; }
+#post-tag-list li { border:1px #227CAC solid; float:left; padding:5px; background:url(../image/comm/btn_bg.png) repeat-x 0 -70px #309BD7; color:#fff; list-style:none; display:block; outline:none; text-shadow:0px -1px 0px #217BAC; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; margin:0 5px 5px 0; }
+#post-tag-list li a { color:#fff; padding-left:5px; outline:none; }
+#post-tag-list li a:hover { color:#227CAC; }
+#post-tag-input { border:none; margin:0; outline:none; padding:0; width:200px; font-family:'Microsoft Yahei','Arail'; color:#999; }
+#top-post-holder font { color:#666; font-weight:700; font-size:14px; }
+#top-post-holder span { color:#666; font-size:12px; line-height:25px; margin-left:5px; }
+#top-post-holder p { font-style:italic; }
+
+#recommand-tag-list li { float:left; list-style:none; }
+#recommand-tag-list li a { border:1px #227CAC solid; color:#fff; text-shadow:0px -1px 0px #227CAC; padding:5px; background:url(../image/comm/btn_bg.png) repeat-x 0 -70px #309BD7; color:#fff; display:block; outline:none; text-shadow:0px -1px 0px #217BAC; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; margin:0 5px 5px 0; }
+
+.aside_line { width:100%; height:1px; background-color:#ddd; border-bottom:1px #fff solid; margin:15px 0; }
+
+/*上传图片*/
+#uploadpic { display: block; float: right; margin-top: -20px;}
+.uploadBtn{ display:inline-block; position:relative; width:50px; height:16px; overflow:hidden; }
+.uploadBtn input{ position:absolute; left:0; top:0; width:100%; height:100%; cursor:pointer; opacity:0;-ms-filter:'alpha(opacity=0)';filter:alpha(opacity=0);}
+#uploading { background:url(../image/comm/small_loading.gif) no-repeat scroll left center transparent; color: #999999; padding-left: 20px; }
+
+/*内容描述*/
+#textarea { height:260px; }
+
+/*我的媒体库*/
+.globox{ margin-top:5px;}
+.globox th,td{padding:5px; font-size:14px;}
+.globox th{font-weight:bold; text-align:center; border-bottom:2px solid #E3E3E3}
+.globox .trg td { text-align:center; }
+.alt-row{background-color:#EEE}
+
+/*按钮*/
+#pb-action-holder { margin:20px 0 0; }
+#pb-action-holder a { height:38px; line-height:38px; text-align:center; display:block; border:1px #ccc solid; font-size:14px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; background:url(../image/comm/nav_bg.png) repeat-x 0 0; }
+#pb-action-holder a:active { -moz-box-shadow:0px 1px 3px #bbb inset; -webkit-box-shadow:0px 1px 3px #bbb inset; box-shadow:0px 1px 3px #bbb inset; }
+#pb-action-holder a#cancel { color:#CF3030; width:68px; }
+#pb-action-holder a#cancel:hover { background-image:none; background-color:#F4D2D2; border:1px #E89B9B solid; }
+#pb-action-holder a#preview { color:#167CB4; width:68px; }
+#pb-action-holder a#preview:hover { background-image:none; background-color:#C9E8F8; border:1px #9AD2F1 solid; }
+#pb-action-holder a#submit { color:#7AAD1D; border:1px #bbb solid; }
+#pb-action-holder #submit span { background:url(../image/comm/icons.png) no-repeat 0 -360px; width:60px; height:38px; line-height:38px; display:block; padding:0 0 0 25px; }
+#pb-action-holder a#submit:hover { background-image:none; background-color:#DEF3B6; border:1px #8EC921 solid; }
+
+/*发布图片*/
+.upimgBar{ height:40px; width:100%; }
+#divAddFiles{ width:100px; float:left; }
+#upimgText{ float:left; line-height:30px; height:30px; margin:5px auto 5px 20px; padding:0 10px 0 10px; background-color:#e3e3e3; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; text-shadow:0px 1px 0px #fff; position:relative; }
+#upimgText .upimg_corner { width:5px; height:10px; position:absolute; background:url(../image/comm/icons.png) no-repeat right -340px; left:-5px; top:10px; }
+#upimgText font { color:#DF594E; }
+
+#uploadArea { margin:20px 0px; }
+#uploadArea img { float:left; margin:0; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; }
+#uploadArea .attach_img { padding:10px; margin:10px 0px; background-color:#ebebeb; position:relative; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; width:100%; }
+#uploadArea .attach_img img { max-width:120px; }
+#uploadArea textarea { border:none; outline:none; margin:0 0 0 10px; width:435px; height:70px; color:#999; font-size:12px; padding:5px 5px; font-family:'Microsoft Yahei','Arail'; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;  -moz-box-shadow:0px 1px 3px #bbb inset; -webkit-box-shadow:0px 1px 3px #bbb inset; box-shadow:0px 1px 3px #bbb inset; border-top:1px #ddd solid\9; }
+#uploadArea a.delete { background:url(../image/comm/icons.png) no-repeat right -370px; display:block; width:14px; height:15px; overflow:hidden; text-indent:9999em; position:absolute; right:10px; top:10px; }
+#uploadArea a.delete:hover { background:url(../image/comm/icons.png) no-repeat right -385px;  }
+
+#progressArea { height:6px; background:url(../image/comm/line_bg.png) no-repeat 0 0; margin:10px 0; display:none; }
+#progressBar { position:relative; height:6px; padding:0; }
+#progress{ height:6px; background:url(../image/comm/line_bg.png) no-repeat right -6px; }
+#progressBar span{ position:absolute; width:50px; margin-top:10px; line-height:14px; color:#000; font-size:12px; color:#fff; }
+#uploadArea .list{ margin:10px 0px; border:1px solid #999; background-color:#EEEEEE}
+#uploadArea .list textarea{ border:1px solid #EEEEEE; padding:5px; overflow:visible; }
+.hover{ background-color:#F6F6F6; }
+#listArea{ overflow-x:hidden;overflow-y:auto; margin-bottom:10px;}
+#listBody .hover{ background:#F0F0F0; }
+#listBody .select{ background:#DFE8F6;}
+#listBody td{ padding:5px; border-bottom:1px solid #EDEDED; }
+
+/*音乐发布方式*/
+#mountchange { display:block; width:600px; clear:both; margin:20px 0 15px; }
+#mountchange ul.tabs { height: 40px; list-style-type: none; margin: 0; padding: 0; position:relative; }
+#mountchange ul.tabs li { float:left; position:relative; }
+#mountchange ul.tabs li a{ background:url(../image/comm/nav_bg.png) #E4E5EA repeat-x 0 0; height: 38px; margin: 0 15px 0 0; padding: 0 15px; font-size:16px; border:1px #ccc solid; line-height:38px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; font-weight:700; text-shadow:0px 1px 0px #fff; display:block; outline:none; font-family:'Microsoft Yahei','Arail'; }
+#mountchange ul.tabs li.curr a { background:url(../image/comm/menu_bg.png) #e3e3e3 repeat-x 0 -60px; color:#666;  display:block; }
+
+.point { width:17px; height:10px; background:url(../image/comm/icons.png) no-repeat 0 -400px; position:absolute; left:40px; bottom:-17px; z-index:10; display:none; }
+#mountchange ul.tabs li.curr .point { display:block; }
+
+
+/*音乐发布form*/
+#musicFrom,#musicUpload,#musicSearch { display:block; position:relative; background:url(../image/comm/menu_bg.png) #ebebeb repeat-x 0 -60px; padding:15px; border:1px #ccc solid; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; }
+
+#musicList .list { background-color:#ebebeb; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; position:relative; padding:10px; margin:10px 0 0; }
+#musicList .list input { background:url(../image/comm/btn_bg.png) #fff repeat-x 0 -295px; color:#666; padding:5px 10px; border:1px #ccc solid; margin:5px 0 5px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; -moz-box-shadow:0px 1px 0px #fff; -webkit-box-shadow:0px 1px 0px #fff; box-shadow:0px 1px 0px #fff; font-family:'Microsoft Yahei','Arail'; font-size:12px; }
+#musicList .list li { list-style:none; float:left; margin-right:10px; }
+#musicList .list .delete a { background:url(../image/comm/icons.png) no-repeat right -370px; display:block; width:14px; height:15px; overflow:hidden; text-indent:9999em; position:absolute; right:10px; top:10px; }
+#musicList .list .delete a:hover { background:url(../image/comm/icons.png) no-repeat right -385px;  }
+
+#musicList .list img { max-width:120px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; margin-bottom:-4px; }
+#musicList .list .uri{width:250px;white-space: nowrap; float:left}
+#musicList .list .body{float:left}
+
+#music_search_list{ width:548px; display:none; margin:0;}
+#music_search_list ul { padding:0; margin:0 0 10px; float:left; }
+
+#music_search_list ul li.music_list_li{ list-style:none; width:546px; height:30px; font-size:12px; line-height:30px; border-bottom:1px solid #ccc; border-top:1px #fff solid; cursor:pointer; border-left:1px #ccc solid; border-right:1px #ccc solid; padding:0 10px; }
+#music_search_list ul li.music_list_li:hover{
+	background-color:#F5F5F5;
+}
+
+#music_search_list ul li span.music_artist_name{
+	color:#ABABAB;
+}
+#music_search_list ul li span.music_music_song{
+	color:#727272;
+}
+.musicurl { color:#666; font-size:18px; font-weight:700; width:556px; height:30px; line-height:30px; background:url(../image/comm/btn_bg.png) repeat-x 0 -240px; border:1px solid #aaa; padding:5px; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; -moz-box-shadow:0px 1px 0px #fff; -webkit-box-shadow:0px 1px 0px #fff; box-shadow:0px 1px 0px #fff; }
+
+#loadProcess { float:right; padding:0 0 0 20px; background:url(../image/comm/small_loading.gif) no-repeat 0 0; position:absolute; top:-25px; right:0; }
+
+#localMusic{ margin:10px 0px;}
+.p_video { margin:20px 0 0; }
+#musicNotice { color:#666; margin-bottom:15px; }
+#musicList a,#musicList a:hover{color:#999}
+#musicUpload strong{ font-weight:bold}
+.notice { margin:0; }
+.notice li{ list-style:none; color:#666; font-size:12px; margin:15px 0 0;}
+
+.mu_btn { padding:5px 10px; text-align:center; display:block; border:1px #aaa solid; font-size:14px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; background:url(../image/comm/nav_bg.png) repeat-x 0 0; font-family:'Microsoft Yahei','Arail'; color:#7AAD1D; -moz-box-shadow:0px 1px 0px #fff; -webkit-box-shadow:0px 1px 0px #fff; box-shadow:0px 1px 0px #fff; margin:10px 0 0; }
+.mu_btn:hover { color:#7AAD1D; border:1px #8EC921 solid; cursor:pointer; background-image:none; background-color:#DEF3B6; }
+.mu_btn:active { -moz-box-shadow:0px 1px 3px #bbb inset; -webkit-box-shadow:0px 1px 3px #bbb inset; box-shadow:0px 1px 3px #bbb inset; }
+
+.mu_load { position:relative; width:78px; height:33px; background:url(../image/comm/um_load.png) no-repeat 0 0; overflow:hidden; cursor:pointer; margin:0; }
+.mu_load input { position:absolute;width:78px;height:33px;cursor:pointer;outline:none; display:block; line-height:33px; margin-left:0px; padding:0;opacity:0;-ms-filter:'alpha(opacity=0)';filter:alpha(opacity=0); -moz-opacity:0;
+}
+
+/*电影发布*/
+#movieList .list { background-color:#ebebeb; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; position:relative; padding:10px; margin:10px 0 0; }
+
+#movieList .list .delete a { background:url(../image/comm/icons.png) no-repeat right -370px; display:block; width:14px; height:15px; overflow:hidden; text-indent:9999em; position:absolute; right:10px; top:10px; }
+#movieList .list .delete a:hover { background:url(../image/comm/icons.png) no-repeat right -385px;  }
+
+#movieList .list .m_img { width:120px; float:left; margin:0; }
+#movieList .list img { max-width:120px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; margin-bottom:-4px; }
+
+#movieList .list .m_list { width:460px; float:right; margin:0; }
+#movieList .list li { list-style:none; line-height:22px; margin:0; color:#666; }
+#movieList .list .m_title { font-size:16px; color:#666; line-height:30px; }
+#movieList .list font { margin-left:5px; color:#333; }
+#movieList .list b { margin-right:5px; }
+#movieList .list span { color:#fff; font-size:14px; height:23px; line-height:23px; border:1px #F66300 solid; padding:0 5px; background-color:#F88217; text-shadow:0px -1px 0px #F5500E; -moz-box-shadow:0px 1px 0px #FAB35A inset; -webkit-box-shadow:0px 1px 0px #FAB35A inset; box-shadow:0px 1px 0px #FAB35A inset; margin-left:10px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; }
+
+.clear{clear:both}
+/*en button*/
+
+#submit,#submit_baseinfo,#submit_chgpwd,#submit_music,#submit_product,#submit_image,#submit_video {float: right;height: 32px;line-height: 32px;margin-left: 15px;}
+
+#preview, #draft,#addimg {float: right;height: 32px;line-height: 32px;margin-left: 15px;}
+#pb-submiting-tip,#loadings {
+    background: url(../image/comm/small_loading.gif) no-repeat scroll left center transparent;
+    color: #666666;
+    float: right;
+    height: 38px;
+    line-height: 38px;
+    padding-left: 20px;
+}
+#pb-text-upload-pic {
+    display: block;
+    float: right;
+    margin-top: -23px;
+}
+
+.pb-music-search-result ul {
+    padding: 5px 0;
+}
+
+
+/*setting*/
+#upload_photo {padding-left:68px}
+

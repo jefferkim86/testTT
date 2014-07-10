@@ -1,0 +1,111 @@
+{include file='admin/header.html'}
+
+<div id="content">
+
+    <div class="main">
+	    <input class="btn_common"   type="button" value="创建广告位" id="ad_add_show" />
+	    <input class="btn_common"  type="button" value="刷新" id="ad_refresh" />
+		<div class="clear"></div>
+	</div>
+	
+	<!--begin-->
+	<div  id="ad_add" class="t_con" style="display:none">
+	<form id="form2" name="form3" method="post" action="" enctype="multipart/form-data">
+	    <div class="con_system">
+		       <table width="100%" cellpadding="0" cellspacing="0" border="0" class="table_padding">
+			      <tr>
+				      <td width="80" class="t_title">广告位标题</td>
+                      <td class="c_input"><input class="textipt" type="text"  name="title" /></td>
+                  </tr>
+				  <tr>
+                        <td class="t_title">广告描述</td>
+                        <td class="c_input"><input type="text" name="adesc" /></td>
+                    </tr>
+                    <tr>
+                        <td class="t_title">广告位截图</td>
+                        <td class="c_input">
+                            tpl/admin/style/ad_unit/<input type="text"  name="img" />请上传至目录并只输入文件名称
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="t_title">排序</td>
+                        <td class="c_input"><input type="text"  name="orders" value="{$dis.id+1}" /></td>
+                    </tr>
+                    <tr>
+                        <td class="t_title">是否启用</td>
+                        <td class="c_radio">
+						<label><input type="radio" name="is_show" id="is_show" value="1" checked="checked" />启用</label>
+                        <label><input type="radio" name="is_show" id="is_show" value="0" />停用</label>
+                      </td>
+                    </tr>
+			  </table>
+			  
+			  <div class="btn_area">
+                    <input  type="submit" class="btn_save" value="添加" name="add"/>
+                    <input id="ad_add_hidden" class="btn_return"  type="button" value="取消" />
+			  </div>
+              
+		 </div>
+	</form>
+	</div>
+	<!--end-->
+	
+	<div class="con_cpage">
+	<form id="form1" name="form1" method="post" action="">   
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_model">
+                        <tr class="table_title">
+						    <th width="60" class="m_title">广告位ID</th>
+                            <th>广告位名称</th>
+							<th>描述</th>
+                            <th>排序</th>
+                            <th>系统</th>
+                            <th>广告位状态</th>
+							<th>操作</th>
+                        </tr>
+                        {foreach from=$adUnit_list item=d}
+                        <tr class="table_hover">
+							<td class="m_title">{$d.id}</td>
+                            <td>{$d.title}</td>
+							<td>{$d.adesc}</td>
+                            <td>{$d.orders}</td>
+                            <td>{if $d.system==1}是{else}否{/if}</td>
+                            <td class="fun_con">
+
+							    {if $d.is_show==1}<a class="f_open" href="{spUrl c=admin a=adUnit flag=close en_show=0 id=$d.id}" title="开启中,点击关闭">开启中,点击关闭</a>{else}<a class="f_close" href="{spUrl c=admin a=adUnit flag=close en_show=1 id=$d.id}" title="关闭中,点击开启">关闭中,点击开启</a>{/if}
+							</td>
+							<td class="fun_con">
+								<a class="f_look" href="{spUrl c=admin a=adUnit show=$d.id}" title="查看广告位">查看广告位</a>
+							    {if $d.system!=1}<a class="f_edit" href="{spUrl c=admin a=adUnit edit=$d.id}" title="编辑">编辑</a><a class="f_delete" href="{spUrl c=admin a=adUnit del=$d.id}" onclick="return(confirm('确定删除?'))" title="删除">删除</a>{else}{/if}
+							</td>
+                        </tr>
+                        {/foreach}
+                    </table>
+                    {$adUnit_pager}
+	</form>
+	</div>
+    
+</div>
+
+{include file='admin/footer.html'}
+<script type="text/javascript">
+    $(function(){
+        //打开添加
+        $("#ad_add_show").click(function(){
+            $("#title").val("");
+            $("#keyword").val("");
+            $("#desc").val("");
+            $("#ad_add").slideToggle();
+        });
+       
+        //关闭添加
+        $("#ad_add_hidden").click(function(){
+            $("#ad_add").slideUp();
+        });
+       
+        //刷新本页
+        $("#ad_refresh").click(function(){
+            window.location.reload()
+        });
+       
+    });
+</script>

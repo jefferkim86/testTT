@@ -1,0 +1,63 @@
+{include file='admin/header.html'}
+<div id="content">
+
+<div class="artTabs">
+     <ul id="tabs">
+	    <li><a href="{spUrl c=admin a=systag}" class="current">系统标签<div class="point"></div></a></li>
+		<li><a href="{spUrl c=admin a=usertag}">用户标签<div class="point"></div></a></li>
+		<div class="clear"></div>
+	</ul>
+</div>
+
+
+    
+	<div id="tabContent1" class="t_con">
+	    <h3>添加系统标签</h3>
+		<form action="" method="post">
+		<div class="con_system">
+		       <table width="100%" cellpadding="0" cellspacing="0" border="0" class="table_padding">
+			       <tr>
+				      <td width="50" class="t_title">排序</td>
+					  <td width="180" class="c_input_small">
+					     <input type="text" name="sort"/>
+					  </td>
+					  <td width="60" class="t_title">标签名称</td>
+					  <td width="180" class="c_input_small"><input type="text" name="cname" /></td>
+					  <td><input type="submit" name="sysadd" class="btn_return"  value="添加标签" /></td>
+				 </tr>
+			   </table>
+		</div>
+		</form>
+		
+		<div class="navpage">{$systagpager}<div class="clear"></div></div>
+		
+		<form action="" method="post">
+		<div class="con_system">
+		       <table width="100%" cellpadding="0" cellspacing="0" border="0" class="table_model">
+			       <tr class="table_title">
+				      <th width="50" class="m_title">排序</th>
+					  <th>标签</th>
+					  <th width="60">操作</th>
+				   </tr>
+				   {foreach from=$systag item=d}
+				   <tr id="systag_{$d.cid}" class="table_hover" >
+				       <td class="m_title c_input_little"><input name="cate[{$d.cid}][sort]" type="text"  value="{$d.sort}" /></td>
+					   <td class="c_input"><input name="cate[{$d.cid}][catename]"  type="text"  value="{$d.catename}" /></td>
+					   <td class="c_del"><a href="javascript:void(0)" onclick="delsystag({$d.cid})">删除</a></td>
+				   </tr>
+				   {/foreach}
+			   </table>
+		</div>
+		
+		
+		<div class="navpage">{$systagpager}<div class="clear"></div></div>
+		
+		<div class="btn_area">
+		<input name="syscate" class="btn_save" type="submit" value="保存标签" />
+		</div>
+		</form>
+		
+	</div>
+
+</div>
+{include file='admin/footer.html'}

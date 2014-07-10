@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>云边轻博客系统安装向导</title>
+<link href="image/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="wrap">
+
+    <div class="container">
+	    
+		<div class="header">
+		     <div class="step sp2"></div>
+		     <div class="logo"><img src="image/logo.png" /></div>
+			 <div class="clear"></div>
+		</div>
+		
+		<div class="box">
+		
+		    <div class="title">
+			    <li>将压缩包中 yunbian 目录下全部文件和目录上传到服务器。</li>
+				<li>确认 URL 中 /attachs,/avatar 可以访问服务器目录 ./attachs,/avatar 内容。</li>
+				<li>如果config.php文件不可写，请自行修改该文件上传到网站根目录下。</li>
+				<li>如果目录可写检查失败，或系统配置检查失败则无法安装系统，请勿强行安装。</li>
+			</div>
+			
+			<div class="content">
+			    
+<table class="datatable">
+	<tr>
+    <th scope="col"></th>
+    <th scope="col">Yunbian所需配置</th>
+    <th scope="col">Yunbian推荐配置</th>
+    <th scope="col">当前服务器</th>
+	</tr>
+	<tr>
+    <td>操作系统</td>
+    <td>不限</td>
+    <td>UNIX/Linux/FreeBSD</td>
+    <td><?php echo PHP_OS; ?></td>
+	</tr>
+	<tr>
+    <td>PHP 版本</td>
+    <td>5.3+</td>
+    <td>5.4+</td>
+    <td><?php if(PHP_VERSION < '5.3'){echo '不支持！请升级到php5.3+';}else{echo PHP_VERSION;}?></td>
+	</tr>
+	<tr>
+    <td>MYSQL 版本</td>
+    <td>5.1+</td>
+    <td>5.5+</td>
+    <td>请自行检测</td>
+	</tr>
+	<tr>
+    <td>附件上传</td>
+    <td>不限</td>
+    <td>允许</td>
+    <td><?php echo getUploadState(); ?></td>
+	</tr>
+	<tr>
+    <td>数据库扩展</td>
+    <td>mysql</td>
+    <td>pdo</td>
+    <td><?php echo implode(',',getDatabase()); ?></td>
+	</tr>
+	<tr>
+    <td>图像扩展</td>
+    <td>gd2</td>
+    <td>gd2</td>
+    <td><?php echo gdVersion(); ?></td>
+	</tr>
+	
+	<tr>
+    <td>Curl扩展</td>
+    <td>curl</td>
+    <td>curl</td>
+    <td><?php echo getCurlstate(); ?></td>
+	</tr>
+	<tr>
+	<td>Rwrite扩展</td>
+    <td>rewrite</td>
+    <td>rewrite</td>
+    <td>请自行检测,如不支持请不开启伪静态功能</td>
+	</tr>
+	
+	<tr>
+    <td>file_get_contents支持远程读取</td>
+    <td>file_get_contents</td>
+    <td>file_get_contents</td>
+    <td>请自行检测</td>
+	</tr>
+</table>
+
+<table class="datatable">
+	<tr>
+    <th scope="col"></th>
+    <th scope="col">目录可写检查</th>
+    <th scope="col">当前状态</th>
+   	</tr>
+	<tr>
+	<td>./</td>
+    <td>需要可写</td>
+    <td><?php if(is_writable(APP_PATH.'/')){echo '可写';}else{echo '不可写,无法创建配置文件';}?></td>
+	</tr>
+	<tr>
+	<td>./tmp</td>
+    <td>需要可写</td>
+    <td><?php echo ckeckwrite(dir_writeable(APP_PATH.'/tmp'));?></td>
+	</tr>
+	<td>./avatar</td>
+    <td>需要可写</td>
+    <td><?php echo ckeckwrite(dir_writeable(APP_PATH.'/avatar'));?></td>
+	</tr>
+	<td>./attachs</td>
+    <td>需要可写</td>
+    <td><?php echo ckeckwrite(dir_writeable(APP_PATH.'/attachs'));?></td>
+	</tr>
+	<td>./attachs/tmp</td>
+    <td>需要可写</td>
+    <td><?php echo ckeckwrite(dir_writeable(APP_PATH.'/attachs/tmp'));?></td>
+	</tr>
+	<td>./attachs/theme</td>
+    <td>需要可写</td>
+    <td><?php echo ckeckwrite(dir_writeable(APP_PATH.'/attachs/theme'));?></td>
+	</tr>
+	<td>./attachs/ad</td>
+    <td>需要可写</td>
+    <td><?php echo ckeckwrite(dir_writeable(APP_PATH.'/attachs/ad'));?></td>
+	</tr>
+</table>
+
+<table class="datatable">
+	<tr>
+    <th scope="col">将以下几个文件夹的web访问权利,并将其转向至404界面</th>
+    <th scope="col">建议</th>
+	</tr>
+	<tr>
+	<td>./controller</td>
+    <td>取消WEB访问</td>
+	</tr>
+	<tr>
+	<td>./model</td>
+    <td>取消WEB访问</td>
+	</tr>
+	<tr>
+	<td>./init</td>
+    <td>取消WEB访问</td>
+	</tr>
+	<tr>
+	<td>./tmp</td>
+    <td>取消WEB访问</td>
+	</tr>
+</table>
+				
+			</div>
+		</div>
+		
+	</div>
+	
+	<div class="btn_area">
+	    <a class="btn_no" href="index.php?step=2">取消安装</a>
+		<a class="btn_yes" href="index.php?step=4">确认无警告,继续安装</a>
+		<div class="clear"></div>
+	</div>
+
+</div>
+<div id="footer">Powered by 云边轻博客 V2.0</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+{include file='admin/header.html'}
+<div id="content">
+
+    <div class="t_con">
+	    <h3>用户搜索</h3>
+		<div class="con_system">
+		<form id="form1" name="form1" method="post" action="">
+		       <table width="100%" cellpadding="0" cellspacing="0" border="0" class="table_padding">
+			       <tr>
+				      <td width="110" class="t_title">邮箱、昵称、域名</td>
+					  <td width="315" class="c_input"><input name="where" type="text" value="{$get.niname}"/></td>
+					  
+					  <td><input name="submit" class="btn_return"  type="submit" value="搜索" />
+					  </td>
+				   </tr>
+			   </table>
+		 </form>
+		 </div>
+		
+	</div>
+	
+	
+	<div class="con_index">
+		<h2>用户列表，共 {$countuser} 名会员</h2>
+		<div class="navpage">{$pager}<div class="clear"></div></div>
+		      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_model">
+			     <tr class="table_title">
+				    <th width="30" class="m_title">UID</th>
+					<th>账号</th>
+					<th width="100"></th>
+					<th width="40">访问</th>
+					<th width="110">昵称</th>
+					<th width="100">注册</th>
+					<th width="100">登陆</th>
+					<th width="40">发布</th>
+					<th width="40">跟随</th>
+					<th width="40">喜欢</th>
+				   </tr>
+				   {foreach from=$user item=d}
+				   <tr class="table_hover" id="blog_{$d.bid}">
+					<td class="m_title">{$d.uid}</td>
+					<td class="tt_title">
+					      <a href="{goUserHome domain=$d.domain uid=$d.uid}" target="_blank">{$d.email}</a> {if $d.admin == 1}管理员{/if}
+					</td>
+					<td class="fun_con">
+					    <a class="f_look mtop" href="{spUrl c=admin a=user mod=info uid=$d.uid}" title="详情">详情</a>
+						{if $d.open == 1}
+						<a class="f_novisit mtop" href="javascript:;" onclick="nologin({$d.uid})" title="禁止访问">禁访</a>
+						{else}
+						<a class="f_visit mtop" href="javascript:;" onclick="nologin({$d.uid})" title="解除禁止">解禁</a>
+						{/if}
+						<a class="f_password mtop" href="javascript:resetpwd({$d.uid},'{$d.username}')" title="修改密码">重设密码</a>
+					</td>
+					<td>{if $d.open == 1}允许{else}禁止{/if}</td>
+					<td>{$d.username}</td>
+					<td>{ybtime time=$d.regtime}</td>
+					<td>{ybtime time=$d.logtime}</td>
+					<td>{$d.num}</td>
+					<td>{$d.flow}</td>
+					<td>{$d.likenum}</td>
+				   </tr>
+				   {/foreach}
+			  </table>
+
+	 </div>
+	 
+	 <div class="navpage">{$pager}<div class="clear"></div></div>
+
+   
+</div>
+{include file='admin/footer.html'}

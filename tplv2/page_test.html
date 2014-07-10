@@ -1,0 +1,73 @@
+{include file="require_header.html" gallery=yes}
+<link rel="stylesheet" type="text/css" media="screen" href="{$url}/tpl2/css/page.css" class="cssfx"/>
+<!--前端测试页面，这个页面专门用来测试前端的各种功能-->
+
+{literal}    
+<script type="text/tmpl" id="tmpl_demo"> 
+	<ol>
+	<%for(var i=0,l=rs.length;i<l;i++){%>
+	<li><%=rs[i]["touid"]%><%=rs[i]["info"]%></li>
+	<%}%>
+	</ol>
+</script>
+
+<script type="text/tmpl" id="tmpl_userecommend"> 
+<%for(var i=0,l=body.length;i<l;i++){%>
+	<div class="follow">
+    <a href="#nogo" title="<%=body[i]["sign"]%>">
+        <div class="info">
+            <div class="avatar"><div class="head_bg"><img src="<%=body[i]["h_img"]%>" alt="<%=body[i]["username"]%>" class="face"/></div></div>
+                <div class="userinfo">
+                    <li class="username"><%=body[i]["username"]%></li>
+					<li><%=body[i]["blogtag"]%></li>
+				</div>
+			<div class="fwbg"></div>
+						
+		</div>
+    </a>	
+	</div>
+<%}%>
+</script>
+
+
+
+			
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+
+    $.ybAPI('user','recommend',{},function(data){
+        
+        $('#recommendUser').html(tmpl('tmpl_userecommend',data)); 
+        console.log(data);
+    });
+    
+})
+</script>
+{/literal}
+
+<link rel="stylesheet" type="text/css" media="screen" href="{$url}/tpl/image/css/page.css" class="cssfx"/>
+
+<div id="article" style="background-color:#FFF">
+
+<div id="test_api" style="background-color:#fff">loading...</div>
+<div id="test_api2">loading...<div class="pager_overlayer"></div></div>
+
+
+
+<hr>
+
+<div id="recommendUser">recommend loading...</div>
+
+
+
+
+</div>
+
+
+
+
+
+{include file="require_footer.html"}

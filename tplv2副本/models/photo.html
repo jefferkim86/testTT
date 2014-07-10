@@ -1,0 +1,111 @@
+{include file="require_header.html" addcss=yes editor=yes}
+<script> 
+var swfpath = '{$syskin}'; 
+var bid     = '{$blog.bid}';
+var ssid    = '{session_id()}';
+var num     = '{$tpl_config.imagecount}';
+var filext  = '{$imagetype}';
+var size    = '{$tpl_config.imagesize}';
+</script>
+<script type="text/javascript" src="{$syskin}/models/js/swfupload.js"></script>
+<script type="text/javascript" src="{$syskin}/models/js/multiupload.js"></script>
+{literal}
+<script type="text/javascript">
+$(document).ready(function(){
+
+		//$(".attach_img").
+			// 离开页面前提示
+		$.isChange.Set("#title,#textarea",function(){
+			return $("#uploadArea .attach_img").size()>0;
+		});
+		$.isChange.unSet("#form1");
+})
+</script>
+{/literal}
+<div id="index">
+<form action="{spUrl c=post a=saved model=$mid}" id="form1" method="post">
+    <div id="aside">
+	    <div id="aside_box">
+		    <div class="aside_area">
+				{include file="models/aside.html"} 
+			</div>
+		</div>
+	</div>
+	
+	<div id="article">
+	    <div id="box">
+	        <h2>发布图片</h2>
+			<div id="post_area">
+			
+			    <div id="uploadArea">
+				{if is_array($attach)}
+				    {foreach from=$attach item=d}
+				    {if $d.mime=='jpg' || $d.mime=='png' || $d.mime=='gif' ||  $d.mime=='bmp'}
+				    <div id="attach_{$d.id}" class="attach_img">
+					    <img src="{$url}/{thubimg path=$d.path}"/>
+					    <textarea name="localimg[{$d.id}][{thubimg path=$d.path}]" onblur="">{$d.blogdesc}</textarea>
+					    <a href="javascript:void(0)" onclick="delAttachIMAGE('{$d.id}')" class="delete">remove</a>
+						<div class="clear"></div>
+					</div>
+					{/if}
+					{/foreach}
+				{/if}
+				</div>
+				
+				<div id="listArea" bid="{$tempid}"  ssid="{session_id()}">
+				    <div id="controlBtns" style="display:none;">
+					    <a href="javascript:void(0);" id="btnClear" onclick="removeFile();" class="btn" style="display:none;">
+						    <span><img src="{$url}/tpl/image/add/clear.gif" />删除文件</span>
+						</a>
+						<a href="javascript:void(0);" id="btnStart" onclick="startUploadFiles();" class="btn"><span>开始上传</span></a>
+					</div>
+					<table width="100%" border="0" cellpadding="0" cellspacing="0">
+					    <tbody id="listBody"></tbody>
+					</table>
+				</div>
+				
+				<div id="progressArea">
+				    <div id="progressBar"><div id="progress" style="width:1px;"></div></div>
+				</div>
+				
+				<div class="upimgBar">
+				    <div id="divAddFiles"><div id="fileButton"></div></div>
+					<div id="upimgText">
+					    <div class="upimg_corner"></div>
+					    按住Shift多选, 您可以上传 <font>{$tpl_config.imagetype}</font> , 每张不超过 <font>{formatBytes size=$tpl_config.imagesize*1024}</font> , 最多发布 <font>{$tpl_config.imagecount}张</font> 
+					</div>
+					<div class="clear"></div>
+				</div>
+			
+			    <div class="p_area">
+			        <h3>标题<span>（可不填）</span></h3>
+				    <input type="text" name="title" id="title" class="input" tabindex="1" value="{$blog.title}">
+				</div>
+				
+				<div class="p_area">
+				    <h3 class="title">内容<span>（可不填）</span></h3>
+					<textarea name="textarea" id="textarea" style="width:600px">{$body.body}</textarea>
+                    <input type="hidden" name="tag" id="tag" value="" />
+                    <input type="hidden" name="id" value="{$blog.bid}" />
+				
+				</div>
+
+				
+				<div class="p_area">
+				    <div id="pb-action-holder">
+				    <a id="submit"><span>发布</span></a>
+					<a id="preview">预览</a>
+					<a id="cancel">取消</a>
+					<span style="display:none;" id="pb-submiting-tip">正在保存</span>
+					</div>
+                    
+				</div>
+				
+				
+			</div>
+	    </div>
+	</div>
+</form>
+</div>
+
+{include file="require_footer.html"}

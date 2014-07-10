@@ -1,0 +1,68 @@
+{include file="require_header.html" gallery=yes}
+{literal}
+
+{/literal}
+<div id="index">
+    <div id="article">
+	    {include file="require_post.html"}
+		
+		
+		
+			{if isset($adunit.2) && $adunit.2.is_show == 1}
+			<div id="ad_index_up"></div>
+			<script>
+				$(document).ready(function(){
+					ad_aside('#ad_index_up',2);
+					setInterval(function(){
+						ad_aside('#ad_index_up',2);
+					}, 30000);
+				})
+			</script>
+			{/if}
+	
+	
+	
+		
+		
+        {if islogin() && $yb.wizard_switch == 1} {include file="require_wizard.html"} {/if}
+		<div id="feedArea">
+			<div id="feed_loading"></div>
+			<div id="feed_box"></div>
+			<script type="text/javascript">
+				$(document).ready(function(){ 
+					yb_load_feeds('blog','feeds');
+				})
+			</script>
+		</div>
+		
+		{if $yb.show_page_mode == 1}
+			<div id="feedAjaxTool" page="2" max="{$yb.show_ajax_to}" area="feedArea"  class="feedajax">
+			</div>
+			<script>
+			$.feedToolBar.parm.morepage=true;
+			$.feedToolBar.morepage('feedAjaxTool');
+			</script>
+		{else}
+			
+		<div id="paging"></div>
+		<div class="clear"></div>
+		{/if}
+
+<!--
+	<div id="feedAjaxTool" page="2" max="{$yb.show_ajax_to}" area="feedArea" query="{spUrl c=main a=index ajaxload=true type=$type}" class="feedajax">
+    <a href="javascript:void(0)" onclick="continueShow('feedAjaxTool')" class="more">查看更多</a>
+    <a href="javascript:void(0)" class="loading">loading...</a>
+    <a href="javascript:void(0)" class="nomore">暂时没有更多内容</a>
+    </div>
+	-->
+		<script>//$.feedToolBar('feedAjaxTool');</script>
+        
+        
+        
+	</div>
+	<div id="aside">
+        {include file="require_sider.html"}
+    </div>
+</div>
+
+{include file="require_footer.html" top=yes}

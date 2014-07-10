@@ -1,0 +1,71 @@
+{include file='admin/header.html'}
+  <div id="content">
+      <form action="" method="post">
+      <div class="t_con">
+	  
+	    <h3>模型编辑 - {$minfo.name} {$minfo.id}</h3>
+		<div class="clear"></div>
+		<div class="con_system">
+		       <table width="100%" cellpadding="0" cellspacing="0" border="0" class="table_padding">
+			       <tr>
+				    <td class="t_title" width="120">模型开关</td>
+				    <td class="c_radio">
+                    <label><input type="radio" name="status"  value="1"  {if $minfo.status == 1} checked="checked" {/if} />开启</label>
+					<label><input type="radio" name="status"  value="0"  {if $minfo.status == 0} checked="checked" {/if} />关闭</label>
+					<font>是否启用该模型</font>
+                    </td>
+				 </tr>
+                 
+                 <tr>
+				    <td class="t_title">模型名称</td>
+				    <td class="c_input_small"><input name="name" type="text" value="{$minfo.name}" /><font>模型显示的名称</font></td>                 
+				 </tr>
+                <tr>
+                    <td class="t_title">模型描述</td>
+				    <td class="c_input_small"><input name="mdesc" type="text" value="{$minfo.mdesc}" /><font>鼠标放上去的简介</font></td>
+				 </tr>
+                 
+                 <tr>
+                    <td class="t_title">图标或样式标示符</td>
+				    <td class="c_input_small"><input name="icon" type="text" value="{$minfo.icon}" /><font>用于前端显示该模型效果</font></td>
+				 </tr>
+                 
+                 <tr>
+                    <td class="t_title">模型执行文件</td>
+				    <td class="c_input_small"><input name="modelfile" type="text" value="{$minfo.modelfile}" /><font>请勿随意修改</font></td>
+				 </tr>
+                 
+                <tr>
+                    <td class="t_title">版本</td>
+				    <td class="c_font">{$minfo.version}<font>(模型版本)</font></td>
+				 </tr>
+                 
+                 <tr>
+                    <td class="t_title">作者</td>
+				    <td class="c_font">{$minfo.author}<font>(模型作者)</font></td>
+				 </tr>
+                 
+                 <tr>
+                    <td class="t_title">模型feed template</td>
+				    <td class="c_textarea"><textarea rows=10 cols=60 name="feedtpl">{$minfo.feedtpl}</textarea><em>动态模板</em></td>
+				 </tr>
+                 
+                 
+                 <tr>
+                    <td class="t_title">模型配置文件</td>
+				    <td class="c_textarea"><textarea rows=10 cols=60 name="cfg">{$minfo.cfg}</textarea><em>模型配置文件,新手勿动</em></td>
+				 </tr>
+			   </table>
+		 </div>
+		 
+		 
+	  
+	  </div>
+	  
+	  <div class="btn_area">
+		   <input name="submit" class="btn_save" type="submit" value="保存更改" />
+		   <input name="submit" class="btn_return"  type="button" value="返回" onclick="window.history.go(-1)" />
+      </div>
+	  </form>
+  </div>
+{include file='admin/footer.html'}

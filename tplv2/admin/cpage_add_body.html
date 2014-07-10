@@ -1,0 +1,51 @@
+{include file='admin/header.html'}
+
+<div id="content">
+<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+    <div class="t_con">
+	
+	    <h3>添加/修改内容</h3>
+		
+		<div class="con_system">
+		       <table width="100%" cellpadding="0" cellspacing="0" border="0" class="table_padding">
+			      <tr>
+				      <td width="80" class="t_title">标题</td>
+                      <td class="c_select">
+					      <select id="select_1" name="addBody">
+						      {foreach item=item from=$ass}
+                               <option value="{$item.id}">{$item.title}</option>
+                              {/foreach}
+						  </select><font>修改及删除需谨慎</font>
+					  </td>
+                  </tr>
+                  <tr>
+				      <td class="t_title">内容</td>
+                      <td class="c_textarea"><textarea name="content" id="content" cols="70" rows="25">{$body.body}</textarea><em>注意，仅支持  p h3 img  a 标签,其中h3为2级标题p为段落</em></td>
+                  </tr>
+				  <input type="hidden" name="isSubmit" value="yes" />
+			  </table>
+		  </div>
+		  
+		  <div class="btn_area">
+		      <input name="edit" type="submit"  value="添加/保存" class="btn_save" />
+              <a href="{spUrl c=admin a=cpage}"><input name="add" type="button" value="返回" class="btn_return" /></a>
+         </div>
+	
+	</div>
+</form>    
+</div>
+{include file='admin/footer.html'}
+<script type="text/javascript" src="{$syskin}/js/editor/xheditor.js"></script>
+<script type="text/javascript">
+    $(function(){
+        _addBody={$smarty.get.addBody};
+        if(isNaN(_addBody)==false)
+            {
+                $("#select_1").attr('value',_addBody);
+            }
+            
+        $("#select_1").change(function(){
+            window.location.href="{spUrl c=admin a=cpage}&addBody=" + $("#select_1 option:selected").val();
+        });                         
+    });
+</script>

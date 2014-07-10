@@ -1,0 +1,106 @@
+{include file='admin/header.html'}
+
+<div id="content">
+
+    <div class="main">
+	    <input class="btn_common" type="button" value="添加分类" id="cp_add_show" />
+	    <input class="btn_common" type="button" value="添加/修改文章" id="cp_add_article" />
+		<input class="btn_common" type="button" value="刷新" id="cp_refresh" />
+		<div class="clear"></div>
+	</div>
+	
+	<!--begin-->
+	<div id="cp_add" class="t_con" style="display:none">
+	<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+	    <div class="con_system">
+		       <table width="100%" cellpadding="0" cellspacing="0" border="0" class="table_padding">
+			      <tr>
+				      <td width="80" class="t_title">分类*</td>
+					  <td class="c_input_small"><input type="text" name="title" id="title" /><font>修改及删除需谨慎</font></td>
+                  </tr>
+				  <tr>
+				      <td class="t_title">唯一地址*</td>
+                      <td class="c_input_small"><input type="text" name="tags" id="tags" /><font>一个英文的唯一地址用于显示页面比如 about</font></td>
+                  </tr>
+				  <tr>
+				      <td class="t_title">关键字</td>
+                      <td class="c_input_small"><input type="text" name="keyword" id="keyword" /><font>修改及删除需谨慎</font></td>
+                  </tr>
+                  <tr>
+				      <td class="t_title">描述</td>
+                      <td class="c_input_small"><input type="text" name="description" id="desc" /><font>修改及删除需谨慎</font></td>
+                  </tr>
+				  <tr>
+				      <td class="t_title">排序</td>
+                      <td class="c_input_small"><input type="text" name="orders" id="orders" /><font>修改及删除需谨慎</font></td>
+                  </tr>
+			  </table>
+			  
+			  <input type="hidden" name="addCategory" value="true"/>
+              <div class="btn_area">
+			      <input name="add" class="btn_save" type="submit" value="添加" />
+                  <input id="cp_add_hidden" name="cancel" class="btn_return" type="button" value="取消" />
+              </div>
+			  
+		 </div>
+	</form>
+	</div>
+	<!--end-->
+	<div class="con_cpage">
+	    
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_model">
+                        <tr class="table_title">
+						    <th width="30" class="m_title">排序</th>
+                            <th width="100">标题</th>
+							<th>唯一地址</th>
+                            <th>关键字</th>
+                            <th>描述</th>
+                            <th width="120">操作</th>
+                        </tr>
+                        {foreach from=$cpage_cate item=vo}
+                        <tr class="table_hover">
+							<td class="m_title">{$vo.orders}</td>
+                            <td>{$vo.title}</td>
+							<td>{$vo.tags}</td>
+                            <td>{$vo.keyword}</td>
+                            <td>{$vo.description}</td>
+                            <td class="fun_con">
+							    <a class="f_category" href="{spUrl c=admin a=cpage editCategory=$vo.id}" title="修改分类">分类</a>
+								<a class="f_edit" href="{spUrl c=admin a=cpage addBody=$vo.id}" title="编辑">编辑</a>
+								<a class="f_delete" href="{spUrl c=admin a=cpage del=$vo.id}" onclick="return confirm('删除分类会将分类下的内容一块删除,确认删除?')" title="删除">删除</a>
+							</td>
+                        </tr>
+                        {/foreach}
+                    </table>
+                    {$cpage_pager}
+		
+	</div>
+
+</div>
+{include file='admin/footer.html'}
+<script type="text/javascript">
+    $(function(){
+        //打开添加
+       $("#cp_add_show").click(function(){
+           $("#title").val("");
+           $("#keyword").val("");
+           $("#desc").val("");
+           $("#cp_add").slideToggle();
+       });
+       
+       //关闭添加
+       $("#cp_add_hidden").click(function(){
+           $("#cp_add").slideUp();
+       });
+       
+       //刷新本页
+       $("#cp_refresh").click(function(){
+           window.location.reload()
+       });
+       
+       //
+       $("#cp_add_article").click(function(){
+        window.location='{spUrl c=admin a=cpage addBody="true"}';   
+       });
+    });
+ </script>

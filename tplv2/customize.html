@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>个性设置</title>
+{include file="require_js.html" custom=yes editor=yes}
+<link rel="shortcut icon" href="{$syskin}/image/favicon.ico" type="image/x-icon">
+<link href="{$syskin}/css/reset.css" rel="stylesheet" type="text/css">
+<link href="{$syskin}/css/frame.css" rel="stylesheet" type="text/css">
+{literal}
+<script>
+$(document).ready(function(){
+ var jUpload=$('#upload_photo input');
+		jUpload.mousedown().change(function(){
+			var $this=$(this),sExt=$this.attr('ext'),$prev=$this.prev();
+			if($this.val().match(new RegExp('\.('+sExt.replace(/,/g,'|')+')$','i'))){
+				$('#uploading').toggle();
+				var upload=new textbody.html4Upload(this,urlpath+'/index.php?c=user&a=upavatar',function(sText){
+					$('#uploading').toggle();
+					var data=Object,bOK=false;
+				
+					try{data=eval('('+sText+')');}catch(ex){alert(sText)};
+					if(!data.err){
+						tips('头像更新成功,刷新后即可查看最新头像');
+						
+					}else{
+						tips(data.err);
+					}
+				});
+				
+				upload.start();
+			}
+			else alert('请上传'+sExt+'格式文件');
+		});
+	 })
+</script>
+{/literal}
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="{spUrl c=customize a=previewcss}" enctype="multipart/form-data">
+<div class="customizeTool">
+	<div class="menu">
+        <a href="javascript:void(0)" onclick="slideToggle('b_info_con',this)" class="current">博客信息</a>
+		<a href="javascript:void(0)" onclick="slideToggle('b_theme_con',this)">模板选择</a>
+        <a href="javascript:void(0)" onclick="slideToggle('b_themes_con',this)">专属模板</a>
+        <a href="javascript:void(0)" onclick="slideToggle('b_custom_con',this)">自定义主题设置</a>
+	</div>
+	<div class="savebutton">
+		<a href="javascript:void(0)" onclick="CannlConfig('{spUrl c=customize a=cal}')" class="btn_close">取消</a>
+		<a href="javascript:void(0)" onclick="saveConfig('{spUrl c=customize a=savetheme}')" class="btn_save">保存</a>
+	</div>
+	
+	<!--博客信息-->
+	<div class="blog_info" id="b_info_con">
+	    <div class="corner"></div>
+		<div class="title">博客头像</div>
+		<div class="set_avatar">
+		    <div class="set_upload">
+		        <div class="uploadBtn" id="upload_photo"><span></span>
+			        <input type="file" size="1" name="filedata" ext="jpg|jpeg|png" />
+				</div>
+				
+				<div id="uploading" style="display:none">正在上传...</div>
+		    </div>
+		    <div class="head_img">
+			    <img name="" src="{avatar uid=$smarty.session.uid size=middle time=1}" alt="当前头像"  />
+			</div>
+		    <div class="clear"></div>
+		</div>
+		<div class="title_d">博客昵称</div>
+		<div class="set_name">
+		     <input type="text" name="user[niname]" id="niname" class="iptni"  value="{$user.user.username}">
+		</div>
+		<div class="title_d">个性签名</div>
+		<div class="set_info">
+		    <textarea name="user[textarea]" id="textarea" style="width:100%;height:123px" >{$user.user.sign}</textarea>
+		</div>
+		{if $skin_config.page_limit}
+		<div class="set_info">
+		    <span>每页文章数量:</span>
+			<select name="setup[page_limit]">
+				{theme_page_limit num=30 default=$smarty.session.customize.setup.page_limit}
+			</select>
+		</div>
+	    {/if}
+	</div>
+	
+	<!--博客主题-->
+	<div class="blog_theme b_common" id="b_theme_con" style="display:none">
+	    <div class="corner"></div>
+		<div class="theme_box">
+			{if $smarty.session.customize.theme  != ''}
+			<li><a href="javascript:void(0)" onclick="setThemeId('{spUrl c=customize a=preview skinid=default}',this)">
+			<div class="t_bg"><img src="{$syskin}/theme/default/cover.jpg"  width="200" height="120" /></div></a>
+			<h2>云边默认</h2>
+			</li> 
+			{/if}
+		
+			{foreach from=$skins item=d}
+				
+				<li><a href="javascript:void(0)" onclick="setThemeId('{spUrl c=customize a=preview skinid=$d.id}',this)" {if $smarty.session.customize.theme == $d.skindir}class="current"{/if}>
+			 <div class="t_bg"><img src="{$syskin}/theme/{$d.skindir}/cover.jpg"  width="200" height="120" /></div></a>
+			 <h2>{$d.name}{if $d.usernumber > 10}({$d.usenumber}){/if}</h2>
+			 </li> 
+
+			{foreachelse}
+			 <li><a href="javascript:void(0)"><div class="t_bg"><img src="{$syskin}/theme/default/nocover.jpg"  width="200" height="120" /></div></a>
+			 <h2>没有更多主题</h2>
+			 </li> 
+			{/foreach}
+		</div>
+	
+	</div>
+	
+	<!--博客专属主题-->
+	<div class="blog_theme b_special" id="b_themes_con" style="display:none">
+	    <div class="corner"></div>
+		<div class="theme_box">
+			{foreach from=$exclu_skins item=d}
+			 <li><a href="javascript:void(0)" onclick="setThemeId('{spUrl c=customize a=preview skinid=$d.id}')" class="current">
+			 <div class="t_bg"><img src="{$syskin}/theme/{$d.skindir}/cover.jpg"  width="200" height="120" /></div></a>
+			 <h2>{$d.name}{if $d.usernumber > 10}({$d.usenumber}){/if}</h2>
+			 </li> 
+
+			{foreachelse}
+			 <li><a href="javascript:void(0)"><div class="t_bg"><img src="{$syskin}/theme/default/nocover.jpg"  width="200" height="120" /></div></a>
+			 <h2>没有专属主题</h2>
+			 </li> 
+			{/foreach}
+
+		</div>
+	
+	</div>
+	
+	<!--博客自定义设置-->
+
+	<div class="blog_custom"  id="b_custom_con" style="display:none">
+	    <div class="corner"></div>
+
+		{foreach from=$setting item=d}
+		<div class="set_custom">
+		    <div class="custom_title" title="{$d.description}">{$d.title}</div>
+			{themecustom type=$d.type data=$d.options id=$d.id lable=$d.findid default=$d.default formvalue=$smarty.session.customize.config}
+			<div class="clear"></div>
+		</div>
+		{/foreach}
+			
+		<div class="set_button">
+			<input type="submit" name="submit" id="submit" value="预览" class="preview"/>
+			<input type="button" value="默认设置" class="default" onclick="customDefault('{spUrl c=customize a=customdefault}')"/>
+		</div>
+	</div>
+
+</div>
+</form>
+
+<iframe width="100%" frameborder="0" name="previewIframe" id="previewIframe" src="{goUserHome uid=$smarty.session.uid}"></iframe>
+<script type="text/javascript">
+window.setInterval("reinitIframe()", 100);
+</script>
+</body>
+</html>

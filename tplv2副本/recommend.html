@@ -1,0 +1,61 @@
+{include file="require_header.html" layout=yes}
+{literal}
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+	do_recommend(0);
+})
+
+//recommend频道
+function do_recommend(tagid){
+	$('#feed_loading').show();
+	$('#follow_font').hide();
+	$('.recommend_sort').find('li').removeClass('current');	
+	$.paging({ctn1:"#follow_area",ctn2:'#paging',yc:'blog',ym:'recommendUser',showpage:true,yprm:{tid:tagid},ftype:function(d){
+	    $('.recommend_sort').find('#cate_'+tagid).addClass('current');
+		$('.recommend_blog').html('');
+		$('#feed_loading').hide();
+		if(d.body.data.length >0){
+				$('.recommend_blog').append(template('tmpl_recommend',d.body));
+		}else{
+			$('#follow_font').show();
+		}
+		
+	}});
+}
+</script>
+{/literal}
+
+<div id="index">
+    <div class="recommend_sort">
+	    <ul>
+	        <li id="cate_0"><a href="javascript:;" onclick="do_recommend(0)">全部</a></li>
+			{foreach from=$systag item=d}
+			<li id="cate_{$d.cid}"><a href="javascript:;" onclick="do_recommend({$d.cid})">{$d.catename}</a></li>
+			{/foreach}
+			<div class="clear"></div>
+			
+		</ul>
+	</div>
+		{if isset($adunit.4) && $adunit.4.is_show == 1}
+			<div id="ad_recommend"></div>
+			<script>
+				$(document).ready(function(){
+					ad_aside('#ad_recommend',4);
+					setInterval(function(){
+						ad_aside('#ad_recommend',4);
+					}, 30000);
+				})
+			</script>
+		{/if}
+	
+	<div id="feed_loading" style="margin:20px auto;"></div>
+	
+	<div class="recommend_blog"></div>
+	
+	<div id="follow_font" class="recommend_font">暂时没有推荐</div>
+	<div id="paging"></div>
+	
+</div>
+
+{include file="require_footer.html"}

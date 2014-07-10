@@ -1,0 +1,329 @@
+{include file="require_header.html" addcss=yes editor=yes}
+{literal}
+<script>
+$(document).ready(function(){
+
+ var jUpload=$('#upload_photo input');
+		jUpload.mousedown().change(function(){
+			var $this=$(this),sExt=$this.attr('ext'),$prev=$this.prev();
+			if($this.val().match(new RegExp('\.('+sExt.replace(/,/g,'|')+')$','i'))){
+				$('#uploading').toggle();
+				var upload=new textbody.html4Upload(this,urlpath+'/index.php?c=user&a=upavatar',function(sText){
+					$('#uploading').toggle();
+					var data=Object,bOK=false;
+				
+					try{data=eval('('+sText+')');}catch(ex){alert(sText)};
+					if(!data.err){
+						var uid = $('#big_face').attr('rel');						
+						$('#big_face').attr('src',urlpath+"/avatar.php?uid="+uid+"&size=big&random="+new Date());
+						$('#middle_face').attr('src',urlpath+"/avatar.php?uid="+uid+"&size=middle&random="+new Date());
+						$('#small_face').attr('src',urlpath+"/avatar.php?uid="+uid+"&size=small&random="+new Date());
+						tips('头像更新成功');
+						
+					}else{
+						tips(data.err);
+					}
+				});
+				
+				upload.start();
+			}
+			else alert('请上传'+sExt+'格式文件');
+		});
+		
+		
+/*保存个人资料修*/
+	$('#submit_baseinfo').click(function(){
+		$('#pb-submiting-tip,#submit_baseinfo,#cancel').toggle();
+		var tag_str='';
+		$('#system-tag-list .current').each(function(){  
+			tag_str  += $(this).attr('tag') + ',' +$(this).attr('tid') + '|';
+		})
+
+		 chks = /^[a-zA-Z]{1}([a-zA-Z0-9]|[._]){1,15}$/;
+		if(!chks.exec($('#domain').val() )){
+		$('#pb-submiting-tip,#submit_baseinfo,#cancel').toggle();
+		tips('个性域名不符合要求'); return false;
+		}
+		var args = {
+			niname : $('#niname').val(),
+			domain : $('#domain').val(),
+			sign   : $('#textarea').val(),
+			m_rep  : $('#m_rep').is(":checked") ? 1 : 0,
+			m_fows : $('#m_fow').is(":checked") ? 1 : 0,
+			m_pms  : $('#m_pm').is(":checked") ? 1 : 0,
+			tag    : tag_str
+		}
+		$.ybAPI('user','save_baseinfo',args,function(data){
+			if(data.status == 0 ){
+				tips(data.msg);
+				$('#pb-submiting-tip,#submit_baseinfo,#cancel').toggle();
+			}else{
+				$('#pb-submiting-tip,#submit_baseinfo,#cancel').toggle();
+				tips('资料保存成功');
+			}
+		});
+	});
+	
+	$('#submit_password').click(function(){
+		var args = {
+			pwd : $('#pwd').val(),
+			pwd1: $('#pwd1').val(),
+			pwd2: $('#pwd2').val()
+		}
+		if(args.pwd == '' || args.pwd1 == ''){
+			tips('原始密码或新密码不能为空');
+			return false;
+		}
+		if(args.pwd1 != args.pwd2){
+			tips('两次密码输入不一致');
+			return false;
+		}
+		if(args.pwd1.length  < 6){
+			tips('为了您的安全,密码最短为6位');
+			return false;
+		}
+		$('#submit_loading,#submit_password').toggle();
+		$.ybAPI('user','save_password',args,function(data){
+			console.log(data);
+			if(data.status == 1 ){
+				alert('密码修改成功,您需要立即重新登录来保障您的安全');
+				window.location.reload();
+			}else{
+				$('#submit_loading,#submit_password').toggle();
+				tips(data.msg);
+			}
+		});		
+	});
+});
+</script>               
+{/literal}
+
+<div id="user_index">
+    <div id="user_tab">
+	    <div class="set_theme"><a href="{spUrl c=customize}"><span>主题管理</span></a></div>
+	    <li id="tab_person" class="curr"><a href="javascript:void(0)" onclick="SelectPerson(this)">个人资料</a><div class="curpoint"></div></li>
+		<li id="tab_head"><a href="javascript:void(0)" onclick="SelectHead(this)">我的头像</a><div class="curpoint"></div></li>
+		{if $yb.openlogin_qq_open == 1 || $yb.openlogin_weib_open == 1}<li id="tab_invite"><a href="javascript:void(0)" onclick="SelectInvite(this)">账号绑定</a><div class="curpoint"></div></li>{/if}
+		<li id="tab_safe"><a href="javascript:void(0)" onclick="SelectSafe(this)">密码修改</a><div class="curpoint"></div></li>
+		<div class="clear"></div>
+	</div>
+	
+    <div id="conPerson">
+	    <div class="con_table">
+		    <div class="user_right">
+			    <input type="text"  class="iptname"  value="{$users.email}" disabled="disabled">
+			</div>
+	        <div class="user_left">我的账号</div>
+		    <div class="clear"></div>
+		</div>
+		
+		<div class="con_table">
+		    <div class="user_right">
+			    <input type="text" name="niname" id="niname" class="iptni"  value="{$users.username}"><span class="info">名称唯一,可修改</span>
+			</div>
+	        <div class="user_left">我的昵称</div>
+		    <div class="clear"></div>
+		</div>
+		
+		<div class="con_table">
+		    <div class="user_right">
+			     <input type="text" class="iptname"  value="{$url}" disabled="disabled" >
+				 <input type="text" name="domain" id="domain" class="ipt"  value="{$users.domain}">
+				 <span class="info">名称唯一,可修改</span>
+			</div>
+	        <div class="user_left">个性域名</div>
+		    <div class="clear"></div>
+		</div>
+		
+		<div class="con_table">
+		    <div class="user_right">
+			    
+			    <ul class="clearfix" id="system-tag-list">
+				    {foreach from=$systag item=d}
+					{if in_array($d.catename,$blogtag)}
+			        <li tag="{$d.catename}" tid="{$d.cid}" class="current"><a href="javascript:void(0)" onclick="setFolowTag(this)">{$d.catename}</a></li>
+					{else}
+					<li tag="{$d.catename}" tid="{$d.cid}"><a href="javascript:void(0)" onclick="setFolowTag(this)">{$d.catename}</a></li>
+					{/if}
+			        {/foreach}
+					
+				</ul>
+				
+			</div>
+			
+	        <div class="user_left">关注分类</div>
+		    <div class="clear"></div>
+		</div>
+		
+		<div class="con_table">
+		    <div class="user_right">
+			    <textarea name="textarea" id="textarea" style="width:100%; height:200px" class="pb-input-text" >{$users.sign}</textarea>
+                <input type="hidden" name="tag" id="tag" value="" />
+				 
+			</div>
+	        <div class="user_left">个性签名</div>
+		    <div class="clear"></div>
+		</div>
+		
+		<div class="con_table">
+		    <div class="user_right">
+			    <h3>请允许以下方式邮件通知我</h3>
+				<div class="check_con">
+					<label>
+					{if $users.m_rep == 1}
+						<input name="m_rep" id="m_rep" type="checkbox" value="1" checked="checked" />
+					{else}
+						<input name="m_rep" id="m_rep" type="checkbox" value="0"/>
+					{/if}
+						
+						<span>回复通知</span>
+					</label>
+					<label>
+					{if $users.m_fow == 1}
+						<input name="m_fow" id="m_fow" type="checkbox" value="1" checked="checked" />
+					{else}
+						<input name="m_fow" id="m_fow" type="checkbox" value="0"/>
+					{/if}
+						<span>关注通知</span>
+					</label>
+					<label>
+					{if $users.m_pm == 1}
+						<input name="m_pm" id="m_pm" type="checkbox" value="1" checked="checked" />
+					{else}
+						<input name="m_pm" id="m_pm" type="checkbox" value="0"/>
+					{/if}
+						<span>私信通知</span>
+					</label>
+				</div>
+				 
+			</div>
+	        <div class="user_left">邮件通知</div>
+		    <div class="clear"></div>
+		</div>
+
+		
+	</div>
+	
+	<div id="conHead" style="display:none">
+	  
+	     <div class="con_table">
+		    <div class="user_right">
+			    
+                
+                <div class="head_upload">
+					    <span>
+						    <div class="uploadhead" id="upload_photo"><span></span><input type="file" size="1" name="filedata" ext="jpg|jpeg|png" /></div>
+						</span>
+						<span id="uploading" style="display:none">正在上传...</span>
+						<div class="clear"></div>
+				</div>
+                    
+                    
+			    <div class="head_img">
+				    <img name="" id="big_face" rel="{$smarty.session.uid}" src="{avatar uid=$smarty.session.uid size=big time=1}" alt="当前头像" />
+				</div>
+                
+                <div class="head_img">
+				    <img name="" id="middle_face" src="{avatar uid=$smarty.session.uid size=middle time=1}" alt="当前头像"  />
+				</div>
+                
+                <div class="head_img_small">
+				    <img name=""  id="small_face" src="{avatar uid=$smarty.session.uid size=small time=1}" alt="当前头像"  />
+				</div>
+			</div>
+	        <div class="user_left">我的头像</div>
+		    <div class="clear"></div>
+		</div>
+	
+	</div>
+	
+	<div id="conInvite" style="display:none">
+		{if $yb.openlogin_qq_open == 1}
+	    <div class="con_table">
+		    <div class="user_right">
+				{if $bind.QQ}
+					<div class="none_connect"><a href="javascript:void(0)" onclick="cancelConnect('qq')">取消绑定</a></div>
+					<div class="status">已经绑定<font>腾讯QQ</font>
+					<em>(授权过期时间：{$bind.QQ.expires|date_format:'%Y-%m-%d'})</em></div>
+				{else}
+					<div class="bd_connect"><a href="{spUrl c=openconnect a=qq}" target="_blank">立即绑定</a></div>
+					<div class="status">尚未绑定到<font>腾讯QQ</font>
+					</div>
+				{/if}
+			
+			  
+			</div>
+	        <div class="user_left"><span class="qq_connenct">腾讯QQ</span></div>
+		    <div class="clear"></div>
+		</div>
+		{/if}
+		
+		{if $yb.openlogin_weib_open == 1}
+		<div class="con_table">
+		
+		{if $bind.WEIB}
+			<div class="user_right">
+			<div class="none_connect"><a href="javascript:void(0)" onclick="cancelConnect('WEIB)">取消绑定</a></div>
+				<div class="status">已绑定<font>新浪微博</font><em>(授权过期时间：2012-7-28)</em></div>
+				</div>
+			<div class="user_left"><span class="sina_connenct">新浪微博</span></div>
+			<div class="clear"></div>
+		{else}
+			<div class="user_right">
+			<div class="bd_connect"><a href="{spUrl c=openconnect a=weibo}" target="_blank">立即绑定</a></div>
+				<div class="status">尚未绑定到<font>新浪微博</font></div>
+				</div>
+			<div class="user_left"><span class="sina_connenct">新浪微博</span></div>
+			<div class="clear"></div>
+		{/if}
+				
+		  
+		</div>
+		{/if}
+
+	</div>
+	
+	<div id="conSafe" style="display:none">
+	    
+		<div class="con_table">
+		    <div class="user_right">
+			    <input type="password" id="pwd" class="ipt">
+			</div>
+	        <div class="user_left">原始密码</div>
+		    <div class="clear"></div>
+		</div>
+		
+		<div class="con_table">
+		    <div class="user_right">
+			     <input type="password" name="pwd1" id="pwd1" class="ipt"/>
+			</div>
+	        <div class="user_left">新密码</div>
+		    <div class="clear"></div>
+		</div>
+		
+		<div class="con_table">
+		    <div class="user_right">
+			     <input type="password" name="pwd2" id="pwd2" class="ipt"/>
+			</div>
+	        <div class="user_left">重复密码</div>
+		    <div class="clear"></div>
+		</div>
+
+		<div class="con_last">
+		    <input type="button" value="保存密码" class="savepw" id="submit_password"/>
+			<span id="submit_loading"></span>
+		</div>
+		
+		
+	</div>
+	
+	<div class="con_sub" id="pb-action-holder">
+		<a id="submit_baseinfo">保存</a>
+		<a id="cancel">取消</a>
+		<span style="display:none;" id="uploading">正在保存...</span>
+		<div class="clear"></div>
+	</div>
+	
+</div>
+
+{include file="require_footer.html"}

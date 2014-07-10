@@ -1,0 +1,100 @@
+{include file='admin/header.html'}
+
+<div id="content">
+
+    <div class="main">
+	    <a class="btn_common_a" href="{spUrl c=admin a=adContent edit=add}">创建广告</a>
+	    <input class="btn_common"  type="button" value="刷新" id="ad_refresh" />
+		<div class="clear"></div>
+	</div>
+
+	<div class="con_cpage">
+	<form id="form1" name="form1" method="post" action="">   
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_model">
+                        <tr class="table_title">
+						    <th class="m_title">广告标题</th>
+                            <th>广告类型</th>
+                            <th>广告位</th>
+                            <th>日期</th>
+                            <th>广告状态</th>
+                            <th>编辑</th>
+                        </tr>
+                        {foreach from=$adList_list item=d}
+                        <tr class="table_hover">
+							<td class="m_title">{$d.title}</td>
+                            <td>{$d.type}</td>
+                            <td>{$d.auid}</td>
+                            <td>{$d.time_date_limit}</td>
+                            <td class="fun_con">{if $d.is_show==1}<a class="f_open" href="{spUrl c=admin a=adContent flag=close en_show=0 id=$d.adid}" title="已开启,点击关闭">已开启,点击关闭</a>{else}<a class="f_close" href="{spUrl c=admin a=adContent flag=close en_show=1 id=$d.adid}" title="已关闭,点击开启">已关闭,点击开启</a>{/if}</td>
+                            <td class="fun_con"><a class="f_edit" href="{spUrl c=admin a=adContent edit=$d.adid}" title="编辑">编辑</a><a class="f_delete" href="{spUrl c=admin a=adContent del=$d.adid}" onclick="return(confirm('确定删除?'))" title="删除">删除</a></td>
+                        </tr>
+                        {/foreach}
+                    </table>
+                    {$adUnit_pager}
+	</form>
+	</div>
+    
+</div>
+
+{include file='admin/footer.html'}
+<script type="text/javascript" src="{$syskin}/js/kalendae/kalendae.min.js"></script>
+<link rel="stylesheet" href="{$syskin}/js/kalendae/kalendae.css" type="text/css" charset="utf-8">
+<script type="text/javascript">
+    $(function(){
+        //打开添加
+        $("#ad_add_show").click(function(){
+            $("#title").val("");
+            $("#keyword").val("");
+            $("#desc").val("");
+            $("#ad_add").slideToggle();
+        });
+       
+        //关闭添加
+        $("#ad_add_hidden").click(function(){
+            $("#ad_add").slideUp();
+        });
+       
+        //刷新本页
+        $("#ad_refresh").click(function(){
+            window.location.reload()
+        });
+        //日期选择
+        new Kalendae.Input('date1',{
+            format:"YYYY-MM-DD"
+        });
+        new Kalendae.Input('date2',{
+            format:"YYYY-MM-DD"
+        });        
+        //当选择的广告位不是系统广告位时。广告类型的 右下角弹出和全屏才可以选择
+        $("#select_auid").change(function(){
+            $("#select_type option").remove();
+            if(100<=$("#select_auid").val())
+            {
+                $("#select_type").append("<option value='1'>图片</option><option value='2'>HTML广告</option><option value='3'>右下角弹出</option><option value='4'>全屏</option>");
+            }else
+            {
+                $("#select_type").append("<option value='1'>图片</option><option value='2'>HTML广告</option>");
+            }
+            _changeShow();
+        });
+        //如果是图片,则显示上传
+        _changeShow();
+        $("#select_type").change(function(){
+            _changeShow();
+        });
+        //清除时间
+        $("#clear_date").click(function(){
+            $("#date1").val("");
+            $("#date2").val("");
+        });
+    });
+
+    //如果是图片则显示上传,
+    function _changeShow(){
+        if(1 == $("#select_type").val()){
+            $("#ad_content").html("<input type=\"file\" name=\"body\" />");
+        }else{
+              $("#ad_content").html("<textarea name=\"body\"></textarea>");
+        }
+    }
+</script>

@@ -1,0 +1,80 @@
+{include file='admin/header.html'}
+<div id="content">
+<form id="form1" name="form1" method="post" action="">
+    <div class="t_con">
+	    <h3>搜索</h3>
+		<div class="con_system">
+		       <table width="100%" cellpadding="0" cellspacing="0" border="0" class="table_padding">
+			       <tr>
+				      <td width="50" class="t_title">按标题</td>
+					  <td width="180" class="c_input_small"><input type="text" name="title" value="{$get.title}"  /></td>
+					  <td width="60" class="t_title">按用户ID</td>
+					  <td width="180" class="c_input_small"><input name="niname" type="text" value="{$get.niname}"/></td>
+					  <td><input name="submit" class="btn_return"  type="submit" value="搜索" />
+					  </td>
+				   </tr>
+			   </table>
+		 </div>
+		
+	</div>
+</form>
+   
+	
+	<div class="con_index" style="margin-bottom:10px;">
+		<div class="sec"><h2>列表</h2></div>
+		<div class="navpage">{$pager}<div class="clear"></div></div>
+		
+		<input class="btn_return" type="button" onclick="checkAll('ckeckbox')" value="全选" name="button">
+		<input class="btn_del submit" type="button" value="删除" onclick="delblog_all()">
+		
+		      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_model">
+			     <tr class="table_title">
+					  <th width="30" class="m_title">操作</th>
+				      <th width="30">ID</th>
+					  <th>标题</th>
+					  <th width="80">作者</th>
+					  <th width="120">标签</th>
+					  <th width="40">类型</th>
+					  <th width="40">草稿</th>
+					  <th width="40">点击</th>
+					  <th width="40">动态</th>
+					  <th width="40">评论</th>
+					  <th width="40">评论</th>
+					  <th width="60">时间</th>
+					   <th width="60">操作</th>
+				   </tr>
+				   {foreach from=$blog item=d}
+				   <tr class="table_hover" id="blog_{$d.bid}">
+				     <td class="m_title" style="padding-top:13px"><input id="checkbox" class="ckeckbox" type="checkbox" name="delid" delid="{$d.bid}"></td>
+				      <td>{$d.bid}</td>
+					  <td class="tt_title"><a href="{goUserBlog bid=$d.bid}" target="_blank">{if $d.title == ''}没有标题{else}{$d.title}{/if}</a></td>
+					  <td class="to_title"><a href="{spUrl c=blog a=gouser uid=$d.user.uid}" target="_blank">{$d.user.username}({$d.user.uid})</a></td>
+					  <td class="to_title">{tag tag=$d.tag c=tag}</td>
+					  <td>{if $d.type == 1}文字
+					  {elseif $d.type ==2}音乐
+					  {elseif $d.type ==3}图片
+					  {elseif $d.type == 4}视频
+					  {elseif $d.type == 5}宝贝
+					  {elseif $d.type == 6}电影
+					  {/if}</td>
+					  <td>{if $d.open == 1}<div class="fun_no"></div>{else}<div class="fun_yes"></div>{/if}</td>
+					  <td>{$d.hitcount}</td>
+					  <td>{$d.feedcount}</td>
+					  <td>{$d.replaycount}</td>
+					  <td>{if $d.noreply == 1}<div class="fun_no"></div>{else}<div class="fun_yes"></div>{/if}</td>
+					  <td>{ybtime time=$d.time}</td>
+					  <td class="fun_con mfun">
+					      <a class="f_edit mtop" href="{spUrl c=post a=edit id=$d.bid model=$d.type}" target="_blank">编辑</a> 
+						  <a class="f_delete mtop" href="javascript:;" onclick="delblogs({$d.bid})">删除</a></td>
+				   </tr>
+				   {/foreach}
+			  </table>
+
+	 </div>
+	 <input class="btn_return" type="button" onclick="checkAll('ckeckbox')" value="全选" name="button">
+	 <input class="btn_del submit" type="button" value="删除" onclick="delblog_all()">
+	 
+	  <div class="navpage">{$pager}<div class="clear"></div></div>
+	
+</div>
+{include file='admin/footer.html'}

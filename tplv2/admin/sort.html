@@ -1,0 +1,101 @@
+{include file='admin/header.html'}
+  <div id="content">
+
+    
+ <h2>主题分类管理</h2>
+    <div id="setup">
+    </div>
+    
+	  <div class="nav">{$pager}</div>
+  
+	   <table width="90%" border="1" align="center" class="table2">
+    <tr>
+
+        <th width="130" height="30" align="center" valign="middle">显示顺序</th>
+         <th width="220" align="center" valign="middle">分类名称</th>
+        <th width="" align="center" valign="middle">操作</th>
+      </tr>
+    {foreach from=$sort item=list}
+    <tr>
+      <td ><input type="text" name="order{$list.id}" value="{$list.order}" class="order" /></td>
+      <td valign="middle"><a href="javascript:void(0)" fid="{$list.id}" class="ud" title="点击修改">{$list.typename}</a></td>
+      <td align="center">
+		
+		<a href="{spUrl c=admin a=sort mod=del id=$list.id}" class="del" onclick="return confirm('您确定要删除这个栏目么？');">删除</a>
+	</td>
+    </tr>
+    {$son->get_son_channel($list.id)}
+    <tr>
+    	<td></td>
+    	<td style="padding-left:30px;"><a href="{spUrl c=admin a=sort mod=add fid=$list.id}" onclick="return false" style="color:#CC6600;" class="son" fid="{$list.id}">┕&nbsp;&nbsp;添加二级子分类</a></td>
+    	<td></td>
+    </tr>
+    {/foreach}
+    <tr>
+    	<td></td>
+    	<td style="padding-left:0px;"><a href="{spUrl c=admin a=sort mod=add fid=0}" class="father" fid="0" onclick="return false" style="color:#CC6600;">┕&nbsp;&nbsp;添加主分类</a></td>
+    	<td></td>
+    </tr>
+    </table>
+    
+
+    
+    <div class="nav">{$pager}</div>
+    
+    
+    
+   
+  </div>
+{include file='admin/footer.html'}
+<script>
+$('.son').click(function(){
+	var fid = $(this).attr('fid');
+	$(this).parent().parent().before('<tr id="t'+fid+'"><td  style="padding-left:20px;" valign="middle"><input type="text" name="order'+fid+'" value="" class="order" id="order'+fid+'" /></td><td style="padding-left:30px;">┕&nbsp;&nbsp;<input type="text" name="typename'+fid+'" id="typename'+fid+'" /></td><td valign="middle"><input type="submit" value="添加" onclick="add('+fid+')" style="width:60px;" /></td></tr>');
+})
+$('.father').click(function(){
+	var fid = $(this).attr('fid');
+	$(this).parent().parent().before('<tr id="t'+fid+'"><td valign="middle"><input type="text" name="order'+fid+'" value="" class="order" id="order'+fid+'" /></td><td><input type="text" name="typename'+fid+'" id="typename'+fid+'" /></td><td valign="middle"><input type="submit" value="添加" onclick="add('+fid+')" style="width:60px;" /></td></tr>');
+})
+{literal}
+function add(fid)
+{
+	var order = $('#order'+fid).val();
+	var typename = $('#typename'+fid).val();
+	$.post('index.php?c=admin&a=sort&do=add',{order:order,typename:typename,fid:fid,k:Math.random()},function(data){
+			if(data !== 0)
+			{
+				if(fid!=0)$('#t'+fid).html(' <td style="padding-left:20px;"><input type="text" name="order'+data+'" value="'+order+'" class="order" /></td><td valign="middle" style="padding-left:30px;"><a href="javascript:void(0)" title="点击修改" class="ud" fid='+data+'>┕&nbsp;&nbsp;'+typename+'</a></td><td align="center"><a href="index.php?c=admin&a=sort&mod=show&id='+data+'" class="show" target="_blank">预览</a><a href="index.php?c=admin&a=sort&mod=edit&id='+data+'" class="edit">编辑</a><a href="index.php?c=admin&a=sort&mod=del&id='+data+'" class="del" onclick="return confirm(\'您确定要删除这个栏目么？\');">删除</a></td>')
+				else $('#t'+fid).html(' <td><input type="text" name="order'+data+'" value="'+order+'" class="order" /></td><td valign="middle"><a href="javascript:void(0)" title="点击修改" class="ud" fid='+data+'>'+typename+'</a></td><td align="center"><a href="index.php?c=admin&a=sort&mod=show&id='+data+'" class="show" target="_blank">预览</a><a href="index.php?c=admin&a=sort&mod=edit&id='+data+'" class="edit">编辑</a><a href="index.php?c=admin&a=sort&mod=del&id='+data+'" class="del" onclick="return confirm(\'您确定要删除这个栏目么？\');">删除</a></td>')
+				location.reload();
+			}
+		})
+}
+
+$(function(){
+	$('.tableven').css('background-color','#FFFFFF');
+	$('.table2 tr td input[type=text]').css('border','1px solid #7F9DB9');
+	$('.table2 tr td input[type=text]').css('text-align','center');
+})
+function update(value,id,obj){
+	if(value.match(/^\s*$/))
+	{
+		alert('栏目名称不能为空');
+		return false;
+	}	
+	$.post('index.php?c=admin&a=sort&mod=edit',{typename:value,id:id},function(r){
+		if(r==1)
+		{
+			v = '<a href="javascript:void(0)" fid="'+id+'" class="ud" title="点击修改">'+value+'</a>';
+			$('input[class=upd]').parent().html(v);
+		}
+	})
+}
+$('.ud').click(function(){
+	var id = $(this).attr('fid');
+	var con = $(this).text();
+	$(this).parent().html('<input type="text" name="typename" value="'+con+'" class="upd" onblur=update(this.value,'+id+',this) />');
+	$('.upd').focus();
+})
+
+{/literal}
+</script>

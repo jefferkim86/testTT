@@ -1,0 +1,42 @@
+{include file='admin/header.html'}
+
+<div id="content">
+
+    <div class="main">
+        <li  class="hover"><a>编辑内容</a></li>
+    </div>
+    <div class="m_content">
+        <div id="con_two_1" class="con">
+            <div>
+                <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table3">
+                        <tr>
+                            <td>标题</td>
+                            <td>
+                                <select style="width:400px;" name="addBody">
+                                    {foreach item=item from=$ass}
+                                    <option value="{$item.id}">{$item.title}</option>
+                                    {/foreach}
+                                </select>
+                            </td>
+                            <td> <div class="tip_free" ><font>修改及删除需谨慎</font></div></td>
+                        </tr>
+                        <tr>
+                            <td>内容</td>
+                            <td><textarea name="content" class="xheditor"id="content" style="width:400px;height:200px;">{$body}</textarea></td>
+                            <td> <div class="tip_free" ><font>修改及删除需谨慎</font></div></td>
+                        </tr>
+                    </table>
+                    <input type="hidden" name="id" value="{$ass.id}" />
+                    <div class="btn_area">
+                        <div class="btn_box"><input name="edit" type="submit"  value="保存更改" /></div>
+                        <div class="btn_box"><a href="{spUrl c=admin a=cpage}"><input name="add" type="button" value="放弃编辑" /></a></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{include file='admin/footer.html'}
+<script type="text/javascript" src="{$syskin}/js/editor/xheditor.js"></script>

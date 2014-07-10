@@ -1,0 +1,37 @@
+﻿{include file="require_header.html"}
+
+<div id="index">
+<form action="{spUrl c=post a=saved model=$mid}" id="form1" method="post">
+    <div id="aside">
+	    <div id="aside_box">
+		    <div class="aside_right">
+				 {foreach $custompage_cate as $cate}
+					{if $tags == $cate.tags}
+						<li class="current"><div class="corner"></div><a href="{spUrl c=site page=$cate.tags}" title="{$cate.title}">{$cate.title}</a></li>
+					{else}
+						<li><a href="{spUrl c=site page=$cate.tags}" title="{$cate.title}">{$cate.title}</a></li>
+					{/if}
+				{/foreach}
+				
+			</div>
+		</div>
+	</div>
+    
+	<div id="article">
+	    <div id="box">
+	        <div class="box_title">{$title}</div>
+			<div class="box_con">
+			    
+				{$body}
+				
+			</div>
+
+
+	    </div>
+	    </div>
+	
+	</div>
+</form>
+</div>
+
+{include file="require_footer.html"}

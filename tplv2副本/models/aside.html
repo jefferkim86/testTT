@@ -1,0 +1,88 @@
+				<div class="aside_item" id="post-privacy-holder">
+				    <select id="savetype" name="savetype">
+					<option value="1" {if $blog.open == 1}selected{/if}>所有人可见</option>
+					<option value="0">保存为草稿</option>
+					<option value="-1" {if $blog.open == -1}selected{/if}>仅自己可见</option>
+					</select>
+				</div>
+				
+				<div class="aside_line"></div>
+				
+				<div class="aside_con" id="post-tag-holder">
+				    <div id="post-tag">
+					    <ul class="clearfix" id="post-tag-list">
+						<!--动态插入标签-->
+						{foreach from=$myTag item=d}
+						    <li tag="{$d}">{$d}<a href="javascript:void(0)" onClick="remTags(this)">x</a></li>
+						{/foreach}
+						</ul>
+						<div id="post-tag-input-holder">
+						    <input type="text" id="post-tag-input" value="">
+						</div>
+					</div>
+				</div>
+				
+				<div class="aside_line"></div>
+				
+				<div class="aside_con" id="recommand-tag-holder">
+				    <h3>推荐标签</h3>
+					<ul class="clearfix" id="recommand-tag-list">
+					    {foreach from=$myTagUsually item=d}
+					    <li tag="{$d.title}"><a href="javascript:void(0)" onClick="tuiTag('{$d.title}',this)">{$d.title}</a></li>
+						{/foreach}
+					</ul>
+					<div class="clear"></div>
+				</div>
+				
+				<div class="aside_line"></div>
+				
+				<div class="aside_con" id="top-post-holder">
+				    <label>
+					{if $blog.top ==1}
+					<input type="checkbox" id="top" name="top" value="1" checked="checked">
+					{else}
+					<input type="checkbox" id="top" name="top" value="1">
+					{/if}
+					<font>文章置顶</font>
+					</label>
+					<p>多个置顶将按照时间排序</p>
+				</div>
+				
+				<div class="aside_line"></div>
+				
+				<div class="aside_con" id="top-post-holder">
+				    <label>
+					{if $blog.noreply ==1}
+					<input type="checkbox" id="noreplay" name="noreplay" value="1" checked="checked">
+					{else}
+					<input type="checkbox" id="noreplay" name="noreplay" value="1">
+					{/if}
+					<font>禁止评论</font>
+					</label>
+					<p>本条内容不允许评论</p>
+				</div>
+                
+                {if $weibo==yes || $qqwb==yes}
+                <div class="aside_line"></div>
+				{/if}
+                
+                {if $weibo == yes}
+                	 {if $smarty.session.openconnect.WEIB}
+				    <div class="aside_con" id="top-post-holder">
+					    <label>
+						    <input name="openconnect[WEIB]" type="checkbox"  value="1" checked="checked"><span>同步新浪微博</span>
+						</label>
+					</div>
+					{/if}
+			   {/if}
+               
+               {if $qqwb == yes}
+               <div class="aside_con">
+					<div class="pb-side-opt" id="top-post-holder">
+					    <label>
+						    <input name="pb-sync-to-qqweibo" type="checkbox" id="pb-sync-to-qqweibo" value="1"><span>同步腾讯微博</span>
+						</label>
+					</div>
+				</div>
+               {/if}
+				

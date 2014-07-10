@@ -1,0 +1,68 @@
+{include file="require_header.html" loadedit=yes}
+<script>
+{literal}
+$(document).ready(function(){ 
+	pmlist();
+	$('#send_submit').click(function(){
+		var name = $('#niname').val();
+		var txt  = $('#textarea').val();
+		if(name == '' || txt == ''){
+			waring('发信人或内容不能为空');
+			return false;
+		}
+		$('#pm_loading,#send_submit').toggle();
+		$.ybAPI('pm','sendpm',{username:name,body:txt},function(data){
+			$('#pm_loading,#send_submit').toggle();
+			if(data.status == 0){
+				waring(data.msg);
+			}else{
+				tips('您的信件已经成功发送');
+				$('#niname,#textarea').val('');
+			}
+		});
+	})
+})
+{/literal}
+</script>
+<div id="index">
+    <div id="article">
+	    
+		<div id="pm_title">
+	        <div class="post_bg">
+	            <a href="javascript:;" onclick="pmlist()"><span class="current" id="pm_list">我的私信</span></a>
+				<a href="javascript:;" onclick="openPmpost()"><span id="pm_post">发送私信</span></a>
+		    </div>
+			<div class="clear"></div>
+	    </div>
+		
+	    <div id="pm_index">
+		    <div id="feed_loading" style="margin-left:275px;"></div>
+			<div class="pm_list"></div>
+			
+			<div class="pm_post" id="pm_send" style="display:none">
+			    <div class="pp_con">
+				    <div class="pp_title"><input type="text" id="niname" class="iptname"><span>收信人昵称</span></div>
+					<div class="pp_content">
+					    <textarea name="textarea" id="textarea"></textarea>
+					</div>
+					<div class="pp_btn">
+					    <a href="javascript:;" id="send_submit"><span>发送</span></a>
+						<div class="sub_loading" id="pm_loading" style="display:none;padding-left:20px"></div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="pm_none follow_font" id="follow_font" style="display:none;">
+			 <h2>您还没有私信</h2>
+		</div>
+			
+		<div id="paging"></div>
+
+	</div>
+	<div id="aside">
+        {include file="require_sider.html"}
+    </div>
+</div>
+{include file="require_footer.html"}

@@ -1,0 +1,65 @@
+{include file='admin/header.html'}
+<div id="content">
+     
+	 <div class="t_con">
+	     <h3>发布系统通知</h3>
+		 <form id="form1" name="form1" method="post" action="{spUrl c=admin a=notice addnotice=yes}">
+		 <table width="100%" cellpadding="0" cellspacing="0" border="0" class="table_padding">
+			       <tr>
+				       <td width="60" class="t_title">通知标题</td>
+					   <td class="c_input"><input name="title" type="text" value=""/></td>
+				   </tr>
+				   <tr>
+				       <td class="t_title">通知内容</td>
+					   <td class="c_textarea"><textarea name="info" id="info" cols="55" rows="5"></textarea></td>
+				   </tr>
+				   <tr>
+				       <td class="t_title"></td>
+					   <td class="c_font"><input type="submit" class="btn_return" name="button" id="button" value="发布全站通知" /></td>
+				   </tr>                 
+		 </table>
+		 
+		 </form>
+		 
+	 </div>
+	  <form id="form2" name="form2" method="post" action="{spUrl c=admin a=notice del=yes}">
+	 <div class="t_con">
+	     <h3>通知列表</h3>
+	     <table width="100%" cellpadding="0" cellspacing="0" border="0" class="table_model">
+			       <tr class="table_title">
+				    <th width="50" class="m_title">ID</th>
+					<th width="160">类型</th>
+					<th width="160">标题</th>
+					<th>内容</th>
+					<th width="100">用户</th>
+					<th width="100">时间</th>
+				   </tr>
+				   {foreach from=$notice item=d}
+				   <tr id="systag_{$d.cid}" class="table_hover" >
+				       <td class="m_title c_radio">
+				      <label><input type="checkbox" name="delid[{$d.id}]" id="checkbox" class="ckeckbox"/><font style="margin-left:5px; color:#333;">{$d.id}</font></label></td>
+					<td class="c_font">
+                 	    {if $d.sys == 3}<font style="color:#009933">关注消息</font>{/if}
+						{if $d.sys == 2}<font style="color:#227CAC">系统消息</font>{/if} 
+                        {if $d.sys == 1}<font style="color:#FF9900">回复通知</font>{/if} 
+					</td>
+					<td>{$d.title}</td>
+					<td>{$d.info}</td>
+					<td>{if $d.user.username}{$d.user.username}{else}{$d.foruid}{/if}</td>
+					<td>{ybtime time=$d.time}</td>
+				   </tr>
+				   {/foreach}
+			   </table>
+	 </div>
+	 <div class="btn_area">
+	     <input type="button" class="btn_return" name="button" value="全选" onclick="checkAll('ckeckbox')" />
+         <input type="submit" class="btn_del" name="submit" value="删除"  />
+         <input type="button" class="btn_save margin_l10" name="button" value="清除所有系统通知" onclick="window.location.href='{spUrl c=admin a=notice clear=2}'" />
+         <input type="button" class="btn_save margin_l10" name="button" value="清除所有关注通知" onclick="window.location.href='{spUrl c=admin a=notice clear=3}'"/>
+			
+		
+     </div>
+	 </form>
+
+</div>
+{include file='admin/footer.html'}

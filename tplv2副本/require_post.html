@@ -1,0 +1,41 @@
+<div id="postblog">
+    <div class="avatar"><a href="{goUserHome domain=$smarty.session.domain uid=$smarty.session.uid}" target="_blank" title="我的博客"><div class="head_bg"><img src="{avatar uid=$smarty.session.uid size=middle}" alt="{$smarty.session.username}" class="face"/></div></a></div>
+	<div class="mode">
+	    <div class="corner"></div>
+		<table cellpadding="0" cellspacing="0" border="0" class="cs_model">
+		    <tr>
+            	{$model = $mconfig.data[5]}
+				{if $model.status == 1}
+			    <td><div class="list"><a href="{spUrl c=post a=add model=$model.id}" class="{$model.icon}" title="{$model.desc}"><span>{$model.name}</span></a>{if !$smarty.foreach.model.last}<div class="postline"></div>{/if}</div></td>
+				{/if}
+                
+                            	{$model = $mconfig.data[3]}
+				{if $model.status == 1}
+			    <td><div class="list"><a href="{spUrl c=post a=add model=$model.id}" class="{$model.icon}" title="{$model.desc}"><span>{$model.name}</span></a>{if !$smarty.foreach.model.last}<div class="postline"></div>{/if}</div></td>
+				{/if}
+                
+                            	{$model = $mconfig.data[1]}
+				{if $model.status == 1}
+			    <td><div class="list"><a href="{spUrl c=post a=add model=$model.id}" class="{$model.icon}" title="{$model.desc}"><span>{$model.name}</span></a>{if !$smarty.foreach.model.last}<div class="postline"></div>{/if}</div></td>
+				{/if}
+                
+                            	{$model = $mconfig.data[2]}
+				{if $model.status == 1}
+			    <td><div class="list"><a href="{spUrl c=post a=add model=$model.id}" class="{$model.icon}" title="{$model.desc}"><span>{$model.name}</span></a>{if !$smarty.foreach.model.last}<div class="postline"></div>{/if}</div></td>
+				{/if}
+                
+                            	{$model = $mconfig.data[4]}
+				{if $model.status == 1}
+			    <td><div class="list"><a href="{spUrl c=post a=add model=$model.id}" class="{$model.icon}" title="{$model.desc}"><span>{$model.name}</span></a></div></td>
+				{/if}
+			    
+			</tr>
+		</table>
+    </div>
+	{if islogin()}
+	<div class="menu">
+	    <li class="current"><a href="javascript:void(0)" onclick="changeFeeds('feeds',this)"><span>最新博客</span></a></li>
+		<li><a href="javascript:void(0)" onclick="changeFeeds('followfeeds',this)"><span>我的关注</span></a></li>
+	</div>
+	{/if}
+</div>

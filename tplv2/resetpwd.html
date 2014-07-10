@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>{$yb.site_title} - {$yb.site_titlepre} - Powered by 云边轻博客</title>
+<meta name="author" content="{$yb.author}" />
+<meta name="description" content="{$yb.site_desc}" />
+<meta name="keywords" content="{$yb.site_keyword}" />
+{include file="require_js.html" login=yes}
+<link href="{$syskin}/css/login.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="{$syskin}/image/favicon.ico" type="image/x-icon">
+</head>
+<body>
+<div id="wrap">
+    <div id="rbtn"><a href="{spUrl c=main a=login}"><span>登录</span></a></div>
+    <div id="main">
+	    <div class="logo"><a href="{spUrl c=main}"><img src="{$syskin}/image/logo_big.png" width="420" height="101" alt="logo" /></a></div>
+		<div class="login">
+		    <form action="{spUrl c=main a=login}" method="post" id="findpwdForm">
+			    <input type="hidden" value="{$callback}" name="callback">
+                <input type="hidden" value="" name="formKey">
+
+				<table cellpadding="0" cellspacing="0" border="0" class="loginarea">				
+                    <tr><td>
+                   {if $err != ''}
+                   
+                     <div class="login_err in_put">
+                            {$err}
+                     </div>
+                    <div class="login_btn in_put">
+                    	<input class="subBtn" type="button" name="findpwdSubmit" id="findpwdSubmit"  value="好的" 
+                        	   onClick="window.location.href='{spUrl c=main a=resetpwd}'" />
+                    </div>
+                   
+                   {else}
+                        {if $do == 'submit'}
+
+                            <div class="login_pw in_put">
+                            	<input type="password" id="password" class="input tip" value="{$smarty.post.password}" name="password" tabindex="1" title="请输入你的新密码">
+                            </div>
+                            
+                            <div class="login_pw in_put">
+                            	<input type="password" id="password2" class="input tip" value="{$smarty.post.password}" name="password2" tabindex="2" title="请再输入一次你的新密码">
+                            </div>
+                            
+                            <div class="login_btn in_put">
+                            	<input type="hidden"  name="token" value="{$token}" />
+                            	<input class="subBtn" type="button" name="findpwdSubmit" id="findpwdSubmit"  value="修改密码" tabindex="3" />
+                            </div>
+                            <div class="clear"></div>
+                            
+                            <div class="forget_pw in_put r_margin">
+                            	您的请求与{$passtime}过期,请抓紧修改您的密码
+                            </div>
+                            {else}
+                            <div class="login_email in_put">
+                            	<input type="text" id="email" name="email" class="input tip" autocomplete="off" tabindex="1" title="请输入邮箱">
+                            </div>
+                            
+                            <div class="login_code in_put">
+                           <img src="{spUrl c=main a=vcode t=$time}" class="vericode tip" onClick="reloadcode('vericode')" title="看不清楚，换一张" id="vericode" />
+                           		<input type="text" id="verifycode" class="input_code tip" title="请输入验证码"  name="verifycode" tabindex="3">
+                            </div>
+                            
+                            <div class="login_btn in_put">
+                            	<input class="subBtn" type="button" name="findpwdSubmit" id="findpwdSubmit"  value="发送" />
+                            </div>
+                            
+                            <div class="clear"></div>
+                            
+                            <div class="forget_pw in_put r_margin">
+                            	请输入您的email地址,系统将发送密码找回邮件
+                            </div>
+                        {/if}
+                   
+                   {/if}
+                  
+					
+					<div class="clear"></div>
+
+					</td></tr>
+                </table>
+
+			</form>
+		</div>
+	</div>
+	
+	<div id="footer_line"></div>
+	
+	{include file="require_footer.html"}
+    
+
+</div>
+</body>
+</html>
+
+
+
+
+

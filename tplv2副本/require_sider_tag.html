@@ -1,0 +1,25 @@
+{if $smarty.session.uid !=''}
+
+		<div class="menu_sc" id="search">
+		    <input type="button" class="btn" value="搜索" onClick="tag_search('local')">
+		    <input type="text" id="searchtag" value="搜索标签,发现兴趣" class="ipt">
+		</div>
+		<div class="menu_tag_index">
+		    <ul>
+
+				{foreach $favatag as $d}
+					<li id="tag_{$d.tid}">
+					<a href="javascript:;" onclick="show_tags_view({ tag:encodeURIComponent('{$d.title}') })"><span>{$d.title}</span><em>{$d.count}</em></a>
+					<div class="tag_subs_0" id="tag_rem_{$d.tid}"><a href="javascript:;" onclick="delMytag({$d.tid})"  title="取消订阅"></a></div>
+					</li>
+				 {/foreach}
+				
+				<div class="tag_more"><a href="{spUrl c=main a=discovery}">发现更多有趣的内容</a></div>
+				<div class="clear"></div>
+			</ul>
+		</div>
+		<div class="menu_tag_user">
+		    <ul></ul>
+			<div class="tag_more"><a href="{spUrl c=main a=recommend}">推荐更多优秀博客</a></div>
+		</div>
+{/if}

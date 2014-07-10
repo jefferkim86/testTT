@@ -1,0 +1,34 @@
+{include file="$themes_include_path/header.html"}
+
+<div id="wrap">
+
+    <div id="main">
+	   {include file="$themes_include_path/userheader.html"}
+
+		<div id="mytag">
+		{if count($user.blogtag) > 1}
+			{foreach $user.blogtag as $d}
+				<li><a href="{spUrl c=main a=recommend}"><span>{$d}</span></a></li>
+			{/foreach}
+		{/if}
+			<div class="clear"></div>
+		</div>
+		
+		<div id="feedArea">
+			<script type="text/javascript">
+				$(document).ready(function(){  yb_load_feeds('blog','feeds',{ uid:{$touid} ,pagelimit:{$page_init} }); })
+			</script>
+			<div id="feed_loading"></div>
+			<div id="feed_box"></div>
+
+		</div>
+
+		<div class="page" id="paging"></div>
+	</div>
+	
+	<div id="aside">
+    {include file="$themes_include_path/aside.html"}
+	</div>
+
+</div>
+{include file="$themes_include_path/footer.html" top=yes}

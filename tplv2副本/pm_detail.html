@@ -1,0 +1,72 @@
+{include file="require_header.html" loadedit=yes}
+<script>
+{literal}
+$(document).ready(function(){ 
+	var uid = $('#touid').val();
+	pmdetail(uid);
+
+	$('#send_submit').click(function(){
+	if($('#touser').val() == ''){
+		waring('请等待页面载入');
+		return false;
+	}
+		var name = $('#touser').val();
+		var txt  = $('#textarea').val();
+		if(txt == ''){
+			waring('发信内容不能为空');
+			return false;
+		}
+		$('#pm_loading,#send_submit').toggle();
+		$.ybAPI('pm','sendpm',{username:name,body:txt},function(data){
+			$('#pm_loading,#send_submit').toggle();
+			if(data.status == 0){
+				waring(data.msg);
+			}else{
+				$('#niname,#textarea').val('');
+				pmdetail(uid);
+			}
+		});
+	})
+})
+{/literal}
+</script>
+<div id="index">
+    <div id="article">
+		
+		<div id="pm_detail">
+		    <div class="det_title">
+			    <div class="det_return"><a href="{spUrl c=pm}" >返回列表</a></div>
+				<div class="det_info">与 <span id="tousername"></span> 的私信对话</div>
+			</div>
+			<div class="det_con">
+			    <div class="det_post">
+				    <div class="avatar"><a href="{goUserHome domain=$smarty.session.domain uid=$smarty.session.uid}" target="_blank"><img src="{avatar uid=$smarty.session.uid size=middle}" alt="{$smarty.session.username}" class="face"/></a></div>
+				    <div class="postbox"><textarea name="textarea" id="textarea"></textarea></div>
+					<div class="postarea">
+					    <a id="send_submit"><span>发送</span></a>
+						<div class="sub_loading" id="pm_loading" style="margin:0; display:none;"></div>
+						<div class="text_limit">你还可以输入500字</div>
+						<input type="hidden" id="touid" title="touid" value="{$touid}" />
+						<input type="hidden" id="touser" title="touser" value="{$tousername}" />
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div id="feed_loading" style="margin-left:275px;"></div>
+				<div class="det_list"></div>
+			</div>
+			<div id="paging"></div>
+		</div>
+		
+
+		<div class="pm_none follow_font" id="follow_font" style="display:none;">
+			 <h2>您还没有相关对话</h2>
+		</div>
+			
+		
+
+	</div>
+	<div id="aside">
+        {include file="require_sider.html"}
+    </div>
+</div>
+{include file="require_footer.html"}

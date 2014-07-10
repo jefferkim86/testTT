@@ -1,0 +1,74 @@
+{include file='admin/header.html'}
+<div id="content">
+
+    <div class="con_index">
+	    <h2>用户主题管理</h2>
+		
+		<div class="tip1 tip_red"><b>警告</b>：建议只使用官方提供的主题包,任何第三方主题包的使用可能会给您的系统造成风险,请谨慎。</div>
+		<div class="clear"></div>
+		<div class="tip">主题文件夹位于<font>{$themedir}/theme/</font>目录下，如果卸载后您不需要可从该目录下找到对应目录删除即可。</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="setup" class="con_upload">
+		<form action="{spUrl c=admin a=theme m=install}" method="post" enctype="multipart/form-data" name="form1" id="form1">
+		    <h3>上传主题
+			
+			<input type="file" class="ul_file" name="themefile" id="themefile" />
+			<input type="submit" name="button" id="button" class="ul_btn" value="添加" />
+			
+			</h3>
+		   
+		</form>
+		<div class="clear"></div>
+	</div>
+	
+		
+<div class="artTabs">
+    <ul id="tabs">
+	    <li><a href="{spUrl c=admin a=theme}" {$curr_all}>全部主题<div class="point"></div></a></li>
+		<li><a href="{spUrl c=admin a=theme filter=close}" {$curr_no}>已禁用<div class="point"></div></a></li>
+		<li><a href="{spUrl c=admin a=theme filter=open}" {$curr_open}>已启用<div class="point"></div></a></li>
+		<li><a href="{spUrl c=admin a=theme filter=exclusive}" {$curr_exclu}>专属主题<div class="point"></div></a></li>
+		<div class="clear"></div>
+	</ul>
+</div>
+
+
+ <div class="con_index">
+<div class="navpage">{$pager}<div class="clear"></div></div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_model">
+			     <tr class="table_title">
+				     <th width="150" class="m_title">主题截图</th>
+					<th width="100">名称</th>
+					<th width="100">目录</th>
+					<th width="100">作者</th>
+					<th width="80">版本</th>
+					<th width="80">启用</th>
+					<th width="60">专属主题</th>
+					<th width="50">操作</th>
+				   </tr>
+				   {foreach from=$skins item=d}
+				   <tr class="table_hover" id="blog_{$d.bid}">
+					  <td class="m_title m_theme"><img src="{$syskin}/theme/{$d.skindir}/cover.jpg" /></td>
+				   <td>{$d.name}({$d.usenumber})</td>
+				   <td>{$d.skindir}</td>
+				   <td class="co_link"><a href="{$d.uri}" target="_blank">{$d.author}</a></td>
+				   <td>{$d.version}</td>
+				   <td>{if $d.open == 1}<div class="fun_yes"></div>{else}<div class="fun_no"></div>{/if}</td>
+				   <td>{if $d.exclusive == 0}<div class="fun_no"></div>{else} 指派：{$d.exclusive} {/if}</td>
+				   <td class="fun_con">
+				      <a class="f_look mtop" href="{spUrl c=admin a=theme m=info id=$d.id}" title="详情">详情</a>
+				      <a class="f_delete mtop" href="javascript:void(0)" onclick="unInstallTheme({$d.id})" title="卸载">卸载</a>
+				   </td>
+				   </tr>
+				   {/foreach}
+			  </table>
+
+	 </div>
+		
+		
+	</div>
+   
+</div>
+{include file='admin/footer.html'}

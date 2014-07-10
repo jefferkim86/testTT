@@ -1,0 +1,62 @@
+{include file='admin/header.html'}
+<div id="content">
+     <form action="" method="post">
+	 <div class="t_con">
+	    <h3>主题编辑 - {$skin.name} {$skin.version}</h3>
+		<div class="tip">修改主题图片请上传<font style="color:#FF0000;">190*120</font>的jpg覆盖原始图片</div>
+		<div class="clear"></div>
+		<div class="con_system">
+		       <table width="100%" cellpadding="0" cellspacing="0" border="0" class="table_padding">
+			       <tr>
+				       <td width="90" class="t_title">主题图片</td>
+					   <td class="c_img"><img src="{$syskin}/theme/{$skin.skindir}/cover.jpg" /></td>
+				   </tr>
+				   <tr>
+				       <td class="t_title">主题开关</td>
+					   <td class="c_radio">
+					       <label><input type="radio" name="open"  value="1"  {if $skin.open == 1} checked="checked" {/if} />开启</label>
+						   <label><input type="radio" name="open"  value="0"  {if $skin.open == 0} checked="checked" {/if} />关闭</label></td>
+				   </tr>
+				   <tr>
+				       <td class="t_title">主题作者</td>
+					   <td class="c_font">{$skin.author}</td>
+				   </tr>
+				   <tr>
+				       <td class="t_title">作者主页</td>
+					   <td class="co_link"><a href="{$skin.uri}" target="_blank">{$skin.uri}</a><font>该主题版权归作者所有,请根据该作者授权使用</font></td>
+				   </tr>
+                   <tr>
+				       <td class="t_title">主题位置</td>
+					   <td class="c_input">
+                       <span class="span_theme">theme/</span><input name="skindir" type="text" value="{$skin.skindir}" />
+					   </td>
+				   </tr>
+                   <tr>
+				       <td class="t_title">专属主题设置</td>
+					   <td class="c_input_small">
+                           <input type="text" name="exclusive" id="exclusive" value="{$skin.exclusive}"/><font>请输入允许使用该主题的用户UID,为空则不限制</font>
+					   </td>
+				   </tr>
+                   <tr>
+				       <td class="t_title">主题钩子</td>
+					   <td class="c_textarea">
+                           <textarea name="setup" id="textarea" cols="50" rows="5">{$skin.setup}</textarea><em>请勿任意修改</em>
+					   </td>
+				   </tr>
+				   <tr>
+				       <td class="t_title">主题预定义数据</td>
+					   <td class="c_font">
+                           请使用主题制作工具编辑
+					   </td>
+				   </tr>
+			   </table>
+		 </div>
+		<div class="btn_area">
+		    <input name="submit" class="btn_save" type="submit" value="保存" />
+			<input name="submit" type="button" value="返回" onclick="window.history.go(-1)" class="btn_return"/>
+			<input name="submit" type="button" value="卸载主题" onclick="unInstallTheme({$skin.id})" class="btn_del"/>
+		</div>
+	</div>
+    </form>
+</div>
+{include file='admin/footer.html'}

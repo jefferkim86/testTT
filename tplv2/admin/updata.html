@@ -1,0 +1,45 @@
+{include file='admin/header.html'}
+  <div id="content">
+    <div class="m_content">
+	    <div class="con">
+		   <div class="table_con3">
+		      <h2>软件信息</h2>
+			  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+			     <tr>
+				 <td width="100">系统信息：</td>
+        <td>{$ybsoft.soft}</td>
+      </tr>
+      <tr>
+        <td>程序版本：</td>
+        <td>{$ybsoft.version} <span id="encodeversion">{$ybsoftencode}</span> | <span id="checkVersion"><a href="javascript:queryVersion()">[检查更新]</a></span> </td>
+      </tr>
+      <tr>
+        <td>联系方式：</td>
+        <td>{$ybsoft.email}</td>
+      </tr>
+     <tr>
+        <td>项目总策划：</td>
+        <td>{$yb.author}</td>
+      </tr>
+      <tr>
+        <td>产品设计与研发：</td>
+        <td>{$yb.code}</td>
+      </tr>
+      <tr>
+        <td>界面与用户体验：</td>
+        <td>{$yb.design}</td>
+      </tr>
+      <tr>
+        <td>官方网址：</td>
+        <td><a href="{$ybsoft.url}" target="_blank">{$ybsoft.url}</a></td>
+      </tr>
+    </table>
+		   
+		   </div>
+		
+		</div>
+	 
+	 </div>
+	
+  </div>
+{include file='admin/footer.html'}

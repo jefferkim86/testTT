@@ -1,0 +1,47 @@
+{include file='admin/header.html'}
+  <div id="content">
+
+     <div class="con_index">
+	     <h2>模型列表</h2>
+		      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_model">
+			     <tr class="table_title">
+				    <th width="30" class="m_title">MID</th>
+                    <th width="80">样式标示符</th>
+					<th width="100">模型名称</th>
+					<th width="40">开关</th>
+					<th width="110">模型文件</th>
+					<th valign="middle">描述</th>
+					<th width="40">版本</th>
+					<th width="40">作者</th>
+					<th width="100" class="m_link">操作</th>
+					
+				 </tr>
+				 {foreach from=$models item=d}
+				 <tr class="table_hover">
+				    <td class="m_title">{$d.id}</td>
+                    <td>{$d.icon}</td>
+					<td>{$d.name}</td>
+					<td>{if $d.status == 1}<div class="fun_yes">开</div>{else}<div class="fun_no">关</div>{/if}</td>
+					<td>{$d.modelfile}</td>
+					<td>{$d.mdesc}</td>
+					<td>{$d.version}</td>
+					<td>{$d.author}</td>
+					<td class="m_link"><a href="{spUrl c=admin a=models setup=$d.id}">设置模型</a></td>
+					
+				 </tr>
+				
+				 {/foreach}
+			  </table>
+			  
+
+    
+			  
+
+	 </div>
+
+    
+    
+    
+   
+  </div>
+{include file='admin/footer.html'}

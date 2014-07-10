@@ -1,0 +1,83 @@
+{include file='admin/header.html'}
+  <div id="content">
+      <div class="con_index">
+		      <h2>软件信息</h2>
+			  <table width="100%" cellpadding="0" cellspacing="0" border="0" class="in_font table_padding">
+			     <tr>
+				     <td width="110">系统信息：</td>
+				     <td>{$yb.soft}</td>
+				 </tr>
+				 <tr>
+				     <td>程序版本：</td>
+					 <td>{$yb.version} <span id="encodeversion">{$ybsoftencode}</span> | <span id="checkVersion"><a href="javascript:queryVersion()">[检查更新]</a></span></td>
+				</tr>
+				<tr>
+				    <td>联系方式：</td>
+					<td>{$yb.email}</td>
+				</tr>
+				<tr>
+				    <td>项目总策划：</td>
+					<td>{$yb.author}</td>
+				</tr>
+				<tr>
+				    <td>产品设计与研发：</td>
+					<td>{$yb.code}</td>
+				</tr>
+				<tr>
+				    <td>界面与用户体验：</td>
+					<td>{$yb.design}</td>
+				</tr>
+				<tr>
+				    <td>官方演示：</td>
+					<td><a href="{$yb.url}" target="_blank">{$yb.url}</a></td>
+				</tr>
+			</table>
+			<div class="sec"><h2>服务器信息</h2></div>
+			
+    <table width="100%" class="table_padding">
+     <tr>
+        <td  width="100">PHP版本：</td>
+        <td>{$version}</td>
+      </tr>
+       <tr>
+        <td>MySQL版本：</td>
+        <td>{$mysql}</td>
+      </tr>
+      <tr>
+        <td>图像处理：</td>
+        <td>{$gd}</td>
+      </tr>
+       <tr>
+        <td>附件上传限制：</td>
+        <td>表单{$postupload}，最大支持{$maxupload}</td>
+      </tr>
+      <tr>
+        <td>服务器IP地址</td>
+        <td>{$server.HTTP_HOST}</td>
+      </tr>
+      
+      <tr>
+        <td>操作系统</td>
+        <td>{$os}</td>
+      </tr>
+      <tr>
+        <td>物理路径：</td>
+        <td>{$server.DOCUMENT_ROOT}</td>
+      </tr>
+      <tr>
+        <td>gzip压缩：</td>
+        <td>{$server.HTTP_ACCEPT_ENCODING}</td>
+      </tr>
+      <tr>
+        <td>系统管理员：</td>
+        <td>{$server.SERVER_ADMIN}</td>
+      </tr>
+    </table>
+		   
+		   </div>
+		
+
+	 
+    
+  </div>
+{include file='admin/footer.html'}
