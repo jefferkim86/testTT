@@ -21,7 +21,7 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 
 /*框架结构布局*/
 #wrap { width:100%; margin:0; }
-#index { width:960px; margin:0 auto; }
+#index { width:1140px; margin:0 auto; }
 #user_index { width:800px; margin:0 auto; }
 .fl { float:left; }
 .fr { float:right; }
@@ -120,7 +120,7 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 
 
 /*博客主内容*/
-#article { width:716px; float:left; margin:0; }
+#article { width:850px; float:left; margin:0; }
 
 /*博客主内容 - 广告位*/
 #ad_index_up { width:540px; margin:40px 0 0 110px; background-color:#fff; padding:0; -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px; -moz-box-shadow:0px 1px 3px #bbb; -webkit-box-shadow:0px 1px 3px #bbb; box-shadow:0px 1px 3px #bbb; overflow:hidden; }
@@ -207,7 +207,7 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 #wizard .notice { position:relative; float:right; width:540px; background-color:#FFFF99; -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px; -moz-box-shadow:0px 1px 3px #bbb; -webkit-box-shadow:0px 1px 3px #bbb; box-shadow:0px 1px 3px #bbb; border-bottom:2px #ddd solid\9; margin:15px 10px 5px 0; line-height:25px; color:#666; }
 
 /*博客内容*/
-#feedArea { width:660px; margin:0; float:left; }
+#feedArea {  margin:0; float:left; }
 #feedArea .box { float:left; width:510px; margin:15px 0 0 110px; padding:15px; min-height:150px; position:relative; background-color:#fff; -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px; -moz-box-shadow:0px 1px 3px #bbb; -webkit-box-shadow:0px 1px 3px #bbb; box-shadow:0px 1px 3px #bbb; border-bottom:2px #ddd solid\9; }
 #feedArea .avatar { position:absolute; left:-100px; top:0; }
 #feedArea .avatar .face { -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; overflow:hidden; }
@@ -435,7 +435,7 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 .m_loading { width:100px; height:26px; display:block; background:url(../image/comm/feeds_loading.gif) no-repeat 0 0; margin:10px auto; }
 
 /*边栏*/
-#aside { width:230px; float:right; margin:0; }
+#aside { width:262px; float:right; margin:0; }
 #aside .menu_fl { width:100%; margin:0; position:relative; height:40px;}
 #aside .menu_fl a { width:228px; height:38px; border:1px #ccc solid; display:block; background:url(../image/comm/nav_bg.png) repeat-x 0 0; line-height:38px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; -moz-box-shadow:0px 1px 0px #fff; -webkit-box-shadow:0px 1px 0px #fff; box-shadow:0px 1px 0px #fff; font-size:14px; color:#666; text-shadow:0px 1px 0px #fff; }
 #aside .menu_fl a:hover { background-color:#e3e3e3; background-image:none; }

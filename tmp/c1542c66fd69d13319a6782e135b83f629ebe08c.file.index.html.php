@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-15 16:40:31
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-15 22:24:33
          compiled from "tplv2/index.html" */ ?>
-<?php /*%%SmartyHeaderCode:174119950553c4e8ff4174e4-66052092%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:123519006153c539a1d88495-39883491%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c1542c66fd69d13319a6782e135b83f629ebe08c' => 
     array (
       0 => 'tplv2/index.html',
-      1 => 1405413103,
+      1 => 1405434272,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '174119950553c4e8ff4174e4-66052092',
+  'nocache_hash' => '123519006153c539a1d88495-39883491',
   'function' => 
   array (
   ),
@@ -23,8 +23,10 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
 
 
 <div id="index">
-	
+	<?php $_template = new Smarty_Internal_Template("require_userInfo.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+ echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
     <div id="article">
+        
 	    <?php $_template = new Smarty_Internal_Template("require_post.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
 		

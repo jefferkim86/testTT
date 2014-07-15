@@ -1,5 +1,5 @@
        /*后期调整比较多，后期将公用颜色等等样式提取*/
-.feed-list{width:716px;float:left;z-index:80;}
+.feed-list{width:850px;float:left;z-index:80;}
 .feed{margin-bottom:15px;}
 .feed .feed-avatar{float:left;width:64px;}
 .feed .feed-link a,
@@ -15,7 +15,7 @@
 
 .feed-good .feed-good-property .view-good{background:url("images/icons.png") no-repeat scroll 0 0;}
 
-.feed .feed-desc{position:relative;float:right;width:638px;background:#fff;border:1px solid #fff;-moz-box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15); -webkit-box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150,150, 0.15); box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15); -moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;}
+.feed .feed-desc{position:relative;float:right;width:760px;background:#fff;border:1px solid #fff;-moz-box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15); -webkit-box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150,150, 0.15); box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15); -moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;}
 .feed .feed-link{position:absolute;right:-3px;top:-1px;}
 
 .feed .feed-link a{display:none;width:21px;height:21px;-moz-border-radius:0 7px 0 7px;-webkit-border-radius:0 7px 0 7px;border-radius:0 7px 0 7px;text-indent:-9999px;overflow:hidden;background-position:-5px -30px;}
@@ -324,6 +324,8 @@ ul,li {
 	border: none;
 	text-indent: 26px;
 	text-align: left;
+	border-radius: 1px;
+	cursor: pointer;
 	background: #63c394 url('../image/recommend-icon.png') no-repeat scroll 9px 8px;
 }
 .recommend .ft {
@@ -439,4 +441,73 @@ ul,li {
 	line-height: 15px;
 	font-size: 12px;
 	color: #999999;
+}
+
+
+.page-userInfo {
+	height: 125px;
+	padding: 25px 30px 30px 30px;
+	background: #fff;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+.page-userInfo .logo {
+	float: left;
+	width: 120px;
+	height: 120px;
+	margin: 0;
+}
+.page-userInfo .info {
+	width: 698px;
+	float: left;
+	text-align: left;
+	margin-left: 30px;
+}
+.page-userInfo .info .url {
+	text-align: left;
+	height: 20px;
+	line-height: 20px;
+	margin-top: 10px;
+}
+.page-userInfo .info h3 {
+	color: #222222;
+	font-size: 18px;
+}
+.page-userInfo .info .desc {
+	height: 20px;
+	line-height: 20px;
+	margin-top: 10px;
+	color: #555555;
+}
+.page-userInfo .user-data {
+	width: 230px;
+	float: left;
+	background: none;
+}
+.page-userInfo .handle {
+	margin-top: 18px;
+}
+.page-userInfo .handle button {
+	width: 70px;
+	height: 26px;
+	line-height: 26px;
+	border: none;
+	border-radius: 1px;
+	background: none;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+}
+.page-userInfo .handle .J-attention {
+	text-align: left;
+	text-indent: 22px;
+	background: #63c394 url('../image/recommend-icon.png') no-repeat scroll 9px 8px;
+
+}
+.page-userInfo .handle .J-msg {
+	background: #cccccc;
+}
+.page-userInfo .user-data li {
+	width: 70px;
+	background: none;
 }

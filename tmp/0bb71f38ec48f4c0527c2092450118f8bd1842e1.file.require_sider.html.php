@@ -1,23 +1,23 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-15 21:39:45
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-15 21:45:00
          compiled from "tplv2/require_sider.html" */ ?>
-<?php /*%%SmartyHeaderCode:185540738253c52f21c1e1d9-19273490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:201031002553c5305cc3e506-25874556%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0bb71f38ec48f4c0527c2092450118f8bd1842e1' => 
     array (
       0 => 'tplv2/require_sider.html',
-      1 => 1405431584,
+      1 => 1405431899,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '185540738253c52f21c1e1d9-19273490',
+  'nocache_hash' => '201031002553c5305cc3e506-25874556',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
-
+<!--
 <?php if (!islogin()){?>
 	<script src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/login.js"></script>
@@ -133,7 +133,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 			})
 		</script>
 	<?php }?>
-
+-->
 	<div class="user clearfix">
 		<div class="user-info">
 			<div class="logo">
