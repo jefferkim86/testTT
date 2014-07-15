@@ -240,10 +240,15 @@ ul,li,h1,h2,h3,h4,button{
 	margin: 0;
 	padding: 0;
 }
+ul,li {
+	list-style: none;
+}
 .clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; } .clearfix{*zoom:1;}
 /*²à±ßÀ¸*/
-.TA-attention {
+.mt20 {
 	margin-top: 20px;
+}
+.TA-attention {
 }
 .TA-attention .hd {
 	margin: 20px 20px 0 20px;
@@ -282,7 +287,6 @@ ul,li,h1,h2,h3,h4,button{
 
 /**/
 .recommend {
-	
 }
 .recommend h3{
 	height: 20px;
@@ -332,4 +336,107 @@ ul,li,h1,h2,h3,h4,button{
 	line-height: 20px;
 	padding-left: 26px;
 	background: url('../image/recommend-change.png') no-repeat scroll 0 center;
+}
+
+.sider-menu {
+
+}
+.sider-menu ul {
+	width: 220px;
+	margin: 5px 20px 5px 20px;
+	background: url('../image/list-icon.png') no-repeat scroll 0 0;
+}
+.sider-menu li {
+	padding-left: 40px;
+	height: 49px;
+	width: 180px;
+	border-bottom: 1px solid #eeeeee;
+}
+.sider-menu .nb{
+	border-bottom: none;
+}
+.sider-menu li a {
+	line-height: 49px;
+}
+
+.user {
+
+}
+.user .user-info {
+	height: 230px;
+	width: 260px;
+	border:1px solid #fff;
+	border-bottom: none;
+	background: #fff;
+	clear: both;
+	-moz-box-shadow: 1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15);
+	-webkit-box-shadow: 1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150,150, 0.15);
+	box-shadow: 1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15);
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	
+}
+.user .logo {
+	width: 120px;
+	height: 120px;
+	margin: 30px auto 0 auto;
+}
+.user .user-name {
+	color: #222222;
+	font-size: 14px;
+	text-align: center;
+	margin-top: 15px;
+	height: 22px;
+	line-height: 22px;
+}
+.user .url {
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	color: #999999;
+	font-size: 12px;
+}
+.user .user-data {
+	width: 263px;
+	height: 80px;
+	background: #e5e5e5;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.user .user-data ul {
+	padding-top: 20px;
+}
+.user .user-data li {
+	float: left;
+	width: 85px;
+	height: 40px;
+	text-align: center;
+	background: #e5e5e5;
+	border-right: 1px solid #d5d5d5;
+}
+.user .user-data li a {
+	display: block;
+}
+.user .user-data li a:hover b{
+	color: #ff7b69;
+}
+.user .user-data li b {
+	display: block;
+	height: 26px;
+	font-size: 20px;
+	font-weight: 700;
+	color: #555555;
+}
+.user .user-data li.nr {
+	border-right: none;
+	width: 86px;
+}
+.user .user-data li span {
+	height: 15px;
+	display: block;
+	line-height: 15px;
+	font-size: 12px;
+	color: #999999;
 }

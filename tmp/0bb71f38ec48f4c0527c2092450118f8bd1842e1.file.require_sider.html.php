@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-15 20:41:39
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-15 21:39:45
          compiled from "tplv2/require_sider.html" */ ?>
-<?php /*%%SmartyHeaderCode:24024235553c52183d44b66-36164321%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:185540738253c52f21c1e1d9-19273490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0bb71f38ec48f4c0527c2092450118f8bd1842e1' => 
     array (
       0 => 'tplv2/require_sider.html',
-      1 => 1405428096,
+      1 => 1405431584,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '24024235553c52183d44b66-36164321',
+  'nocache_hash' => '185540738253c52f21c1e1d9-19273490',
   'function' => 
   array (
   ),
@@ -134,8 +134,35 @@ if ($_smarty_tpl->_count($_from) > 0){
 		</script>
 	<?php }?>
 
+	<div class="user clearfix">
+		<div class="user-info">
+			<div class="logo">
+				<img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/image/user-logo.png" alt=""/>
+			</div>
+			<h3 class="user-name">大黑淘外贸</h3>
+			<div class="url">
+				http://tui.etao.com/t005546614
+			</div>
+		</div>
+		<div class="user-data">
+			<ul>
+				<li><a href=""><b>18</b><span>推推</span></a></li>
+				<li><a href=""><b>20</b><span>关注</span></a></li>
+				<li class="nr"><a href=""><b>24</b><span>粉丝</span></a></li>
+			</ul>
+		</div>
+	</div>
 
-	<div class="sider-mod recommend clearfix">
+	<div class="sider-mod sider-menu mt20">
+		<ul class="menu-list">
+			<li><a href="#">我关注的</a></li>
+			<li><a href="#">我喜欢的</a></li>
+			<li><a href="#">我的消息</a></li>
+			<li class="nb"><a href="#">我的私信</a></li>
+		</ul>
+	</div>
+	<div class="sider-mod recommend mt20 clearfix">
        <div class="hd"><h3>推荐给您的用户</h3></div>
        <div class="bd">
            <ul class="recommend-list clearfix">
@@ -178,7 +205,7 @@ if ($_smarty_tpl->_count($_from) > 0){
        </div>
     </div>
 
-	<div class="sider-mod TA-attention clearfix">
+	<div class="sider-mod TA-attention mt20 clearfix">
 		<div class="hd">
 			<h3>他关注的</h3>
 			<a href="#" class="more">全部</a>
