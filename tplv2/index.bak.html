@@ -1,0 +1,845 @@
+{include file="require_header.html" gallery=yes}
+{literal}
+
+{/literal}
+<div id="index">
+	
+    <div id="article">
+	    {include file="require_post.html"}
+		
+		
+		
+			{if isset($adunit.2) && $adunit.2.is_show == 1}
+			<div id="ad_index_up"></div>
+			<script>
+				$(document).ready(function(){
+					ad_aside('#ad_index_up',2);
+					setInterval(function(){
+						ad_aside('#ad_index_up',2);
+					}, 30000);
+				})
+			</script>
+			{/if}
+	
+	
+	
+		
+		
+        {if islogin() && $yb.wizard_switch == 1} {include file="require_wizard.html"} {/if}
+		<div id="feedArea">
+			<div id="feed_loading"></div>
+			<div id="feed_box">
+				
+
+
+
+
+			</div>
+
+		</div>
+		
+		{if $yb.show_page_mode == 1}
+			<div id="feedAjaxTool" page="2" max="{$yb.show_ajax_to}" area="feedArea"  class="feedajax">
+			</div>
+			<script>
+			$.feedToolBar.parm.morepage=true;
+			$.feedToolBar.morepage('feedAjaxTool');
+			</script>
+		{else}
+			
+		<div id="paging"></div>
+		<div class="clear"></div>
+		{/if}
+
+<!--
+	<div id="feedAjaxTool" page="2" max="{$yb.show_ajax_to}" area="feedArea" query="{spUrl c=main a=index ajaxload=true type=$type}" class="feedajax">
+    <a href="javascript:void(0)" onclick="continueShow('feedAjaxTool')" class="more">查看更多</a>
+    <a href="javascript:void(0)" class="loading">loading...</a>
+    <a href="javascript:void(0)" class="nomore">暂时没有更多内容</a>
+    </div>
+	-->
+		<script>//$.feedToolBar('feedAjaxTool');</script>
+        
+        
+        
+	</div>
+	<div id="aside">
+        {include file="require_sider.html"}
+    </div>
+</div>
+
+
+<script type="text/html" id="jjj-J-feed_template">
+{literal}
+{each blog as data i} 
+<div class="box" id="blog_{data.bid}">
+  {include tpl_header_define('header') data}
+  {include tpl_feed_define(data.type) data} 
+  {if data.show_reply ==1}
+   {include tpl_header_define('infooter') data} 
+  {else} {include tpl_header_define('footer') data} {/if} 
+  <div class="clear"></div> 
+</div> 
+{/each}
+{/literal}
+</script>
+<script type="text/html" id="J-feed_template">
+{literal}
+{each blog as data i} 
+<div class="feed feed-good clearfix">
+  {include tpl_header_define('header') data}
+
+    <div class="feed-desc">
+        <span class="pop-corner"><s class="outter"></s><s class="inner"></s>
+        </span>
+        <div class="feed-link">
+            <a href="#">查看文章</a>
+        </div>
+        <div class="feed-hd">
+            <div class="merc-name"><a href="#">韩都衣舍:</a></div>
+        </div>
+        <div class="feed-bd">
+              {include tpl_feed_define(data.type) data} 
+
+        </div>
+
+    </div>
+</div>
+{/each}
+{/literal}
+</script>
+
+
+<script type="text/html" id="tmpl_model_header">
+    <div class="feed-avatar">
+        <a class="blog-avatar" href="#" title="FashionDes">
+            <img src="http://img01.taobaocdn.com/tps/i1/T1LluJXe8eXXXXXXXX-64-64.png" width="64" height="64" alt="testAva"/></a>
+    </div>
+
+</script>
+<script type="text/html" id="jj-tmpl_model_header">
+{literal}
+ <div class="avatar">
+    <a href="{h_url}" target="_blank">
+        <div class="head_bg">
+            <img src="{h_img}" alt="" class="face" title="\u8bbf\u95ee{username}\u7684\u535a\u5ba2"
+            />
+        </div>
+        {if repto != null}
+        <div class="avatarblog">
+            <img src="{repto.h_img}" alt="{repto.username}" title="\u8f6c\u8f7d\u81ea{repto.username}\u7684\u535a\u5ba2"
+            />
+        </div>
+        {/if}
+    </a>
+    {if uid != myuid()}
+    <div id="divObj" class="fun_list">
+        <div class="corner">
+        </div>
+        <div class="fun_menu">
+            <li>
+                <a href="index.php?c=pm&a=detail&uid={uid}" target="_blank">
+                    \u53d1\u9001\u79c1\u4fe1
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" onclick="fllow(\'link\',{uid},1)">
+                    \u52a0\u5173\u6ce8
+                </a>
+            </li>
+        </div>
+    </div>
+    {/if}
+</div>
+<div class="blogname">
+    <a href="{b_url}" target="_blank">
+        {username}
+    </a>
+    {if repto != null}
+    <span>
+        \u8f6c\u8f7d\u81ea
+        <font>
+            <a href="{repto.h_url}" target="_blank">
+                {repto.username}
+            </a>
+        </font>
+    </span>
+    {/if}
+</div>
+<div class="blogdate">
+    {time}
+</div>
+{if title != null}
+<div class="title">
+    <h1>
+        <a href="{b_url}" target="_blank">
+            {title}
+        </a>
+    </h1>
+</div>
+{/if}
+{/literal}
+</script>
+<script type="text/html" id="tmpl_model_footer">
+    <div class="feed-actions clearfix">
+       <span class="feed-timestamp">
+           5分钟前
+       </span>
+       <div class="feed-act">
+          <a href="#" class="J_Comment">评论</a>
+          <a href="#" class="J_Forward">转发(<span class="J_FwdNum">43</span>)</a>
+          <a href="#" class="J_Like">喜欢(<span class="J_LikeNum">99</span>)</a>
+          <a href="#" class="J_DeleteFeed">删除</a>
+       </div>
+   </div>
+</script>
+<script type="text/html" id="jj-tmpl_model_footer">
+{literal}
+    <div class="footer">
+    {if more == 1}
+    <div class="more">
+        <a href="{b_url}">
+            \u672a\u5b8c,\u7ee7\u7eed\u9605\u8bfb\u2192
+        </a>
+    </div>
+    {/if} {if tag.length >0}
+    <div class="tag">
+        {each tag as t i}
+        <a href="index.php?c=blog&a=tag&tag={t}">
+            #{t}
+        </a>
+        {/each}
+    </div>
+    {/if}
+    <div class="fun">
+        {if uid == myuid()}
+        <span class="delete">
+            <a href="javascript:void(0)" onclick="delblogs({bid})" title="\u5220\u9664">
+            </a>
+        </span>
+        {/if} {if uid == myuid() && repto == null}
+        <span class="edit">
+            <a href="index.php?c=post&a=edit&id={bid}&model={type}" title="\u7f16\u8f91">
+            </a>
+        </span>
+        {/if} {if uid != myuid()}
+        <span class="reblog">
+            <a href="javascript:void(0)" onclick="repblog({bid})" title="\u8f6c\u8f7d">
+            </a>
+        </span>
+        {/if}
+        <span class="reply">
+            <a href="javascript:void(0)" onclick="indexPostTab(\'comment\',{bid})"
+            id="comment_btn_{bid}" title="\u56de\u590d">
+                {if replaycount > 0}
+                <em>
+                    {replaycount}
+                </em>
+                {/if}
+            </a>
+        </span>
+        {if feedcount > 0}
+        <span class="hotnum">
+            <a href="javascript:void(0)" onclick="indexPostTab(\'feeds\',{bid})" title="\u70ed\u5ea6"
+            id="hid_btn_{bid}">
+                {if feedcount > 0}
+                <em>
+                    {feedcount}
+                </em>
+                {/if}
+            </a>
+        </span>
+        {/if} {if uid != myuid()} {if likeid == null}
+        <span class="nolike" id=like_{bid} "> {else} <span class="like
+        " id=like_{bid}">
+            {/if}
+            <a href="javascript:void(0)" likeid="{bid}" class="dolike" title="\u559c\u6b22">
+            </a>
+        </span>
+        {/if}
+    </div>
+</div>
+<div class="clear">
+</div>
+<form class="autoTxtCount" action="" method="get" onsubmit="return false;">
+    <div id="comment_{bid}" style="display:none">
+        <div class="reply_list">
+            <div class="reply_btn">
+                <button type="submit" class="btn" onclick="sendReplay({bid});">
+                    \u53d1\u5e03
+                </button>
+            </div>
+            <div class="reply_input">
+                <div class="limit_text">
+                    <span class="tips">
+                        140
+                    </span>
+                </div>
+                <textarea id="replyInput_{bid}">
+                </textarea>
+                <input type="hidden" id="replyTo_{bid}" />
+            </div>
+            <div class="clear">
+            </div>
+            <div id="commentLoading_{bid}" class="s_loading">
+            </div>
+            <div class="reply_comment">
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <div id="comment_paging_{bid}" class="paging">
+        </div>
+    </div>
+</form>
+<div id="feeds_{bid}" class="none">
+    <div class="reply_list">
+        <div id="hit_loading_{bid}" class="sf_loading">
+        </div>
+    </div>
+    <div id="feeds_paging_{bid}" class="paging">
+    </div>
+</div>
+{/literal}
+</script>
+<script type="text/html" id="tmpl_model_1">
+    <div class="feed feed-good clearfix">
+            <div class="feed-avatar">
+                <a class="blog-avatar" href="#" title="FashionDes">
+                    <img src="http://img01.taobaocdn.com/tps/i1/T1LluJXe8eXXXXXXXX-64-64.png" width="64" height="64" alt="testAva"/></a>
+            </div>
+            <div class="feed-desc">
+                <span class="pop-corner"><s class="outter"></s><s class="inner"></s></span>
+                <div class="feed-link">
+                    <a href="#">查看文章</a>
+                </div>
+                <div class="feed-hd">
+                    <div class="merc-name"><a href="#">韩都衣舍:</a></div>
+                </div>
+                <div class="feed-bd">
+
+                    <div class="feed-good-cont clearfix">
+                       <!--宝贝信息-->
+                       <div class="feed-good-info">
+                        <div class="feed-good-img">
+                            <img src="http://img02.taobaocdn.com/tps/i2/T1nwuJXoRuXXXXXXXX-160-155.png"/>
+                        </div>
+                        <div class="feed-good-property">
+                              <h3 class="feed-good-title">失忆黄昏 2011冬装真貉子毛领形下摆优雅外毛领形下摆优雅外套 </h3>
+                             <div class="feed-good-fee">
+                                 <ul>
+                                     <li><span>价格：</span><del>340.00</del>元</li>
+                                     <li><span>促销：</span><span class="price">238.00元</span></li>
+                                     <li><span>运费：</span>8.00元</li>
+                                     <li><a href="#" class="view-good" target="_blank">查看宝贝</a></li>
+                                 </ul>
+
+                             </div>
+                        </div>
+                       </div>
+                       <!--宝贝描述-->
+                        <div class="feed-good-desc-wrap">
+                            <div class="feed-good-desc clearfix">
+                                <div class="for-line">
+                                    <div class="pop-corner-desc"><s class="outter"></s><s class="inner"></s></div>
+                                    <div class="feed-good-txt">
+                                        <p>了~真的好冷哦！发出照片来给大家看一下哦白薇的朋友发了照片给我哈~正好白薇也要下班回家看一下哦哦~可惜不是很清楚哈
+                                        <span class="feed-more"><a href="#">全部信息...</a></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                       <div class="feed-actions clearfix">
+                           <span class="feed-timestamp">
+                               5分钟前
+                           </span>
+                           <div class="feed-act">
+                              <a href="#" class="J_Comment">评论</a>
+                              <a href="#" class="J_Forward">转发(<span class="J_FwdNum">43</span>)</a>
+                              <a href="#" class="J_Like">喜欢(<span class="J_LikeNum">99</span>)</a>
+                              <a href="#" class="J_DeleteFeed">删除</a>
+                           </div>
+                       </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="J_Feedfoot feed-ft feed-cmt" data-feedId="2" data-feedOwnerNick="4">
+                <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
+            </div>
+
+        </div>
+</script>
+<script type="text/html" id="jjj-tmpl_model_1">
+{literal}
+<div id="feedText_{bid}" class="content"> 
+   <div class="text_area"> <p> {if attr.length >0} {each attr as img i} {if i <1} <a href="{b_url}" target="_blank"><img src="{img}"/></a> {/if} 
+   {/each} {/if} {body}</p> 
+   <div class="clear"></div> </div> 
+</div>
+{/literal}
+</script>
+
+<script type="text/html" id="tmpl_model_2">
+{literal}
+<div id="feedText_{bid}" class="content">
+    {if attr.length > 0} {each attr as m i} {if m.type == 'local'}
+    <div class="album" id="swf_cover_{bid}_{i}">
+        <div class="cover">
+            <div class="cover_img">
+            </div>
+            <img src="{m.img}" />
+        </div>
+        <div class="cover_title">
+            {m.title} - {m.author}
+        </div>
+        <div class="cover_fun">
+            <a href="javascrpt:void(0)" onclick="window.location.href={urlpath()}/{m.url}">
+                <span class="download">
+                    \u4e0b\u8f7d\u97f3\u4e50
+                </span>
+            </a>
+        </div>
+        <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0"
+        width="340" height="33">
+            <param name="movie" value="{flashpath(m.url)}" />
+            <param name="quality" value="high" />
+            <param value="transparent" name="wmode" />
+            <embed src="{flashpath(m.url)}" width="340" height="33" quality="high"
+            pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash">
+            </embed>
+        </object>
+    </div>
+    {/if} {if m.type == 'xiamisearch' || m.type == 'xiami'}
+    <div class="album">
+        <div class="cover">
+            <div class="cover_img">
+            </div>
+            <img src="{m.img}" />
+        </div>
+        {if m.title != 'null' && m.author != 'null'}
+        <div class="cover_title">
+            <a href="{h_url}">
+                {m.title} {m.author}
+            </a>
+        </div>
+        {/if}
+        <div class="cover_fun">
+            <a href="{m.url}" target="_blank">
+                <span class="eject">
+                    \u5f39\u51fa\u64ad\u653e
+                </span>
+            </a>
+        </div>
+        {if m.type == 'xiami'}
+        <embed src="http://www.xiami.com/widget/0_{m.pid}/singlePlayer.swf" type="application/x-shockwave-flash"
+        width="340" height="33" wmode="transparent">
+        </embed>
+        {else}
+        <embed src="{m.pid}" type="application/x-shockwave-flash" width="340"
+        height="33" wmode="transparent">
+        </embed>
+        {/if}
+    </div>
+    {/if} {if m.type == 'yinyuetai'}
+    <div class="video w240" id="swf_cover_{bid}_{i}">
+        <div class="video_bg">
+            <div class="video_song">
+                {m.title}
+            </div>
+            <div class="video_name">
+                {m.author}
+            </div>
+            <a href="javascript:" onclick="load_swf('yinyuetai\',{bid},{i},'{m.title}','{m.pid}')">
+                <div class="video_play">
+                </div>
+                <img src="index.php?c=blog&a=getyytimg&src={m.img}" />
+            </a>
+        </div>
+    </div>
+    <div style="display:none" id="swf_play_{bid}_{i}">
+    </div>
+    {/if} {/each} {/if} {if body}
+    <div class="text_area">
+        <p>
+            {body}
+        </p>
+    </div>
+    {/if}
+</div>
+{/literal}
+</script>
+
+<script type="text/html" id="tmpl_model_3">
+{literal}
+	<div id="feedText_{bid}" class="content">
+    <div class="text_area_all">
+        {if attr.count ==1}
+        <div id="imagelist_1_a" class="imagelist wSet">
+            <div class="img_top">
+                <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{attr.img[0].url}" title="{attr.img[0].desc}" />
+                    </a>
+                </li>
+            </div>
+        </div>
+        {/if} {if attr.count == 2}
+        <div id="imagelist_2_a" class="imagelist wSet">
+            <div class="img_two">
+                {each attr.img as img i} {if i
+                < 2} <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{img.url}" title="{img.desc}" />
+                    </a>
+                    </li>
+                    {/if} {/each}
+            </div>
+        </div>
+        {/if} {if attr.count == 3}
+        <div id="imagelist_3_a" class="imagelist wSet">
+            <div class="img_top">
+                <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{attr.img[0].url}" title="{attr.img[0].desc}" />
+                    </a>
+                </li>
+            </div>
+            <div class="img_two">
+                {each attr.img as img i} {if i > 0}
+                <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{img.url}" title="{img.desc}" />
+                    </a>
+                </li>
+                {/if} {/each}
+            </div>
+        </div>
+        {/if} {if attr.count == 4}
+        <div id="imagelist_4_a" class="imagelist wSet">
+            <div class="img_top">
+                <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{attr.img[0].url}" title="{attr.img[0].desc}" />
+                    </a>
+                </li>
+            </div>
+            <div class="img_three">
+                {each attr.img as img i} {if i >= 1}
+                <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{img.url}" title="{img.desc}" />
+                    </a>
+                </li>
+                {/if} {/each}
+            </div>
+        </div>
+        {/if} {if attr.count == 5}
+        <div id="imagelist_5_a" class="imagelist wSet">
+            <div class="img_two">
+                {each attr.img as img i} {if i >= 0 && i
+                < 2} <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{img.url}" title="{img.desc}" />
+                    </a>
+                    </li>
+                    {/if} {/each}
+            </div>
+            <div class="img_three">
+                {each attr.img as img i} {if i >=2 && i
+                < 5} <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{img.url}" title="{img.desc}" />
+                    </a>
+                    </li>
+                    {/if} {/each}
+            </div>
+        </div>
+        {/if} {if attr.count == 6}
+        <div id="imagelist_6_a" class="imagelist wSet">
+            <div class="img_three">
+                {each attr.img as img i} {if i >= 0 && i
+                < 3} <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{img.url}" title="{img.desc}" />
+                    </a>
+                    </li>
+                    {/if} {/each}
+            </div>
+            <div class="img_two">
+                {each attr.img as img i} {if i >=3 && i
+                <=4 } <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{img.url}" title="{img.desc}" />
+                    </a>
+                    </li>
+                    {/if} {/each}
+            </div>
+            <div class="img_top">
+                <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{attr.img[5].url}" title="{attr.img[5].desc}" />
+                    </a>
+                </li>
+            </div>
+        </div>
+        {/if} {if attr.count == 7}
+        <div id="imagelist_7_a" class="imagelist wSet">
+            <div class="img_top">
+                <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{attr.img[0].url}" title="{attr.img[0].desc}" />
+                    </a>
+                </li>
+            </div>
+            <div class="img_three">
+                {each attr.img as img i} {if i >= 1 && i
+                <=3 } <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{img.url}" title="{img.desc}" />
+                    </a>
+                    </li>
+                    {/if} {/each}
+            </div>
+            <div class="img_three">
+                {each attr.img as img i} {if i >=4 && i
+                < 7} <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{img.url}" title="{img.desc}" />
+                    </a>
+                    </li>
+                    {/if} {/each}
+            </div>
+        </div>
+        {/if} {if attr.count == 8}
+        <div id="imagelist_8_a" class="imagelist wSet">
+            <div class="img_two">
+                {each attr.img as img i} {if i >= 0 && i
+                < 2} <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{img.url}" title="{img.desc}" />
+                    </a>
+                    </li>
+                    {/if} {/each}
+            </div>
+            <div class="img_three">
+                {each attr.img as img i} {if i >=2 && i
+                < 8} <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{img.url}" title="{img.desc}" />
+                    </a>
+                    </li>
+                    {/if} {/each}
+            </div>
+        </div>
+        {/if} {if attr.count ==9}
+        <div id="imagelist_9_a" class="imagelist wSet">
+            <div class="img_three">
+                {each attr.img as img i} {if i >= 0 && i
+                < 3} <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{img.url}" title="{img.desc}" />
+                    </a>
+                    </li>
+                    {/if} {/each}
+            </div>
+            <div class="img_two">
+                {each attr.img as img i} {if i >=3 && i
+                < 5} <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{img.url}" title="{img.desc}" />
+                    </a>
+                    </li>
+                    {/if} {/each}
+            </div>
+            <div class="img_three">
+                {each attr.img as img i} {if i >= 5 && i
+                < 8} <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{img.url}" title="{img.desc}" />
+                    </a>
+                    </li>
+                    {/if} {/each}
+            </div>
+            <div class="img_top">
+                <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{attr.img[8].url}" title="{attr.img[8].desc}" />
+                    </a>
+                </li>
+            </div>
+        </div>
+        {/if} {if attr.count >=10}
+        <div id="imagelist_9_a" class="imagelist wSet">
+            <div class="img_two">
+                {each attr.img as img i} {if i >=0 && i
+                < 2} <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{img.url}" title="{img.desc}" />
+                    </a>
+                    </li>
+                    {/if} {/each}
+            </div>
+            <div class="img_three">
+                {each attr.img as img i} {if i >= 2 && i
+                < 5} <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{img.url}" title="{img.desc}" />
+                    </a>
+                    </li>
+                    {/if} {/each}
+            </div>
+            <div class="img_two">
+                {each attr.img as img i} {if i >=5 && i
+                < 7} <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{img.url}" title="{img.desc}" />
+                    </a>
+                    </li>
+                    {/if} {/each}
+            </div>
+            <div class="img_three">
+                {each attr.img as img i} {if i >= 7 && i
+                < 10} <li>
+                    <a href="javascript:void(0)">
+                        <img degree="0" src="{img.url}" title="{img.desc}" />
+                    </a>
+                    </li>
+                    {/if} {/each}
+            </div>
+        </div>
+        {/if} {if body}
+        <div class="text_area">
+            <p>
+                {body}
+            </p>
+        </div>
+        {/if}
+    </div>
+</div>
+{/literal}
+</script>
+<script type="text/html" id="tmpl_model_4">
+{literal}
+<div id="feedText_{bid}" class="content">
+    {if attr.length>0} {each attr as v i}
+    <div class="video w240" id="swf_cover_{bid}_{i}">
+        <div class="video_bg">
+            <div class="video_title">
+                {v.title}
+            </div>
+            <a href="javascript:;" onclick="load_swf('yinyuetai',{bid},{i},'{v.title}','{v.pid}')">
+                <div class="video_play">
+                </div>
+                {if v.type == 'yinyuetai'}
+                <img src="index.php?c=blog&a=getyytimg&src={v.img}" />
+                {else}
+                <img src="{v.img}" />
+                {/if}
+            </a>
+        </div>
+    </div>
+    <div style="display:none;" id="swf_play_{bid}_{i}">
+    </div>
+    {/each} {/if}
+    <div class="text_area">
+        {if body}
+        <p>
+            {body}
+        </p>
+        {/if}
+    </div>
+</div>
+{/literal}
+</script>
+<script type="text/html" id="tmpl_model_6">
+{literal}
+<div id="feedText_{bid}" class="content">
+    {if attr.length>0} {each attr as v i}
+    <div class="movie">
+        <div class="mov_img">
+            <div class="score">
+                {v.average}
+            </div>
+            <div class="mov_yy">
+            </div>
+            <a href="{b_url}" target="_blank">
+                <img src="{v.img}" />
+            </a>
+            {if v.movie}
+            <div class="mov_play">
+                <a href="{v.movie}" target="_blank">
+                    \u64ad\u653e\u9884\u544a\u7247
+                </a>
+            </div>
+            {/if}
+        </div>
+        <div class="mov_info">
+            <li class="mov_title">
+                \u7535\u5f71\u540d\u79f0:
+                <font>
+                    {v.title}
+                </font>
+            </li>
+            <li>
+                \u5bfc\u6f14:
+                <font>
+                    {v.directe}
+                </font>
+            </li>
+            <li>
+                \u4e3b\u6f14:
+                <font>
+                    {each v.starring as g i}
+                    <b>
+                        {g}
+                    </b>
+                    {/each}
+                </font>
+            </li>
+            <li>
+                \u7c7b\u578b:
+                <font>
+                    {each v.genre as g i}
+                    <b>
+                        {g}
+                    </b>
+                    {/each}
+                </font>
+            </li>
+            <li>
+                \u4e0a\u6620\u65e5\u671f:
+                <font>
+                    {v.initialReleaseDate}
+                </font>
+            </li>
+            <li>
+                \u65f6\u957f:
+                <font>
+                    {v.runtime}
+                </font>
+            </li>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    {/each} {/if}
+    <div class="text_area">
+        {if body}
+        <p>
+            {body}
+        </p>
+        {/if}
+    </div>
+</div>
+{/literal}
+</script>
+<script type="text/javascript">
+	$(document).ready(function(){ 
+		yb_load_feeds('blog','feeds');
+	})
+</script>
+{include file="require_footer.html" top=yes}

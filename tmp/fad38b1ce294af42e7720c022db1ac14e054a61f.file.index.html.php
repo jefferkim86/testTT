@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-10 21:38:29
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-15 15:48:38
          compiled from "/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/index.html" */ ?>
-<?php /*%%SmartyHeaderCode:188975378453be97554b1015-11981618%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:115077591453c4dcd6efe819-96795145%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'fad38b1ce294af42e7720c022db1ac14e054a61f' => 
     array (
       0 => '/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/index.html',
-      1 => 1341154870,
+      1 => 1404999566,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '188975378453be97554b1015-11981618',
+  'nocache_hash' => '115077591453c4dcd6efe819-96795145',
   'function' => 
   array (
   ),
@@ -21,7 +21,9 @@ $_smarty_tpl->decodeProperties(array (
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
 
 <div id="wrap">
-
+<script type="text/javascript">
+	alert(2);
+</script>
     <div id="main">
 	   <?php $_template = new Smarty_Internal_Template(($_smarty_tpl->getVariable('themes_include_path')->value)."/userheader.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-10 21:31:06
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-15 20:41:39
          compiled from "tplv2/require_sider.html" */ ?>
-<?php /*%%SmartyHeaderCode:154045590253be959aec3c29-22223170%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:24024235553c52183d44b66-36164321%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0bb71f38ec48f4c0527c2092450118f8bd1842e1' => 
     array (
       0 => 'tplv2/require_sider.html',
-      1 => 1341406094,
+      1 => 1405428096,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '154045590253be959aec3c29-22223170',
+  'nocache_hash' => '24024235553c52183d44b66-36164321',
   'function' => 
   array (
   ),
@@ -133,3 +133,68 @@ if ($_smarty_tpl->_count($_from) > 0){
 			})
 		</script>
 	<?php }?>
+
+
+	<div class="sider-mod recommend clearfix">
+       <div class="hd"><h3>推荐给您的用户</h3></div>
+       <div class="bd">
+           <ul class="recommend-list clearfix">
+           		<li>
+           			<div class="logo">
+           				<img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/image/side-logo.png" alt=""/>
+           			</div>
+           			<div class="info">
+           				<h4>戴眼镜的男人</h4>
+						<button>加关注</button>
+           			</div>
+           		</li>
+           		<li>
+           			<div class="logo">
+           				<img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/image/side-logo.png" alt=""/>
+           			</div>
+           			<div class="info">
+           				<h4>戴眼镜的男人</h4>
+						<button>加关注</button>
+           			</div>
+           		</li>
+           		<li>
+           			<div class="logo">
+           				<img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/image/side-logo.png" alt=""/>
+           			</div>
+           			<div class="info">
+           				<h4>戴眼镜的男人</h4>
+						<button>加关注</button>
+           			</div>
+           		</li>
+
+           </ul>
+           <div class="ft">
+           	 <a href="#" class="change">换一换</a>
+           </div>
+           
+       </div>
+    </div>
+
+	<div class="sider-mod TA-attention clearfix">
+		<div class="hd">
+			<h3>他关注的</h3>
+			<a href="#" class="more">全部</a>
+		</div>
+		<div class="bd clearfix">
+			<ul>
+				<li><a href="#"><img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/image/side-logo.png" alt=""/></a></li>
+				<li><a href="#"><img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/image/side-logo.png" alt=""/></a></li>
+				<li><a href="#"><img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/image/side-logo.png" alt=""/></a></li>
+				<li><a href="#"><img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/image/side-logo.png" alt=""/></a></li>
+			</ul>
+		</div>
+	</div>
+
+

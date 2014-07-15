@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-10 21:38:29
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-15 15:48:39
          compiled from "tplv2/theme/default/header.html" */ ?>
 <?php /*%%SmartyHeaderCode:65090924753be97555cfb03-68628573%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_smarty_tpl->decodeProperties(array (
     '84ac14cc4c65fcde1a7474fcaa389ffbb05c276c' => 
     array (
       0 => 'tplv2/theme/default/header.html',
-      1 => 1341236348,
+      1 => 1363077808,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ $_smarty_tpl->decodeProperties(array (
 <title> <?php if ($_smarty_tpl->getVariable('titles')->value!=''){?> <?php echo $_smarty_tpl->getVariable('titles')->value;?>
  - <?php }?><?php echo $_smarty_tpl->getVariable('username')->value;?>
  - <?php echo $_smarty_tpl->getVariable('yb')->value['site_title'];?>
- - Powered by 云边轻博</title>
+</title>
 <meta charset="utf-8" />
 <base href="<?php echo $_smarty_tpl->getVariable('url')->value;?>
 /" />

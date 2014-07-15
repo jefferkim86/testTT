@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-10 21:38:29
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-15 15:48:39
          compiled from "tplv2/theme/default/footer.html" */ ?>
 <?php /*%%SmartyHeaderCode:90568495853be97559766b1-08004475%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_smarty_tpl->decodeProperties(array (
     'd505530f76eab9ca81ff103d7845ab98a66b445f' => 
     array (
       0 => 'tplv2/theme/default/footer.html',
-      1 => 1341154870,
+      1 => 1363077782,
       2 => 'file',
     ),
   ),
@@ -24,8 +24,7 @@ $_smarty_tpl->decodeProperties(array (
 /<?php echo $_smarty_tpl->getVariable('domain')->value;?>
 "><?php echo $_smarty_tpl->getVariable('username')->value;?>
 </a>| Powered by<a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'index'),$_smarty_tpl);?>
-"><?php echo $_smarty_tpl->getVariable('yb')->value['soft'];?>
- <b><?php echo $_smarty_tpl->getVariable('yb')->value['version'];?>
+">Dudu <b><?php echo $_smarty_tpl->getVariable('yb')->value['version'];?>
 </b></a>
 </div>
 </div>

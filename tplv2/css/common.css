@@ -21,7 +21,7 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 
 /*框架结构布局*/
 #wrap { width:100%; margin:0; }
-#index { width:900px; margin:0 auto; }
+#index { width:960px; margin:0 auto; }
 #user_index { width:800px; margin:0 auto; }
 .fl { float:left; }
 .fr { float:right; }
@@ -120,7 +120,7 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 
 
 /*博客主内容*/
-#article { width:660px; float:left; margin:0; }
+#article { width:716px; float:left; margin:0; }
 
 /*博客主内容 - 广告位*/
 #ad_index_up { width:540px; margin:40px 0 0 110px; background-color:#fff; padding:0; -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px; -moz-box-shadow:0px 1px 3px #bbb; -webkit-box-shadow:0px 1px 3px #bbb; box-shadow:0px 1px 3px #bbb; overflow:hidden; }

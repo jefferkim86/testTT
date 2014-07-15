@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-11 22:49:05
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-15 15:28:21
          compiled from "tplv2/require_js.html" */ ?>
-<?php /*%%SmartyHeaderCode:146767084853bff961cdc5a5-71509249%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:159351164253c4d815278219-67962704%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '8f6348f934a1766d0ee2377005f2726ac6b40ed0' => 
     array (
       0 => 'tplv2/require_js.html',
-      1 => 1405089976,
+      1 => 1405409219,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '146767084853bff961cdc5a5-71509249',
+  'nocache_hash' => '159351164253c4d815278219-67962704',
   'function' => 
   array (
   ),
@@ -49,6 +49,8 @@ var unit_3 = true;
 
 <link href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/dialog/default.css" rel="stylesheet" />
+<link href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/css/feed.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/template_models.js"></script>
 

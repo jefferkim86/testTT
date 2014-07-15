@@ -26,12 +26,23 @@
     <div id="header">
 	    <div class="header_con">
 		    <div id="logo"><a title="{$title}" href="{spUrl c=main a=index}">{$title}</a></div>
-			<div id="nav">
+		    <div class="my-attention">
+		    	<a href="">我的关注</a>
+		    </div>
+			<!-- <div id="nav">
 			    <li {if $CurrentModule=='index'}class="current"{/if}><a href="{spUrl c=main a=index}">首页</a></li>
 				<li {if $CurrentModule=='recommend'}class="current"{/if}><a href="{spUrl c=main a=recommend}">推荐</a></li>
 				<li {if $CurrentModule=='discover'}class="current"{/if}><a href="{spUrl c=main a=discovery}">发现</a></li>
 				<li><a href="{spUrl c=site a=licenses}">授权</a></li>
+			</div> -->
+			<div id="nav">
+				<div class="search">
+					<input type="text"/>
+					<button class="search-btn">搜索</button>
+				</div>
+				
 			</div>
+
 			{if islogin()}
 			<div id="tool">			
 			    <div class="function">
@@ -51,7 +62,6 @@
 							<!--关注通知-->
 							<div class="notice_followarea"></div>
 							<div class="nonotice">暂无通知</div>
-
 							
 						</div>
 					</div>
@@ -61,7 +71,14 @@
 					{if $yb.invite_switch != 0}<li class="invite"><a href="{spUrl c=invite a=myintval}" title="邀请"><span></span></a></li>{/if}
 					<li class="setting"><a href="{spUrl c=user a=setting}" title="设置"><span></span></a></li>
 					{if $smarty.session.admin ==1}<li class="admin"><a href="{spUrl c=admin}" target="_blank" title="后台"><span></span></a></li>{/if}
-					<li class="quit"><a href="#nogo" id="logOut" title="退出"><span></span></a></li>
+					<!-- <li class="quit"><a href="#nogo" id="logOut" title="退出"><span></span></a></li> -->
+
+
+					<li class="publish">
+						<s></s>
+						发布信息
+					</li>
+
 				</div>
 				<div class="name"><a href="{goUserHome domain=$smarty.session.domain uid=$smarty.session.uid}" target="_blank" title="我的博客">{$smarty.session.username}</a></div>
 			</div>

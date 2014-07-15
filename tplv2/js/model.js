@@ -1,3 +1,22 @@
+function modelParse(blogs){
+    var typeMap = {
+        '1': 'text',
+        '3': 'photo'
+    };
+
+    for(var i = 0; i < blogs.length; i++){
+        var blog = blogs[i];
+        blog.clsType = typeMap[blog.type];
+        blog.isTxtFeed = blog.type == 1;
+        blog.isPicFeed = blog.type == 3;
+
+
+    }
+
+    return blogs;
+
+}
+
 function yb_load_feeds(c, a, params, customcallback) {
     var mp = $.feedToolBar.parm.morepage;
     var nc = $.imgCtrl.parm.notCtrl;
@@ -23,14 +42,16 @@ function yb_load_feeds(c, a, params, customcallback) {
                 if (data.body.blog == false) {
                     $('#feed_none').show()
                 } else {
-                	console.log(data.body);
-                	var tpl = $("#J-feed_template").html();
-                    
-    var html = Mustache.render(tpl,{"blogs": data.body.blog });
-    console.log(html);
-
-                //    $('#feed_box').append(template('feed_template', data.body));
-                    
+                    //渲染模板
+                    console.log(data.body);
+                    var tpl = $("#J_FeedTemp").html();
+                    console.log(data.body.blog);
+                    var data = modelParse(data.body.blog);
+                    var html = Mustache.render(tpl,{"list": data});
+                    console.log(html);
+                //	$('#feed_box').append(template('J-feed_template', data.body));
+                   
+                    $('#feed_box').html(html);
 
                     $('.autoTxtCount').each(function() {
                         $(this).find('textarea').artTxtCount($(this).find('.tips'), 140)
