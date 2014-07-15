@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <title>{if $titlepre}{$titlepre} -{/if} {$title} {$yb.site_title}  {$yb.site_titlepre} - Powered by 云边轻博</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="{$yb.author}" />
+    <meta name="description" content="{if $description}{$description}{/if}{$yb.site_desc} " />
+    <meta name="keywords" content="{if $titlepre}{$titlepre},{/if}{if $keyword}{$keyword}{/if}{$yb.site_keyword}" />
+    <link rel="shortcut icon" href="{$syskin}/image/favicon.ico" type="image/x-icon">
+	<link rel="Bookmark" href="{$syskin}/image/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="{$syskin}/image/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="screen" href="{$syskin}/css/common.css" class="cssfx"/>
+	{include file="require_js.html"}
+	{if islogin()}
+	<script type="text/javascript">
+	$(document).ready(function(){
+		now_notice();
+		setInterval("now_notice()", 30000);
+	})
+	</script> 
+	{/if}
+</head>
+<body>
+
+<div id="wrap">
+    <div id="header">
+	    <div class="header_con">
+		    <div id="logo"><a title="{$title}" href="{spUrl c=main a=index}">{$title}</a></div>
+			<div id="nav">
+			    <li {if $CurrentModule=='index'}class="current"{/if}><a href="{spUrl c=main a=index}">首页</a></li>
+				<li {if $CurrentModule=='recommend'}class="current"{/if}><a href="{spUrl c=main a=recommend}">推荐</a></li>
+				<li {if $CurrentModule=='discover'}class="current"{/if}><a href="{spUrl c=main a=discovery}">发现</a></li>
+				<li><a href="{spUrl c=site a=licenses}">授权</a></li>
+			</div>
+			{if islogin()}
+			<div id="tool">			
+			    <div class="function">
+				    <li class="notice"><a href="javascript:void(0);" title="通知"><span id="notice"></span></a><span id="now_notice"></span>
+					<div id="f_notice" class="notice_bg" style="display:none;">
+				        <div class="f_corner"></div>
+					    <div class="notice_title">
+						    <div class="notice_right"><a href="javascript:;" onClick="clear_notice_all()">全部清除</a></div>
+						    <div class="notice_left">通知<span>0</span></div>
+						</div>
+						<div class="notice_con">
+						    <div class="loading">加载通知中</div>
+							<!--系统通知-->
+							<div class="notice_system"></div>
+							<!--回复通知-->
+							<div class="notice_replyarea"></div>
+							<!--关注通知-->
+							<div class="notice_followarea"></div>
+							<div class="nonotice">暂无通知</div>
+
+							
+						</div>
+					</div>
+					</li>
+					
+					<li class="pm"><a href="{spUrl c=pm}" title="私信"><span></span></a><span id="now_pm"></span></li>
+					{if $yb.invite_switch != 0}<li class="invite"><a href="{spUrl c=invite a=myintval}" title="邀请"><span></span></a></li>{/if}
+					<li class="setting"><a href="{spUrl c=user a=setting}" title="设置"><span></span></a></li>
+					{if $smarty.session.admin ==1}<li class="admin"><a href="{spUrl c=admin}" target="_blank" title="后台"><span></span></a></li>{/if}
+					<li class="quit"><a href="#nogo" id="logOut" title="退出"><span></span></a></li>
+				</div>
+				<div class="name"><a href="{goUserHome domain=$smarty.session.domain uid=$smarty.session.uid}" target="_blank" title="我的博客">{$smarty.session.username}</a></div>
+			</div>
+			{/if}
+		</div>
+	</div>

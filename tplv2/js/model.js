@@ -1,1 +1,93 @@
-eval(function(p,a,c,k,e,r){e=function(c){return(c<62?'':e(parseInt(c/62)))+((c=c%62)>35?String.fromCharCode(c+29):c.toString(36))};if('0'.replace(0,e)==0){while(c--)r[e(c)]=k[c];k=[function(e){return r[e]||e}];e=function(){return'[2-9bd-zA-N]'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('4 yb_load_feeds(c,a,r,f){g s=$.t.h.morepage;g u=$.v.h.notCtrl;$.i({ctn1:"#7",w:"#i",x:c,y:a,z:A,B:r,eclick:4(){$(\'#C\').j()},D:4(2){3(2.9.page==null){$.t.h.ttpage=0}3(2.E==1){$(\'#C\').F();3(!s){$(\'#7\').k(\'\')};3(2.9.G==l){$(\'#feed_none\').j()}b{$(\'#7\').append(m(\'feed_template\',2.9));$(\'.H\').I(4(){$(d).n(\'textarea\').artTxtCount($(d).n(\'.tips\'),140)}).removeClass("H");$("#7 .J  .avatar").I(4(){g o=$(d).n("#divObj");$(d).mouseDelay(200).hover(4(){o.j()},4(){o.F()})});3(u){$.v.setImgEvent($("#7 .J .content .text_area_all .wSet"))}};3(f!=K){f(2)}}}})};4 loadCommend(L,5){3(M 6&&6.p){q=6.p}b{q=N.p};$(\'#\'+L).k(m(q,{5:5}));3(M 6&&6.e){8=6.e}b{8=N.e};3(8==K){8=\'tmpl_reply\'};$.i({w:"#comment_paging_"+5,x:"G",y:"e",scroll:l,likes:l,z:A,B:{5:5},D:4(2){3(2.E==1){$(\'#comment_\'+5+\' .reply_comment\').k(m(8,2.9))}b{alert(2.msg)}}})}',[],50,'||data|if|function|bid|cus_tplhdefine|feed_box|tpl|body||else||this|reply|customcallback|var|parm|paging|show|html|false|template|find|_this_divobj|info_reply|info_tpl|params|mp|feedToolBar|nc|imgCtrl|ctn2|yc|ym|showpage|true|yprm|feed_loading|ftype|status|hide|blog|autoTxtCount|each|box|undefined|div|typeof|tplhdefine'.split('|'),0,{}))
+function yb_load_feeds(c, a, params, customcallback) {
+    var mp = $.feedToolBar.parm.morepage;
+    var nc = $.imgCtrl.parm.notCtrl;
+    $.paging({
+        ctn1: "#feed_box",
+        ctn2: "#paging",
+        yc: c,
+        ym: a,
+        showpage: true,
+        yprm: params,
+        eclick: function() {
+            $('#feed_loading').show()
+        },
+        ftype: function(data) {
+            if (data.body.page == null) {
+                $.feedToolBar.parm.ttpage = 0
+            }
+            if (data.status == 1) {
+                $('#feed_loading').hide();
+                if (!mp) {
+                    $('#feed_box').html('')
+                };
+                if (data.body.blog == false) {
+                    $('#feed_none').show()
+                } else {
+                	console.log(data.body);
+                	var tpl = $("#J-feed_template").html();
+                    
+    var html = Mustache.render(tpl,{"blogs": data.body.blog });
+    console.log(html);
+
+                //    $('#feed_box').append(template('feed_template', data.body));
+                    
+
+                    $('.autoTxtCount').each(function() {
+                        $(this).find('textarea').artTxtCount($(this).find('.tips'), 140)
+                    }).removeClass("autoTxtCount");
+                    $("#feed_box .box  .avatar").each(function() {
+                        var _this_divobj = $(this).find("#divObj");
+                        $(this).mouseDelay(200).hover(function() {
+                            _this_divobj.show()
+                        },
+                        function() {
+                            _this_divobj.hide()
+                        })
+                    });
+                    if (nc) {
+                        $.imgCtrl.setImgEvent($("#feed_box .box .content .text_area_all .wSet"))
+                    }
+                };
+                if (customcallback != undefined) {
+                    customcallback(data)
+                }
+            }
+        }
+    })
+};
+function loadCommend(div, bid) {
+    if (typeof cus_tplhdefine && cus_tplhdefine.info_reply) {
+        info_tpl = cus_tplhdefine.info_reply
+    } else {
+        info_tpl = tplhdefine.info_reply
+    };
+    $('#' + div).html(template(info_tpl, {
+        bid: bid
+    }));
+    if (typeof cus_tplhdefine && cus_tplhdefine.reply) {
+        tpl = cus_tplhdefine.reply
+    } else {
+        tpl = tplhdefine.reply
+    };
+    if (tpl == undefined) {
+        tpl = 'tmpl_reply'
+    };
+    $.paging({
+        ctn2: "#comment_paging_" + bid,
+        yc: "blog",
+        ym: "reply",
+        scroll: false,
+        likes: false,
+        showpage: true,
+        yprm: {
+            bid: bid
+        },
+        ftype: function(data) {
+            if (data.status == 1) {
+                $('#comment_' + bid + ' .reply_comment').html(template(tpl, data.body))
+            } else {
+                alert(data.msg)
+            }
+        }
+    })
+}

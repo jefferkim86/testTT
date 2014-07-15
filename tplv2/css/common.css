@@ -13,7 +13,8 @@ img{border:0px}
 input[type="text"],input[type="password"]{outline: none;}
 
 /*可动态改变替换的背景图像颜色*/
-body { color: #999999; background:url(../image/comm/background.gif) repeat #DCDDE2; font-family:'Microsoft Yahei','Arail'; font-size:12px; margin:0; }
+
+body { color: #f0ede8; background: #f0ede8; font-family:'Microsoft Yahei','Arail'; font-size:12px; margin:0; }
 a:link, a:visited { color: #999; text-decoration: none; }
 a:hover { color: #666; text-decoration:none; cursor:pointer; }
 .none { display:none; }
@@ -26,38 +27,38 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 .fr { float:right; }
 
 /*顶部链接*/
-#header { width:100%; margin:0 0 15px; height:72px; background-color:#294b6d;}
-#header .header_con { width:900px; margin:0 auto; height:93px; }
-#header #logo a{ width:160px; height:60px; background:url(../image/logo.png) no-repeat 0 0; text-indent: -9999px; display:block; float:left; margin-top:6px; }
+#header { width:100%; margin:0 0 15px; height:80px; background:#a7c9d3}
+#header .header_con { width:1140px; margin:0 auto; height:80px; }
+#header #logo a{ width:250px; height:60px; background:url(../image/logo.png) no-repeat 0 0; text-indent: -9999px; display:block; float:left; margin-top:15px; }
 
 #nav { margin-left:20px; float:left; }
 #nav li { list-style:none; float:left; margin-left:20px; margin-top:23px; }
-#nav li a { padding:8px 12px;  display:block; font-size:16px; font-weight:700; color:#999;  outline:none; }
-#nav li a:hover { color:#fff; }
-#nav .current a {  color:#fff;  }
-#nav .current a:hover { color:#fff; }
+#nav li a { padding:8px 12px; background:url(../image/comm/nav_bg.png) repeat-x 0 0; display:block; font-size:16px; font-weight:700; color:#666; border:1px #999 solid; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; -moz-box-shadow:0px 1px 0px #fff; -webkit-box-shadow:0px 1px 0px #fff; box-shadow:0px 1px 0px #fff; text-shadow:0px 1px 0px #fff; outline:none; }
+#nav li a:hover { background:url(../image/comm/nav_bg.png) repeat-x 0 -38px; color:#999; text-shadow:none; border:1px #999 solid; #background:url(../image/comm/nav_bg.png) repeat-x 0 -37px; }
+#nav .current a { background:url(../image/comm/nav_bg.png) repeat-x 0 -76px; color:#fff; text-shadow:0px -1px 0px #9B362E; border:1px #9B362E solid; #background:url(../image/comm/nav_bg.png) repeat-x 0 -75px; }
+#nav .current a:hover { background:url(../image/comm/nav_bg.png) repeat-x 0 -76px; color:#fff; text-shadow:0px -1px 0px #9B362E; border:1px #9B362E solid; #background:url(../image/comm/nav_bg.png) repeat-x 0 -75px; }
 
 #tool { float:right; margin-top:33px; position:relative; z-index:1; }
 #tool a, #tool a:hover, #tool a:active { outline:none; }
 #tool .name { float:right; }
-#tool .name a{ height:18px; line-height:18px; padding:0 10px; border:1px #999 solid; font-size:12px; display:block; background:url(../image/comm/tool_bg.png) repeat-x 0 0; border-radius:4px; outline:none;  max-width:130px; overflow:hidden; }
+#tool .name a{ height:18px; line-height:18px; padding:0 10px; border:1px #999 solid; font-size:12px; display:block; background:url(../image/comm/tool_bg.png) repeat-x 0 0; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; -moz-box-shadow:0px 1px 0px #fff; -webkit-box-shadow:0px 1px 0px #fff; box-shadow:0px 1px 0px #fff; text-shadow:0px 1px 0px #fff; outline:none;  max-width:130px; overflow:hidden; }
 #tool .name a:hover { background:url(../image/comm/tool_bg.png) repeat-x 0 -18px; color:#999; }
 
 #tool .function { float:right; position:relative; }
 #tool .function li { width:18px; height:18px; list-style:none; float:left; margin-left:10px; position:relative; }
 #tool .function li .pop { padding:1px 5px; background:url(../image/comm/pop_bg.png) repeat-x 0 0; font-size:12px; font-family:Arial, Helvetica, sans-serif; font-weight:700; color:#fff; position:absolute; right:-10px; top:-10px; -moz-border-radius:9px; -webkit-border-radius:9px; border-radius:9px; -moz-box-shadow:0px 1px 3px #ccc; -webkit-box-shadow:0px 1px 3px #ccc; box-shadow:0px 1px 3px #ccc; }
 
-#tool .notice a span { width:18px; height:18px; display:block; background:url(../image/comm/icons.png) no-repeat 0 0; border-radius:4px; }
+#tool .notice a span { width:18px; height:18px; display:block; background:url(../image/comm/icons.png) no-repeat 0 0; border:1px #999 solid; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; -moz-box-shadow:0px 1px 0px #fff; -webkit-box-shadow:0px 1px 0px #fff; box-shadow:0px 1px 0px #fff; }
 #tool .notice a:hover span { background:url(../image/comm/icons.png) no-repeat 0 -18px; }
-#tool .pm a span { width:18px; height:18px; display:block; background:url(../image/comm/icons.png) no-repeat -18px 0; border-radius:4px; }
+#tool .pm a span { width:18px; height:18px; display:block; background:url(../image/comm/icons.png) no-repeat -18px 0; border:1px #999 solid; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; -moz-box-shadow:0px 1px 0px #fff; -webkit-box-shadow:0px 1px 0px #fff; box-shadow:0px 1px 0px #fff; }
 #tool .pm a:hover span { background:url(../image/comm/icons.png) no-repeat -18px -18px; }
-#tool .invite a span { width:18px; height:18px; display:block; background:url(../image/comm/icons.png) no-repeat -36px 0; border-radius:4px; }
+#tool .invite a span { width:18px; height:18px; display:block; background:url(../image/comm/icons.png) no-repeat -36px 0; border:1px #999 solid; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; -moz-box-shadow:0px 1px 0px #fff; -webkit-box-shadow:0px 1px 0px #fff; box-shadow:0px 1px 0px #fff; }
 #tool .invite a:hover span { background:url(../image/comm/icons.png) no-repeat -36px -18px; }
-#tool .setting a span { width:18px; height:18px; display:block; background:url(../image/comm/icons.png) no-repeat -54px 0; border-radius:4px; }
+#tool .setting a span { width:18px; height:18px; display:block; background:url(../image/comm/icons.png) no-repeat -54px 0; border:1px #999 solid; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; -moz-box-shadow:0px 1px 0px #fff; -webkit-box-shadow:0px 1px 0px #fff; box-shadow:0px 1px 0px #fff; }
 #tool .setting a:hover span { background:url(../image/comm/icons.png) no-repeat -54px -18px; }
-#tool .admin a span { width:18px; height:18px; display:block; background:url(../image/comm/icons.png) no-repeat -90px 0; border-radius:4px; }
+#tool .admin a span { width:18px; height:18px; display:block; background:url(../image/comm/icons.png) no-repeat -90px 0; border:1px #999 solid; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; -moz-box-shadow:0px 1px 0px #fff; -webkit-box-shadow:0px 1px 0px #fff; box-shadow:0px 1px 0px #fff; }
 #tool .admin a:hover span { background:url(../image/comm/icons.png) no-repeat -90px -18px; }
-#tool .quit a span { width:18px; height:18px; display:block; background:url(../image/comm/icons.png) no-repeat -72px 0; border-radius:4px; }
+#tool .quit a span { width:18px; height:18px; display:block; background:url(../image/comm/icons.png) no-repeat -72px 0; border:1px #999 solid; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; -moz-box-shadow:0px 1px 0px #fff; -webkit-box-shadow:0px 1px 0px #fff; box-shadow:0px 1px 0px #fff; }
 #tool .quit a:hover span { background:url(../image/comm/icons.png) no-repeat -72px -18px; }
 
 #tool .notice_bg { width:317px; position:absolute; right:-30px; top:35px; z-index:999; padding:0; background:#fff; border:1px #ccc solid; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; -moz-box-shadow:0px 1px 3px #ccc; -webkit-box-shadow:0px 1px 3px #ccc; box-shadow:0px 1px 3px #ccc; }

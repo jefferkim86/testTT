@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-05 13:27:42
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-10 21:31:07
          compiled from "tplv2/require_footer.html" */ ?>
-<?php /*%%SmartyHeaderCode:50512922752d93370dd5492-10226918%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:92199292253be959b0e59e5-42824931%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7b20e605d333e55791698372022dff7d76772040' => 
     array (
       0 => 'tplv2/require_footer.html',
-      1 => 1404372062,
+      1 => 1363077468,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '50512922752d93370dd5492-10226918',
+  'nocache_hash' => '92199292253be959b0e59e5-42824931',
   'function' => 
   array (
   ),
@@ -29,9 +29,8 @@ if ($_smarty_tpl->_count($_from) > 0){
 "><?php echo $_smarty_tpl->tpl_vars['cate']->value['title'];?>
 </a>
 	<?php }} ?>
-      <a href="http://www.thinksaas.cn/index.php/group/group/groupid-129" target="_blank" class="powered">Powered by <?php echo $_smarty_tpl->getVariable('yb')->value['soft'];?>
- <b><?php echo $_smarty_tpl->getVariable('yb')->value['version'];?>
-</b></a> ©2011-2012 <?php echo $_smarty_tpl->getVariable('yb')->value['site_icp'];?>
+      <a href="http://www.thinksaas.cn/index.php/group/group/groupid-129" target="_blank" class="powered">Powered by Dudu <b><?php echo $_smarty_tpl->getVariable('yb')->value['version'];?>
+</b></a> ©2011-2013 <?php echo $_smarty_tpl->getVariable('yb')->value['site_icp'];?>
  <?php echo $_smarty_tpl->getVariable('yb')->value['site_count'];?>
 
    </div>

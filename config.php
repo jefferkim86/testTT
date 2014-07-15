@@ -5,13 +5,13 @@ define('APP_NAME','/tuitui/');
 
 ///需要设置是否为2级目录， 头像 和上传flash 需要调用那2个地址
 /*系统公用配置文件位置*
-/*安装日期 2014年 07月 05日 13:27*/
+/*安装日期 2014年 07月 10日 21:30*/
 
 $spConfig = array(
 
 	 'mode' => 'debug',  //系统启动模式 debug 调试模式 release 部署模式
 	 'dispatcher_error' => "err404();", // 定义处理路由错误的函数
-	 'encodestring' =>'0216d01fb7378817f072e209c336c2a7',
+	 'encodestring' =>'16b3539d013fe327dc19d0dd9bd3078f',
 	  "db" => array(
 		  'host' => 'localhost', // 数据库地址
 		  'login' => 'root',

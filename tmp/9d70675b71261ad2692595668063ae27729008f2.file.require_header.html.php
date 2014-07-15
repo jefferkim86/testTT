@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-05 13:27:42
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-10 23:43:56
          compiled from "tplv2/require_header.html" */ ?>
-<?php /*%%SmartyHeaderCode:58664309452dbfb79642db7-46277463%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:105382040553beb4bcdf6779-00488749%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9d70675b71261ad2692595668063ae27729008f2' => 
     array (
       0 => 'tplv2/require_header.html',
-      1 => 1404372062,
+      1 => 1405007035,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '58664309452dbfb79642db7-46277463',
+  'nocache_hash' => '105382040553beb4bcdf6779-00488749',
   'function' => 
   array (
   ),
@@ -24,7 +24,7 @@ $_smarty_tpl->decodeProperties(array (
  -<?php }?> <?php echo $_smarty_tpl->getVariable('title')->value;?>
  <?php echo $_smarty_tpl->getVariable('yb')->value['site_title'];?>
   <?php echo $_smarty_tpl->getVariable('yb')->value['site_titlepre'];?>
- - Powered by 云边轻博</title>
+</title>
     <meta charset="utf-8" />
     <meta name="author" content="<?php echo $_smarty_tpl->getVariable('yb')->value['author'];?>
 " />
@@ -36,11 +36,11 @@ $_smarty_tpl->decodeProperties(array (
 <?php }?><?php echo $_smarty_tpl->getVariable('yb')->value['site_keyword'];?>
 " />
     <link rel="shortcut icon" href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/image/favicon.png" type="image/x-icon">
+/image/favicon.ico" type="image/x-icon">
 	<link rel="Bookmark" href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/image/favicon.png" type="image/x-icon">
+/image/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/image/favicon.png" type="image/x-icon">
+/image/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" media="screen" href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /css/common.css" class="cssfx"/>
 	<?php $_template = new Smarty_Internal_Template("require_js.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
@@ -70,6 +70,8 @@ $_smarty_tpl->decodeProperties(array (
 ">推荐</a></li>
 				<li <?php if ($_smarty_tpl->getVariable('CurrentModule')->value=='discover'){?>class="current"<?php }?>><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'discovery'),$_smarty_tpl);?>
 ">发现</a></li>
+				<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'site','a'=>'licenses'),$_smarty_tpl);?>
+">授权</a></li>
 			</div>
 			<?php if (islogin()){?>
 			<div id="tool">			

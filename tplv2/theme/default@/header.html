@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<title> {if $titles != ''} {$titles} - {/if}{$username} - {$yb.site_title} - Powered by 云边轻博</title>
+<meta charset="utf-8" />
+<base href="{$url}/" />
+<meta name="author" content="{$username},{$domain},yunbian.org" />
+<meta name="description" content="{if $usersign == ''}{$description|strip_tags}{else}{$usersign|strip_tags}{/if}" />
+<meta name="keywords" content="{if $usertag == ''}{$keywords}{else}{foreach $usertag as $t}{$t},{/foreach}{/if}{if $title != ''},{$title}{/if} " />
+
+<script type="text/javascript"> 
+var urlpath = '{$url}';
+var skinpath = '{$syskin}';
+var uid = '{$smarty.session.uid}';
+var cus_tplhdefine = {}
+</script>
+<script type="text/javascript" src="{$syskin}/js/jquery.js"></script>
+<link href="{$syskin}/css/reset.css" rel="stylesheet" type="text/css">
+<link href="{$syskin}/css/frame.css" rel="stylesheet" type="text/css">
+<link href="{$syskin}/js/dialog/default.css" rel="stylesheet" />
+
+<link rel="shortcut icon" href="{$syskin}/image/favicon.ico" type="image/x-icon">
+<link href="{$themes_path}css/style.css" rel="stylesheet" type="text/css">
+<style>{$custom_css}</style>
+</head>
+
+<body id="body">
+<script type="text/javascript" src="{$syskin}/js/dialog.js"></script>
+<script type="text/javascript" src="{$syskin}/js/template.js"></script>
+<script type="text/javascript" src="{$syskin}/js/global.js"></script>
+<script type="text/javascript" src="{$syskin}/js/theme_template.js"></script>
+<script type="text/javascript" src="{$syskin}/js/jquery.rotate.js"></script>
+<script type="text/javascript" src="{$syskin}/js/model.js"></script>
+
+
+
+<div id="header_bg">
+<div id="footer_bg">
+
+<div id="header">
+ 
+{if islogin()}
+    <a href="{spUrl c=main a=index}" target="_top" class="return"><span>返回首页</span></a>
+    <a href="{spUrl c=customize}" target="_top" class="custom"><span>个性设置</span></a>
+{else}
+    <a href="{spUrl c=main a=index}" class="return"><span>返回首页</span></a>
+    <a href="{spUrl c=main a=login}" class="login"><span>登陆</span></a>
+    <a href="{spUrl c=main a=reg}" class="register"><span>注册</span></a>
+{/if}
+
+</div>
+<div class="clear"></div>

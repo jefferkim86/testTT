@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="zh-cn">
 <head>
-    <title>{if $titlepre}{$titlepre} -{/if} {$title} {$yb.site_title}  {$yb.site_titlepre} - Powered by 云边轻博</title>
+    <title>{if $titlepre}{$titlepre} -{/if} {$title} {$yb.site_title}  {$yb.site_titlepre}</title>
     <meta charset="utf-8" />
     <meta name="author" content="{$yb.author}" />
     <meta name="description" content="{if $description}{$description}{/if}{$yb.site_desc} " />
     <meta name="keywords" content="{if $titlepre}{$titlepre},{/if}{if $keyword}{$keyword}{/if}{$yb.site_keyword}" />
-    <link rel="shortcut icon" href="{$syskin}/image/favicon.png" type="image/x-icon">
-	<link rel="Bookmark" href="{$syskin}/image/favicon.png" type="image/x-icon">
-	<link rel="icon" href="{$syskin}/image/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{$syskin}/image/favicon.ico" type="image/x-icon">
+	<link rel="Bookmark" href="{$syskin}/image/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="{$syskin}/image/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" media="screen" href="{$syskin}/css/common.css" class="cssfx"/>
 	{include file="require_js.html"}
 	{if islogin()}
@@ -30,6 +30,7 @@
 			    <li {if $CurrentModule=='index'}class="current"{/if}><a href="{spUrl c=main a=index}">首页</a></li>
 				<li {if $CurrentModule=='recommend'}class="current"{/if}><a href="{spUrl c=main a=recommend}">推荐</a></li>
 				<li {if $CurrentModule=='discover'}class="current"{/if}><a href="{spUrl c=main a=discovery}">发现</a></li>
+				<li><a href="{spUrl c=site a=licenses}">授权</a></li>
 			</div>
 			{if islogin()}
 			<div id="tool">			
