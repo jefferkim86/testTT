@@ -4,6 +4,7 @@
 	<li class="data_post">{$user.num}<span>发布数</span></li>
 	<div class="clear"></div>
 </div>
+
 {if $user.uid != $smarty.session.uid}
 <div class="my_pm">
     <a href="{spUrl c=pm a=detail uid=$user.uid}" target="_blank">

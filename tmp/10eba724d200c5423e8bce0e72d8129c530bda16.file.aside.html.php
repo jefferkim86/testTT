@@ -1,29 +1,29 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-10 22:05:04
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-16 22:38:29
          compiled from "tplv2/models/aside.html" */ ?>
-<?php /*%%SmartyHeaderCode:77646365153be9d90586800-56078673%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:181984607153c68e65e2a3d8-03847425%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '10eba724d200c5423e8bce0e72d8129c530bda16' => 
     array (
       0 => 'tplv2/models/aside.html',
-      1 => 1341038688,
+      1 => 1405521507,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '77646365153be9d90586800-56078673',
+  'nocache_hash' => '181984607153c68e65e2a3d8-03847425',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
-				<div class="aside_item" id="post-privacy-holder">
+				<!-- <div class="aside_item" id="post-privacy-holder">
 				    <select id="savetype" name="savetype">
 					<option value="1" <?php if ($_smarty_tpl->getVariable('blog')->value['open']==1){?>selected<?php }?>>所有人可见</option>
 					<option value="0">保存为草稿</option>
 					<option value="-1" <?php if ($_smarty_tpl->getVariable('blog')->value['open']==-1){?>selected<?php }?>>仅自己可见</option>
 					</select>
-				</div>
+				</div> -->
 				
 				<div class="aside_line"></div>
 				
@@ -66,7 +66,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 					<div class="clear"></div>
 				</div>
 				
-				<div class="aside_line"></div>
+				<!-- <div class="aside_line"></div>
 				
 				<div class="aside_con" id="top-post-holder">
 				    <label>
@@ -116,5 +116,5 @@ if ($_smarty_tpl->_count($_from) > 0){
 						</label>
 					</div>
 				</div>
-               <?php }?>
+               <?php }?> -->
 				

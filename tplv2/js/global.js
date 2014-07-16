@@ -1,1 +1,1483 @@
-eval(function(p,a,c,k,e,r){e=function(c){return(c<62?'':e(parseInt(c/62)))+((c=c%62)>35?String.fromCharCode(c+29):c.toString(36))};if('0'.replace(0,e)==0){while(c--)r[e(c)]=k[c];k=[function(e){return r[e]||e}];e=function(){return'([4-7f-hj-loq-svwyzA-Z]|[1-6]\\w)'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('(4($){$.fn.4Q=4(1e){4R(1e,$(H));j $(H)};4 4R(1e,14){6(1e&&1e instanceof 2M){f k;f D;f K;f 1i;f 2N;f M=3z 2M({D:1,K:10,1i:10,1z:\'badoo\',17:"",2O:s,1p:v,2a:s,q:{2P:\'首页\',2Q:\'尾页\',2R:\'下一页\',2S:\'上一页\',3A:s,3B:s,4S:s,4T:s,4U:s,1A:\'#\',G:\'<w>&4V;&4V;跳{3C}/{3D}页</w>\',1f:{1g:\'22px\'}}});4 4W(){6(k.q&&k.q.2T&&k.q.2b){f 2b=$.4X(k.q.2T+"4Y");6(2b!=""&&2b!=1X){j 2b}}6(k.D){j k.D}l{j M.D}}4 2u(){6(k.2O){j k.2O}l{j M.2O}}4 4Z(){6(k.2a){j k.2a}l{j M.2a}}4 50(){6(k.K){j k.K}l{j M.K}}4 51(){6(k.1i){j k.1i}l{j M.1i}}4 52(){6(k.1z){j k.1z}l{j M.1z}}4 getAjax(){6(k.N&&k.N.on){j k.N}l{j M.N}}4 getParam(){6(k.N.1e&&k.N.1e.on){k.N.1e.I=D;j k.N.1e}l{M.N.1e.I=D;j M.N.1e}}4 53(){6(k.q&&k.q.3A==v){j""}6(k.q&&k.q.3A&&k.q.2P){f F="<a y=\'"+2c()+"\' E=\'1\'>"+k.q.2P+"</a>";j F}l{f F="<a y=\'"+2c()+"\' E=\'1\'>"+M.q.2P+"</a>";j F}}4 54(K){6(k.q&&k.q.3B==v){j""}6(k.q&&k.q.3B&&k.q.2Q){f F="<a y=\'"+2c()+"\' E=\'"+K+"\'>"+k.q.2Q+"</a>";j F}l{f F="<a y=\'"+2c()+"\' E=\'"+K+"\'>"+M.q.2Q+"</a>";j F}}4 2V(){6(k.q&&k.q.4T==v){j""}6(k.q&&k.q.2S){j k.q.2S}l{j M.q.2S}}4 2W(){6(k.q&&k.q.4S==v){j""}6(k.q&&k.q.2R){j k.q.2R}l{j M.q.2R}}4 2c(){6(k.q&&k.q.1A){j k.q.1A}l{j M.q.1A}}4 55(){f 1B="<1B B=\'1f\' 56=\'"+D+"\' >";6(k.q&&k.q.4U==v){j v}6(k.q&&k.q.G){f F=k.q.G;F=F.2d("{3C}",1B);F=F.2d("{D}",D);F=F.2d("{3D}",K);j F}l{f F=M.q.G;F=F.2d("{3C}",1B);F=F.2d("{D}",D);F=F.2d("{3D}",K);j F}}4 57(){6(4Z())j"";f G=55();6(G){G=$(G)}l{j""}f 1B=G.1Y(":1f");6(k.q&&k.q.1f){f 1H=k.q.1f;1j(2e in 1H){f C=2f("1H."+2e);1B.1H(2e,C)}j G.A()}l{f 1H=M.q.1f;1j(2e in 1H){f C=2f("1H."+2e);1B.1H(2e,C)}j G.A()}}4 59(){6(k.N&&k.N.1Z){j k.N.1Z}l{j M.N.1Z}}4 getAjaxStart(){6(k.N&&k.N.3E){k.N.3E()}l{M.N.3E}}4 5a(I){6(k.q&&k.q.2T&&k.q.2b){f 5b=k.q.2T+"4Y";$.4X(5b,I)}}4 2X(C){j parseInt(C)}4 5c(C){6(C<1){18("输入值不能小于1");j v}f 5d=/^[0-9]{1,8}$/;6(!5d.exec(C)){18("请输入正确的数字");j v}6(C>K){18("输入值不能大于总页数");j v}j s}4 3F(){D=2X(D);K=2X(K);f 1A=2c();f Z=2v=1;6(D-2N>0){Z=D-2N}l{Z=1}6(Z+1i>K){2v=K+1;Z=2v-1i}l{2v=Z+1i}f J="";6(!2u()||D!=1){J+=53()}6(D==1){6(!2u()){J+="<w g=\\"1q\\" E=\\""+2V()+"\\">"+2V()+" </w>"}}l{J+="<a y=\'"+1A+"\' E=\'"+(D-1)+"\'>"+2V()+" </a>"}6(Z<=0){Z=1}6(k.1p==s){1j(Z;Z<2v;Z++){6(Z==D){J+="<w g=\\"Q\\" E=\\""+Z+"\\">"+Z+"</w>"}l{J+="<a y=\'"+1A+"\' E=\'"+Z+"\'>"+Z+"</a>"}}}6(D==K){6(!2u()){J+="<w g=\\"1q\\" E=\\""+2W()+"\\">"+2W()+" </w>"}}l{J+="<a y=\'"+1A+"\' E=\'"+(D+1)+"\'>"+2W()+" </a>"}6(!2u()||D!=K){J+=54(K)}J+=57();14.A(J);14.1Y(":1f").keypress(4(3G){f 5e=3G.which;6(5e==13){f I=$(H).C();6(5c(I)){14.1Y("a").2w("1k");14.1Y("a").2x(4(){$(H).1k(4(){j v})});k.17(I);2Y(I)}}}).1k(4(){$(H).select()});14.1Y("a").2x(4(i){f I=H.E;$(H).1k(4(){14.1Y("a").2w("1k");14.1Y("a").2x(4(){$(H).1k(4(){j v})});k.17(I);2Y(I);$(H).3H();j v})})};4 2Y(I){D=I;5a(I);3F()}4 5f(){6(D<1){18("配置参数错误\\n错误代码:-1");j v}6(D>K){18("配置参数错误\\n错误代码:-2");j v}6(1i<1){18("配置参数错误\\n错误代码:-3");j v}j s}4 loadPageCount(k){6(k.2Z){f 7=k.7;f 2g=v;f 3I=s;f 1Z=59();switch(k.2Z){5g"3J":7=2f("("+7+")");2g=2f("7."+1Z);3K;5g"xml":2g=$(7).2h(1Z).1f();3K;default:3I=v;f 2i=k.2i+"(7)";2f(2i);2g=$("#"+1Z).C();3K}6(2g){K=2g}6(3I){f 2i=k.2i+"(7)";2f(2i)}}}k=1e;D=4W();K=50();1i=51();2N=2X(1i/2);f 1z=52();14.U(1z);6(5f()){3F();2Y(D)}}}$.fn.5h=4(3L,30){f countClass=\'js_txtCount\',fullClass=\'js_txtFull\',3M=\'1q\';f 5i=4(){f 31=$(H).closest(\'form\').2h(\':submit\'),C=$(H).C().1a,1q={on:4(){31.removeAttr(\'1q\').S(3M)},3N:4(){31.1l(\'1q\',\'1q\').U(3M)}};6(C==0)1q.3N();6(C<=30){6(C>0)1q.on();3L.A((30-C))}l{1q.3N();3L.A(\'-\'+(C-30))}};$(H).3O(\'keyup change\',5i);j H}})(jQuery);$.3P({5j:4(5k,1r,17){$.N({1s:5l+\'/32.34?c=5m&yc=getad&&ym=getAdUnit&unit=\'+5k,7:1r,5n:4(7){17(7)},5o:4(x){},2Z:\'3J\',B:\'5p\'})}});$.3P({O:4(c,m,1r,17){6(1r==5q){1r=\'\'};$.N({1s:5l+\'/32.34?c=5m&yc=\'+c+\'&ym=\'+m,7:1r,5n:4(7){17(7)},5o:4(x){6(x.T!=200){6(x.T!=0){2y(\'网络错误,请稍候\');j v}}j v},2Z:\'3J\',B:\'5p\'})},1m:4(L){f M={yc:"",ym:"",1I:{I:1},5r:"",2z:"",21:"",1J:v,1p:v,1z:"ybpage",35:s,1C:s,3Q:""};f L=$.3P(M,L||{});f 5s=$(L["2z"]);f 1K=$(L["21"]);$.O(L["yc"],L["ym"],L["1I"],4(7){4 3R(7){6(5t(L["1J"])=="4"){L["1J"](7)}l{5s.A(tmpl(L["5r"],7.o))}6(L.35){$(".5u").2x(4(){f 2j=$(H);f h=2j.1l("likeid");2j.1k(4(){$.O(\'V\',\'5v\',{11:h},4(7){6(7.T==1){6(7.o==\'5w\'){2j.2A().3S(\'36\')}l{2j.2A().U("3T");2j.2A().3S(\'36\')}}l{18(7.G)}})})}).S("5u");j s}}3R(7);6(7.o.I==1X){1K.A("");j v};1K.4Q({D:7.o.I["current_page"],K:7.o.I["1L"],2a:L["2a"],1z:L["1z"],1p:L["1p"],17:4(5x){6(5t(L["3Q"])=="4"){L["3Q"]()};L["1I"]["I"]=5x;$.O(L["yc"],L["ym"],L["1I"],4(7){3R(7)});6(L["1C"]){f p=$("#5y .Q");6(p.size()>0){p=p.offset().top}l{p=0}$(W).5z(p)}}})})}});$.5A={22:{p:\'\',3U:v,5B:1},3U:4(h){f 1L=10,1M=$(\'#\'+h),5C=$("#"+1M.1l(\'5C\')),p=2,5D=1M.1l("max"),X=$(\'#1v\'),Y=$(\'<a y="1D:3V(0)" h="Y" g="Y">查看更多</a>\'),1b=$(\'<a y="1D:3V(0)" h="1b" g="1b">暂时没有更多内容</a>\'),1E=H;1M.1n(Y).1n(1b).after(X);Y.1k(4(){1E.5E(1E,1M,X,Y,1b,1L)});4 3W(){f 5F=$(W).2k()+$(2l).5z();f 5G=$(2l.o).2k();6(5F>=5G-20){6(1E.22.5B==0){1b.z();j v}6(p-1>5D){$(W).2w("1C");1E.22.p=p}l{$(W).2w("1C");X.z();Y.r();2B("V","3X",{I:p},4(7){1L=7.o.I.1L;6(7.o.I==1X){1b.z();X.r();Y.r();j v}6(7==\'\'){1b.z();Y.r();j v}6(p>=1L){1b.z();X.r();Y.r();$(W).2w("1C")}l{$(W).3O("1C",4(){3W()});p=p+1;1M.1l("I",p);1E.22.p=p;X.r();1b.r();Y.z()}})}}}$(W).3O("1C",4(){3W()})},5E:4(1E,1M,X,Y,1b,1L){X.z();Y.r();p=1E.22.p;2B("V","3X",{I:p},4(7){6(7==\'\'){1b.z();Y.r();j v}6(p>=1L){1b.z();X.r();Y.r();j v}X.r();Y.z();p=p+1;1M.1l("I",p);1E.22.p=p})}};f tpldefine={m_1:\'tmpl_model_1\',m_2:\'tmpl_model_2\',m_3:\'tmpl_model_3\',m_4:\'tmpl_model_4\',m_5:\'tmpl_model_5\',m_6:\'tmpl_model_6\',};f tplhdefine={5H:\'tmpl_model_header\',5I:\'tmpl_model_footer\',1N:\'5J\',infooter:\'tmpl_info_footer\',info_reply:\'tmpl_model_info_reply\',};$(2l).ready(4(){$(\'#search .ipt\').1k(4(){6($(H).C()==\'搜索标签,发现兴趣\'){$(H).C(\'\')}}).5K(4(){6($(H).C()==\'\'){$(H).C(\'搜索标签,发现兴趣\')}});$(\'#5L\').3H(4(){$(H).U(\'1w\')}).5K(4(){$(H).S(\'1w\')});$(\'#logOut\').1k(4(){2m({h:\'2n\',1O:s,1P:s,1g:\'2o\',J:\'确定要退出吗?\',ok:4(){$.O(\'login\',\'logout\',\'\',4(7){W.2C.5M()})},2p:4(){}})});$("#37").1k(4(){6($("#R").is(":visible")){$("#R").r()}l{$("#R").z(0,4(){37();$(H).hover(4(){2l.12=1X},4(){2l.12=4(e){f e=e?e:W.3G;f 5O=e.srcElement||e.15;6(5O.h!="37"){$("#R").r(0,4(){2l.12=1X})}}})})}});$(\'.autoTxtCount\').2x(4(){$(H).2h(\'3Y\').5h($(H).2h(\'.16\'),140)})});4 5P(e){6(W.38.3Z(\'1f\',e)){16("复制到剪贴板成功！")}l{2y("您的浏览器不支持剪贴板操作，请自行复制。")}}4 5P(39){6(W.38){W.38.clearData();6(W.38.3Z("Text",39)){16("复制成功！")}}l 6(navigator.userAgent.indexOf("Opera")!=-1){W.2C=39}l 6(W.5Q){try{5Q.security.PrivilegeManager.enablePrivilege("UniversalXPConnect")}catch(e){2y("被浏览器拒绝！\\n请在浏览器地址栏输入\'about:config\'并回车\\n然后将\'signed.applets.codebase_principal_support\'设置为\'s\'")}f 3a=23.40[\'@41.42/5R/clipboard;1\'].43(23.3b.5S);6(!3a){j};f 2D=23.40[\'@41.42/5R/transferable;1\'].43(23.3b.nsITransferable);6(!2D){j};2D.addDataFlavor(\'1f/5T\');f F=3z 2M();f len=3z 2M();f F=23.40["@41.42/supports-string;1"].43(23.3b.nsISupportsString);f 44=39;F.7=44;2D.setTransferData("1f/5T",F,44.1a*2);f 5U=23.3b.5S;6(!3a){j v};3a.3Z(2D,1X,5U.kGlobalClipboard);16("复制成功！")}}4 2y(G){$.5V({h:\'2y\',J:G,ok:4(){},5W:10,1R:5X,1P:s,1O:s})};4 16(G){$.5V({h:\'16\',J:G,ok:4(){},5W:10,1g:\'300px\',1O:s,1R:5X,1P:s})};4 tag_search(5Y){f 1S=$(\'#5L\').C();6(1S==\'\'||1S==\'搜索标签,发现兴趣\'){16(\'搜索的标签不能为空\');j v};6(5Y==\'local\'){show_tags_view({1S:1S})}l{W.2C.y=\'32.34?c=V&a=1S&1S=\'+1S}};4 ad_aside(5,h,ga){$.5j(h,\'\',4(d){6(d.o.B==1){$(5).A(\'<a y="\'+d.o.1s+\'" 15="1c"><1F 1d="\'+d.o.o+\'"/> </a>\')};6(ga){$(\'#\'+5).1n(d.o.ga)}})};4 46(){$.O(\'P\',\'chkNoticPm\',\'\',4(7){6(7.T==1){6(7.o.5Z!=0){$(\'#46\').A(\'<5 g="47">\'+7.o.5Z+\'</5>\')}l{$(\'#46\').r()}6(7.o.pm!=0){$(\'#60\').A(\'<5 g="47">\'+7.o.pm+\'</5>\')}l{$(\'#60\').r()}}})}4 35(h){$.O(\'V\',\'5v\',{11:h},4(7){6(7.T==1){$(\'#3c\'+h).S(\'36\');$(\'#3c\'+h).S(\'3T\');6(7.o==\'5w\'){$(\'#3c\'+h).U(\'36\')}l{$(\'#3c\'+h).U(\'3T\')}}l{18(7.G)}})}4 cancelConnect(B){2m({h:\'2n\',1O:s,1P:s,1g:\'2o\',24:.1,J:\'确定要取消绑定吗?\',ok:4(){$.O(\'P\',\'CancelConnect\',{\'B\':B},4(7){6(7.T==1){W.2C.5M()}l{16(\'请稍后再试\')}})},2p:4(){}})}4 delblogs(48){2m({h:\'2n\',1O:s,1P:s,1g:\'2o\',24:.1,J:\'确定要删除吗?\',ok:4(){$.O(\'P\',\'delblog\',{h:48},4(7){$(\'#blog_\'+48).r()})},2p:4(){}})}4 61(49){2m({h:\'2n\',1O:s,1P:s,1g:\'2o\',24:.1,J:\'确定要删除吗?\',ok:4(){$.O(\'V\',\'delReply\',{h:49},4(7){6(7.T==1){$(\'#62\'+49).r()}l{18(7.G)}})},2p:4(){}})}4 63(h){2m({h:\'2n\',1O:s,1P:s,1g:\'2o\',24:.1,J:\'确定要转载吗?\',ok:4(){$.O(\'V\',\'63\',{11:h},4(7){6(7.T==1){18(\'成功转载\')}l{18(7.G)}})},2p:4(){}})}4 4a(t,25,2F){6(t==\'unlink\'){2m({h:\'2n\',1O:s,1P:s,1g:\'2o\',24:.1,J:\'确定要取消关注吗?\',ok:4(){4b(t,25,2F)},2p:4(){}})}l{4b(t,25,2F)}}4 4b(t,25,2F){$.O(\'P\',\'4a\',{B:t,1x:25},4(7){6(7.T==1){$(\'#follow_unlink_\'+25+\',#follow_link_\'+25).4c()}l{16(7.G)}6(2F){16(\'已操作完毕\')}})}4 load_swf(B,11,i,E,1s){2G();1o=11+\'_\'+i;14=$(\'#4d\'+1o);1K=$(\'#4e\'+1o);f 4f=\'<5 g="video_windows"><1T 1d="\'+1s+\'" 4g="4h" 1g="64" 2k="65" 66="67"  68="69" B="3d/x-3e-3f"></1T></5>\';6(14.is(":6a")){14.A(\'<5 g="video_info"><5 g="video_cover"><a y="1D:;" 12="6b(\\\'\'+1o+\'\\\')"><w g="away">收起</w></a><a 12="3g(\\\'6c\\\',\\\'\'+1o+\'\\\',\\\'\'+E+\'\\\',\\\'\'+1s+\'\\\')"><w g="eject">弹出播放</w></a></5><5 g="video_title">\'+E+\'</5></5>\'+4f).z();1K.r()}l{14.A(\'\').r();1K.z()}}4 6b(1o){14=$(\'#4d\'+1o);1K=$(\'#4e\'+1o);14.A(\'\').r();1K.z()}4 3g(B,1o,E,1s){2G();$(\'#4d\'+1o).A(\'\').r();$(\'#4e\'+1o).z();6(B==\'6c\'){2q=\'<1T 1d="\'+1s+\'" 4g="4h" 1g="64" 2k="65" 66="67"  68="69" B="3d/x-3e-3f"></1T>\'}6(B==\'xiami\'){2q=\'<1T 1g="6d" 2k="33" wmode="transparent" B="3d/x-3e-3f" 1d="\'+1s+\'"></1T>\'}6(B==\'localplayer\'){1r=skinpath+\'/2q/4f.2q?soundFile=\'+1s+\'&bg=6e&leftbg=4i&lefticon=3h&rightbg=4i&rightbghover=0xF17676&righticon=3h&righticonhover=3h&1f=0x227CAC&slider=4i&track=3h&border=6e&loader=0x83C1E7&autostart=no&loop=no\';2q+=\'<1T 1d="\'+1r+\'" 1g="6d" 2k="33" 4g="4h" pluginspage="http://www.macromedia.com/go/getflashplayer" B="3d/x-3e-3f"></1T>\'}$(\'o\').1n(\'<5 g="btn_bottom" h="3g"><5 g="shoot_title">\'+E+\'</5><5 g="2G"><a y="1D:;" 12="2G()"></a></5><a g="btn5 ie6png" h="eD1" >\'+2q+\'</a></5>\')}4 2G(){$(\'#3g\').A(\'\').remove()}4 changeFeeds(6g,2H){$.5A.22.3U=v;$(\'#5y .menu li\').S(\'Q\');$(2H).2A().U(\'Q\');2B(\'V\',6g)}4 loadComment(d){4j(\'4k\',d)}4 4j(B,h){f 4l=$(\'#4m\'+h);f 4n=$(\'#4o\'+h);6(B==\'4k\'){4n.r();4l.4c();4p(h)}6(B==\'3X\'){4n.4c();4l.r();6h(h)}}4 4p(h){f 3i=$(\'#4q\'+h);6(3i.1l("2I")=="s"){j v}$.1m({21:"#6i"+h,yc:"V",ym:"1N",1C:v,1p:s,1I:{11:h},1J:4(7){6(7.T==1){3i.r();$(\'#4m\'+h+\' .6j\').A(3j(\'5J\',7.o));3i.1l("2I","s")}l{18(7.G)}}})}4 6h(h){f 3k=$(\'#hit_loading_\'+h);6(3k.1l("2I")=="s"){j v}3k.z();$.1m({21:"#feeds_paging_"+h,yc:"V",ym:"getHit",1C:v,1p:s,1I:{11:h},1J:4(7){6(7.T==1&&7.o.o.1a>=1){$(\'#4o\'+h+\' .4r\').A(\'\');1j(f i=0;i<7.o.o.1a;i++){f 6k=7.o.o[i];$(\'#4o\'+h+\' .4r\').1n(6l(6k))}3k.1l("2I","s")}l{18(7.G)}}})}4 6m(){$(\'#X\').z();$.O(\'4s\',\'getInviteList\',\'\',4(7){$(\'#6n\').A(7.o.6n);$(\'#6o\').A(7.o.6o);$(\'#invite_num\').A(3j(\'tmpl_intval_code\',7.o));$(\'#X\').r()})}4 getCode(){$.O(\'4s\',\'addToFull\',\'\',4(7){6m();16(\'邀请码已经更新\')})}4 load_friend(){$(\'#X\').z();$.O(\'4s\',\'getInvitedFriendList\',\'\',4(7){6(7.o.1a>0){$(\'#invite_follow_list\').A(3j(\'tmpl_invite_follow_list\',7))}l{$(\'#no_friend\').z()}$(\'#X\').r()})}4 6l(d){6(d.B==\'1N\'){f 17={i:\'6p\',t:\'评论\'}}6(d.B==\'foword\'){f 17={i:\'fun_reblog\',t:\'转载\'}}6(d.B==\'35\'){f 17={i:\'fun_like\',t:\'喜欢\'}}f u=d.P.1y;f a=\'<5 g="commentList" h="hits_\'+d.h+\'">\';a+=\'<5 g="reply_fun"><w g="\'+17.i+\'" E="\'+17.t+\'"></w></5>\';a+=\'<5 g="reply_avatar"><a y="\'+d.1U+\'" 15="1c"><1F 1d="\'+d.2r+\'" 1V="\'+u+\'" E="\'+u+\'"/></a></5>\';a+=\'<5 g="reply_content"><a y="\'+d.1U+\'" 15="1c">\'+u+\'</a>\'+d.E+\' \'+d.q+\'</5>\';a+=\'<5 g="26"></5> </5>\';j a}4 replyto(h,P,1x){$(\'#3l\'+h).3H().C(\'@\'+P+\':\');$(\'#3m\'+h).C(1x)}4 6q(h){f 1r={11:h,inputs:$(\'#3l\'+h).C(),repuid:$(\'#3m\'+h).C()};$.O(\'V\',\'setReply\',1r,4(7){6(7.T==1){$(\'#4q\'+h).1l("2I","v");4p(h);$(\'#3m\'+h).C(\'\');$(\'#3l\'+h).A(\'\')}l{16(7.G)}})}4 37(){$(\'#R .19 .4t\').A(\'\');$(\'#R .19 .4u\').A(\'\');$(\'#R .19 .4v\').A(\'\');$(\'#R .19 .X\').z();$(\'#R .19 .4w\').r();$.O(\'P\',\'mynotice\',\'\',4(7){$(\'#R .19 .X\').r();6(7.T==1){6(7.o.sys_count>0){1j(f i=0;i<7.o.6r.1a;i++){$(\'#R .19 .4t\').1n(6s(7.o.6r[i]))}}6(7.o.4x>0){1j(f i=0;i<7.o.1N.1a;i++){$(\'#R .19 .4u\').1n(6t(7.o.1N[i]))}}6(7.o.follow_count>0){1j(f i=0;i<7.o.6u.1a;i++){$(\'#R .19 .4v\').1n(6v(7.o.6u[i]))}}6(7.o.6w==5q){$(\'#R .19 .4w\').z()}l{$(\'#R .notice_title .notice_left w\').A(7.o.6w)}}l{$(\'#R .19 .4w\').z()}})}4 6s(d){f a=\'<5 h="3n\'+d.h+\'" g="notice_sys">	<5 g="4y">\'+d.1R+\'</5>		<5 g="4z"><a y="1D:;" 12="1W(\'+d.h+\')"><w g="4A"></w></a></5>		<5 g="sysyem_con">[<b>\'+d.E+\'</b>]\'+d.q+\'</5><5 g="26"></5></5>\';j a}4 6v(d){f a=\'<5 g="notice_follow" h="3n\'+d.h+\'">	    <5 g="4y">\'+d.1R+\'</5>		<5 g="4z"><a y="1D:;" 12="1W(\'+d.h+\')"><w g="4A"></w></a>			<a y="1D:;" 12="4a(\\\'1A\\\',\'+d.P.1x+\');1W(\'+d.h+\');"><w g="fun_follow"></w></a>		</5>		<5 g="follow_con">			<5 g="follow_content"><h5><a y="\'+d.P.1U+\'" 15="1c" 12="1W(\'+d.h+\')">\'+d.P.1y+\'</a></h5><p>关注你的博客</p></5>			<5 g="3p"><a y="\'+d.P.1U+\'" 12="1W(\'+d.h+\')" 15="1c"><1F 1d="\'+d.P.2r+\'" 1V="\'+d.P.1y+\'"  /></a></5>			<5 g="26"></5>		</5></5>\';j a}4 6t(d){f a=\'<5 g="notice_reply" h="3n\'+d.h+\'">	    <5 g="4y">\'+d.1R+\'</5>		<5 g="4z">			<a y="1D:;" 12="1W(\'+d.h+\')"><w g="4A"></w></a>				<a y="\'+d.2C+\'" 15="blank" 12="1W(\'+d.h+\')"><w g="6p"></w></a>		</5>		<5 g="reply_con"><h5><a y="#">\'+d.P.1y+\'</a>\'+d.E+\'</h5><p>"\'+d.q+\'"</p></5></5>\';j a}4 1W(h){$.O(\'P\',\'6x\',{\'h\':h},4(7){6(7.T==1){$(\'#3n\'+h).r()}l{16(\'稍后再试\')}})}4 clear_notice_all(){$.O(\'P\',\'6x\',{\'B\':\'all\'},4(7){6(7.T==1){$(\'#R .19 .4t\').A(\'\');$(\'#R .19 .4u\').A(\'\');$(\'#R .19 .4v\').A(\'\')}l{16(\'稍后再试\')}})}4 tmpl_login_user_hot(d){f a=\'<5 g="ca-4B ca-4B-1"> <5 g="ca-4B-main">\';a+=\'<h3>\';6(d.6z!=1X){a+=\'《<2s><a y="\'+d.4C+\'" 15="1c">\'+d.6z+\'</a></2s>》\'}a+=\'</h3>\';a+=\'<5 g="ca-head"><a y="\'+d.4C+\'" 15="1c"><w><1F 1d="\'+d.u_img+\'" 1V="\'+d.1y+\'" E="\'+d.1y+\'"/></w></a></5>\';a+=\'<5 g="ca-contentbox"><5 g="ca-replyp"></5><5 g="ca-cc">\'+d.G+\'</5></5>\';a+=\'<5 g="ca-bottom"><a y="#" g="ca-Y">TA标签</a></5></5>\';a+=\'<5 g="ca-J-wrapper">\';a+=\'<5 g="ca-J">\';a+=\'<h6>\'+d.1y+\'<2s>喜欢的标签</2s></h6><a y="#" g="ca-close"></a>\';6(d.4D!=\'\'){a+=\'<ul>\';1j(f i=0;i<d.4D.1a;i++){a+=\'<li><a y="#">\'+d.4D[i]+\'</a></li>\'}a+=\'</ul>\'}a+=\'</5></5>\';a+=\'</5>\';j a}4 2J(){$("#2J").6C({24:0.3},4E,4(){$.O(\'V\',\'2J\',\'\',4(7){$("#2J").6C({24:1},4E);6(7.T==1){6(7.o){$(\'#2J\').A(3j(\'tmpl_recommendImg\',7.o))}}l{18(7.G)}})})}4 openPmpost(){$(\'#27\').S(\'Q\');$(\'#6D\').U(\'Q\');$(\'#6E\').z();$(\'#follow_font,#1m,#2K .27,#1v\').r()}4 6F(){$(\'#2K .27\').A(\'\');$(\'#2K .27,#1v\').z();$(\'#6E\').r();$(\'#27\').U(\'Q\');$(\'#6D\').S(\'Q\');$.1m({2z:"#2K .27",21:"#1m",yc:\'pm\',ym:\'6F\',1p:s,1J:4(7){6(7.T==1){$(\'#1v\').r();$(\'#feed_box\').A(\'\');6(7.o.7==v){$(\'#follow_font2\').z()}l{1j(f i=0;i<7.o.7.1a;i++){$(\'#2K .27\').1n(6G(7.o.7[i]))}}}}})}4 6G(d){6(d.2t>0){f 2t=\'<5 g="47" E="\'+d.2t+\'条未读">\'+d.2t+\'</5>\';f 4F=\'未读\'}l{f 2t=\'\';f 4F=\'已读\'}f a=\'<li>\'+2t+\'	<5 g="3p">		<a y="\'+d.1U+\'" E="\'+d.3q+\'" 15="1c"><1F  1d="\'+d.2r+\'" 1V="\'+d.3q+\'" /></a>	</5>	<5 g="pm_bg">		<a y="32.34?c=pm&a=detail&1x=\'+d.1x+\'">			<5 g="pm_con">				<5 g="unread">\'+4F+\'</5>				<5 g="num"><2s>\'+d.pmnum+\'</2s>条私信</5>				<5 g="q">来自<w>\'+d.3q+\'</w>的私信</5>				<5 g="date">最后交流：\'+d.1R+\'</5>			</5>		</a>	</5></li>\';j a}4 pmdetail(1x){$(\'#1v\').z();$.1m({2z:"#4G .4H .4I",21:"#1m",yc:\'pm\',ym:\'pminfo\',1I:{\'1x\':1x},1p:s,1J:4(7){6(7.T==1){$(\'#3q\').A(7.o.28.4J);$(\'#touser\').C(7.o.28.4J);6(7.o.7==v){$(\'#1v\').r()}l{$(\'#1v\').r();$(\'#4G .4H .4I\').A(\'\');1j(f i=0;i<7.o.7.1a;i++){$(\'#4G .4H .4I\').1n(6H(7.o.7[i],7.o.28))}}}l{16(7.G)}}})}4 6H(d,28){6(d.touid==1x){f 4K=\'det_you\';f 4L=\'<a y="\'+d.1U+\'" 15="1c"><1F 1d="\'+d.2r+\'" 1V="\'+d.4J+\'" g="4M"/></a>\'}l{f 4K=\'det_me\';f 4L=\'<a y="\'+28.m_url+\'" 15="1c"><1F 1d="\'+28.m_img+\'" 1V="\'+28.m_name+\'" g="4M"/></a>\'}f a=\' <5 g="\'+4K+\'">	<5 g="3p">\'+4L+\'</5>		<5 g="J">			<5 g="corner"></5>			<5 g="conbox">				<5 g="conbox_con">\'+d.q+\'</5>					<5 g="conbox_date">\'+d.1R+\'</5>				</5>			</5>		<5 g="26"></5>	</5>\';j a}4 SelectHead(){$(\'#3r\').z();$(\'#3s,#3t,#3u\').r();$(\'#3v li\').S(\'1w\');$(\'#tab_head\').U(\'1w\');$(\'#pb-3x-3y\').z()}4 SelectPerson(){$(\'#3s\').z();$(\'#3r,#3t,#3u\').r();$(\'#pb-3x-3y\').z();$(\'#3v li\').S(\'1w\');$(\'#tab_person\').U(\'1w\')}4 SelectInvite(){$(\'#3u\').z();$(\'#3r,#3t,#3s\').r();$(\'#pb-3x-3y\').z();$(\'#3v li\').S(\'1w\');$(\'#tab_invite\').U(\'1w\')}4 SelectSafe(2H){$(\'#3t\').z();$(\'#3s,#3r,#3u\').r();$(\'#pb-3x-3y\').r();$(\'#3v li\').S(\'1w\');$(\'#tab_safe\').U(\'1w\')}4 setFolowTag(2H){$(2H).2A().3S(\'Q\')}4 do_run_rp(ty){$(\'#1v\').z();$(\'#6I\').r();$(\'.6J\').2h(\'w\').S(\'Q\');6(ty==\'1\'){$(\'#6K\').S(\'Q\');$(\'#6L\').U(\'Q\')}l{$(\'#6K\').U(\'Q\');$(\'#6L\').S(\'Q\')}$.1m({2z:"#4N",21:"#1m",yc:"P",ym:"myreply",1p:s,1I:{B:ty},1J:4(7){$(\'#4N\').A(\'\');$(\'#1v\').r();6(7.o.7.1a>0){1j(f i=0;i<7.o.7.1a;i++){$(\'#4N\').1n(6M(7.o.7[i],ty))}}l{$(\'#6I\').z()}}})}4 6M(d,B){f 4O=\'1D:3V(0)\';f a=\' <5 g="box" h="62\'+d.h+\'">\';a+=\'<5 g="3p"><a 15="1c" y="\'+d.me.1U+\'"><5 g="head_bg"><1F E="\'+d.me.1y+\'" g="4M" 1V="" 1d="\'+d.me.2r+\'"></5>\';a+=\'<5 g="avatarblog"><1F E="\'+d.to.1y+\'" 1V="那些花儿" 1d="\'+d.to.2r+\'"></5></a></5>\';a+=\'<5 g="5H"><5 g="blogname"><a y="\'+d.me.1U+\'" 15="1c">\'+d.me.1y+\'</a></5>\';a+=\'<5 g="blogdate">\'+d.1R+\'</5></5>\';a+=\'<5 g="J">\'+d.G+\' </5>\';a+=\'<5 g="5I">\';a+=\'<5 g="17">\';f 4x=(d.V.6O>0)?\'<em>\'+d.V.6O+\'</em>\':\'\';6(B!=1){a+=\'<w g="delete"><a y="\'+4O+\'" 12="61(\'+d.h+\')" E="删除回复"></a></w>\'}a+=\'<w g="view"><a y="\'+d.V.4C+\'" E="原文" 15="1c"></a></w>\';a+=\'<w g="1N"><a y="\'+4O+\'" 12="4j(\\\'4k\\\',\'+d.V.11+\')" h="comment_btn_\'+d.V.11+\'" E="回复">\'+4x+\'</a></w>\';a+=\'</5></5><5 g="26"></5>\';a+=1N(d);j a}4 1N(d){f a=\'<5 h="4m\'+d.11+\'" style="display:none">\';a+=\'<5 g="4r">\';a+=\'	<5 g="reply_btn"><1B B="button" 56="发布" 12="6q(\'+d.11+\')" g="31" /></5>\';a+=\'  <5 g="reply_input"><5 g="limit_text"><w>4E</w></5>\';a+=\'  <3Y h="3l\'+d.11+\'" ></3Y><1B B="6a" h="3m\'+d.11+\'" />\';a+=\'</5><5 g="26"></5>\';a+=\'	<5 h="4q\'+d.11+\'" g="s_loading"></5>\';a+=\'<5 g="6j">\';a+=\'<5 g="26"></5>\';a+=\'</5>\';a+=\'<5 h="6i\'+d.11+\'" g="1m"></5>\';a+=\'</5></5>\';j a}4 do_run_post(ty){Array.prototype.6Q=4(){j Math.6Q.apply({},H)};$(\'.6J\').2h(\'w\').S(\'Q\');6(ty==\'draft\'){$(\'#6R\').S(\'Q\');$(\'#6S\').U(\'Q\')}l{$(\'#6R\').U(\'Q\');$(\'#6S\').S(\'Q\')}$(\'#1v\').z();2B(\'P\',\'mypost\',{B:ty})}4 do_run_like(){2B(\'P\',\'mylikes\',\'\')}',[],427,'||||function|div|if|data||||||||var|class|id||return|options|else|||body||info|hide|true|||false|span||href|show|html|type|val|currPage|title|str|msg|this|page|content|pageCount|opts|defaults|ajax|ybAPI|user|current|f_notice|removeClass|status|addClass|blog|window|loading|more|firstPage||bid|onclick||obj|target|tips|fun|alert|notice_con|length|nomore|_blank|src|param|text|width||pageSize|for|click|attr|paging|append|idname|showpage|disabled|params|url|||feed_loading|curr|uid|username|cssStyle|link|input|scroll|javascript|toolbar|img||css|yprm|ftype|obj2|total_page|_obj|reply|fixed|lock||time|tag|embed|h_url|alt|clear_notice|null|children|pageCountId||ctn2|parm|Components|opacity|userid|clear|pm_list|args||hidejump|cookie_currPage|getLink|replace|temp|eval|resultPageCount|find|callback|_this|height|document|artDialog|Confirm|200px|cancel|swf|h_img|font|isnew|gethidefl|lastPage|unbind|each|waring|ctn1|parent|yb_load_feeds|location|trans||is_dialog|shoot_close|that|isld|recommendImg|pm_index||Object|tempPage|hidefl|first|last|next|prev|cookie_currPageKey||getPrev|getNext|getInt|createView|dataType|maxNumber|btn|index||php|likes|like|notice|clipboardData|txt|clip|interfaces|like_|application|shockwave|flash|shoot_swf|0xFFFFFF|_cmtload|template|_hitload|replyInput_|replyTo_|notice_||avatar|tousername|conHead|conPerson|conSafe|conInvite|user_tab||action|holder|new|first_on|last_on|currText|sumPage|ajaxStart|updateView|event|focus|isB|json|break|tipWrap|disabledClass|off|bind|extend|eclick|indata|toggleClass|nolike|morepage|void|getfeeds|feeds|textarea|setData|classes|mozilla|org|createInstance|copytext||now_notice|pop|ids|repid|fllow|__fllow|toggle|swf_play_|swf_cover_|player|quality|high|0x309AD7|indexPostTab|comment|_comt|comment_|_feeds|feeds_|_loadReply|commentLoading_|reply_list|invite|notice_system|notice_replyarea|notice_followarea|nonotice|reply_count|ntime|sysyem_fun|fun_delete|item|b_url|blogtag|500|isnewtxt|pm_detail|det_con|det_list|t_name|cls|usr|face|feedArea|nohref||myPagination|init|next_on|prev_on|msg_on|nbsp|getCurrPage|cookie|_currPage|gethidejump|getPageCount|getPageSize|getCssStyle|getFirst|getLast|getMsg|value|getText||getPageCountId|saveCurrPage|key|isCode|patrn|keycode|checkParam|case|artTxtCount|count|ybGetad|unit_id|urlpath|api|success|error|post|undefined|tplid|obj1|typeof|dolike|setLike|add|currp|postblog|scrollTop|feedToolBar|ttpage|area|maxpage|continueShow|fold|doc_height|header|footer|tmpl_reply|blur|searchtag|reload||tar|copy2Clipboard|netscape|widget|nsIClipboard|unicode|clipid|dialog|padding|3000|is_local|notic|now_pm|delrep|commentList_|repblog|510|355|align|middle|allowScriptAccess|sameDomain|hidden|hide_swf|video|340|0xA2D8F4||feed|_loadHit|comment_paging_|reply_comment|datalist|tmpl_hit|load_invite|current_total|invited_friends|fun_reply|sendReplay|sys|tmpl_notice_sys|tmpl_notice_reply|follow|tmpl_notice_follow|all_count|clearnotice||b_title|||animate|pm_post|pm_send|pmlist|tmpl_pmlist|tmpl_pmdetail|feed_none|post_bg|reply_me|reply_to|tmpl_myreply||replaycount||min|curr_post|curr_draft'.split('|'),0,{}))
+(function($) {
+    $.fn.myPagination = function(param) {
+        init(param, $(this));
+        return $(this)
+    };
+    function init(param, obj) {
+        if (param && param instanceof Object) {
+            var options;
+            var currPage;
+            var pageCount;
+            var pageSize;
+            var tempPage;
+            var defaults = new Object({
+                currPage: 1,
+                pageCount: 10,
+                pageSize: 10,
+                cssStyle: 'badoo',
+                fun: "",
+                hidefl: true,
+                showpage: false,
+                hidejump: true,
+                info: {
+                    first: '首页',
+                    last: '尾页',
+                    next: '下一页',
+                    prev: '上一页',
+                    first_on: true,
+                    last_on: true,
+                    next_on: true,
+                    prev_on: true,
+                    msg_on: true,
+                    link: '#',
+                    msg: '<span>&nbsp;&nbsp;跳{currText}/{sumPage}页</span>',
+                    text: {
+                        width: '22px'
+                    }
+                }
+            });
+            function getCurrPage() {
+                if (options.info && options.info.cookie_currPageKey && options.info.cookie_currPage) {
+                    var cookie_currPage = $.cookie(options.info.cookie_currPageKey + "_currPage");
+                    if (cookie_currPage != "" && cookie_currPage != null) {
+                        return cookie_currPage
+                    }
+                }
+                if (options.currPage) {
+                    return options.currPage
+                } else {
+                    return defaults.currPage
+                }
+            }
+            function gethidefl() {
+                if (options.hidefl) {
+                    return options.hidefl
+                } else {
+                    return defaults.hidefl
+                }
+            }
+            function gethidejump() {
+                if (options.hidejump) {
+                    return options.hidejump
+                } else {
+                    return defaults.hidejump
+                }
+            }
+            function getPageCount() {
+                if (options.pageCount) {
+                    return options.pageCount
+                } else {
+                    return defaults.pageCount
+                }
+            }
+            function getPageSize() {
+                if (options.pageSize) {
+                    return options.pageSize
+                } else {
+                    return defaults.pageSize
+                }
+            }
+            function getCssStyle() {
+                if (options.cssStyle) {
+                    return options.cssStyle
+                } else {
+                    return defaults.cssStyle
+                }
+            }
+            function getAjax() {
+                if (options.ajax && options.ajax.on) {
+                    return options.ajax
+                } else {
+                    return defaults.ajax
+                }
+            }
+            function getParam() {
+                if (options.ajax.param && options.ajax.param.on) {
+                    options.ajax.param.page = currPage;
+                    return options.ajax.param
+                } else {
+                    defaults.ajax.param.page = currPage;
+                    return defaults.ajax.param
+                }
+            }
+            function getFirst() {
+                if (options.info && options.info.first_on == false) {
+                    return ""
+                }
+                if (options.info && options.info.first_on && options.info.first) {
+                    var str = "<a href='" + getLink() + "' title='1'>" + options.info.first + "</a>";
+                    return str
+                } else {
+                    var str = "<a href='" + getLink() + "' title='1'>" + defaults.info.first + "</a>";
+                    return str
+                }
+            }
+            function getLast(pageCount) {
+                if (options.info && options.info.last_on == false) {
+                    return ""
+                }
+                if (options.info && options.info.last_on && options.info.last) {
+                    var str = "<a href='" + getLink() + "' title='" + pageCount + "'>" + options.info.last + "</a>";
+                    return str
+                } else {
+                    var str = "<a href='" + getLink() + "' title='" + pageCount + "'>" + defaults.info.last + "</a>";
+                    return str
+                }
+            }
+            function getPrev() {
+                if (options.info && options.info.prev_on == false) {
+                    return ""
+                }
+                if (options.info && options.info.prev) {
+                    return options.info.prev
+                } else {
+                    return defaults.info.prev
+                }
+            }
+            function getNext() {
+                if (options.info && options.info.next_on == false) {
+                    return ""
+                }
+                if (options.info && options.info.next) {
+                    return options.info.next
+                } else {
+                    return defaults.info.next
+                }
+            }
+            function getLink() {
+                if (options.info && options.info.link) {
+                    return options.info.link
+                } else {
+                    return defaults.info.link
+                }
+            }
+            function getMsg() {
+                var input = "<input type='text' value='" + currPage + "' >";
+                if (options.info && options.info.msg_on == false) {
+                    return false
+                }
+                if (options.info && options.info.msg) {
+                    var str = options.info.msg;
+                    str = str.replace("{currText}", input);
+                    str = str.replace("{currPage}", currPage);
+                    str = str.replace("{sumPage}", pageCount);
+                    return str
+                } else {
+                    var str = defaults.info.msg;
+                    str = str.replace("{currText}", input);
+                    str = str.replace("{currPage}", currPage);
+                    str = str.replace("{sumPage}", pageCount);
+                    return str
+                }
+            }
+            function getText() {
+                if (gethidejump()) return "";
+                var msg = getMsg();
+                if (msg) {
+                    msg = $(msg)
+                } else {
+                    return ""
+                }
+                var input = msg.children(":text");
+                if (options.info && options.info.text) {
+                    var css = options.info.text;
+                    for (temp in css) {
+                        var val = eval("css." + temp);
+                        input.css(temp, val)
+                    }
+                    return msg.html()
+                } else {
+                    var css = defaults.info.text;
+                    for (temp in css) {
+                        var val = eval("css." + temp);
+                        input.css(temp, val)
+                    }
+                    return msg.html()
+                }
+            }
+            function getPageCountId() {
+                if (options.ajax && options.ajax.pageCountId) {
+                    return options.ajax.pageCountId
+                } else {
+                    return defaults.ajax.pageCountId
+                }
+            }
+            function getAjaxStart() {
+                if (options.ajax && options.ajax.ajaxStart) {
+                    options.ajax.ajaxStart()
+                } else {
+                    defaults.ajax.ajaxStart
+                }
+            }
+            function saveCurrPage(page) {
+                if (options.info && options.info.cookie_currPageKey && options.info.cookie_currPage) {
+                    var key = options.info.cookie_currPageKey + "_currPage";
+                    $.cookie(key, page)
+                }
+            }
+            function getInt(val) {
+                return parseInt(val)
+            }
+            function isCode(val) {
+                if (val < 1) {
+                    alert("输入值不能小于1");
+                    return false
+                }
+                var patrn = /^[0-9]{1,8}$/;
+                if (!patrn.exec(val)) {
+                    alert("请输入正确的数字");
+                    return false
+                }
+                if (val > pageCount) {
+                    alert("输入值不能大于总页数");
+                    return false
+                }
+                return true
+            }
+            function updateView() {
+                currPage = getInt(currPage);
+                pageCount = getInt(pageCount);
+                var link = getLink();
+                var firstPage = lastPage = 1;
+                if (currPage - tempPage > 0) {
+                    firstPage = currPage - tempPage
+                } else {
+                    firstPage = 1
+                }
+                if (firstPage + pageSize > pageCount) {
+                    lastPage = pageCount + 1;
+                    firstPage = lastPage - pageSize
+                } else {
+                    lastPage = firstPage + pageSize
+                }
+                var content = "";
+                if (!gethidefl() || currPage != 1) {
+                    content += getFirst()
+                }
+                if (currPage == 1) {
+                    if (!gethidefl()) {
+                        content += "<span class=\"disabled\" title=\"" + getPrev() + "\">" + getPrev() + " </span>"
+                    }
+                } else {
+                    content += "<a href='" + link + "' title='" + (currPage - 1) + "'>" + getPrev() + " </a>"
+                }
+                if (firstPage <= 0) {
+                    firstPage = 1
+                }
+                if (options.showpage == true) {
+                    for (firstPage; firstPage < lastPage; firstPage++) {
+                        if (firstPage == currPage) {
+                            content += "<span class=\"current\" title=\"" + firstPage + "\">" + firstPage + "</span>"
+                        } else {
+                            content += "<a href='" + link + "' title='" + firstPage + "'>" + firstPage + "</a>"
+                        }
+                    }
+                }
+                if (currPage == pageCount) {
+                    if (!gethidefl()) {
+                        content += "<span class=\"disabled\" title=\"" + getNext() + "\">" + getNext() + " </span>"
+                    }
+                } else {
+                    content += "<a href='" + link + "' title='" + (currPage + 1) + "'>" + getNext() + " </a>"
+                }
+                if (!gethidefl() || currPage != pageCount) {
+                    content += getLast(pageCount)
+                }
+                content += getText();
+                obj.html(content);
+                obj.children(":text").keypress(function(event) {
+                    var keycode = event.which;
+                    if (keycode == 13) {
+                        var page = $(this).val();
+                        if (isCode(page)) {
+                            obj.children("a").unbind("click");
+                            obj.children("a").each(function() {
+                                $(this).click(function() {
+                                    return false
+                                })
+                            });
+                            options.fun(page);
+                            createView(page)
+                        }
+                    }
+                }).click(function() {
+                    $(this).select()
+                });
+                obj.children("a").each(function(i) {
+                    var page = this.title;
+                    $(this).click(function() {
+                        obj.children("a").unbind("click");
+                        obj.children("a").each(function() {
+                            $(this).click(function() {
+                                return false
+                            })
+                        });
+                        options.fun(page);
+                        createView(page);
+                        $(this).focus();
+                        return false
+                    })
+                })
+            };
+            function createView(page) {
+                currPage = page;
+                saveCurrPage(page);
+                updateView()
+            }
+            function checkParam() {
+                if (currPage < 1) {
+                    alert("配置参数错误\n错误代码:-1");
+                    return false
+                }
+                if (currPage > pageCount) {
+                    alert("配置参数错误\n错误代码:-2");
+                    return false
+                }
+                if (pageSize < 1) {
+                    alert("配置参数错误\n错误代码:-3");
+                    return false
+                }
+                return true
+            }
+            function loadPageCount(options) {
+                if (options.dataType) {
+                    var data = options.data;
+                    var resultPageCount = false;
+                    var isB = true;
+                    var pageCountId = getPageCountId();
+                    switch (options.dataType) {
+                    case "json":
+                        data = eval("(" + data + ")");
+                        resultPageCount = eval("data." + pageCountId);
+                        break;
+                    case "xml":
+                        resultPageCount = $(data).find(pageCountId).text();
+                        break;
+                    default:
+                        isB = false;
+                        var callback = options.callback + "(data)";
+                        eval(callback);
+                        resultPageCount = $("#" + pageCountId).val();
+                        break
+                    }
+                    if (resultPageCount) {
+                        pageCount = resultPageCount
+                    }
+                    if (isB) {
+                        var callback = options.callback + "(data)";
+                        eval(callback)
+                    }
+                }
+            }
+            options = param;
+            currPage = getCurrPage();
+            pageCount = getPageCount();
+            pageSize = getPageSize();
+            tempPage = getInt(pageSize / 2);
+            var cssStyle = getCssStyle();
+            obj.addClass(cssStyle);
+            if (checkParam()) {
+                updateView();
+                createView(currPage)
+            }
+        }
+    }
+    $.fn.artTxtCount = function(tipWrap, maxNumber) {
+        var countClass = 'js_txtCount',
+        fullClass = 'js_txtFull',
+        disabledClass = 'disabled';
+        var count = function() {
+            var btn = $(this).closest('form').find(':submit'),
+            val = $(this).val().length,
+            disabled = {
+                on: function() {
+                    btn.removeAttr('disabled').removeClass(disabledClass)
+                },
+                off: function() {
+                    btn.attr('disabled', 'disabled').addClass(disabledClass)
+                }
+            };
+            if (val == 0) disabled.off();
+            if (val <= maxNumber) {
+                if (val > 0) disabled.on();
+                tipWrap.html((maxNumber - val))
+            } else {
+                disabled.off();
+                tipWrap.html('-' + (val - maxNumber))
+            }
+        };
+        $(this).bind('keyup change', count);
+        return this
+    }
+})(jQuery);
+$.extend({
+    ybGetad: function(unit_id, params, fun) {
+        $.ajax({
+            url: urlpath + '/index.php?c=api&yc=getad&&ym=getAdUnit&unit=' + unit_id,
+            data: params,
+            success: function(data) {
+                fun(data)
+            },
+            error: function(x) {},
+            dataType: 'json',
+            type: 'post'
+        })
+    }
+});
+$.extend({
+    ybAPI: function(c, m, params, fun) {
+        if (params == undefined) {
+            params = ''
+        };
+        $.ajax({
+            url: urlpath + '/index.php?c=api&yc=' + c + '&ym=' + m,
+            data: params,
+            success: function(data) {
+                fun(data)
+            },
+            error: function(x) {
+                if (x.status != 200) {
+                    if (x.status != 0) {
+                        waring('网络错误,请稍候');
+                        return false
+                    }
+                }
+                return false
+            },
+            dataType: 'json',
+            type: 'post'
+        })
+    },
+    paging: function(opts) {
+        var defaults = {
+            yc: "",
+            ym: "",
+            yprm: {
+                page: 1
+            },
+            tplid: "",
+            ctn1: "",
+            ctn2: "",
+            ftype: false,
+            showpage: false,
+            cssStyle: "ybpage",
+            likes: true,
+            scroll: true,
+            eclick: ""
+        };
+        var opts = $.extend(defaults, opts || {});
+        var obj1 = $(opts["ctn1"]);
+        var obj2 = $(opts["ctn2"]);
+        $.ybAPI(opts["yc"], opts["ym"], opts["yprm"],
+        function(data) {
+            function indata(data) {
+                if (typeof(opts["ftype"]) == "function") {
+                    opts["ftype"](data)
+                } else {
+                    obj1.html(tmpl(opts["tplid"], data.body))
+                }
+                if (opts.likes) {
+                    $(".dolike").each(function() {
+                        var _this = $(this);
+                        var id = _this.attr("likeid");
+                        _this.click(function() {
+                            $.ybAPI('blog', 'setLike', {
+                                bid: id
+                            },
+                            function(data) {
+                                if (data.status == 1) {
+                                    if (data.body == 'add') {
+                                        _this.parent().toggleClass('like')
+                                    } else {
+                                        _this.parent().addClass("nolike");
+                                        _this.parent().toggleClass('like')
+                                    }
+                                } else {
+                                    alert(data.msg)
+                                }
+                            })
+                        })
+                    }).removeClass("dolike");
+                    return true
+                }
+            }
+            indata(data);
+            if (data.body.page == null) {
+                obj2.html("");
+                return false
+            };
+            obj2.myPagination({
+                currPage: data.body.page["current_page"],
+                pageCount: data.body.page["total_page"],
+                hidejump: opts["hidejump"],
+                cssStyle: opts["cssStyle"],
+                showpage: opts["showpage"],
+                fun: function(currp) {
+                    if (typeof(opts["eclick"]) == "function") {
+                        opts["eclick"]()
+                    };
+                    opts["yprm"]["page"] = currp;
+                    $.ybAPI(opts["yc"], opts["ym"], opts["yprm"],
+                    function(data) {
+                        indata(data)
+                    });
+                    if (opts["scroll"]) {
+                        var p = $("#postblog .current");
+                        if (p.size() > 0) {
+                            p = p.offset().top
+                        } else {
+                            p = 0
+                        }
+                        $(window).scrollTop(p)
+                    }
+                }
+            })
+        })
+    }
+});
+$.feedToolBar = {
+    parm: {
+        p: '',
+        morepage: false,
+        ttpage: 1
+    },
+    morepage: function(id) {
+        var total_page = 10,
+        _obj = $('#' + id),
+        area = $("#" + _obj.attr('area')),
+        p = 2,
+        maxpage = _obj.attr("max"),
+        loading = $('#feed_loading'),
+        more = $('<a href="javascript:void(0)" id="more" class="more">查看更多</a>'),
+        nomore = $('<a href="javascript:void(0)" id="nomore" class="nomore">暂时没有更多内容</a>'),
+        toolbar = this;
+        _obj.append(more).append(nomore).after(loading);
+        more.click(function() {
+            toolbar.continueShow(toolbar, _obj, loading, more, nomore, total_page)
+        });
+        function getfeeds() {
+            var fold = $(window).height() + $(document).scrollTop();
+            var doc_height = $(document.body).height();
+            if (fold >= doc_height - 20) {
+                if (toolbar.parm.ttpage == 0) {
+                    nomore.show();
+                    return false
+                }
+                if (p - 1 > maxpage) {
+                    $(window).unbind("scroll");
+                    toolbar.parm.p = p
+                } else {
+                    $(window).unbind("scroll");
+                    loading.show();
+                    more.hide();
+                    yb_load_feeds("blog", "feeds", {
+                        page: p
+                    },
+                    function(data) {
+                        total_page = data.body.page.total_page;
+                        if (data.body.page == null) {
+                            nomore.show();
+                            loading.hide();
+                            more.hide();
+                            return false
+                        }
+                        if (data == '') {
+                            nomore.show();
+                            more.hide();
+                            return false
+                        }
+                        if (p >= total_page) {
+                            nomore.show();
+                            loading.hide();
+                            more.hide();
+                            $(window).unbind("scroll")
+                        } else {
+                            $(window).bind("scroll",
+                            function() {
+                                getfeeds()
+                            });
+                            p = p + 1;
+                            _obj.attr("page", p);
+                            toolbar.parm.p = p;
+                            loading.hide();
+                            nomore.hide();
+                            more.show()
+                        }
+                    })
+                }
+            }
+        }
+        $(window).bind("scroll",
+        function() {
+            getfeeds()
+        })
+    },
+    continueShow: function(toolbar, _obj, loading, more, nomore, total_page) {
+        loading.show();
+        more.hide();
+        p = toolbar.parm.p;
+        yb_load_feeds("blog", "feeds", {
+            page: p
+        },
+        function(data) {
+            if (data == '') {
+                nomore.show();
+                more.hide();
+                return false
+            }
+            if (p >= total_page) {
+                nomore.show();
+                loading.hide();
+                more.hide();
+                return false
+            }
+            loading.hide();
+            more.show();
+            p = p + 1;
+            _obj.attr("page", p);
+            toolbar.parm.p = p
+        })
+    }
+};
+var tpldefine = {
+    m_1: 'tmpl_model_1',
+    m_2: 'tmpl_model_2',
+    m_3: 'tmpl_model_3',
+    m_4: 'tmpl_model_4',
+    m_5: 'tmpl_model_5',
+    m_6: 'tmpl_model_6',
+};
+var tplhdefine = {
+    header: 'tmpl_model_header',
+    footer: 'tmpl_model_footer',
+    reply: 'tmpl_reply',
+    infooter: 'tmpl_info_footer',
+    info_reply: 'tmpl_model_info_reply',
+};
+$(document).ready(function() {
+    $('#search .ipt').click(function() {
+        if ($(this).val() == '搜索标签,发现兴趣') {
+            $(this).val('')
+        }
+    }).blur(function() {
+        if ($(this).val() == '') {
+            $(this).val('搜索标签,发现兴趣')
+        }
+    });
+    $('#searchtag').focus(function() {
+        $(this).addClass('curr')
+    }).blur(function() {
+        $(this).removeClass('curr')
+    });
+    $('#logOut').click(function() {
+        artDialog({
+            id: 'Confirm',
+            fixed: true,
+            lock: true,
+            width: '200px',
+            content: '确定要退出吗?',
+            ok: function() {
+                $.ybAPI('login', 'logout', '',
+                function(data) {
+                    window.location.reload()
+                })
+            },
+            cancel: function() {}
+        })
+    });
+    $("#notice").click(function() {
+        if ($("#f_notice").is(":visible")) {
+            $("#f_notice").hide()
+        } else {
+            $("#f_notice").show(0,
+            function() {
+                notice();
+                $(this).hover(function() {
+                    document.onclick = null
+                },
+                function() {
+                    document.onclick = function(e) {
+                        var e = e ? e: window.event;
+                        var tar = e.srcElement || e.target;
+                        if (tar.id != "notice") {
+                            $("#f_notice").hide(0,
+                            function() {
+                                document.onclick = null
+                            })
+                        }
+                    }
+                })
+            })
+        }
+    });
+    $('.autoTxtCount').each(function() {
+        $(this).find('textarea').artTxtCount($(this).find('.tips'), 140)
+    })
+});
+function copy2Clipboard(e) {
+    if (window.clipboardData.setData('text', e)) {
+        tips("复制到剪贴板成功！")
+    } else {
+        waring("您的浏览器不支持剪贴板操作，请自行复制。")
+    }
+}
+function copy2Clipboard(txt) {
+    if (window.clipboardData) {
+        window.clipboardData.clearData();
+        if (window.clipboardData.setData("Text", txt)) {
+            tips("复制成功！")
+        }
+    } else if (navigator.userAgent.indexOf("Opera") != -1) {
+        window.location = txt
+    } else if (window.netscape) {
+        try {
+            netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect")
+        } catch(e) {
+            waring("被浏览器拒绝！\n请在浏览器地址栏输入'about:config'并回车\n然后将'signed.applets.codebase_principal_support'设置为'true'")
+        }
+        var clip = Components.classes['@mozilla.org/widget/clipboard;1'].createInstance(Components.interfaces.nsIClipboard);
+        if (!clip) {
+            return
+        };
+        var trans = Components.classes['@mozilla.org/widget/transferable;1'].createInstance(Components.interfaces.nsITransferable);
+        if (!trans) {
+            return
+        };
+        trans.addDataFlavor('text/unicode');
+        var str = new Object();
+        var len = new Object();
+        var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
+        var copytext = txt;
+        str.data = copytext;
+        trans.setTransferData("text/unicode", str, copytext.length * 2);
+        var clipid = Components.interfaces.nsIClipboard;
+        if (!clip) {
+            return false
+        };
+        clip.setData(trans, null, clipid.kGlobalClipboard);
+        tips("复制成功！")
+    }
+}
+function waring(msg) {
+    $.dialog({
+        id: 'waring',
+        content: msg,
+        ok: function() {},
+        padding: 10,
+        time: 3000,
+        lock: true,
+        fixed: true
+    })
+};
+function tips(msg) {
+    $.dialog({
+        id: 'tips',
+        content: msg,
+        ok: function() {},
+        padding: 10,
+        width: '300px',
+        fixed: true,
+        time: 3000,
+        lock: true
+    })
+};
+function tag_search(is_local) {
+    var tag = $('#searchtag').val();
+    if (tag == '' || tag == '搜索标签,发现兴趣') {
+        tips('搜索的标签不能为空');
+        return false
+    };
+    if (is_local == 'local') {
+        show_tags_view({
+            tag: tag
+        })
+    } else {
+        window.location.href = 'index.php?c=blog&a=tag&tag=' + tag
+    }
+};
+function ad_aside(div, id, ga) {
+    $.ybGetad(id, '',
+    function(d) {
+        if (d.body.type == 1) {
+            $(div).html('<a href="' + d.body.url + '" target="_blank"><img src="' + d.body.body + '"/> </a>')
+        };
+        if (ga) {
+            $('#' + div).append(d.body.ga)
+        }
+    })
+};
+function now_notice() {
+    $.ybAPI('user', 'chkNoticPm', '',
+    function(data) {
+        if (data.status == 1) {
+            if (data.body.notic != 0) {
+                $('#now_notice').html('<div class="pop">' + data.body.notic + '</div>')
+            } else {
+                $('#now_notice').hide()
+            }
+            if (data.body.pm != 0) {
+                $('#now_pm').html('<div class="pop">' + data.body.pm + '</div>')
+            } else {
+                $('#now_pm').hide()
+            }
+        }
+    })
+}
+function likes(id) {
+    $.ybAPI('blog', 'setLike', {
+        bid: id
+    },
+    function(data) {
+        if (data.status == 1) {
+            $('#like_' + id).removeClass('like');
+            $('#like_' + id).removeClass('nolike');
+            if (data.body == 'add') {
+                $('#like_' + id).addClass('like')
+            } else {
+                $('#like_' + id).addClass('nolike')
+            }
+        } else {
+            alert(data.msg)
+        }
+    })
+}
+function cancelConnect(type) {
+    artDialog({
+        id: 'Confirm',
+        fixed: true,
+        lock: true,
+        width: '200px',
+        opacity: .1,
+        content: '确定要取消绑定吗?',
+        ok: function() {
+            $.ybAPI('user', 'CancelConnect', {
+                'type': type
+            },
+            function(data) {
+                if (data.status == 1) {
+                    window.location.reload()
+                } else {
+                    tips('请稍后再试')
+                }
+            })
+        },
+        cancel: function() {}
+    })
+}
+function delblogs(ids) {
+    artDialog({
+        id: 'Confirm',
+        fixed: true,
+        lock: true,
+        width: '200px',
+        opacity: .1,
+        content: '确定要删除吗?',
+        ok: function() {
+            $.ybAPI('user', 'delblog', {
+                id: ids
+            },
+            function(data) {
+                $('#blog_' + ids).hide()
+            })
+        },
+        cancel: function() {}
+    })
+}
+function delrep(repid) {
+    artDialog({
+        id: 'Confirm',
+        fixed: true,
+        lock: true,
+        width: '200px',
+        opacity: .1,
+        content: '确定要删除吗?',
+        ok: function() {
+            $.ybAPI('blog', 'delReply', {
+                id: repid
+            },
+            function(data) {
+                if (data.status == 1) {
+                    $('#commentList_' + repid).hide()
+                } else {
+                    alert(data.msg)
+                }
+            })
+        },
+        cancel: function() {}
+    })
+}
+function repblog(id) {
+    artDialog({
+        id: 'Confirm',
+        fixed: true,
+        lock: true,
+        width: '200px',
+        opacity: .1,
+        content: '确定要转载吗?',
+        ok: function() {
+            $.ybAPI('blog', 'repblog', {
+                bid: id
+            },
+            function(data) {
+                if (data.status == 1) {
+                    alert('成功转载')
+                } else {
+                    alert(data.msg)
+                }
+            })
+        },
+        cancel: function() {}
+    })
+}
+function fllow(t, userid, is_dialog) {
+    if (t == 'unlink') {
+        artDialog({
+            id: 'Confirm',
+            fixed: true,
+            lock: true,
+            width: '200px',
+            opacity: .1,
+            content: '确定要取消关注吗?',
+            ok: function() {
+                __fllow(t, userid, is_dialog)
+            },
+            cancel: function() {}
+        })
+    } else {
+        __fllow(t, userid, is_dialog)
+    }
+}
+function __fllow(t, userid, is_dialog) {
+    $.ybAPI('user', 'fllow', {
+        type: t,
+        uid: userid
+    },
+    function(data) {
+        if (data.status == 1) {
+            $('#follow_unlink_' + userid + ',#follow_link_' + userid).toggle()
+        } else {
+            tips(data.msg)
+        }
+        if (is_dialog) {
+            tips('已操作完毕')
+        }
+    })
+}
+function load_swf(type, bid, i, title, url) {
+    shoot_close();
+    idname = bid + '_' + i;
+    obj = $('#swf_play_' + idname);
+    obj2 = $('#swf_cover_' + idname);
+    var player = '<div class="video_windows"><embed src="' + url + '" quality="high" width="510" height="355" align="middle"  allowScriptAccess="sameDomain" type="application/x-shockwave-flash"></embed></div>';
+    if (obj.is(":hidden")) {
+        obj.html('<div class="video_info"><div class="video_cover"><a href="javascript:;" onclick="hide_swf(\'' + idname + '\')"><span class="away">收起</span></a><a onclick="shoot_swf(\'video\',\'' + idname + '\',\'' + title + '\',\'' + url + '\')"><span class="eject">弹出播放</span></a></div><div class="video_title">' + title + '</div></div>' + player).show();
+        obj2.hide()
+    } else {
+        obj.html('').hide();
+        obj2.show()
+    }
+}
+function hide_swf(idname) {
+    obj = $('#swf_play_' + idname);
+    obj2 = $('#swf_cover_' + idname);
+    obj.html('').hide();
+    obj2.show()
+}
+function shoot_swf(type, idname, title, url) {
+    shoot_close();
+    $('#swf_play_' + idname).html('').hide();
+    $('#swf_cover_' + idname).show();
+    if (type == 'video') {
+        swf = '<embed src="' + url + '" quality="high" width="510" height="355" align="middle"  allowScriptAccess="sameDomain" type="application/x-shockwave-flash"></embed>'
+    }
+    if (type == 'xiami') {
+        swf = '<embed width="340" height="33" wmode="transparent" type="application/x-shockwave-flash" src="' + url + '"></embed>'
+    }
+    if (type == 'localplayer') {
+        params = skinpath + '/swf/player.swf?soundFile=' + url + '&bg=0xA2D8F4&leftbg=0x309AD7&lefticon=0xFFFFFF&rightbg=0x309AD7&rightbghover=0xF17676&righticon=0xFFFFFF&righticonhover=0xFFFFFF&text=0x227CAC&slider=0x309AD7&track=0xFFFFFF&border=0xA2D8F4&loader=0x83C1E7&autostart=no&loop=no';
+        swf += '<embed src="' + params + '" width="340" height="33" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>'
+    }
+    $('body').append('<div class="btn_bottom" id="shoot_swf"><div class="shoot_title">' + title + '</div><div class="shoot_close"><a href="javascript:;" onclick="shoot_close()"></a></div><a class="btn5 ie6png" id="eD1" >' + swf + '</a></div>')
+}
+function shoot_close() {
+    $('#shoot_swf').html('').remove()
+}
+function changeFeeds(feed, that) {
+    $.feedToolBar.parm.morepage = false;
+    $('#postblog .menu li').removeClass('current');
+    $(that).parent().addClass('current');
+    yb_load_feeds('blog', feed)
+}
+function loadComment(d) {
+    indexPostTab('comment', d)
+}
+function indexPostTab(type, id) {
+    var _comt = $('#comment_' + id);
+    var _feeds = $('#feeds_' + id);
+    if (type == 'comment') {
+        _feeds.hide();
+        _comt.toggle();
+        _loadReply(id)
+    }
+    if (type == 'feeds') {
+        _feeds.toggle();
+        _comt.hide();
+        _loadHit(id)
+    }
+}
+function _loadReply(id) {
+    var _cmtload = $('#commentLoading_' + id);
+    if (_cmtload.attr("isld") == "true") {
+        return false
+    }
+    $.paging({
+        ctn2: "#comment_paging_" + id,
+        yc: "blog",
+        ym: "reply",
+        scroll: false,
+        showpage: true,
+        yprm: {
+            bid: id
+        },
+        ftype: function(data) {
+            if (data.status == 1) {
+                _cmtload.hide();
+                $('#comment_' + id + ' .reply_comment').html(template('tmpl_reply', data.body));
+                _cmtload.attr("isld", "true")
+            } else {
+                alert(data.msg)
+            }
+        }
+    })
+}
+function _loadHit(id) {
+    var _hitload = $('#hit_loading_' + id);
+    if (_hitload.attr("isld") == "true") {
+        return false
+    }
+    _hitload.show();
+    $.paging({
+        ctn2: "#feeds_paging_" + id,
+        yc: "blog",
+        ym: "getHit",
+        scroll: false,
+        showpage: true,
+        yprm: {
+            bid: id
+        },
+        ftype: function(data) {
+            if (data.status == 1 && data.body.body.length >= 1) {
+                $('#feeds_' + id + ' .reply_list').html('');
+                for (var i = 0; i < data.body.body.length; i++) {
+                    var datalist = data.body.body[i];
+                    $('#feeds_' + id + ' .reply_list').append(tmpl_hit(datalist))
+                }
+                _hitload.attr("isld", "true")
+            } else {
+                alert(data.msg)
+            }
+        }
+    })
+}
+function load_invite() {
+    $('#loading').show();
+    $.ybAPI('invite', 'getInviteList', '',
+    function(data) {
+        $('#current_total').html(data.body.current_total);
+        $('#invited_friends').html(data.body.invited_friends);
+        $('#invite_num').html(template('tmpl_intval_code', data.body));
+        $('#loading').hide()
+    })
+}
+function getCode() {
+    $.ybAPI('invite', 'addToFull', '',
+    function(data) {
+        load_invite();
+        tips('邀请码已经更新')
+    })
+}
+function load_friend() {
+    $('#loading').show();
+    $.ybAPI('invite', 'getInvitedFriendList', '',
+    function(data) {
+        if (data.body.length > 0) {
+            $('#invite_follow_list').html(template('tmpl_invite_follow_list', data))
+        } else {
+            $('#no_friend').show()
+        }
+        $('#loading').hide()
+    })
+}
+function tmpl_hit(d) {
+    if (d.type == 'reply') {
+        var fun = {
+            i: 'fun_reply',
+            t: '评论'
+        }
+    }
+    if (d.type == 'foword') {
+        var fun = {
+            i: 'fun_reblog',
+            t: '转载'
+        }
+    }
+    if (d.type == 'likes') {
+        var fun = {
+            i: 'fun_like',
+            t: '喜欢'
+        }
+    }
+    var u = d.user.username;
+    var a = '<div class="commentList" id="hits_' + d.id + '">';
+    a += '<div class="reply_fun"><span class="' + fun.i + '" title="' + fun.t + '"></span></div>';
+    a += '<div class="reply_avatar"><a href="' + d.h_url + '" target="_blank"><img src="' + d.h_img + '" alt="' + u + '" title="' + u + '"/></a></div>';
+    a += '<div class="reply_content"><a href="' + d.h_url + '" target="_blank">' + u + '</a>' + d.title + ' ' + d.info + '</div>';
+    a += '<div class="clear"></div> </div>';
+    return a
+}
+function replyto(id, user, uid) {
+    $('#replyInput_' + id).focus().val('@' + user + ':');
+    $('#replyTo_' + id).val(uid)
+}
+function sendReplay(id) {
+    var params = {
+        bid: id,
+        inputs: $('#replyInput_' + id).val(),
+        repuid: $('#replyTo_' + id).val()
+    };
+    $.ybAPI('blog', 'setReply', params,
+    function(data) {
+        if (data.status == 1) {
+            $('#commentLoading_' + id).attr("isld", "false");
+            _loadReply(id);
+            $('#replyTo_' + id).val('');
+            $('#replyInput_' + id).html('')
+        } else {
+            tips(data.msg)
+        }
+    })
+}
+function notice() {
+    $('#f_notice .notice_con .notice_system').html('');
+    $('#f_notice .notice_con .notice_replyarea').html('');
+    $('#f_notice .notice_con .notice_followarea').html('');
+    $('#f_notice .notice_con .loading').show();
+    $('#f_notice .notice_con .nonotice').hide();
+    $.ybAPI('user', 'mynotice', '',
+    function(data) {
+        $('#f_notice .notice_con .loading').hide();
+        if (data.status == 1) {
+            if (data.body.sys_count > 0) {
+                for (var i = 0; i < data.body.sys.length; i++) {
+                    $('#f_notice .notice_con .notice_system').append(tmpl_notice_sys(data.body.sys[i]))
+                }
+            }
+            if (data.body.reply_count > 0) {
+                for (var i = 0; i < data.body.reply.length; i++) {
+                    $('#f_notice .notice_con .notice_replyarea').append(tmpl_notice_reply(data.body.reply[i]))
+                }
+            }
+            if (data.body.follow_count > 0) {
+                for (var i = 0; i < data.body.follow.length; i++) {
+                    $('#f_notice .notice_con .notice_followarea').append(tmpl_notice_follow(data.body.follow[i]))
+                }
+            }
+            if (data.body.all_count == undefined) {
+                $('#f_notice .notice_con .nonotice').show()
+            } else {
+                $('#f_notice .notice_title .notice_left span').html(data.body.all_count)
+            }
+        } else {
+            $('#f_notice .notice_con .nonotice').show()
+        }
+    })
+}
+function tmpl_notice_sys(d) {
+    var a = '<div id="notice_' + d.id + '" class="notice_sys">	<div class="ntime">' + d.time + '</div>		<div class="sysyem_fun"><a href="javascript:;" onclick="clear_notice(' + d.id + ')"><span class="fun_delete"></span></a></div>		<div class="sysyem_con">[<b>' + d.title + '</b>]' + d.info + '</div><div class="clear"></div></div>';
+    return a
+}
+function tmpl_notice_follow(d) {
+    var a = '<div class="notice_follow" id="notice_' + d.id + '">	    <div class="ntime">' + d.time + '</div>		<div class="sysyem_fun"><a href="javascript:;" onclick="clear_notice(' + d.id + ')"><span class="fun_delete"></span></a>			<a href="javascript:;" onclick="fllow(\'link\',' + d.user.uid + ');clear_notice(' + d.id + ');"><span class="fun_follow"></span></a>		</div>		<div class="follow_con">			<div class="follow_content"><h5><a href="' + d.user.h_url + '" target="_blank" onclick="clear_notice(' + d.id + ')">' + d.user.username + '</a></h5><p>关注你的博客</p></div>			<div class="avatar"><a href="' + d.user.h_url + '" onclick="clear_notice(' + d.id + ')" target="_blank"><img src="' + d.user.h_img + '" alt="' + d.user.username + '"  /></a></div>			<div class="clear"></div>		</div></div>';
+    return a
+}
+function tmpl_notice_reply(d) {
+    var a = '<div class="notice_reply" id="notice_' + d.id + '">	    <div class="ntime">' + d.time + '</div>		<div class="sysyem_fun">			<a href="javascript:;" onclick="clear_notice(' + d.id + ')"><span class="fun_delete"></span></a>				<a href="' + d.location + '" target="blank" onclick="clear_notice(' + d.id + ')"><span class="fun_reply"></span></a>		</div>		<div class="reply_con"><h5><a href="#">' + d.user.username + '</a>' + d.title + '</h5><p>"' + d.info + '"</p></div></div>';
+    return a
+}
+function clear_notice(id) {
+    $.ybAPI('user', 'clearnotice', {
+        'id': id
+    },
+    function(data) {
+        if (data.status == 1) {
+            $('#notice_' + id).hide()
+        } else {
+            tips('稍后再试')
+        }
+    })
+}
+function clear_notice_all() {
+    $.ybAPI('user', 'clearnotice', {
+        'type': 'all'
+    },
+    function(data) {
+        if (data.status == 1) {
+            $('#f_notice .notice_con .notice_system').html('');
+            $('#f_notice .notice_con .notice_replyarea').html('');
+            $('#f_notice .notice_con .notice_followarea').html('')
+        } else {
+            tips('稍后再试')
+        }
+    })
+}
+function tmpl_login_user_hot(d) {
+    var a = '<div class="ca-item ca-item-1"> <div class="ca-item-main">';
+    a += '<h3>';
+    if (d.b_title != null) {
+        a += '《<font><a href="' + d.b_url + '" target="_blank">' + d.b_title + '</a></font>》'
+    }
+    a += '</h3>';
+    a += '<div class="ca-head"><a href="' + d.b_url + '" target="_blank"><span><img src="' + d.u_img + '" alt="' + d.username + '" title="' + d.username + '"/></span></a></div>';
+    a += '<div class="ca-contentbox"><div class="ca-replyp"></div><div class="ca-cc">' + d.msg + '</div></div>';
+    a += '<div class="ca-bottom"><a href="#" class="ca-more">TA标签</a></div></div>';
+    a += '<div class="ca-content-wrapper">';
+    a += '<div class="ca-content">';
+    a += '<h6>' + d.username + '<font>喜欢的标签</font></h6><a href="#" class="ca-close"></a>';
+    if (d.blogtag != '') {
+        a += '<ul>';
+        for (var i = 0; i < d.blogtag.length; i++) {
+            a += '<li><a href="#">' + d.blogtag[i] + '</a></li>'
+        }
+        a += '</ul>'
+    }
+    a += '</div></div>';
+    a += '</div>';
+    return a
+}
+function recommendImg() {
+    $("#recommendImg").animate({
+        opacity: 0.3
+    },
+    500,
+    function() {
+        $.ybAPI('blog', 'recommendImg', '',
+        function(data) {
+            $("#recommendImg").animate({
+                opacity: 1
+            },
+            500);
+            if (data.status == 1) {
+                if (data.body) {
+                    $('#recommendImg').html(template('tmpl_recommendImg', data.body))
+                }
+            } else {
+                alert(data.msg)
+            }
+        })
+    })
+}
+function openPmpost() {
+    $('#pm_list').removeClass('current');
+    $('#pm_post').addClass('current');
+    $('#pm_send').show();
+    $('#follow_font,#paging,#pm_index .pm_list,#feed_loading').hide()
+}
+function pmlist() {
+    $('#pm_index .pm_list').html('');
+    $('#pm_index .pm_list,#feed_loading').show();
+    $('#pm_send').hide();
+    $('#pm_list').addClass('current');
+    $('#pm_post').removeClass('current');
+    $.paging({
+        ctn1: "#pm_index .pm_list",
+        ctn2: "#paging",
+        yc: 'pm',
+        ym: 'pmlist',
+        showpage: true,
+        ftype: function(data) {
+            if (data.status == 1) {
+                $('#feed_loading').hide();
+                $('#feed_box').html('');
+                if (data.body.data == false) {
+                    $('#follow_font2').show()
+                } else {
+                    for (var i = 0; i < data.body.data.length; i++) {
+                        $('#pm_index .pm_list').append(tmpl_pmlist(data.body.data[i]))
+                    }
+                }
+            }
+        }
+    })
+}
+function tmpl_pmlist(d) {
+    if (d.isnew > 0) {
+        var isnew = '<div class="pop" title="' + d.isnew + '条未读">' + d.isnew + '</div>';
+        var isnewtxt = '未读'
+    } else {
+        var isnew = '';
+        var isnewtxt = '已读'
+    }
+    var a = '<li>' + isnew + '	<div class="avatar">		<a href="' + d.h_url + '" title="' + d.tousername + '" target="_blank"><img  src="' + d.h_img + '" alt="' + d.tousername + '" /></a>	</div>	<div class="pm_bg">		<a href="index.php?c=pm&a=detail&uid=' + d.uid + '">			<div class="pm_con">				<div class="unread">' + isnewtxt + '</div>				<div class="num"><font>' + d.pmnum + '</font>条私信</div>				<div class="info">来自<span>' + d.tousername + '</span>的私信</div>				<div class="date">最后交流：' + d.time + '</div>			</div>		</a>	</div></li>';
+    return a
+}
+function pmdetail(uid) {
+    $('#feed_loading').show();
+    $.paging({
+        ctn1: "#pm_detail .det_con .det_list",
+        ctn2: "#paging",
+        yc: 'pm',
+        ym: 'pminfo',
+        yprm: {
+            'uid': uid
+        },
+        showpage: true,
+        ftype: function(data) {
+            if (data.status == 1) {
+                $('#tousername').html(data.body.args.t_name);
+                $('#touser').val(data.body.args.t_name);
+                if (data.body.data == false) {
+                    $('#feed_loading').hide()
+                } else {
+                    $('#feed_loading').hide();
+                    $('#pm_detail .det_con .det_list').html('');
+                    for (var i = 0; i < data.body.data.length; i++) {
+                        $('#pm_detail .det_con .det_list').append(tmpl_pmdetail(data.body.data[i], data.body.args))
+                    }
+                }
+            } else {
+                tips(data.msg)
+            }
+        }
+    })
+}
+function tmpl_pmdetail(d, args) {
+    if (d.touid == uid) {
+        var cls = 'det_you';
+        var usr = '<a href="' + d.h_url + '" target="_blank"><img src="' + d.h_img + '" alt="' + d.t_name + '" class="face"/></a>'
+    } else {
+        var cls = 'det_me';
+        var usr = '<a href="' + args.m_url + '" target="_blank"><img src="' + args.m_img + '" alt="' + args.m_name + '" class="face"/></a>'
+    }
+    var a = ' <div class="' + cls + '">	<div class="avatar">' + usr + '</div>		<div class="content">			<div class="corner"></div>			<div class="conbox">				<div class="conbox_con">' + d.info + '</div>					<div class="conbox_date">' + d.time + '</div>				</div>			</div>		<div class="clear"></div>	</div>';
+    return a
+}
+function SelectHead() {
+    $('#conHead').show();
+    $('#conPerson,#conSafe,#conInvite').hide();
+    $('#user_tab li').removeClass('curr');
+    $('#tab_head').addClass('curr');
+    $('#pb-action-holder').show()
+}
+function SelectPerson() {
+    $('#conPerson').show();
+    $('#conHead,#conSafe,#conInvite').hide();
+    $('#pb-action-holder').show();
+    $('#user_tab li').removeClass('curr');
+    $('#tab_person').addClass('curr')
+}
+function SelectInvite() {
+    $('#conInvite').show();
+    $('#conHead,#conSafe,#conPerson').hide();
+    $('#pb-action-holder').show();
+    $('#user_tab li').removeClass('curr');
+    $('#tab_invite').addClass('curr')
+}
+function SelectSafe(that) {
+    $('#conSafe').show();
+    $('#conPerson,#conHead,#conInvite').hide();
+    $('#pb-action-holder').hide();
+    $('#user_tab li').removeClass('curr');
+    $('#tab_safe').addClass('curr')
+}
+function setFolowTag(that) {
+    $(that).parent().toggleClass('current')
+}
+function do_run_rp(ty) {
+    $('#feed_loading').show();
+    $('#feed_none').hide();
+    $('.post_bg').find('span').removeClass('current');
+    if (ty == '1') {
+        $('#reply_me').removeClass('current');
+        $('#reply_to').addClass('current')
+    } else {
+        $('#reply_me').addClass('current');
+        $('#reply_to').removeClass('current')
+    }
+    $.paging({
+        ctn1: "#feedArea",
+        ctn2: "#paging",
+        yc: "user",
+        ym: "myreply",
+        showpage: true,
+        yprm: {
+            type: ty
+        },
+        ftype: function(data) {
+            $('#feedArea').html('');
+            $('#feed_loading').hide();
+            if (data.body.data.length > 0) {
+                for (var i = 0; i < data.body.data.length; i++) {
+                    $('#feedArea').append(tmpl_myreply(data.body.data[i], ty))
+                }
+            } else {
+                $('#feed_none').show()
+            }
+        }
+    })
+}
+function tmpl_myreply(d, type) {
+    var nohref = 'javascript:void(0)';
+    var a = ' <div class="box" id="commentList_' + d.id + '">';
+    a += '<div class="avatar"><a target="_blank" href="' + d.me.h_url + '"><div class="head_bg"><img title="' + d.me.username + '" class="face" alt="" src="' + d.me.h_img + '"></div>';
+    a += '<div class="avatarblog"><img title="' + d.to.username + '" alt="那些花儿" src="' + d.to.h_img + '"></div></a></div>';
+    a += '<div class="header"><div class="blogname"><a href="' + d.me.h_url + '" target="_blank">' + d.me.username + '</a></div>';
+    a += '<div class="blogdate">' + d.time + '</div></div>';
+    a += '<div class="content">' + d.msg + ' </div>';
+    a += '<div class="footer">';
+    a += '<div class="fun">';
+    var reply_count = (d.blog.replaycount > 0) ? '<em>' + d.blog.replaycount + '</em>': '';
+    if (type != 1) {
+        a += '<span class="delete"><a href="' + nohref + '" onclick="delrep(' + d.id + ')" title="删除回复"></a></span>'
+    }
+    a += '<span class="view"><a href="' + d.blog.b_url + '" title="原文" target="_blank"></a></span>';
+    a += '<span class="reply"><a href="' + nohref + '" onclick="indexPostTab(\'comment\',' + d.blog.bid + ')" id="comment_btn_' + d.blog.bid + '" title="回复">' + reply_count + '</a></span>';
+    a += '</div></div><div class="clear"></div>';
+    a += reply(d);
+    return a
+}
+function reply(d) {
+    var a = '<div id="comment_' + d.bid + '" style="display:none">';
+    a += '<div class="reply_list">';
+    a += '	<div class="reply_btn"><input type="button" value="发布" onclick="sendReplay(' + d.bid + ')" class="btn" /></div>';
+    a += '  <div class="reply_input"><div class="limit_text"><span>500</span></div>';
+    a += '  <textarea id="replyInput_' + d.bid + '" ></textarea><input type="hidden" id="replyTo_' + d.bid + '" />';
+    a += '</div><div class="clear"></div>';
+    a += '	<div id="commentLoading_' + d.bid + '" class="s_loading"></div>';
+    a += '<div class="reply_comment">';
+    a += '<div class="clear"></div>';
+    a += '</div>';
+    a += '<div id="comment_paging_' + d.bid + '" class="paging"></div>';
+    a += '</div></div>';
+    return a
+}
+function do_run_post(ty) {
+    Array.prototype.min = function() {
+        return Math.min.apply({},
+        this)
+    };
+    $('.post_bg').find('span').removeClass('current');
+    if (ty == 'draft') {
+        $('#curr_post').removeClass('current');
+        $('#curr_draft').addClass('current')
+    } else {
+        $('#curr_post').addClass('current');
+        $('#curr_draft').removeClass('current')
+    }
+    $('#feed_loading').show();
+    yb_load_feeds('user', 'mypost', {
+        type: ty
+    })
+}
+function do_run_like() {
+    yb_load_feeds('user', 'mylikes', '')
+}

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-15 19:38:23
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-16 21:52:02
          compiled from "tplv2/require_header.html" */ ?>
-<?php /*%%SmartyHeaderCode:22313788953c512af4ba924-12237094%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:150736763553c6838243b579-40465826%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9d70675b71261ad2692595668063ae27729008f2' => 
     array (
       0 => 'tplv2/require_header.html',
-      1 => 1405424302,
+      1 => 1405518720,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '22313788953c512af4ba924-12237094',
+  'nocache_hash' => '150736763553c6838243b579-40465826',
   'function' => 
   array (
   ),
@@ -116,7 +116,7 @@ $_smarty_tpl->decodeProperties(array (
 " title="设置"><span></span></a></li>
 					<?php if ($_SESSION['admin']==1){?><li class="admin"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'admin'),$_smarty_tpl);?>
 " target="_blank" title="后台"><span></span></a></li><?php }?>
-					<!-- <li class="quit"><a href="#nogo" id="logOut" title="退出"><span></span></a></li> -->
+					<li class="quit"><a href="#nogo" id="logOut" title="退出"><span></span></a></li>
 
 
 					<li class="publish">

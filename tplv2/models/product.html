@@ -44,7 +44,8 @@ function saveProductList()
 	if(url == 'http://'){ tips('请填写一个引用地址');	return false;}
 	
 	$('#musicFrom').disable();$('#urlParseLoading').val('正在解析...');
-	$.post(urlpath+'/index.php?c=post&a=links&model=5',{'url':url},function(result){ 
+	$.post(urlpath+'/index.php?c=post&a=links&model=5',
+		{'url':url},function(result){ 
 																	 // alert(result);
 		$('#musicFrom').enable();$('#urlParseLoading').val('添加地址');
 		var data = eval("(" + result + ")");
@@ -58,6 +59,19 @@ function saveProductList()
 		setHTML(data);
 		$('#title').val(data.title);
 		$('#musicurl').val('http://');
+	},function(result){
+		// $('#musicFrom').enable();$('#urlParseLoading').val('添加地址');
+		// var data = eval("(" + result + ")");
+		// if(data.error != undefined){ tips(data.error);return false;}
+		// data.url = url;
+		// temp=data.title.split("-");
+		// if(temp[0] != undefined){
+		// 	data.title = temp[0];
+		// }
+
+		// setHTML(data);
+		// $('#title').val(data.title);
+		// $('#musicurl').val('http://');
 	})
 }
 

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-15 15:28:21
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-16 23:14:30
          compiled from "tplv2/require_js.html" */ ?>
-<?php /*%%SmartyHeaderCode:159351164253c4d815278219-67962704%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:115246316953c696d656ebd2-66467333%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '8f6348f934a1766d0ee2377005f2726ac6b40ed0' => 
     array (
       0 => 'tplv2/require_js.html',
-      1 => 1405409219,
+      1 => 1405523668,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '159351164253c4d815278219-67962704',
+  'nocache_hash' => '115246316953c696d656ebd2-66467333',
   'function' => 
   array (
   ),
@@ -73,6 +73,13 @@ var unit_3 = true;
   <?php if ($_smarty_tpl->getVariable('editor')->value=='yes'){?>
   <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/editor/xheditor.js"></script>
+
+ <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/css/jquery.Jcrop.css"/>
+  <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/js/jquery.Jcrop.js"></script>
+  <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/js/jquery.form.js"></script>
   <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/model.global.js"></script>
   <?php }?>

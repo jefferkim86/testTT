@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-15 15:48:39
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-16 22:43:08
          compiled from "tplv2/theme/default/header.html" */ ?>
-<?php /*%%SmartyHeaderCode:65090924753be97555cfb03-68628573%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:26606646553c68f7c40b3c9-81164010%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '84ac14cc4c65fcde1a7474fcaa389ffbb05c276c' => 
     array (
       0 => 'tplv2/theme/default/header.html',
-      1 => 1363077808,
+      1 => 1405521787,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '65090924753be97555cfb03-68628573',
+  'nocache_hash' => '26606646553c68f7c40b3c9-81164010',
   'function' => 
   array (
   ),
@@ -92,8 +92,8 @@ css/style.css" rel="stylesheet" type="text/css">
 <?php if (islogin()){?>
     <a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'index'),$_smarty_tpl);?>
 " target="_top" class="return"><span>返回首页</span></a>
-    <a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'customize'),$_smarty_tpl);?>
-" target="_top" class="custom"><span>个性设置</span></a>
+   <!--  <a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'customize'),$_smarty_tpl);?>
+" target="_top" class="custom"><span>个性设置</span></a> -->
 <?php }else{ ?>
     <a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'index'),$_smarty_tpl);?>
 " class="return"><span>返回首页</span></a>
