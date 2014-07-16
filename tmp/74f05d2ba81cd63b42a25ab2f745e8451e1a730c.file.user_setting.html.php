@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-16 23:34:50
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-16 23:58:56
          compiled from "tplv2/user_setting.html" */ ?>
-<?php /*%%SmartyHeaderCode:72896760053c69b9a657833-68879189%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:209844238053c6a140d82f19-13384315%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '74f05d2ba81cd63b42a25ab2f745e8451e1a730c' => 
     array (
       0 => 'tplv2/user_setting.html',
-      1 => 1405524888,
+      1 => 1405526335,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '72896760053c69b9a657833-68879189',
+  'nocache_hash' => '209844238053c6a140d82f19-13384315',
   'function' => 
   array (
   ),
@@ -247,7 +247,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 		    <div class="user_right">
 			    
                 
-                <div class="head_upload">
+                <!-- <div class="head_upload">
 					    <span>
 						    <div class="uploadhead" id="upload_photo"><span></span><input type="file" size="1" name="filedata" ext="jpg|jpeg|png" /></div>
 						</span>
@@ -270,7 +270,7 @@ if ($_smarty_tpl->_count($_from) > 0){
                 <div class="head_img_small">
 				    <img name=""  id="small_face" src="<?php echo avatar(array('uid'=>$_SESSION['uid'],'size'=>'small','time'=>1),$_smarty_tpl);?>
 " alt="当前头像"  />
-				</div>
+				</div> -->
 
 
 
@@ -366,7 +366,9 @@ if ($_smarty_tpl->_count($_from) > 0){
     <input type="submit" value="确认保存" class="Intercbtn" />
     <div class="progress"> <span class="bar"></span><span class="percent">0%</span > </div>
     <div class="files"></div>
-    <div id="showimg"><img src="http://localhost/php-Jcrop/images/01.jpg" /><!--初始图片--></div>
+    <div id="showimg">
+    	<img src="http://localhost/php-Jcrop/images/01.jpg" /><!--初始图片-->
+    </div>
   </div>
   <input type="hidden" id="src" name="src" value="" />
   <input type="hidden" id="x" name="x" value="0" />
@@ -405,10 +407,10 @@ if ($_smarty_tpl->_count($_from) > 0){
 					
 					var data = eval("("+resp+")");
 					console.log(data);
-					files.html("<b>"+data.name+"("+data.size+"k)</b> <span class='delimg' rel='"+data.url+"'>删除</span>");
+					files.html("<b>"+data.msg.localname+"("+data.msg.filesize+"k)</b> <span class='delimg' rel='"+data.msg.url+"'>删除</span>");
 					//显示上传后的图片
 					//var img = "upload/face/"+data.url;
-					var img = urlpath+"/avatar.php?uid="+uid+"&size=big&random="+new Date()
+					var img = urlpath+"/avatar.php?uid="+uid+"&size=big&random="+(new Date()).getTime()
 
 					//判断上传图片的大小 然后设置图片的高与宽的固定宽
 					if (data.width>240 && data.height<240){
@@ -429,7 +431,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 						minSize:[20,20],
 						maxSize:[140,140],
 						allowSelect:false, //允许选择
-						allowResize:false, //是否允许调整大小
+						allowResize:true, //是否允许调整大小
 						setSelect: [ 0, 0, 240, 240 ]
 					});
 					btn.html("上传图片");	//上传按钮还原
