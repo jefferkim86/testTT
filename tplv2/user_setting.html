@@ -47,7 +47,7 @@ $(document).ready(function(){
 		var args = {
 			niname : $('#niname').val(),
 			domain : $('#domain').val(),
-			sign   : $('#textarea').val(),
+			sign   : $('#pureTextarea').val(),
 			m_rep  : $('#m_rep').is(":checked") ? 1 : 0,
 			m_fows : $('#m_fow').is(":checked") ? 1 : 0,
 			m_pms  : $('#m_pm').is(":checked") ? 1 : 0,
@@ -157,7 +157,7 @@ $(document).ready(function(){
 		
 		<div class="con_table">
 		    <div class="user_right">
-			    <textarea name="textarea" id="textarea" style="width:100%; height:200px" class="pb-input-text" >{$users.sign}</textarea>
+			    <textarea name="textarea" id="pureTextarea" style="width:100%; height:200px" class="pb-input-text" >{$users.sign}</textarea>
                 <input type="hidden" name="tag" id="tag" value="" />
 				 
 			</div>

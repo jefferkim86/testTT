@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-16 23:58:56
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-17 23:27:31
          compiled from "tplv2/user_setting.html" */ ?>
-<?php /*%%SmartyHeaderCode:209844238053c6a140d82f19-13384315%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:44497262653c7eb636fef66-91759742%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '74f05d2ba81cd63b42a25ab2f745e8451e1a730c' => 
     array (
       0 => 'tplv2/user_setting.html',
-      1 => 1405526335,
+      1 => 1405610845,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '209844238053c6a140d82f19-13384315',
+  'nocache_hash' => '44497262653c7eb636fef66-91759742',
   'function' => 
   array (
   ),
@@ -68,7 +68,7 @@ $(document).ready(function(){
 		var args = {
 			niname : $('#niname').val(),
 			domain : $('#domain').val(),
-			sign   : $('#textarea').val(),
+			sign   : $('#pureTextarea').val(),
 			m_rep  : $('#m_rep').is(":checked") ? 1 : 0,
 			m_fows : $('#m_fow').is(":checked") ? 1 : 0,
 			m_pms  : $('#m_pm').is(":checked") ? 1 : 0,
@@ -193,7 +193,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 		
 		<div class="con_table">
 		    <div class="user_right">
-			    <textarea name="textarea" id="textarea" style="width:100%; height:200px" class="pb-input-text" ><?php echo $_smarty_tpl->getVariable('users')->value['sign'];?>
+			    <textarea name="textarea" id="pureTextarea" style="width:100%; height:200px" class="pb-input-text" ><?php echo $_smarty_tpl->getVariable('users')->value['sign'];?>
 </textarea>
                 <input type="hidden" name="tag" id="tag" value="" />
 				 

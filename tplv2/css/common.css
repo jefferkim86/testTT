@@ -40,8 +40,21 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 
 #tool { float:right; margin-top:33px; position:relative; z-index:1; }
 #tool a, #tool a:hover, #tool a:active { outline:none; }
-#tool .name { float:right; }
-#tool .name a{ height:18px; line-height:18px; padding:0 10px; border:1px #999 solid; font-size:12px; display:block; background:url(../image/comm/tool_bg.png) repeat-x 0 0; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; -moz-box-shadow:0px 1px 0px #fff; -webkit-box-shadow:0px 1px 0px #fff; box-shadow:0px 1px 0px #fff; text-shadow:0px 1px 0px #fff; outline:none;  max-width:130px; overflow:hidden; }
+#tool .name { 
+
+	float:right; 
+}
+#tool .name a{ 
+	height:18px; 
+	line-height:18px; 
+	padding:0 10px; 
+	font-size:12px; 
+	display:block; 
+	 
+	outline:none;  
+	max-width:130px; 
+	overflow:hidden; 
+}
 #tool .name a:hover { background:url(../image/comm/tool_bg.png) repeat-x 0 -18px; color:#999; }
 
 #tool .function { float:right; position:relative; }
@@ -1037,4 +1050,100 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 /*个人资料=======*/
 #conPerson #textarea {
 	border: 1px #ddd solid;
+}
+
+
+
+.nav-search {
+	position: relative;
+	width: 220px;
+	height: 40px;
+	margin-top: 20px;
+	color: #b7d6e0;
+}
+
+
+.nav-search .ipt { 
+	width: 220px; 
+	height: 40px;
+	line-height: 40px;
+	display:block; 
+	border: none;
+	background: #8bb5c3;
+	border-radius: 2px;
+	line-height:28px; 
+	-moz-border-radius:2px; 
+	-webkit-border-radius:2px; 
+	border-radius:2px; 
+	text-indent: 14px;
+	font-size:14px; 
+	color: #b7d6e0; 
+	font-family:'Microsoft Yahei','Arail'; 
+}
+.menu_sc .curr { 
+	background-color:#8bb5c3; 
+	-moz-box-shadow:0px 1px 0px #fff,0px 1px 3px #ccc inset; 
+	-webkit-box-shadow:0px 1px 0px #fff,0px 1px 3px #ccc inset; 
+	box-shadow:0px 1px 0px #fff,0px 1px 3px #ccc inset; 
+}
+.menu_sc .btn { 
+	width:15px; 
+	height:15px; 
+	background:url(../image/search-btn.png) no-repeat scroll 0 0; 
+	position:absolute; 
+	border: none;
+	text-indent: -9999px;
+	overflow: hidden;
+	right:14px; 
+	top:12px; 
+	cursor:pointer; 
+}
+.menu_sc .btn:active { 
+	background-color:#ccc; 
+	background-image:none; 
+	-moz-box-shadow:0px 1px 0px #fff,0px 1px 3px #bbb inset; 
+	-webkit-box-shadow:0px 1px 0px #fff,0px 1px 3px #bbb inset; 
+	box-shadow:0px 1px 0px #fff,0px 1px 3px #bbb inset; 
+}
+
+
+
+.my-attention {
+	margin-top: 20px;
+	float: left;
+	width: 76px;
+	height: 40px;
+}
+.my-attention a:link, .my-attention a:visited {
+	color: #ffffff;
+}
+.my-attention a {
+	color: #ffffff;
+	line-height: 40px;
+	font-size: 14px;
+}
+
+dl,dt,dd {
+	padding: 0;
+	margin: 0;
+}
+#tool .publish-menu {
+	width: 104px;
+	height: 14px;
+	border-right: 1px solid #8bb5c3;
+}
+#tool .publish-menu dt {
+	width: 104px;
+	height: 14px;
+	text-indent: 24px;
+	background:url(../image/publish-icon.png) no-repeat scroll 0 0;
+}
+#tool .publish-menu dd {
+	width: 104px;
+	height: 14px;
+	border-bottom: 1px solid #8bb5c3;
+}
+#tool .publish-menu dd li {
+	width: 76px;
+	height: 14px;
 }

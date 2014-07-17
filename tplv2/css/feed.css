@@ -97,10 +97,19 @@
 
 .feed-good .feed-good-cont{position:relative;padding:12px 0 16px 0;}
 .feed-good .feed-good-info{position:relative;width:566px;margin-left:29px;}
-.feed-good .feed-good-info .feed-good-img{float:left;position:relative;}
+.feed-good .feed-good-info .feed-good-img{
+	width: 180px;
+	height: 180px;
+	overflow: hidden;
+	float:left;position:relative;}
 .feed-good .feed-good-info .feed-good-property{padding-left:10px;overflow:hidden;}
 .feed-forward-layout .feed-good-info{margin-left:12px;}
-.feed-good .feed-good-info .feed-good-img img{vertical-align:middle;}
+
+.feed-good .feed-good-info .feed-good-img img{
+	vertical-align:middle;
+	width: 180px;
+
+}
 .feed-good .feed-good-property .feed-good-title{font-size:18px;font-weight:normal;}
 .feed-good .feed-good-property .feed-good-title a{color:#333;}
 .feed-good .feed-good-property .feed-good-title a:hover{color:#0099cc;}
@@ -511,3 +520,24 @@ ul,li {
 	width: 70px;
 	background: none;
 }
+
+
+
+/*±¦±´·¢²¼*/
+.publish-good .link{}
+.publish-good .link label,.publish-good .desc-t label{font-size:16px;color:#333333;}
+.publish-good .link .link-input{margin-top:12px;border:1px solid #cccccc;width:565px;height:36px;padding:2px 22px;font-size:16px;color:#4e72a6;}
+.feed-good-pub{position:relative;width:609px;margin-top:15px;background:#f7f7f7;border:1px solid #cccccc;}
+.feed-good-pub .outter{position:absolute;left:25px;top:-21px;width:0;height:0;border:10px dashed transparent;border-bottom:10px solid #cccccc;overflow:hidden;}
+.feed-good-pub .inner{position:absolute;left:25px;top:-20px;width:0;height:0;border:10px dashed transparent;border-bottom:10px solid #f7f7f7;overflow:hidden;}
+
+
+.feed-good .feed-good-img .change-pic{position:absolute;width:65px;height:22px;line-height:22px;text-align:center;right:0;bottom:0;background:#333;color:#fff;}
+.feed-good .feed-good-img .change-pic a{color:#fff;display:block;width:65px;height:22px;line-height:21px;text-align:center;}
+
+
+.feed-good .change-pic .upload-element{display:none;position:absolute;top:23px;left:0;padding:5px 6px;width:277px;height:25px;border:1px solid #CCCCCC;background:#F7F7F7;}
+.feed-good .change-pic .upload-element input{float:left;width:208px;height:25px;}
+
+.feed-good .change-pic #J_ChangeBtn{ width:60px;height:25px;border:none;cursor:pointer;color:#FFFFFF;font-size:12px;background-position:-5px -990px;}
+.feed-good .change-pic .show{display:block;}

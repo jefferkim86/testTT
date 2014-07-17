@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-16 21:52:02
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-17 23:00:24
          compiled from "tplv2/require_header.html" */ ?>
-<?php /*%%SmartyHeaderCode:150736763553c6838243b579-40465826%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:205328259253c7e508cf7902-32341452%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9d70675b71261ad2692595668063ae27729008f2' => 
     array (
       0 => 'tplv2/require_header.html',
-      1 => 1405518720,
+      1 => 1405609222,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '150736763553c6838243b579-40465826',
+  'nocache_hash' => '205328259253c7e508cf7902-32341452',
   'function' => 
   array (
   ),
@@ -77,17 +77,54 @@ $_smarty_tpl->decodeProperties(array (
 ">授权</a></li>
 			</div> -->
 			<div id="nav">
-				<div class="search">
-					<input type="text"/>
-					<button class="search-btn">搜索</button>
+				<div class="nav-search menu_sc" id="search">
+					<input type="button" class="btn" value="搜索" onclick="tag_search()">
+					<input type="text" id="searchtag" value="搜索标签,发现兴趣" class="ipt">
 				</div>
-				
+
 			</div>
 
 			<?php if (islogin()){?>
 			<div id="tool">			
 			    <div class="function">
-				    <li class="notice"><a href="javascript:void(0);" title="通知"><span id="notice"></span></a><span id="now_notice"></span>
+
+					<div class="publish-menu">
+						<dl>
+							<dt>发布消息</dt>
+							<!-- <dd>
+								<ul>
+									<li><a href="#">发宝贝</a></li>
+									<li><a href="#">发文字</a></li>
+									<li><a href="#">发图片</a></li>
+								</ul>
+							</dd> -->
+						</dl>
+					</div>
+
+					
+					<div class="name">
+						
+
+						<dl>
+							<dt><a href="<?php echo goUserHome(array('domain'=>$_SESSION['domain'],'uid'=>$_SESSION['uid']),$_smarty_tpl);?>
+" target="_blank" title="我的博客"><?php echo $_SESSION['username'];?>
+ </a>
+							</dt>
+							<dd>
+								<ul>
+									<li><a href="#">发宝贝</a></li>
+									<li><a href="#">发文字</a></li>
+									<li><a href="#">发图片</a></li>
+								</ul>
+							</dd>
+						</dl>
+					</div>
+
+
+				    <li class="notice">
+				    	<a href="javascript:void(0);" title="通知">
+				    		<span id="notice"></span>
+				    	</a><span id="now_notice"></span>
 					<div id="f_notice" class="notice_bg" style="display:none;">
 				        <div class="f_corner"></div>
 					    <div class="notice_title">
@@ -117,17 +154,14 @@ $_smarty_tpl->decodeProperties(array (
 					<?php if ($_SESSION['admin']==1){?><li class="admin"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'admin'),$_smarty_tpl);?>
 " target="_blank" title="后台"><span></span></a></li><?php }?>
 					<li class="quit"><a href="#nogo" id="logOut" title="退出"><span></span></a></li>
-
-
 					<li class="publish">
 						<s></s>
 						发布信息
 					</li>
 
 				</div>
-				<div class="name"><a href="<?php echo goUserHome(array('domain'=>$_SESSION['domain'],'uid'=>$_SESSION['uid']),$_smarty_tpl);?>
-" target="_blank" title="我的博客"><?php echo $_SESSION['username'];?>
-</a></div>
+
+				
 			</div>
 			<?php }?>
 		</div>

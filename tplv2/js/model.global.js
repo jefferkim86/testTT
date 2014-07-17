@@ -93,11 +93,11 @@ $(document).ready(function() {
     $("#cancel").click(function() {
         window.history.go( - 1)
     });
-    // textbody = $("#textarea").xheditor({
-    //     loadCSS: skinpath + "/css/editor.css",
-    //     urlBase: urlpath + "/",
-    //     internalStyle: false
-    // })
+    textbody = $("#textarea").xheditor({
+        loadCSS: skinpath + "/css/editor.css",
+        urlBase: urlpath + "/",
+        internalStyle: false
+    })
 });
 function addtag(a) {
     if (a != undefined) {
