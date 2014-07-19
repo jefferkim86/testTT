@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-19 01:05:22
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-19 15:54:09
          compiled from "tplv2/require_header.html" */ ?>
-<?php /*%%SmartyHeaderCode:93141133953c953d2f133f2-45893198%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:186513091753ca242187c866-69725129%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9d70675b71261ad2692595668063ae27729008f2' => 
     array (
       0 => 'tplv2/require_header.html',
-      1 => 1405703120,
+      1 => 1405756448,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '93141133953c953d2f133f2-45893198',
+  'nocache_hash' => '186513091753ca242187c866-69725129',
   'function' => 
   array (
   ),
@@ -91,35 +91,49 @@ $_smarty_tpl->decodeProperties(array (
 					<div class="publish-menu">
 						<a href="javascript:void(0);">发布消息</a>
 					</div>
-					<div class="publish">
+					<div class="menu publish" style="display:none;">
 						<ul>
-							<li><a href="#">发宝贝</a></li>
-							<li><a href="#">发文章</a></li>
-							<li><a href="#" style="border:0">发图片</a></li>
+							<li><a href="#"><span>发宝贝</span></a></li>
+							<li><a href="#"><span>发文章</span></a></li>
+							<li><a href="#" style="border:0"><span>发图片</span></a></li>
 						</ul>
 					</div>
-
-					
-					<div class="name">
-						
-
-						<dl>
-							<dt><a href="<?php echo goUserHome(array('domain'=>$_SESSION['domain'],'uid'=>$_SESSION['uid']),$_smarty_tpl);?>
-" target="_blank" title="我的博客"><?php echo $_SESSION['username'];?>
- </a>
-							</dt>
-							<dd>
-								<ul>
-									<li><a href="#">发宝贝</a></li>
-									<li><a href="#">发文字</a></li>
-									<li><a href="#">发图片</a></li>
-								</ul>
-							</dd>
-						</dl>
+					<!--消息中心-->
+					<div class="notice">
+						<a href="javascript:void(0);" title="通知">
+				    		<div class="notice-block">
+				    			<span id="notice">消息</span>
+				    			<span id="now_notice">22</span>
+				    		</div>
+				    	</a>
 					</div>
+					<div class="menu notice_menu" style="display:none;">
+					    <ul>
+					    	<li><a href="#"><span>评论我的</span></a></li>
+					    	<li><a href="#"><span>喜欢我的</span></a></li>
+					    	<li><a href="#"><span>关注我的</span></a></li>
+					    	<li><a href="#"><span>我的私信</span></a></li>
+					    </ul>
+					</div>
+					<!-- 个人中心 -->
+					<div class="userName">
+						<a href="javascript:void(0);" target="_blank" title="我的博客"><span class="login-name"><?php echo $_SESSION['username'];?>
+ <s class="arrow"></s></span></a>
+					</div>
+					<div class="menu userNameMenu" style="display:none;">
+						<ul>
+							<li><a href="<?php echo goUserHome(array('domain'=>$_SESSION['domain'],'uid'=>$_SESSION['uid']),$_smarty_tpl);?>
+"><span>个人主页</span></a></li>
+							<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'setting'),$_smarty_tpl);?>
+" title="设置"><span>账号设置</span></a></li>
+							<li><a href="#nogo" id="logOut" title="退出"><span>退出</span></a></li>
+						</ul>
+					</div>
+					
+					
 
 
-				    <li class="notice">
+				    <!-- <li class="notice">
 				    	<a href="javascript:void(0);" title="通知">
 				    		<span id="notice"></span>
 				    	</a><span id="now_notice"></span>
@@ -131,19 +145,18 @@ $_smarty_tpl->decodeProperties(array (
 						</div>
 						<div class="notice_con">
 						    <div class="loading">加载通知中</div>
-							<!--系统通知-->
+							
 							<div class="notice_system"></div>
-							<!--回复通知-->
+							
 							<div class="notice_replyarea"></div>
-							<!--关注通知-->
 							<div class="notice_followarea"></div>
 							<div class="nonotice">暂无通知</div>
 							
 						</div>
 					</div>
-					</li>
+					</li> -->
 					
-					<li class="pm"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'pm'),$_smarty_tpl);?>
+					<!-- <li class="pm"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'pm'),$_smarty_tpl);?>
 " title="私信"><span></span></a><span id="now_pm"></span></li>
 					<?php if ($_smarty_tpl->getVariable('yb')->value['invite_switch']!=0){?><li class="invite"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'invite','a'=>'myintval'),$_smarty_tpl);?>
 " title="邀请"><span></span></a></li><?php }?>
@@ -151,11 +164,8 @@ $_smarty_tpl->decodeProperties(array (
 " title="设置"><span></span></a></li>
 					<?php if ($_SESSION['admin']==1){?><li class="admin"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'admin'),$_smarty_tpl);?>
 " target="_blank" title="后台"><span></span></a></li><?php }?>
-					<li class="quit"><a href="#nogo" id="logOut" title="退出"><span></span></a></li>
-					<li class="publish">
-						<s></s>
-						发布信息
-					</li>
+					<li class="quit"><a href="#nogo" id="logOut" title="退出"><span></span></a></li> -->
+					
 
 				</div>
 

@@ -685,6 +685,9 @@ $(document).ready(function() {
             cancel: function() {}
         })
     });
+
+
+    // 消息中心
     $("#notice").click(function() {
         if ($("#f_notice").is(":visible")) {
             $("#f_notice").hide()
