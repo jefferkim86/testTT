@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-19 13:57:59
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-20 02:16:19
          compiled from "tplv2/index.html" */ ?>
-<?php /*%%SmartyHeaderCode:94943824453ca08e7456b91-49887996%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:191394045553cab5f35a6729-96694206%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c1542c66fd69d13319a6782e135b83f629ebe08c' => 
     array (
       0 => 'tplv2/index.html',
-      1 => 1405749476,
+      1 => 1405793777,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '94943824453ca08e7456b91-49887996',
+  'nocache_hash' => '191394045553cab5f35a6729-96694206',
   'function' => 
   array (
   ),
@@ -149,7 +149,7 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
                                5分钟前
                            </span>
                         <div class="feed-act">
-                            <a href="javascript:void(0)" class="J_Comment" onclick="indexPostTab('comment',{{bid}})">评论(<span class="J_CmtNum">9</span>)</a>
+                            <a href="#" class="J_Comment" data-id="{{bid}}">评论(<span class="J_CmtNum">9</span>)</a>
                             <a href="" class="J_Forward">转发(<span class="J_FwdNum">43</span>)</a>
                             <a href="" class="J_Like">喜欢(<span class="J_LikeNum">99</span>)</a>
                             <a href="" class="J_LikeStar">like</a>
@@ -182,7 +182,7 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
 
 </script>
 <script type="text/template" id="J-cmtList">
-    <li class="comment-item">
+    <li class="comment-item" data-id="" data-username="" data-uid="">
         <div class="logo">
             <a href="#">
              <img src="http://localhost/tuitui/tplv2/image/side-logo.png"/>
@@ -204,6 +204,7 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
 
 
 <script type="text/javascript">
+    new feedComment();
 	$(document).ready(function(){ 
 		yb_load_feeds('blog','feeds');
 	})

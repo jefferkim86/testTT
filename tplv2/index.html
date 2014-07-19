@@ -122,7 +122,7 @@
                                5分钟前
                            </span>
                         <div class="feed-act">
-                            <a href="javascript:void(0)" class="J_Comment" onclick="indexPostTab('comment',{{bid}})">评论(<span class="J_CmtNum">9</span>)</a>
+                            <a href="#" class="J_Comment" data-id="{{bid}}">评论(<span class="J_CmtNum">9</span>)</a>
                             <a href="" class="J_Forward">转发(<span class="J_FwdNum">43</span>)</a>
                             <a href="" class="J_Like">喜欢(<span class="J_LikeNum">99</span>)</a>
                             <a href="" class="J_LikeStar">like</a>
@@ -155,7 +155,7 @@
 {/literal}
 </script>
 <script type="text/template" id="J-cmtList">
-    <li class="comment-item">
+    <li class="comment-item" data-id="" data-username="" data-uid="">
         <div class="logo">
             <a href="#">
              <img src="http://localhost/tuitui/tplv2/image/side-logo.png"/>
@@ -177,6 +177,7 @@
 
 
 <script type="text/javascript">
+    new feedComment();
 	$(document).ready(function(){ 
 		yb_load_feeds('blog','feeds');
 	})

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-15 21:45:00
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-20 01:56:13
          compiled from "tplv2/require_sider.html" */ ?>
-<?php /*%%SmartyHeaderCode:201031002553c5305cc3e506-25874556%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:115574467053cab13de18c49-77088332%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0bb71f38ec48f4c0527c2092450118f8bd1842e1' => 
     array (
       0 => 'tplv2/require_sider.html',
-      1 => 1405431899,
+      1 => 1405792564,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '201031002553c5305cc3e506-25874556',
+  'nocache_hash' => '115574467053cab13de18c49-77088332',
   'function' => 
   array (
   ),
@@ -173,7 +173,7 @@ if ($_smarty_tpl->_count($_from) > 0){
            			</div>
            			<div class="info">
            				<h4>戴眼镜的男人</h4>
-						<button>加关注</button>
+						<button class="J-follow followed" data-uid="1">取消关注</button>
            			</div>
            		</li>
            		<li>
@@ -183,7 +183,7 @@ if ($_smarty_tpl->_count($_from) > 0){
            			</div>
            			<div class="info">
            				<h4>戴眼镜的男人</h4>
-						<button>加关注</button>
+						<button class="J-follow" data-uid="2">加关注</button>
            			</div>
            		</li>
            		<li>
@@ -193,7 +193,7 @@ if ($_smarty_tpl->_count($_from) > 0){
            			</div>
            			<div class="info">
            				<h4>戴眼镜的男人</h4>
-						<button>加关注</button>
+						<button class="J-follow" data-uid="3">加关注</button>
            			</div>
            		</li>
 
@@ -204,6 +204,9 @@ if ($_smarty_tpl->_count($_from) > 0){
            
        </div>
     </div>
+	<script type="text/javascript">
+		var followInstance = new fllow();
+	</script>
 
 	<div class="sider-mod TA-attention mt20 clearfix">
 		<div class="hd">

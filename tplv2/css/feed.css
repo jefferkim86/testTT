@@ -447,6 +447,11 @@ ul,li {
 	cursor: pointer;
 	background: #63c394 url('../image/recommend-icon.png') no-repeat scroll 9px 8px;
 }
+.recommend .info .followed {
+	background: #cccccc;
+	text-indent: 0;
+	text-align: center;
+}
 .recommend .ft {
 	margin: 15px 20px 15px 20px;
 	height: 20px;
@@ -477,6 +482,7 @@ ul,li {
 	border-bottom: none;
 }
 .sider-menu li a {
+	display: block;
 	line-height: 49px;
 }
 
