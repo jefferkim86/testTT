@@ -42,31 +42,127 @@
 .feed .feed-actions .feed-act a.liked,.feed .feed-actions .feed-act a.liked:hover{background-position:-36px -90px;}
 
 /*TODO:后期修改html结构，让下拉列表顶部不要盖住feed内容区的阴影*/
-.feed .feed-ft{position:relative;display:none;float:right;width:606px;border:1px solid #e9e9e9;-moz-border-radius:0 0 6px 6px;-webkit-border-radius:0 0 6px 6px;border-radius:0 0 6px 6px;margin-right:16px;}
+.feed .feed-ft{
+	position:relative;
+	display:none;
+	float:right;
+	width:761px;
+	border:1px solid #e9e9e9;
+
+	-moz-border-bottom-left-radius: 6px;
+	-moz-border-bottom-right-radius: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
 .feed .show{display:block;}
 
 .feed .J_Comment_show,.feed .J_Forward_show,.feed .J_Like_show{display:block;}
 
 .feed .feed-ft .pop-foot-corner{position:absolute;top:-11px;left:352px;}
-.feed .feed-ft .pop-foot-corner .outter{border:10px dashed transparent;border-bottom:10px solid #E4E4E4;width:0;height:0;position:absolute;left:0;top:-10px;overflow:hidden}
-.feed .feed-ft .pop-foot-corner .inner{border:9px dashed transparent;border-bottom:9px solid #F9F9F9;width:0;height:0;position:absolute;left:1px;top:-7px;overflow:hidden}
-.feed .feed-ft .cmt-box{padding:25px 37px 15px 30px;background:#f9f9f9;}
-.feed .feed-ft .cmt-box textarea{width:533px;height:48px;border:1px solid #b2b2b2;resize:vertical;}
-.feed .feed-ft .cmt-box .cmt-submit{height:22px;margin-top:7px;}
+.feed .feed-ft .pop-foot-corner .outter{
+	border:10px dashed transparent;
+	border-bottom:10px solid #f5f5f5;
+	width:0;height:0;
+	position:absolute;left:0;top:-10px;overflow:hidden}
+.feed .feed-ft .pop-foot-corner .inner{
+	border:9px dashed transparent;
+	border-bottom:9px solid #f5f5f5;
+	width:0;height:0;position:absolute;left:1px;top:-7px;overflow:hidden}
+.feed .feed-ft .cmt-box{
+	padding:28px 24px 15px 24px;
+	height: 44px;
+}
+.feed .feed-ft .cmt-box .J_CmtCnt{
+	float: left;
+	width:600px;
+	height:42px;
+	text-indent: 10px;
+	margin-right: 15px;
+	border:1px solid #dddddd;
+}
+.feed .feed-ft .cmt-box .cmt-submit{}
 .feed .feed-ft .cmt-box .tip-txt{float:left;color:#b2b2b2}
 .feed .feed-ft .cmt-box .tip-txt .J_Words{font-size:16px;font-weight:700;}
 .feed .feed-ft .cmt-box .tip-txt .flow-out{font-size:16px;font-weight:700;color:red;}
-.feed .feed-ft .cmt-box .cmt-btn{float:right;width:41px;height:21px;color:#fff;border:none;margin-right:3px;cursor:pointer;background-position:-5px -120px;}
+
+.feed .feed-ft .cmt-box .cmt-btn{
+	float:right;
+	width:90px;
+	height:44px;
+	color:#fff;
+	padding: 0;
+	margin: 0;
+	border:none;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	background: #6bbec6;
+	cursor:pointer;
+}
 
 
+#feedArea .feed .open {
+	-moz-border-bottom-left-radius: 0;
+	-moz-border-bottom-right-radius: 0;
+	-webkit-border-bottom-left-radius: 0;
+	-webkit-border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+#feedArea .feed-ft .cmtbox{
+	background:#f5f5f5;
+	-moz-border-bottom-left-radius: 6px;
+	-moz-border-bottom-right-radius: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+#feedArea .feed-ft .cmt-list {
+	margin-left: 20px;
+	padding-bottom: 14px;
 
-.feed-ft .cmt-list{background:#fff;}
-.feed-ft .cmt-list li{position:relative;width:475px;padding:18px 30px 16px 80px;margin:0 10px;border-top:1px dotted #d0d0d0;}
+}
+#feedArea .feed-ft .cmt-list li{
+	position:relative;
+	width:650px;
+	margin-top: 20px;
+	min-height:40px;
+	_height:40px;
+	_zoom:1;
+	padding:14px 0 0 65px;
+}
+#feedArea .feed-ft .cmt-list .logo {
+	position: absolute;
+	left: 5px !important;
+	top: 0;
+}
+#feedArea .feed-ft .cmt-list .logo img {
+	width: 40px;
+	height: 40px;
+}
+#feedArea .feed-ft .cmt-list .cmt-desc {
+	border-bottom: 1px solid #dddddd;
+}
+#feedArea .feed-ft .cmt-list .cmt-desc p{
+	color: #555555;
+	margin: 0;
+	width: 590px;
+	line-height: 24px;
+	padding: 0;
+}
+
 .feed-ft .cmt-list li .avatar{position:absolute;left:20px;top:20px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
 .feed-ft .cmt-list li .time{color:#999;}
 .feed-ft .cmt-list li .reply{height:20px}
 .feed-ft .cmt-list li .time{float:left;}
-.feed-ft .cmt-list li .J_Reply{float:right;}
+.feed-ft .cmt-list li .J_Reply{
+	position: absolute;
+	bottom: 13px;
+	right: 12px;
+	color: #555555;
+}
 .feed-ft .cmt-list li .J_DeleteCmt{display:none;position:absolute;top:1px;right:0;width:19px;height:19px;overflow:hidden;text-indent:-9999px;background-position:-5px -670px;}
 .feed-ft .cmt-list .cmtHover .J_DeleteCmt{display:block;}
 .feed-ft .cmt-list li .J_DeleteCmt:hover{background-position:-35px -670px;}
@@ -87,7 +183,16 @@
 .feed .forward-show .cmt-list li{float:left;display:inline;border:none;padding:0;margin:0;margin-left:2px;width:42px;height:42px;}
 .feed .forward-show h5{margin:5px 0;}
 
-       .feed-ft .cmt-list .loading-list,.feed-ft .forward-list .loading-list{width:330px;background:url(images/loading.gif) no-repeat scroll 195px 6px;padding:10px 30px 10px 225px;}
+.feed-ft .cmt-list .loading-list,.feed-ft .forward-list .loading-list{
+	width:100px;
+	height: 26px;
+	line-height: 26px;
+	padding: 0;
+	margin: 0 auto;
+	padding-left: 30px;
+	border: none;
+	background:url(../image/loading.gif) no-repeat scroll 0 0;
+}
 /*待定*/
 .feed .J_Commentshow,.feed .J_Forwardshow,.feed .J_Likeshow{display:block;}
 .feed .J_Likeshow .pop-foot-corner .inner{border-bottom:9px solid #fff;}
@@ -231,7 +336,12 @@
 .detail-tab .feed-ft{border:none;background:none;}
 .detail-tab .feed-ft .cmt-list li{width:505px;}
 .detail-tab .feed .feed-ft .cmt-box{padding:10px 24px;-webkit-border-top-left-radius:5px;-moz-border-top-left-radius:5px;border-top-left-radius:5px;-webkit-border-top-right-radius:5px;-moz-border-top-right-radius:5px;border-top-right-radius:5px;}
-.detail-tab .feed .feed-ft .cmt-box textarea{width:100%;box-shadow:inset 1px 1px 10px #d9d9d9;}
+.detail-tab .feed .feed-ft .cmt-box textarea{
+	width:100%;
+	box-shadow:inset 1px 1px 10px #d9d9d9;
+	margin: 0;
+	padding: 0;
+}
 
 
 .sider-mod {

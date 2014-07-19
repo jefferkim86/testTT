@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-16 22:44:13
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-19 13:57:59
          compiled from "tplv2/index.html" */ ?>
-<?php /*%%SmartyHeaderCode:121398553853c68fbd9f1771-20342203%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:94943824453ca08e7456b91-49887996%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c1542c66fd69d13319a6782e135b83f629ebe08c' => 
     array (
       0 => 'tplv2/index.html',
-      1 => 1405521705,
+      1 => 1405749476,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '121398553853c68fbd9f1771-20342203',
+  'nocache_hash' => '94943824453ca08e7456b91-49887996',
   'function' => 
   array (
   ),
@@ -26,21 +26,21 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
     <div id="article">
         
-	    <?php $_template = new Smarty_Internal_Template("require_post.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
- echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
+	    <!-- <?php $_template = new Smarty_Internal_Template("require_post.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+ echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?> -->
 		
 		
 		
 			<?php if (isset($_smarty_tpl->getVariable('adunit',null,true,false)->value[2])&&$_smarty_tpl->getVariable('adunit')->value[2]['is_show']==1){?>
-			<div id="ad_index_up"></div>
-			<script>
-				$(document).ready(function(){
-					ad_aside('#ad_index_up',2);
-					setInterval(function(){
-						ad_aside('#ad_index_up',2);
-					}, 30000);
-				})
-			</script>
+    			<!--<div id="ad_index_up"></div>
+    			<script>
+    				$(document).ready(function(){
+    					ad_aside('#ad_index_up',2);
+    					setInterval(function(){
+    						ad_aside('#ad_index_up',2);
+    					}, 30000);
+    				})
+    			</script>-->
 			<?php }?>
 	
 	
@@ -104,7 +104,7 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
 
 
 {{#list}}
-    <div class="feed feed-{{clsType}} clearfix">
+    <div class="feed feed-{{clsType}} clearfix" id="blog_{{bid}}">
         {{#h_img}}
         <div class="feed-avatar">
             <a class="blog-avatar" href="{{h_url}}" title="FashionDes">
@@ -149,7 +149,7 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
                                5分钟前
                            </span>
                         <div class="feed-act">
-                            <a href="" class="J_Comment">评论(<span class="J_CmtNum">9</span>)</a>
+                            <a href="javascript:void(0)" class="J_Comment" onclick="indexPostTab('comment',{{bid}})">评论(<span class="J_CmtNum">9</span>)</a>
                             <a href="" class="J_Forward">转发(<span class="J_FwdNum">43</span>)</a>
                             <a href="" class="J_Like">喜欢(<span class="J_LikeNum">99</span>)</a>
                             <a href="" class="J_LikeStar">like</a>
@@ -158,12 +158,46 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
                 </div>
             </div>
         </div>
-        <div class="J_Feedfoot feed-ft feed-cmt">
+        <div class="J_Feedfoot feed-ft feed-cmt" id="comment_{{bid}}">
             <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
+            <div class="cmtbox">
+                
+            </div>
         </div>
     </div>
     {{/list}}
 
+</script>
+<script type="text/template" id="J-cmtTpl">
+
+    <div class="J_CommentWrap">
+        <div class="cmt-box">
+            <input class="J_CmtCnt" type="text"/>
+            <input type="button" class="cmt-btn" value="评论"/>
+        </div>
+        <ul class="J_CmtList cmt-list clearfix">
+            <li class="loading-list">正在加载列表</li>
+        </ul>
+    </div>
+
+</script>
+<script type="text/template" id="J-cmtList">
+    <li class="comment-item">
+        <div class="logo">
+            <a href="#">
+             <img src="http://localhost/tuitui/tplv2/image/side-logo.png"/>
+            </a>
+        </div>
+        <div class="cmt-desc">
+            <p>
+             <span><a href="#">文刀:</a></span>回复<a href="#">老范</a>:
+                评论内容评论内容
+            </p>
+            <div class="reply">
+              <a href="#" class="J_Reply">回复</a>
+            </div>
+        </div>
+    </li>
 </script>
 
 

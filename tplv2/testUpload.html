@@ -1,0 +1,393 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta content="darrel.hsu" name=""/>
+    <meta content="telephone=no,email=no" name="format-detection" />
+   
+   
+    <title>app.helloworld</title>
+    
+<style type="text/css">
+    
+
+
+
+
+
+.commodity-fetch-result,
+.commodity-fetch-result
+{background-color:#f8f8f8;padding:25px;margin-bottom:20px;position:relative}
+.commodity-fetch-result .commodity-cancel,
+
+.commodity-fetch-result .commodity-cancel{position:absolute;top:5px;right:14px;cursor:pointer;font-size:18px;color:#666}
+
+.commodity-form .form-item .title-label,.haitao-form .form-item .title-label{font-size:14px;color:#333}.commodity-form .form-item.commodity-info,.haitao-form .form-item.commodity-info{overflow:hidden;padding-bottom:22px}.commodity-form .form-item.commodity-info .text-input,.haitao-form .form-item.commodity-info .text-input{width:372px;*width:371px}.commodity-form .form-item.commodity-info .title-label,.haitao-form .form-item.commodity-info .title-label{display:inline-block;width:4.5em;margin-right:20px}.commodity-form .form-item.commodity-info .title-label-box,.haitao-form .form-item.commodity-info .title-label-box{padding-bottom:16px}.commodity-form .form-item.commodity-info .price-box,.haitao-form .form-item.commodity-info .price-box{line-height:1}.commodity-form .form-item.commodity-info .price,.haitao-form .form-item.commodity-info .price{color:#ff8263;font-weight:bold}.commodity-form .form-item.doulist,.commodity-form .form-item.share-reason-select,.haitao-form .form-item.share-reason-select,.haitao-form .form-item.doulist{margin-top:25px;margin-left:-25px;margin-right:-25px;border-top:16px solid #fff;padding:15px 25px}.commodity-form .form-item.doulist,.haitao-form .form-item.doulist{margin-bottom:-25px}.commodity-form .form-item.doulist .title-label,.haitao-form .form-item.doulist .title-label{padding-right:20px}.commodity-form .form-item.doulist .doulist-select,.haitao-form .form-item.doulist .doulist-select{vertical-align:middle}.commodity-form .form-item.doulist .doulist-select.error,.commodity-form .form-item.doulist .doulist-select.error:hover,.haitao-form .form-item.doulist .doulist-select.error:hover,.haitao-form .form-item.doulist .doulist-select.error{border-color:#f00}.commodity-form .form-item.doulist .doulist-tips,.haitao-form .form-item.doulist .doulist-tips{color:#999;margin:0;padding-top:15px}.commodity-form .form-item.share-reason-select .share-reason-list,.haitao-form .form-item.share-reason-select .share-reason-list{font-size:0;display:inline-block;*display:inline;*zoom:1;vertical-align:top;vertical-align:middle;color:#333}.commodity-form .form-item.share-reason-select .share-reason-list li,.haitao-form .form-item.share-reason-select .share-reason-list li{display:inline-block;*display:inline;*zoom:1;vertical-align:top;font-size:13px;margin-right:27px}.commodity-form .form-item.share-reason-select .title-label,.haitao-form .form-item.share-reason-select .title-label{display:block;padding-bottom:18px}.commodity-form .form-item.share-reason-text,.haitao-form .form-item.share-reason-text{border:0}.commodity-form .form-item.share-reason-text textarea,.haitao-form .form-item.share-reason-text textarea{width:538px}.commodity-form .form-item.commodity-images .image-list,.haitao-form .form-item.commodity-images .image-list{font-size:0;overflow:hidden;padding-top:12px;margin-bottom:-10px;width:625px}.commodity-form .form-item.commodity-images .image-list li,.haitao-form .form-item.commodity-images .image-list li{display:inline-block;*display:inline;*zoom:1;vertical-align:top;font-size:12px;width:88px;height:88px;margin-right:25px;margin-bottom:25px;text-align:center;position:relative;border:1px solid #e6e6e6}.commodity-form .form-item.commodity-images .image-list li img,.haitao-form .form-item.commodity-images .image-list li img{display:block;cursor:pointer}.commodity-form .form-item.commodity-images .image-list li.tmpl,.haitao-form .form-item.commodity-images .image-list li.tmpl{display:none}.commodity-form .form-item.commodity-images .image-list li .uploading-tips,.haitao-form .form-item.commodity-images .image-list li .uploading-tips{position:absolute;top:0;left:0;right:0;bottom:0;background:#fff url("http://img3.douban.com/f/dongxi/b66b312561667597f59ae2ff465eb5e301b70046/pics/loading.gif") no-repeat 50% 50%;opacity:.8;filter:Alpha(Opacity=80);display:none;z-index:2}.commodity-form .form-item.commodity-images .image-list li.cover-image,.haitao-form .form-item.commodity-images .image-list li.cover-image{border-color:#a5cf4e}.commodity-form .form-item.commodity-images .image-list li.cover-image:after,.haitao-form .form-item.commodity-images .image-list li.cover-image:after{content:"主图";position:absolute;left:0;right:0;bottom:0;line-height:25px;background:#a5cf4e;color:#fff;z-index:1}.commodity-form .form-item.commodity-images .image-action .tips,.haitao-form .form-item.commodity-images .image-action .tips{color:#999;padding-left:10px}.commodity-form .form-actions,.haitao-form .form-actions{overflow:hidden;display:none;padding-bottom:50px}.commodity-form .form-actions .cancel,.haitao-form .form-actions .cancel{float:right}.commodity-form .form-actions .field-error-msg,.commodity-form .form-actions .error-msg,.haitao-form .form-actions .error-msg,.haitao-form .form-actions .field-error-msg{color:#fd6265;padding-bottom:15px}.commodity-form .form-actions .btn-submit,.haitao-form .form-actions .btn-submit{font-size:13px;padding:6px 12px 5px}.commodity-form .form-actions .delete-action-wrap,.haitao-form .form-actions .delete-action-wrap{margin-top:10px}.haitao-form .form-item.doulist,.haitao-form .form-item.share-reason-select{padding:25px;border-top:20px solid #fff}.haitao-form .form-item.doulist .title-label,.haitao-form .form-item.share-reason-select .title-label{padding-bottom:16px}.haitao-form .form-item.commodity-info{border-bottom:0;margin-bottom:-38px}.haitao-form .form-item.commodity-info .title-label{width:5em;margin-right:3px}.haitao-form .form-item.commodity-info .title-tips{display:block;font-size:11px;line-height:11px;margin-left:74px;margin-top:10px}.haitao-form .form-item.commodity-info .price-box{padding-bottom:16px}.haitao-form .form-item.commodity-images{margin:25px -25px -25px -25px;border-top:20px solid #fff;line-height:14px;padding:25px}.haitao-form .form-item.commodity-images .image-list{margin-top:4px;margin-bottom:-9px}.haitao-form .form-item.share-reason-text{margin-top:-21px;margin-bottom:-10px}.haitao-form .form-item.share-reason-text .title-label{line-height:14px}.dui-dialog.image-uploader .bd{width:530px;padding:25px;text-align:left;overflow:hidden}.dui-dialog.image-uploader .upload-list{font-size:0;width:550px;margin-bottom:17px}.dui-dialog.image-uploader .upload-list .item{display:inline-block;*display:inline;*zoom:1;vertical-align:top;width:88px;height:88px;border:1px solid #ccc;margin-right:20px;margin-bottom:20px;position:relative}.dui-dialog.image-uploader .upload-list .item .image-delete{position:absolute;top:-10px;right:-10px;width:18px;height:18px;line-height:18px;text-align:center;background:#ccc;color:#fff;font-size:12px;cursor:pointer;z-index:2;-webkit-border-radius:9px;-moz-border-radius:9px;-ms-border-radius:9px;border-radius:9px;font-family:Helvetica,Theoma,sans-serif}.dui-dialog.image-uploader .upload-list .item .image-delete:hover{background-color:#bbb}.dui-dialog.image-uploader .upload-list .item .image-tips{background:#a5cf4e;background:rgba(165,207,78,0.7);height:25px;line-height:25px;font-size:12px;text-align:center;display:none;color:#fff;position:absolute;bottom:0;left:0;width:100%}.dui-dialog.image-uploader .upload-list .item .upload-tips-wrap{position:absolute;width:100%;height:100%;top:0;left:0;display:none}.dui-dialog.image-uploader .upload-list .item.cover{border-color:#a5cf4e}.dui-dialog.image-uploader .upload-list .item.cover .image-tips{background:#a5cf4e;display:block}.dui-dialog.image-uploader .upload-list .item.cover .image-delete{display:none}.dui-dialog.image-uploader .upload-list .item.normal{cursor:pointer}.dui-dialog.image-uploader .upload-list .item.normal:hover{border-color:#a5cf4e}.dui-dialog.image-uploader .upload-list .item.normal .image-wrap:hover .image-tips{display:block}.dui-dialog.image-uploader .upload-list .item.placeholder .upload-tips-wrap,.dui-dialog.image-uploader .upload-list .item.loading .upload-tips-wrap{background:#fff url("http://img3.douban.com/f/dongxi/b66b312561667597f59ae2ff465eb5e301b70046/pics/loading.gif") no-repeat 50% 50%;opacity:.8;filter:Alpha(Opacity=80);display:block;z-index:1}.dui-dialog.image-uploader .upload-list .item.error .upload-tips-wrap{overflow:hidden;display:block;width:84px;height:84px;padding:2px;background:#fafafa}.dui-dialog.image-uploader .upload-list .item.error .upload-tips-wrap:before{content:"";width:1px;height:100%;display:inline-block;*display:inline;*zoom:1;vertical-align:top;vertical-align:middle;margin-left:-1px}.dui-dialog.image-uploader .upload-list .item.error .upload-tips-wrap .tips-text{display:inline-block;*display:inline;*zoom:1;vertical-align:top;vertical-align:middle;font-size:12px;width:100%;overflow:hidden;word-wrap:break-word;text-align:center;line-height:1.2;color:#333}.dui-dialog.image-uploader .upload-list .blank{display:inline-block;*display:inline;*zoom:1;vertical-align:top;width:86px;height:86px;line-height:86px;font-size:13px;border:2px dashed #d5d5d5;color:#333;text-align:center;cursor:pointer;position:relative}.dui-dialog.image-uploader .upload-list .blank input{position:absolute;width:100%;height:100%;top:0;left:0;border:0;background:transparent;opacity:0;cursor:pointer}.dui-dialog.image-uploader .upload-list .blank .swfupload{position:absolute;top:0;left:0;margin:-2px}.dui-dialog.image-uploader .uploader-foot{overflow:hidden}.dui-dialog.image-uploader .uploader-foot .tips{color:#666}.dui-dialog.image-uploader .uploader-foot .btn-submit{float:right}
+
+.support-sites.tips{padding-top:15px}.support-sites.tips .support-title{margin:25px 0 20px}.support-sites.tips .cn-list{margin-bottom:10px}.support-sites.tips .cn-list,.support-sites.tips .foreign-list{font-size:0}.support-sites.tips .cn-list .list-title,.support-sites.tips .foreign-list .list-title{display:inline-block;*display:inline;*zoom:1;vertical-align:top;font-size:12px;padding-right:1em}.support-sites.tips .support-list{display:inline-block;*display:inline;*zoom:1;vertical-align:top;width:560px}.support-sites.tips .support-list li{display:inline-block;*display:inline;*zoom:1;vertical-align:top;font-size:12px;color:#999;padding-right:5px;position:relative}.support-sites.tips .support-list li:after{content:"/";padding-left:.2em}.support-sites.tips .support-list li.last:after{visibility:hidden}.support-sites.tips .support-list li:last-child:after{visibility:hidden}.support-sites.tips .support-list li a:link,.support-sites.tips .support-list li a:visited{color:#999}.support-sites.tips .support-list li a:active,.support-sites.tips .support-list li a:hover{color:#067bb1;background:0;border-bottom:1px solid #067bb1}.support-sites.tips .support-list li.new{*margin-right:10px}.support-sites.tips .support-list li.new:after{margin-left:10px}.support-sites.tips .support-list li .icon-new{position:absolute;top:0;right:11px;*right:-6px;width:10px;height:10px;-webkit-border-radius:1px;-moz-border-radius:1px;-ms-border-radius:1px;border-radius:1px;text-indent:-9999em;background:url("http://img3.douban.com/f/dongxi/78f3b39ec6d2c870dce21b2f90826b125b454d20/pics/dongxi/icons_misc.7.png") no-repeat scroll -3px -245px}
+
+
+
+
+
+.publish-good .link{}
+.publish-good .link label,.publish-good .desc-t label{font-size:16px;color:#333333;}
+.publish-good .link .link-input{margin-top:12px;border:1px solid #cccccc;width:565px;height:36px;padding:2px 22px;font-size:16px;color:#4e72a6;}
+.feed-good-pub{position:relative;width:609px;margin-top:15px;background:#f7f7f7;border:1px solid #cccccc;}
+.feed-good-pub .outter{position:absolute;left:25px;top:-21px;width:0;height:0;border:10px dashed transparent;border-bottom:10px solid #cccccc;overflow:hidden;}
+.feed-good-pub .inner{position:absolute;left:25px;top:-20px;width:0;height:0;border:10px dashed transparent;border-bottom:10px solid #f7f7f7;overflow:hidden;}
+.feed-good .feed-good-img img {
+    width: 150px;
+    height: 150px;
+}
+.feed-good .feed-good-property{
+
+}
+.feed-good .feed-good-img .change-pic{position:absolute;width:65px;height:22px;right:0;bottom:0;background:#333;color:#333;}
+.feed-good .feed-good-img .change-pic a{color:#fff;display:block;width:65px;height:22px;line-height:21px;text-align:center;}
+.feed-good .change-pic .upload-element{display:none;position:absolute;top:23px;left:0;padding:5px 6px;width:277px;height:25px;border:1px solid #CCCCCC;background:#F7F7F7;}
+.feed-good .change-pic .upload-element input{float:left;width:208px;height:25px;}
+.feed-good .change-pic #J_ChangeBtn{ width:60px;height:25px;border:none;cursor:pointer;color:#FFFFFF;font-size:12px;background-position:-5px -990px;}
+.feed-good .change-pic .show{display:block;}
+
+</style>
+<body>
+
+    <input type="text" id="J-goodLink"/>
+    <button id="J-import">点击导入</button> 
+
+
+
+
+ <div class="feed-good feed-good-pub">
+        <div class="pop-corner-desc"><s class="outter"></s><s class="inner"></s></div>
+        <div class="feed-good-cont clearfix">
+            <div class="feed-good-info">
+                <div class="feed-good-img">
+                    <img src="http://gi3.md.alicdn.com/bao/uploaded/i3/T16tOQXxteXXXXXXXX_!!0-item_pic.jpg" id="J_PicBox"/>
+                 <span class="change-pic">
+                     <a href="#" id="J_ChangPicBtn">更改图片</a>
+                      <span class="J_UploadElement upload-element">
+                         <form  enctype='multipart/form-data' action="/feed/updateItemPic.do" method="post" name="J_uploadPic_from" id="J_ChangeFrom">
+                             <input type="file" name="file" size="20"/>
+                             <input type="button" id="J_ChangeBtn" value="上传图片"/>
+                         </form>
+                     </span>
+                 </span>
+                </div>
+                <div class="feed-good-property">
+                    <h3 class="feed-good-title">商品标题商品标题</h3>
+                    <div class="feed-good-fee">
+                        <ul>
+                            <li><span>价格：</span>
+                                <del>20.02</del>元
+                            </li>
+                             <li><span>促销：</span><span class="price">40.09元</span></li>
+                            <li><span>运费：</span>包邮</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<div class="commodity-form">
+    <div id="J_ManualFieldset" class="commodity-fetch-result hide" style="display: block;">
+        <span class="commodity-cancel" title="重新抓取其他东西">×</span>
+
+        <div class="form-item commodity-info">
+            <div class="title-label-box">
+                <label class="title-label" for="title">东西名称</label>
+                <input id="title" name="title" type="text" class="text-input" placeholder="请输入东西名称">
+            </div>
+            <div class="price-box">
+                <span class="title-label">价格</span>
+                <span class="price">￥75.00</span>
+            </div>
+        </div>
+        <div class="form-item commodity-images">
+        <div class="title-label-box"><label class="title-label">东西图片</label></div>
+        <ul class="image-list">
+        <li class="tmpl">
+            <img width="88" height="88" alt="东西">
+            <div class="uploading-tips"></div>
+        </li>
+        <li class="item cover-image">
+            <img width="88" height="88" alt="东西" src="http://gi3.md.alicdn.com/bao/uploaded/i3/T16tOQXxteXXXXXXXX_!!0-item_pic.jpg">
+            <div class="uploading-tips" style="display: none;"></div>
+        </li><li class="item">
+            <img width="88" height="88" alt="东西" src="http://gi2.md.alicdn.com/imgextra/i2/793218922/T295RgX0daXXXXXXXX-793218922.jpg">
+            <div class="uploading-tips" style="display: none;"></div>
+        </li><li class="item">
+            <img width="88" height="88" alt="东西" src="http://gi2.md.alicdn.com/imgextra/i2/793218922/T2nA0hX8FXXXXXXXXX-793218922.jpg">
+            <div class="uploading-tips" style="display: none;"></div>
+        </li><li class="item">
+            <img width="88" height="88" alt="东西" src="http://gi2.md.alicdn.com/imgextra/i2/793218922/T2QwNgX0BaXXXXXXXX-793218922.jpg">
+            <div class="uploading-tips" style="display: none;"></div>
+        </li><li class="item">
+            <img width="88" height="88" alt="东西" src="http://gi2.md.alicdn.com/imgextra/i2/793218922/TB2AyInXVXXXXb_XXXXXXXXXXXX_!!793218922.jpg">
+            <div class="uploading-tips" style="display: none;"></div>
+        </li></ul>
+        <div class="image-action">
+        <span class="J_ImageUploader btn-normal">上传或修改图片</span>
+        <span class="tips">最多10张</span>
+        </div>
+    </div>
+        
+
+        <div class="form-item share-reason-select">
+            <label for="share-reason-text" class="title-label">评论这件东西</label>
+        </div>
+
+        <div class="form-item share-reason-text">
+            <textarea id="share-reason-text" class="textarea" name="text" rows="9" placeholder="这件东西好不好、值不值，说说你的看法。"></textarea>
+        </div>
+
+
+    </div>
+</div>
+    <script>
+var urlpath = 'http://localhost/tuitui';
+var skinpath = 'http://localhost/tuitui/tplv2';
+
+var uid = '2';
+var unit_3 = true;
+            
+</script>
+
+<script> 
+var swfpath = 'http://localhost/tuitui/tplv2'; 
+var bid     = '';
+var ssid    = 'b9adfaf33915b974b461cae8037a13f5';
+var num     = '20';
+var filext  = '*.jpg;*.jpge;*.png;*.gif';
+var size    = '20480';
+</script>
+
+<script type="text/javascript">
+    
+    var data = {"is_new_item":false,"commodity_item_id":"1083456","title":"mrduck英伦大码礼帽 夏天男士帽子韩版沙滩遮阳帽爵士帽亚麻草帽","display_price":"￥75.00","category_id":1,"pics_signatures":["BqkLew.faAcA3WikaHK3VyAK9IBmOIAzxM","BqkLew.5lKv0opTbljtfikkIezo8Q3LN_g","BqkLew.WI_IwZJ50i2-AIuQSMfqbmkMevo","BqkLew.yvMWBhQADpEhp3gVGGcQC582UTE","BqkLew.TzM-CTipw8MmkEqLUR6t1PmfS8w"],"pics":["http:\/\/gi3.md.alicdn.com\/bao\/uploaded\/i3\/T16tOQXxteXXXXXXXX_!!0-item_pic.jpg","http:\/\/gi2.md.alicdn.com\/imgextra\/i2\/793218922\/T295RgX0daXXXXXXXX-793218922.jpg","http:\/\/gi2.md.alicdn.com\/imgextra\/i2\/793218922\/T2nA0hX8FXXXXXXXXX-793218922.jpg","http:\/\/gi2.md.alicdn.com\/imgextra\/i2\/793218922\/T2QwNgX0BaXXXXXXXX-793218922.jpg","http:\/\/gi2.md.alicdn.com\/imgextra\/i2\/793218922\/TB2AyInXVXXXXb_XXXXXXXXXXXX_!!793218922.jpg"]};
+</script>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="js/swfupload.js"></script><!-- 
+<script type="text/javascript" src="js/multiupload.js"></script> -->
+
+<div id="fileButton"></div>
+<input type="text" name="Filedata">
+<script type="text/javascript">
+    $("#J-import").on("click",function(e){
+        e.preventDefault();
+        var link = $("#J-goodLink").val();
+
+
+
+
+    });
+
+$(document).ready(function(){
+    /*发布image*/
+   var ext='图像文件 (*.*)',useget=0;
+   ext=getQuery('ext')||ext;
+   size=getQuery('size')||size;
+   useget=getQuery('useget')||useget;
+    var tmpParams=getQuery('params');
+    if(tmpParams)
+    {
+        try{eval("tmpParams=" + tmpParams);}catch(ex){};
+        params=$.extend({},params,tmpParams);
+    }
+    ext=ext.match(/([^\(]+?)\s*\(\s*([^\)]+?)\s*\)/i);
+    
+
+    
+    swfu = new SWFUpload({
+        // Flash组件
+        flash_url : "js/swfupload.swf",
+        prevent_swf_caching : false,//是否缓存SWF文件
+        // 服务器端
+        upload_url: 'http://localhost/tuitui/index.php?c=post&a=uploadimg&model=3',
+        file_post_name : "filedata",
+        post_params: {'ssid':ssid,'bid':bid},//随文件上传一同向上传接收程序提交的Post数据
+        use_query_string : useget=='1'?true:false,//是否用GET方式发送参数
+        // 文件设置
+        file_types:filext,
+        file_types_description : ext[1],//文件格式描述
+        file_size_limit : size, // 文件大小限制
+        file_upload_limit : 1,//上传文件总数
+        file_queue_limit:num,//上传队列总数
+        custom_settings : {
+            bid : bid,
+            progressTarget : "fsUploadProgress",
+            cancelButtonId : "btnCancel"
+        },
+            
+        // 事件处理
+        file_queued_handler : fileQueued,//添加成功
+        file_queue_error_handler : fileQueueError,//添加失败
+        upload_start_handler : uploadStart,//上传开始
+        upload_progress_handler : uploadProgress,//上传进度
+        upload_error_handler : uploadError,//上传失败
+        upload_success_handler : uploadSuccess,//上传成功
+        upload_complete_handler : uploadComplete,//上传结束
+
+        // 按钮设置
+        button_placeholder_id : "fileButton",
+        button_width: 100,
+        button_height:40,
+        button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,
+        button_cursor: SWFUpload.CURSOR.HAND,
+        button_image_url : skinpath+"/image/comm/upload.png",
+        // 调试设置
+        debug: false
+    });
+
+
+})
+ 
+function getQuery(item){var svalue = location.search.match(new RegExp('[\?\&]' + item + '=([^\&]*)(\&?)','i'));return svalue?decodeURIComponent(svalue[1]):'';}  
+ 
+var swfu,selQueue=[],selectID,arrMsg=[],allSize=0,uploadSize=0;
+function removeFile()
+{
+    var file;
+    if(!selectID)return;
+    for(var i in selQueue)
+    {
+        file=selQueue[i];
+        if(file.id==selectID)
+        {
+            selQueue.splice(i,1);
+            allSize-=file.size;
+            swfu.cancelUpload(file.id);
+            $('#'+file.id).remove();
+            selectID=null;
+            break;
+        }
+    }
+    $('#btnClear').hide();
+    //if(selQueue.length==0)$('#controlBtns').hide();
+}
+function startUploadFiles()
+{
+    if(swfu.getStats().files_queued>0)
+    {
+        //$('#controlBtns').hide();
+        swfu.startUpload();
+    }
+    else alert('上传前请先添加文件');
+}
+function setFileState(fileid,txt)
+{
+    $('#'+fileid+'_state').text(txt);
+}
+function fileQueued(file)//队列添加成功
+{
+    $('#submit,#draft,#preview,#cancel').hide();
+    $('#pb-submiting-tip').show();
+    for(var i in selQueue)if(selQueue[i].name==file.name){swfu.cancelUpload(file.id);return false;}//防止同名文件重复添加
+    $('#listBody').append('<tr id="'+file.id+'"><td>'+file.name+'</td><td>'+formatBytes(file.size)+'</td><td id="'+file.id+'_state">就绪</td></tr>');
+    //if(selQueue.length==0)$('#controlBtns').show();
+    selQueue.push(file);
+    allSize+=file.size;
+    swfu.startUpload();
+    
+    
+}
+function fileQueueError(file, errorCode, message)//队列添加失败
+{
+    var errorName='';
+    switch (errorCode)
+    {
+        case SWFUpload.QUEUE_ERROR.QUEUE_LIMIT_EXCEEDED:
+            errorName = "只能同时上传 "+this.settings.file_upload_limit+" 个文件";
+            break;
+        case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:
+            errorName = "选择的文件超过了当前大小限制："+this.settings.file_size_limit;
+            break;
+        case SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE:
+            errorName = "零大小文件";
+            break;
+        case SWFUpload.QUEUE_ERROR.INVALID_FILETYPE:
+            errorName = "文件扩展名必需为："+this.settings.file_types_description+" ("+this.settings.file_types+")";
+            break;
+        default:
+            errorName = "未知错误";
+            break;
+    }
+    alert(errorName);
+}
+function uploadStart(file)//单文件上传开始
+{
+    setFileState(file.id,'上传中…');
+}
+function uploadProgress(file, bytesLoaded, bytesTotal)//单文件上传进度
+{
+    $('#progressArea').show();
+    var percent=Math.ceil((uploadSize+bytesLoaded)/allSize*100);
+    $('#progressBar span').text(percent+'% ('+formatBytes(uploadSize+bytesLoaded)+' / '+formatBytes(allSize)+')');
+    $('#progressBar div').css('width',percent+'%');
+}
+function upimgclk(that)
+{
+    if(that.value == '图片说明可选') {that.value=''}
+}
+
+function uploadSuccess(file, serverData)//单文件上传成功
+{
+    var data=Object;
+    try{eval("data=" + serverData);}catch(ex){};
+    if(data.err!=undefined&&data.msg!=undefined)
+    {
+        //alert(data.msg.url);
+        if(!data.err)
+        {
+            var urls = data.msg.url.split('||');
+    
+            if(urls.length ==2){ var url =  urls[0]; }else{ var url = urls; } //如果返回的是带缩略图的就让0进去，否则直接进去
+            $('#uploadArea').append(' <div id="attach_'+data.msg.fid+'" class="attach_img"><img src="'+urlpath+'/'+url+'" /><textarea name="localimg['+data.msg.fid+']['+url+']" onclick="upimgclk(this)">图片说明（选填）</textarea>'+
+                                    '<a href="javascript:void(0)" onclick="delAttachIMAGE('+data.msg.fid+')" class="delete">remove</a>'+
+                                    '<div class="clear"></div></div>');
+            uploadSize+=file.size;
+            arrMsg.push(data.msg);
+            setFileState(file.id,'上传成功');
+            setTimeout(function(){$('#'+file.id).fadeOut('slow')},1000)
+        }
+        else
+        {
+            setFileState(file.id,'上传失败');
+        }
+    }
+    else setFileState(file.id,'上传失败！');
+}
+function uploadError(file, errorCode, message)//单文件上传错误
+{
+    setFileState(file.id,'上传失败！'+message);
+}
+function uploadComplete(file)//文件上传周期结束
+{
+    if(swfu.getStats().files_queued>0)swfu.startUpload();
+    else uploadAllComplete();
+}
+function uploadAllComplete()//全部文件上传成功
+{
+    $('#progressArea').hide(); //全部完毕关闭进度条
+    $('#submit,#draft,#preview,#cancel,#pb-submiting-tip').toggle();
+    //alert(arrMsg);
+}
+function formatBytes(bytes) {
+    var s = ['Byte', 'KB', 'MB', 'GB', 'TB', 'PB'];
+    var e = Math.floor(Math.log(bytes)/Math.log(1024));
+    return (bytes/Math.pow(1024, Math.floor(e))).toFixed(2)+" "+s[e];
+}
+
+
+</script>
+
+
+</body>
+</html>
+

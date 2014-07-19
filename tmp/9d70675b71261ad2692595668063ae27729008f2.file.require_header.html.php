@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-17 23:00:24
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-19 01:05:22
          compiled from "tplv2/require_header.html" */ ?>
-<?php /*%%SmartyHeaderCode:205328259253c7e508cf7902-32341452%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:93141133953c953d2f133f2-45893198%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9d70675b71261ad2692595668063ae27729008f2' => 
     array (
       0 => 'tplv2/require_header.html',
-      1 => 1405609222,
+      1 => 1405703120,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '205328259253c7e508cf7902-32341452',
+  'nocache_hash' => '93141133953c953d2f133f2-45893198',
   'function' => 
   array (
   ),
@@ -89,16 +89,14 @@ $_smarty_tpl->decodeProperties(array (
 			    <div class="function">
 
 					<div class="publish-menu">
-						<dl>
-							<dt>发布消息</dt>
-							<!-- <dd>
-								<ul>
-									<li><a href="#">发宝贝</a></li>
-									<li><a href="#">发文字</a></li>
-									<li><a href="#">发图片</a></li>
-								</ul>
-							</dd> -->
-						</dl>
+						<a href="javascript:void(0);">发布消息</a>
+					</div>
+					<div class="publish">
+						<ul>
+							<li><a href="#">发宝贝</a></li>
+							<li><a href="#">发文章</a></li>
+							<li><a href="#" style="border:0">发图片</a></li>
+						</ul>
 					</div>
 
 					

@@ -1013,11 +1013,12 @@ function loadComment(d) {
 }
 function indexPostTab(type, id) {
     var _comt = $('#comment_' + id);
-    var _feeds = $('#feeds_' + id);
+   // var _feeds = $('#feeds_' + id);
     if (type == 'comment') {
-        _feeds.hide();
+      //  _feeds.hide();
+        $("#blog_"+id).find(".feed-desc").toggleClass('open');
         _comt.toggle();
-        _loadReply(id)
+        _loadReplys(id);
     }
     if (type == 'feeds') {
         _feeds.toggle();
@@ -1025,6 +1026,18 @@ function indexPostTab(type, id) {
         _loadHit(id)
     }
 }
+// 加载回复
+function _loadReplys(id) {
+    var cmtTpl = $("#J-cmtTpl").html();
+    var cmtLiTpl = $("#J-cmtList").html();
+    $('#comment_'+id).find(".cmtbox").html(cmtTpl);
+    $.getJSON(urlpath+'/tmp/json.html',function(resp){
+        var html = Mustache.render(cmtLiTpl,{'body':resp.body.body});
+        $('#comment_'+id).find(".J_CmtList").html(html);
+    });
+}
+
+
 function _loadReply(id) {
     var _cmtload = $('#commentLoading_' + id);
     if (_cmtload.attr("isld") == "true") {

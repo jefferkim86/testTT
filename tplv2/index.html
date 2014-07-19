@@ -5,20 +5,20 @@
 	{include file="require_userInfo.html"}
     <div id="article">
         
-	    {include file="require_post.html"}
+	    <!-- {include file="require_post.html"} -->
 		
 		
 		
 			{if isset($adunit.2) && $adunit.2.is_show == 1}
-			<div id="ad_index_up"></div>
-			<script>
-				$(document).ready(function(){
-					ad_aside('#ad_index_up',2);
-					setInterval(function(){
-						ad_aside('#ad_index_up',2);
-					}, 30000);
-				})
-			</script>
+    			<!--<div id="ad_index_up"></div>
+    			<script>
+    				$(document).ready(function(){
+    					ad_aside('#ad_index_up',2);
+    					setInterval(function(){
+    						ad_aside('#ad_index_up',2);
+    					}, 30000);
+    				})
+    			</script>-->
 			{/if}
 	
 	
@@ -77,7 +77,7 @@
 {literal}
 
 {{#list}}
-    <div class="feed feed-{{clsType}} clearfix">
+    <div class="feed feed-{{clsType}} clearfix" id="blog_{{bid}}">
         {{#h_img}}
         <div class="feed-avatar">
             <a class="blog-avatar" href="{{h_url}}" title="FashionDes">
@@ -122,7 +122,7 @@
                                5分钟前
                            </span>
                         <div class="feed-act">
-                            <a href="" class="J_Comment">评论(<span class="J_CmtNum">9</span>)</a>
+                            <a href="javascript:void(0)" class="J_Comment" onclick="indexPostTab('comment',{{bid}})">评论(<span class="J_CmtNum">9</span>)</a>
                             <a href="" class="J_Forward">转发(<span class="J_FwdNum">43</span>)</a>
                             <a href="" class="J_Like">喜欢(<span class="J_LikeNum">99</span>)</a>
                             <a href="" class="J_LikeStar">like</a>
@@ -131,12 +131,46 @@
                 </div>
             </div>
         </div>
-        <div class="J_Feedfoot feed-ft feed-cmt">
+        <div class="J_Feedfoot feed-ft feed-cmt" id="comment_{{bid}}">
             <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
+            <div class="cmtbox">
+                
+            </div>
         </div>
     </div>
     {{/list}}
 {/literal}
+</script>
+<script type="text/template" id="J-cmtTpl">
+{literal}
+    <div class="J_CommentWrap">
+        <div class="cmt-box">
+            <input class="J_CmtCnt" type="text"/>
+            <input type="button" class="cmt-btn" value="评论"/>
+        </div>
+        <ul class="J_CmtList cmt-list clearfix">
+            <li class="loading-list">正在加载列表</li>
+        </ul>
+    </div>
+{/literal}
+</script>
+<script type="text/template" id="J-cmtList">
+    <li class="comment-item">
+        <div class="logo">
+            <a href="#">
+             <img src="http://localhost/tuitui/tplv2/image/side-logo.png"/>
+            </a>
+        </div>
+        <div class="cmt-desc">
+            <p>
+             <span><a href="#">文刀:</a></span>回复<a href="#">老范</a>:
+                评论内容评论内容
+            </p>
+            <div class="reply">
+              <a href="#" class="J_Reply">回复</a>
+            </div>
+        </div>
+    </li>
 </script>
 
 
