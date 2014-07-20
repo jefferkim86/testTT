@@ -34,7 +34,14 @@
 .feed .feed-actions{padding:10px 29px 0 29px;color:#999999;}
 .feed .feed-actions .feed-timestamp{float:left;}
 .feed .feed-actions .feed-act{float:right;}
-.feed .feed-actions .feed-act a{float:left;padding:0 10px;height:19px;text-align:center;color:#999999;}
+.feed .feed-actions .feed-act a{
+	position: relative;
+	float:left;
+	padding:0 10px;
+	height:19px;
+	text-align:center;
+	color:#999999;
+}
 .feed .feed-actions .feed-act .J_DeleteFeed{padding-right:0;}
 .feed .feed-actions .feed-act a:hover{color:#0099cc;}
 .feed .feed-actions .feed-act a.J_LikeStar{margin-left:5px;padding:0;margin-top:2px;width:15px;height:14px;overflow:hidden;background-position:-5px -90px;text-indent:-9999px;}
@@ -48,6 +55,7 @@
 	float:right;
 	width:761px;
 	border:1px solid #e9e9e9;
+	background: #f5f5f5;
 
 	-moz-border-bottom-left-radius: 6px;
 	-moz-border-bottom-right-radius: 6px;
@@ -60,16 +68,28 @@
 
 .feed .J_Comment_show,.feed .J_Forward_show,.feed .J_Like_show{display:block;}
 
-.feed .feed-ft .pop-foot-corner{position:absolute;top:-11px;left:352px;}
-.feed .feed-ft .pop-foot-corner .outter{
+
+.feed .feed-act .pop-foot-corner{
+	display: none;
+	position:absolute;
+	top:22px;
+	left:50%;
+	margin-left: -10px;
+	z-index: 10;
+}
+.feed .feed-act .pop-foot-corner .outter{
 	border:10px dashed transparent;
 	border-bottom:10px solid #f5f5f5;
 	width:0;height:0;
 	position:absolute;left:0;top:-10px;overflow:hidden}
-.feed .feed-ft .pop-foot-corner .inner{
+.feed .feed-act .pop-foot-corner .inner{
 	border:9px dashed transparent;
 	border-bottom:9px solid #f5f5f5;
-	width:0;height:0;position:absolute;left:1px;top:-7px;overflow:hidden}
+	width:0;height:0;position:absolute;left:1px;top:-7px;overflow:hidden
+}
+.feed .cur .pop-foot-corner {
+	display: block;
+}
 .feed .feed-ft .cmt-box{
 	padding:28px 24px 15px 24px;
 	height: 44px;
@@ -111,7 +131,6 @@
 	border-bottom-right-radius: 0;
 }
 #feedArea .feed-ft .cmtbox{
-	background:#f5f5f5;
 	-moz-border-bottom-left-radius: 6px;
 	-moz-border-bottom-right-radius: 6px;
 	-webkit-border-bottom-left-radius: 6px;
@@ -141,6 +160,9 @@
 #feedArea .feed-ft .cmt-list .logo img {
 	width: 40px;
 	height: 40px;
+	-moz-border-radius:40px;
+	-webkit-border-radius:40px;
+	border-radius: 40px;
 }
 #feedArea .feed-ft .cmt-list .cmt-desc {
 	border-bottom: 1px solid #dddddd;
@@ -183,7 +205,7 @@
 .feed .forward-show .cmt-list li{float:left;display:inline;border:none;padding:0;margin:0;margin-left:2px;width:42px;height:42px;}
 .feed .forward-show h5{margin:5px 0;}
 
-.feed-ft .cmt-list .loading-list,.feed-ft .forward-list .loading-list{
+#feedArea .feed-ft .cmt-list .loading-list,#feedArea .feed-ft .forward-list .loading-list{
 	width:100px;
 	height: 26px;
 	line-height: 26px;
@@ -254,13 +276,15 @@
 .feed-text .feed-text-p .expand{width:580px;height:auto;_height:auto;}
 
 .feed-text .feed-text-p .feed-text-title{margin-bottom:5px;}
-.feed-text .feed-actions{padding-bottom:16px;}
+/*.feed-text .feed-actions{
+	padding-bottom:16px;
+}*/
 .feed-sibling .pop-corner{display:none;}
 /*转发时要将原feed图片的尖角显示*/
 .feed-forward-layout .pop-corner{display:block;}
 
 /*feed 图片*/
-.feed-photo .feed-photo-cont{padding-bottom:12px;}
+.feed-photo .feed-photo-cont,.feed-text .feed-text-cont{padding-bottom:12px;}
 .feed-photo .feed-photo-img{padding:12px 29px 0 29px;text-align:center;}
 .feed-photo .feed-photo-img .feed-img{cursor:pointer;}
 .feed-photo .feed-photo-desc{font-size:14px;padding:8px 29px 0 29px;color:#333;word-break:break-all;word-wrap:break-word;}
@@ -628,6 +652,11 @@ ul,li {
 	text-indent: 22px;
 	background: #63c394 url('../image/recommend-icon.png') no-repeat scroll 9px 8px;
 
+}
+.page-userInfo .handle .followed {
+	background: #cccccc;
+	text-align: center;
+	text-indent: 0;
 }
 .page-userInfo .handle .J-msg {
 	background: #cccccc;

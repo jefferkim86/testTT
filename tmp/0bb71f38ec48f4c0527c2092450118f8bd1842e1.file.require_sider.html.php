@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-20 01:56:13
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-20 16:23:44
          compiled from "tplv2/require_sider.html" */ ?>
-<?php /*%%SmartyHeaderCode:115574467053cab13de18c49-77088332%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:76711894953cb7c903d8544-03488866%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0bb71f38ec48f4c0527c2092450118f8bd1842e1' => 
     array (
       0 => 'tplv2/require_sider.html',
-      1 => 1405792564,
+      1 => 1405844588,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '115574467053cab13de18c49-77088332',
+  'nocache_hash' => '76711894953cb7c903d8544-03488866',
   'function' => 
   array (
   ),
@@ -204,9 +204,7 @@ if ($_smarty_tpl->_count($_from) > 0){
            
        </div>
     </div>
-	<script type="text/javascript">
-		var followInstance = new fllow();
-	</script>
+	
 
 	<div class="sider-mod TA-attention mt20 clearfix">
 		<div class="hd">

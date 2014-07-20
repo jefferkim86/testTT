@@ -22,10 +22,41 @@ var unit_3 = true;
 <link href="{$syskin}/js/dialog/default.css" rel="stylesheet" />
 <link href="{$syskin}/css/feed.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="{$syskin}/js/template_models.js"></script>
+<script type="text/javascript" src="{$syskin}/js/jquery.pagination.js"></script>
+
+
+
+<script type="text/javascript" src="{$syskin}/js/underscore.js"></script>
+<script type="text/javascript" src="{$syskin}/js/backbone.js"></script>
+<script type="text/javascript"> 
+var Tuitui = {};
+function getApi(c, m, params, fun) {
+    if (params == undefined) {
+        params = ''
+    };
+    $.ajax({
+        url: urlpath + '/index.php?c=api&yc=' + c + '&ym=' + m,
+        data: params,
+        success: function(data) {
+            fun(data)
+        },
+        error: function(x) {
+            if (x.status != 200) {
+                if (x.status != 0) {
+                    waring('网络错误,请稍候');
+                    return false
+                }
+            }
+            return false
+        },
+        dataType: 'json',
+        type: 'post'
+    });
+};
+</script>
+
 
 <script type="text/javascript" src="{$syskin}/js/func.js"></script>
-
-
 
 
   {if $login ==yes}

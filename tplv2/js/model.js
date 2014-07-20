@@ -43,12 +43,9 @@ function yb_load_feeds(c, a, params, customcallback) {
                     $('#feed_none').show()
                 } else {
                     //渲染模板
-                    console.log(data.body);
                     var tpl = $("#J_FeedTemp").html();
-                    console.log(data.body.blog);
                     var data = modelParse(data.body.blog);
                     var html = Mustache.render(tpl,{"list": data});
-                    console.log(html);
                 //	$('#feed_box').append(template('J-feed_template', data.body));
                    
                     $('#feed_box').html(html);

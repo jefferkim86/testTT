@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-10 21:31:07
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-20 17:24:17
          compiled from "tplv2/require_footer.html" */ ?>
-<?php /*%%SmartyHeaderCode:92199292253be959b0e59e5-42824931%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:105680197953cb8ac1176670-47423514%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7b20e605d333e55791698372022dff7d76772040' => 
     array (
       0 => 'tplv2/require_footer.html',
-      1 => 1363077468,
+      1 => 1405848256,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '92199292253be959b0e59e5-42824931',
+  'nocache_hash' => '105680197953cb8ac1176670-47423514',
   'function' => 
   array (
   ),
@@ -58,3 +58,24 @@ $(document).ready(function(){
 });
 </script>
 <?php }?>
+
+
+
+
+<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/js/model/commentModel.js"></script>
+<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/js/collection/commentCollection.js"></script>
+<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/js/view/commentItemView.js"></script>
+
+<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/js/view/commentsView.js"></script>
+
+<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/js/view/userView.js"></script>
+<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/js/view/headerView.js"></script>
+<script type="text/javascript">
+	new Tuitui.headerView();
+</script>

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-20 02:16:19
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-20 17:26:08
          compiled from "tplv2/index.html" */ ?>
-<?php /*%%SmartyHeaderCode:191394045553cab5f35a6729-96694206%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:28969094553cb8b30cb16a9-73961523%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c1542c66fd69d13319a6782e135b83f629ebe08c' => 
     array (
       0 => 'tplv2/index.html',
-      1 => 1405793777,
+      1 => 1405848249,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '191394045553cab5f35a6729-96694206',
+  'nocache_hash' => '28969094553cb8b30cb16a9-73961523',
   'function' => 
   array (
   ),
@@ -149,65 +149,82 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
                                5分钟前
                            </span>
                         <div class="feed-act">
-                            <a href="#" class="J_Comment" data-id="{{bid}}">评论(<span class="J_CmtNum">9</span>)</a>
-                            <a href="" class="J_Forward">转发(<span class="J_FwdNum">43</span>)</a>
-                            <a href="" class="J_Like">喜欢(<span class="J_LikeNum">99</span>)</a>
+                            <a href="#" class="J_Comment" data-id="{{bid}}">评论(<span class="J_CmtNum">9</span>)
+                             <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
+                            </a>
+                            <a href="" class="J_Forward">转发(<span class="J_FwdNum">43</span>)
+                            <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
+                            </a>
+                            <a href="" class="J_Like">喜欢(<span class="J_LikeNum">99</span>)
+                            <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
+                            </a>
                             <a href="" class="J_LikeStar">like</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="J_Feedfoot feed-ft feed-cmt" id="comment_{{bid}}">
+        <div class="J_Feedfoot feed-ft feed-cmt" data-reply="" data-bid="{{bid}}" id="comment_{{bid}}">
             <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
             <div class="cmtbox">
-                
+                <div class="J_CommentWrap">
+                    <div class="cmt-box">
+                        <input class="J_CmtCnt" type="text"/>
+                        <input type="button" class="cmt-btn J-sendReply" value="评论"/>
+                    </div>
+                    <ul class="J_CmtList cmt-list clearfix">
+                        <li class="loading-list">正在加载列表</li>
+                    </ul>
+                </div>
             </div>
+            <div id="Pagination_{{bid}}" class="pagination"></div>
         </div>
     </div>
     {{/list}}
 
 </script>
-<script type="text/template" id="J-cmtTpl">
 
-    <div class="J_CommentWrap">
-        <div class="cmt-box">
-            <input class="J_CmtCnt" type="text"/>
-            <input type="button" class="cmt-btn" value="评论"/>
+<script type="text/template" id="J-cmtList">
+
+    <div class="logo">
+        <a href="{{logoUrl}}">
+         <img src="{{logo}}"/>
+        </a>
+    </div>
+    <div class="cmt-desc">
+        <p>
+         <span><a href="#">{{userName}}</a>:</span>
+            {{msg}}
+        </p>
+        <div class="reply">
+          <a href="#" class="J_Reply">回复</a>
         </div>
-        <ul class="J_CmtList cmt-list clearfix">
-            <li class="loading-list">正在加载列表</li>
-        </ul>
     </div>
 
-</script>
-<script type="text/template" id="J-cmtList">
-    <li class="comment-item" data-id="" data-username="" data-uid="">
-        <div class="logo">
-            <a href="#">
-             <img src="http://localhost/tuitui/tplv2/image/side-logo.png"/>
-            </a>
-        </div>
-        <div class="cmt-desc">
-            <p>
-             <span><a href="#">文刀:</a></span>回复<a href="#">老范</a>:
-                评论内容评论内容
-            </p>
-            <div class="reply">
-              <a href="#" class="J_Reply">回复</a>
-            </div>
-        </div>
-    </li>
 </script>
 
 
 
 
 <script type="text/javascript">
-    new feedComment();
+  //  new feedComment();
+
+ 
+
+
 	$(document).ready(function(){ 
 		yb_load_feeds('blog','feeds');
+
 	})
 </script>
 <?php $_template = new Smarty_Internal_Template("require_footer.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
 $_template->assign('top','yes'); echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
+
+
+<script type="text/javascript">
+    
+    //评论
+    new Tuitui.commentsView();
+    new Tuitui.userView();
+
+</script>

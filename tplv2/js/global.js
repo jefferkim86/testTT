@@ -1030,15 +1030,15 @@ function indexPostTab(type, id) {
     }
 }
 // 加载回复
-function _loadReplys(id) {
-    var cmtTpl = $("#J-cmtTpl").html();
-    var cmtLiTpl = $("#J-cmtList").html();
-    $('#comment_'+id).find(".cmtbox").html(cmtTpl);
-    $.getJSON(urlpath+'/tmp/json.html',function(resp){
-        var html = Mustache.render(cmtLiTpl,{'body':resp.body.body});
-        $('#comment_'+id).find(".J_CmtList").html(html);
-    });
-}
+// function _loadReplys(id) {
+//     var cmtTpl = $("#J-cmtTpl").html();
+//     var cmtLiTpl = $("#J-cmtList").html();
+//     $('#comment_'+id).find(".cmtbox").html(cmtTpl);
+//     $.getJSON(urlpath+'/tmp/json.html',function(resp){
+//         var html = Mustache.render(cmtLiTpl,{'body':resp.body.body});
+//         $('#comment_'+id).find(".J_CmtList").html(html);
+//     });
+// }
 
 
 function _loadReply(id) {
