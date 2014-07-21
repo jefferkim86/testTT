@@ -1,13 +1,17 @@
        /*后期调整比较多，后期将公用颜色等等样式提取*/
 .feed-list{width:850px;float:left;z-index:80;}
 .feed{margin-bottom:15px;}
-.feed .feed-avatar{float:left;width:64px;}
+/*.feed .feed-bd {padding-top: 12px;}
+*/.feed .feed-avatar{float:left;width:64px;}
 .feed .feed-link a,
 .feed .feed-ft .cmt-box .cmt-btn,
 .feed-ft .rollup,
 .feed .feed-actions .feed-act .J_LikeStar,
 .feed .feed-actions .feed-act a.J_LikeStar:hover,
-.page-timing-publish .timing-footer .publish-time s{background:url("images/feed.png") no-repeat scroll 0 0;}
+.page-timing-publish .timing-footer .publish-time s{}
+
+
+
 
 .feed-good .feed-good-property .view-good,
 .feed-ft .cmt-list li .J_DeleteCmt,
@@ -18,22 +22,27 @@
 .feed .feed-desc{position:relative;float:right;width:760px;
 	background:#fff;border:1px solid #fff;
 	-moz-box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15); -webkit-box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150,150, 0.15); box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15); -moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;}
-.feed .feed-link{position:absolute;right:-3px;top:-1px;}
+.feed .feed-link{position:absolute;right:25px;top:25px;}
 
-.feed .feed-link a{display:none;width:21px;height:21px;-moz-border-radius:0 7px 0 7px;-webkit-border-radius:0 7px 0 7px;border-radius:0 7px 0 7px;text-indent:-9999px;overflow:hidden;background-position:-5px -30px;}
+.feed .feed-link a{width:21px;height:21px;-moz-border-radius:0 7px 0 7px;-webkit-border-radius:0 7px 0 7px;border-radius:0 7px 0 7px;text-indent:-9999px;overflow:hidden;background-position:-5px -30px;}
 .feed .feed-link-show a{display:block;}
 .feed .feed-hd{padding:16px 26px 0 29px;}
 
 .feed .feed-forward-layout .feed-hd{padding:16px 0 0 12px;}
 .feed .feed-hd .merc-name a,.feed-ft .cmt-list li a{color:#729DB8;}
+
+.feed .feed-hd .merc-name a{
+	font-size: 14px;
+	color: #222222;
+}
 .feed .feed-hd .merc-name a:hover,.feed-ft .cmt-list li a:hover{color:#0099cc;}
-.feed .feed-avatar img{border-radius:5px;}
+.feed .feed-avatar img{width:60px;height:60px;border-radius:60px;}
 
 
 .feed .pop-corner .outter{position:absolute;left:-16px;top:19px;border:8px dashed transparent;border-right:8px solid #fff;width:0;height:0;overflow:hidden;}
 .feed .pop-corner .inner{position:absolute;left:-13px;top:20px;border:7px dashed transparent;border-right:7px solid #fff;width:0;height:0;overflow:hidden;}
 
-.feed .feed-actions{padding:10px 29px 0 29px;color:#999999;}
+.feed .feed-actions{padding:10px 29px 12px 29px;color:#999999;}
 .feed .feed-actions .feed-timestamp{float:left;}
 .feed .feed-actions .feed-act{float:right;}
 .feed .feed-actions .feed-act a{
@@ -41,15 +50,38 @@
 	float:left;
 	padding:0 10px;
 	height:19px;
+	line-height: 19px;
 	text-align:center;
+	padding-left: 25px;
+
 	color:#999999;
+	background: url("../image/icons.png") no-repeat scroll 0 0;
 }
 .feed .feed-actions .feed-act .J_DeleteFeed{padding-right:0;}
-.feed .feed-actions .feed-act a:hover{color:#0099cc;}
-.feed .feed-actions .feed-act a.J_LikeStar{margin-left:5px;padding:0;margin-top:2px;width:15px;height:14px;overflow:hidden;background-position:-5px -90px;text-indent:-9999px;}
-.feed .feed-actions .feed-act a.J_LikeStar:hover{border-radius:0;background-position:-70px -90px;}
-.feed .feed-actions .feed-act a.liked,.feed .feed-actions .feed-act a.liked:hover{background-position:-36px -90px;}
+.feed .feed-actions .feed-act a:hover{
+	color:#0099cc;
+}
 
+
+
+.feed .feed-actions .feed-act .J_Comment {
+	background-position:  -19px -18px;
+}
+.feed .feed-actions .feed-act .J_Comment:hover {
+	background-position:  -19px -59px;
+}
+.feed .feed-actions .feed-act .J_Forward {
+	background-position: -19px -120px;
+}
+.feed .feed-actions .feed-act .J_Forward:hover {
+	background-position: -19px -120px;
+}
+.feed .feed-actions .feed-act .J_Like {
+	background-position: -19px -240px;
+}
+.feed .feed-actions .feed-act .J_Like:hover {
+	background-position: -19px -278px;
+}
 /*TODO:后期修改html结构，让下拉列表顶部不要盖住feed内容区的阴影*/
 .feed .feed-ft{
 	position:relative;
@@ -65,6 +97,9 @@
 	-webkit-border-bottom-right-radius: 6px;
 	border-bottom-left-radius: 6px;
 	border-bottom-right-radius: 6px;
+}
+.feed .J_forwardFeedfoot {
+	width: 720px;
 }
 .feed .show{display:block;}
 
@@ -104,6 +139,9 @@
 	margin-right: 15px;
 	border:1px solid #dddddd;
 }
+.feed .J_forwardFeedfoot .cmt-box .J_CmtCnt{
+	width: 560px;
+}
 .feed .feed-ft .cmt-box .cmt-submit{}
 .feed .feed-ft .cmt-box .tip-txt{float:left;color:#b2b2b2}
 .feed .feed-ft .cmt-box .tip-txt .J_Words{font-size:16px;font-weight:700;}
@@ -124,7 +162,7 @@
 }
 
 
-#feedArea .feed .open {
+.feed .open {
 	-moz-border-bottom-left-radius: 0;
 	-moz-border-bottom-right-radius: 0;
 	-webkit-border-bottom-left-radius: 0;
@@ -132,7 +170,7 @@
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
 }
-#feedArea .feed-ft .cmtbox{
+.feed-ft .cmtbox{
 	-moz-border-bottom-left-radius: 6px;
 	-moz-border-bottom-right-radius: 6px;
 	-webkit-border-bottom-left-radius: 6px;
@@ -140,12 +178,12 @@
 	border-bottom-left-radius: 6px;
 	border-bottom-right-radius: 6px;
 }
-#feedArea .feed-ft .cmt-list {
+.feed-ft .cmt-list {
 	margin-left: 20px;
 	padding-bottom: 14px;
 
 }
-#feedArea .feed-ft .cmt-list li{
+.feed-ft .cmt-list li{
 	position:relative;
 	width:650px;
 	margin-top: 20px;
@@ -154,22 +192,22 @@
 	_zoom:1;
 	padding:14px 0 0 65px;
 }
-#feedArea .feed-ft .cmt-list .logo {
+.feed-ft .cmt-list .logo {
 	position: absolute;
 	left: 5px !important;
 	top: 0;
 }
-#feedArea .feed-ft .cmt-list .logo img {
+.feed-ft .cmt-list .logo img {
 	width: 40px;
 	height: 40px;
 	-moz-border-radius:40px;
 	-webkit-border-radius:40px;
 	border-radius: 40px;
 }
-#feedArea .feed-ft .cmt-list .cmt-desc {
+.feed-ft .cmt-list .cmt-desc {
 	border-bottom: 1px solid #dddddd;
 }
-#feedArea .feed-ft .cmt-list .cmt-desc p{
+.feed-ft .cmt-list .cmt-desc p{
 	color: #555555;
 	margin: 0;
 	width: 590px;
@@ -302,9 +340,16 @@
 .feed-photo .feed-layout4,.feed-photo .feed-layout5{height:502px;}
 
 .is-forward .feed-bd{padding-bottom:16px;}
-.feed-forward-content{font-size:14px;padding:10px 23px 20px 29px;word-break:break-all;word-wrap:break-word;}
-.feed-forward-layout{width:606px;margin-left:16px;margin-bottom:0;}
-.feed-forward-layout .feed-desc{width:604px;background:#f6f6f6;box-shadow:none;border:1px solid #ebebeb;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;}
+.feed-forward-content{
+	font-size:12px;
+	color: #777777;
+	padding:10px 23px 20px 29px;word-break:break-all;word-wrap:break-word;}
+.feed-forward-layout{
+
+	width:722px;
+	margin:0 0 0 16px;
+}
+.feed-forward-layout .feed-desc{width:720px;background:#f6f6f6;box-shadow:none;border:1px solid #ebebeb;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;}
 .feed-forward-layout .feed-photo-img,.feed-forward-layout .feed-text-cont {padding:10px 12px 0 12px}
 .feed-forward-layout .pop-corner .outter{position:absolute;left:42px;top:-24px;border:12px dashed transparent;border-bottom:12px solid #ebebeb;width:0;height:0;overflow:hidden;}
 .feed-forward-layout .pop-corner .inner{position:absolute;left:42px;top:-22px;border:12px dashed transparent;border-bottom:12px solid #f6f6f6;width:0;height:0;overflow:hidden;}
@@ -688,3 +733,37 @@ ul,li {
 
 .feed-good .change-pic #J_ChangeBtn{ width:60px;height:25px;border:none;cursor:pointer;color:#FFFFFF;font-size:12px;background-position:-5px -990px;}
 .feed-good .change-pic .show{display:block;}
+
+
+
+
+
+/*转发*/
+.feed-ft .J_forwardList {
+	margin-left: 20px;
+	padding-bottom: 14px;
+}
+.feed-ft .J_forwardList li{
+	float: left;
+	width: 40px;
+	height: 40px;
+	margin-right: 15px;
+}
+
+.feed-ft .J_forwardList li img{
+	width: 40px;
+	height: 40px;
+	-moz-border-radius: 40px;
+	-webkit-border-radius: 40px;
+	border-radius: 40px;
+}
+.feed-ft .J_forwardList .title{
+	color: #555555;
+	width: 100%;
+	font-size: 12px;
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 5px;
+	float: none;
+
+}

@@ -13,27 +13,24 @@ Tuitui.feedsView = Backbone.View.extend({
         this.collection.on("reset", function() {
             self.render();
         });
-
+        //请求页面数据
         getApi('blog', 'feeds', {}, function(data) {
             var result = data.body;
             self.collection.reset(result.blog);
         });
     },
 
-    addFeed: function(comment) {
-        var commentView = new Tuitui.feedItemView({
-            model: comment
+    addFeed: function(feed) {
+        var feedItemView = new Tuitui.feedItemView({
+            model: feed
         });
-
-        $("#article").append(commentView.render());
+        $("#article").append(feedItemView.render());
     },
 
     render: function() {
         var self = this;
-      //  console.log(this.collection);
-        this.collection.each(function(comment) {
-           // console.log(comment);
-            self.addFeed(comment);
+        this.collection.each(function(feed) {
+            self.addFeed(feed);
         });
     }
 });

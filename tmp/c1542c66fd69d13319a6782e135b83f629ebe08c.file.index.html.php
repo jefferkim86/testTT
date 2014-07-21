@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-21 16:54:01
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-22 00:38:57
          compiled from "tplv2/index.html" */ ?>
-<?php /*%%SmartyHeaderCode:102727085353ccd5293a7287-98230392%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:261420353cd42212e6bd0-49900911%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c1542c66fd69d13319a6782e135b83f629ebe08c' => 
     array (
       0 => 'tplv2/index.html',
-      1 => 1405932839,
+      1 => 1405960641,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '102727085353ccd5293a7287-98230392',
+  'nocache_hash' => '261420353cd42212e6bd0-49900911',
   'function' => 
   array (
   ),
@@ -97,14 +97,14 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
 <script type="text/template" id="J-cmtList">
 
     <div class="logo">
-        <a href="{{logoUrl}}">
-         <img src="{{logo}}"/>
+        <a href="${logoUrl}">
+         <img src="${logo}"/>
         </a>
     </div>
     <div class="cmt-desc">
         <p>
-         <span><a href="#">{{userName}}</a>:</span>
-            {{msg}}
+         <span><a href="#">${userName}</a>:</span>
+            ${msg}
         </p>
         <div class="reply">
           <a href="#" class="J_Reply">回复</a>
@@ -116,7 +116,7 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
 
 <script type="text/template" id="J-feedLayout">
 
-    <div class="feed feed-${feedType} clearfix">
+    <div class="feed feed-${feedType} clearfix" id="J-blog-${bid}">
         <div class="feed-avatar">
             <a class="blog-avatar" href="${avatarHref}" title="FashionDes">
                 <img src="${avatar}" alt=""/>
@@ -127,14 +127,17 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
                 <s class="outter"></s><s class="inner"></s>
             </span>
             <div class="feed-link">
-                <a href="${feedLink}">查看文章</a>
+                <a href="${feedLink}">${time}</a>
             </div>
             <div class="feed-hd">
-                <div class="merc-name"><a href="#">${username}:</a></div>
+                <div class="merc-name"><a href="${avatarHref}">${username}</a></div>
             </div>
             <div class="feed-bd">
+            <div class="feed-forward-content clearfix">
+                ${feedForwardContent}
+            </div>
                 {@if forwardData}
-                 <div class="feed feed-{{feedType}} feed-forward-layout clearfix">
+                 <div  id="J-forwardBlog-${forwardData.bid}" class="feed feed-${feedType} feed-forward-layout clearfix">
                     <div class="feed-desc">
                         <span class="pop-corner"><s class="outter"></s><s class="inner"></s></span>
                         <div class="feed-hd">
@@ -146,26 +149,83 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
                     $${feedItemContent}
 
                 {@if forwardData}
+                            <div class="feed-actions J-forward-actions clearfix">
+                                <div class="feed-act">
+                                    <a href="" class="J_Comment">评论(<span class="J_CmtNum">${forwardData.feedcount}</span>)</a>
+                                    <a href="" class="J_Forward">转发(<span class="J_FwdNum">${forwardData.replaycount}</span>)</a>
+                                    <a href="" class="J_Like">喜欢(<span class="J_LikeNum">${forwardData.likeNum}</span>)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="J_forwardFeedfoot feed-ft feed-cmt" data-bid="${forwardData.bid}">
+                      <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
+                      <div class="cmtbox">
+                        <div class="J_CommentWrap">
+                           <div class="cmt-box">
+                               <input class="J_CmtCnt" type="text"/>
+                                <input type="button" class="cmt-btn J-sendReply" value="评论"/>
+                          </div>
+                          <ul class="J_CmtList cmt-list clearfix">
+                                <li class="loading-list">正在加载列表</li>
+                           </ul>
+                           <ul class="J_forwardList clearfix">
+                                <li class="loading-list">正在加载列表</li>
+                           </ul>
+                        </div>
                         </div>
                     </div>
                 </div>
                 {@/if}
             </div>
-            <div class="feed-actions clearfix">
-                <span class="feed-timestamp">${time}</span>
+            <div class="feed-actions J-actions clearfix">
+                <span class="feed-timestamp"></span>
                 <div class="feed-act">
                     <a href="#" class="J_Comment">评论(<b>${feedcount}</b>)</a>
                     <a href="#" class="J_Forward">转发(<b>${replaycount}</b>)</a>
                     <a href="#" class="J_Like">喜欢(<b>${likeNum}</b>)</a>
-                    <a href="#" class="J_LikeStar">like</a>
                 </div>
             </div>
-
+        </div>
+        <div class="J_Feedfoot feed-ft feed-cmt" data-bid="${bid}">
+          <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
+          <div class="cmtbox">
+            <div class="J_CommentWrap">
+               <div class="cmt-box">
+                   <input class="J_CmtCnt" type="text"/>
+                    <input type="button" class="cmt-btn J-sendReply" value="评论"/>
+              </div>
+              <ul class="J_CmtList cmt-list clearfix">
+                    <li class="loading-list">正在加载列表</li>
+               </ul>
+               <ul class="J_forwardList clearfix">
+                    <li class="loading-list">正在加载列表</li>
+               </ul>
+            </div>
+            </div>
         </div>
     </div>
     
 </script>
 
+<script type="text/template" id="J-feedFt">
+
+    <div class="J_Feedfoot feed-ft feed-cmt">
+      <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
+      <div class="cmtbox">
+        <div class="J_CommentWrap">
+           <div class="cmt-box">
+               <input class="J_CmtCnt" type="text"/>
+                <input type="button" class="cmt-btn J-sendReply" value="评论"/>
+          </div>
+          <ul class="J_CmtList cmt-list clearfix">
+                <li class="loading-list">正在加载列表</li>
+           </ul>
+        </div>
+        </div>
+    </div>
+
+</script>
 <script type="text/template" id="J-feedTxt">
 
   <div class="feed-text-cont clearfix">
@@ -183,7 +243,6 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
     <div class="feed-photo-img">
         <div class="feed-photo-layout feed-layout${layoutType} clearfix">
            {@each pics as item,index}
-           <div style="color:red">${index}</div>
             <div class="feed-photo-cell" style="${position[index].style}">
                <img class="feed-img" src="${item.url}">
             </div>
@@ -259,10 +318,9 @@ $_template->assign('top','yes'); echo $_template->getRenderedTemplate();?><?php 
 
 <script type="text/javascript" src=""></script>
 <script type="text/javascript">
+    var commentsView = new Tuitui.commentsView();
+    var userView = new Tuitui.userView();
+    var feedsView = new Tuitui.feedsView();
     
-    new Tuitui.feedsView();
-    //评论
-    new Tuitui.commentsView();
-    new Tuitui.userView();
 
 </script>

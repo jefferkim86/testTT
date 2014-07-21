@@ -3,7 +3,7 @@ Tuitui.commentsView = Backbone.View.extend({
     el: "body",
 
     tpl: {
-        "commentsLayout": $("#J-cmtTpl").html()
+        "cmtBox": $("#J-feedFt").html()
     },
 
     events: {
@@ -18,27 +18,19 @@ Tuitui.commentsView = Backbone.View.extend({
         this.collection.on("reset", function() {
             self.render();
         });
+        this.collection.on("add", function(comment) {
+            self.addComment(comment,true);
+        })
     },
 
-    toggleComment: function(e) {
-        e.preventDefault();
-        var target = e.currentTarget;
-        var bid = $(target).attr("data-id");
-        this.feedHandleId = bid;
-        $(target).toggleClass('cur');
-        $("#blog_" + bid).find(".feed-desc").toggleClass('open');
-        $('#comment_' + bid).toggle();
-        this.getReplys(bid);
-    },
-
-    getReplys: function(bid, pageNo) {
+    getReplys: function(bid, el, pageNo) {
         var self = this;
+        this.el = el;
         getApi('blog', 'reply', {
             bid: bid,
             page: pageNo || 1
         }, function(data) {
             var result = data.body;
-            console.log(result);
             self.collection.reset(result.body);
         });
     },
@@ -46,7 +38,7 @@ Tuitui.commentsView = Backbone.View.extend({
     submitComment: function(e) {
         var self = this;
         var target = e.currentTarget;
-        var commentObj = $(target).parents(".J_Feedfoot");
+        var commentObj = $(target).parents(".feed-ft");
         var bid = commentObj.attr("data-bid");
         var input = commentObj.find(".J_CmtCnt");
         var inputVal = input.val();
@@ -69,7 +61,13 @@ Tuitui.commentsView = Backbone.View.extend({
                 commentObj.attr("data-reply", "");
                 input.val('');
                 //后端接口没有返回
-                self.getReplys(bid);
+                self.collection.add({
+                    "h_img": '/tuitui/avatar.php?uid=' + uid + '&size=small',
+                    "h_url": '/tuitui/index.php?c=userblog&a=index&domain=home&uid=' + uid,
+                    "msg": inputVal,
+                    "user": {'username':'测试名称，待修改'}
+                });
+
             } else {
                 alert(data.msg)
             }
@@ -77,18 +75,26 @@ Tuitui.commentsView = Backbone.View.extend({
 
     },
 
-    addComment: function(comment) {
+
+
+    addComment: function(comment,isAdd) {
         var commentView = new Tuitui.commentItemView({
             model: comment
         });
-        var cmtBox = $("#blog_" + this.feedHandleId).find(".J_CmtList");
-        cmtBox.append(commentView.render());
+        if(isAdd){
+            this.el.find(".J_CmtList").prepend(commentView.render());
+        }else{
+            this.el.find(".J_CmtList").append(commentView.render());
+        }
+        
     },
 
 
     render: function() {
         var self = this;
-        $("#blog_" + this.feedHandleId).find(".J_CmtList").html('');
+        var bid = this.currentBlogId;
+
+        this.el.find(".J_CmtList").html('');
         this.collection.each(function(comment) {
             self.addComment(comment);
         });

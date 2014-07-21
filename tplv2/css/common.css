@@ -1445,3 +1445,21 @@ dl,dt,dd {
 	background:#fff url('../image/icon.png') no-repeat scroll -1px -46px;
 }
 
+.comment-hide,.forward-hide,.hide{display: none !important;}
+.comment-show,.forward-show,.show{display: block !important;}
+
+.comment-show .cmt-list{
+	display: block;
+}
+.comment-show .J_forwardList {
+	display: none;
+}
+.forward-show .cmt-list{
+	display: none;
+}
+.forward-show .J_forwardList {
+	display: block;
+}
+
+
+

@@ -8,39 +8,39 @@ Tuitui.feedModel = Backbone.Model.extend({
 
 	feedImgMap: {
 		'feed-layout1': [{
-			'style':'left:0;top:0;width:auto;height:auto'
+			'style': 'left:0;top:0;width:auto;height:auto'
 		}],
 		'feed-layout2': [{
-			'style':'left:0;top:0;width:289px;height:334px'
+			'style': 'left:0;top:0;width:289px;height:334px'
 		}, {
-			'style':'left:291px;top:0;width:289px;height:334px'
+			'style': 'left:291px;top:0;width:289px;height:334px'
 		}],
 		'feed-layout3': [{
-			'style':'left:0;top:0;width:289px;height:334px'
+			'style': 'left:0;top:0;width:289px;height:334px'
 		}, {
-			'style':'left:291px;top:0;width:289px;height:166px'
+			'style': 'left:291px;top:0;width:289px;height:166px'
 		}, {
-			'style':'left:291px;top:168px;width:289px;height:166px'
+			'style': 'left:291px;top:168px;width:289px;height:166px'
 		}],
 		'feed-layout4': [{
-			'style':'left:0;top:0;width:289px;height:166px'
+			'style': 'left:0;top:0;width:289px;height:166px'
 		}, {
-			'style':'left:291px;top:0;width:289px;height:334px'
+			'style': 'left:291px;top:0;width:289px;height:334px'
 		}, {
-			'style':'left:0;top:168px;width:289px;height:334px'
+			'style': 'left:0;top:168px;width:289px;height:334px'
 		}, {
-			'style':'left:291px;top:336px;width:289px;height:166px'
+			'style': 'left:291px;top:336px;width:289px;height:166px'
 		}],
 		'feed-layout5': [{
-			'style':'left:0;top:0;width:289px;height:334px'
+			'style': 'left:0;top:0;width:289px;height:334px'
 		}, {
-			'style':'left:291px;top:0;width:289px;height:166px'
+			'style': 'left:291px;top:0;width:289px;height:166px'
 		}, {
-			'style':'left:291px;top:168px;width:289px;height:166px'
+			'style': 'left:291px;top:168px;width:289px;height:166px'
 		}, {
-			'style':'left:0;top:336px;width:289px;height:166px'
+			'style': 'left:0;top:336px;width:289px;height:166px'
 		}, {
-			'style':'left:291px;top:336px;width:289px;height:166px'
+			'style': 'left:291px;top:336px;width:289px;height:166px'
 		}]
 	},
 
@@ -50,6 +50,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 			'1': 'text',
 			'2': 'good'
 		};
+		//return feedTypeMap[2];
 		return feedTypeMap[this.get('type')];
 	},
 
@@ -65,7 +66,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 			'feedcount': this.get('replaycount'),
 			'replaycount': this.get('replaycount'),
 			'likeNum': 1,
-			//'isForward': this.get('repto') || false //是否是转发
+			//'forwardData': this.get('repto') || false
 			'forwardData': this.get('repto') || true
 		}
 	},

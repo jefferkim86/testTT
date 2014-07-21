@@ -5,7 +5,7 @@ Tuitui.commentItemView = Backbone.View.extend({
     className: "comment-item",
 
     tpl: {
-        "commentLi": $("#J-cmtList").html()
+        "commentLi": juicer($("#J-cmtList").html())
     },
 
     events: {
@@ -33,15 +33,13 @@ Tuitui.commentItemView = Backbone.View.extend({
 
     toggleFav: function(e) {
         e.preventDefault();
-
+        
 
     },
 
 
     render: function() {
-        console.log(this.tpl);
-        var html = Mustache.render(this.tpl["commentLi"],this.model.getComment())
-        console.log('ff',html);
+        var html = this.tpl["commentLi"].render(this.model.getComment());
         return this.$el.html(html);
 
     }
