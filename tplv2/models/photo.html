@@ -24,15 +24,9 @@ $(document).ready(function(){
 {/literal}
 <div id="index">
 <form action="{spUrl c=post a=saved model=$mid}" id="form1" method="post">
-    <div id="aside">
-	    <div id="aside_box">
-		    <div class="aside_area">
-				{include file="models/aside.html"} 
-			</div>
-		</div>
-	</div>
+    
 	
-	<div id="article">
+	<div id="article" class="photo">
 	    <div id="box">
 	        <h2>发布图片</h2>
 			<div id="post_area">
@@ -84,13 +78,30 @@ $(document).ready(function(){
 				
 				<div class="p_area">
 				    <h3 class="title">内容<span>（可不填）</span></h3>
-					<textarea name="textarea" id="textarea" style="width:600px">{$body.body}</textarea>
+					<textarea name="textarea" id="textarea" style="width:820px">{$body.body}</textarea>
                     <input type="hidden" name="tag" id="tag" value="" />
                     <input type="hidden" name="id" value="{$blog.bid}" />
 				
 				</div>
 
 				
+
+				<div class="tags clearfix" id="tags">
+					<label>标签（可不选）</label>
+					<ul class="tag-list">
+						<li value="" class="cur">晒单</li>
+						<li value="">晒单</li>
+						<li value="">晒单</li>
+						<li value="">晒单</li>
+						<li value="">晒单</li>
+						<li value="">晒单</li>
+					</ul>
+
+				</div>
+				<hr/>
+				<input type="hidden" name="tag" value="" id="J-tagVal"/>
+				
+
 				<div class="p_area">
 				    <div id="pb-action-holder">
 				    <a id="submit"><span>发布</span></a>
@@ -100,6 +111,9 @@ $(document).ready(function(){
 					</div>
                     
 				</div>
+
+
+
 				
 				
 			</div>
@@ -107,5 +121,14 @@ $(document).ready(function(){
 	</div>
 </form>
 </div>
+<script type="text/javascript">
+	
+$(document).on("click","#tags li",function(e){
+	$("#tags li").removeClass('cur');
+	$(this).addClass('cur');
+	var tag = $(this).attr("value");
+	$("#J-tagVal").val(tag);
+})
 
+</script>
 {include file="require_footer.html"}

@@ -15,7 +15,9 @@
 
 .feed-good .feed-good-property .view-good{background:url("images/icons.png") no-repeat scroll 0 0;}
 
-.feed .feed-desc{position:relative;float:right;width:760px;background:#fff;border:1px solid #fff;-moz-box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15); -webkit-box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150,150, 0.15); box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15); -moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;}
+.feed .feed-desc{position:relative;float:right;width:760px;
+	background:#fff;border:1px solid #fff;
+	-moz-box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15); -webkit-box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150,150, 0.15); box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15); -moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;}
 .feed .feed-link{position:absolute;right:-3px;top:-1px;}
 
 .feed .feed-link a{display:none;width:21px;height:21px;-moz-border-radius:0 7px 0 7px;-webkit-border-radius:0 7px 0 7px;border-radius:0 7px 0 7px;text-indent:-9999px;overflow:hidden;background-position:-5px -30px;}

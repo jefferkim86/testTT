@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-10 22:05:04
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-20 20:50:32
          compiled from "tplv2/models/word.html" */ ?>
-<?php /*%%SmartyHeaderCode:168274215553be9d903cb326-78314329%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:9691764253cbbb189ea459-81842905%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'e7c6a44d39e063218c03017c0a48cc033d225377' => 
     array (
       0 => 'tplv2/models/word.html',
-      1 => 1341154844,
+      1 => 1405860631,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '168274215553be9d903cb326-78314329',
+  'nocache_hash' => '9691764253cbbb189ea459-81842905',
   'function' => 
   array (
   ),
@@ -76,14 +76,7 @@ $(document).ready(function(){
 <div id="index">
 <form action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'post','a'=>'saved','model'=>$_smarty_tpl->getVariable('mid')->value),$_smarty_tpl);?>
 " id="form1" method="post">
-    <div id="aside">
-	    <div id="aside_box">
-		    <div class="aside_area">
-				<?php $_template = new Smarty_Internal_Template("models/aside.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
- echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?> 
-			</div>
-		</div>
-	</div>
+    
     
 	<div id="article">
 	    <div id="box">
@@ -92,7 +85,7 @@ $(document).ready(function(){
 			
 			    <div class="p_area">
 			        <h3>标题<span>（可不填）</span></h3>
-				    <input type="text" name="title" id="title" class="input" tabindex="1" value="<?php echo $_smarty_tpl->getVariable('blog')->value['title'];?>
+				    <input type="text" name="title" class="pub-url" tabindex="1" value="<?php echo $_smarty_tpl->getVariable('blog')->value['title'];?>
 ">
 				</div>
 				
@@ -110,7 +103,7 @@ $(document).ready(function(){
 						<span id="uploading" style="display:none">正在上传...</span>
 					</div>
 					<?php }?>
-					<textarea name="textarea" id="textarea" style="width:600px"><?php echo $_smarty_tpl->getVariable('body')->value['body'];?>
+					<textarea name="textarea" id="textarea" style="width:820px"><?php echo $_smarty_tpl->getVariable('body')->value['body'];?>
 </textarea>
 				
 				</div>

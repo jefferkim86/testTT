@@ -7,15 +7,41 @@
 a:link, a:visited { color: #999; text-decoration: none; }
 a:hover { color: #666; text-decoration:none; cursor:pointer; }
 
-#box { position:relative; float:left; width:600px; padding:20px 30px; background-color:#fff; -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px; -moz-box-shadow:0px 1px 3px #bbb; -webkit-box-shadow:0px 1px 3px #bbb; box-shadow:0px 1px 3px #bbb; border-bottom:2px #ddd solid\9; margin:0 0 20px; }
-#box h2 { font-size:26px; color:#666; line-height:30px; height:30px; margin:0; }
+#box { position:relative; 
+    float:left; 
+    width:860px;
+    padding:20px 30px;
+      background-color:#fff; -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px; -moz-box-shadow:0px 1px 3px #bbb; -webkit-box-shadow:0px 1px 3px #bbb; box-shadow:0px 1px 3px #bbb; border-bottom:2px #ddd solid\9; margin:0 0 20px; }
+#box h2 { 
+
+    font-size:18px; color:#555555; 
+    line-height:66px; 
+    height:66px; 
+    border-bottom: 1px solid #eeeeee;
+}
+.pub-url {
+    width: 820px;
+    height: 50px;
+    background: #eeeeee;
+    border:none;
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    border-radius: 2px;
+    font-size: 14px;
+    color: #555555;
+    text-indent: 10px;
+}
+.pub-good .feed-good-pub{
+    width: 820px;
+    background: #fff;
+}
 
 #post_area { width:100%; margin:0; }
 #post_area h3 { color:#666; font-size:16px; line-height:25px; height:25px; }
 #post_area h3 span { color:#999; font-size:12px; line-height:25px; }
 
 #post_area .p_area { width:100%; margin:0; padding:0; }
-#post_area #title { border:1px #bbb solid; width:588px; padding:5px; height:38px; line-height:38px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; background:url(../image/comm/btn_bg.png) repeat-x 0 -240px; margin:0; font-family:'Microsoft Yahei','Arail'; }
+#post_area #title { border:1px #bbb solid; width:806px; padding:5px; height:38px; line-height:38px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; background:url(../image/comm/btn_bg.png) repeat-x 0 -240px; margin:0; font-family:'Microsoft Yahei','Arail'; }
 
 /*右侧功能*/
 #aside_box { float:right; width:238px; padding:2px 2px 2px 0; background-color:#fff; -moz-border-radius:0px 8px 8px 0px; -webkit-border-radius:0px 8px 8px 0px; border-radius:0px 8px 8px 0px; -moz-box-shadow:0px 1px 3px #bbb; -webkit-box-shadow:0px 1px 3px #bbb; box-shadow:0px 1px 3px #bbb; border-bottom:2px #ddd solid\9; margin:20px 0 20px; #margin:20px 0 20px -10px; }
@@ -70,7 +96,7 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 #pb-action-holder a#submit:hover { background-image:none; background-color:#DEF3B6; border:1px #8EC921 solid; }
 
 /*发布图片*/
-.upimgBar{ height:40px; width:100%; }
+.upimgBar{ height:50px; width:100%; }
 #divAddFiles{ width:100px; float:left; }
 #upimgText{ float:left; line-height:30px; height:30px; margin:5px auto 5px 20px; padding:0 10px 0 10px; background-color:#e3e3e3; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; text-shadow:0px 1px 0px #fff; position:relative; }
 #upimgText .upimg_corner { width:5px; height:10px; position:absolute; background:url(../image/comm/icons.png) no-repeat right -340px; left:-5px; top:10px; }
@@ -197,4 +223,58 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 
 /*setting*/
 #upload_photo {padding-left:68px}
+
+
+
+
+
+
+.tags {
+    position: relative;
+    margin-top: 20px;
+}
+.tags label{
+    position: absolute;
+    left: 0
+    top: 0;
+    width: 100px;
+    height: 26px;
+    line-height: 26px;
+    color: #777777;
+    font-size: 12px;
+
+}
+.tags .tag-list {
+    margin-left: 100px;
+
+}
+.tags .tag-list li {
+    float:left;
+    cursor: pointer;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 12px;
+    border:1px solid #dddddd;
+    background: #fff;
+    -moz-border-radius:1px;
+    -webkit-border-radius:1px;
+    border-radius: 1px;
+    color:#777777;
+    margin-right: 9px;
+}
+.tags .tag-list li.cur {
+    background: #a7c9d4;
+    border: 1px solid #a7c9d4;
+    color: #fff;
+}
+hr{
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+    width: 820px;
+    height: 0;
+    border:none;
+    border-bottom: 1px solid #eeeeee;
+}
+
 

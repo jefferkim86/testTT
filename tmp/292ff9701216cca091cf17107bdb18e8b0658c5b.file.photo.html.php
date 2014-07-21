@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-10 22:25:22
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-20 20:47:31
          compiled from "tplv2/models/photo.html" */ ?>
-<?php /*%%SmartyHeaderCode:178281937853bea252eb88f6-66180295%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:59498012053cbba634a3277-78234452%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '292ff9701216cca091cf17107bdb18e8b0658c5b' => 
     array (
       0 => 'tplv2/models/photo.html',
-      1 => 1341154844,
+      1 => 1405860450,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '178281937853bea252eb88f6-66180295',
+  'nocache_hash' => '59498012053cbba634a3277-78234452',
   'function' => 
   array (
   ),
@@ -53,16 +53,9 @@ $(document).ready(function(){
 <div id="index">
 <form action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'post','a'=>'saved','model'=>$_smarty_tpl->getVariable('mid')->value),$_smarty_tpl);?>
 " id="form1" method="post">
-    <div id="aside">
-	    <div id="aside_box">
-		    <div class="aside_area">
-				<?php $_template = new Smarty_Internal_Template("models/aside.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
- echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?> 
-			</div>
-		</div>
-	</div>
+    
 	
-	<div id="article">
+	<div id="article" class="photo">
 	    <div id="box">
 	        <h2>发布图片</h2>
 			<div id="post_area">
@@ -132,7 +125,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 				
 				<div class="p_area">
 				    <h3 class="title">内容<span>（可不填）</span></h3>
-					<textarea name="textarea" id="textarea" style="width:600px"><?php echo $_smarty_tpl->getVariable('body')->value['body'];?>
+					<textarea name="textarea" id="textarea" style="width:820px"><?php echo $_smarty_tpl->getVariable('body')->value['body'];?>
 </textarea>
                     <input type="hidden" name="tag" id="tag" value="" />
                     <input type="hidden" name="id" value="<?php echo $_smarty_tpl->getVariable('blog')->value['bid'];?>
@@ -141,6 +134,23 @@ if ($_smarty_tpl->_count($_from) > 0){
 				</div>
 
 				
+
+				<div class="tags clearfix" id="tags">
+					<label>标签（可不选）</label>
+					<ul class="tag-list">
+						<li value="" class="cur">晒单</li>
+						<li value="">晒单</li>
+						<li value="">晒单</li>
+						<li value="">晒单</li>
+						<li value="">晒单</li>
+						<li value="">晒单</li>
+					</ul>
+
+				</div>
+				<hr/>
+				<input type="hidden" name="tag" value="" id="J-tagVal"/>
+				
+
 				<div class="p_area">
 				    <div id="pb-action-holder">
 				    <a id="submit"><span>发布</span></a>
@@ -150,6 +160,9 @@ if ($_smarty_tpl->_count($_from) > 0){
 					</div>
                     
 				</div>
+
+
+
 				
 				
 			</div>
@@ -157,6 +170,15 @@ if ($_smarty_tpl->_count($_from) > 0){
 	</div>
 </form>
 </div>
+<script type="text/javascript">
+	
+$(document).on("click","#tags li",function(e){
+	$("#tags li").removeClass('cur');
+	$(this).addClass('cur');
+	var tag = $(this).attr("value");
+	$("#J-tagVal").val(tag);
+})
 
+</script>
 <?php $_template = new Smarty_Internal_Template("require_footer.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>

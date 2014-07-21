@@ -1,8 +1,6 @@
 {include file="require_header.html" gallery=yes}
-{literal}
-{/literal}
+
 <div id="index">
-	{include file="require_userInfo.html"}
     <div id="article">
         
 	    <!-- {include file="require_post.html"} -->
@@ -69,93 +67,6 @@
 </div>
 
 
-<!-- 
- @desc isNeedUser:如果紧接着两条feed都是同一个人则显示不一样
- -->
-
-<script type="template" id="J_FeedTemp">
-{literal}
-
-{{#list}}
-    <div class="feed feed-{{clsType}} clearfix" id="blog_{{bid}}">
-        {{#h_img}}
-        <div class="feed-avatar">
-            <a class="blog-avatar" href="{{h_url}}" title="FashionDes">
-                <img src="{{h_img}}" alt=""/></a>
-        </div>
-        {{/h_img}}
-        <!--<div class="feed-desc {{^isNeedUser}}feed-sibling{{/isNeedUser}}">-->
-        <div class="feed-desc">
-            <span class="pop-corner"><s class="outter"></s><s class="inner"></s></span>
-            <div class="feed-link">
-                <a href="">查看文章</a>
-            </div>
-            <div class="feed-hd">
-                <div class="merc-name"><a href="#">{{username}}:</a></div>
-            </div>
-            <div class="feed-bd">
-                <div class="feed-{{clsType}}-cont clearfix">
-                   {{#isPicFeed}}
-                    <div class="feed-photo-img">
-                      <div class="feed-photo-layout feed-layout5 clearfix">
-                       {{#attr.img}}
-                         <div class="feed-photo-cell" style="{{picItem.css}}">
-                            <img src="{{url}}" class="feed-img"/>
-                         </div>
-                       {{/attr.img}}
-                      </div>
-                    </div>
-                    <div class="feed-photo-desc">
-                        <p>{{item.content}} {{#hasMore}}<span class="feed-more"><a href="{{moreLike}}">全部信息...</a></span>{{/hasMore}}</p>
-                    </div>
-                    {{/isPicFeed}}
-                    {{#isTxtFeed}}
-                       <h3 class="feed-text-title">【{{title}}】</h3>
-                       <div class="feed-text-p clearfix">
-                        {{body}}
-                        <span class="feed-more"><a href="{{b_url}}">全部信息...</a></span>
-                       </div>
-                    {{/isTxtFeed}}
-
-                    <div class="feed-actions clearfix">
-                           <span class="feed-timestamp">
-                               5分钟前
-                           </span>
-                        <div class="feed-act">
-                            <a href="#" class="J_Comment" data-id="{{bid}}">评论(<span class="J_CmtNum">9</span>)
-                             <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
-                            </a>
-                            <a href="" class="J_Forward">转发(<span class="J_FwdNum">43</span>)
-                            <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
-                            </a>
-                            <a href="" class="J_Like">喜欢(<span class="J_LikeNum">99</span>)
-                            <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
-                            </a>
-                            <a href="" class="J_LikeStar">like</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="J_Feedfoot feed-ft feed-cmt" data-reply="" data-bid="{{bid}}" id="comment_{{bid}}">
-            <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
-            <div class="cmtbox">
-                <div class="J_CommentWrap">
-                    <div class="cmt-box">
-                        <input class="J_CmtCnt" type="text"/>
-                        <input type="button" class="cmt-btn J-sendReply" value="评论"/>
-                    </div>
-                    <ul class="J_CmtList cmt-list clearfix">
-                        <li class="loading-list">正在加载列表</li>
-                    </ul>
-                </div>
-            </div>
-            <div id="Pagination_{{bid}}" class="pagination"></div>
-        </div>
-    </div>
-    {{/list}}
-{/literal}
-</script>
 
 <script type="text/template" id="J-cmtList">
 {literal}
@@ -177,6 +88,131 @@
 </script>
 
 
+<script type="text/template" id="J-feedLayout">
+{literal}
+    <div class="feed feed-${feedType} clearfix">
+        <div class="feed-avatar">
+            <a class="blog-avatar" href="${avatarHref}" title="FashionDes">
+                <img src="${avatar}" alt=""/>
+            </a>
+        </div>
+        <div class="feed-desc">
+            <span class="pop-corner">
+                <s class="outter"></s><s class="inner"></s>
+            </span>
+            <div class="feed-link">
+                <a href="${feedLink}">查看文章</a>
+            </div>
+            <div class="feed-hd">
+                <div class="merc-name"><a href="#">${username}:</a></div>
+            </div>
+            <div class="feed-bd">
+                {@if forwardData}
+                 <div class="feed feed-{{feedType}} feed-forward-layout clearfix">
+                    <div class="feed-desc">
+                        <span class="pop-corner"><s class="outter"></s><s class="inner"></s></span>
+                        <div class="feed-hd">
+                            <div class="merc-name"><a href="${forwardData.h_url}">${forwardData.username}:</a></div>
+                        </div>
+                        <div class="feed-bd">
+                {@/if}
+                    
+                    $${feedItemContent}
+
+                {@if forwardData}
+                        </div>
+                    </div>
+                </div>
+                {@/if}
+            </div>
+            <div class="feed-actions clearfix">
+                <span class="feed-timestamp">${time}</span>
+                <div class="feed-act">
+                    <a href="#" class="J_Comment">评论(<b>${feedcount}</b>)</a>
+                    <a href="#" class="J_Forward">转发(<b>${replaycount}</b>)</a>
+                    <a href="#" class="J_Like">喜欢(<b>${likeNum}</b>)</a>
+                    <a href="#" class="J_LikeStar">like</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{/literal}    
+</script>
+
+<script type="text/template" id="J-feedTxt">
+{literal}
+  <div class="feed-text-cont clearfix">
+    <h3 class="feed-text-title">${feedTitle}</h3>
+    <div class="feed-text-p clearfix">
+       ${feedContent}
+      <span class="feed-more"><a href="${feedLink}">全部信息...</a></span>
+    </div>
+   </div>
+{/literal}
+</script>
+<script type="text/template" id="J-feedPhoto">
+{literal}
+<div class="feed-photo-cont clearfix">
+    <div class="feed-photo-img">
+        <div class="feed-photo-layout feed-layout${layoutType} clearfix">
+           {@each pics as item,index}
+           <div style="color:red">${index}</div>
+            <div class="feed-photo-cell" style="${position[index].style}">
+               <img class="feed-img" src="${item.url}">
+            </div>
+           {@/each}
+        </div>
+        <div class="feed-original-pic clearfix" style="display: none;">
+            {@each pics as item,index}
+           <div class="feed-original-cell">
+             <img class="feed-img" data-original="${item.desc}" width="580" src="http://img01.taobaocdn.com/tps/i1/T1K1WSXhFbXXXXXXXX-683-1024.jpg">
+              <div class="original-desc">${item.url}</div>
+            </div>
+            {@/each}
+        </div>
+    </div>
+
+    <div class="feed-photo-desc">
+        <p>${feedContent}<span class="feed-more"><a href="{{feedLink}}">全部信息...</a></span></p>
+    </div>
+</div>
+{/literal}
+</script>
+<script type="text/template" id="J-feedGood">
+{literal}
+    <div class="feed-good-cont clearfix">
+       <div class="feed-good-info">
+        <div class="feed-good-img">
+            <img src="${goodPic}">
+        </div>
+        <div class="feed-good-property">
+              <h3 class="feed-good-title">${goodTitle}</h3>
+             <div class="feed-good-fee">
+                <ul>
+                 <li><span>价格：</span><del>${oPrice}</del>元</li>
+                 <li><span>促销：</span><span class="price">${price}元</span></li>
+                 <li><span>运费：</span>${fee}元</li>
+                 <li><a href="${feedLink}" class="view-good" target="_blank">查看宝贝</a></li>
+                </ul>
+             </div>
+        </div>
+       </div>
+        <div class="feed-good-desc-wrap">
+            <div class="feed-good-desc clearfix">
+                <div class="for-line">
+                    <div class="pop-corner-desc"><s class="outter"></s><s class="inner"></s></div>
+                    <div class="feed-good-txt">
+                        <p>${feedContent}<span class="feed-more"><a href="${feedLink}">全部信息...</a></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{/literal}
+</script>
+
 
 
 <script type="text/javascript">
@@ -186,15 +222,18 @@
 
 
 	$(document).ready(function(){ 
-		yb_load_feeds('blog','feeds');
+		//yb_load_feeds('blog','followfeeds');
+      //yb_load_feeds('blog','feeds');
+        
 
 	})
 </script>
 {include file="require_footer.html" top=yes}
 
-
+<script type="text/javascript" src=""></script>
 <script type="text/javascript">
     
+    new Tuitui.feedsView();
     //评论
     new Tuitui.commentsView();
     new Tuitui.userView();

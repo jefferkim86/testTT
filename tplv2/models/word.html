@@ -54,13 +54,7 @@ $(document).ready(function(){
 
 <div id="index">
 <form action="{spUrl c=post a=saved model=$mid}" id="form1" method="post">
-    <div id="aside">
-	    <div id="aside_box">
-		    <div class="aside_area">
-				{include file="models/aside.html"} 
-			</div>
-		</div>
-	</div>
+    
     
 	<div id="article">
 	    <div id="box">
@@ -69,7 +63,7 @@ $(document).ready(function(){
 			
 			    <div class="p_area">
 			        <h3>标题<span>（可不填）</span></h3>
-				    <input type="text" name="title" id="title" class="input" tabindex="1" value="{$blog.title}">
+				    <input type="text" name="title" class="pub-url" tabindex="1" value="{$blog.title}">
 				</div>
 				
 				<div class="p_area">
@@ -84,7 +78,7 @@ $(document).ready(function(){
 						<span id="uploading" style="display:none">正在上传...</span>
 					</div>
 					{/if}
-					<textarea name="textarea" id="textarea" style="width:600px">{$body.body}</textarea>
+					<textarea name="textarea" id="textarea" style="width:820px">{$body.body}</textarea>
 				
 				</div>
 				

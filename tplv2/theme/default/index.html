@@ -1,34 +1,203 @@
-{include file="$themes_include_path/header.html"}
+{include file="require_header.html" gallery=yes}
 
-<div id="wrap">
+<div id="index">
+	{include file="require_userInfo.html"}
+    <div id="article">
+        
+	    <!-- {include file="require_post.html"} -->
+		
+		
+		
+			{if isset($adunit.2) && $adunit.2.is_show == 1}
+    			<!--<div id="ad_index_up"></div>
+    			<script>
+    				$(document).ready(function(){
+    					ad_aside('#ad_index_up',2);
+    					setInterval(function(){
+    						ad_aside('#ad_index_up',2);
+    					}, 30000);
+    				})
+    			</script>-->
+			{/if}
+	
+	
+	
+		
+		
+        {if islogin() && $yb.wizard_switch == 1} {include file="require_wizard.html"} {/if}
+		<div id="feedArea">
+			<div id="feed_loading"></div>
+			<div id="feed_box" class="feed-list">
+				
 
-    <div id="main">
-	   {include file="$themes_include_path/userheader.html"}
 
-		<div id="mytag">
-		{if count($user.blogtag) > 1}
-			{foreach $user.blogtag as $d}
-				<li><a href="{spUrl c=main a=recommend}"><span>{$d}</span></a></li>
-			{/foreach}
-		{/if}
-			<div class="clear"></div>
+
+
+			</div>
+
 		</div>
 		
-		<div id="feedArea">
-			<script type="text/javascript">
-				$(document).ready(function(){  yb_load_feeds('blog','feeds',{ uid:{$touid} ,pagelimit:{$page_init} }); })
+		{if $yb.show_page_mode == 1}
+			<div id="feedAjaxTool" page="2" max="{$yb.show_ajax_to}" area="feedArea"  class="feedajax">
+			</div>
+			<script>
+			$.feedToolBar.parm.morepage=true;
+			$.feedToolBar.morepage('feedAjaxTool');
 			</script>
-			<div id="feed_loading"></div>
-			<div id="feed_box"></div>
+		{else}
+			
+		<div id="paging"></div>
+		<div class="clear"></div>
+		{/if}
 
-		</div>
-
-		<div class="page" id="paging"></div>
+<!--
+	<div id="feedAjaxTool" page="2" max="{$yb.show_ajax_to}" area="feedArea" query="{spUrl c=main a=index ajaxload=true type=$type}" class="feedajax">
+    <a href="javascript:void(0)" onclick="continueShow('feedAjaxTool')" class="more">查看更多</a>
+    <a href="javascript:void(0)" class="loading">loading...</a>
+    <a href="javascript:void(0)" class="nomore">暂时没有更多内容</a>
+    </div>
+	-->
+		<script>//$.feedToolBar('feedAjaxTool');</script>
+        
+        
+        
 	</div>
-	
 	<div id="aside">
-    {include file="$themes_include_path/aside.html"}
-	</div>
-
+        {include file="require_sider.html"}
+    </div>
 </div>
-{include file="$themes_include_path/footer.html" top=yes}
+
+
+<!-- 
+ @desc isNeedUser:如果紧接着两条feed都是同一个人则显示不一样
+ -->
+
+<script type="template" id="J_FeedTemp">
+{literal}
+
+{{#list}}
+    <div class="feed feed-{{clsType}} clearfix" id="blog_{{bid}}">
+        {{#h_img}}
+        <div class="feed-avatar">
+            <a class="blog-avatar" href="{{h_url}}" title="FashionDes">
+                <img src="{{h_img}}" alt=""/></a>
+        </div>
+        {{/h_img}}
+        <!--<div class="feed-desc {{^isNeedUser}}feed-sibling{{/isNeedUser}}">-->
+        <div class="feed-desc">
+            <span class="pop-corner"><s class="outter"></s><s class="inner"></s></span>
+            <div class="feed-link">
+                <a href="">查看文章</a>
+            </div>
+            <div class="feed-hd">
+                <div class="merc-name"><a href="#">{{username}}:</a></div>
+            </div>
+            <div class="feed-bd">
+                <div class="feed-{{clsType}}-cont clearfix">
+                   {{#isPicFeed}}
+                    <div class="feed-photo-img">
+                      <div class="feed-photo-layout feed-layout5 clearfix">
+                       {{#attr.img}}
+                         <div class="feed-photo-cell" style="{{picItem.css}}">
+                            <img src="{{url}}" class="feed-img"/>
+                         </div>
+                       {{/attr.img}}
+                      </div>
+                    </div>
+                    <div class="feed-photo-desc">
+                        <p>{{item.content}} {{#hasMore}}<span class="feed-more"><a href="{{moreLike}}">全部信息...</a></span>{{/hasMore}}</p>
+                    </div>
+                    {{/isPicFeed}}
+                    {{#isTxtFeed}}
+                       <h3 class="feed-text-title">【{{title}}】</h3>
+                       <div class="feed-text-p clearfix">
+                        {{body}}
+                        <span class="feed-more"><a href="{{b_url}}">全部信息...</a></span>
+                       </div>
+                    {{/isTxtFeed}}
+
+                    <div class="feed-actions clearfix">
+                           <span class="feed-timestamp">
+                               5分钟前
+                           </span>
+                        <div class="feed-act">
+                            <a href="#" class="J_Comment" data-id="{{bid}}">评论(<span class="J_CmtNum">9</span>)
+                             <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
+                            </a>
+                            <a href="" class="J_Forward">转发(<span class="J_FwdNum">43</span>)
+                            <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
+                            </a>
+                            <a href="" class="J_Like">喜欢(<span class="J_LikeNum">99</span>)
+                            <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
+                            </a>
+                            <a href="" class="J_LikeStar">like</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="J_Feedfoot feed-ft feed-cmt" data-reply="" data-bid="{{bid}}" id="comment_{{bid}}">
+            <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
+            <div class="cmtbox">
+                <div class="J_CommentWrap">
+                    <div class="cmt-box">
+                        <input class="J_CmtCnt" type="text"/>
+                        <input type="button" class="cmt-btn J-sendReply" value="评论"/>
+                    </div>
+                    <ul class="J_CmtList cmt-list clearfix">
+                        <li class="loading-list">正在加载列表</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="Pagination_{{bid}}" class="pagination"></div>
+        </div>
+    </div>
+    {{/list}}
+{/literal}
+</script>
+
+<script type="text/template" id="J-cmtList">
+{literal}
+    <div class="logo">
+        <a href="{{logoUrl}}">
+         <img src="{{logo}}"/>
+        </a>
+    </div>
+    <div class="cmt-desc">
+        <p>
+         <span><a href="#">{{userName}}</a>:</span>
+            {{msg}}
+        </p>
+        <div class="reply">
+          <a href="#" class="J_Reply">回复</a>
+        </div>
+    </div>
+{/literal}
+</script>
+
+
+
+
+<script type="text/javascript">
+  //  new feedComment();
+
+ 
+
+
+	$(document).ready(function(){ 
+		//yb_load_feeds('blog','followfeeds');
+        yb_load_feeds('blog','feeds');
+        
+
+	})
+</script>
+{include file="require_footer.html" top=yes}
+
+
+<script type="text/javascript">
+    
+    //评论
+    new Tuitui.commentsView();
+    new Tuitui.userView();
+
+</script>

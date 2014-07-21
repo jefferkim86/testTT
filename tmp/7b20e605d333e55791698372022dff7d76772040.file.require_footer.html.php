@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-20 17:24:17
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-20 23:59:29
          compiled from "tplv2/require_footer.html" */ ?>
-<?php /*%%SmartyHeaderCode:105680197953cb8ac1176670-47423514%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:94768054453cbe761bf44c5-22210913%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7b20e605d333e55791698372022dff7d76772040' => 
     array (
       0 => 'tplv2/require_footer.html',
-      1 => 1405848256,
+      1 => 1405871964,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '105680197953cb8ac1176670-47423514',
+  'nocache_hash' => '94768054453cbe761bf44c5-22210913',
   'function' => 
   array (
   ),
@@ -68,9 +68,18 @@ $(document).ready(function(){
 /js/collection/commentCollection.js"></script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/view/commentItemView.js"></script>
-
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/view/commentsView.js"></script>
+
+<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/js/model/feedModel.js"></script>
+<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/js/collection/feedCollection.js"></script>
+<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/js/view/feedItemView.js"></script>
+<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/js/view/feedsView.js"></script>
+
 
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/view/userView.js"></script>

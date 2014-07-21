@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-18 00:19:14
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-20 23:23:49
          compiled from "tplv2/models/product.html" */ ?>
-<?php /*%%SmartyHeaderCode:67570730753c7f7822b82a3-86528986%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:98766438453cbdf0513b935-86461290%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '72975a5995ca04dfccd936e58f59031fcf816404' => 
     array (
       0 => 'tplv2/models/product.html',
-      1 => 1405613950,
+      1 => 1405860551,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '67570730753c7f7822b82a3-86528986',
+  'nocache_hash' => '98766438453cbdf0513b935-86461290',
   'function' => 
   array (
   ),
@@ -129,24 +129,16 @@ function musicDItem(that){$(that).parent().parent().remove();}
 <div id="index">
 <form action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'add','a'=>'post'),$_smarty_tpl);?>
 " id="form1" method="post">
-    <div id="aside">
-	    <div id="aside_box">
-		    <div class="aside_area">
-				<?php $_template = new Smarty_Internal_Template("models/aside.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
- echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?> 
-			</div>
-		</div>
-	</div>
+    
     
 	<div id="article">
-	    <div id="box">
+	    <div id="box" class="pub-good">
 	        <h2>发布宝贝</h2>
 			<div id="post_area">
 			    
-				<div id="musicFrom" class="p_video">
-				    <div id="musicNotice">请输入来自淘宝网,淘宝商城,凡客诚品的宝贝页面地址(更多地址陆续支持)</div>
-					<input type="text"  id="musicurl" class="musicurl"   value="http://" onfocus="musicMouse(this)" onblur="musicMosout(this,'u')" >
-					<input type="button" id="urlParseLoading" value="保存" onclick="saveProductList($('#musicurl').val())"  class="mu_btn">
+				<div class="p_video">
+					<input type="text"  id="producturl" class="pub-url producturl"   value="http://" onfocus="musicMouse(this)" onblur="musicMosout(this,'u')" >
+					<!-- <input type="button" id="urlParseLoading" value="保存" onclick="saveProductList($('#musicurl').val())"  class="mu_btn"> -->
 				</div>
 				
 				<div id="goodInfoBlock">
@@ -197,7 +189,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 						<span id="uploading" style="display:none">正在上传...</span>
 					</div>
 					<?php }?>
-					<textarea name="textarea" id="textarea" style="width:600px"><?php echo $_smarty_tpl->getVariable('body')->value['content'];?>
+					<textarea name="textarea" id="textarea" style="width:820px"><?php echo $_smarty_tpl->getVariable('body')->value['content'];?>
 </textarea>
                     <input type="hidden" name="id" value="<?php echo $_smarty_tpl->getVariable('blog')->value['bid'];?>
 " />
@@ -207,6 +199,20 @@ if ($_smarty_tpl->_count($_from) > 0){
 					<input type="hidden" name="urlmusic" id="urlmusic" />
 				
 				</div>
+				<div class="tags clearfix" id="tags">
+					<label>标签（可不选）</label>
+					<ul class="tag-list">
+						<li value="" class="cur">晒单</li>
+						<li value="">晒单</li>
+						<li value="">晒单</li>
+						<li value="">晒单</li>
+						<li value="">晒单</li>
+						<li value="">晒单</li>
+					</ul>
+
+				</div>
+				<hr/>
+				<input type="hidden" name="tag" value="" id="J-tagVal"/>
 				
 				<?php if (is_array($_smarty_tpl->getVariable('attach')->value)){?>
 				<div class="p_area">
@@ -522,6 +528,16 @@ function formatBytes(bytes) {
 	var e = Math.floor(Math.log(bytes)/Math.log(1024));
 	return (bytes/Math.pow(1024, Math.floor(e))).toFixed(2)+" "+s[e];
 }
+
+
+$(document).on("click","#tags li",function(e){
+	$("#tags li").removeClass('cur');
+	$(this).addClass('cur');
+	var tag = $(this).attr("value");
+	$("#J-tagVal").val(tag);
+})
+
+
 </script>
 
 
