@@ -55,7 +55,7 @@ Tuitui.feedsView = Backbone.View.extend({
         var feedItemView = new Tuitui.feedItemView({
             model: feed
         });
-        $("#article").append(feedItemView.render());
+        $("#feedArea").append(feedItemView.render());
     },
 
     render: function() {

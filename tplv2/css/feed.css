@@ -19,9 +19,14 @@
 
 .feed-good .feed-good-property .view-good{background:url("images/icons.png") no-repeat scroll 0 0;}
 
-.feed .feed-desc{position:relative;float:right;width:760px;
+.feed .feed-desc{
+	position:relative;float:right;width:760px;
 	background:#fff;border:1px solid #fff;
-	-moz-box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15); -webkit-box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150,150, 0.15); box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15); -moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;}
+	/*-moz-box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15); 
+	-webkit-box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150,150, 0.15); 
+	box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15); */
+	-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;
+}
 .feed .feed-link{position:absolute;right:25px;top:25px;}
 
 .feed .feed-link a{width:21px;height:21px;-moz-border-radius:0 7px 0 7px;-webkit-border-radius:0 7px 0 7px;border-radius:0 7px 0 7px;text-indent:-9999px;overflow:hidden;background-position:-5px -30px;}
@@ -74,7 +79,7 @@
 	background-position: -19px -120px;
 }
 .feed .feed-actions .feed-act .J_Forward:hover {
-	background-position: -19px -120px;
+	background-position: -20px -167px;
 }
 .feed .feed-actions .feed-act .J_Like {
 	background-position: -19px -240px;
@@ -350,7 +355,12 @@
 	width:722px;
 	margin:0 0 0 16px;
 }
-.feed-forward-layout .feed-desc{width:720px;background:#f6f6f6;box-shadow:none;border:1px solid #ebebeb;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;}
+.feed-forward-layout .feed-desc{width:720px;
+	background:#f5f5f5;box-shadow:none;border:1px solid #efefef;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+}
 .feed-forward-layout .feed-photo-img,.feed-forward-layout .feed-text-cont {padding:10px 12px 0 12px}
 .feed-forward-layout .pop-corner .outter{position:absolute;left:42px;top:-24px;border:12px dashed transparent;border-bottom:12px solid #ebebeb;width:0;height:0;overflow:hidden;}
 .feed-forward-layout .pop-corner .inner{position:absolute;left:42px;top:-22px;border:12px dashed transparent;border-bottom:12px solid #f6f6f6;width:0;height:0;overflow:hidden;}
@@ -421,12 +431,15 @@
 	border:1px solid #fff;
 	background: #fff;
 	clear: both;
-	-moz-box-shadow: 1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15);
+	/*-moz-box-shadow: 1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15);
 	-webkit-box-shadow: 1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150,150, 0.15);
 	box-shadow: 1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15);
+	*/
 	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
 	border-radius: 5px;
 }
+
 ul,li,h1,h2,h3,h4,button{
 	margin: 0;
 	padding: 0;
@@ -540,24 +553,47 @@ ul,li {
 
 }
 .sider-menu ul {
-	width: 220px;
-	margin: 5px 20px 5px 20px;
-	background: url('../image/list-icon.png') no-repeat scroll 0 0;
+	width: 240px;
+	margin: 5px 10px 5px 10px;
 }
 .sider-menu li {
-	padding-left: 40px;
 	height: 49px;
-	width: 180px;
-	border-bottom: 1px solid #eeeeee;
+	width: 240px;
 }
-.sider-menu .nb{
+.sider-menu li span{
+	display: block;
+	margin: 0 10px;
+	border-bottom: 1px solid #eeeeee;
+	padding-left: 40px;
+}
+.sider-menu .nb span{
 	border-bottom: none;
 }
 .sider-menu li a {
 	display: block;
 	line-height: 49px;
 }
-
+.sider-menu li a{
+	background: url('../image/list-icon.png') no-repeat scroll 13px 0;
+}
+.sider-menu li .my-follow {
+	background-position: 13px 0px;
+}
+.sider-menu li .my-like {
+	background-position: 13px -50px;
+}
+.sider-menu li .my-msg {
+	background-position: 13px -100px;
+}
+.sider-menu li .my-letter {
+	background-position: 13px -150px;
+}
+.sider-menu li a:hover{
+	background-color: #eeeeee;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
 .user {
 
 }
@@ -568,9 +604,10 @@ ul,li {
 	border-bottom: none;
 	background: #fff;
 	clear: both;
-	-moz-box-shadow: 1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15);
+	/*-moz-box-shadow: 1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15);
 	-webkit-box-shadow: 1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150,150, 0.15);
 	box-shadow: 1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15);
+	*/
 	-webkit-border-top-left-radius: 5px;
 	-webkit-border-top-right-radius: 5px;
 	border-top-left-radius: 5px;

@@ -1,24 +1,24 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-21 21:49:25
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-22 23:54:03
          compiled from "tplv2/require_footer.html" */ ?>
-<?php /*%%SmartyHeaderCode:175219669653cd1a65c24a81-97209610%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:86848505153ce891b061558-37590165%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7b20e605d333e55791698372022dff7d76772040' => 
     array (
       0 => 'tplv2/require_footer.html',
-      1 => 1405950463,
+      1 => 1406044441,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '175219669653cd1a65c24a81-97209610',
+  'nocache_hash' => '86848505153ce891b061558-37590165',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
 <div id="footer">
-   <div id="copy">
+   <!-- <div id="copy">
     <?php  $_smarty_tpl->tpl_vars['cate'] = new Smarty_Variable;
  $_from = $_smarty_tpl->getVariable('custompage_cate')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 if ($_smarty_tpl->_count($_from) > 0){
@@ -33,7 +33,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 </b></a> ©2011-2013 <?php echo $_smarty_tpl->getVariable('yb')->value['site_icp'];?>
  <?php echo $_smarty_tpl->getVariable('yb')->value['site_count'];?>
 
-   </div>
+   </div> -->
    <div class="clear"></div>
 </div>
 

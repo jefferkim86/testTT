@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-22 22:01:33
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-23 00:06:12
          compiled from "/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/index.html" */ ?>
-<?php /*%%SmartyHeaderCode:104681462653ce6ebd9d0908-34678983%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:9702308253ce8bf42b29d2-37512863%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'fad38b1ce294af42e7720c022db1ac14e054a61f' => 
     array (
       0 => '/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/index.html',
-      1 => 1406037260,
+      1 => 1406045170,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '104681462653ce6ebd9d0908-34678983',
+  'nocache_hash' => '9702308253ce8bf42b29d2-37512863',
   'function' => 
   array (
   ),
@@ -50,16 +50,10 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
         <?php if (islogin()&&$_smarty_tpl->getVariable('yb')->value['wizard_switch']==1){?> <?php $_template = new Smarty_Internal_Template("require_wizard.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?> <?php }?>
 		<div id="feedArea">
-			<div id="feed_loading"></div>
-			<div id="feed_box" class="feed-list">
-				
-
-
-
-
-			</div>
+    
 
 		</div>
+    <div id="feed_loading">加载中 ...</div>
 		
 		<?php if ($_smarty_tpl->getVariable('yb')->value['show_page_mode']==1){?>
 			<div id="feedAjaxTool" page="2" max="<?php echo $_smarty_tpl->getVariable('yb')->value['show_ajax_to'];?>

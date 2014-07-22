@@ -25,16 +25,10 @@
 		
         {if islogin() && $yb.wizard_switch == 1} {include file="require_wizard.html"} {/if}
 		<div id="feedArea">
-			<div id="feed_loading"></div>
-			<div id="feed_box" class="feed-list">
-				
-
-
-
-
-			</div>
+			
 
 		</div>
+    <div id="feed_loading">加载中 ...</div>
 		
 		{if $yb.show_page_mode == 1}
 			<div id="feedAjaxTool" page="2" max="{$yb.show_ajax_to}" area="feedArea"  class="feedajax">
@@ -113,7 +107,6 @@
                 {@if forwardData}
                  <div  id="J-forwardBlog-${forwardData.bid}" class="feed feed-${feedType} feed-forward-layout clearfix">
                     <div class="feed-desc">
-                        <span class="pop-corner"><s class="outter"></s><s class="inner"></s></span>
                         <div class="feed-hd">
                             <div class="merc-name"><a href="${forwardData.h_url}">${forwardData.username}:</a></div>
                         </div>

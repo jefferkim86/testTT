@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-22 22:23:57
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-23 00:01:44
          compiled from "tplv2/index.html" */ ?>
-<?php /*%%SmartyHeaderCode:80108150553ce73fd04e687-39817097%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:60942151553ce8ae88697a9-22851011%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c1542c66fd69d13319a6782e135b83f629ebe08c' => 
     array (
       0 => 'tplv2/index.html',
-      1 => 1406038929,
+      1 => 1406044903,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '80108150553ce73fd04e687-39817097',
+  'nocache_hash' => '60942151553ce8ae88697a9-22851011',
   'function' => 
   array (
   ),
@@ -47,16 +47,10 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
         <?php if (islogin()&&$_smarty_tpl->getVariable('yb')->value['wizard_switch']==1){?> <?php $_template = new Smarty_Internal_Template("require_wizard.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?> <?php }?>
 		<div id="feedArea">
-			<div id="feed_loading"></div>
-			<div id="feed_box" class="feed-list">
-				
-
-
-
-
-			</div>
+			
 
 		</div>
+    <div id="feed_loading">加载中 ...</div>
 		
 		<?php if ($_smarty_tpl->getVariable('yb')->value['show_page_mode']==1){?>
 			<div id="feedAjaxTool" page="2" max="<?php echo $_smarty_tpl->getVariable('yb')->value['show_ajax_to'];?>
@@ -139,7 +133,6 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
                 {@if forwardData}
                  <div  id="J-forwardBlog-${forwardData.bid}" class="feed feed-${feedType} feed-forward-layout clearfix">
                     <div class="feed-desc">
-                        <span class="pop-corner"><s class="outter"></s><s class="inner"></s></span>
                         <div class="feed-hd">
                             <div class="merc-name"><a href="${forwardData.h_url}">${forwardData.username}:</a></div>
                         </div>
