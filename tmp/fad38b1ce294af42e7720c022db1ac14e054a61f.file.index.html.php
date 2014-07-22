@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-22 01:09:49
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-22 21:34:37
          compiled from "/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/index.html" */ ?>
-<?php /*%%SmartyHeaderCode:87097823553cd495d620511-96635408%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:97299752553ce686da097f4-09771174%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'fad38b1ce294af42e7720c022db1ac14e054a61f' => 
     array (
       0 => '/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/index.html',
-      1 => 1405962587,
+      1 => 1406036073,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '87097823553cd495d620511-96635408',
+  'nocache_hash' => '97299752553ce686da097f4-09771174',
   'function' => 
   array (
   ),
@@ -90,7 +90,7 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
         
 	</div>
 	<div id="aside">
-        <?php $_template = new Smarty_Internal_Template("require_sider.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+        <?php $_template = new Smarty_Internal_Template("require_siderUser.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
     </div>
 </div>

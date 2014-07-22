@@ -20,13 +20,30 @@ Tuitui.feedItemView = Backbone.View.extend({
         "click .feed-original-cell": "previewView",
         "click .J_Comment": "toggleComment",
         "click .J_Forward": "getForwardList",
-        "click .J-sendForward": "sendForward"
+        "click .J-sendForward": "sendForward",
+        "click .J_Like": "likeFeed"
     },
 
 
     initialize: function(options) {
 
 
+    },
+    likeFeed:function(e){
+        e.preventDefault();
+        var target = e.currentTarget;
+        var data = this.model.toJSON();
+
+        var bid = data.bid;
+        getApi('blog', 'setLike', {
+            'bid': bid
+        }, function(data) {
+            if(data.status == '1'){
+                $(target).addClass("liked");
+            }else{
+                alert(data.msg);    
+            }
+        });
     },
     /*
      * @desc 转发feed

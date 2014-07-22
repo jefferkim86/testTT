@@ -79,9 +79,10 @@
 .feed .feed-actions .feed-act .J_Like {
 	background-position: -19px -240px;
 }
-.feed .feed-actions .feed-act .J_Like:hover {
+.feed .feed-actions .feed-act .J_Like:hover ,.feed .feed-actions .feed-act .liked{
 	background-position: -19px -278px;
 }
+ 
 /*TODO:后期修改html结构，让下拉列表顶部不要盖住feed内容区的阴影*/
 .feed .feed-ft{
 	position:relative;
