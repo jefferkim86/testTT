@@ -734,8 +734,9 @@ border-bottom: 1px solid #eeeeee;
 .follow_list .userinfo .userdata { color:#666; }
 .follow_list .follow_btn, .follow_list .follow_abtn { 
 	display: none;
-	float:right; width:70px; 
-	margin:23px 15px 0 0; 
+	float:right; 
+	width:70px; 
+	margin:16px 15px 0 0; 
 }
 .follow_list .follow_btn button { 
 
@@ -793,6 +794,18 @@ border-bottom: 1px solid #eeeeee;
 .follow_font .invite_num span { float:left; padding:0; line-height:35px; height:35px; margin:0 10px 0 0; color:#0099CC; font-size:14px; }
 .follow_font .invite_num font { float:left; margin:0; line-height:35px; font-weight:700; padding:0 0 0 10px; }
 .follow_font .invite_num .invite_url { background:url(../image/comm/btn_bg.png) repeat-x 0 -240px; height:25px; width:360px; border:1px #ccc solid; line-height:25px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; margin:0; padding:5px 10px; float:right; font-family:'Microsoft Yahei','Arail'; font-size:12px; }
+
+
+.follow_font .no-item { 
+	margin: 50px auto 0 auto;
+	width:130px;
+	height: 32px;
+	line-height: 32px;
+	padding-left: 44px;
+	font-size: 18px;
+	color:#999999;
+	background:url('../image/icon-item.png') no-repeat scroll -21px -23px;
+}
 
 .feed_none { width:540px; margin:15px 10px 0 0; float:right; padding:0; min-height:100px; background-color:#fff; -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px; -moz-box-shadow:0px 1px 3px #bbb; -webkit-box-shadow:0px 1px 3px #bbb; box-shadow:0px 1px 3px #bbb; border-bottom:2px #ddd solid\9; }
 

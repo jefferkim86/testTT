@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-21 19:00:58
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-22 23:09:32
          compiled from "tplv2/user_myfollow.html" */ ?>
-<?php /*%%SmartyHeaderCode:104684109653ccf2eac24303-48521794%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:67102841453ce7eac99d429-09415208%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ad6e59ad78e50f6f5f0160f6fbb0dd1b2b00882e' => 
     array (
       0 => 'tplv2/user_myfollow.html',
-      1 => 1405857821,
+      1 => 1406041770,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '104684109653ccf2eac24303-48521794',
+  'nocache_hash' => '67102841453ce7eac99d429-09415208',
   'function' => 
   array (
   ),
@@ -42,51 +42,9 @@ function do_run(ty){
 		$.paging({ctn1:"#follow_area",ctn2:"#paging",yc:"user",ym:"myfollow",showpage:true,yprm:{type:ty},ftype:function(d){
 			addto_follow(d,ty);
 		}});
-
-
 }
 
 
-// follow的模板
-function tmpl_follow(d,type){
-
-	var a  = '<div class="follow_list" id="myfollow_'+d.touid.uid+'">';
-		a += '<div class="follow_con">';
-		if(type == 'follow'){
-			if( d.linker == 1){
-				a += '<div class="follow_btn" id="follow_unlink_'+d.touid.uid+'"><a href="javascript:;" onclick="fllow(\'unlink\','+d.touid.uid+')">取消关注</a></div>';
-				a += '<div class="follow_abtn" id="follow_link_'+d.touid.uid+'" style="display:none"><a href="javascript:;" onclick="fllow(\'link\','+d.touid.uid+')">加为关注</a></div>';
-			}else{
-				a += '<div class="follow_btn" id="follow_unlink_'+d.touid.uid+'" style="display:none"><a href="javascript:;" onclick="fllow(\'unlink\','+d.touid.uid+')">取消关注</a></div>';
-				a += '<div class="follow_abtn" id="follow_link_'+d.touid.uid+'"><a href="javascript:;" onclick="fllow(\'link\','+d.touid.uid+')">加为关注</a></div>';
-			}
-		}else{
-			a += '<div class="follow_btn" id="follow_unlink_'+d.touid.uid+'"><a href="javascript:;" onclick="fllow(\'unlink\','+d.touid.uid+')">取消关注</a></div>';
-			a += '<div class="follow_abtn" id="follow_link_'+d.touid.uid+'" style="display:none"><a href="javascript:;" onclick="fllow(\'link\','+d.touid.uid+')">加为关注</a></div>';
-		}
-		
-		a += ' <div class="avatar">'	       
-		a += '  <a href="'+d.touid.h_url+'" target="_blank" title="'+d.touid.username+'">';		       
-		a += '    <div class="head_bg"><img src="'+d.touid.h_img+'" alt="'+d.touid.username+'" title="'+d.touid.username+'" class="face"/></div>';
-		a += '  </a></div>';
-					
-		a += '<div class="userinfo">';
-		a += '<li><a href="'+d.touid.h_url+'" target="_blank">'+d.touid.username+'</a>';
-		if(d.linker == 1)
-			a += '<span>相互关注</span>';
-		a +='</li>';
-		a += '<li class="userdata"><font>'+d.touid.num+'</font>个博客内容,<font>'+d.touid.flow+'</font>个粉丝,<font>'+d.time+'加关注</font></li>';
-		a += '<li>'+d.touid.sign+'</li>';
-		a += '</div><div class="clear"></div>';
-		if(d.touid.blogtag.length > 0){
-			a += '<div class="user_tag">';
-			for(var i=0;i<d.touid.blogtag.length;i++){
-				a += '<li><a href="#" target="_blank"><span>'+d.touid.blogtag[i]+'</span></a></li>';
-			}
-		}
-		a += '</div><div class="clear"></div></div></div>';
-	return a;
-}
 </script>
 
 
@@ -106,9 +64,6 @@ function tmpl_follow(d,type){
 	    </div>
 		
 	    <div id="followfeed">
-	
-
-
 
 
 
@@ -143,21 +98,13 @@ function tmpl_follow(d,type){
 
 </script>
 
-		    <!--<div class="follow_search">
-			    <input type="button" id="search_btn" value="搜索" onclick="saveMusicList($('#musicurl').val())" class="search_btn">
-				<select name="search_category" id="search_category" class="search_category" >
-				    <option value="name">通过博客名称搜索</option>
-					<option value="tags">通过博客标签搜索</option>
-				</select>
-				<input type="text" name="search_user" id="search_user" tabindex="1" value="" class="search_user">
-			</div>-->
 			
 		<div id="feed_loading"></div>
 		<div id="follow_area"></div>
 			
 	
 			<div class="follow_font" id="follow_font" style="display:none">
-			    <h2>您没有关注或者被关注</h2>
+			    <div class="no-item">暂无消息</div>
 			</div>
 		
 			
@@ -185,10 +132,13 @@ function addto_follow(d,type){
 		var tpl = $("#J-followList").html();
 		if(d.body.data.length >0){
 			for(var i=0;i<d.body.data.length;i++){
-				console.log(d.body.data[i],type);
 				var html = Mustache.render(tpl,d.body.data[i],type)
 				$('#follow_area').append($(html));
-				//$('#follow_area').append(tmpl_follow(d.body.data[i],type));
+			}
+			if(d.body.data.length == 1){
+				$("#follow_area .follow_list").css({
+					"border-bottom":"none"
+				});
 			}
 		}else{
 			$('#follow_font').show();

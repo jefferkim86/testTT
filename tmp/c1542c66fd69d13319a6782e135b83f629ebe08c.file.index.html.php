@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-22 00:38:57
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-22 22:23:57
          compiled from "tplv2/index.html" */ ?>
-<?php /*%%SmartyHeaderCode:261420353cd42212e6bd0-49900911%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:80108150553ce73fd04e687-39817097%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c1542c66fd69d13319a6782e135b83f629ebe08c' => 
     array (
       0 => 'tplv2/index.html',
-      1 => 1405960641,
+      1 => 1406038929,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '261420353cd42212e6bd0-49900911',
+  'nocache_hash' => '80108150553ce73fd04e687-39817097',
   'function' => 
   array (
   ),
@@ -321,6 +321,7 @@ $_template->assign('top','yes'); echo $_template->getRenderedTemplate();?><?php 
     var commentsView = new Tuitui.commentsView();
     var userView = new Tuitui.userView();
     var feedsView = new Tuitui.feedsView();
+    feedsView.getFeeds();
     
 
 </script>

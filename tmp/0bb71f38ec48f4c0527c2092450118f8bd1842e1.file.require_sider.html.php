@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-20 16:23:44
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-22 22:14:15
          compiled from "tplv2/require_sider.html" */ ?>
-<?php /*%%SmartyHeaderCode:76711894953cb7c903d8544-03488866%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:62176478253ce71b7890849-51498840%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0bb71f38ec48f4c0527c2092450118f8bd1842e1' => 
     array (
       0 => 'tplv2/require_sider.html',
-      1 => 1405844588,
+      1 => 1406038453,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '76711894953cb7c903d8544-03488866',
+  'nocache_hash' => '62176478253ce71b7890849-51498840',
   'function' => 
   array (
   ),
@@ -156,8 +156,12 @@ if ($_smarty_tpl->_count($_from) > 0){
 
 	<div class="sider-mod sider-menu mt20">
 		<ul class="menu-list">
-			<li><a href="#">我关注的</a></li>
-			<li><a href="#">我喜欢的</a></li>
+			<li  <?php echo $_smarty_tpl->getVariable('myfollow_current')->value;?>
+><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'myfollow'),$_smarty_tpl);?>
+">我关注的</a></li>
+			<li  <?php echo $_smarty_tpl->getVariable('mylike_current')->value;?>
+><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'mylikes'),$_smarty_tpl);?>
+">我喜欢的</a></li>
 			<li><a href="#">我的消息</a></li>
 			<li class="nb"><a href="#">我的私信</a></li>
 		</ul>

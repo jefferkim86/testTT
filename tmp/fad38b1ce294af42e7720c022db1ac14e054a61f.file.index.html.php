@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-22 21:34:37
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-22 22:01:33
          compiled from "/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/index.html" */ ?>
-<?php /*%%SmartyHeaderCode:97299752553ce686da097f4-09771174%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:104681462653ce6ebd9d0908-34678983%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'fad38b1ce294af42e7720c022db1ac14e054a61f' => 
     array (
       0 => '/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/index.html',
-      1 => 1406036073,
+      1 => 1406037260,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '97299752553ce686da097f4-09771174',
+  'nocache_hash' => '104681462653ce6ebd9d0908-34678983',
   'function' => 
   array (
   ),
@@ -303,19 +303,6 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
 
 
 
-<script type="text/javascript">
-  //  new feedComment();
-
- 
-
-
-	$(document).ready(function(){ 
-		//yb_load_feeds('blog','followfeeds');
-      //yb_load_feeds('blog','feeds');
-        
-
-	})
-</script>
 <?php $_template = new Smarty_Internal_Template("require_footer.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
 $_template->assign('top','yes'); echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
 
