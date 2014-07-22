@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-22 21:47:43
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-23 00:17:10
          compiled from "tplv2/require_header.html" */ ?>
-<?php /*%%SmartyHeaderCode:19934104153ce6b7f909af2-31794627%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:8937011253ce8e8638a732-89445620%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9d70675b71261ad2692595668063ae27729008f2' => 
     array (
       0 => 'tplv2/require_header.html',
-      1 => 1406036539,
+      1 => 1406045828,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '19934104153ce6b7f909af2-31794627',
+  'nocache_hash' => '8937011253ce8e8638a732-89445620',
   'function' => 
   array (
   ),
@@ -89,7 +89,7 @@ $_smarty_tpl->decodeProperties(array (
 			    <div class="function">
 
 					<div class="publish-menu">
-						<a href="javascript:void(0);">发布消息</a>
+						<a href="javascript:void(0);">发布</a>
 						<div class="menu publish" style="display:none;">
 							<ul>
 								<?php  $_smarty_tpl->tpl_vars['model'] = new Smarty_Variable;

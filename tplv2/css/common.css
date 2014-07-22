@@ -28,7 +28,10 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 
 /*顶部链接*/
 #header { width:100%; margin:0 0 15px; height:80px; background:#a7c9d3}
-#header .header_con { width:1140px; margin:0 auto; height:80px; }
+#header .header_con { 
+	position: relative;
+	z-index: 100;
+	width:1140px; margin:0 auto; height:80px; }
 #header #logo a{ width:250px; height:60px; background:url(../image/logo.png) no-repeat 0 0; text-indent: -9999px; display:block; float:left; margin-top:15px; }
 
 #nav { margin-left:20px; float:left; }
@@ -220,7 +223,7 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 #wizard .notice { position:relative; float:right; width:540px; background-color:#FFFF99; -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px; -moz-box-shadow:0px 1px 3px #bbb; -webkit-box-shadow:0px 1px 3px #bbb; box-shadow:0px 1px 3px #bbb; border-bottom:2px #ddd solid\9; margin:15px 10px 5px 0; line-height:25px; color:#666; }
 
 /*博客内容*/
-#feedArea {  margin:0; float:left; }
+#feedArea {  margin:0; width: 850px;float:left; }
 #feedArea .box { float:left; width:510px; margin:15px 0 0 110px; padding:15px; min-height:150px; position:relative; background-color:#fff; -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px; -moz-box-shadow:0px 1px 3px #bbb; -webkit-box-shadow:0px 1px 3px #bbb; box-shadow:0px 1px 3px #bbb; border-bottom:2px #ddd solid\9; }
 #feedArea .avatar { position:absolute; left:-100px; top:0; }
 #feedArea .avatar .face { -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; overflow:hidden; }
@@ -1316,12 +1319,15 @@ dl,dt,dd {
 #tool .publish-menu a {
 	display: block;
 	line-height: 80px;
-	text-indent: 30px;
+	text-indent: 40px;
 	color: #ffffff;
 	font-size: 14px;
-	background:url(../image/publish-icon.png) no-repeat scroll 10px 32px;
+	background:url(../image/publish-icon.png) no-repeat scroll 18px 32px;
 }
 #tool .publish-menu a:hover {
+	/*background-color: #8bb5c3;*/
+}
+#tool .publish-cur {
 	background-color: #8bb5c3;
 }
 #tool .publish-menu .publish a {
@@ -1353,8 +1359,8 @@ dl,dt,dd {
 #tool .menu li a span {
 	display: block;
 	width: 88px;
-	margin: 0 auto;
-	border-bottom: 1px solid #8bb5c3;
+	margin: 0 auto;/*
+	border-bottom: 1px solid #8bb5c3;*/
 	margin: 0 auto;
 }
 #tool .menu li a:hover {
@@ -1401,11 +1407,15 @@ dl,dt,dd {
 	overflow: hidden;
 	width: 100px;
 	height: 80px;
+	line-height: 80px;
 	text-align: center;
 	font-size: 14px;
 	color: #fff;
 }
 #tool .notice a:hover { 
+	
+}
+#tool .notice-cur {
 	background-color: #8bb5c3;
 }
 #tool .notice_menu {
@@ -1433,6 +1443,9 @@ dl,dt,dd {
 	overflow: hidden;
 }
 #tool .userName a:hover {
+	
+}
+#tool .usermenu-cur {
 	background-color: #8bb5c3;
 }
 #tool .userName .arrow {
