@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-21 16:31:56
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-23 21:58:26
          compiled from "tplv2/require_js.html" */ ?>
-<?php /*%%SmartyHeaderCode:153909904553cccffc31ed53-51270589%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:114203920953cfbf8266bfc3-35151359%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '8f6348f934a1766d0ee2377005f2726ac6b40ed0' => 
     array (
       0 => 'tplv2/require_js.html',
-      1 => 1405930867,
+      1 => 1406123905,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '153909904553cccffc31ed53-51270589',
+  'nocache_hash' => '114203920953cfbf8266bfc3-35151359',
   'function' => 
   array (
   ),
@@ -33,31 +33,31 @@ var unit_3 = true;
 
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/jquery.js"></script>
-<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+<!-- <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/class.js"></script>
-<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+ --><script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/dialog.js"></script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/global.js"></script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/jquery.mousedelay.js"></script>
 
-<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/model.js"></script>
 <!-- <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/js/model.js"></script>
+ --><!-- <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/template.js"></script> -->
-<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+<!-- <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/mustache.js"></script>
-<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+ --><script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/juicer.js"></script>
 
 <link href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/dialog/default.css" rel="stylesheet" />
 <link href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /css/feed.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+<!-- <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/template_models.js"></script>
-<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+ --><script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/jquery.pagination.js"></script>
 
 
@@ -94,9 +94,9 @@ function getApi(c, m, params, fun) {
 </script>
 
 
-<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+<!-- <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/func.js"></script>
-
+ -->
 
   <?php if ($_smarty_tpl->getVariable('login')->value=='yes'){?>
 	  <script src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>

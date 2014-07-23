@@ -27,17 +27,10 @@
 		
         {if islogin() && $yb.wizard_switch == 1} {include file="require_wizard.html"} {/if}
 		<div id="feedArea">
-			<div id="feed_loading"></div>
-			<div id="feed_box" class="feed-list">
-				
-
-
-
-
-			</div>
 
 		</div>
-		
+		<div id="feed_loading">加载中 ...</div>
+
 		{if $yb.show_page_mode == 1}
 			<div id="feedAjaxTool" page="2" max="{$yb.show_ajax_to}" area="feedArea"  class="feedajax">
 			</div>

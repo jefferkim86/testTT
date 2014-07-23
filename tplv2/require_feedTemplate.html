@@ -1,97 +1,5 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-23 00:55:25
-         compiled from "/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/list.html" */ ?>
-<?php /*%%SmartyHeaderCode:112501666453ce977d6cbc43-95151046%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
-$_smarty_tpl->decodeProperties(array (
-  'file_dependency' => 
-  array (
-    'a73a814515bff07fa19d9f2dcddc54cbeb4e3b95' => 
-    array (
-      0 => '/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/list.html',
-      1 => 1406048124,
-      2 => 'file',
-    ),
-  ),
-  'nocache_hash' => '112501666453ce977d6cbc43-95151046',
-  'function' => 
-  array (
-  ),
-  'has_nocache_code' => false,
-)); /*/%%SmartyHeaderCode%%*/?>
-<?php $_template = new Smarty_Internal_Template("require_header.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
-$_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
-
-<div id="index">
-    <?php $_template = new Smarty_Internal_Template("require_userInfo.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
- echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
-
-    <div id="article">
-        
-	    <!-- <?php $_template = new Smarty_Internal_Template("require_post.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
- echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?> -->
-		
-		
-		
-			<?php if (isset($_smarty_tpl->getVariable('adunit',null,true,false)->value[2])&&$_smarty_tpl->getVariable('adunit')->value[2]['is_show']==1){?>
-    			<!--<div id="ad_index_up"></div>
-    			<script>
-    				$(document).ready(function(){
-    					ad_aside('#ad_index_up',2);
-    					setInterval(function(){
-    						ad_aside('#ad_index_up',2);
-    					}, 30000);
-    				})
-    			</script>-->
-			<?php }?>
-	
-	
-	
-		
-		
-        <?php if (islogin()&&$_smarty_tpl->getVariable('yb')->value['wizard_switch']==1){?> <?php $_template = new Smarty_Internal_Template("require_wizard.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
- echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?> <?php }?>
-		<div id="feedArea">
-
-		</div>
-		<div id="feed_loading">加载中 ...</div>
-
-		<?php if ($_smarty_tpl->getVariable('yb')->value['show_page_mode']==1){?>
-			<div id="feedAjaxTool" page="2" max="<?php echo $_smarty_tpl->getVariable('yb')->value['show_ajax_to'];?>
-" area="feedArea"  class="feedajax">
-			</div>
-			<script>
-			$.feedToolBar.parm.morepage=true;
-			$.feedToolBar.morepage('feedAjaxTool');
-			</script>
-		<?php }else{ ?>
-			
-		<div id="paging"></div>
-		<div class="clear"></div>
-		<?php }?>
-
-<!--
-	<div id="feedAjaxTool" page="2" max="<?php echo $_smarty_tpl->getVariable('yb')->value['show_ajax_to'];?>
-" area="feedArea" query="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'index','ajaxload'=>true,'type'=>$_smarty_tpl->getVariable('type')->value),$_smarty_tpl);?>
-" class="feedajax">
-    <a href="javascript:void(0)" onclick="continueShow('feedAjaxTool')" class="more">查看更多</a>
-    <a href="javascript:void(0)" class="loading">loading...</a>
-    <a href="javascript:void(0)" class="nomore">暂时没有更多内容</a>
-    </div>
-	-->
-		<script>//$.feedToolBar('feedAjaxTool');</script>
-        
-        
-        
-	</div>
-	<div id="aside">
-        <?php $_template = new Smarty_Internal_Template("require_siderUser.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
- echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
-    </div>
-</div>
-
-
-
 <script type="text/template" id="J-cmtList">
-
+{literal}
     <div class="logo">
         <a href="${logoUrl}">
          <img src="${logo}"/>
@@ -106,12 +14,12 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
           <a href="#" class="J_Reply">回复</a>
         </div>
     </div>
-
+{/literal}
 </script>
 
 
 <script type="text/template" id="J-feedLayout">
-
+{literal}
     <div class="feed feed-${feedType} clearfix" id="J-blog-${bid}">
         <div class="feed-avatar">
             <a class="blog-avatar" href="${avatarHref}" title="FashionDes">
@@ -135,7 +43,6 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
                 {@if forwardData}
                  <div  id="J-forwardBlog-${forwardData.bid}" class="feed feed-${feedType} feed-forward-layout clearfix">
                     <div class="feed-desc">
-                        <span class="pop-corner"><s class="outter"></s><s class="inner"></s></span>
                         <div class="feed-hd">
                             <div class="merc-name"><a href="${forwardData.h_url}">${forwardData.username}:</a></div>
                         </div>
@@ -201,11 +108,11 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
             </div>
         </div>
     </div>
-    
+{/literal}    
 </script>
 
 <script type="text/template" id="J-feedFt">
-
+{literal}
     <div class="J_Feedfoot feed-ft feed-cmt">
       <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
       <div class="cmtbox">
@@ -220,10 +127,10 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
         </div>
         </div>
     </div>
-
+{/literal}
 </script>
 <script type="text/template" id="J-feedTxt">
-
+{literal}
   <div class="feed-text-cont clearfix">
     <h3 class="feed-text-title">${feedTitle}</h3>
     <div class="feed-text-p clearfix">
@@ -231,10 +138,10 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
       <span class="feed-more"><a href="${feedLink}">全部信息...</a></span>
     </div>
    </div>
-
+{/literal}
 </script>
 <script type="text/template" id="J-feedPhoto">
-
+{literal}
 <div class="feed-photo-cont clearfix">
     <div class="feed-photo-img">
         <div class="feed-photo-layout feed-layout${layoutType} clearfix">
@@ -258,10 +165,10 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
         <p>${feedContent}<span class="feed-more"><a href="{{feedLink}}">全部信息...</a></span></p>
     </div>
 </div>
-
+{/literal}
 </script>
 <script type="text/template" id="J-feedGood">
-
+{literal}
     <div class="feed-good-cont clearfix">
        <div class="feed-good-info">
         <div class="feed-good-img">
@@ -291,22 +198,5 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
         </div>
 
     </div>
-
-</script>
-
-
-
-<?php $_template = new Smarty_Internal_Template("require_footer.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
-$_template->assign('top','yes'); echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
-
-<script type="text/javascript">
-	var bid = <?php echo $_smarty_tpl->getVariable('bid')->value;?>
-;
-    var commentsView = new Tuitui.commentsView();
-    var userView = new Tuitui.userView();
-    var feedsView = new Tuitui.feedsView();
-    feedsView.getFeedDetail(bid);
-
-    
-
+{/literal}
 </script>

@@ -27,12 +27,19 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 .fr { float:right; }
 
 /*顶部链接*/
-#header { width:100%; margin:0 0 15px; height:80px; background:#a7c9d3}
+#header { width:100%; margin:0 0 15px; height:80px; background:#a7c9d3;}
 #header .header_con { 
 	position: relative;
 	z-index: 100;
 	width:1140px; margin:0 auto; height:80px; }
-#header #logo a{ width:250px; height:60px; background:url(../image/logo.png) no-repeat 0 0; text-indent: -9999px; display:block; float:left; margin-top:15px; }
+#header #logo {
+	float: left;
+	 margin:23px 58px 0 0;
+}
+#header #logo a{ 
+ height:60px; 
+	display:block;
+	 }
 
 #nav { margin-left:20px; float:left; }
 #nav li { list-style:none; float:left; margin-left:20px; margin-top:23px; }
@@ -1259,9 +1266,6 @@ border-bottom: 1px solid #eeeeee;
 }
 .menu_sc .curr { 
 	background-color:#8bb5c3; 
-	-moz-box-shadow:0px 1px 0px #fff,0px 1px 3px #ccc inset; 
-	-webkit-box-shadow:0px 1px 0px #fff,0px 1px 3px #ccc inset; 
-	box-shadow:0px 1px 0px #fff,0px 1px 3px #ccc inset; 
 }
 .menu_sc .btn { 
 	width:15px; 
@@ -1505,22 +1509,25 @@ dl,dt,dd {
 	background:#fff url('../image/icon.png') no-repeat scroll -1px -46px;
 }
 
-.comment-hide,.forward-hide,.hide{display: none !important;}
-.comment-show,.forward-show,.show{display: block !important;}
-
-.comment-show .cmt-list{
-	display: block;
+.comment-hide,.forward-hide,.hide{
+	display: none !important;
 }
-.comment-show .J_forwardList {
-	display: none;
-}
-.forward-show .cmt-list{
-	display: none;
-}
-.forward-show .J_forwardList {
-	display: block;
+.comment-show,.forward-show,.show{
+	display: block !important;
 }
 
+.comment-show .cmt-list,.comment-corner .J_Comment .pop-foot-corner{
+	display: block !important;
+}
+.comment-show .J_forwardList,.comment-corner .J_Forward .pop-foot-corner{
+	display: none !important;
+}
+.forward-show .cmt-list,.forward-corner .J_Comment .pop-foot-corner{
+	display: none !important;
+}
+.forward-show .J_forwardList,.forward-corner .J_Forward .pop-foot-corner {
+	display: block !important;
+}
 
 
 

@@ -13,7 +13,8 @@ Tuitui.feedItemView = Backbone.View.extend({
         'feedLayout': juicer($("#J-feedLayout").html()),
         'text': juicer($("#J-feedTxt").html()),
         'photo': juicer($("#J-feedPhoto").html()),
-        'good': juicer($("#J-feedGood").html())
+        'good': juicer($("#J-feedGood").html()),
+        'corner': '<span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>'
     },
     events: {
         "click .feed-photo-cell": "bigPicView",
@@ -29,7 +30,7 @@ Tuitui.feedItemView = Backbone.View.extend({
 
 
     },
-    likeFeed:function(e){
+    likeFeed: function(e) {
         e.preventDefault();
         var target = e.currentTarget;
         var data = this.model.toJSON();
@@ -38,10 +39,10 @@ Tuitui.feedItemView = Backbone.View.extend({
         getApi('blog', 'setLike', {
             'bid': bid
         }, function(data) {
-            if(data.status == '1'){
+            if (data.status == '1') {
                 $(target).addClass("liked");
-            }else{
-                alert(data.msg);    
+            } else {
+                alert(data.msg);
             }
         });
     },
@@ -74,7 +75,7 @@ Tuitui.feedItemView = Backbone.View.extend({
                 ft.find(".J-fNum").text(parseInt(num) + 1);
 
             } else {
-                alert("转发失败");
+                alert(data.msg);
             }
         });
     },
@@ -86,6 +87,14 @@ Tuitui.feedItemView = Backbone.View.extend({
         var target = e.currentTarget;
         var data = this.model.toJSON();
         var bid = data.bid;
+        var corner = this.compiled_tpl['corner'];
+        var actionEl = $(target).parents(".feed-act");
+        actionEl.toggleClass('forward-corner');
+        actionEl.removeClass('comment-corner');
+
+        if(!$(target).find(".pop-foot-corner").length){
+            $(target).append($(corner));
+        }
         var feedFtClass = '.J_Feedfoot';
         if ($(target).parents('.J-forward-actions').length) {
             bid = data.repto && data.repto.bid || 1; //TODO:需要添加
@@ -114,8 +123,15 @@ Tuitui.feedItemView = Backbone.View.extend({
     toggleComment: function(e) {
         e.preventDefault();
         var target = e.currentTarget;
+        var corner = this.compiled_tpl['corner'];
         var data = this.model.toJSON();
         var bid = data.bid;
+        if(!$(target).find(".pop-foot-corner").length){
+            $(target).append($(corner));
+        }
+        var actionEl = $(target).parents(".feed-act");
+        actionEl.toggleClass('comment-corner');
+        actionEl.removeClass('forward-corner');
         var feedFtClass = '.J_Feedfoot';
         if ($(target).parents('.J-forward-actions').length) {
             bid = data.repto && data.repto.bid || 1; //TODO:需要添加

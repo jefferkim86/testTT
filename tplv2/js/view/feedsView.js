@@ -38,6 +38,19 @@ Tuitui.feedsView = Backbone.View.extend({
             self.collection.reset(result.blog);
         });
     },
+
+    /*
+     **/
+
+    getMyFeeds: function() {
+        var self = this;
+        getApi('blog', 'feeds', {
+            'uid': uid
+        }, function(data) {
+            var result = data.body;
+            self.collection.reset(result.blog);
+        });
+    },
     /*
      * @desc 获取我喜欢的feeds
      * */

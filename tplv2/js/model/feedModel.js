@@ -66,8 +66,8 @@ Tuitui.feedModel = Backbone.Model.extend({
 			'feedcount': this.get('replaycount'),
 			'replaycount': this.get('replaycount'),
 			'likeNum': 1,
-			//'forwardData': this.get('repto') || false
-			'forwardData': this.get('repto') || true
+			'forwardData': this.get('repto') || false
+			//'forwardData': this.get('repto') || true
 		}
 	},
 
@@ -104,49 +104,5 @@ Tuitui.feedModel = Backbone.Model.extend({
 		var repto = this.get('repto');
 
 	}
-
-	// {
-	//                "bid": "50",
-	//                "uid": "21",
-	//                "top": "0",
-	//                "type": "3",
-	//                "tag": "",
-	//                "title": null,
-	//                "body": "",
-	//                "open": "1",
-	//                "hitcount": "0",
-	//                "feedcount": "0",
-	//                "replaycount": "0",
-	//                "noreply": "0",
-	//                "time": "1小时前",
-	//                "likeid": null,
-	//                "username": "jeffer",
-	//                "domain": "jeffer",
-	//                "more": 0,
-	//                "h_url": "/index.php?c=userblog&a=index&domain=jeffer",
-	//                "h_img": "/avatar.php?uid=21&size=middle",
-	//                "b_url": "/index.php?c=userblog&a=show&bid=50",
-	//                "time_y": "2014.07",
-	//                "time_d": "20",
-	//                "attr": {
-	//                    "count": 1,
-	//                    "img": [
-	//                        {
-	//                            "url": "attachs/14/7/06/46/t_1451599859.jpg",
-	//                            "desc": "Boston city flow"
-	//                        }
-	//                    ]
-	//                },
-	//                "repto": {
-	//                    "uid": "23",
-	//                    "username": "minzhan",
-	//                    "domain": "",
-	//                    "time": 1404817517,
-	//                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
-	//                    "h_img": "/avatar.php?uid=23&size=small"
-	//                }
-	//            }
-
-
 
 });

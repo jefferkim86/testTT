@@ -23,9 +23,9 @@
 <body>
 
 <div id="wrap">
-    <div id="header">
+    <div id="header" class="clearfix">
 	    <div class="header_con">
-		    <div id="logo"><a title="{$title}" href="{spUrl c=main a=index}">{$title}</a></div>
+		    <div id="logo"><a title="{$title}" href="{spUrl c=main a=index}"><img src="{$syskin}/image/logo.png" alt="{$title}"/></a></div>
 		    <div class="my-attention">
 		    	<a href="">我的关注</a>
 		    </div>
@@ -37,8 +37,8 @@
 			</div> -->
 			<div id="nav">
 				<div class="nav-search menu_sc" id="search">
-					<input type="button" class="btn" value="搜索" onclick="tag_search()">
-					<input type="text" id="searchtag" value="搜索标签,发现兴趣" class="ipt">
+					<input type="button" class="btn" value="搜索" onclick="user_search()"/>
+					<input type="text" id="searchtag" value="请输入用户昵称" class="ipt">
 				</div>
 
 			</div>

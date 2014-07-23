@@ -656,12 +656,12 @@ var tplhdefine = {
 };
 $(document).ready(function() {
     $('#search .ipt').click(function() {
-        if ($(this).val() == '搜索标签,发现兴趣') {
+        if ($(this).val() == '请输入用户昵称') {
             $(this).val('')
         }
     }).blur(function() {
         if ($(this).val() == '') {
-            $(this).val('搜索标签,发现兴趣')
+            $(this).val('请输入用户昵称')
         }
     });
     $('#searchtag').focus(function() {
@@ -787,6 +787,20 @@ function tips(msg) {
 function tag_search(is_local) {
     var tag = $('#searchtag').val();
     if (tag == '' || tag == '搜索标签,发现兴趣') {
+        tips('搜索的标签不能为空');
+        return false
+    };
+    if (is_local == 'local') {
+        show_tags_view({
+            tag: tag
+        })
+    } else {
+        window.location.href = 'index.php?c=blog&a=tag&tag=' + tag
+    }
+};
+function user_search(is_local) {
+    var tag = $('#searchtag').val();
+    if (tag == '' || tag == '请输入用户昵称') {
         tips('搜索的标签不能为空');
         return false
     };
