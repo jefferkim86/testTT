@@ -28,7 +28,7 @@ Tuitui.commentsView = Backbone.View.extend({
         this.el = el;
         getApi('blog', 'reply', {
             bid: bid,
-            page: pageNo || 1
+            page: pageNo
         }, function(data) {
             var result = data.body;
             self.collection.reset(result.body);
@@ -65,7 +65,7 @@ Tuitui.commentsView = Backbone.View.extend({
                     "h_img": '/tuitui/avatar.php?uid=' + uid + '&size=small',
                     "h_url": '/tuitui/index.php?c=userblog&a=index&domain=home&uid=' + uid,
                     "msg": inputVal,
-                    "user": {'username':'测试名称，待修改'}
+                    "user": {'username':G_username}
                 });
 
             } else {

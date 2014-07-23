@@ -46,25 +46,25 @@ function do_run(ty){
 
 <script type="text/template" id="J-followList">
 {literal}
- <div class="follow_list" id="myfollow_{{touid.uid}}">
+ <div class="follow_list" id="myfollow_${touid.uid}">
 	<div class="follow_con clearfix">
-	 <div class="follow_btn" id="follow_unlink_{{touid.uid}}">
-	 	<button class="J-follow followed" data-uid="{{touid.uid}}">取消关注</button>
+	 <div class="follow_btn" id="follow_unlink_${touid.uid}">
+	 	<button class="J-follow followed" data-uid="${touid.uid}">取消关注</button>
 	 </div>
 	<div class="avatar">	       
-	  <a href="{{touid.h_url}}" target="_blank" title="{{touid.username}}">
-		 	<img src="{{touid.h_img}}" alt="{{touid.username}}" title="{{touid.username}}" class="face"/>
+	  <a href="${touid.h_url}" target="_blank" title="${touid.username}">
+		 	<img src="${touid.h_img}" alt="${touid.username}" title="${touid.username}" class="face"/>
 	   </a>
 	</div>
 					
 	<div class="userinfo">
-		<li class="title"><a href="{{touid.h_url}}" target="_blank">{{touid.username}}</a>
-			<span>({{time}}关注)</span>
+		<li class="title"><a href="${touid.h_url}" target="_blank">${touid.username}</a>
+			<span>(${time}关注)</span>
 		</li>
 		<li class="userdata">
-			<span class="blogs">推推:<b>{{touid.num}}</b></span>
-			<span>关注:<b>{{touid.flow}}</b></span>
-			<span class="fans">粉丝:<b>{{touid.flow}}</b></span>
+			<span class="blogs">推推:<b>${touid.num}</b></span>
+			<span>关注:<b>${touid.flow}</b></span>
+			<span class="fans">粉丝:<b>${touid.flow}</b></span>
 		</li>
 	</div>
 
@@ -104,10 +104,10 @@ function do_run(ty){
 function addto_follow(d,type){
 		$('#follow_area').html('');
 		$('#feed_loading').hide();
-		var tpl = $("#J-followList").html();
+		var tpl = juicer($("#J-followList").html());
 		if(d.body.data.length >0){
 			for(var i=0;i<d.body.data.length;i++){
-				var html = Mustache.render(tpl,d.body.data[i],type)
+				var html = tpl.render(d.body.data[i],type)
 				$('#follow_area').append($(html));
 			}
 			if(d.body.data.length == 1){

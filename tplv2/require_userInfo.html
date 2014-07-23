@@ -1,21 +1,29 @@
 <div class="user page-userInfo">
 	<div class="logo">
-		<img src="{$syskin}/image/user-logo.png" alt=""/>
+		<img src="{avatar uid=$user.uid size=middle}" alt=""/>
 	</div>
 	<div class="info">
-		<h3>大黑淘外贸</h3>
-		<div class="url">http://tui.etao.com/t005546614</div>
-		<div class="desc">个性签名：宁缺勿滥，淘心中一爱。QQ三群：246270202。不转闲置，不转团购，不接点菜，不接砍价。</div>
+		<h3>{$user.username}</h3>
+		{if $user.domain}
+		<div class="url">{$site_uri}/{$user.domain}</div>
+		{else}
+		<div class="url">{goUserHome domain=$user.domain uid=$user.uid}</div>
+		{/if}
+		<div class="desc">个性签名：{$usersign}</div>
 		<div class="handle">
-			<button class="J-attention J-follow" data-uid="1">加关注</button>
-			<button class="J-msg">发私信</button>
+			{if $isfollow == 1}
+			<button class="J-attention J-follow followed" data-uid="{$user.uid}">已关注</button>
+			{else if $isfollow == 0}
+			<button class="J-attention J-follow" data-uid="{$user.uid}">加关注</button>
+			{/if}
+			<button class="J-msg" data-uid="{$user.uid}">发私信</button>
 		</div>
 	</div>
 	<div class="user-data">
 		<ul>
-			<li><a href=""><b>18</b><span>推推</span></a></li>
-			<li><a href=""><b>20</b><span>关注</span></a></li>
-			<li class="nr"><a href=""><b>24</b><span>粉丝</span></a></li>
+			<li><a href=""><b>{$user.num}</b><span>推推</span></a></li>
+			<li><a href=""><b>{$user.flow}</b><span>关注</span></a></li>
+			<li class="nr"><a href=""><b>{$myLook}</b><span>粉丝</span></a></li>
 		</ul>
 
 	</div>

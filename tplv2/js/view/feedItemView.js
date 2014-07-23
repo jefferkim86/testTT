@@ -10,10 +10,10 @@ Tuitui.feedItemView = Backbone.View.extend({
     className: 'feedWrap',
 
     compiled_tpl: {
-        'feedLayout': juicer($("#J-feedLayout").html()),
-        'text': juicer($("#J-feedTxt").html()),
-        'photo': juicer($("#J-feedPhoto").html()),
-        'good': juicer($("#J-feedGood").html()),
+        'feedLayout': juicer($("#J-feedLayout").html() || ''),
+        'text': juicer($("#J-feedTxt").html() || ''),
+        'photo': juicer($("#J-feedPhoto").html() || ''),
+        'good': juicer($("#J-feedGood").html() || ''),
         'corner': '<span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>'
     },
     events: {

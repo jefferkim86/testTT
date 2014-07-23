@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-22 23:54:03
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-23 22:57:54
          compiled from "tplv2/require_footer.html" */ ?>
-<?php /*%%SmartyHeaderCode:86848505153ce891b061558-37590165%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:44583887653cfcd72149347-31455943%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7b20e605d333e55791698372022dff7d76772040' => 
     array (
       0 => 'tplv2/require_footer.html',
-      1 => 1406044441,
+      1 => 1406127465,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '86848505153ce891b061558-37590165',
+  'nocache_hash' => '44583887653cfcd72149347-31455943',
   'function' => 
   array (
   ),
@@ -70,7 +70,6 @@ $(document).ready(function(){
 /js/view/commentItemView.js"></script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/view/commentsView.js"></script>
-
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/model/feedModel.js"></script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>

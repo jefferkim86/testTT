@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-23 13:53:52
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-23 22:57:00
          compiled from "tplv2/user_myfollow.html" */ ?>
-<?php /*%%SmartyHeaderCode:142938100353cf4df0523f43-23161730%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:134351243953cfcd3c1cc020-28194904%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ad6e59ad78e50f6f5f0160f6fbb0dd1b2b00882e' => 
     array (
       0 => 'tplv2/user_myfollow.html',
-      1 => 1406045114,
+      1 => 1406127381,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '142938100353cf4df0523f43-23161730',
+  'nocache_hash' => '134351243953cfcd3c1cc020-28194904',
   'function' => 
   array (
   ),
@@ -69,25 +69,25 @@ function do_run(ty){
 
 <script type="text/template" id="J-followList">
 
- <div class="follow_list" id="myfollow_{{touid.uid}}">
+ <div class="follow_list" id="myfollow_${touid.uid}">
 	<div class="follow_con clearfix">
-	 <div class="follow_btn" id="follow_unlink_{{touid.uid}}">
-	 	<button class="J-follow followed" data-uid="{{touid.uid}}">取消关注</button>
+	 <div class="follow_btn" id="follow_unlink_${touid.uid}">
+	 	<button class="J-follow followed" data-uid="${touid.uid}">取消关注</button>
 	 </div>
 	<div class="avatar">	       
-	  <a href="{{touid.h_url}}" target="_blank" title="{{touid.username}}">
-		 	<img src="{{touid.h_img}}" alt="{{touid.username}}" title="{{touid.username}}" class="face"/>
+	  <a href="${touid.h_url}" target="_blank" title="${touid.username}">
+		 	<img src="${touid.h_img}" alt="${touid.username}" title="${touid.username}" class="face"/>
 	   </a>
 	</div>
 					
 	<div class="userinfo">
-		<li class="title"><a href="{{touid.h_url}}" target="_blank">{{touid.username}}</a>
-			<span>({{time}}关注)</span>
+		<li class="title"><a href="${touid.h_url}" target="_blank">${touid.username}</a>
+			<span>(${time}关注)</span>
 		</li>
 		<li class="userdata">
-			<span class="blogs">推推:<b>{{touid.num}}</b></span>
-			<span>关注:<b>{{touid.flow}}</b></span>
-			<span class="fans">粉丝:<b>{{touid.flow}}</b></span>
+			<span class="blogs">推推:<b>${touid.num}</b></span>
+			<span>关注:<b>${touid.flow}</b></span>
+			<span class="fans">粉丝:<b>${touid.flow}</b></span>
 		</li>
 	</div>
 
@@ -129,10 +129,10 @@ function do_run(ty){
 function addto_follow(d,type){
 		$('#follow_area').html('');
 		$('#feed_loading').hide();
-		var tpl = $("#J-followList").html();
+		var tpl = juicer($("#J-followList").html());
 		if(d.body.data.length >0){
 			for(var i=0;i<d.body.data.length;i++){
-				var html = Mustache.render(tpl,d.body.data[i],type)
+				var html = tpl.render(d.body.data[i],type)
 				$('#follow_area').append($(html));
 			}
 			if(d.body.data.length == 1){

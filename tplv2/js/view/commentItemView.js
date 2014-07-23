@@ -5,7 +5,7 @@ Tuitui.commentItemView = Backbone.View.extend({
     className: "comment-item",
 
     tpl: {
-        "commentLi": juicer($("#J-cmtList").html())
+        "commentLi": juicer($("#J-cmtList").html() || '')
     },
 
     events: {

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-23 21:58:26
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-23 23:05:24
          compiled from "tplv2/require_js.html" */ ?>
-<?php /*%%SmartyHeaderCode:114203920953cfbf8266bfc3-35151359%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:159364833753cfcf34ee2286-54203786%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '8f6348f934a1766d0ee2377005f2726ac6b40ed0' => 
     array (
       0 => 'tplv2/require_js.html',
-      1 => 1406123905,
+      1 => 1406127901,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '114203920953cfbf8266bfc3-35151359',
+  'nocache_hash' => '159364833753cfcf34ee2286-54203786',
   'function' => 
   array (
   ),
@@ -24,6 +24,8 @@ var skinpath = '<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 ';
 
 var uid = '<?php echo $_SESSION['uid'];?>
+';
+var G_username ='<?php echo $_SESSION['username'];?>
 ';
 <?php if (isset($_smarty_tpl->getVariable('adunit',null,true,false)->value[3])&&$_smarty_tpl->getVariable('adunit')->value[3]['is_show']==1){?>
 var unit_3 = true;
