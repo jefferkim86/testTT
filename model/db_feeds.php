@@ -40,10 +40,10 @@ class db_feeds extends ybModel
 	}
 	
 	/*添加转载动态*/
-	function addRep($rows,$uid)
+	function addRep($rows,$uid, $info = null)
 	{
-		$this->create(array('bid'=>$rows['bid'],'title'=>'转载本内容','uid'=>$uid,'type'=>'foword','time'=>time()));
-			spClass('db_blog')->incrField(array('bid'=>$rows['bid']),'feedcount'); //增加动态统计
+		$this->create(array('bid'=>$rows['bid'],'title'=>'转载本内容','uid'=>$uid,'type'=>'foword','time'=>time(), 'info'=>$info));
+		spClass('db_blog')->incrField(array('bid'=>$rows['bid']),'feedcount'); //增加动态统计
 	
 	}
 	

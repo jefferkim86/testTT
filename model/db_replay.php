@@ -51,7 +51,7 @@ class db_replay extends ybModel
 		$err =array('err'=>'');
 		$msg = strip_tags(strreplaces($row['inputs']));
 
-		$rs = spClass('db_blog')->find(array('bid'=>$row['bid']),'','uid,noreply');
+		$rs = spClass('db_blog')->find(array('bid'=>$row['bid']),'','uid,bid,title,noreply');
 		if(!$rs){$err['err'] = '回复的主题不存在';return $err;}
 		if($msg == '') {$err['err'] = '回复的内容不能为空'; return $err;}
 		if($rs['noreply'] == 1) { $err['err'] = '该内容作者不允许评论';return $err;}
@@ -86,6 +86,9 @@ class db_replay extends ybModel
 		
 		spClass('db_blog')->incrField(array('bid'=>$row['bid']),'replaycount'); //增加回复统计
 		spClass('db_feeds')->replayFeeds($row,$msg,$_SESSION['uid'],$parent_key); //增加回复动态
+		if ($_SESSION['uid'] != $rs['uid']) {
+			spClass('db_notice')->noticeComment($_SESSION['uid'], $rs['uid'], $rs['bid'], $rs['title']);
+		}
 		$_SESSION['reply_'.$row['bid']] = time();
 
 		

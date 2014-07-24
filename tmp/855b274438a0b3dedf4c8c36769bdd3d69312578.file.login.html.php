@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2012-12-22 02:49:14
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-12 20:11:44
          compiled from "tplv2\login.html" */ ?>
-<?php /*%%SmartyHeaderCode:890150d4af2a6e0089-65914900%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2348753c12600ad7442-86427482%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '855b274438a0b3dedf4c8c36769bdd3d69312578' => 
     array (
       0 => 'tplv2\\login.html',
-      1 => 1356115752,
+      1 => 1390144808,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '890150d4af2a6e0089-65914900',
+  'nocache_hash' => '2348753c12600ad7442-86427482',
   'function' => 
   array (
   ),
@@ -95,10 +95,7 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
 					    <a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'resetpwd'),$_smarty_tpl);?>
 ">忘记密码?</a>
 					</div>
-					<div class="invite_code in_put">
-					    <a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'reg','invitemode'=>1),$_smarty_tpl);?>
-">使用邀请码注册</a>
-					</div>
+
 					
 					<div class="clear"></div>
 

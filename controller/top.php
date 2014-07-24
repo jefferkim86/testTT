@@ -26,6 +26,7 @@ class top extends spController
 			$this->local = explode('市',$this->user['local']);
 			
 			$this->followuid = spClass('db_follow')->getFollowUid($_SESSION['uid']);//获取跟随者信息
+			
 			$this->messagestate();
 		}
 	}

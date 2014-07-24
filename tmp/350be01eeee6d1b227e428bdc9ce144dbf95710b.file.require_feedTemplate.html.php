@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-24 17:51:00
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-24 22:12:29
          compiled from "tplv2/require_feedTemplate.html" */ ?>
-<?php /*%%SmartyHeaderCode:181624699853d0d7040f36c0-19036830%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:147697784553d1144db591a8-33953008%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '350be01eeee6d1b227e428bdc9ce144dbf95710b' => 
     array (
       0 => 'tplv2/require_feedTemplate.html',
-      1 => 1406195430,
+      1 => 1406210536,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '181624699853d0d7040f36c0-19036830',
+  'nocache_hash' => '147697784553d1144db591a8-33953008',
   'function' => 
   array (
   ),
@@ -1037,6 +1037,11 @@ $_smarty_tpl->decodeProperties(array (
     }
 }
 </script>
+<!--
+    转发feed即为原先的feedcontent中嵌套一个layout（去除avatar）
+    先渲染feed种类内容，内容以feedItemContent这个字段输入
+    再渲染外层，外层判断是否是转发类型
+-->
 <script type="text/template" id="J-feedLayout">
 
     <div class="feed feed-${feedType} clearfix" id="J-blog-${bid}">
@@ -1056,21 +1061,21 @@ $_smarty_tpl->decodeProperties(array (
                 <div class="merc-name"><a href="${avatarHref}">${username}</a></div>
             </div>
             <div class="feed-bd">
-            <div class="feed-forward-content clearfix">
-                ${feedForwardContent}
-            </div>
                 {@if forwardData}
+                 <div class="feed-forward-content clearfix">
+                    ${feedForwardContent}
+                 </div>
                  <div  id="J-forwardBlog-${forwardData.bid}" class="feed feed-${feedType} feed-forward-layout clearfix">
                     <div class="feed-desc">
                         <div class="feed-hd">
                             <div class="merc-name"><a href="${forwardData.h_url}">${forwardData.username}:</a></div>
                         </div>
                         <div class="feed-bd">
-                {@/if}
+                        {@/if}
                     
-                    $${feedItemContent}
+                        $${feedItemContent}
 
-                {@if forwardData}
+                        {@if forwardData}
                             <div class="feed-actions J-forward-actions clearfix">
                                 <div class="feed-act">
                                     <a href="" class="J_Comment">评论(<span class="J_CmtNum">${forwardData.feedcount}</span>)</a>

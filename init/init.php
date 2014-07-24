@@ -89,6 +89,13 @@ $__action = isset($_REQUEST[$GLOBALS['G_SP']['url_action']]) ?
 	$_REQUEST[$GLOBALS['G_SP']['url_action']] :
 	$GLOBALS['G_SP']['default_action'];
 
+//处理个性域名
+$query_string = $_SERVER['QUERY_STRING'];//var_dump($_SERVER);exit;
+if (preg_match("/^[a-zA-Z]{1}([a-zA-Z0-9]|[._]){1,15}$/", $query_string)) {
+	$__controller = 'userblog';
+	$__action = 'index';
+	$_REQUEST['domain'] = $query_string;
+}
 
 //加载用户级设置变量
 if(!spAccess('r','ybconfig')){  //读取设置

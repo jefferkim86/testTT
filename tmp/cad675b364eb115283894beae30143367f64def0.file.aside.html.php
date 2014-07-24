@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-16 21:01:14
+<?php /* Smarty version Smarty-3.0.6, created on 2014-01-17 21:48:40
          compiled from "tplv2/theme/default/aside.html" */ ?>
-<?php /*%%SmartyHeaderCode:47644702053c6779aa8f371-82089622%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:122161072852d934b81491a0-06076355%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'cad675b364eb115283894beae30143367f64def0' => 
     array (
       0 => 'tplv2/theme/default/aside.html',
-      1 => 1405515673,
+      1 => 1341154870,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '47644702053c6779aa8f371-82089622',
+  'nocache_hash' => '122161072852d934b81491a0-06076355',
   'function' => 
   array (
   ),
@@ -26,7 +26,6 @@ $_smarty_tpl->decodeProperties(array (
 <span>发布数</span></li>
 	<div class="clear"></div>
 </div>
-
 <?php if ($_smarty_tpl->getVariable('user')->value['uid']!=$_SESSION['uid']){?>
 <div class="my_pm">
     <a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'pm','a'=>'detail','uid'=>$_smarty_tpl->getVariable('user')->value['uid']),$_smarty_tpl);?>

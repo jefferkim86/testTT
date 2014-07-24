@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-15 16:05:30
+<?php /* Smarty version Smarty-3.0.6, created on 2014-01-19 23:20:25
          compiled from "tplv2/login.html" */ ?>
-<?php /*%%SmartyHeaderCode:12676317453c4e0caa2b9b8-76857437%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:80690188752dbed395b5dd8-01597512%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '03645cd3cc83f49927e1835eb53c00fc4f417e53' => 
     array (
       0 => 'tplv2/login.html',
-      1 => 1363077510,
+      1 => 1390144809,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '12676317453c4e0caa2b9b8-76857437',
+  'nocache_hash' => '80690188752dbed395b5dd8-01597512',
   'function' => 
   array (
   ),
@@ -23,7 +23,7 @@ $_smarty_tpl->decodeProperties(array (
 <meta charset="utf-8" />
 <title><?php echo $_smarty_tpl->getVariable('yb')->value['site_title'];?>
  - <?php echo $_smarty_tpl->getVariable('yb')->value['site_titlepre'];?>
-</title>
+ - Powered by 云边轻博客</title>
 <meta name="author" content="<?php echo $_smarty_tpl->getVariable('yb')->value['author'];?>
 " />
 <meta name="description" content="<?php echo $_smarty_tpl->getVariable('yb')->value['site_desc'];?>
@@ -95,10 +95,7 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
 					    <a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'resetpwd'),$_smarty_tpl);?>
 ">忘记密码?</a>
 					</div>
-					<div class="invite_code in_put">
-					    <a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'reg','invitemode'=>1),$_smarty_tpl);?>
-">使用邀请码注册</a>
-					</div>
+
 					
 					<div class="clear"></div>
 

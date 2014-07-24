@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-20 20:50:32
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-23 22:29:27
          compiled from "tplv2/models/word.html" */ ?>
-<?php /*%%SmartyHeaderCode:9691764253cbbb189ea459-81842905%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:111697214952d9337631df18-25230893%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,13 +11,13 @@ $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '9691764253cbbb189ea459-81842905',
+  'nocache_hash' => '111697214952d9337631df18-25230893',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
-<?php if (!is_callable('smarty_modifier_date_format')) include '/Users/jinjianfeng/Documents/work/tuitui/init/Drivers/Smarty/plugins/modifier.date_format.php';
+<?php if (!is_callable('smarty_modifier_date_format')) include '/Users/jinjianfeng/Documents/work/tuitui2/init/Drivers/Smarty/plugins/modifier.date_format.php';
 ?><?php $_template = new Smarty_Internal_Template("require_header.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
 $_template->assign('addcss','yes');$_template->assign('editor','yes');$_template->assign('titlepre',"发布文字 - ".($_SESSION['tempid'])); echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
 

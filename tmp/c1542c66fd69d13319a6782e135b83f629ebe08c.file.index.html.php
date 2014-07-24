@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-24 01:14:31
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-24 21:41:40
          compiled from "tplv2/index.html" */ ?>
-<?php /*%%SmartyHeaderCode:32609640053cfed772474f5-73734062%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:111856471053d10d14d81e35-42558160%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c1542c66fd69d13319a6782e135b83f629ebe08c' => 
     array (
       0 => 'tplv2/index.html',
-      1 => 1406135669,
+      1 => 1406205246,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '32609640053cfed772474f5-73734062',
+  'nocache_hash' => '111856471053d10d14d81e35-42558160',
   'function' => 
   array (
   ),
@@ -27,6 +27,9 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
        <?php $_template = new Smarty_Internal_Template("require_wizard.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?> 
     <?php }?>
+fffff
+<?php echo $_smarty_tpl->getVariable('memberinfo')->value;?>
+
     <!-- feed区域 -->
 		<div id="feedArea">
 			

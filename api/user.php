@@ -240,6 +240,51 @@ class user extends top
 		}
 		$this->api_success($data);
 	}
+	
+	public function followbyuid(){
+		$data = array();
+		$uid = $this->spArgs('uid');
+		$page_size = $this->spArgs('page_size', 10);
+		if($this->spArgs('type') == 'follow'){
+			$obj = spClass('db_follow');
+			$obj->linker['0']['enabled'] = false;
+			$data['data'] = $obj->spLinker()->spPager($this->spArgs('page',1),$page_size)->findAll("`touid` = {$uid}  ",'time desc');	
+		}else{
+			$obj = spClass('db_follow');
+			$obj->linker['1']['enabled'] = false;
+			$data['data'] = $obj->spLinker()->spPager($this->spArgs('page',1),$page_size)->findAll("`uid` = {$uid}  ",'time desc');
+		}
+		
+		if($this->spArgs('type') == 'search'){
+			$obj = spClass('db_follow');
+			$obj->linker['0']['enabled'] = false;
+			$data['data'] = $obj->spLinker()->spPager($this->spArgs('page',1),$page_size)->findAll("`touid` = {$uid}  ",'time desc');	
+		}
+		
+		$data['page'] = $obj->spPager()->getPager();
+		
+		foreach($data['data'] as &$d){
+			if($this->spArgs('type') != 'follow'){
+				$tudo = $d['tome'];
+			}else{
+				$tudo = $d['meto'];
+			}
+			unset($d['meto'],$d['tome']);
+			$tudo['h_url'] = goUserHome(array('uid'=>$tudo['uid'], 'domain'=>$tudo['domain']));
+			$tudo['h_img'] = avatar(array('uid'=>$tudo['uid'],'size'=>'middle'));
+			$tudo['sign'] = strip_tags($tudo['sign']);
+				$tudo['blogtag'] = ($tudo['blogtag'] != '') ?  explode(',',$tudo['blogtag']) : '';
+				$d['touid'] =  $tudo;
+				unset($tudo,$d['touid']['domain']);
+			$d['time'] = ybtime(array('time'=>$d['time']));
+			if($d['linker'] == 1){
+				$d['linker'] = true;
+			}else{
+				$d['linker'] = false;
+			}
+		}
+		$this->api_success($data);
+	}
 
 	function myreply(){
 		$obj = spClass('db_replay');
@@ -290,15 +335,18 @@ class user extends top
 					$d['location'] = goUserHome(array('uid'=>$href[1]));
 				}
 				
-				if($d['sys'] == 1){
+				if($d['sys'] == db_notice::NOTICE_TYPE_COMMENT){
 					$data['reply_count']++;
 					$data['reply'][] =  $d;
-				}elseif($d['sys'] == 2){
+				}elseif($d['sys'] == db_notice::NOTICE_TYPE_SYSTEM){
 					$data['sys_count']++;
 					$data['sys'][] =  $d;
-				}elseif($d['sys'] == 3){
+				}elseif($d['sys'] == db_notice::NOTICE_TYPE_FOLLOW){
 					$data['follow_count']++;
 					$data['follow'][] =  $d;
+				}elseif ($d['sys'] == db_notice::NOTICE_TYPE_FORWARD) {
+					$data['forward_count']++;
+					$data['forward'][] = $d;
 				}	
 				$data['all_count'] ++;
 			}

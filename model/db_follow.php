@@ -93,5 +93,29 @@ class db_follow extends ybModel
         }
 		return $str;
 	}
+	
+	//获取关注我的
+	function getFollowMe($uid,$type='')
+	{
+		$key = 'followme_'.$uid;
+		if(!spAccess('r',$key)){  //读取设置
+            $uidArr = $this->findAll(array('touid'=>$uid),'','uid');
+			if($type == ''){
+				if(is_array($uidArr)){
+					$str = '';
+					foreach($uidArr as $d){
+						$str .= $d['uid'].',';
+					}
+				}
+				$str = substr($str,0,-1);
+			}else{
+				$str  = $uidArr;
+			}
+            spAccess('w',$key,$str,3600);
+        }else{
+            $str = spAccess('r',$key);
+        }
+		return $str;
+	}
 }
 ?>

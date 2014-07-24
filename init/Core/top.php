@@ -86,6 +86,11 @@ class top extends spController
 	}
 	
 	protected function api_success($body){
+		//print_r(json_encode($body));
+		// json_decode($body);
+		// print_r(json_last_error());
+		
+		//print_r(json_encode( array('status'=>1,'msg'=>'', 'body'=>$body) ));
 		echo json_encode( array('status'=>1,'msg'=>'', 'body'=>$body) );
 		exit;
 	}

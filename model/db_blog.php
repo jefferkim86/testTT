@@ -88,19 +88,29 @@ class db_blog extends ybModel
     }
 	
 	/*内容转载*/
-	function blogrep($bid)
+	function blogrep($bid, $title = '')
 	{
 		$rs = $this->spLinker()->find(array('bid'=>$bid));
 		if(!$rs) { return -1;}
 		if($rs['uid'] == $_SESSION['uid']){return -2;} //自己的
 		
+		if ($rs['source_bid'] > 0) {
+			$source_blog = $this->spLinker()->find(array('bid'=>$rs['source_bid']));
+			if (!$source_blog) return -1;
+			$rs['body'] = $source_blog['body'];
+		} else {
+			$rs['source_bid'] = $bid;
+		}
+		
 		$repto = array('uid'=>$rs['uid'],
 					  'username'=>$rs['user']['username'],
 					  'domain'  =>$rs['user']['domain'],
+					  'bid'		=>$bid,
 					  'time'=>time()
 		);
 	
 		$split = split_attribute($rs['body']);
+		$split['attr']['forword_title'] = $rs['title'];
 		
 		
 		if($split['repto']){	$repto = '[repto]'.serialize($split['repto']).'[/repto]';}else{$repto = '[repto]'.serialize($repto).'[/repto]';}
@@ -108,12 +118,23 @@ class db_blog extends ybModel
 		$rs['body'] = $repto.$attr.$split['body'];
 		$rs['uid'] = $_SESSION['uid'];
 		$rs['time'] = time();
-		unset($rs['bid'],$rs['hitcount'],$rs['feedcount'],$rs['replaycount'],$rs['noreply'],$rs['top'],$rs['user']);
+		$rs['title'] = $title;
+		unset($rs['bid'],$rs['forwardcount'],$rs['hitcount'],$rs['feedcount'],$rs['replaycount'],$rs['noreply'],$rs['top'],$rs['user']);
 		if($rs)
 		{
+			// 增加转发数量，会增加当前日志和原始日志的转发数
+			$this->incrField(array('bid'=>$bid), 'forwardcount');
+			if ($rs['source_bid'] != $bid) {
+				$this->incrField(array('bid'=>$rs['source_bid']), 'forwardcount');
+				spClass('db_feeds')->addRep(array('bid'=>$rs['source_bid']),$_SESSION['uid'], $title);
+			}
+			
 			spClass('db_member')->incrField(array('uid'=>$_SESSION['uid']),'num');  //我发布的统计+1
-			spClass('db_feeds')->addRep(array('bid'=>$bid),$_SESSION['uid']);
-			$this->create($rs);
+			spClass('db_feeds')->addRep(array('bid'=>$bid),$_SESSION['uid'], $title);
+			$new_bid = $this->create($rs);
+			if ($new_bid) {
+				spClass('db_notice')->noticeForward($_SESSION['uid'], $rs['uid'], $bid, $new_bid, $rs['title']);
+			}
 			return 1;
 		}else{
 			return -1; //无效的

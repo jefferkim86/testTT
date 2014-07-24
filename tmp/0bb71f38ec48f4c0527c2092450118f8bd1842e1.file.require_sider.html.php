@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-22 23:51:20
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-24 21:41:40
          compiled from "tplv2/require_sider.html" */ ?>
-<?php /*%%SmartyHeaderCode:147662176053ce8878ab57a8-09770532%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:193115327053d10d14ef73f9-41099099%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0bb71f38ec48f4c0527c2092450118f8bd1842e1' => 
     array (
       0 => 'tplv2/require_sider.html',
-      1 => 1406044253,
+      1 => 1406204511,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '147662176053ce8878ab57a8-09770532',
+  'nocache_hash' => '193115327053d10d14ef73f9-41099099',
   'function' => 
   array (
   ),
@@ -134,6 +134,8 @@ if ($_smarty_tpl->_count($_from) > 0){
 		</script>
 	<?php }?>
 -->
+
+
 	<div class="user clearfix">
 		<div class="user-info">
 			<div class="logo">
@@ -153,6 +155,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 			</ul>
 		</div>
 	</div>
+	
 
 	<div class="sider-mod sider-menu mt20">
 		<ul class="menu-list">

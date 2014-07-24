@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-16 22:43:08
+<?php /* Smarty version Smarty-3.0.6, created on 2014-01-17 21:48:39
          compiled from "tplv2/theme/default/header.html" */ ?>
-<?php /*%%SmartyHeaderCode:26606646553c68f7c40b3c9-81164010%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:73286540652d934b7edcbf9-72427866%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '84ac14cc4c65fcde1a7474fcaa389ffbb05c276c' => 
     array (
       0 => 'tplv2/theme/default/header.html',
-      1 => 1405521787,
+      1 => 1341236348,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '26606646553c68f7c40b3c9-81164010',
+  'nocache_hash' => '73286540652d934b7edcbf9-72427866',
   'function' => 
   array (
   ),
@@ -23,7 +23,7 @@ $_smarty_tpl->decodeProperties(array (
 <title> <?php if ($_smarty_tpl->getVariable('titles')->value!=''){?> <?php echo $_smarty_tpl->getVariable('titles')->value;?>
  - <?php }?><?php echo $_smarty_tpl->getVariable('username')->value;?>
  - <?php echo $_smarty_tpl->getVariable('yb')->value['site_title'];?>
-</title>
+ - Powered by 云边轻博</title>
 <meta charset="utf-8" />
 <base href="<?php echo $_smarty_tpl->getVariable('url')->value;?>
 /" />
@@ -92,8 +92,8 @@ css/style.css" rel="stylesheet" type="text/css">
 <?php if (islogin()){?>
     <a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'index'),$_smarty_tpl);?>
 " target="_top" class="return"><span>返回首页</span></a>
-   <!--  <a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'customize'),$_smarty_tpl);?>
-" target="_top" class="custom"><span>个性设置</span></a> -->
+    <a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'customize'),$_smarty_tpl);?>
+" target="_top" class="custom"><span>个性设置</span></a>
 <?php }else{ ?>
     <a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'index'),$_smarty_tpl);?>
 " class="return"><span>返回首页</span></a>

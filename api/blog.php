@@ -29,14 +29,12 @@ class blog extends top
 		$sql = "SELECT b. * , k.id AS likeid  ,m.username,m.domain
 				FROM `".DBPRE."blog` AS b LEFT JOIN `".DBPRE."likes` AS k ON ( b.bid = k.bid AND k.uid ='$this->uid' )
 				LEFT JOIN `".DBPRE."member`  as m on b.uid = m.uid where b.open = 1 $cond ORDER BY b.time desc";
-			
 		$data['blog'] = spClass('db_blog')->spPager($this->spArgs('page',1),$pageLimit)->findSql($sql);
 		$data['page'] = spClass('db_blog')->spPager()->getPager();
 		unset($data['page']['all_pages']);
+		//print_r($data['blog']);
 		if(!empty($data['blog'])){
-			foreach($data['blog'] as &$d){
-				$this->foramt_feeds($d);
-			}
+			$data['blog'] = $this->translate_feed($data['blog']);
 			$this->api_success($data);
 		}else{
 			$this->api_success("");
@@ -51,9 +49,7 @@ class blog extends top
 				FROM `".DBPRE."blog` AS b LEFT JOIN `".DBPRE."likes` AS k ON ( b.bid = k.bid AND k.uid ='$this->uid' )
 				LEFT JOIN `".DBPRE."member`  as m on b.uid = m.uid where b.open in (1,-2) and b.bid = '$bid'";
 		$data['blog'] = spClass('db_blog')->findSql($sql);
-		foreach($data['blog'] as &$d){
-			$this->foramt_feeds($d,0);
-		}
+		$data['blog'] = $this->translate_feed($data['blog']);
 		$this->api_success($data);
 	}
 	
@@ -355,7 +351,7 @@ class blog extends top
 		if($this->uid ==0){
 			$this->api_error('需要登陆才能继续操作');
 		}
-		$rs = spClass('db_blog')->blogrep($this->spArgs('bid'));
+		$rs = spClass('db_blog')->blogrep($this->spArgs('bid'), $this->spArgs('title'));
 		if($rs == 1)
 		{
 			$this->api_success('内容已经成功转载',goUserHome(array('uid'=>$this->uid)));
@@ -427,6 +423,27 @@ class blog extends top
 		$this->api_success($data);
 	}
 	
+	function getforward() {
+		$bid = $this->spArgs('bid');
+		$result = spClass('db_feeds')->spLinker()->spPager($this->spArgs('page',1),$this->spArgs('limit',10))->findAll(array('bid'=>$this->spArgs('bid'), 'type'=>'foword'),'id desc');
+		
+		$pager = '';
+		$data  = array();
+		$data['page'] = spClass('db_feeds')->spPager()->getPager();
+		
+		foreach($result as &$d){
+			
+			$d['info']     = $this->parse_uid($d['info']);
+			$d['h_url']    = goUserHome(array('uid'=>$d['uid'], 'domain'=>$d['domain']));
+			$d['h_img']    = avatar(array('uid'=>$d['uid'],'size'=>'small'));
+			$d['time']     = ybtime(array('time'=>$d['time']));
+			$d['del_flag'] = islogin() ? 1:0;
+			$d['rep_flag'] = ( $this->uid != $d['uid'] && $this->uid != '') ? 1:0;
+		}
+		$data['body'] = $result;
+		$this->api_success($data);
+	}
+	
 	/*登录时候显示用户的状态*/
 	function loginUserHot(){
 		if(!spAccess('r','loginUserHot')){  //读取缓存
@@ -455,6 +472,7 @@ class blog extends top
 	//处理feeds给前端显示
 	//$split 是否截断内容
 	private function foramt_feeds(& $d,$split=1){
+		
 		$d['more'] = 0;
 		$d['h_url'] =  goUserHome(array('uid'=>$d['uid'], 'domain'=>$d['domain']));
 		$d['h_img'] = avatar(array('uid'=>$d['uid'],'size'=>'middle'));
@@ -508,5 +526,36 @@ class blog extends top
 		}
 	}
 	
+	private function translate_feed($listBlog) {
+		$arr_source_blog = array();
+		foreach($listBlog as &$d){
+			$this->foramt_feeds($d);
+			if ($d['source_bid'] > 0) {
+				if (!isset($arr_source_blog[$d['source_bid']])) {
+					$source_blog = $this->getSourceBlog($d['source_bid']);
+					$this->foramt_feeds($source_blog);
+					$arr_source_blog[$d['source_bid']] = $source_blog;
+				}
+				$d['source_blog'] = $arr_source_blog[$d['source_bid']];
+			} else {
+				$d['source_blog'] = $d;
+			}
+				
+			if (isset($d['repto']) && isset($d['repto']['bid']) && $d['repto']['bid'] != $d['source_bid']) {
+				if (!isset($arr_source_blog[$d['repto']['bid']])) {
+					$source_blog = $this->getSourceBlog($d['repto']['bid']);
+					$this->foramt_feeds($source_blog);
+					$arr_source_blog[$d['repto']['bid']] = $source_blog;
+				}
+				$d['forward_blog'] = $arr_source_blog[$d['repto']['bid']];
+			}
+		}
+		
+		return $listBlog;
+	}
+	
+	private function getSourceBlog($bid) {
+		return spClass('db_blog')->find(array('bid'=>$bid));
+	}
 	
 }

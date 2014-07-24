@@ -19,6 +19,10 @@ class api extends top
 		if(!is_object($handle_controller) || !method_exists($handle_controller, $__action)){
 			$this->api_error($__controller.' - '.$__action.' No find');
 		}
+
+		 //var_dump($handle_controller);
+		 //echo $GLOBALS['G_SP']['api_path'].'/'.$__controller.".php";
+
 		$handle_controller->$__action();
 	}
 }

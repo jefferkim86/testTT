@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2012-12-21 22:42:55
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-12 20:11:56
          compiled from "tplv2\require_header.html" */ ?>
-<?php /*%%SmartyHeaderCode:2124050d4756fe76e09-44260650%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1094553c1260c44fdd8-51363254%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '5afc672a478a263783b97767e7287635dfa6aeb3' => 
     array (
       0 => 'tplv2\\require_header.html',
-      1 => 1341155278,
+      1 => 1390148382,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2124050d4756fe76e09-44260650',
+  'nocache_hash' => '1094553c1260c44fdd8-51363254',
   'function' => 
   array (
   ),
@@ -36,11 +36,11 @@ $_smarty_tpl->decodeProperties(array (
 <?php }?><?php echo $_smarty_tpl->getVariable('yb')->value['site_keyword'];?>
 " />
     <link rel="shortcut icon" href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/image/favicon.ico" type="image/x-icon">
+/image/favicon.png" type="image/x-icon">
 	<link rel="Bookmark" href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/image/favicon.ico" type="image/x-icon">
+/image/favicon.png" type="image/x-icon">
 	<link rel="icon" href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/image/favicon.ico" type="image/x-icon">
+/image/favicon.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" media="screen" href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /css/common.css" class="cssfx"/>
 	<?php $_template = new Smarty_Internal_Template("require_js.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
@@ -70,8 +70,6 @@ $_smarty_tpl->decodeProperties(array (
 ">推荐</a></li>
 				<li <?php if ($_smarty_tpl->getVariable('CurrentModule')->value=='discover'){?>class="current"<?php }?>><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'discovery'),$_smarty_tpl);?>
 ">发现</a></li>
-				<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'site','a'=>'licenses'),$_smarty_tpl);?>
-">授权</a></li>
 			</div>
 			<?php if (islogin()){?>
 			<div id="tool">			

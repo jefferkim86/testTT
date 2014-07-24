@@ -5,7 +5,7 @@
 //$Id: db_notice.php 1309 2012-07-22 03:21:13Z anythink $ 
 
 //通知发送
-//系统通知级别 0 用户私信  1 评论通知  2 系统通知 3关注通知
+//系统通知级别 0 用户私信  1 评论通知  2 系统通知 3关注通知 4转发通知 5喜欢通知 6回复通知
 class db_notice extends ybModel  
 {  
 	var $pk = "id"; 
@@ -23,37 +23,108 @@ class db_notice extends ybModel
 		
 
     );  
+    
+    /**
+     * 
+     * 用户私信
+     * @var unknown_type
+     */
+    const NOTICE_TYPE_PRAVITE = 0;
+    /**
+     * 
+     * 评论通知
+     * @var unknown_type
+     */
+    const NOTICE_TYPE_COMMENT = 1;
+    /**
+     * 
+     * 系统通知
+     * @var unknown_type
+     */
+    const NOTICE_TYPE_SYSTEM = 2;
+    /**
+     * 
+     * 关注通知
+     * @var unknown_type
+     */
+    const NOTICE_TYPE_FOLLOW = 3;
+    /**
+     * 
+     * 转发通知
+     * @var unknown_type
+     */
+    const NOTICE_TYPE_FORWARD = 4;
+    /**
+     * 
+     * 喜欢通知
+     * @var unknown_type
+     */
+    const NOTICE_TYPE_LIKE = 5;
+    /**
+     * 
+     * 回复通知
+     * @var unknown_type
+     */
+    const NOTICE_TYPE_REPLAY = 6;
 
 	/*评论回复列表*/
 	function noticeReplay($row,$title,$msg='')
+//	function noticeReplay($uid, $imuid, $bid, $title = null)
 	{
-		$this->create(array('uid'=>$_SESSION['uid'],'sys'=>'1','foruid'=>$row['foruid'],'title'=>$title,'info'=>$msg,'time'=>time(),'location'=>'blog|'.$row['bid'],'time'=>time()));
-		$this->sendReplay($_SESSION['uid'],$row['foruid'],$msg,$row['bid']);
+//		$this->noticeReady($uid, self::NOTICE_TYPE_COMMENT, $imuid, '评论通知', $title, 'blog|'.$bid);
+		$this->create(array('uid'=>$_SESSION['uid'],'sys'=>self::NOTICE_TYPE_COMMENT,'foruid'=>$row['foruid'],'title'=>$title,'info'=>$msg,'time'=>time(),'location'=>'blog|'.$row['bid'],'time'=>time()));
+//		$this->sendReplay($_SESSION['uid'],$row['foruid'],$msg,$row['bid']);
+	}
+	
+	function noticeComment($uid, $imuid, $bid, $title = null)
+	{
+		$this->noticeReady($uid, self::NOTICE_TYPE_COMMENT, $imuid, '评论通知', $title, 'blog|'.$bid);
+//		$this->create(array('uid'=>$_SESSION['uid'],'sys'=>self::NOTICE_TYPE_COMMENT,'foruid'=>$row['foruid'],'title'=>$title,'info'=>$msg,'time'=>time(),'location'=>'blog|'.$row['bid'],'time'=>time()));
+//		$this->sendReplay($_SESSION['uid'],$row['foruid'],$msg,$row['bid']);
 	}
 
 	/*关注通知*/
 	function noticeFollow($uid,$imuid,$is=1){
 		if($is ==1){
-			$this->noticeReady($imuid,3,$uid,'关注通知','关注了你','user|'.$uid);
+			$this->noticeReady($imuid,self::NOTICE_TYPE_FOLLOW,$uid,'关注通知','关注了你','user|'.$uid, null);
 			$this->sendFollow($uid,$imuid);
 		}else{
-			$this->noticeReady($imuid,3,$uid,'关注通知','互相关注','user|'.$uid);
+			$this->noticeReady($imuid,self::NOTICE_TYPE_FOLLOW,$uid,'关注通知','互相关注','user|'.$uid, null);
 			$this->sendFollow($uid,$imuid);
 		}
+	}
+	
+	function noticeLike($uid, $imuid, $bid, $title = null) {
+		$this->noticeReady($uid, self::NOTICE_TYPE_LIKE, $imuid, "喜欢通知", $title, 'blog|'.$bid);
 	}
 	
 	/*审核提示发送*/
 	function blogverify($uid){
 		$title = '发布内容通知';
 		$info = '您发布的内容正在人工审核，在审核完成之前将不会在首页显示。';
-		$this->noticeReady(0,2,$uid,$title,$info,'');
+		$this->noticeReady(0,self::NOTICE_TYPE_SYSTEM,$uid,$title,$info,'', null);
+	}
+	
+	/**
+	 * 
+	 * 转发通知
+	 * @param unknown_type $uid
+	 * @param unknown_type $imuid
+	 * @param unknown_type $bid
+	 * @param unknown_type $title
+	 */
+	function noticeForward($uid, $imuid, $bid, $newBid, $title = null) {
+		$this->noticeReady($uid, self::NOTICE_TYPE_FORWARD, $imuid, "转发通知", $title, 'blog|'.$newBid, array('bid'=>$bid));
 	}
 	
 	/*creaty ready*/
 	/*location formay gotomod|id*/
-	private function noticeReady($uid,$type,$imuid,$title,$info,$location)
+	private function noticeReady($uid,$type,$imuid,$title,$info,$location, array $extend = array())
 	{
-		return $this->create(array('uid'=>$uid,'sys'=>$type,'foruid'=>$imuid,'title'=>$title,'info'=>$info,'location'=>$location,'time'=>time()));
+		if ($extend != null && count($extend) > 0) {
+			$extend = serialize($extend);
+		}
+		return $this->create(array('uid'=>$uid,'sys'=>$type,'foruid'=>$imuid,'title'=>$title,'info'=>$info,'location'=>$location,'time'=>time(), 'extend'=>$extend));
 	}
 	
 	
@@ -62,7 +133,7 @@ class db_notice extends ybModel
 	*/
 	function noticeSystem($uid_array,$msg,$imuid){
 		foreach($uid_array as $uid){
-			$this->noticeReady($uid,2,$imuid,'系统通知',$msg,'user|'.$uid);
+			$this->noticeReady($uid,self::NOTICE_TYPE_SYSTEM,$imuid,'系统通知',$msg,'user|'.$uid, null);
 		}
 	}
 	

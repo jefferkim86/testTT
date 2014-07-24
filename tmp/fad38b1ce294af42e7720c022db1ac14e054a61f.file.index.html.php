@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-24 01:15:31
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-24 20:33:58
          compiled from "/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/index.html" */ ?>
-<?php /*%%SmartyHeaderCode:195272171853cfedb3a42443-40314524%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:92945498553d0fd36a19fb2-43705934%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'fad38b1ce294af42e7720c022db1ac14e054a61f' => 
     array (
       0 => '/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/index.html',
-      1 => 1406135730,
+      1 => 1406194436,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '195272171853cfedb3a42443-40314524',
+  'nocache_hash' => '92945498553d0fd36a19fb2-43705934',
   'function' => 
   array (
   ),
@@ -68,7 +68,7 @@ $_template->assign('top','yes'); echo $_template->getRenderedTemplate();?><?php 
 
 <script type="text/javascript" src=""></script>
 <script type="text/javascript">
-//TODO:获取页面
+	//TODO:获取页面
     var commentsView = new Tuitui.commentsView();
     var userView = new Tuitui.userView();
     var feedsView = new Tuitui.feedsView();

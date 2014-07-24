@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2012-12-21 22:42:56
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-12 20:11:56
          compiled from "tplv2\require_post.html" */ ?>
-<?php /*%%SmartyHeaderCode:2315650d475700ffe18-20541539%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1290253c1260ca5b400-93064491%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'f1c6f06e2b6ccd88dddb279ae96e0b9c611d0db3' => 
     array (
       0 => 'tplv2\\require_post.html',
-      1 => 1341154844,
+      1 => 1390141076,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2315650d475700ffe18-20541539',
+  'nocache_hash' => '1290253c1260ca5b400-93064491',
   'function' => 
   array (
   ),
@@ -26,24 +26,51 @@ $_smarty_tpl->decodeProperties(array (
 	    <div class="corner"></div>
 		<table cellpadding="0" cellspacing="0" border="0" class="cs_model">
 		    <tr>
-			    <?php  $_smarty_tpl->tpl_vars['model'] = new Smarty_Variable;
- $_from = $_smarty_tpl->getVariable('mconfig')->value['data']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
- $_smarty_tpl->tpl_vars['model']->total= $_smarty_tpl->_count($_from);
- $_smarty_tpl->tpl_vars['model']->iteration=0;
-if ($_smarty_tpl->tpl_vars['model']->total > 0){
-    foreach ($_from as $_smarty_tpl->tpl_vars['model']->key => $_smarty_tpl->tpl_vars['model']->value){
- $_smarty_tpl->tpl_vars['model']->iteration++;
- $_smarty_tpl->tpl_vars['model']->last = $_smarty_tpl->tpl_vars['model']->iteration === $_smarty_tpl->tpl_vars['model']->total;
- $_smarty_tpl->tpl_vars['smarty']->value['foreach']['model']['last'] = $_smarty_tpl->tpl_vars['model']->last;
-?>
-                <?php if ($_smarty_tpl->tpl_vars['model']->value['status']==1){?>
-			    <td><div class="list"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'post','a'=>'add','model'=>$_smarty_tpl->tpl_vars['model']->value['id']),$_smarty_tpl);?>
-" class="<?php echo $_smarty_tpl->tpl_vars['model']->value['icon'];?>
-" title="<?php echo $_smarty_tpl->tpl_vars['model']->value['desc'];?>
-"><span><?php echo $_smarty_tpl->tpl_vars['model']->value['name'];?>
+            	<?php $_smarty_tpl->tpl_vars['model'] = new Smarty_variable($_smarty_tpl->getVariable('mconfig')->value['data'][5], null, null);?>
+				<?php if ($_smarty_tpl->getVariable('model')->value['status']==1){?>
+			    <td><div class="list"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'post','a'=>'add','model'=>$_smarty_tpl->getVariable('model')->value['id']),$_smarty_tpl);?>
+" class="<?php echo $_smarty_tpl->getVariable('model')->value['icon'];?>
+" title="<?php echo $_smarty_tpl->getVariable('model')->value['desc'];?>
+"><span><?php echo $_smarty_tpl->getVariable('model')->value['name'];?>
 </span></a><?php if (!$_smarty_tpl->getVariable('smarty')->value['foreach']['model']['last']){?><div class="postline"></div><?php }?></div></td>
 				<?php }?>
-		        <?php }} ?>
+                
+                            	<?php $_smarty_tpl->tpl_vars['model'] = new Smarty_variable($_smarty_tpl->getVariable('mconfig')->value['data'][3], null, null);?>
+				<?php if ($_smarty_tpl->getVariable('model')->value['status']==1){?>
+			    <td><div class="list"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'post','a'=>'add','model'=>$_smarty_tpl->getVariable('model')->value['id']),$_smarty_tpl);?>
+" class="<?php echo $_smarty_tpl->getVariable('model')->value['icon'];?>
+" title="<?php echo $_smarty_tpl->getVariable('model')->value['desc'];?>
+"><span><?php echo $_smarty_tpl->getVariable('model')->value['name'];?>
+</span></a><?php if (!$_smarty_tpl->getVariable('smarty')->value['foreach']['model']['last']){?><div class="postline"></div><?php }?></div></td>
+				<?php }?>
+                
+                            	<?php $_smarty_tpl->tpl_vars['model'] = new Smarty_variable($_smarty_tpl->getVariable('mconfig')->value['data'][1], null, null);?>
+				<?php if ($_smarty_tpl->getVariable('model')->value['status']==1){?>
+			    <td><div class="list"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'post','a'=>'add','model'=>$_smarty_tpl->getVariable('model')->value['id']),$_smarty_tpl);?>
+" class="<?php echo $_smarty_tpl->getVariable('model')->value['icon'];?>
+" title="<?php echo $_smarty_tpl->getVariable('model')->value['desc'];?>
+"><span><?php echo $_smarty_tpl->getVariable('model')->value['name'];?>
+</span></a><?php if (!$_smarty_tpl->getVariable('smarty')->value['foreach']['model']['last']){?><div class="postline"></div><?php }?></div></td>
+				<?php }?>
+                
+                            	<?php $_smarty_tpl->tpl_vars['model'] = new Smarty_variable($_smarty_tpl->getVariable('mconfig')->value['data'][2], null, null);?>
+				<?php if ($_smarty_tpl->getVariable('model')->value['status']==1){?>
+			    <td><div class="list"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'post','a'=>'add','model'=>$_smarty_tpl->getVariable('model')->value['id']),$_smarty_tpl);?>
+" class="<?php echo $_smarty_tpl->getVariable('model')->value['icon'];?>
+" title="<?php echo $_smarty_tpl->getVariable('model')->value['desc'];?>
+"><span><?php echo $_smarty_tpl->getVariable('model')->value['name'];?>
+</span></a><?php if (!$_smarty_tpl->getVariable('smarty')->value['foreach']['model']['last']){?><div class="postline"></div><?php }?></div></td>
+				<?php }?>
+                
+                            	<?php $_smarty_tpl->tpl_vars['model'] = new Smarty_variable($_smarty_tpl->getVariable('mconfig')->value['data'][4], null, null);?>
+				<?php if ($_smarty_tpl->getVariable('model')->value['status']==1){?>
+			    <td><div class="list"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'post','a'=>'add','model'=>$_smarty_tpl->getVariable('model')->value['id']),$_smarty_tpl);?>
+" class="<?php echo $_smarty_tpl->getVariable('model')->value['icon'];?>
+" title="<?php echo $_smarty_tpl->getVariable('model')->value['desc'];?>
+"><span><?php echo $_smarty_tpl->getVariable('model')->value['name'];?>
+</span></a></div></td>
+				<?php }?>
+			    
 			</tr>
 		</table>
     </div>
