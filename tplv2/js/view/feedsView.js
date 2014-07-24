@@ -13,7 +13,6 @@ Tuitui.feedsView = Backbone.View.extend({
         this.collection.on("reset", function() {
             self.render();
         });
-
     },
     /*
      * @desc 获取feed详情
@@ -31,21 +30,30 @@ Tuitui.feedsView = Backbone.View.extend({
     /*
      * @desc 获取首页feeds
      * */
-    getFeeds: function() {
+    getFeeds: function(pageNo) {
         var self = this;
-        getApi('blog', 'feeds', {}, function(data) {
+        getApi('blog', 'feeds', {
+            'page': pageNo || 1
+        }, function(data) {
             var result = data.body;
+            //  var result = window.mockData.body;
+            $("#feed_loading").attr({
+                "currentPage": result.page.current_page,
+                "total_page": result.page.total_page
+            });
             self.collection.reset(result.blog);
         });
     },
 
     /*
-     **/
+     * @desc 获取个人主页feeds
+     * */
 
-    getMyFeeds: function() {
+    getMyFeeds: function(pageNo) {
         var self = this;
         getApi('blog', 'feeds', {
-            'uid': uid
+            'uid': uid,
+            'page': pageNo || 1
         }, function(data) {
             var result = data.body;
             self.collection.reset(result.blog);
@@ -54,9 +62,11 @@ Tuitui.feedsView = Backbone.View.extend({
     /*
      * @desc 获取我喜欢的feeds
      * */
-    getMyLike: function() {
+    getMyLike: function(pageNo) {
         var self = this;
-        getApi('user', 'mylikes', {}, function(data) {
+        getApi('user', 'mylikes', {
+            'page': pageNo || 1
+        }, function(data) {
             var result = data.body;
             self.collection.reset(result.blog);
         });

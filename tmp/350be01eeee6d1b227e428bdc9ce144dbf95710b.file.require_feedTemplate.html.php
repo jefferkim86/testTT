@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-23 22:03:31
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-24 17:51:00
          compiled from "tplv2/require_feedTemplate.html" */ ?>
-<?php /*%%SmartyHeaderCode:139594727053cfc0b3315616-00103095%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:181624699853d0d7040f36c0-19036830%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '350be01eeee6d1b227e428bdc9ce144dbf95710b' => 
     array (
       0 => 'tplv2/require_feedTemplate.html',
-      1 => 1406124182,
+      1 => 1406195430,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '139594727053cfc0b3315616-00103095',
+  'nocache_hash' => '181624699853d0d7040f36c0-19036830',
   'function' => 
   array (
   ),
@@ -36,7 +36,1007 @@ $_smarty_tpl->decodeProperties(array (
 
 </script>
 
-
+<script type="text/javascript" id="J-mock">
+  window.mockData = {
+    "status": 1,
+    "msg": "",
+    "body": {
+        "blog": [
+            {
+                "bid": "63",
+                "uid": "26",
+                "top": "0",
+                "type": "3",
+                "source_bid": "46",
+                "tag": "",
+                "title": null,
+                "body": "",
+                "open": "1",
+                "hitcount": "0",
+                "feedcount": "1",
+                "replaycount": "0",
+                "forwardcount": "0",
+                "likecount": "10",
+                "noreply": "0",
+                "time": "1天前",
+                "likeid": "30",
+                "username": "tester",
+                "domain": "tester",
+                "more": 0,
+                "h_url": "/index.php?c=userblog&a=index&domain=tester",
+                "h_img": "/avatar.php?uid=26&size=middle",
+                "b_url": "/index.php?c=userblog&a=show&bid=63",
+                "time_y": "2014.07",
+                "time_d": "21",
+                "attr": {
+                    "count": 3,
+                    "img": [
+                        {
+                            "url": "attachs/14/7/20/10/t_2342549635.png",
+                            "desc": "1元数据元数据元数据元数据"
+                        },
+                        {
+                            "url": "attachs/14/7/20/10/t_2343026875.png",
+                            "desc": "2元数据元数据元数据元数据"
+                        },
+                        {
+                            "url": "attachs/14/7/20/10/t_2343194431.jpg",
+                            "desc": "3元数据元数据元数据元数据"
+                        }
+                        
+                    ],
+                    "forword_title": "先写上测试代码"
+                },
+                "repto": {
+                  "uid": "23",
+                    "username": "minzhan",
+                    "domain": "",
+                    "bid": "57",
+                    "time": 1405954295,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=small"
+                },
+                "source_blog": {
+                    "bid": "46",
+                    "uid": "23",
+                    "top": "0",
+                    "type": "3",
+                    "source_bid": "0",
+                    "tag": "",
+                    "title": "teddkdfkfiwefij",
+                    "body": "",
+                    "open": "1",
+                    "hitcount": "0",
+                    "feedcount": "15",
+                    "replaycount": "0",
+                    "forwardcount": "17",
+                    "likecount": "0",
+                    "noreply": "0",
+                    "time": "17天前",
+                    "more": 0,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=middle",
+                    "b_url": "/index.php?c=userblog&a=show&bid=46",
+                    "time_y": "2014.07",
+                    "time_d": "06",
+                    "attr": {
+                        "count": 1,
+                        "img": [
+                            {
+                                "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                                "desc": "Boston city flow"
+                            }
+                        ]
+                    },
+                    "repto": null
+                },
+                "forward_blog": {
+                    "bid": "57",
+                    "uid": "23",
+                    "top": "0",
+                    "type": "3",
+                    "source_bid": "46",
+                    "tag": "",
+                    "title": "先写上测试代码",
+                    "body": "",
+                    "open": "1",
+                    "hitcount": "20",
+                    "feedcount": "16",
+                    "replaycount": "10",
+                    "forwardcount": "4",
+                    "likecount": "0",
+                    "noreply": "0",
+                    "time": "10天前",
+                    "more": 0,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=middle",
+                    "b_url": "/index.php?c=userblog&a=show&bid=57",
+                    "time_y": "2014.07",
+                    "time_d": "13",
+                    "attr": {
+                        "count": 1,
+                        "img": [
+                            {
+                                "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                                "desc": "Boston city flow"
+                            }
+                        ],
+                        "foword_title": "teddkdfkfiwefij"
+                    },
+                    "repto": {
+                        "uid": "23",
+                        "username": "minzhan",
+                        "domain": "",
+                        "bid": "46",
+                        "time": 1405245643,
+                        "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                        "h_img": "/avatar.php?uid=23&size=small"
+                    }
+                }
+            },
+            {
+                "bid": "62",
+                "uid": "25",
+                "top": "0",
+                "type": "2",
+                "source_bid": "46",
+                "tag": "",
+                "title": null,
+                "body": "",
+                "open": "1",
+                "hitcount": "0",
+                "feedcount": "0",
+                "replaycount": "0",
+                "forwardcount": "0",
+                "likecount": "0",
+                "noreply": "0",
+                "time": "2天前",
+                "likeid": null,
+                "username": "foryucy",
+                "domain": "yucy",
+                "more": 0,
+                "h_url": "/index.php?c=userblog&a=index&domain=yucy",
+                "h_img": "/avatar.php?uid=25&size=middle",
+                "b_url": "/index.php?c=userblog&a=show&bid=62",
+                "time_y": "2014.07",
+                "time_d": "21",
+                "attr": {
+                    "count": 1,
+                    "img": [
+                        {
+                            "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                            "desc": "Boston city flow"
+                        }
+                    ],
+                    "forword_title": "先写上测试代码"
+                },
+                "repto": {
+                    "uid": "23",
+                    "username": "minzhan",
+                    "domain": "",
+                    "bid": "57",
+                    "time": 1405954295,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=small"
+                },
+                "source_blog": {
+                    "bid": "46",
+                    "uid": "23",
+                    "top": "0",
+                    "type": "3",
+                    "source_bid": "0",
+                    "tag": "",
+                    "title": "teddkdfkfiwefij",
+                    "body": "",
+                    "open": "1",
+                    "hitcount": "0",
+                    "feedcount": "15",
+                    "replaycount": "0",
+                    "forwardcount": "17",
+                    "likecount": "0",
+                    "noreply": "0",
+                    "time": "17天前",
+                    "more": 0,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=middle",
+                    "b_url": "/index.php?c=userblog&a=show&bid=46",
+                    "time_y": "2014.07",
+                    "time_d": "06",
+                    "attr": {
+                        "count": 1,
+                        "img": [
+                            {
+                                "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                                "desc": "Boston city flow"
+                            }
+                        ]
+                    },
+                    "repto": null
+                },
+                "forward_blog": {
+                    "bid": "57",
+                    "uid": "23",
+                    "top": "0",
+                    "type": "3",
+                    "source_bid": "46",
+                    "tag": "",
+                    "title": "先写上测试代码",
+                    "body": "",
+                    "open": "1",
+                    "hitcount": "20",
+                    "feedcount": "16",
+                    "replaycount": "10",
+                    "forwardcount": "4",
+                    "likecount": "0",
+                    "noreply": "0",
+                    "time": "10天前",
+                    "more": 0,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=middle",
+                    "b_url": "/index.php?c=userblog&a=show&bid=57",
+                    "time_y": "2014.07",
+                    "time_d": "13",
+                    "attr": {
+                        "count": 1,
+                        "img": [
+                            {
+                                "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                                "desc": "Boston city flow"
+                            }
+                        ],
+                        "foword_title": "teddkdfkfiwefij"
+                    },
+                    "repto": {
+                        "uid": "23",
+                        "username": "minzhan",
+                        "domain": "",
+                        "bid": "46",
+                        "time": 1405245643,
+                        "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                        "h_img": "/avatar.php?uid=23&size=small"
+                    }
+                }
+            },
+            {
+                "bid": "61",
+                "uid": "25",
+                "top": "0",
+                "type": "3",
+                "source_bid": "46",
+                "tag": "",
+                "title": null,
+                "body": "",
+                "open": "1",
+                "hitcount": "0",
+                "feedcount": "0",
+                "replaycount": "0",
+                "forwardcount": "0",
+                "likecount": "0",
+                "noreply": "0",
+                "time": "2天前",
+                "likeid": null,
+                "username": "foryucy",
+                "domain": "yucy",
+                "more": 0,
+                "h_url": "/index.php?c=userblog&a=index&domain=yucy",
+                "h_img": "/avatar.php?uid=25&size=middle",
+                "b_url": "/index.php?c=userblog&a=show&bid=61",
+                "time_y": "2014.07",
+                "time_d": "21",
+                "attr": {
+                    "count": 1,
+                    "img": [
+                        {
+                            "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                            "desc": "Boston city flow"
+                        }
+                    ],
+                    "forword_title": "先写上测试代码"
+                },
+                "repto": {
+                    "uid": "23",
+                    "username": "minzhan",
+                    "domain": "",
+                    "bid": "57",
+                    "time": 1405952856,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=small"
+                },
+                "source_blog": {
+                    "bid": "46",
+                    "uid": "23",
+                    "top": "0",
+                    "type": "3",
+                    "source_bid": "0",
+                    "tag": "",
+                    "title": "teddkdfkfiwefij",
+                    "body": "",
+                    "open": "1",
+                    "hitcount": "0",
+                    "feedcount": "15",
+                    "replaycount": "0",
+                    "forwardcount": "17",
+                    "likecount": "0",
+                    "noreply": "0",
+                    "time": "17天前",
+                    "more": 0,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=middle",
+                    "b_url": "/index.php?c=userblog&a=show&bid=46",
+                    "time_y": "2014.07",
+                    "time_d": "06",
+                    "attr": {
+                        "count": 1,
+                        "img": [
+                            {
+                                "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                                "desc": "Boston city flow"
+                            }
+                        ]
+                    },
+                    "repto": null
+                },
+                "forward_blog": {
+                    "bid": "57",
+                    "uid": "23",
+                    "top": "0",
+                    "type": "3",
+                    "source_bid": "46",
+                    "tag": "",
+                    "title": "先写上测试代码",
+                    "body": "",
+                    "open": "1",
+                    "hitcount": "20",
+                    "feedcount": "16",
+                    "replaycount": "10",
+                    "forwardcount": "4",
+                    "likecount": "0",
+                    "noreply": "0",
+                    "time": "10天前",
+                    "more": 0,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=middle",
+                    "b_url": "/index.php?c=userblog&a=show&bid=57",
+                    "time_y": "2014.07",
+                    "time_d": "13",
+                    "attr": {
+                        "count": 1,
+                        "img": [
+                            {
+                                "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                                "desc": "Boston city flow"
+                            }
+                        ],
+                        "foword_title": "teddkdfkfiwefij"
+                    },
+                    "repto": {
+                        "uid": "23",
+                        "username": "minzhan",
+                        "domain": "",
+                        "bid": "46",
+                        "time": 1405245643,
+                        "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                        "h_img": "/avatar.php?uid=23&size=small"
+                    }
+                }
+            },
+            {
+                "bid": "60",
+                "uid": "25",
+                "top": "0",
+                "type": "3",
+                "source_bid": "46",
+                "tag": "",
+                "title": null,
+                "body": "",
+                "open": "1",
+                "hitcount": "0",
+                "feedcount": "0",
+                "replaycount": "0",
+                "forwardcount": "0",
+                "likecount": "0",
+                "noreply": "0",
+                "time": "2天前",
+                "likeid": null,
+                "username": "foryucy",
+                "domain": "yucy",
+                "more": 0,
+                "h_url": "/index.php?c=userblog&a=index&domain=yucy",
+                "h_img": "/avatar.php?uid=25&size=middle",
+                "b_url": "/index.php?c=userblog&a=show&bid=60",
+                "time_y": "2014.07",
+                "time_d": "21",
+                "attr": {
+                    "count": 1,
+                    "img": [
+                        {
+                            "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                            "desc": "Boston city flow"
+                        }
+                    ],
+                    "forword_title": "teddkdfkfiwefij"
+                },
+                "repto": {
+                    "uid": "23",
+                    "username": "minzhan",
+                    "domain": "",
+                    "bid": "46",
+                    "time": 1405876204,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=small"
+                },
+                "source_blog": {
+                    "bid": "46",
+                    "uid": "23",
+                    "top": "0",
+                    "type": "3",
+                    "source_bid": "0",
+                    "tag": "",
+                    "title": "teddkdfkfiwefij",
+                    "body": "",
+                    "open": "1",
+                    "hitcount": "0",
+                    "feedcount": "15",
+                    "replaycount": "0",
+                    "forwardcount": "17",
+                    "likecount": "0",
+                    "noreply": "0",
+                    "time": "17天前",
+                    "more": 0,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=middle",
+                    "b_url": "/index.php?c=userblog&a=show&bid=46",
+                    "time_y": "2014.07",
+                    "time_d": "06",
+                    "attr": {
+                        "count": 1,
+                        "img": [
+                            {
+                                "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                                "desc": "Boston city flow"
+                            }
+                        ]
+                    },
+                    "repto": null
+                }
+            },
+            {
+                "bid": "59",
+                "uid": "25",
+                "top": "0",
+                "type": "3",
+                "source_bid": "46",
+                "tag": "",
+                "title": "tkdkdkdk",
+                "body": "",
+                "open": "1",
+                "hitcount": "0",
+                "feedcount": "0",
+                "replaycount": "0",
+                "forwardcount": "0",
+                "likecount": "0",
+                "noreply": "0",
+                "time": "2天前",
+                "likeid": null,
+                "username": "foryucy",
+                "domain": "yucy",
+                "more": 0,
+                "h_url": "/index.php?c=userblog&a=index&domain=yucy",
+                "h_img": "/avatar.php?uid=25&size=middle",
+                "b_url": "/index.php?c=userblog&a=show&bid=59",
+                "time_y": "2014.07",
+                "time_d": "21",
+                "attr": {
+                    "count": 1,
+                    "img": [
+                        {
+                            "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                            "desc": "Boston city flow"
+                        }
+                    ],
+                    "forword_title": "先写上测试代码"
+                },
+                "repto": {
+                    "uid": "23",
+                    "username": "minzhan",
+                    "domain": "",
+                    "bid": 57,
+                    "time": 1405875913,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=small"
+                },
+                "source_blog": {
+                    "bid": "46",
+                    "uid": "23",
+                    "top": "0",
+                    "type": "3",
+                    "source_bid": "0",
+                    "tag": "",
+                    "title": "teddkdfkfiwefij",
+                    "body": "",
+                    "open": "1",
+                    "hitcount": "0",
+                    "feedcount": "15",
+                    "replaycount": "0",
+                    "forwardcount": "17",
+                    "likecount": "0",
+                    "noreply": "0",
+                    "time": "17天前",
+                    "more": 0,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=middle",
+                    "b_url": "/index.php?c=userblog&a=show&bid=46",
+                    "time_y": "2014.07",
+                    "time_d": "06",
+                    "attr": {
+                        "count": 1,
+                        "img": [
+                            {
+                                "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                                "desc": "Boston city flow"
+                            }
+                        ]
+                    },
+                    "repto": null
+                },
+                "forward_blog": {
+                    "bid": "57",
+                    "uid": "23",
+                    "top": "0",
+                    "type": "3",
+                    "source_bid": "46",
+                    "tag": "",
+                    "title": "先写上测试代码",
+                    "body": "",
+                    "open": "1",
+                    "hitcount": "20",
+                    "feedcount": "16",
+                    "replaycount": "10",
+                    "forwardcount": "4",
+                    "likecount": "0",
+                    "noreply": "0",
+                    "time": "10天前",
+                    "more": 0,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=middle",
+                    "b_url": "/index.php?c=userblog&a=show&bid=57",
+                    "time_y": "2014.07",
+                    "time_d": "13",
+                    "attr": {
+                        "count": 1,
+                        "img": [
+                            {
+                                "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                                "desc": "Boston city flow"
+                            }
+                        ],
+                        "foword_title": "teddkdfkfiwefij"
+                    },
+                    "repto": {
+                        "uid": "23",
+                        "username": "minzhan",
+                        "domain": "",
+                        "bid": "46",
+                        "time": 1405245643,
+                        "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                        "h_img": "/avatar.php?uid=23&size=small"
+                    }
+                }
+            },
+            {
+                "bid": "58",
+                "uid": "25",
+                "top": "0",
+                "type": "3",
+                "source_bid": "46",
+                "tag": "",
+                "title": "tkdkdkdk",
+                "body": "",
+                "open": "1",
+                "hitcount": "0",
+                "feedcount": "0",
+                "replaycount": "0",
+                "forwardcount": "0",
+                "likecount": "0",
+                "noreply": "0",
+                "time": "2天前",
+                "likeid": null,
+                "username": "foryucy",
+                "domain": "yucy",
+                "more": 0,
+                "h_url": "/index.php?c=userblog&a=index&domain=yucy",
+                "h_img": "/avatar.php?uid=25&size=middle",
+                "b_url": "/index.php?c=userblog&a=show&bid=58",
+                "time_y": "2014.07",
+                "time_d": "21",
+                "attr": {
+                    "count": 1,
+                    "img": [
+                        {
+                            "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                            "desc": "Boston city flow"
+                        }
+                    ],
+                    "forword_title": "teddkdfkfiwefij"
+                },
+                "repto": {
+                    "uid": "23",
+                    "username": "minzhan",
+                    "domain": "",
+                    "bid": 46,
+                    "time": 1405875825,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=small"
+                },
+                "source_blog": {
+                    "bid": "46",
+                    "uid": "23",
+                    "top": "0",
+                    "type": "3",
+                    "source_bid": "0",
+                    "tag": "",
+                    "title": "teddkdfkfiwefij",
+                    "body": "",
+                    "open": "1",
+                    "hitcount": "0",
+                    "feedcount": "15",
+                    "replaycount": "0",
+                    "forwardcount": "17",
+                    "likecount": "0",
+                    "noreply": "0",
+                    "time": "17天前",
+                    "more": 0,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=middle",
+                    "b_url": "/index.php?c=userblog&a=show&bid=46",
+                    "time_y": "2014.07",
+                    "time_d": "06",
+                    "attr": {
+                        "count": 1,
+                        "img": [
+                            {
+                                "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                                "desc": "Boston city flow"
+                            }
+                        ]
+                    },
+                    "repto": null
+                }
+            },
+            {
+                "bid": "57",
+                "uid": "23",
+                "top": "0",
+                "type": "3",
+                "source_bid": "46",
+                "tag": "",
+                "title": "先写上测试代码",
+                "body": "",
+                "open": "1",
+                "hitcount": "20",
+                "feedcount": "16",
+                "replaycount": "10",
+                "forwardcount": "4",
+                "likecount": "0",
+                "noreply": "0",
+                "time": "10天前",
+                "likeid": "26",
+                "username": "minzhan",
+                "domain": "",
+                "more": 0,
+                "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                "h_img": "/avatar.php?uid=23&size=middle",
+                "b_url": "/index.php?c=userblog&a=show&bid=57",
+                "time_y": "2014.07",
+                "time_d": "13",
+                "attr": {
+                    "count": 1,
+                    "img": [
+                        {
+                            "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                            "desc": "Boston city flow"
+                        }
+                    ],
+                    "foword_title": "teddkdfkfiwefij"
+                },
+                "repto": {
+                    "uid": "23",
+                    "username": "minzhan",
+                    "domain": "",
+                    "bid": "46",
+                    "time": 1405245643,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=small"
+                },
+                "source_blog": {
+                    "bid": "46",
+                    "uid": "23",
+                    "top": "0",
+                    "type": "3",
+                    "source_bid": "0",
+                    "tag": "",
+                    "title": "teddkdfkfiwefij",
+                    "body": "",
+                    "open": "1",
+                    "hitcount": "0",
+                    "feedcount": "15",
+                    "replaycount": "0",
+                    "forwardcount": "17",
+                    "likecount": "0",
+                    "noreply": "0",
+                    "time": "17天前",
+                    "more": 0,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=middle",
+                    "b_url": "/index.php?c=userblog&a=show&bid=46",
+                    "time_y": "2014.07",
+                    "time_d": "06",
+                    "attr": {
+                        "count": 1,
+                        "img": [
+                            {
+                                "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                                "desc": "Boston city flow"
+                            }
+                        ]
+                    },
+                    "repto": null
+                }
+            },
+            {
+                "bid": "56",
+                "uid": "25",
+                "top": "0",
+                "type": "3",
+                "source_bid": "46",
+                "tag": "",
+                "title": "先写上测试代码",
+                "body": "",
+                "open": "1",
+                "hitcount": "0",
+                "feedcount": "0",
+                "replaycount": "0",
+                "forwardcount": "0",
+                "likecount": "0",
+                "noreply": "0",
+                "time": "10天前",
+                "likeid": null,
+                "username": "foryucy",
+                "domain": "yucy",
+                "more": 0,
+                "h_url": "/index.php?c=userblog&a=index&domain=yucy",
+                "h_img": "/avatar.php?uid=25&size=middle",
+                "b_url": "/index.php?c=userblog&a=show&bid=56",
+                "time_y": "2014.07",
+                "time_d": "13",
+                "attr": {
+                    "count": 1,
+                    "img": [
+                        {
+                            "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                            "desc": "Boston city flow"
+                        }
+                    ],
+                    "foword_title": "teddkdfkfiwefij"
+                },
+                "repto": {
+                    "uid": "23",
+                    "username": "minzhan",
+                    "domain": "",
+                    "bid": "46",
+                    "time": 1405241277,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=small"
+                },
+                "source_blog": {
+                    "bid": "46",
+                    "uid": "23",
+                    "top": "0",
+                    "type": "3",
+                    "source_bid": "0",
+                    "tag": "",
+                    "title": "teddkdfkfiwefij",
+                    "body": "",
+                    "open": "1",
+                    "hitcount": "0",
+                    "feedcount": "15",
+                    "replaycount": "0",
+                    "forwardcount": "17",
+                    "likecount": "0",
+                    "noreply": "0",
+                    "time": "17天前",
+                    "more": 0,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=middle",
+                    "b_url": "/index.php?c=userblog&a=show&bid=46",
+                    "time_y": "2014.07",
+                    "time_d": "06",
+                    "attr": {
+                        "count": 1,
+                        "img": [
+                            {
+                                "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                                "desc": "Boston city flow"
+                            }
+                        ]
+                    },
+                    "repto": null
+                }
+            },
+            {
+                "bid": "55",
+                "uid": "25",
+                "top": "0",
+                "type": "3",
+                "source_bid": "46",
+                "tag": "",
+                "title": "先写上测试代码",
+                "body": "",
+                "open": "1",
+                "hitcount": "2",
+                "feedcount": "0",
+                "replaycount": "0",
+                "forwardcount": "0",
+                "likecount": "0",
+                "noreply": "0",
+                "time": "10天前",
+                "likeid": null,
+                "username": "foryucy",
+                "domain": "yucy",
+                "more": 0,
+                "h_url": "/index.php?c=userblog&a=index&domain=yucy",
+                "h_img": "/avatar.php?uid=25&size=middle",
+                "b_url": "/index.php?c=userblog&a=show&bid=55",
+                "time_y": "2014.07",
+                "time_d": "13",
+                "attr": {
+                    "count": 1,
+                    "img": [
+                        {
+                            "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                            "desc": "Boston city flow"
+                        }
+                    ],
+                    "foword_title": "teddkdfkfiwefij"
+                },
+                "repto": {
+                    "uid": "23",
+                    "username": "minzhan",
+                    "domain": "",
+                    "bid": "46",
+                    "time": 1405241055,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=small"
+                },
+                "source_blog": {
+                    "bid": "46",
+                    "uid": "23",
+                    "top": "0",
+                    "type": "3",
+                    "source_bid": "0",
+                    "tag": "",
+                    "title": "teddkdfkfiwefij",
+                    "body": "",
+                    "open": "1",
+                    "hitcount": "0",
+                    "feedcount": "15",
+                    "replaycount": "0",
+                    "forwardcount": "17",
+                    "likecount": "0",
+                    "noreply": "0",
+                    "time": "17天前",
+                    "more": 0,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=middle",
+                    "b_url": "/index.php?c=userblog&a=show&bid=46",
+                    "time_y": "2014.07",
+                    "time_d": "06",
+                    "attr": {
+                        "count": 1,
+                        "img": [
+                            {
+                                "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                                "desc": "Boston city flow"
+                            }
+                        ]
+                    },
+                    "repto": null
+                }
+            },
+            {
+                "bid": "54",
+                "uid": "25",
+                "top": "0",
+                "type": "3",
+                "source_bid": "46",
+                "tag": "",
+                "title": "测试代码",
+                "body": "",
+                "open": "1",
+                "hitcount": "0",
+                "feedcount": "0",
+                "replaycount": "0",
+                "forwardcount": "0",
+                "likecount": "0",
+                "noreply": "0",
+                "time": "10天前",
+                "likeid": null,
+                "username": "foryucy",
+                "domain": "yucy",
+                "more": 0,
+                "h_url": "/index.php?c=userblog&a=index&domain=yucy",
+                "h_img": "/avatar.php?uid=25&size=middle",
+                "b_url": "/index.php?c=userblog&a=show&bid=54",
+                "time_y": "2014.07",
+                "time_d": "13",
+                "attr": {
+                    "count": 1,
+                    "img": [
+                        {
+                            "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                            "desc": "Boston city flow"
+                        }
+                    ],
+                    "foword_title": "teddkdfkfiwefij"
+                },
+                "repto": {
+                    "uid": "23",
+                    "username": "minzhan",
+                    "domain": "",
+                    "bid": "46",
+                    "time": 1405240588,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=small"
+                },
+                "source_blog": {
+                    "bid": "46",
+                    "uid": "23",
+                    "top": "0",
+                    "type": "3",
+                    "source_bid": "0",
+                    "tag": "",
+                    "title": "teddkdfkfiwefij",
+                    "body": "",
+                    "open": "1",
+                    "hitcount": "0",
+                    "feedcount": "15",
+                    "replaycount": "0",
+                    "forwardcount": "17",
+                    "likecount": "0",
+                    "noreply": "0",
+                    "time": "17天前",
+                    "more": 0,
+                    "h_url": "/index.php?c=userblog&a=index&domain=home&uid=23",
+                    "h_img": "/avatar.php?uid=23&size=middle",
+                    "b_url": "/index.php?c=userblog&a=show&bid=46",
+                    "time_y": "2014.07",
+                    "time_d": "06",
+                    "attr": {
+                        "count": 1,
+                        "img": [
+                            {
+                                "url": "attachs/14/7/06/46/t_1451599859.jpg",
+                                "desc": "Boston city flow"
+                            }
+                        ]
+                    },
+                    "repto": null
+                }
+            }
+        ],
+        "page": {
+            "total_count": "43",
+            "page_size": "10",
+            "total_page": 5,
+            "first_page": 1,
+            "prev_page": 1,
+            "next_page": 2,
+            "last_page": 5,
+            "current_page": 1
+        }
+    }
+}
+</script>
 <script type="text/template" id="J-feedLayout">
 
     <div class="feed feed-${feedType} clearfix" id="J-blog-${bid}">
@@ -95,7 +1095,12 @@ $_smarty_tpl->decodeProperties(array (
                                 <li class="loading-list">正在加载列表</li>
                            </ul>
                         </div>
+                        <div class="page-func">
+                            <div class="pagination">
+                                <span class="fold">收起</span><a href="#" class="comment-more">查看更多</a>
+                            </div>
                         </div>
+                      </div>
                     </div>
                 </div>
                 {@/if}
@@ -124,7 +1129,12 @@ $_smarty_tpl->decodeProperties(array (
                     <li class="loading-list">正在加载列表</li>
                </ul>
             </div>
+            <div class="page-func">
+                <div class="pagination">
+                    <span class="fold">收起</span><a href="#" class="comment-more">查看更多</a>
+                </div>
             </div>
+          </div>
         </div>
     </div>
     

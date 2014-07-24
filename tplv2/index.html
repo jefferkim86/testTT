@@ -45,4 +45,7 @@
     var userView = new Tuitui.userView();
     var feedsView = new Tuitui.feedsView();
     feedsView.getFeeds();
+    function G_LoadMore(curPage){
+        feedsView.getFeeds(curPage);
+    }
 </script>

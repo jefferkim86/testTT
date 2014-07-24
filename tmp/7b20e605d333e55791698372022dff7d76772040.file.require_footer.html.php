@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-23 22:57:54
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-24 01:14:51
          compiled from "tplv2/require_footer.html" */ ?>
-<?php /*%%SmartyHeaderCode:44583887653cfcd72149347-31455943%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:129409853753cfed8b8cc769-03893638%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7b20e605d333e55791698372022dff7d76772040' => 
     array (
       0 => 'tplv2/require_footer.html',
-      1 => 1406127465,
+      1 => 1406135690,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '44583887653cfcd72149347-31455943',
+  'nocache_hash' => '129409853753cfed8b8cc769-03893638',
   'function' => 
   array (
   ),
@@ -56,6 +56,119 @@ $(document).ready(function(){
 		$(function() { $backToTopFun(); });
 	})();
 });
+
+
+
+
+// var container = $("#feedArea");
+// function _canLoad() {
+
+//     var h = DOM.offset(container).top + container.offsetHeight,
+//         heightCondition = h - DOM.scrollTop() - host.config.distance < DOM.viewportHeight();
+
+
+//     return heightCondition;
+// }
+// function _initCheck() {
+
+//     // 防止ie6过早操作DOM, 去掉了以上注释的操作
+//     if (_canLoad()) {
+//          getFeeds();
+//     }
+//     else {
+//         _onScroll();
+//     }
+// }
+// function getFeeds(){
+// 	feedsView.getFeeds(curPage);
+// }
+// var timeing;
+// function _scrollFn() {
+
+//         if (!isRun) return;
+
+//         if (_canLoad() && STATUS == "stop") {
+
+//             if (timeing) {
+//                 clearTimeout(timeing);
+//                 timeing = null;
+//             }
+
+//             timeing = setTimeout(function () {
+
+//                 getFeeds();
+
+//             }, 300);
+//         }
+
+//     };
+// // 添加滚动条事件
+// function _onScroll() {
+//     //滚动事件，节流
+//     $(window).bind("scroll",function() {
+//     	_scrollFn();
+//     }
+//      $(window).bind("resize",function() {
+//      	_scrollFn();
+//      }
+// }
+
+
+// function pause() {
+//     isRun = false;
+// }
+
+// function restart() {
+//     isRun = true;
+// }
+
+// function destroy() {
+// 	$(window).unbind("scroll",function() {
+//     	_scrollFn();
+//     }
+//      $(window).unbind("resize",function() {
+//      	_scrollFn();
+//      }
+
+//     clearTimeout(timeing);
+//     timeing = null;
+
+//     STATUS = "destroy";
+
+// }
+
+
+function getfeeds() {
+    var fold = $(window).height() + $(document).scrollTop();
+    var doc_height = $(document.body).height();
+    var loading = $("#feed_loading");
+    var curPage =  parseInt(loading.attr("currentpage"));
+    var total_page =  parseInt(loading.attr("total_page")); 
+
+    if (fold >= doc_height - 20) {
+    	curPage++;
+        if (total_page == 0) {
+            nomore.show();
+            return false
+        }
+        if(curPage == total_page){
+        	loading.hide();
+        }
+        if (curPage > total_page) {
+            $(window).unbind("scroll");
+            
+        } else {
+            $(window).unbind("scroll");
+            loading.show();
+            G_LoadMore(curPage);
+        }
+    }
+}
+$(window).bind("scroll",function() {
+	setTimeout(function () {
+		getfeeds()
+	},300);
+})
 </script>
 <?php }?>
 

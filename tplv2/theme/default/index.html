@@ -42,9 +42,12 @@
 
 <script type="text/javascript" src=""></script>
 <script type="text/javascript">
-//TODO:获取页面
+	//TODO:获取页面
     var commentsView = new Tuitui.commentsView();
     var userView = new Tuitui.userView();
     var feedsView = new Tuitui.feedsView();
     feedsView.getMyFeeds();
+    function G_LoadMore(curPage){
+        feedsView.getMyFeeds(curPage);
+    }
 </script>

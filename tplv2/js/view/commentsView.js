@@ -19,20 +19,62 @@ Tuitui.commentsView = Backbone.View.extend({
             self.render();
         });
         this.collection.on("add", function(comment) {
-            self.addComment(comment,true);
+            self.addComment(comment, true);
         })
     },
+    /*
+     * @param  {bid} blogId
+     * @param  {el} feed-ft元素
+     * @param  {pageNo} 首页comment不传入则不出分页
+     * */
 
-    getReplys: function(bid, el, pageNo) {
+    getReplys: function(bid, el, totalPage, pageNo) {
         var self = this;
         this.el = el;
+        this.bid = bid;
+        this.totalPage = totalPage;
+        if (pageNo) {
+            this.commentPagination(function(index) {
+                self._queryReply(bid, index);
+            });
+        } else {
+            //_queryReply 会加1
+            pageNo = pageNo || 0;
+            this._queryReply(bid, pageNo);
+        }
+    },
+
+    _queryReply: function(bid, pageNo) {
+        var self = this;
         getApi('blog', 'reply', {
             bid: bid,
-            page: pageNo
+            page: pageNo + 1
         }, function(data) {
             var result = data.body;
             self.collection.reset(result.body);
         });
+    },
+
+    commentPagination: function(cb) {
+        var self = this;
+        var bid = this.bid;
+        var el = this.el;
+        var options = {
+            items_per_page: 10,
+            num_display_entries: 10,
+            current_page: 0,
+            num_edge_entries: 0,
+            link_to: "javascript:void(0)",
+            prev_text: "Prev",
+            next_text: "Next",
+            ellipse_text: "...",
+            prev_show_always: true,
+            next_show_always: true,
+            callback: function(index) {
+                cb && cb(index);
+            }
+        };
+        el.find(".pagination").pagination(this.totalPage, options);
     },
 
     submitComment: function(e) {
@@ -65,7 +107,9 @@ Tuitui.commentsView = Backbone.View.extend({
                     "h_img": '/tuitui/avatar.php?uid=' + uid + '&size=small',
                     "h_url": '/tuitui/index.php?c=userblog&a=index&domain=home&uid=' + uid,
                     "msg": inputVal,
-                    "user": {'username':G_username}
+                    "user": {
+                        'username': G_username
+                    }
                 });
 
             } else {
@@ -77,16 +121,16 @@ Tuitui.commentsView = Backbone.View.extend({
 
 
 
-    addComment: function(comment,isAdd) {
+    addComment: function(comment, isAdd) {
         var commentView = new Tuitui.commentItemView({
             model: comment
         });
-        if(isAdd){
+        if (isAdd) {
             this.el.find(".J_CmtList").prepend(commentView.render());
-        }else{
+        } else {
             this.el.find(".J_CmtList").append(commentView.render());
         }
-        
+
     },
 
 

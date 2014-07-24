@@ -33,7 +33,6 @@
 
 {include file="require_feedTemplate.html"}
 
-
 {include file="require_footer.html" top=yes}
 
 <script type="text/javascript" src=""></script>
@@ -42,4 +41,7 @@
     var userView = new Tuitui.userView();
     var feedsView = new Tuitui.feedsView();
     feedsView.getMyLike();
+    function G_LoadMore(curPage){
+        feedsView.getMyLike(curPage);
+    }
 </script>

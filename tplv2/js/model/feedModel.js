@@ -59,21 +59,24 @@ Tuitui.feedModel = Backbone.Model.extend({
 			'username': this.get('username'),
 			'bid': this.get('bid'),
 			'time': this.get('time'),
-			'avatar': this.get('h_img'),
-			'avatarHref': this.get('h_url'),
+			'avatar':  this.get('h_img'),
+			'avatarHref':  this.get('h_url'),
 			'feedType': this.getfeedType(),
 			'feedLink': this.get('b_url'),
 			'feedcount': this.get('replaycount'),
 			'replaycount': this.get('replaycount'),
-			'likeNum': 1,
-			'forwardData': this.get('repto') || false
-			//'forwardData': this.get('repto') || true
+			'likeNum': this.get('likecount'),
+			'forwardData': this.getForwardData() || false
 		}
 	},
+	//获得转发的数据
+	getForwardData:function(){
+		return this.get('repto');
 
+	},
 	//通过图片数量获取对应的数据
-	getPhotoAttr: function() {
-		var feedLayout = 'feed-layout' + this.get('attr').count;
+	getPhotoAttr: function(attr) {
+		var feedLayout = 'feed-layout' + attr.count;
 		var feedLayoutData = this.feedImgMap[feedLayout];
 		return feedLayoutData;
 	},
@@ -81,8 +84,21 @@ Tuitui.feedModel = Backbone.Model.extend({
 	getFeedAttr: function() {
 		var result = {};
 		if (this.getfeedType() == 'photo') {
-			result.pics = this.get('attr').img;
-			result.position = this.getPhotoAttr();
+			var attr,source_blog;
+			if (this.get('repto')) {
+				source_blog = this.get('source_blog');
+				attr = this.get('source_blog').attr;
+				result = {
+					'pics':attr.img,
+					'feedcount': source_blog.replaycount,
+					'replaycount': source_blog.replaycount,
+					'likeNum': source_blog.likecount
+				};
+			} else {
+				attr = this.get('attr');
+				result.pics = attr.img;
+			}
+			result.position = this.getPhotoAttr(attr);
 		}
 		if (this.getfeedType() == 'text') {
 			result = {

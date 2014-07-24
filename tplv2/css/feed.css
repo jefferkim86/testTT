@@ -270,6 +270,21 @@
 	border: none;
 	background:url(../image/loading.gif) no-repeat scroll 0 0;
 }
+
+.feed-ft .page-func {
+	height: 45px;
+
+}
+.feed-ft .page-func .fold {
+	float:left;
+	width: 50px;
+	height: 20px;
+	line-height: 20px;
+
+}
+.feed-ft .page-func .comment-more {
+	float: right;
+}
 /*´ý¶¨*/
 .feed .J_Commentshow,.feed .J_Forwardshow,.feed .J_Likeshow{display:block;}
 .feed .J_Likeshow .pop-foot-corner .inner{border-bottom:9px solid #fff;}

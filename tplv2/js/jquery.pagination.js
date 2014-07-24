@@ -24,14 +24,16 @@ jQuery.fn.pagination = function(maxentries, opts){
 	
 	return this.each(function() {
 		/**
-		 * 计算最大分页显示数目
+		 * Calculate the maximum number of pages
 		 */
 		function numPages() {
 			return Math.ceil(maxentries/opts.items_per_page);
-		}	
+		}
+		
 		/**
-		 * 极端分页的起始和结束点，这取决于current_page 和 num_display_entries.
-		 * @返回 {数组(Array)}
+		 * Calculate start and end point of pagination links depending on 
+		 * current_page and num_display_entries.
+		 * @return {Array}
 		 */
 		function getInterval()  {
 			var ne_half = Math.ceil(opts.num_display_entries/2);
@@ -43,8 +45,8 @@ jQuery.fn.pagination = function(maxentries, opts){
 		}
 		
 		/**
-		 * 分页链接事件处理函数
-		 * @参数 {int} page_id 为新页码
+		 * This is the event handling function for the pagination links. 
+		 * @param {int} page_id The new page number
 		 */
 		function pageSelected(page_id, evt){
 			current_page = page_id;
@@ -62,35 +64,39 @@ jQuery.fn.pagination = function(maxentries, opts){
 		}
 		
 		/**
-		 * 此函数将分页链接插入到容器元素中
+		 * This function inserts the pagination links into the container element
 		 */
 		function drawLinks() {
 			panel.empty();
 			var interval = getInterval();
 			var np = numPages();
-			// 这个辅助函数返回一个处理函数调用有着正确page_id的pageSelected。
+			// This helper function returns a handler function that calls pageSelected with the right page_id
 			var getClickHandler = function(page_id) {
 				return function(evt){ return pageSelected(page_id,evt); }
 			}
-			//辅助函数用来产生一个单链接(如果不是当前页则产生span标签)
+			// Helper function for generating a single link (or a span tag if it's the current page)
 			var appendItem = function(page_id, appendopts){
-				page_id = page_id<0?0:(page_id<np?page_id:np-1); // 规范page id值
+				page_id = page_id<0?0:(page_id<np?page_id:np-1); // Normalize page id to sane value
 				appendopts = jQuery.extend({text:page_id+1, classes:""}, appendopts||{});
 				if(page_id == current_page){
 					var lnk = jQuery("<span class='current'>"+(appendopts.text)+"</span>");
-				}else{
+				}
+				else
+				{
 					var lnk = jQuery("<a>"+(appendopts.text)+"</a>")
 						.bind("click", getClickHandler(page_id))
-						.attr('href', opts.link_to.replace(/__id__/,page_id));		
+						.attr('href', opts.link_to.replace(/__id__/,page_id));
+						
+						
 				}
 				if(appendopts.classes){lnk.addClass(appendopts.classes);}
 				panel.append(lnk);
 			}
-			// 产生"Previous"-链接
+			// Generate "Previous"-Link
 			if(opts.prev_text && (current_page > 0 || opts.prev_show_always)){
 				appendItem(current_page-1,{text:opts.prev_text, classes:"prev"});
 			}
-			// 产生起始点
+			// Generate starting points
 			if (interval[0] > 0 && opts.num_edge_entries > 0)
 			{
 				var end = Math.min(opts.num_edge_entries, interval[0]);
@@ -102,11 +108,11 @@ jQuery.fn.pagination = function(maxentries, opts){
 					jQuery("<span>"+opts.ellipse_text+"</span>").appendTo(panel);
 				}
 			}
-			// 产生内部的些链接
+			// Generate interval links
 			for(var i=interval[0]; i<interval[1]; i++) {
 				appendItem(i);
 			}
-			// 产生结束点
+			// Generate ending points
 			if (interval[1] < np && opts.num_edge_entries > 0)
 			{
 				if(np-opts.num_edge_entries > interval[1]&& opts.ellipse_text)
@@ -119,20 +125,20 @@ jQuery.fn.pagination = function(maxentries, opts){
 				}
 				
 			}
-			// 产生 "Next"-链接
+			// Generate "Next"-Link
 			if(opts.next_text && (current_page < np-1 || opts.next_show_always)){
 				appendItem(current_page+1,{text:opts.next_text, classes:"next"});
 			}
 		}
 		
-		//从选项中提取current_page
+		// Extract current_page from options
 		var current_page = opts.current_page;
-		//创建一个显示条数和每页显示条数值
+		// Create a sane value for maxentries and items_per_page
 		maxentries = (!maxentries || maxentries < 0)?1:maxentries;
 		opts.items_per_page = (!opts.items_per_page || opts.items_per_page < 0)?1:opts.items_per_page;
-		//存储DOM元素，以方便从所有的内部结构中获取
+		// Store DOM element for easy access from all inner functions
 		var panel = jQuery(this);
-		// 获得附加功能的元素
+		// Attach control functions to the DOM element 
 		this.selectPage = function(page_id){ pageSelected(page_id);}
 		this.prevPage = function(){ 
 			if (current_page > 0) {
@@ -152,10 +158,11 @@ jQuery.fn.pagination = function(maxentries, opts){
 				return false;
 			}
 		}
-		// 所有初始化完成，绘制链接
+		// When all initialisation is done, draw the links
 		drawLinks();
-        // 回调函数
+        // call callback function
         opts.callback(current_page, this);
 	});
 }
+
 

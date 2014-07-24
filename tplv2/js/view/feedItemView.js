@@ -30,6 +30,9 @@ Tuitui.feedItemView = Backbone.View.extend({
 
 
     },
+    /*
+     * @desc 喜欢feed
+     * */
     likeFeed: function(e) {
         e.preventDefault();
         var target = e.currentTarget;
@@ -65,7 +68,7 @@ Tuitui.feedItemView = Backbone.View.extend({
         }
         getApi('blog', 'repblog', {
             'bid': bid,
-            'title': inputVal
+            'title': _.escape(inputVal)
         }, function(data) {
             if (data.status == '1') {
                 var result = data.body.body;
@@ -92,7 +95,7 @@ Tuitui.feedItemView = Backbone.View.extend({
         actionEl.toggleClass('forward-corner');
         actionEl.removeClass('comment-corner');
 
-        if(!$(target).find(".pop-foot-corner").length){
+        if (!$(target).find(".pop-foot-corner").length) {
             $(target).append($(corner));
         }
         var feedFtClass = '.J_Feedfoot';
@@ -126,7 +129,8 @@ Tuitui.feedItemView = Backbone.View.extend({
         var corner = this.compiled_tpl['corner'];
         var data = this.model.toJSON();
         var bid = data.bid;
-        if(!$(target).find(".pop-foot-corner").length){
+        var page;
+        if (!$(target).find(".pop-foot-corner").length) {
             $(target).append($(corner));
         }
         var actionEl = $(target).parents(".feed-act");
@@ -142,17 +146,14 @@ Tuitui.feedItemView = Backbone.View.extend({
         cmtEl.find(".J_CmtCnt").val('');
         cmtEl.toggleClass('comment-show');
         cmtEl.removeClass('forward-show');
+        if (typeof G_PAGE) {
+            page = 1;
+        }
         if (cmtEl.find('.J_CmtList .loading-list').length) {
-            commentsView.getReplys(bid, cmtEl);
+            commentsView.getReplys(bid, cmtEl, data.feedcount, page);
         }
     },
-    /*
-     * @desc feed下方操作区点击后追加小箭头
-     * */
-    addArrow: function() {
 
-
-    },
     /*
      * @desc 图片feed=>点击预览大图
      * */
@@ -184,7 +185,9 @@ Tuitui.feedItemView = Backbone.View.extend({
         var layoutTpl = this.compiled_tpl['feedLayout'];
         var tpl = this.compiled_tpl[feedType];
         //渲染内容
+        console.log(this.model.getFeedAttr());
         var feedContent = tpl.render(this.model.getFeedAttr());
+        // console.log(this.model.getfeedData());
         var feedData = this.model.getfeedData();
         feedData.feedItemContent = feedContent;
         var layout = layoutTpl.render(feedData);
