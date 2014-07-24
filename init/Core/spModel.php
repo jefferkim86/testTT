@@ -551,6 +551,25 @@ class spPager {
 		if ($start < 1) $start = 1;
 		return array_slice($pager['all_pages'], $start - 1, $end - $start+1, true);
 	}
+	
+	public static function pageTool($total, $pageNo, $pageSize) {
+			$total_page = ceil( $total / $pageSize );
+			$pageNo = min(intval(max($pageNo, 1)), $total); // 对页码进行规范运算
+			$data['page_data'] = array(
+				"total_count" => $total,                                 // 总记录数
+				"page_size"   => $pageSize,                                    // 分页大小
+				"total_page"  => $total_page,                                  // 总页数
+				"first_page"  => 1,                                            // 第一页
+				"prev_page"   => ( ( 1 == $pageNo ) ? 1 : ($pageNo - 1) ),         // 上一页
+				"next_page"   => ( ( $pageNo == $total_page ) ? $total_page : ($pageNo + 1)),     // 下一页
+				"last_page"   => $total_page,                                  // 最后一页
+				"current_page"=> $pageNo,                                        // 当前页
+			//	"all_pages"   => array()	                                   // 全部页码
+			);
+			
+			$data['offset'] = ($pageNo-1)*$pageSize;
+			return $data;
+	}
 
 
 	/**

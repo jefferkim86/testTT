@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-24 20:00:26
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-25 01:38:27
          compiled from "tplv2/user_myfollow.html" */ ?>
-<?php /*%%SmartyHeaderCode:32820494453d0f55ab10380-71213372%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:151879975153d14493b70432-00285294%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ad6e59ad78e50f6f5f0160f6fbb0dd1b2b00882e' => 
     array (
       0 => 'tplv2/user_myfollow.html',
-      1 => 1406127381,
+      1 => 1406223506,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '32820494453d0f55ab10380-71213372',
+  'nocache_hash' => '151879975153d14493b70432-00285294',
   'function' => 
   array (
   ),
@@ -38,10 +38,16 @@ function do_run(ty){
 			$('#curr_myfollow').addClass('current');
 			$('#follow_my').removeClass('current');
 		}
+
+		 getApi('user', 'myfollow', {
+            'type':ty
+        }, function(d) {
+            addto_follow(d,ty);
+        });
 	
-		$.paging({ctn1:"#follow_area",ctn2:"#paging",yc:"user",ym:"myfollow",showpage:true,yprm:{type:ty},ftype:function(d){
-			addto_follow(d,ty);
-		}});
+		// $.paging({ctn1:"#follow_area",ctn2:"#paging",yc:"user",ym:"myfollow",showpage:true,yprm:{type:ty},ftype:function(d){
+		// 	addto_follow(d,ty);
+		// }});
 }
 
 
@@ -69,25 +75,25 @@ function do_run(ty){
 
 <script type="text/template" id="J-followList">
 
- <div class="follow_list" id="myfollow_${touid.uid}">
+ <div class="follow_list" id="myfollow_${uid}">
 	<div class="follow_con clearfix">
-	 <div class="follow_btn" id="follow_unlink_${touid.uid}">
-	 	<button class="J-follow followed" data-uid="${touid.uid}">取消关注</button>
+	 <div class="follow_btn" id="follow_unlink_${uid}">
+	 	<button class="J-follow followed" data-uid="${uid}">取消关注</button>
 	 </div>
 	<div class="avatar">	       
-	  <a href="${touid.h_url}" target="_blank" title="${touid.username}">
-		 	<img src="${touid.h_img}" alt="${touid.username}" title="${touid.username}" class="face"/>
+	  <a href="${h_url}" target="_blank" title="${username}">
+		 	<img src="${h_img}" alt="${username}" title="${username}" class="face"/>
 	   </a>
 	</div>
 					
 	<div class="userinfo">
-		<li class="title"><a href="${touid.h_url}" target="_blank">${touid.username}</a>
+		<li class="title"><a href="${h_url}" target="_blank">${username}</a>
 			<span>(${time}关注)</span>
 		</li>
 		<li class="userdata">
-			<span class="blogs">推推:<b>${touid.num}</b></span>
-			<span>关注:<b>${touid.flow}</b></span>
-			<span class="fans">粉丝:<b>${touid.flow}</b></span>
+			<span class="blogs">推推:<b>${num}</b></span>
+			<span>关注:<b>${likenum}</b></span>
+			<span class="fans">粉丝:<b>${flow}</b></span>
 		</li>
 	</div>
 
@@ -132,7 +138,9 @@ function addto_follow(d,type){
 		var tpl = juicer($("#J-followList").html());
 		if(d.body.data.length >0){
 			for(var i=0;i<d.body.data.length;i++){
-				var html = tpl.render(d.body.data[i],type)
+				d.body.data[i].h_img = urlpath+d.body.data[i].h_img;
+				var html = tpl.render(d.body.data[i])
+				console.log(html);
 				$('#follow_area').append($(html));
 			}
 			if(d.body.data.length == 1){

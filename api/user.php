@@ -199,39 +199,48 @@ class user extends top
 	
 	public function myfollow(){
 		$data = array();
+		$sql = "SELECT f.id as fid, f.time as ftime, f.linker as linker, f.uid as fuid , m.*
+				FROM `".DBPRE."follow` AS f
+				LEFT JOIN `".DBPRE."member` AS m ";
+		
+		$page_no = $this->spArgs('page', 1);
+		$page_size = $this->spArgs('page_size', 10);
+		$obj = spClass('db_follow');
 		if($this->spArgs('type') == 'follow'){
-			$obj = spClass('db_follow');
 			$obj->linker['0']['enabled'] = false;
-			$data['data'] = $obj->spLinker()->spPager($this->spArgs('page',1),10)->findAll("`touid` = {$this->uid}  ",'time desc');	
+			$sql .= "ON f.uid = m.uid WHERE touid = '{$this->uid}'";
+			$total = $obj->spLinker()->findCount(array('touid'=>$this->uid));
+//			$data['data'] = $obj->spLinker()->spPager($this->spArgs('page',1),10)->findAll("`touid` = {$this->uid}  ",'time desc');	
 		}else{
-			$obj = spClass('db_follow');
 			$obj->linker['1']['enabled'] = false;
-			$data['data'] = $obj->spLinker()->spPager($this->spArgs('page',1),10)->findAll("`uid` = {$this->uid}  ",'time desc');
+			$sql .= "ON touid = m.uid WHERE f.uid = '{$this->uid}'";
+			$total = $obj->spLinker()->findCount(array('uid'=>$this->uid));
+//			$data['data'] = $obj->spLinker()->spPager($this->spArgs('page',1),10)->findAll("`uid` = {$this->uid}  ",'time desc');
 		}
 		
+		$page_data = spPager::pageTool($total, $page_no, $page_size);
+		$offset = $page_data['offset'];
+		$sql .= " order by ftime DESC limit {$offset}, {$page_size}";
+//		print_r($sql);
+		$data['data'] = $obj->spLinker()->findSql($sql);
 		
-		if($this->spArgs('type') == 'search'){
-			$obj = spClass('db_follow');
-			$obj->linker['0']['enabled'] = false;
-			$data['data'] = $obj->spLinker()->spPager($this->spArgs('page',1),10)->findAll("`touid` = {$this->uid}  ",'time desc');	
-		}
+//		if($this->spArgs('type') == 'search'){
+//			$obj = spClass('db_follow');
+//			$obj->linker['0']['enabled'] = false;
+//			$data['data'] = $obj->spLinker()->spPager($this->spArgs('page',1),10)->findAll("`touid` = {$this->uid}  ",'time desc');	
+//		}
 		
-		$data['page'] = $obj->spPager()->getPager();
+		$data['page'] = $page_data['page_data'];
 		
 		foreach($data['data'] as &$d){
-			if($this->spArgs('type') != 'follow'){
-				$tudo = $d['tome'];
-			}else{
-				$tudo = $d['meto'];
-			}
-			unset($d['meto'],$d['tome']);
-			$tudo['h_url'] = goUserHome(array('uid'=>$tudo['uid'], 'domain'=>$tudo['domain']));
-			$tudo['h_img'] = avatar(array('uid'=>$tudo['uid'],'size'=>'middle'));
-			$tudo['sign'] = strip_tags($tudo['sign']);
-				$tudo['blogtag'] = ($tudo['blogtag'] != '') ?  explode(',',$tudo['blogtag']) : '';
-				$d['touid'] =  $tudo;
-				unset($tudo,$d['touid']['domain']);
-			$d['time'] = ybtime(array('time'=>$d['time']));
+			
+			$d['h_url'] = goUserHome(array('uid'=>$d['uid'], 'domain'=>$d['domain']));
+			$d['h_img'] = avatar(array('uid'=>$d['uid'],'size'=>'middle'));
+			$d['sign'] = strip_tags($d['sign']);
+			$d['blogtag'] = ($d['blogtag'] != '') ?  explode(',',$d['blogtag']) : '';
+//				$d['touid'] =  $tudo;
+//				unset($tudo,$d['touid']['domain']);
+			$d['time'] = ybtime(array('time'=>$d['ftime']));
 			if($d['linker'] == 1){
 				$d['linker'] = true;
 			}else{
@@ -244,39 +253,48 @@ class user extends top
 	public function followbyuid(){
 		$data = array();
 		$uid = $this->spArgs('uid');
+		$sql = "SELECT f.id as fid, f.time as ftime, f.linker as linker, f.uid as fuid , m.*
+				FROM `".DBPRE."follow` AS f
+				LEFT JOIN `".DBPRE."member` AS m ";
+		
+		$page_no = $this->spArgs('page', 1);
 		$page_size = $this->spArgs('page_size', 10);
+		$obj = spClass('db_follow');
 		if($this->spArgs('type') == 'follow'){
-			$obj = spClass('db_follow');
+//			$obj = spClass('db_follow');
 			$obj->linker['0']['enabled'] = false;
-			$data['data'] = $obj->spLinker()->spPager($this->spArgs('page',1),$page_size)->findAll("`touid` = {$uid}  ",'time desc');	
+			$sql .= "ON f.uid = m.uid WHERE touid = '{$uid}'";
+			$total = $obj->spLinker()->findCount(array('touid'=>$uid));
+//			$data['data'] = $obj->spLinker()->spPager($this->spArgs('page',1),$page_size)->findAll("`touid` = {$uid}  ",'time desc');	
 		}else{
-			$obj = spClass('db_follow');
+//			$obj = spClass('db_follow');
 			$obj->linker['1']['enabled'] = false;
-			$data['data'] = $obj->spLinker()->spPager($this->spArgs('page',1),$page_size)->findAll("`uid` = {$uid}  ",'time desc');
+			$sql .= "ON touid = m.uid WHERE fuid = '{$uid}'";
+			$total = $obj->spLinker()->findCount(array('uid'=>$uid));
+//			$data['data'] = $obj->spLinker()->spPager($this->spArgs('page',1),$page_size)->findAll("`uid` = {$uid}  ",'time desc');
 		}
 		
-		if($this->spArgs('type') == 'search'){
-			$obj = spClass('db_follow');
-			$obj->linker['0']['enabled'] = false;
-			$data['data'] = $obj->spLinker()->spPager($this->spArgs('page',1),$page_size)->findAll("`touid` = {$uid}  ",'time desc');	
-		}
-		
-		$data['page'] = $obj->spPager()->getPager();
+//		if($this->spArgs('type') == 'search'){
+//			$obj = spClass('db_follow');
+//			$obj->linker['0']['enabled'] = false;
+//			$data['data'] = $obj->spLinker()->spPager($this->spArgs('page',1),$page_size)->findAll("`touid` = {$uid}  ",'time desc');	
+//		}
+		$page_data = spPager::pageTool($total, $page_no, $page_size);
+		$offset = $page_data['offset'];
+		$sql .= " order by ftime DESC limit {$offset}, {$page_size}";
+//		print_r($sql);
+		$data['data'] = $obj->spLinker()->findSql($sql);
+		$data['page'] = $page_data['page_data'];
 		
 		foreach($data['data'] as &$d){
-			if($this->spArgs('type') != 'follow'){
-				$tudo = $d['tome'];
-			}else{
-				$tudo = $d['meto'];
-			}
-			unset($d['meto'],$d['tome']);
-			$tudo['h_url'] = goUserHome(array('uid'=>$tudo['uid'], 'domain'=>$tudo['domain']));
-			$tudo['h_img'] = avatar(array('uid'=>$tudo['uid'],'size'=>'middle'));
-			$tudo['sign'] = strip_tags($tudo['sign']);
-				$tudo['blogtag'] = ($tudo['blogtag'] != '') ?  explode(',',$tudo['blogtag']) : '';
-				$d['touid'] =  $tudo;
-				unset($tudo,$d['touid']['domain']);
-			$d['time'] = ybtime(array('time'=>$d['time']));
+			
+			$d['h_url'] = goUserHome(array('uid'=>$d['uid'], 'domain'=>$d['domain']));
+			$d['h_img'] = avatar(array('uid'=>$d['uid'],'size'=>'middle'));
+			$d['sign'] = strip_tags($d['sign']);
+			$d['blogtag'] = ($d['blogtag'] != '') ?  explode(',',$d['blogtag']) : '';
+//				$d['touid'] =  $tudo;
+//				unset($tudo,$d['touid']['domain']);
+			$d['time'] = ybtime(array('time'=>$d['ftime']));
 			if($d['linker'] == 1){
 				$d['linker'] = true;
 			}else{
