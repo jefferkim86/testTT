@@ -27,14 +27,8 @@ Tuitui.commentItemView = Backbone.View.extend({
         var target = e.currentTarget;
         var comment = this.model.toJSON();
         var input = $(target).parents(".J_CommentWrap").find(".J_CmtCnt");
-        $(target).parents(".J_Feedfoot").attr("data-reply",comment.user.username);
+        $(target).parents(".J_Feedfoot").attr("data-reply",comment.user.uid);
         input.val("@"+comment.user.username+":");
-    },
-
-    toggleFav: function(e) {
-        e.preventDefault();
-        
-
     },
 
 

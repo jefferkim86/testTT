@@ -132,12 +132,30 @@
 	width:0;height:0;position:absolute;left:1px;top:-7px;overflow:hidden
 }
 
-
+.feed .feed-title,.feed-forward-layout .feed-text-title{
+	font-size: 18px;
+	color: #777777;
+	padding:10px 0 15px 0;
+	margin: 0 23px 0 29px;
+	word-break: break-all;
+	word-wrap: break-word;
+	border-bottom: 1px solid #eeeeee;
+}
+.feed-forward-layout .feed-text-title{
+	margin-left: 0;
+}
 .feed-forward-layout .feed-act .pop-foot-corner .outter{
 	border-bottom:10px solid #ffffff;
 }
 .feed-forward-layout .feed-act .pop-foot-corner .inner{
 	border-bottom:9px solid #ffffff;
+}
+.feed-forward-layout .feed-hd .merc-name {
+	color: #777777;
+
+}
+.feed-forward-layout .feed-hd .merc-name a {
+	color: #5385a3;
 }
 .feed .cur .pop-foot-corner {
 	display: block;
@@ -276,14 +294,29 @@
 
 }
 .feed-ft .page-func .fold {
-	float:left;
+	position: absolute;
+	left: -120px;
+	top: 0;
 	width: 50px;
 	height: 20px;
 	line-height: 20px;
-
+	margin:0;
+	padding-left: 22px;
+	color: #5385a3;
+	text-align: left;
+	font-size: 12px;
+	background: url('../image/icon-item.png') no-repeat scroll -31px -97px;
 }
+
 .feed-ft .page-func .comment-more {
-	float: right;
+	position: absolute;
+	left: 470px;
+	top: 0;
+	width: 50px;
+	height: 20px;
+	color: #555555;
+	font-size: 12px;
+	background: none;
 }
 /*´ý¶¨*/
 .feed .J_Commentshow,.feed .J_Forwardshow,.feed .J_Likeshow{display:block;}

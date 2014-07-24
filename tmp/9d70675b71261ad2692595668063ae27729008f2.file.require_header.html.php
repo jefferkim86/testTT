@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-23 18:04:02
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-25 01:02:22
          compiled from "tplv2/require_header.html" */ ?>
-<?php /*%%SmartyHeaderCode:58664309452dbfb79642db7-46277463%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:76591705053d13c1ea24529-57506927%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9d70675b71261ad2692595668063ae27729008f2' => 
     array (
       0 => 'tplv2/require_header.html',
-      1 => 1406047849,
+      1 => 1406221341,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '58664309452dbfb79642db7-46277463',
+  'nocache_hash' => '76591705053d13c1ea24529-57506927',
   'function' => 
   array (
   ),
@@ -47,10 +47,10 @@ $_smarty_tpl->decodeProperties(array (
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
 	<?php if (islogin()){?>
 	<script type="text/javascript">
-	$(document).ready(function(){
-		now_notice();
-		setInterval("now_notice()", 30000);
-	})
+	// $(document).ready(function(){
+	// 	now_notice();
+	// 	setInterval("now_notice()", 30000);
+	// })
 	</script> 
 	<?php }?>
 </head>

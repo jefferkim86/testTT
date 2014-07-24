@@ -1465,6 +1465,7 @@ dl,dt,dd {
 
 }
 .pagination {
+	position: relative;
 	width: 360px;
 	height: 32px;
 	font-size: 14px;

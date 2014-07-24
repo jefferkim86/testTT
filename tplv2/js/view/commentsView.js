@@ -104,8 +104,8 @@ Tuitui.commentsView = Backbone.View.extend({
                 input.val('');
                 //后端接口没有返回
                 self.collection.add({
-                    "h_img": '/tuitui/avatar.php?uid=' + uid + '&size=small',
-                    "h_url": '/tuitui/index.php?c=userblog&a=index&domain=home&uid=' + uid,
+                    "h_img": '/avatar.php?uid=' + uid + '&size=small',
+                    "h_url": 'tuitui/index.php?c=userblog&a=index&domain=home&uid=' + uid,
                     "msg": inputVal,
                     "user": {
                         'username': G_username

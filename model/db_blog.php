@@ -106,11 +106,12 @@ class db_blog extends ybModel
 					  'username'=>$rs['user']['username'],
 					  'domain'  =>$rs['user']['domain'],
 					  'bid'		=>$bid,
+					  'forward_title'=>$rs['title'],
 					  'time'=>time()
 		);
 	
 		$split = split_attribute($rs['body']);
-		$split['attr']['forword_title'] = $rs['title'];
+//		$split['attr']['forword_title'] = $rs['title'];
 		
 		
 		if($split['repto']){	$repto = '[repto]'.serialize($split['repto']).'[/repto]';}else{$repto = '[repto]'.serialize($repto).'[/repto]';}

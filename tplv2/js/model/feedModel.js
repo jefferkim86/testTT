@@ -53,26 +53,22 @@ Tuitui.feedModel = Backbone.Model.extend({
 		//return feedTypeMap[2];
 		return feedTypeMap[this.get('type')];
 	},
-
+	//TODO: forwardData引用getFeedAttr
 	getfeedData: function() {
 		return {
 			'username': this.get('username'),
 			'bid': this.get('bid'),
 			'time': this.get('time'),
-			'avatar':  this.get('h_img'),
+			'avatar': urlpath + this.get('h_img'),
 			'avatarHref':  this.get('h_url'),
 			'feedType': this.getfeedType(),
 			'feedLink': this.get('b_url'),
-			'feedcount': this.get('replaycount'),
+			'forwardcount': this.get('forwardcount'),
 			'replaycount': this.get('replaycount'),
-			'likeNum': this.get('likecount'),
-			'forwardData': this.getForwardData() || false
+			'likecount': this.get('likecount'),
+			'feedForwardContent': this.get('title') || '',
+			'forwardData': this.get('repto') || false
 		}
-	},
-	//获得转发的数据
-	getForwardData:function(){
-		return this.get('repto');
-
 	},
 	//通过图片数量获取对应的数据
 	getPhotoAttr: function(attr) {
@@ -83,28 +79,48 @@ Tuitui.feedModel = Backbone.Model.extend({
 
 	getFeedAttr: function() {
 		var result = {};
+		//图片feed
 		if (this.getfeedType() == 'photo') {
-			var attr,source_blog;
-			if (this.get('repto')) {
-				source_blog = this.get('source_blog');
-				attr = this.get('source_blog').attr;
+			var repto = this.get('repto');
+			var attr;
+			//转发数据
+			if (repto) {
+				attr = repto.attr;
 				result = {
-					'pics':attr.img,
-					'feedcount': source_blog.replaycount,
-					'replaycount': source_blog.replaycount,
-					'likeNum': source_blog.likecount
+					'pics': repto.attr.img,
+					'forwardcount': repto.forwardcount,
+					'replaycount': repto.replaycount,
+					'likecount': repto.likecount,
+					'feedContent': repto.body,
+					'title': repto.title,
+					'feedLink': repto.b_url,
+					'time': repto.time
 				};
 			} else {
 				attr = this.get('attr');
-				result.pics = attr.img;
+				result = {
+					'pics': attr.img,
+					'feedLink': this.get('b_url'),
+					'feedContent': this.get('body')
+				}
+
 			}
 			result.position = this.getPhotoAttr(attr);
 		}
+		//文字feed
 		if (this.getfeedType() == 'text') {
-			result = {
-				'title': this.get('title'),
-				'feedContent': this.get('body')
+			var repto = this.get('repto');
+			if (repto) {
+				result = {
+					'feedTitle': repto.forward_title,
+					'feedContent': repto.body,
+					'feedLink': repto.b_url,
+					'time': repto.time
+				}
+			} else {
+
 			}
+
 		}
 		if (this.getfeedType() == 'good') {
 			result = {};

@@ -2,6 +2,7 @@
  * @desc 转发功能比较简单，直接在这里处理
  * TODO: 下方操作区剥离成model，collection 计算数量
  * MODEL => FEED + HANDLE_NUM + COMMENT + FORWARD
+ * 重构底部事件处理，现在太糟糕了
  * */
 Tuitui.feedItemView = Backbone.View.extend({
 
@@ -22,7 +23,8 @@ Tuitui.feedItemView = Backbone.View.extend({
         "click .J_Comment": "toggleComment",
         "click .J_Forward": "getForwardList",
         "click .J-sendForward": "sendForward",
-        "click .J_Like": "likeFeed"
+        "click .J_Like": "likeFeed",
+        "click .fold": "foldFt"
     },
 
 
@@ -71,7 +73,10 @@ Tuitui.feedItemView = Backbone.View.extend({
             'title': _.escape(inputVal)
         }, function(data) {
             if (data.status == '1') {
-                var result = data.body.body;
+                var result = [{
+                    'h_img': '/avatar.php?uid='+uid+'&size=middle',
+                    'h_url': 'c=userblog&a=index&domain=home&uid='+uid
+                }];
                 var html = userView.renderForward(result, true);
                 var num = ft.find(".J-fNum").text();
                 ft.find(".J_forwardList .title").after(html);
@@ -120,6 +125,19 @@ Tuitui.feedItemView = Backbone.View.extend({
             });
         }
     },
+
+    foldFt:function(e){
+        e.preventDefault();
+        var target = e.currentTarget;
+        var feed = $(target).parents(".feed");
+        var actionEl = $(target).parents(".feed-ft");
+        var feedFtClass = '.J-actions';
+        if ($(target).parents('.J_forwardFeedfoot').length) {
+            feedFtClass = '.J-forward-actions';
+        }
+        actionEl.removeClass('comment-show').removeClass('forward-show');
+        feed.find(feedFtClass+" .feed-act").removeClass('comment-corner').removeClass('forward-corner');
+    },
     /*
      * @desc 加载数据
      * */
@@ -129,7 +147,6 @@ Tuitui.feedItemView = Backbone.View.extend({
         var corner = this.compiled_tpl['corner'];
         var data = this.model.toJSON();
         var bid = data.bid;
-        var page;
         if (!$(target).find(".pop-foot-corner").length) {
             $(target).append($(corner));
         }
@@ -146,11 +163,8 @@ Tuitui.feedItemView = Backbone.View.extend({
         cmtEl.find(".J_CmtCnt").val('');
         cmtEl.toggleClass('comment-show');
         cmtEl.removeClass('forward-show');
-        if (typeof G_PAGE) {
-            page = 1;
-        }
         if (cmtEl.find('.J_CmtList .loading-list').length) {
-            commentsView.getReplys(bid, cmtEl, data.feedcount, page);
+            commentsView.getReplys(bid, cmtEl, data.feedcount);
         }
     },
 
@@ -185,10 +199,11 @@ Tuitui.feedItemView = Backbone.View.extend({
         var layoutTpl = this.compiled_tpl['feedLayout'];
         var tpl = this.compiled_tpl[feedType];
         //渲染内容
-        console.log(this.model.getFeedAttr());
+        console.log('feedAttr',this.model.getFeedAttr());
         var feedContent = tpl.render(this.model.getFeedAttr());
         // console.log(this.model.getfeedData());
         var feedData = this.model.getfeedData();
+        console.log('feedData',feedData);
         feedData.feedItemContent = feedContent;
         var layout = layoutTpl.render(feedData);
         return this.$el.html(layout);

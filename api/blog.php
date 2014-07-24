@@ -29,10 +29,10 @@ class blog extends top
 		$sql = "SELECT b. * , k.id AS likeid  ,m.username,m.domain
 				FROM `".DBPRE."blog` AS b LEFT JOIN `".DBPRE."likes` AS k ON ( b.bid = k.bid AND k.uid ='$this->uid' )
 				LEFT JOIN `".DBPRE."member`  as m on b.uid = m.uid where b.open = 1 $cond ORDER BY b.time desc";
+			
 		$data['blog'] = spClass('db_blog')->spPager($this->spArgs('page',1),$pageLimit)->findSql($sql);
 		$data['page'] = spClass('db_blog')->spPager()->getPager();
 		unset($data['page']['all_pages']);
-		//print_r($data['blog']);
 		if(!empty($data['blog'])){
 			$data['blog'] = $this->translate_feed($data['blog']);
 			$this->api_success($data);
@@ -530,24 +530,27 @@ class blog extends top
 		$arr_source_blog = array();
 		foreach($listBlog as &$d){
 			$this->foramt_feeds($d);
-			if ($d['source_bid'] > 0) {
+			if ($d['source_bid'] > 0 && $d['source_bid'] != $d['bid']) {
 				if (!isset($arr_source_blog[$d['source_bid']])) {
 					$source_blog = $this->getSourceBlog($d['source_bid']);
 					$this->foramt_feeds($source_blog);
 					$arr_source_blog[$d['source_bid']] = $source_blog;
 				}
-				$d['source_blog'] = $arr_source_blog[$d['source_bid']];
-			} else {
-				$d['source_blog'] = $d;
-			}
-				
-			if (isset($d['repto']) && isset($d['repto']['bid']) && $d['repto']['bid'] != $d['source_bid']) {
-				if (!isset($arr_source_blog[$d['repto']['bid']])) {
-					$source_blog = $this->getSourceBlog($d['repto']['bid']);
-					$this->foramt_feeds($source_blog);
-					$arr_source_blog[$d['repto']['bid']] = $source_blog;
-				}
-				$d['forward_blog'] = $arr_source_blog[$d['repto']['bid']];
+				$tmp_blog = $arr_source_blog[$d['source_bid']];
+				$d['repto']['hitcount'] = $tmp_blog['hitcount'];
+				$d['repto']['feedcount'] = $tmp_blog['feedcount'];
+				$d['repto']['replaycount'] = $tmp_blog['replaycount'];
+				$d['repto']['forwardcount'] = $tmp_blog['forwardcount'];
+				$d['repto']['likecount'] = $tmp_blog['likecount'];
+				$d['repto']['time'] = $tmp_blog['time'];
+				$d['repto']['h_url'] = $tmp_blog['h_url'];
+				$d['repto']['h_img'] = $tmp_blog['h_img'];
+				$d['repto']['b_url'] = $tmp_blog['b_url'];
+				$d['repto']['time_y'] = $tmp_blog['time_y'];
+				$d['repto']['time_d'] = $tmp_blog['time_d'];
+				$d['repto']['body'] = $tmp_blog['body'];
+				$d['repto']['title'] = $tmp_blog['title'];
+				$d['repto']['attr'] = $tmp_blog['attr'];
 			}
 		}
 		

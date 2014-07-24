@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-24 20:40:39
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-25 01:20:32
          compiled from "/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/list.html" */ ?>
-<?php /*%%SmartyHeaderCode:79651218653d0fec7d38ac3-19527679%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:6443171753d14060d78719-14122693%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a73a814515bff07fa19d9f2dcddc54cbeb4e3b95' => 
     array (
       0 => '/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/list.html',
-      1 => 1406204662,
+      1 => 1406221372,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '79651218653d0fec7d38ac3-19527679',
+  'nocache_hash' => '6443171753d14060d78719-14122693',
   'function' => 
   array (
   ),
@@ -59,8 +59,8 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
 " area="feedArea"  class="feedajax">
 			</div>
 			<script>
-			$.feedToolBar.parm.morepage=true;
-			$.feedToolBar.morepage('feedAjaxTool');
+			// $.feedToolBar.parm.morepage=true;
+			// $.feedToolBar.morepage('feedAjaxTool');
 			</script>
 		<?php }else{ ?>
 			

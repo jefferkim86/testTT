@@ -6,8 +6,7 @@
     {if islogin() && $yb.wizard_switch == 1} 
        {include file="require_wizard.html"} 
     {/if}
-fffff
-{$memberinfo}
+
     <!-- feed区域 -->
 		<div id="feedArea">
 			
@@ -20,8 +19,8 @@ fffff
 			<div id="feedAjaxTool" page="2" max="{$yb.show_ajax_to}" area="feedArea"  class="feedajax">
 			</div>
 			<script>
-			$.feedToolBar.parm.morepage=true;
-			$.feedToolBar.morepage('feedAjaxTool');
+			// $.feedToolBar.parm.morepage=true;
+			// $.feedToolBar.morepage('feedAjaxTool');
 			</script>
 		{else}
 			
