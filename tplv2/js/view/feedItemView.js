@@ -3,6 +3,10 @@
  * TODO: 下方操作区剥离成model，collection 计算数量
  * MODEL => FEED + HANDLE_NUM + COMMENT + FORWARD
  * 重构底部事件处理，现在太糟糕了
+ *
+ * 将class直接加到最外层feed
+ *
+ * 通过blogId获取评论可以复用
  * */
 Tuitui.feedItemView = Backbone.View.extend({
 
@@ -199,11 +203,13 @@ Tuitui.feedItemView = Backbone.View.extend({
         var layoutTpl = this.compiled_tpl['feedLayout'];
         var tpl = this.compiled_tpl[feedType];
         //渲染内容
-        console.log('feedAttr',this.model.getFeedAttr());
+        console.log('feedAttr>>',this.model.getFeedAttr());
         var feedContent = tpl.render(this.model.getFeedAttr());
+        console.log('feedAttr<<','end');
+
         // console.log(this.model.getfeedData());
         var feedData = this.model.getfeedData();
-        console.log('feedData',feedData);
+        //console.log('feedData',feedData);
         feedData.feedItemContent = feedContent;
         var layout = layoutTpl.render(feedData);
         return this.$el.html(layout);

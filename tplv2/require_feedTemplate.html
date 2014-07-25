@@ -36,10 +36,11 @@
                 <div class="merc-name"><a href="${avatarHref}">${username}</a></div>
             </div>
             <div class="feed-bd">
-            <div class="feed-title clearfix">
-                ${feedForwardContent}
-            </div>
-                {@if forwardData}
+            {@if forwardData}
+                <div class="feed-title clearfix">
+                    ${feedForwardContent}
+                </div>
+                
                  <div  id="J-forwardBlog-${forwardData.bid}" class="feed feed-${feedType} feed-forward-layout clearfix">
                     <div class="feed-desc">
                         <div class="feed-hd">

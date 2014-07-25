@@ -60,13 +60,14 @@ Tuitui.feedModel = Backbone.Model.extend({
 			'bid': this.get('bid'),
 			'time': this.get('time'),
 			'avatar': urlpath + this.get('h_img'),
-			'avatarHref':  this.get('h_url'),
+			'avatarHref': this.get('h_url'),
 			'feedType': this.getfeedType(),
 			'feedLink': this.get('b_url'),
 			'forwardcount': this.get('forwardcount'),
 			'replaycount': this.get('replaycount'),
 			'likecount': this.get('likecount'),
 			'feedForwardContent': this.get('title') || '',
+			'isLiked': this.get('likeid') || false,
 			'forwardData': this.get('repto') || false
 		}
 	},
@@ -94,6 +95,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'feedContent': repto.body,
 					'title': repto.title,
 					'feedLink': repto.b_url,
+					'isLiked': repto.likeid,
 					'time': repto.time
 				};
 			} else {
@@ -103,7 +105,6 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'feedLink': this.get('b_url'),
 					'feedContent': this.get('body')
 				}
-
 			}
 			result.position = this.getPhotoAttr(attr);
 		}
@@ -115,26 +116,33 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'feedTitle': repto.forward_title,
 					'feedContent': repto.body,
 					'feedLink': repto.b_url,
-					'time': repto.time
+					'time': repto.time,
+					'forwardcount': repto.forwardcount,
+					'replaycount': repto.replaycount,
+					'likecount': repto.likecount,
+					'isLiked': repto.likeid
 				}
 			} else {
-
+				result = {
+					'feedTitle': this.get('title'),
+					'feedContent': this.get('body'),
+					'feedLink': this.get('b_url')
+				}
 			}
 
 		}
+		//商品feed
 		if (this.getfeedType() == 'good') {
-			result = {};
+			var repto = this.get('repto');
+			if (repto) {
+				result = {};
+			} else {
+				result = {};
+			}
 		}
+
+
 		return result;
-	},
-
-
-
-	//转发的数据
-
-	getRetoData: function() {
-		var repto = this.get('repto');
-
 	}
 
 });

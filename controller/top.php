@@ -24,6 +24,7 @@ class top extends spController
 		{
 			$this->user = spClass('db_member')->find(array('uid'=>$_SESSION['uid'])); //用户信息
 			$this->local = explode('市',$this->user['local']);
+			$this->myLook = spClass('db_follow')->findCount(array('touid'=>$_SESSION['uid']));
 			
 			$this->followuid = spClass('db_follow')->getFollowUid($_SESSION['uid']);//获取跟随者信息
 			

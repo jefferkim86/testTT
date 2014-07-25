@@ -51,9 +51,43 @@ class top extends spController
 		if(islogin()){
 			$this->user = spClass('db_member')->find(array('uid'=>$this->uid)); //用户信息
 			$this->local = explode('市',$this->user['local']);
+			$this->myLook = spClass('db_follow')->findCount(array('touid'=>$this->uid));
+			
 			$this->favatag = spClass('db_mytag')->myFavaTag($this->spArgs(),$this->uid); //显示收藏标签
 		}
 		
+	}
+	
+public function getMyFollow(){
+		$data = array();
+		$sql = "SELECT f.id as fid, f.time as ftime, f.linker as linker, f.uid as fuid , m.*
+				FROM `".DBPRE."follow` AS f
+				LEFT JOIN `".DBPRE."member` AS m ON f.uid = m.uid WHERE f.uid = ".$this->uid;
+		
+		$obj = spClass('db_follow');
+		$obj->linker['0']['enabled'] = false;
+		$sql .= " order by ftime DESC limit 0, 6";
+//		print_r($sql);
+		$myfollow = $obj->spLinker()->findSql($sql);
+		
+
+		
+		foreach($myfollow as &$d){
+			
+			$d['h_url'] = goUserHome(array('uid'=>$d['uid'], 'domain'=>$d['domain']));
+			$d['h_img'] = avatar(array('uid'=>$d['uid'],'size'=>'middle'));
+			$d['sign'] = strip_tags($d['sign']);
+			$d['blogtag'] = ($d['blogtag'] != '') ?  explode(',',$d['blogtag']) : '';
+//				$d['touid'] =  $tudo;
+//				unset($tudo,$d['touid']['domain']);
+			$d['time'] = ybtime(array('time'=>$d['ftime']));
+			if($d['linker'] == 1){
+				$d['linker'] = true;
+			}else{
+				$d['linker'] = false;
+			}
+		}
+		$this->myfollow = $myfollow;
 	}
 	
 	
@@ -86,11 +120,6 @@ class top extends spController
 	}
 	
 	protected function api_success($body){
-		//print_r(json_encode($body));
-		// json_decode($body);
-		// print_r(json_last_error());
-		
-		//print_r(json_encode( array('status'=>1,'msg'=>'', 'body'=>$body) ));
 		echo json_encode( array('status'=>1,'msg'=>'', 'body'=>$body) );
 		exit;
 	}

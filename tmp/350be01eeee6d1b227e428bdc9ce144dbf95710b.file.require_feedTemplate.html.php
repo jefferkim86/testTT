@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-25 00:51:29
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-26 00:24:33
          compiled from "tplv2/require_feedTemplate.html" */ ?>
-<?php /*%%SmartyHeaderCode:188564257853d13991965055-07952248%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:143428077153d284c14f7715-05350913%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '350be01eeee6d1b227e428bdc9ce144dbf95710b' => 
     array (
       0 => 'tplv2/require_feedTemplate.html',
-      1 => 1406220687,
+      1 => 1406305470,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '188564257853d13991965055-07952248',
+  'nocache_hash' => '143428077153d284c14f7715-05350913',
   'function' => 
   array (
   ),
@@ -55,10 +55,11 @@ $_smarty_tpl->decodeProperties(array (
                 <div class="merc-name"><a href="${avatarHref}">${username}</a></div>
             </div>
             <div class="feed-bd">
-            <div class="feed-title clearfix">
-                ${feedForwardContent}
-            </div>
-                {@if forwardData}
+            {@if forwardData}
+                <div class="feed-title clearfix">
+                    ${feedForwardContent}
+                </div>
+                
                  <div  id="J-forwardBlog-${forwardData.bid}" class="feed feed-${feedType} feed-forward-layout clearfix">
                     <div class="feed-desc">
                         <div class="feed-hd">

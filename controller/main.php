@@ -17,14 +17,13 @@ class main extends top
 			$this->email = spClass('ybCookie')->get_cookie('unames');
 		}else{
 			$this->memberinfo();
+			$this->getMyFollow();
 			if($this->yb['wizard_switch'] == 1){
 				$this->blogtag = explode(',',$this->user['blogtag']);
 				$this->systag = spClass('db_category')->findCate();
 			}
 			$display ='index';
 		}
-		
-
 		$this->CurrentModule = 'index';
 		$this->display($display.'.html');
 	}

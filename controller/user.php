@@ -31,12 +31,14 @@ class user extends top
 	/*显示首页界面我关注的*/
 	public function myfollow(){
 		$this->myfollow_current = 'class="current"';
+		$this->getMyFollow();
 		$this->display('user_myfollow.html');	
 	}
 	
 	/*我喜欢的*/
 	public function mylikes(){
 		$this->mylike_current = 'class="current"';
+		$this->getMyFollow();
 		$this->display('user_mylikes.html');		
 	}
 	

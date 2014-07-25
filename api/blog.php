@@ -528,6 +528,12 @@ class blog extends top
 	
 	private function translate_feed($listBlog) {
 		$arr_source_blog = array();
+		$likes = spClass("db_likes")->findAll(array('uid'=>$this->uid), null, 'id,bid');
+		$arr_like_bid = array();
+		foreach ($likes as $like) {
+			$arr_like_bid[$like['bid']] = $like['id'];
+		}
+		
 		foreach($listBlog as &$d){
 			$this->foramt_feeds($d);
 			if ($d['source_bid'] > 0 && $d['source_bid'] != $d['bid']) {
@@ -551,6 +557,10 @@ class blog extends top
 				$d['repto']['body'] = $tmp_blog['body'];
 				$d['repto']['title'] = $tmp_blog['title'];
 				$d['repto']['attr'] = $tmp_blog['attr'];
+				$d['repto']['likeid'] = null;
+				if (isset($arr_like_bid[$d['source_bid']])) {
+					$d['repto']['islikes'] = $arr_like_bid[$d['source_bid']];
+				}
 			}
 		}
 		

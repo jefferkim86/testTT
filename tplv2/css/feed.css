@@ -132,7 +132,7 @@
 	width:0;height:0;position:absolute;left:1px;top:-7px;overflow:hidden
 }
 
-.feed .feed-title,.feed-forward-layout .feed-text-title{
+.feed .feed-title,.feed .feed-text-title,.feed-forward-layout .feed-text-title{
 	font-size: 18px;
 	color: #777777;
 	padding:10px 0 15px 0;
@@ -141,7 +141,7 @@
 	word-wrap: break-word;
 	border-bottom: 1px solid #eeeeee;
 }
-.feed-forward-layout .feed-text-title{
+.feed .feed-text-title,.feed-forward-layout .feed-text-title{
 	margin-left: 0;
 }
 .feed-forward-layout .feed-act .pop-foot-corner .outter{
@@ -747,6 +747,13 @@ ul,li {
 	width: 120px;
 	height: 120px;
 	margin: 0;
+}
+.page-userInfo .logo img {
+	width: 120px;
+	height: 120px;
+	-moz-border-radius: 120px;
+	-webkit-border-radius: 120px;
+	border-radius: 120px;
 }
 .page-userInfo .info {
 	width: 698px;
