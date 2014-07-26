@@ -86,6 +86,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 			var repto = this.get('repto');
 			var attr;
 			//转发数据
+			
 			if (repto) {
 				attr = repto.attr;
 				result = {

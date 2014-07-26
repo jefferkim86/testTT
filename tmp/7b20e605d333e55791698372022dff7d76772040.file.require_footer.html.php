@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-24 19:46:10
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-26 18:21:20
          compiled from "tplv2/require_footer.html" */ ?>
-<?php /*%%SmartyHeaderCode:163878805553d0f2027294e7-87054983%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:173282708153d381201ceb12-11239821%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7b20e605d333e55791698372022dff7d76772040' => 
     array (
       0 => 'tplv2/require_footer.html',
-      1 => 1406135690,
+      1 => 1406370013,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '163878805553d0f2027294e7-87054983',
+  'nocache_hash' => '173282708153d381201ceb12-11239821',
   'function' => 
   array (
   ),
@@ -57,118 +57,60 @@ $(document).ready(function(){
 	})();
 });
 
+var scrollLoad = {
+    init:function(){
+        this.timeing = null;
+        this.page = 1;
+        Tuitui.globalData.canLoadFeed = false;
+    },
+    needLoad: function() {
+        var container = $("#feedArea");
+      
+        var needLoad = $(document).scrollTop() + $(window).height() > $(document).height() - 200;
+        console.log('needLoad',needLoad);
+        return needLoad;
+    },
+    loadMore : function(){
+        //canLoad 上一页返回了数据并且已经渲染
+        var self = this;
+        if(this.needLoad() && Tuitui.globalData.canLoadFeed){
+            self.page++;
+            Tuitui.globalData.canLoadFeed = false;
 
-
-
-// var container = $("#feedArea");
-// function _canLoad() {
-
-//     var h = DOM.offset(container).top + container.offsetHeight,
-//         heightCondition = h - DOM.scrollTop() - host.config.distance < DOM.viewportHeight();
-
-
-//     return heightCondition;
-// }
-// function _initCheck() {
-
-//     // 防止ie6过早操作DOM, 去掉了以上注释的操作
-//     if (_canLoad()) {
-//          getFeeds();
-//     }
-//     else {
-//         _onScroll();
-//     }
-// }
-// function getFeeds(){
-// 	feedsView.getFeeds(curPage);
-// }
-// var timeing;
-// function _scrollFn() {
-
-//         if (!isRun) return;
-
-//         if (_canLoad() && STATUS == "stop") {
-
-//             if (timeing) {
-//                 clearTimeout(timeing);
-//                 timeing = null;
-//             }
-
-//             timeing = setTimeout(function () {
-
-//                 getFeeds();
-
-//             }, 300);
-//         }
-
-//     };
-// // 添加滚动条事件
-// function _onScroll() {
-//     //滚动事件，节流
-//     $(window).bind("scroll",function() {
-//     	_scrollFn();
-//     }
-//      $(window).bind("resize",function() {
-//      	_scrollFn();
-//      }
-// }
-
-
-// function pause() {
-//     isRun = false;
-// }
-
-// function restart() {
-//     isRun = true;
-// }
-
-// function destroy() {
-// 	$(window).unbind("scroll",function() {
-//     	_scrollFn();
-//     }
-//      $(window).unbind("resize",function() {
-//      	_scrollFn();
-//      }
-
-//     clearTimeout(timeing);
-//     timeing = null;
-
-//     STATUS = "destroy";
-
-// }
-
-
-function getfeeds() {
-    var fold = $(window).height() + $(document).scrollTop();
-    var doc_height = $(document.body).height();
-    var loading = $("#feed_loading");
-    var curPage =  parseInt(loading.attr("currentpage"));
-    var total_page =  parseInt(loading.attr("total_page")); 
-
-    if (fold >= doc_height - 20) {
-    	curPage++;
-        if (total_page == 0) {
-            nomore.show();
-            return false
+            if (this.timeing) {
+                clearTimeout(this.timeing);
+                this.timeing = null;
+            }
+            this.timeing = setTimeout(function () {
+                G_LoadMore(self.page);
+            }, 300);
         }
-        if(curPage == total_page){
-        	loading.hide();
+        console.log(Tuitui.globalData.end);
+        if(Tuitui.globalData.end){
+            $("#feed_loading").hide();
+            Tuitui.globalData.canLoadFeed = false;
+        }else{
+            $("#feed_loading").show();
         }
-        if (curPage > total_page) {
-            $(window).unbind("scroll");
-            
-        } else {
-            $(window).unbind("scroll");
-            loading.show();
-            G_LoadMore(curPage);
-        }
+    },
+    destroy: function(){
+        $(window).unbind("scroll");
+        $(window).unbind("resize");
+        clearTimeout(this.timeing);
+        this.timeing = null;
+        Tuitui.globalData.canLoadFeed = false;
     }
+    
 }
+
+scrollLoad.init();
 $(window).bind("scroll",function() {
-	setTimeout(function () {
-		getfeeds()
-	},300);
+    scrollLoad.loadMore();
 })
+$(window).bind("resize",function() {
+    scrollLoad.loadMore();
+});
+
 </script>
 <?php }?>
 

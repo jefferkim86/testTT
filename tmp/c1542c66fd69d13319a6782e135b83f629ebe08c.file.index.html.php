@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-25 01:01:32
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-26 17:38:32
          compiled from "tplv2/index.html" */ ?>
-<?php /*%%SmartyHeaderCode:150106282753d13becba4048-52268599%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:70437705453d37718b68e68-75512838%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c1542c66fd69d13319a6782e135b83f629ebe08c' => 
     array (
       0 => 'tplv2/index.html',
-      1 => 1406221291,
+      1 => 1406367511,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '150106282753d13becba4048-52268599',
+  'nocache_hash' => '70437705453d37718b68e68-75512838',
   'function' => 
   array (
   ),
@@ -20,7 +20,7 @@ $_smarty_tpl->decodeProperties(array (
 <?php $_template = new Smarty_Internal_Template("require_header.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
 $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
 
-<div id="index">
+<div id="index" class="clearfix">
     <div id="article">
 
     <?php if (islogin()&&$_smarty_tpl->getVariable('yb')->value['wizard_switch']==1){?> 

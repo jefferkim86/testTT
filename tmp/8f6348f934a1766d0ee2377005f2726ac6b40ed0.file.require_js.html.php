@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-25 14:23:53
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-26 17:20:32
          compiled from "tplv2/require_js.html" */ ?>
-<?php /*%%SmartyHeaderCode:155859537853d1f7f9b5c2d4-04140279%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:196232521753d372e0d54222-13893652%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '8f6348f934a1766d0ee2377005f2726ac6b40ed0' => 
     array (
       0 => 'tplv2/require_js.html',
-      1 => 1406269430,
+      1 => 1406366025,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '155859537853d1f7f9b5c2d4-04140279',
+  'nocache_hash' => '196232521753d372e0d54222-13893652',
   'function' => 
   array (
   ),
@@ -70,6 +70,7 @@ var unit_3 = true;
 /js/backbone.js"></script>
 <script type="text/javascript"> 
 var Tuitui = {};
+Tuitui.globalData = {};
 function getApi(c, m, params, fun) {
     if (params == undefined) {
         params = ''

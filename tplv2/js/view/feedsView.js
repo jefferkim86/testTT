@@ -36,10 +36,6 @@ Tuitui.feedsView = Backbone.View.extend({
             'page': pageNo || 1
         }, function(data) {
             var result = data.body;
-            $("#feed_loading").attr({
-                "currentPage": result.page.current_page,
-                "total_page": result.page.total_page
-            });
             self.collection.reset(result.blog);
         });
     },
@@ -82,8 +78,12 @@ Tuitui.feedsView = Backbone.View.extend({
 
     render: function() {
         var self = this;
+        if(this.collection.length < 10){
+            Tuitui.globalData.end = true;
+        }
         this.collection.each(function(feed) {
             self.addFeed(feed);
         });
+        Tuitui.globalData.canLoadFeed = true;
     }
 });

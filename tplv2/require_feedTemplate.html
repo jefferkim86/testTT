@@ -58,10 +58,8 @@
                             <div class="feed-actions J-forward-actions clearfix">
                                 <div class="feed-act">
                                     <a href="" class="J_Comment">评论(<span class="J_CmtNum">${forwardData.replaycount}</span>)</a>
-                                    {@if !forwardData.isSelf}
                                     <a href="" class="J_Forward">转发(<span class="J_FwdNum">${forwardData.forwardcount}</span>)</a>
                                     <a href="" class="J_Like ${forwardData.isLiked}">喜欢(<span class="J_LikeNum">${forwardData.likecount}</span>)</a>
-                                    {@/if}
                                 </div>
                             </div>
                         </div>
@@ -96,9 +94,9 @@
                 <span class="feed-timestamp"></span>
                 <div class="feed-act">
                     <a href="#" class="J_Comment">评论(<b>${replaycount}</b>)</a>
-                    {@if !isSelf}
+                    
                     <a href="#" class="J_Forward">转发(<b>${forwardcount}</b>)</a>
-                    <a href="#" class="J_Like ${isLiked}">喜欢(<b>${likecount}</b>)</a>{@/if}
+                    <a href="#" class="J_Like ${isLiked}">喜欢(<b>${likecount}</b>)</a>
                 </div>
             </div>
         </div>

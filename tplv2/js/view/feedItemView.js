@@ -206,13 +206,8 @@ Tuitui.feedItemView = Backbone.View.extend({
         var layoutTpl = this.compiled_tpl['feedLayout'];
         var tpl = this.compiled_tpl[feedType];
         //渲染内容
-        console.log('feedAttr>>',this.model.getFeedAttr());
         var feedContent = tpl.render(this.model.getFeedAttr());
-        console.log('feedAttr<<','end');
-
-        // console.log(this.model.getfeedData());
         var feedData = this.model.getfeedData();
-        //console.log('feedData',feedData);
         feedData.feedItemContent = feedContent;
         var layout = layoutTpl.render(feedData);
         return this.$el.html(layout);
