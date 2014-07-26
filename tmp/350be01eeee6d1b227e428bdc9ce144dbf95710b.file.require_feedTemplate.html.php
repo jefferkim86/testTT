@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-26 11:03:56
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-26 12:24:52
          compiled from "tplv2/require_feedTemplate.html" */ ?>
-<?php /*%%SmartyHeaderCode:44970217253d31a9ce2b4c3-08510730%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:93453343453d32d94caee80-96023768%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '350be01eeee6d1b227e428bdc9ce144dbf95710b' => 
     array (
       0 => 'tplv2/require_feedTemplate.html',
-      1 => 1406343706,
+      1 => 1406348650,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '44970217253d31a9ce2b4c3-08510730',
+  'nocache_hash' => '93453343453d32d94caee80-96023768',
   'function' => 
   array (
   ),
@@ -78,7 +78,7 @@ $_smarty_tpl->decodeProperties(array (
                                 <div class="feed-act">
                                     <a href="" class="J_Comment">评论(<span class="J_CmtNum">${forwardData.replaycount}</span>)</a>
                                     <a href="" class="J_Forward">转发(<span class="J_FwdNum">${forwardData.forwardcount}</span>)</a>
-                                    <a href="" class="J_Like">喜欢(<span class="J_LikeNum">${forwardData.likecount}</span>)</a>
+                                    <a href="" class="J_Like ${forwardData.isLiked}">喜欢(<span class="J_LikeNum">${forwardData.likecount}</span>)</a>
                                 </div>
                             </div>
                         </div>
@@ -114,7 +114,7 @@ $_smarty_tpl->decodeProperties(array (
                 <div class="feed-act">
                     <a href="#" class="J_Comment">评论(<b>${replaycount}</b>)</a>
                     <a href="#" class="J_Forward">转发(<b>${forwardcount}</b>)</a>
-                    <a href="#" class="J_Like">喜欢(<b>${likecount}</b>)</a>
+                    <a href="#" class="J_Like ${isLiked}">喜欢(<b>${likecount}</b>)</a>
                 </div>
             </div>
         </div>
@@ -204,38 +204,30 @@ $_smarty_tpl->decodeProperties(array (
 <script type="text/template" id="J-feedGood">
 
     <div class="feed-good-cont clearfix">
-       <div class="feed-good-info">
-        <div class="feed-good-img">
-            <img src="${goodPic}">
-        </div>
-        <div class="feed-good-property">
-              <h3 class="feed-good-title">${goodTitle}</h3>
-             <div class="feed-good-fee">
-                <ul>
-                 {@if oprice}
-                  <li class="oprice"><span>价格：</span>
-                      <del>${oprice}</del>元
-                  </li>{@/if}
-                  {@if price}
-                  <li class="price"><span>促销：</span>
-                  <b>${price}元</b></li>{@/if}
-                  {@if deliveryFees}
-                  <li class="deliveryFees"><span>运费：${deliveryFees}</span>包邮</li>{@/if}
-                </ul>
-             </div>
-        </div>
+       <div class="feed-good-desc clearfix">
+              <p>${feedContent}<span class="feed-more"><a href="${feedLink}">全部信息...</a></span></p>
        </div>
-        <div class="feed-good-desc-wrap">
-            <div class="feed-good-desc clearfix">
-                <div class="for-line">
-                    <div class="pop-corner-desc"><s class="outter"></s><s class="inner"></s></div>
-                    <div class="feed-good-txt">
-                        <p>${feedContent}<span class="feed-more"><a href="${feedLink}">全部信息...</a></span></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+       <div class="feed-good-info">
+          <div class="feed-good-img">
+              <img src="${goodPic}">
+          </div>
+          <div class="feed-good-property">
+                <h3 class="feed-good-title">${goodTitle}</h3>
+               <div class="feed-good-fee">
+                  <ul>
+                   {@if oprice}
+                    <li class="oprice"><span>价格：</span>
+                        <del>${oprice}</del>元
+                    </li>{@/if}
+                    {@if price}
+                    <li class="price"><span>促销：</span>
+                    <b>${price}元</b></li>{@/if}
+                    {@if deliveryFees}
+                    <li class="deliveryFees"><span>运费：${deliveryFees}</span>包邮</li>{@/if}
+                  </ul>
+               </div>
+          </div>
+       </div>
     </div>
 
 </script>

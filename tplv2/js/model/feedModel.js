@@ -67,7 +67,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 			'replaycount': this.get('replaycount'),
 			'likecount': this.get('likecount'),
 			'feedForwardContent': this.get('title') || '',
-			'isLiked': this.get('likeid') || false,
+			'isLiked': this.get('likeid') ? 'liked' : '',
 			'forwardData': this.get('repto') || false
 		}
 	},
@@ -95,7 +95,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'feedContent': repto.body,
 					'title': repto.title,
 					'feedLink': repto.b_url,
-					'isLiked': repto.likeid,
+					'isLiked': repto.likeid ? 'liked' : '',
 					'time': repto.time
 				};
 			} else {
@@ -120,7 +120,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'forwardcount': repto.forwardcount,
 					'replaycount': repto.replaycount,
 					'likecount': repto.likecount,
-					'isLiked': repto.likeid
+					'isLiked': repto.likeid ? 'liked' : ''
 				}
 			} else {
 				result = {
@@ -136,11 +136,12 @@ Tuitui.feedModel = Backbone.Model.extend({
 			var repto = this.get('repto');
 			if (repto) {
 				result = {
-					// 'goodTitle': '11',
-					// 'goodPic': 'http://gw3.alicdn.com/bao/uploaded/i4/17801023056701550/T1TiOJXERbXXXXXXXX_!!0-item_pic.jpg_160x160.jpg',
-					// 'oprice': '11',
-					// 'price': '2',
-					// 'feedContent': 'mock数据内容'
+					'goodTitle': repto.attr.title,
+					'goodPic': repto.attr.image,
+					'oprice': repto.attr.oprice || '',
+					'price': repto.attr.price,
+					'feedContent': repto.attr.body,
+					'isLiked': repto.likeid ? 'liked' : ''
 				};
 			} else {
 				var attr = this.get('attr');

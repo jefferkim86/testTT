@@ -348,7 +348,6 @@
 
 
 .feed-forward-layout .feed-good-info{
-	margin-left:12px;
 }
 
 .feed-good .feed-good-info .feed-good-img img{
@@ -378,7 +377,13 @@
 }
 .feed-good .feed-good-property .view-good{display:block;margin-top:5px;padding-left:24px;width:62px;height:24px;line-height:24px;color:#999999;font-size:12px;background-position:-2px -370px;}
 .feed-good .feed-good-desc-wrap{margin-left:1px;padding-top:17px;color:#333333;}
-.feed-good .feed-good-desc{position:relative;border-top:1px solid #dedede;z-index:5;}
+.feed-good .feed-good-desc{
+	position:relative;
+	border-bottom:1px solid #dedede;
+	margin: 0 20px 25px 20px;
+	color: #777777;
+	font-size: 12px;
+	z-index:5;}
 .feed-good .for-line{padding-top:12px;}
 .feed-good .feed-good-desc .pop-corner-desc{z-index:6;}
 .feed-good .feed-good-desc .pop-corner-desc .outter{position:absolute;left:67px;top:-24px;border:12px dashed transparent;border-bottom:12px solid #e8e8e8;width:0;height:0;overflow:hidden;}

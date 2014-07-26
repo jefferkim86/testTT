@@ -9,9 +9,12 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 
 #box { position:relative; 
     width:860px;
-    margin: 0 auto;
     padding:20px 30px;
-      background-color:#fff; -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px; -moz-box-shadow:0px 1px 3px #bbb; -webkit-box-shadow:0px 1px 3px #bbb; box-shadow:0px 1px 3px #bbb; border-bottom:2px #ddd solid\9; margin:0 0 20px; }
+      background-color:#fff; 
+      -moz-border-radius:8px; 
+      -webkit-border-radius:8px; 
+      border-radius:8px; 
+      -moz-box-shadow:0px 1px 3px #bbb; -webkit-box-shadow:0px 1px 3px #bbb; box-shadow:0px 1px 3px #bbb; border-bottom:2px #ddd solid\9; margin:0 0 20px; }
 #box h2 { 
 
     font-size:18px; color:#555555; 
