@@ -24,8 +24,8 @@ Tuitui.feedItemView = Backbone.View.extend({
     events: {
         "click .feed-photo-cell": "bigPicView",
         "click .feed-original-cell": "previewView",
-        "click .J_Comment": "toggleComment",
-        "click .J_Forward": "getForwardList",
+        "click .J_Comment": "expandFt",
+        "click .J_Forward": "expandFt",
         "click .J-sendForward": "sendForward",
         "click .J_Like": "likeFeed",
         "click .fold": "foldFt"
@@ -136,6 +136,20 @@ Tuitui.feedItemView = Backbone.View.extend({
         actionEl.removeClass('comment-show').removeClass('forward-show');
         feed.find(".J-actions .feed-act").removeClass('comment-corner').removeClass('forward-corner');
     },
+
+    expandFt :function(e){
+        e.preventDefault();
+        var target = e.currentTarget;
+        var type = $(target).attr("type");
+        var corner = this.compiled_tpl['corner'];
+        var data = this.model.toJSON();
+        var bid = data.bid;
+        if (!$(target).find(".pop-foot-corner").length) {
+            $(target).append($(corner));
+        }
+        $(target).parents(".feed").addClass(type+"_show");
+
+    },
     /*
      * @desc 加载数据
      * */
@@ -148,6 +162,7 @@ Tuitui.feedItemView = Backbone.View.extend({
         if (!$(target).find(".pop-foot-corner").length) {
             $(target).append($(corner));
         }
+
         var actionEl = $(target).parents(".feed-act");
         actionEl.toggleClass('comment-corner');
         actionEl.removeClass('forward-corner');
