@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-26 18:22:03
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-26 23:28:34
          compiled from "tplv2/require_feedTemplate.html" */ ?>
-<?php /*%%SmartyHeaderCode:118196457253d3814b416104-06348531%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:188364995653d3c922b65b07-70231023%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '350be01eeee6d1b227e428bdc9ce144dbf95710b' => 
     array (
       0 => 'tplv2/require_feedTemplate.html',
-      1 => 1406370121,
+      1 => 1406388448,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '118196457253d3814b416104-06348531',
+  'nocache_hash' => '188364995653d3c922b65b07-70231023',
   'function' => 
   array (
   ),
@@ -76,46 +76,24 @@ $_smarty_tpl->decodeProperties(array (
                 {@if forwardData}
                             <div class="feed-actions J-forward-actions clearfix">
                                 <div class="feed-act">
-                                    <a href="" class="J_Comment">评论(<span class="J_CmtNum">${forwardData.replaycount}</span>)</a>
-                                    <a href="" class="J_Forward">转发(<span class="J_FwdNum">${forwardData.forwardcount}</span>)</a>
-                                    <a href="" class="J_Like ${forwardData.isLiked}">喜欢(<span class="J_LikeNum">${forwardData.likecount}</span>)</a>
+                                    <a href="#" class="ft-comment">评论(<span class="J_CmtNum">${forwardData.replaycount}</span>)</a>
+                                    <a href="#" class="ft-forward">转发(<span class="J_FwdNum">${forwardData.forwardcount}</span>)</a>
+                                    <a href="#" class="ft-like ${forwardData.isLiked}">喜欢(<span class="J_LikeNum">${forwardData.likecount}</span>)</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="J_forwardFeedfoot feed-ft feed-cmt" data-bid="${forwardData.bid}">
-                      <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
-                      <div class="cmtbox">
-                        <div class="J_CommentWrap">
-                           <div class="cmt-box">
-                               <input class="J_CmtCnt" type="text"/>
-                                <input type="button" class="cmt-btn J-sendReply" value="评论"/>
-                          </div>
-                          <ul class="J_CmtList cmt-list clearfix">
-                                <li class="loading-list">正在加载列表</li>
-                           </ul>
-                           <ul class="J_forwardList clearfix">
-                                <li class="loading-list">正在加载列表</li>
-                           </ul>
-                        </div>
-                        <div class="page-func">
-                            <div class="pagination">
-                                <a href="#" class="fold">收起</a>
-                                <a href="#" class="comment-more">查看更多</a>
-                            </div>
-                        </div>
-                      </div>
-                    </div>
+
                 </div>
                 {@/if}
             </div>
             <div class="feed-actions J-actions clearfix">
                 <span class="feed-timestamp"></span>
                 <div class="feed-act">
-                    <a href="#" class="J_Comment">评论(<b>${replaycount}</b>)</a>
+                    <a href="#" class="ft-comment J_Comment">评论(<b>${replaycount}</b>)</a>
                     
-                    <a href="#" class="J_Forward">转发(<b>${forwardcount}</b>)</a>
-                    <a href="#" class="J_Like ${isLiked}">喜欢(<b>${likecount}</b>)</a>
+                    <a href="#" class="ft-forward J_Forward">转发(<b>${forwardcount}</b>)</a>
+                    <a href="#" class="ft-like J_Like ${isLiked}">喜欢(<b>${likecount}</b>)</a>
                 </div>
             </div>
         </div>

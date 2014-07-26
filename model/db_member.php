@@ -335,27 +335,22 @@ class db_member extends ybModel
 	/**
 	 * 
 	 * 通过用户名称搜索用户
-	 * @param unknown_type $username
-	 * @param unknown_type $pageNo
-	 * @param unknown_type $pageSize
+	 * @param string $username
+	 * @param int $pageNo
+	 * @param int $pageSize
 	 */
 	public function searchByUsername($username, $pageNo = 1, $pageSize = 10) {
 		
 		$count_sql = 'SELECT COUNT(*) as total FROM yb_member WHERE username LIKE "%'.$username.'%"';
 		$result = $this->findSql($count_sql);//var_dump($total);exit;
 		if ($result == null || count($result) < 1) return null;
-		$total = $result['0']['total'];
+		$total = (int)$result['0']['total'];
 		
-		if ($pageNo < 1) $pageNo = 1;
-		if ($pageSize < 1 || $pageSize > 100) $pageSize = 10;
+		$pager = spPager::pageTool($total, $pageNo, $pageSize);
 		
-		$total_page = ceil($total/$pageSize);
-		if ($pageNo > $total_page) $pageNo = $total_page;
-		
-		$offset = ($pageNo-1)*$pageSize;
-		$find_sql = 'SELECT * FROM yb_member WHERE username LIKE "%'.$username.'%" LIMIT '.$offset.', '.$pageSize;
+		$find_sql = 'SELECT * FROM yb_member WHERE username LIKE "%'.$username.'%" LIMIT '.$pager['offset'].', '.$pageSize;
 		$list = $this->findSql($find_sql);
-		return array('data'=>$list, 'current_page'=>$pageNo, 'total_page'=>$total_page, 'total_count'=>$total);
+		return array('data'=>$list, 'page'=>$pager['page_data']);
 	}
 
 }

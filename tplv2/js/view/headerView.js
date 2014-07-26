@@ -15,6 +15,15 @@ Tuitui.headerView = Backbone.View.extend({
 
     initialize: function(options) {
 
+        getApi('user', 'checknotice', {}, function(data) {
+            var result = data.body;
+            console.log(result);
+        });
+
+    },
+
+    getNotice: function() {
+        
     },
 
     showPublish: function(e) {

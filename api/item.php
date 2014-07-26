@@ -36,6 +36,7 @@ class item extends top
 				$stack = json_decode($item->data->apiStack['0']->value);
 				if (empty($stack)) throw new Exception("item parse error", 1001);
 				
+				
 				$data['title'] = $item->data->itemInfoModel->title;
 				$data['image'] = $item->data->itemInfoModel->picsPath['0'];
 				$data['deliveryFees'] = $stack->data->delivery->deliveryFees['0'];

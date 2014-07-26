@@ -27,7 +27,7 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 .fr { float:right; }
 
 /*顶部链接*/
-#header { width:100%; margin:0 0 15px; height:80px; background:#a7c9d3;}
+#header { width:100%; margin:0 0 30px; height:80px; background:#a7c9d3;}
 #header .header_con { 
 	position: relative;
 	z-index: 100;

@@ -384,6 +384,30 @@ class user extends top
 		$this->api_success($data);
 	}
 	
+	public function checknotice() {
+		$data = array('all_count'=>0, 'reply_count'=>0, 'sys_count'=>0, 'follow_count'=>0, 'forward_count'=>0,'like_count'=>0, 'pm_count'=>0);
+		if (islogin()) {
+			$data['pm_count']    = (int)spCLass('db_pm')->findCount(array('touid'=>$this->uid,'isnew'=>1));
+			$list = spClass('db_notice')->findByall(array('foruid'=>$this->uid,'isread'=>0));
+			$data['all_count'] += $data['pm_count'];
+			foreach ($list as $d) {
+				if($d['sys'] == db_notice::NOTICE_TYPE_COMMENT){
+					$data['reply_count']++;
+				}elseif($d['sys'] == db_notice::NOTICE_TYPE_SYSTEM){
+					$data['sys_count']++;
+				}elseif($d['sys'] == db_notice::NOTICE_TYPE_FOLLOW){
+					$data['follow_count']++;
+				}elseif ($d['sys'] == db_notice::NOTICE_TYPE_FORWARD) {
+					$data['forward_count']++;
+				}elseif ($d['sys'] == db_notice::NOTICE_TYPE_LIKE) {
+					$data['like_count']++;
+				}	
+				$data['all_count'] ++;
+			}
+		}
+		$this->api_success($data);
+	}
+	
 
 	
 	/*清除我看过的通知*/
@@ -543,8 +567,13 @@ class user extends top
 		$this->api_error('系统繁忙'); 
 	}
 	
-	
-	
+	function searchbyusername() {
+		$username = $this->spArgs('username');
+		$page_no = $this->spArgs('page_no', 1);
+		$page_size = $this->spArgs('page_size', 10);
+		$data = spClass('db_member')->searchByUsername($username, $page_no, $page_size);
+		$this->api_success($data);
+	}
 	
 
     

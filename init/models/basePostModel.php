@@ -59,14 +59,15 @@ abstract class basePostModel extends top
             'title'=>$title, //超过50自动截取
 			'type' =>$this->mid,
 			'top'  =>$this->spArgs('top',0),
+        	'link' =>$this->spArgs('link'),
 			'tag'  =>$tag,
-			'body'=>$repto.$bodypre.strreplaces($this->spArgs('textarea')),
+			'body'=>$repto.$bodypre.strreplaces($this->spArgs('content')),
 			'noreply'=>$this->spArgs('noreplay',0),
 			'open' =>$this->spArgs('savetype',1),
 			'time' =>time()
         );
 		
-		$ret = $this->post_verify($this->spArgs('textarea')); //检测审核机制
+		$ret = $this->post_verify($this->spArgs('content')); //检测审核机制
 		if($ret['ret'] == 1){
 			$rows['open'] = -2; //被审核
 			spClass('db_notice')->blogverify($this->uid);

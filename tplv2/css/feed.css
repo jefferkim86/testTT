@@ -29,13 +29,13 @@
 	box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15); */
 	-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;
 }
-.feed .feed-link{position:absolute;right:25px;top:25px;}
+.feed .feed-link{position:absolute;right:25px;top:22px;}
 
 .feed .feed-link a{width:21px;height:21px;-moz-border-radius:0 7px 0 7px;-webkit-border-radius:0 7px 0 7px;border-radius:0 7px 0 7px;text-indent:-9999px;overflow:hidden;background-position:-5px -30px;}
 .feed .feed-link-show a{display:block;}
-.feed .feed-hd{padding:16px 26px 0 29px;}
+.feed .feed-hd{padding:20px 26px 0 29px;}
 
-.feed .feed-forward-layout .feed-hd{padding:16px 0 0 12px;}
+.feed .feed-forward-layout .feed-hd{padding:20px 0 0 12px;}
 .feed .feed-hd .merc-name a,.feed-ft .cmt-list li a{color:#729DB8;}
 
 .feed .feed-hd .merc-name a{
@@ -71,22 +71,22 @@
 
 
 
-.feed .feed-actions .feed-act .J_Comment {
+.feed .feed-actions .feed-act .ft-comment {
 	background-position:  -19px -18px;
 }
-.feed .feed-actions .feed-act .J_Comment:hover {
+.feed .feed-actions .feed-act .ft-comment:hover {
 	background-position:  -19px -59px;
 }
-.feed .feed-actions .feed-act .J_Forward {
+.feed .feed-actions .feed-act .ft-forward {
 	background-position: -19px -120px;
 }
-.feed .feed-actions .feed-act .J_Forward:hover {
+.feed .feed-actions .feed-act .ft-forward:hover {
 	background-position: -20px -167px;
 }
-.feed .feed-actions .feed-act .J_Like {
+.feed .feed-actions .feed-act .ft-like {
 	background-position: -19px -240px;
 }
-.feed .feed-actions .feed-act .J_Like:hover{
+.feed .feed-actions .feed-act .ft-like:hover{
 	background-position: -20px -339px;
 }
 .feed .feed-actions .feed-act .liked{

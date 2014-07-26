@@ -110,12 +110,7 @@ Tuitui.feedItemView = Backbone.View.extend({
         if (!$(target).find(".pop-foot-corner").length) {
             $(target).append($(corner));
         }
-        var feedFtClass = '.J_Feedfoot';
-        if ($(target).parents('.J-forward-actions').length) {
-            bid = data.repto && data.repto.bid || 1; //TODO:需要添加
-            feedFtClass = '.J_forwardFeedfoot';
-        }
-        var cmtEl = $(target).parents(".feed").find(feedFtClass);
+        var cmtEl = $(target).parents(".feed").find(".J_Feedfoot");
         cmtEl.toggleClass('forward-show');
         cmtEl.removeClass('comment-show');
         cmtEl.find(".cmt-btn").addClass("J-sendForward").removeClass('J-sendReply');
@@ -138,12 +133,8 @@ Tuitui.feedItemView = Backbone.View.extend({
         var target = e.currentTarget;
         var feed = $(target).parents(".feed");
         var actionEl = $(target).parents(".feed-ft");
-        var feedFtClass = '.J-actions';
-        if ($(target).parents('.J_forwardFeedfoot').length) {
-            feedFtClass = '.J-forward-actions';
-        }
         actionEl.removeClass('comment-show').removeClass('forward-show');
-        feed.find(feedFtClass+" .feed-act").removeClass('comment-corner').removeClass('forward-corner');
+        feed.find(".J-actions .feed-act").removeClass('comment-corner').removeClass('forward-corner');
     },
     /*
      * @desc 加载数据
@@ -160,12 +151,8 @@ Tuitui.feedItemView = Backbone.View.extend({
         var actionEl = $(target).parents(".feed-act");
         actionEl.toggleClass('comment-corner');
         actionEl.removeClass('forward-corner');
-        var feedFtClass = '.J_Feedfoot';
-        if ($(target).parents('.J-forward-actions').length) {
-            bid = data.repto && data.repto.bid || 1; //TODO:需要添加
-            feedFtClass = '.J_forwardFeedfoot';
-        }
-        var cmtEl = $(target).parents(".feed").find(feedFtClass);
+       
+        var cmtEl = $(target).parents(".feed").find(".J_Feedfoot");
         cmtEl.find(".cmt-btn").addClass("J-sendReply").removeClass('J-sendForward');
         cmtEl.find(".J_CmtCnt").val('');
         cmtEl.toggleClass('comment-show');
