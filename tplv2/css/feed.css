@@ -85,7 +85,10 @@
 .feed .feed-actions .feed-act .J_Like {
 	background-position: -19px -240px;
 }
-.feed .feed-actions .feed-act .J_Like:hover ,.feed .feed-actions .feed-act .liked{
+.feed .feed-actions .feed-act .J_Like:hover{
+	background-position: -20px -339px;
+}
+.feed .feed-actions .feed-act .liked{
 	background-position: -19px -278px;
 }
  
