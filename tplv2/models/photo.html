@@ -13,8 +13,6 @@ var size    = '{$tpl_config.imagesize}';
 <script type="text/javascript">
 $(document).ready(function(){
 
-		//$(".attach_img").
-			// 离开页面前提示
 		$.isChange.Set("#title,#textarea",function(){
 			return $("#uploadArea .attach_img").size()>0;
 		});
@@ -28,7 +26,6 @@ $(document).ready(function(){
 	
 	<div id="article" class="photo">
 	    <div id="box">
-	        <h2>发布图片</h2>
 			<div id="post_area">
 			
 			    <div id="uploadArea">
@@ -72,12 +69,10 @@ $(document).ready(function(){
 				</div>
 			
 			    <div class="p_area">
-			        <h3>标题<span>（可不填）</span></h3>
 				    <input type="text" name="title" id="title" class="input" tabindex="1" value="{$blog.title}">
 				</div>
 				
 				<div class="p_area">
-				    <h3 class="title">内容<span>（可不填）</span></h3>
 					<textarea name="textarea" id="textarea" style="width:820px">{$body.body}</textarea>
                     <input type="hidden" name="tag" id="tag" value="" />
                     <input type="hidden" name="id" value="{$blog.bid}" />
@@ -96,18 +91,17 @@ $(document).ready(function(){
 						<li value="">晒单</li>
 						<li value="">晒单</li>
 					</ul>
-
+					<input type="hidden" name="tag" value="" id="J-tagVal"/>
 				</div>
 				<hr/>
-				<input type="hidden" name="tag" value="" id="J-tagVal"/>
 				
 
 				<div class="p_area">
 				    <div id="pb-action-holder">
-				    <a id="submit"><span>发布</span></a>
-					<a id="preview">预览</a>
-					<a id="cancel">取消</a>
-					<span style="display:none;" id="pb-submiting-tip">正在保存</span>
+					    <a href="#" id="submit" class="btn">发布</a>
+						<a href="#" id="preview" class="btn">预览</a>
+						<a href="#" id="cancel" class="btn">取消</a>
+						<span style="display:none;" id="pb-submiting-tip">正在保存</span>
 					</div>
                     
 				</div>
@@ -121,14 +115,5 @@ $(document).ready(function(){
 	</div>
 </form>
 </div>
-<script type="text/javascript">
-	
-$(document).on("click","#tags li",function(e){
-	$("#tags li").removeClass('cur');
-	$(this).addClass('cur');
-	var tag = $(this).attr("value");
-	$("#J-tagVal").val(tag);
-})
 
-</script>
-{include file="require_footer.html"}
+{include file="require_pubfooter.html"}

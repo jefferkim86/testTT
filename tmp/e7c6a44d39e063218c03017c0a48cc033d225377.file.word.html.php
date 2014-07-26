@@ -1,79 +1,73 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-23 22:29:27
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-26 14:28:07
          compiled from "tplv2/models/word.html" */ ?>
-<?php /*%%SmartyHeaderCode:111697214952d9337631df18-25230893%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:138840002753d34a77506268-57639828%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'e7c6a44d39e063218c03017c0a48cc033d225377' => 
     array (
       0 => 'tplv2/models/word.html',
-      1 => 1405860631,
+      1 => 1406356086,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '111697214952d9337631df18-25230893',
+  'nocache_hash' => '138840002753d34a77506268-57639828',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
-<?php if (!is_callable('smarty_modifier_date_format')) include '/Users/jinjianfeng/Documents/work/tuitui2/init/Drivers/Smarty/plugins/modifier.date_format.php';
+<?php if (!is_callable('smarty_modifier_date_format')) include '/Users/jinjianfeng/Documents/work/tuitui/init/Drivers/Smarty/plugins/modifier.date_format.php';
 ?><?php $_template = new Smarty_Internal_Template("require_header.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
 $_template->assign('addcss','yes');$_template->assign('editor','yes');$_template->assign('titlepre',"发布文字 - ".($_SESSION['tempid'])); echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
 
 <script>
 $(document).ready(function(){
-	   	var jUpload=$('#upload_img input');
-		jUpload.mousedown(function(){textbody.saveBookmark();}).change(function(){
-			var $this=$(this),sExt=$this.attr('ext'),$prev=$this.prev();
-			if($this.val().match(new RegExp('\.('+sExt.replace(/,/g,'|')+')$','i'))){
-				$('#submit,#preview,#cancel,#pb-submiting-tip,#uploading,#upload_img').toggle();
-				var upload=new textbody.html4Upload(this,urlpath+'/index.php?c=post&a=uploadimg&model=1',function(sText){
-					$('#submit,#preview,#cancel,#pb-submiting-tip,#uploading,#upload_img').toggle();
-					var data=Object,bOK=false;
-				
-					try{data=eval('('+sText+')');}catch(ex){alert(sText)};
-					if(!data.err){
-						textbody.loadBookmark();
-						var urls = data.msg.url.split('||');
-						if(urls.length ==2)
-						{
-							if($('#blog-types').val() == 1){$('#attach').val(urls[0]);}
-							textbody.pasteHTML('<a href="'+urls[1]+'"><img src="'+urls[0]+'" class="feedimg" /></a>');
-						}else{
-							if($('#blog-types').val() == 1){$('#attach').val(data.msg.url);}
-							textbody.pasteHTML('<img src="'+data.msg.url+'" class="feedimg" />');
-						}
-						
-					}else{
-						alert(data.err);	
-					}
-				});
-				upload.start();
-			}
-			else alert('请上传'+sExt+'格式文件');
-		});
-		
-	   
-	   /*发布text*/
-	   $('#submit').click(function(){
-			
-			var title = $('#title').val(); 
-			var text = $('#textarea').val();
-			if(text == ''){tips('内容不能为空喔'); $('#textarea').focus();return false}
-			setTags();
-			$('#submit,#preview,#cancel,#pb-submiting-tip').toggle();
-			$('#form1').submit();
-		});	
-		// 离开页面前提示
 		$.isChange.Set("#title,#textarea");
 		$.isChange.unSet("#form1");
+})
+// $(document).ready(function(){
+// 	   	var jUpload=$('#upload_img input');
+// 		jUpload.mousedown(function(){textbody.saveBookmark();}).change(function(){
+// 			var $this=$(this),sExt=$this.attr('ext'),$prev=$this.prev();
+// 			if($this.val().match(new RegExp('\.('+sExt.replace(/,/g,'|')+')$','i'))){
+// 				$('#submit,#preview,#cancel,#pb-submiting-tip,#uploading,#upload_img').toggle();
+// 				var upload=new textbody.html4Upload(this,urlpath+'/index.php?c=post&a=uploadimg&model=1',function(sText){
+// 					$('#submit,#preview,#cancel,#pb-submiting-tip,#uploading,#upload_img').toggle();
+// 					var data=Object,bOK=false;
+				
+// 					try{data=eval('('+sText+')');}catch(ex){alert(sText)};
+// 					if(!data.err){
+// 						textbody.loadBookmark();
+// 						var urls = data.msg.url.split('||');
+// 						if(urls.length ==2)
+// 						{
+// 							if($('#blog-types').val() == 1){$('#attach').val(urls[0]);}
+// 							textbody.pasteHTML('<a href="'+urls[1]+'"><img src="'+urls[0]+'" class="feedimg" /></a>');
+// 						}else{
+// 							if($('#blog-types').val() == 1){$('#attach').val(data.msg.url);}
+// 							textbody.pasteHTML('<img src="'+data.msg.url+'" class="feedimg" />');
+// 						}
+						
+// 					}else{
+// 						alert(data.err);	
+// 					}
+// 				});
+// 				upload.start();
+// 			}
+// 			else alert('请上传'+sExt+'格式文件');
+// 		});
+		
+	 
+// 		离开页面前提示
+// 		$.isChange.Set("#title,#textarea");
+// 		$.isChange.unSet("#form1");
 
-});
+// });
 </script>
 
 
-<div id="index">
+<div id="publishWord">
 <form action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'post','a'=>'saved','model'=>$_smarty_tpl->getVariable('mid')->value),$_smarty_tpl);?>
 " id="form1" method="post">
     
@@ -84,15 +78,13 @@ $(document).ready(function(){
 			<div id="post_area">
 			
 			    <div class="p_area">
-			        <h3>标题<span>（可不填）</span></h3>
-				    <input type="text" name="title" class="pub-url" tabindex="1" value="<?php echo $_smarty_tpl->getVariable('blog')->value['title'];?>
+				    <input type="text" name="title" id="title" class="pub-url" tabindex="1" value="<?php echo $_smarty_tpl->getVariable('blog')->value['title'];?>
 ">
 				</div>
 				
 				<div class="p_area">
-				    <h3 class="title">内容</h3>
 					<?php if ($_smarty_tpl->getVariable('tpl_config')->value['imguplod']!=0){?>
-					<div id="uploadpic">
+					<div id="uploadpic" style="display:none;">
 					    <span id="upload_bar">
 						    <div class="uploadBtn" id="upload_img"><span>上传图片</span>
 							<input type="file" size="1" name="filedata" ext="<?php if ($_smarty_tpl->getVariable('tpl_config')->value['imagetype']){?><?php echo $_smarty_tpl->getVariable('tpl_config')->value['imagetype'];?>
@@ -147,13 +139,26 @@ if ($_smarty_tpl->_count($_from) > 0){
 					</div>
 				</div>
 				<?php }?>
-				
+				<div class="tags clearfix" id="tags">
+					<label>标签（可不选）</label>
+					<ul class="tag-list">
+						<li value="2" class="cur">晒单</li>
+						<li value="43">晒单</li>
+						<li value="4">晒单</li>
+						<li value="">晒单</li>
+						<li value="">晒单</li>
+						<li value="">晒单</li>
+					</ul>
+					<input type="hidden" name="tag" value="" id="J-tagVal"/>
+				</div>
+				<hr/>
+
 				<div class="p_area">
 				    <div id="pb-action-holder">
-				    <a id="submit"><span>发布</span></a>
-					<a id="preview">预览</a>
-					<a id="cancel">取消</a>
-					<span style="display:none;" id="pb-submiting-tip">正在处理...</span>
+					    <a href="#" id="submit" class="btn">发布</a>
+						<a href="#" id="preview" class="btn">预览</a>
+						<a href="#" id="cancel" class="btn">取消</a>
+						<span style="display:none;" id="pb-submiting-tip">正在保存</span>
 					</div>
 				</div>
                 <input type="hidden" name="id" value="<?php echo $_smarty_tpl->getVariable('blog')->value['bid'];?>
@@ -168,5 +173,5 @@ if ($_smarty_tpl->_count($_from) > 0){
 </form>
 </div>
 
-<?php $_template = new Smarty_Internal_Template("require_footer.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+<?php $_template = new Smarty_Internal_Template("require_pubfooter.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>

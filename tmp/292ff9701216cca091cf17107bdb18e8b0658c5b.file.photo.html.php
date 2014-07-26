@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-24 22:12:07
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-26 14:19:54
          compiled from "tplv2/models/photo.html" */ ?>
-<?php /*%%SmartyHeaderCode:89160103252d9337a2196a3-63175606%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:88300247753d3488a209ec0-22661241%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '292ff9701216cca091cf17107bdb18e8b0658c5b' => 
     array (
       0 => 'tplv2/models/photo.html',
-      1 => 1405860450,
+      1 => 1406354111,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '89160103252d9337a2196a3-63175606',
+  'nocache_hash' => '88300247753d3488a209ec0-22661241',
   'function' => 
   array (
   ),
@@ -41,8 +41,6 @@ var size    = '<?php echo $_smarty_tpl->getVariable('tpl_config')->value['images
 <script type="text/javascript">
 $(document).ready(function(){
 
-		//$(".attach_img").
-			// 离开页面前提示
 		$.isChange.Set("#title,#textarea",function(){
 			return $("#uploadArea .attach_img").size()>0;
 		});
@@ -57,7 +55,6 @@ $(document).ready(function(){
 	
 	<div id="article" class="photo">
 	    <div id="box">
-	        <h2>发布图片</h2>
 			<div id="post_area">
 			
 			    <div id="uploadArea">
@@ -118,13 +115,11 @@ if ($_smarty_tpl->_count($_from) > 0){
 				</div>
 			
 			    <div class="p_area">
-			        <h3>标题<span>（可不填）</span></h3>
 				    <input type="text" name="title" id="title" class="input" tabindex="1" value="<?php echo $_smarty_tpl->getVariable('blog')->value['title'];?>
 ">
 				</div>
 				
 				<div class="p_area">
-				    <h3 class="title">内容<span>（可不填）</span></h3>
 					<textarea name="textarea" id="textarea" style="width:820px"><?php echo $_smarty_tpl->getVariable('body')->value['body'];?>
 </textarea>
                     <input type="hidden" name="tag" id="tag" value="" />
@@ -145,18 +140,17 @@ if ($_smarty_tpl->_count($_from) > 0){
 						<li value="">晒单</li>
 						<li value="">晒单</li>
 					</ul>
-
+					<input type="hidden" name="tag" value="" id="J-tagVal"/>
 				</div>
 				<hr/>
-				<input type="hidden" name="tag" value="" id="J-tagVal"/>
 				
 
 				<div class="p_area">
 				    <div id="pb-action-holder">
-				    <a id="submit"><span>发布</span></a>
-					<a id="preview">预览</a>
-					<a id="cancel">取消</a>
-					<span style="display:none;" id="pb-submiting-tip">正在保存</span>
+					    <a href="#" id="submit" class="btn">发布</a>
+						<a href="#" id="preview" class="btn">预览</a>
+						<a href="#" id="cancel" class="btn">取消</a>
+						<span style="display:none;" id="pb-submiting-tip">正在保存</span>
 					</div>
                     
 				</div>
@@ -170,15 +164,6 @@ if ($_smarty_tpl->_count($_from) > 0){
 	</div>
 </form>
 </div>
-<script type="text/javascript">
-	
-$(document).on("click","#tags li",function(e){
-	$("#tags li").removeClass('cur');
-	$(this).addClass('cur');
-	var tag = $(this).attr("value");
-	$("#J-tagVal").val(tag);
-})
 
-</script>
-<?php $_template = new Smarty_Internal_Template("require_footer.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+<?php $_template = new Smarty_Internal_Template("require_pubfooter.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>

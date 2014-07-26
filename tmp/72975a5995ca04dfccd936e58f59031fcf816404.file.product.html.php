@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-26 11:09:51
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-26 14:27:14
          compiled from "tplv2/models/product.html" */ ?>
-<?php /*%%SmartyHeaderCode:104867422053d31bff8eff08-09408373%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:40684026653d34a42941e75-29685840%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '72975a5995ca04dfccd936e58f59031fcf816404' => 
     array (
       0 => 'tplv2/models/product.html',
-      1 => 1406344189,
+      1 => 1406355982,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '104867422053d31bff8eff08-09408373',
+  'nocache_hash' => '40684026653d34a42941e75-29685840',
   'function' => 
   array (
   ),
@@ -33,8 +33,14 @@ var size    = '20480';
 </script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /models/js/swfupload.js"></script>
-
-<div id="index">
+<script type="text/javascript">
+	
+$(document).ready(function(){
+		$.isChange.Set("#producturl,#textarea");
+		$.isChange.unSet("#form1");
+})
+</script>
+<div id="publishGood">
 <form action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'post','a'=>'saved','model'=>5),$_smarty_tpl);?>
 " id="form1" method="post">
 	<div id="article">
@@ -55,7 +61,6 @@ var size    = '20480';
 				</div>
 				
 				<div class="p_area">
-				    <h3 class="title">内容<span>（可不填）</span></h3>
 					<?php if ($_smarty_tpl->getVariable('tpl_config')->value['imguplod']!=0){?>
 					<div id="uploadpic">
 					    <span id="upload_bar">
@@ -83,9 +88,10 @@ var size    = '20480';
 						<li value="">晒单</li>
 						<li value="">晒单</li>
 					</ul>
+					<input type="hidden" name="tag" value="" id="J-tagVal"/>
+
 				</div>
 				<hr/>
-				<input type="hidden" name="tag" value="" id="J-tagVal"/>
 				
 				<?php if (is_array($_smarty_tpl->getVariable('attach')->value)){?>
 				<div class="p_area">
@@ -129,10 +135,10 @@ if ($_smarty_tpl->_count($_from) > 0){
 				
 				<div class="p_area">
 				    <div id="pb-action-holder">
-				    <a id="submit"><span>发布</span></a>
-					<a id="preview">预览</a>
-					<a id="cancel">取消</a>
-					<span style="display:none;" id="pb-submiting-tip">正在保存</span>
+					    <a href="#" id="submit" class="btn">发布</a>
+						<a href="#" id="preview" class="btn">预览</a>
+						<a href="#" id="cancel" class="btn">取消</a>
+						<span style="display:none;" id="pb-submiting-tip">正在保存</span>
 					</div>
 				</div>
 				
@@ -143,7 +149,6 @@ if ($_smarty_tpl->_count($_from) > 0){
 </form>
 </div>
 
-<script type="text/javascript" src=""></script>
 <script type="template" id="J_GoodInfoTmp">
     <div class="feed-good feed-good-pub">
         <div class="pop-corner-desc"><s class="outter"></s><s class="inner"></s></div>
@@ -175,17 +180,6 @@ if ($_smarty_tpl->_count($_from) > 0){
 </script>
 
 <script type="text/javascript">
-
-
-
-
-$(document).ready(function(){
-    /*发布image*/
-    $('#submit').click(function(){
-        $('#form1').submit();
-    });	
-})
-
 
 // 	var ext='图像文件 (*.*)',useget=0;ext=getQuery('ext')||ext;
 // 	size=getQuery('size')||size;
@@ -383,14 +377,6 @@ $(document).ready(function(){
 // }
 
 
-$(document).on("click","#tags li",function(e){
-	$("#tags li").removeClass('cur');
-	$(this).addClass('cur');
-	var tag = $(this).attr("value");
-	$("#J-tagVal").val(tag);
-})
-
-
 </script>
 
 
@@ -398,12 +384,7 @@ $(document).on("click","#tags li",function(e){
 
 
 
-<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/view/publishView.js"></script>
-<script type="text/javascript">
-	var publishView = new Tuitui.publishView();
 
-</script>
 
-<?php $_template = new Smarty_Internal_Template("require_footer.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+<?php $_template = new Smarty_Internal_Template("require_pubfooter.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>

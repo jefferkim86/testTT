@@ -7,24 +7,41 @@ Tuitui.publishView = Backbone.View.extend({
     el: "body",
 
     compiled_tpl: {
-        'goodTpl': juicer($("#J_GoodInfoTmp").html())
+        'goodTpl': juicer($("#J_GoodInfoTmp").html() || '')
     },
 
     events: {
-        
-
+        "click #tags li": "selectTag",
+        "click #submit": 'submitForm',
+        "click #cancel": function(e) {
+            e.preventDefault();
+            window.history.go(-1)
+        }
     },
 
 
     initialize: function(options) {
         var self = this;
         //获取商品
-        $("#producturl").on("blur",function(e){
+        $("#producturl").on("blur", function(e) {
             var target = e.currentTarget;
             var http = $(target).val();
-           self.getGood(http);
+            self.getGood(http);
         });
 
+    },
+
+    submitForm: function(e) {
+        e.preventDefault();
+        $('#form1').submit();
+    },
+
+    selectTag: function(e) {
+        var target = e.currentTarget;
+        $("#tags li").removeClass('cur');
+        $(target).addClass('cur');
+        var tagVal = $(target).attr("value");
+        $("#J-tagVal").val(tagVal);
     },
 
     getGood: function(link) {
@@ -32,18 +49,18 @@ Tuitui.publishView = Backbone.View.extend({
         getApi('item', 'get', {
             'url': link
         }, function(data) {
-            if(data.status == 1){
+            if (data.status == 1) {
                 var result = data.body;
                 //设置提交隐藏域
-                for(var key in result){
-                    $("#J_"+key).val(result[key]);
+                for (var key in result) {
+                    $("#J_" + key).val(result[key]);
                 }
                 result.oprice = result.oprice || '';
-                result.image = result.image+'_160x160.jpg';
+                result.image = result.image + '_160x160.jpg';
                 var html = goodTpl.render(result);
                 $("#goodInfoBlock").html(html);
-            }else{
-                $("#goodInfoBlock").html('<span>'+data.msg+'</span>');
+            } else {
+                $("#goodInfoBlock").html('<span>' + data.msg + '</span>');
             }
         });
 

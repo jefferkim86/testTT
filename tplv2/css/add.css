@@ -14,7 +14,9 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
       -moz-border-radius:8px; 
       -webkit-border-radius:8px; 
       border-radius:8px; 
-      -moz-box-shadow:0px 1px 3px #bbb; -webkit-box-shadow:0px 1px 3px #bbb; box-shadow:0px 1px 3px #bbb; border-bottom:2px #ddd solid\9; margin:0 0 20px; }
+      border-bottom:2px #ddd solid\9; 
+      margin:0 0 20px;
+}
 #box h2 { 
 
     font-size:18px; color:#555555; 
@@ -51,8 +53,7 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 #post_area .title { color:#666; font-size:16px; line-height:25px; height:25px; }
 #post_area .title span { color:#999; font-size:12px; line-height:25px; }
 
-#post_area .p_area { width:100%; margin:0; padding:0; }
-#post_area #title { border:1px #bbb solid; width:806px; padding:5px; height:38px; line-height:38px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; background:url(../image/comm/btn_bg.png) repeat-x 0 -240px; margin:0; font-family:'Microsoft Yahei','Arail'; }
+#post_area .p_area { width:100%; margin:20px 0 0 0; padding:0; }
 
 /*右侧功能*/
 #aside_box { float:right; width:238px; padding:2px 2px 2px 0; background-color:#fff; -moz-border-radius:0px 8px 8px 0px; -webkit-border-radius:0px 8px 8px 0px; border-radius:0px 8px 8px 0px; -moz-box-shadow:0px 1px 3px #bbb; -webkit-box-shadow:0px 1px 3px #bbb; box-shadow:0px 1px 3px #bbb; border-bottom:2px #ddd solid\9; margin:20px 0 20px; #margin:20px 0 20px -10px; }
@@ -95,16 +96,34 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 .alt-row{background-color:#EEE}
 
 /*按钮*/
-#pb-action-holder { margin:20px 0 0; }
-#pb-action-holder a { height:38px; line-height:38px; text-align:center; display:block; border:1px #ccc solid; font-size:14px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; background:url(../image/comm/nav_bg.png) repeat-x 0 0; }
-#pb-action-holder a:active { -moz-box-shadow:0px 1px 3px #bbb inset; -webkit-box-shadow:0px 1px 3px #bbb inset; box-shadow:0px 1px 3px #bbb inset; }
-#pb-action-holder a#cancel { color:#CF3030; width:68px; }
-#pb-action-holder a#cancel:hover { background-image:none; background-color:#F4D2D2; border:1px #E89B9B solid; }
-#pb-action-holder a#preview { color:#167CB4; width:68px; }
-#pb-action-holder a#preview:hover { background-image:none; background-color:#C9E8F8; border:1px #9AD2F1 solid; }
-#pb-action-holder a#submit { color:#7AAD1D; border:1px #bbb solid; }
-#pb-action-holder #submit span { background:url(../image/comm/icons.png) no-repeat 0 -360px; width:60px; height:38px; line-height:38px; display:block; padding:0 0 0 25px; }
-#pb-action-holder a#submit:hover { background-image:none; background-color:#DEF3B6; border:1px #8EC921 solid; }
+#pb-action-holder { 
+    height: 42px;
+    margin:20px 0 0; 
+}
+#pb-action-holder .btn {
+    border:none;
+     font-size: 14px;
+     color: #ffffff;
+     width:90px; 
+     height:40px; 
+     line-height:40px;
+     float: left;
+     margin-right: 20px;
+     _display:inline; 
+     -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+     border-radius: 2px;
+     text-align: center;
+}
+#pb-action-holder #preview {
+     background: #61c495;
+}
+#pb-action-holder #submit{ 
+     background: #6bbec6;
+  }
+  #pb-action-holder #cancel {
+    background: #cccccc;
+  }
 
 /*发布图片*/
 .upimgBar{ height:50px; width:100%; }
@@ -210,9 +229,7 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 .clear{clear:both}
 /*en button*/
 
-#submit,#submit_baseinfo,#submit_chgpwd,#submit_music,#submit_product,#submit_image,#submit_video {float: right;height: 32px;line-height: 32px;margin-left: 15px;}
 
-#preview, #draft,#addimg {float: right;height: 32px;line-height: 32px;margin-left: 15px;}
 #pb-submiting-tip,#loadings {
     background: url(../image/comm/small_loading.gif) no-repeat scroll left center transparent;
     color: #666666;
@@ -286,6 +303,13 @@ hr{
     height: 0;
     border:none;
     border-bottom: 1px solid #eeeeee;
+}
+
+
+#publishGood #article,#publishWord #article{
+    float: none;
+    width:920px;
+    margin: 0 auto;
 }
 
 

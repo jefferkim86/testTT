@@ -907,11 +907,7 @@ border-bottom: 1px solid #eeeeee;
 #system-tag-list li.current a { border:1px #227CAC solid; background:url(../image/comm/btn_bg.png) repeat-x 0 -70px #309BD7; color:#fff; outline:none; text-shadow:0px -1px 0px #217BAC; }
 
 /*设置按钮*/
-#pb-action-holder a { height:38px; line-height:38px; text-align:center; display:block; border:1px #ccc solid; font-size:14px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; background:url(../image/comm/nav_bg.png) repeat-x 0 0; }
-#pb-action-holder a:active { -moz-box-shadow:0px 1px 3px #bbb inset; -webkit-box-shadow:0px 1px 3px #bbb inset; box-shadow:0px 1px 3px #bbb inset; }
 
-#pb-action-holder a#cancel { color:#CF3030; width:68px; }
-#pb-action-holder a#cancel:hover { background-image:none; background-color:#F4D2D2; border:1px #E89B9B solid; }
 #pb-action-holder a#submit_baseinfo { color:#7AAD1D; border:1px #bbb solid; height:38px; line-height:38px; width:68px; }
 #pb-action-holder a#submit_baseinfo:hover { background-image:none; background-color:#DEF3B6; border:1px #8EC921 solid; }
 
@@ -1170,7 +1166,12 @@ border-bottom: 1px solid #eeeeee;
 #pm_index .pp_con .pp_btn span { background:url(../image/comm/icons.png) no-repeat 0 -360px; width:60px; height:38px; line-height:38px; display:block; padding:0 0 0 25px; }
 
 /*自定义页面*/
-#box { position:relative; float:left; width:660px; padding:0; background-color:#fff; -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px; -moz-box-shadow:0px 1px 3px #bbb; -webkit-box-shadow:0px 1px 3px #bbb; box-shadow:0px 1px 3px #bbb; border-bottom:2px #ddd solid\9; margin:0 0 20px; }
+#box { position:relative; float:left; width:660px; padding:0; 
+	background-color:#fff; 
+	-moz-border-radius:8px; 
+	-webkit-border-radius:8px; 
+	border-radius:8px; 
+	 border-bottom:2px #ddd solid\9; margin:0 0 20px; }
 #box .box_title { width:600px; height:58px; line-height:58px; font-size:26px; color:#666; margin:1px 0 0; background-color:#f2f2f2; border-bottom:2px #e3e3e3 solid; font-weight:700; padding:0 30px; -moz-border-radius:7px 7px 0 0; -webkit-border-radius:7px 7px 0 0; border-radius:7px 7px 0 0; text-shadow:0px 1px 0px #fff; }
 #box .box_con { width:600px; padding:0 30px 20px; margin:0; border-top:1px #ccc solid; }
 #box .box_con h3 { width:100%; font-size:20px; color:#0099CC; line-height:30px; margin:15px 0; }
