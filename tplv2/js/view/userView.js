@@ -60,7 +60,7 @@ Tuitui.userView = Backbone.View.extend({
         var html = '';
         var len = data.length;
         if (!isAdd) {
-            html += '<li class="title"><span class="J-fNum">' + (len || 0) + '</span>个人转发了这条信息</li>';
+            html += '<li class="title"><span class="J_Forward"><b>' + (len || 0) + '</b></span>个人转发了这条信息</li>';
         }
         for (var i = 0; i < len; i++) {
             html += '<li><a href="' + data[i].h_url + '"><img src="' + urlpath+data[i].h_img + '"/></a></li>';

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-26 23:38:05
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-27 01:32:22
          compiled from "tplv2/require_feedTemplate.html" */ ?>
-<?php /*%%SmartyHeaderCode:143486383353d3cb5d7007d7-77596893%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:197524108553d3e626d0e3d6-05807686%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '350be01eeee6d1b227e428bdc9ce144dbf95710b' => 
     array (
       0 => 'tplv2/require_feedTemplate.html',
-      1 => 1406389029,
+      1 => 1406395892,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '143486383353d3cb5d7007d7-77596893',
+  'nocache_hash' => '197524108553d3e626d0e3d6-05807686',
   'function' => 
   array (
   ),
@@ -91,21 +91,20 @@ $_smarty_tpl->decodeProperties(array (
                 <span class="feed-timestamp"></span>
                 <div class="feed-act">
                     <a href="#" class="ft-comment J_Comment" type="comment">评论(<b>${replaycount}</b>)</a>
-                    
                     <a href="#" class="ft-forward J_Forward" type="forward">转发(<b>${forwardcount}</b>)</a>
                     <a href="#" class="ft-like J_Like ${isLiked}">喜欢(<b>${likecount}</b>)</a>
                 </div>
             </div>
         </div>
-        <div class="J_Feedfoot feed-ft feed-cmt" data-bid="${bid}">
-          <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
+        <div class="feed-ft feed-cmt" data-bid="${bid}">
           <div class="cmtbox">
             <div class="J_CommentWrap">
                <div class="cmt-box">
                    <input class="J_CmtCnt" type="text"/>
                     <input type="button" class="cmt-btn J-sendReply" value="评论"/>
+                    <input type="button" class="cmt-btn J-sendForward" value="转发"/>
               </div>
-              <ul class="J_CmtList cmt-list clearfix">
+              <ul class="J_commentList cmt-list clearfix">
                     <li class="loading-list">正在加载列表</li>
                </ul>
                <ul class="J_forwardList clearfix">

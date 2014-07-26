@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-26 18:21:20
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-27 01:00:55
          compiled from "tplv2/require_footer.html" */ ?>
-<?php /*%%SmartyHeaderCode:173282708153d381201ceb12-11239821%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:44185485453d3dec70a38f9-87217070%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7b20e605d333e55791698372022dff7d76772040' => 
     array (
       0 => 'tplv2/require_footer.html',
-      1 => 1406370013,
+      1 => 1406394054,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '173282708153d381201ceb12-11239821',
+  'nocache_hash' => '44185485453d3dec70a38f9-87217070',
   'function' => 
   array (
   ),
@@ -65,9 +65,7 @@ var scrollLoad = {
     },
     needLoad: function() {
         var container = $("#feedArea");
-      
         var needLoad = $(document).scrollTop() + $(window).height() > $(document).height() - 200;
-        console.log('needLoad',needLoad);
         return needLoad;
     },
     loadMore : function(){
@@ -76,7 +74,6 @@ var scrollLoad = {
         if(this.needLoad() && Tuitui.globalData.canLoadFeed){
             self.page++;
             Tuitui.globalData.canLoadFeed = false;
-
             if (this.timeing) {
                 clearTimeout(this.timeing);
                 this.timeing = null;
@@ -85,7 +82,6 @@ var scrollLoad = {
                 G_LoadMore(self.page);
             }, 300);
         }
-        console.log(Tuitui.globalData.end);
         if(Tuitui.globalData.end){
             $("#feed_loading").hide();
             Tuitui.globalData.canLoadFeed = false;

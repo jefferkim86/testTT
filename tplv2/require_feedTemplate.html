@@ -72,21 +72,20 @@
                 <span class="feed-timestamp"></span>
                 <div class="feed-act">
                     <a href="#" class="ft-comment J_Comment" type="comment">评论(<b>${replaycount}</b>)</a>
-                    
                     <a href="#" class="ft-forward J_Forward" type="forward">转发(<b>${forwardcount}</b>)</a>
                     <a href="#" class="ft-like J_Like ${isLiked}">喜欢(<b>${likecount}</b>)</a>
                 </div>
             </div>
         </div>
-        <div class="J_Feedfoot feed-ft feed-cmt" data-bid="${bid}">
-          <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
+        <div class="feed-ft feed-cmt" data-bid="${bid}">
           <div class="cmtbox">
             <div class="J_CommentWrap">
                <div class="cmt-box">
                    <input class="J_CmtCnt" type="text"/>
                     <input type="button" class="cmt-btn J-sendReply" value="评论"/>
+                    <input type="button" class="cmt-btn J-sendForward" value="转发"/>
               </div>
-              <ul class="J_CmtList cmt-list clearfix">
+              <ul class="J_commentList cmt-list clearfix">
                     <li class="loading-list">正在加载列表</li>
                </ul>
                <ul class="J_forwardList clearfix">

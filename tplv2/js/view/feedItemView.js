@@ -27,34 +27,109 @@ Tuitui.feedItemView = Backbone.View.extend({
         "click .J_Comment": "expandFt",
         "click .J_Forward": "expandFt",
         "click .J-sendForward": "sendForward",
+        "click .J-sendReply": "submitComment",
         "click .J_Like": "likeFeed",
         "click .fold": "foldFt"
     },
 
 
     initialize: function(options) {
-
-
+        //能改变的就几个数字
+        var self = this;
+        this.model.on("change", function() {
+            self.triggerDomUpdate();
+        });
+    },
+    /*
+     * @desc 根据数据直接渲染
+     * */
+    triggerDomUpdate: function() {
+        var feed = this.$el;
+        var counts = this.model.getFeedNumData();
+        for (var key in counts) {
+            feed.find(".J_" + key + ' b').text(counts[key]);
+        }
+    },
+    /*
+     * @params {type} 类型(comment,forward,like)
+     * @params {setType} 设置类型(add,sub)
+     * */
+    setCounts: function(type, setType) {
+        var oldVal = parseInt(this.model.get(type));
+        if (setType == 'add') {
+            this.model.set(type, oldVal+1);
+        } else {
+            this.model.set(type, oldVal-1);
+        }
     },
     /*
      * @desc 喜欢feed
      * */
     likeFeed: function(e) {
         e.preventDefault();
+        var self = this;
         var target = e.currentTarget;
         var data = this.model.toJSON();
-        console.log(data);
-        var bid = data.bid;
-        if ($(target).parents('.J-forward-actions').length) {
-            bid = data.repto && data.repto.bid || 1;
-        }
+
         getApi('blog', 'setLike', {
-            'bid': bid
+            'bid': data.bid
         }, function(data) {
             if (data.status == '1') {
-                $(target).addClass("liked");
+                if(data.body== 'add'){
+                    $(target).addClass("liked");
+                    self.setCounts('likecount','add');
+                }else{
+                    $(target).removeClass("liked");
+                    self.setCounts('likecount','sub');
+                }
+                
             } else {
                 alert(data.msg);
+            }
+        });
+    },
+
+    /*
+     * @desc 评论feed
+     * */
+    submitComment: function(e) {
+        var self = this;
+        var target = e.currentTarget;
+        var data = this.model.toJSON();
+        var feed = $(target).parents(".feed");
+        var input = feed.find(".J_CmtCnt");
+        var inputVal = input.val();
+        if (inputVal === "") {
+            alert("请填写评论内容");
+            return;
+        }
+        if (inputVal.replace("/[^/x00-/xff]/g", "**").length > 140) {
+            alert("不能超出140个字数");
+            return;
+        }
+
+        var params = {
+            bid: data.bid,
+            inputs: inputVal,
+            repuid: feed.find('.feed-ft').attr("data-reply")
+        };
+        getApi('blog', 'setReply', params, function(resp) {
+            if (resp.status == 1) {
+                feed.find('.feed-ft').attr("data-reply", "");
+                input.val('');
+                //后端接口没有返回
+                var commentModel = new Tuitui.commentModel({
+                    "h_img": '/avatar.php?uid=' + uid + '&size=small',
+                    "h_url": 'tuitui/index.php?c=userblog&a=index&domain=home&uid=' + uid,
+                    "msg": inputVal,
+                    "user": {
+                        'username': G_username
+                    }
+                });
+                commentsView.addComment(commentModel,true);
+                self.setCounts('replaycount','add');
+            } else {
+                alert(resp.msg)
             }
         });
     },
@@ -62,10 +137,11 @@ Tuitui.feedItemView = Backbone.View.extend({
      * @desc 转发feed
      * */
     sendForward: function(e) {
+        var self = this;
         var target = e.currentTarget;
-        var ft = $(target).parents(".feed-ft");
-        var bid = ft.attr("data-bid");
-        var input = $(target).parents(".cmt-box").find(".J_CmtCnt");
+        var feed = $(target).parents(".feed");
+        var data = this.model.toJSON();
+        var input = feed.find(".J_CmtCnt");
         var inputVal = input.val();
         if (inputVal === "") {
             alert("请填写评论内容");
@@ -76,59 +152,28 @@ Tuitui.feedItemView = Backbone.View.extend({
             return;
         }
         getApi('blog', 'repblog', {
-            'bid': bid,
+            'bid': data.bid,
             'title': _.escape(inputVal)
-        }, function(data) {
-            if (data.status == '1') {
+        }, function(resp) {
+            if (resp.status == '1') {
                 var result = [{
-                    'h_img': '/avatar.php?uid='+uid+'&size=middle',
-                    'h_url': 'c=userblog&a=index&domain=home&uid='+uid
+                    'h_img': '/avatar.php?uid=' + uid + '&size=middle',
+                    'h_url': 'c=userblog&a=index&domain=home&uid=' + uid
                 }];
                 var html = userView.renderForward(result, true);
-                var num = ft.find(".J-fNum").text();
-                ft.find(".J_forwardList .title").after(html);
-                ft.find(".J-fNum").text(parseInt(num) + 1);
+                self.setCounts('forwardcount', 'add');
+                feed.find(".J_forwardList .title").after(html);
+                // ft.find(".J-fNum").text(parseInt(num) + 1);
 
             } else {
-                alert(data.msg);
+                alert(resp.msg);
             }
         });
     },
-    /*
-     * @desc 读取转发列表
-     * */
-    getForwardList: function(e) {
-        e.preventDefault();
-        var target = e.currentTarget;
-        var data = this.model.toJSON();
-        var bid = data.bid;
-        var corner = this.compiled_tpl['corner'];
-        var actionEl = $(target).parents(".feed-act");
-        actionEl.toggleClass('forward-corner');
-        actionEl.removeClass('comment-corner');
 
-        if (!$(target).find(".pop-foot-corner").length) {
-            $(target).append($(corner));
-        }
-        var cmtEl = $(target).parents(".feed").find(".J_Feedfoot");
-        cmtEl.toggleClass('forward-show');
-        cmtEl.removeClass('comment-show');
-        cmtEl.find(".cmt-btn").addClass("J-sendForward").removeClass('J-sendReply');
-        cmtEl.find(".J_CmtCnt").val('');
-        if (cmtEl.find('.J_forwardList .loading-list').length) {
-            getApi('blog', 'getforward', {
-                'bid': bid,
-                'page': 1,
-                'limit': 30
-            }, function(data) {
-                var result = data.body.body;
-                var html = userView.renderForward(result);
-                cmtEl.find('.J_forwardList').html(html);
-            });
-        }
-    },
 
-    foldFt:function(e){
+
+    foldFt: function(e) {
         e.preventDefault();
         var target = e.currentTarget;
         var feed = $(target).parents(".feed");
@@ -137,43 +182,51 @@ Tuitui.feedItemView = Backbone.View.extend({
         feed.find(".J-actions .feed-act").removeClass('comment-corner').removeClass('forward-corner');
     },
 
-    expandFt :function(e){
+    expandFt: function(e) {
         e.preventDefault();
         var target = e.currentTarget;
         var type = $(target).attr("type");
-        var corner = this.compiled_tpl['corner'];
-        var data = this.model.toJSON();
-        var bid = data.bid;
+        var feed = $(target).parents(".feed");
         if (!$(target).find(".pop-foot-corner").length) {
-            $(target).append($(corner));
+            $(target).append($(this.compiled_tpl['corner']));
         }
-        $(target).parents(".feed").addClass(type+"_show");
-
+        if (type == 'comment') {
+            feed.toggleClass("comment_show");
+            feed.removeClass("forward_show");
+        } else {
+            feed.toggleClass("forward_show");
+            feed.removeClass("comment_show");
+        }
+        this['get' + type + 'List'](feed);
     },
     /*
-     * @desc 加载数据
+     * @desc 读取评论列表
+     * @params {feed} 传入当前feed元素，用于commentViews的渲染，
+     *         TODO:后期commentsView只返回数据
+     * @params {data} 数据
      * */
-    toggleComment: function(e) {
-        e.preventDefault();
-        var target = e.currentTarget;
-        var corner = this.compiled_tpl['corner'];
+    getcommentList: function(feed) {
         var data = this.model.toJSON();
-        var bid = data.bid;
-        if (!$(target).find(".pop-foot-corner").length) {
-            $(target).append($(corner));
+        var el = feed.find(".J_commentList");
+        if (el.find('.loading-list').length) {
+            commentsView.getReplys(data.bid, el, data.feedcount);
         }
-
-        var actionEl = $(target).parents(".feed-act");
-        actionEl.toggleClass('comment-corner');
-        actionEl.removeClass('forward-corner');
-       
-        var cmtEl = $(target).parents(".feed").find(".J_Feedfoot");
-        cmtEl.find(".cmt-btn").addClass("J-sendReply").removeClass('J-sendForward');
-        cmtEl.find(".J_CmtCnt").val('');
-        cmtEl.toggleClass('comment-show');
-        cmtEl.removeClass('forward-show');
-        if (cmtEl.find('.J_CmtList .loading-list').length) {
-            commentsView.getReplys(bid, cmtEl, data.feedcount);
+    },
+    /*
+     * @desc 读取转发列表
+     * */
+    getforwardList: function(feed) {
+        var data = this.model.toJSON();
+        if ($('.J_forwardList .loading-list').length) {
+            getApi('blog', 'getforward', {
+                'bid': data.bid,
+                'page': 1,
+                'limit': 30
+            }, function(resp) {
+                var result = resp.body.body;
+                var html = userView.renderForward(result);
+                feed.find('.J_forwardList').html(html);
+            });
         }
     },
 

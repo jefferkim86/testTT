@@ -36,9 +36,7 @@ var scrollLoad = {
     },
     needLoad: function() {
         var container = $("#feedArea");
-      
         var needLoad = $(document).scrollTop() + $(window).height() > $(document).height() - 200;
-        console.log('needLoad',needLoad);
         return needLoad;
     },
     loadMore : function(){
@@ -47,7 +45,6 @@ var scrollLoad = {
         if(this.needLoad() && Tuitui.globalData.canLoadFeed){
             self.page++;
             Tuitui.globalData.canLoadFeed = false;
-
             if (this.timeing) {
                 clearTimeout(this.timeing);
                 this.timeing = null;
@@ -56,7 +53,6 @@ var scrollLoad = {
                 G_LoadMore(self.page);
             }, 300);
         }
-        console.log(Tuitui.globalData.end);
         if(Tuitui.globalData.end){
             $("#feed_loading").hide();
             Tuitui.globalData.canLoadFeed = false;

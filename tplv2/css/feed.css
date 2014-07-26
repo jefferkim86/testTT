@@ -92,6 +92,31 @@
 .feed .feed-actions .feed-act .liked{
 	background-position: -19px -278px;
 }
+
+.comment_show .J_Comment .pop-foot-corner,
+.comment_show .feed-ft ,
+.comment_show .J_commentList,
+.comment_show .J-sendReply {
+	display: block !important;
+}
+.comment_show .J_Forward .pop-foot-corner,
+.comment_show .J_forwardList ,
+.comment_show .J-sendForward {
+	display: none !important;
+}
+
+.forward_show .J_Forward .pop-foot-corner,
+.forward_show .feed-ft,
+.forward_show .J_forwardList ,
+.forward_show .J-sendForward {
+	display: block !important;
+}
+.forward_show .J_commentList .pop-foot-corner ,
+.forward_show .J_commentList ,
+.forward_show .J-sendReply {
+	display: none !important;
+}
+
  
 /*TODO:后期修改html结构，让下拉列表顶部不要盖住feed内容区的阴影*/
 .feed .feed-ft{
@@ -288,7 +313,7 @@
 .feed .forward-show .cmt-list li{float:left;display:inline;border:none;padding:0;margin:0;margin-left:2px;width:42px;height:42px;}
 .feed .forward-show h5{margin:5px 0;}
 
-#feedArea .feed-ft .cmt-list .loading-list,#feedArea .feed-ft .forward-list .loading-list{
+#feedArea .feed-ft .cmt-list .loading-list,#feedArea .feed-ft .J_forwardList .loading-list{
 	width:100px;
 	height: 26px;
 	line-height: 26px;

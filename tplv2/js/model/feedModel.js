@@ -72,6 +72,14 @@ Tuitui.feedModel = Backbone.Model.extend({
 			'forwardData': this.get('repto') || false
 		}
 	},
+	//获取外层feed数据
+	getFeedNumData: function() {
+		return {
+			'Forward': this.get('forwardcount'),
+			'Comment': this.get('replaycount'),
+			'Like': this.get('likecount')
+		};
+	},
 	//通过图片数量获取对应的数据
 	getPhotoAttr: function(attr) {
 		var feedLayout = 'feed-layout' + attr.count;
@@ -86,7 +94,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 			var repto = this.get('repto');
 			var attr;
 			//转发数据
-			
+
 			if (repto) {
 				attr = repto.attr;
 				result = {
