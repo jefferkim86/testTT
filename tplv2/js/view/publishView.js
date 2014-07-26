@@ -1,90 +1,71 @@
-Tuitui.feedsView = Backbone.View.extend({
+/*
+ * @desc 发布view
+ * */
+
+Tuitui.publishView = Backbone.View.extend({
 
     el: "body",
 
+    compiled_tpl: {
+        'goodTpl': juicer($("#J_GoodInfoTmp").html())
+    },
+
     events: {
+        
 
     },
 
 
     initialize: function(options) {
         var self = this;
-        this.collection = new Tuitui.feedList();
-        this.collection.on("reset", function() {
-            self.render();
+        //获取商品
+        $("#producturl").on("blur",function(e){
+            var target = e.currentTarget;
+            var http = $(target).val();
+           self.getGood(http);
         });
-    },
-    /*
-     * @desc 获取feed详情
-     * */
 
-    getFeedDetail: function(bid) {
-        var self = this;
-        getApi('blog', 'getOneBlog', {
-            'bid': bid
-        }, function(data) {
-            var result = data.body;
-            self.collection.reset(result.blog);
-        });
-    },
-    /*
-     * @desc 获取首页feeds
-     * */
-    getFeeds: function(pageNo) {
-        var self = this;
-        getApi('blog', 'feeds', {
-            'page': pageNo || 1
-        }, function(data) {
-            var result = data.body;
-            //  var result = window.mockData.body;
-            $("#feed_loading").attr({
-                "currentPage": result.page.current_page,
-                "total_page": result.page.total_page
-            });
-            self.collection.reset(result.blog);
-        });
     },
 
-    /*
-     * @desc 获取个人主页feeds
-     * */
+    getGood: function(link) {
+        var goodTpl = this.compiled_tpl['goodTpl'];
+        getApi('item', 'get', {
+            'url': link
+        }, function(data) {
+            if(data.status == 1){
+                var result = data.body;
+                //设置提交隐藏域
+                for(var key in result){
+                    $("#J_"+key).val(result[key]);
+                }
+                result.oprice = result.oprice || '';
+                result.image = result.image+'_160x160.jpg';
+                var html = goodTpl.render(result);
+                $("#goodInfoBlock").html(html);
+            }else{
+                $("#goodInfoBlock").html('<span>'+data.msg+'</span>');
+            }
+        });
 
-    getMyFeeds: function(pageNo) {
-        var self = this;
-        getApi('blog', 'feeds', {
-            'uid': uid,
-            'page': pageNo || 1
-        }, function(data) {
-            var result = data.body;
-            self.collection.reset(result.blog);
-        });
     },
-    /*
-     * @desc 获取我喜欢的feeds
-     * */
-    getMyLike: function(pageNo) {
-        var self = this;
-        getApi('user', 'mylikes', {
-            'page': pageNo || 1
-        }, function(data) {
-            var result = data.body;
-            self.collection.reset(result.blog);
-        });
+
+    publishTextFeed: function() {
+
+
     },
-    /*
-     * @desc 增加单个feed
-     * */
-    addFeed: function(feed) {
-        var feedItemView = new Tuitui.feedItemView({
-            model: feed
-        });
-        $("#feedArea").append(feedItemView.render());
+
+    publishPhotoFeed: function() {
+
+    },
+
+    publishGoodFeed: function() {
+
     },
 
     render: function() {
-        var self = this;
-        this.collection.each(function(feed) {
-            self.addFeed(feed);
-        });
+        // var self = this;
+        // this.collection.each(function(feed) {
+        //     self.addFeed(feed);
+        // });
     }
 });

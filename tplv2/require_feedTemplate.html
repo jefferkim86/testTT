@@ -193,10 +193,15 @@
               <h3 class="feed-good-title">${goodTitle}</h3>
              <div class="feed-good-fee">
                 <ul>
-                 <li><span>价格：</span><del>${oPrice}</del>元</li>
-                 <li><span>促销：</span><span class="price">${price}元</span></li>
-                 <li><span>运费：</span>${fee}元</li>
-                 <li><a href="${feedLink}" class="view-good" target="_blank">查看宝贝</a></li>
+                 {@if oprice}
+                  <li class="oprice"><span>价格：</span>
+                      <del>${oprice}</del>元
+                  </li>{@/if}
+                  {@if price}
+                  <li class="price"><span>促销：</span>
+                  <b>${price}元</b></li>{@/if}
+                  {@if deliveryFees}
+                  <li class="deliveryFees"><span>运费：${deliveryFees}</span>包邮</li>{@/if}
                 </ul>
              </div>
         </div>

@@ -36,7 +36,6 @@ Tuitui.feedsView = Backbone.View.extend({
             'page': pageNo || 1
         }, function(data) {
             var result = data.body;
-            //  var result = window.mockData.body;
             $("#feed_loading").attr({
                 "currentPage": result.page.current_page,
                 "total_page": result.page.total_page

@@ -48,7 +48,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 		var feedTypeMap = {
 			'3': 'photo',
 			'1': 'text',
-			'2': 'good'
+			'5': 'good'
 		};
 		//return feedTypeMap[2];
 		return feedTypeMap[this.get('type')];
@@ -135,14 +135,38 @@ Tuitui.feedModel = Backbone.Model.extend({
 		if (this.getfeedType() == 'good') {
 			var repto = this.get('repto');
 			if (repto) {
-				result = {};
+				result = {
+					// 'goodTitle': '11',
+					// 'goodPic': 'http://gw3.alicdn.com/bao/uploaded/i4/17801023056701550/T1TiOJXERbXXXXXXXX_!!0-item_pic.jpg_160x160.jpg',
+					// 'oprice': '11',
+					// 'price': '2',
+					// 'feedContent': 'mock数据内容'
+				};
 			} else {
-				result = {};
+				var attr = this.get('attr');
+				result = {
+					'goodTitle': attr.title,
+					'goodPic': attr.image,
+					'oprice': attr.oprice || '',
+					'price': attr.price,
+					'feed': attr.deliveryFees,
+					'feedContent': this.get('body')
+				};
 			}
 		}
-
-
 		return result;
+	},
+
+	_getTextFeedAttr: function() {
+
+	},
+	_getPhotoFeedAttr: function() {
+
+	},
+	_getGoodFeedAttr: function() {
+
 	}
+
+
 
 });

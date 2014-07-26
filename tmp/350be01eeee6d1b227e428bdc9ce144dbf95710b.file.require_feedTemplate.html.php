@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-26 00:24:33
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-26 11:03:56
          compiled from "tplv2/require_feedTemplate.html" */ ?>
-<?php /*%%SmartyHeaderCode:143428077153d284c14f7715-05350913%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:44970217253d31a9ce2b4c3-08510730%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '350be01eeee6d1b227e428bdc9ce144dbf95710b' => 
     array (
       0 => 'tplv2/require_feedTemplate.html',
-      1 => 1406305470,
+      1 => 1406343706,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '143428077153d284c14f7715-05350913',
+  'nocache_hash' => '44970217253d31a9ce2b4c3-08510730',
   'function' => 
   array (
   ),
@@ -212,10 +212,15 @@ $_smarty_tpl->decodeProperties(array (
               <h3 class="feed-good-title">${goodTitle}</h3>
              <div class="feed-good-fee">
                 <ul>
-                 <li><span>价格：</span><del>${oPrice}</del>元</li>
-                 <li><span>促销：</span><span class="price">${price}元</span></li>
-                 <li><span>运费：</span>${fee}元</li>
-                 <li><a href="${feedLink}" class="view-good" target="_blank">查看宝贝</a></li>
+                 {@if oprice}
+                  <li class="oprice"><span>价格：</span>
+                      <del>${oprice}</del>元
+                  </li>{@/if}
+                  {@if price}
+                  <li class="price"><span>促销：</span>
+                  <b>${price}元</b></li>{@/if}
+                  {@if deliveryFees}
+                  <li class="deliveryFees"><span>运费：${deliveryFees}</span>包邮</li>{@/if}
                 </ul>
              </div>
         </div>

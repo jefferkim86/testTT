@@ -18,10 +18,11 @@ class yb_product extends basePostModel
     }
     
     function saved(){
-		$music = $this->__loadMusicString($this->spArgs('urlmusic'));
+//		$music = $this->__loadMusicString($this->spArgs('urlmusic'));
+		$music = $this->parseItem();
         if(is_array($music)){
              $bodypre = '[attribute]'.serialize($music).'[/attribute]';
-        }
+        }//var_dump($bodypre);exit;
        if(parent::saved($bodypre)){
            header('Location:'.spUrl('main'));
        }
@@ -42,6 +43,36 @@ class yb_product extends basePostModel
     }
     
     function postToConnect($a,$b){
+    }
+    
+    private function parseItem() {
+//    	$id=38217795728;
+//    	$taobao_url = "http://hws.m.taobao.com/cache/wdetail/5.0/?id=".$id."&ttid=2013@taobao_h5_1.0.0&exParams={}";
+//    		$result = file_get_contents($taobao_url);
+//    		if (empty($result)) throw new Exception("item is null", 1000);
+//			
+//    		$item = json_decode($result);
+//			if (empty($item)) throw new Exception("get item error", 1000);
+//			
+//			$stack = json_decode($item->data->apiStack['0']->value);
+//			if (empty($stack)) throw new Exception("item parse error", 1001);
+//			
+//			$data['title'] = $item->data->itemInfoModel->title;
+//			$data['image'] = $item->data->itemInfoModel->picsPath['0'];
+//			$data['deliveryFees'] = $stack->data->delivery->deliveryFees['0'];
+//			foreach ($stack->data->itemInfoModel->priceUnits as $val) {
+//				if (trim($val->name) == "价格") {
+//					$data['price'] = $val->price;
+//				}
+//			}return $data;
+    	$title = $this->spArgs('title');
+    	if (empty($title)) return null;
+    	$item = array();
+    	$item['title'] = $title;
+    	$item['image'] = $this->spArgs('image');
+    	$item['deliveryFees'] = $this->spArgs('deliveryFees');
+    	$item['price'] = $this->spArgs("price");
+    	return $item;
     }
 	
 	 /*处理发布的字符串

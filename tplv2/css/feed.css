@@ -325,34 +325,62 @@
 
 /*feed±¦±´*/
 
-.feed-good .feed-good-cont{position:relative;padding:12px 0 16px 0;}
-.feed-good .feed-good-info{position:relative;width:566px;margin-left:29px;}
+.feed-good .feed-good-cont{position:relative;padding:18px 0 16px 0;}
+.feed-good .feed-good-info{
+	position:relative;
+	margin-left:198px;
+	min-height:150px;
+	_height:150px;
+	_zoom:1;
+}
 .feed-good .feed-good-info .feed-good-img{
-	width: 180px;
-	height: 180px;
+	position: absolute;
+	left: -180px;
+	top: 0;
+	width: 150px;
+	height: 150px;
 	overflow: hidden;
-	float:left;position:relative;}
-.feed-good .feed-good-info .feed-good-property{padding-left:10px;overflow:hidden;}
-.feed-forward-layout .feed-good-info{margin-left:12px;}
+}
+.feed-good .feed-good-info .feed-good-property{
+	width: 560px;
+	overflow:hidden;
+}
+
+
+.feed-forward-layout .feed-good-info{
+	margin-left:12px;
+}
 
 .feed-good .feed-good-info .feed-good-img img{
 	vertical-align:middle;
-	width: 180px;
+	width: 150px;
 
 }
-.feed-good .feed-good-property .feed-good-title{font-size:18px;font-weight:normal;}
-.feed-good .feed-good-property .feed-good-title a{color:#333;}
+.feed-good .feed-good-property .feed-good-title{
+	font-size:14px;
+	color: #222;
+	font-weight:normal;
+}
+.feed-good .feed-good-property .feed-good-title a{color:#222;}
 .feed-good .feed-good-property .feed-good-title a:hover{color:#0099cc;}
 
-.feed-good .feed-good-property .feed-good-fee{font-size:14px;color:#797979;margin-top:15px;}
-.feed-good .feed-good-property .feed-good-fee .price{font-size:25px;color:#ffa23e;}
+.feed-good .feed-good-property .feed-good-fee{
+	font-size:14px;
+	color:#797979;
+	margin-top:15px;
+}
+.feed-good .feed-good-property .feed-good-fee li {
+	line-height: 20px;
+}
+.feed-good .feed-good-property .feed-good-fee .price b{
+	font-size:14px;
+	color:#ff7b69;
+}
 .feed-good .feed-good-property .view-good{display:block;margin-top:5px;padding-left:24px;width:62px;height:24px;line-height:24px;color:#999999;font-size:12px;background-position:-2px -370px;}
 .feed-good .feed-good-desc-wrap{margin-left:1px;padding-top:17px;color:#333333;}
 .feed-good .feed-good-desc{position:relative;border-top:1px solid #dedede;z-index:5;}
 .feed-good .for-line{padding-top:12px;}
 .feed-good .feed-good-desc .pop-corner-desc{z-index:6;}
-
-
 .feed-good .feed-good-desc .pop-corner-desc .outter{position:absolute;left:67px;top:-24px;border:12px dashed transparent;border-bottom:12px solid #e8e8e8;width:0;height:0;overflow:hidden;}
 .feed-good .feed-good-desc .pop-corner-desc .inner{position:absolute;left:67px;top:-22px;border:12px dashed transparent;width:0;height:0;border-bottom:12px solid #fff;overflow:hidden;}
 
@@ -360,6 +388,8 @@
 .feed .feed-forward-layout .feed-photo-desc{padding:8px 12px 0;}
 
 .feed-good .feed-good-txt{font-size:14px;padding:0 32px;line-height:20px;}
+
+
 /*feed ÎÄ×Ö*/
 .feed-text .feed-text-title{font-size:18px;color:#333;font-weight:normal;}
 .feed-text .feed-text-title a{color:#333;}
@@ -822,8 +852,15 @@ ul,li {
 .publish-good .link label,.publish-good .desc-t label{font-size:16px;color:#333333;}
 .publish-good .link .link-input{margin-top:12px;border:1px solid #cccccc;width:565px;height:36px;padding:2px 22px;font-size:16px;color:#4e72a6;}
 .feed-good-pub{position:relative;width:609px;margin-top:15px;background:#f7f7f7;border:1px solid #cccccc;}
-.feed-good-pub .outter{position:absolute;left:25px;top:-21px;width:0;height:0;border:10px dashed transparent;border-bottom:10px solid #cccccc;overflow:hidden;}
-.feed-good-pub .inner{position:absolute;left:25px;top:-20px;width:0;height:0;border:10px dashed transparent;border-bottom:10px solid #f7f7f7;overflow:hidden;}
+.feed-good-pub .outter{
+	position:absolute;
+	left:25px;top:-21px;
+	width:0;height:0;border:10px dashed transparent;
+	border-bottom:10px solid #cccccc;overflow:hidden;}
+.feed-good-pub .inner{position:absolute;left:25px;top:-20px;
+	width:0;height:0;border:10px dashed transparent;
+	border-bottom:10px solid #fff;overflow:hidden;
+}
 
 
 .feed-good .feed-good-img .change-pic{position:absolute;width:65px;height:22px;line-height:22px;text-align:center;right:0;bottom:0;background:#333;color:#fff;}
