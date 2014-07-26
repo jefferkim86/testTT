@@ -57,9 +57,9 @@ Tuitui.feedItemView = Backbone.View.extend({
     setCounts: function(type, setType) {
         var oldVal = parseInt(this.model.get(type));
         if (setType == 'add') {
-            this.model.set(type, oldVal+1);
+            this.model.set(type, oldVal + 1);
         } else {
-            this.model.set(type, oldVal-1);
+            this.model.set(type, oldVal - 1);
         }
     },
     /*
@@ -75,14 +75,14 @@ Tuitui.feedItemView = Backbone.View.extend({
             'bid': data.bid
         }, function(data) {
             if (data.status == '1') {
-                if(data.body== 'add'){
+                if (data.body == 'add') {
                     $(target).addClass("liked");
-                    self.setCounts('likecount','add');
-                }else{
+                    self.setCounts('likecount', 'add');
+                } else {
                     $(target).removeClass("liked");
-                    self.setCounts('likecount','sub');
+                    self.setCounts('likecount', 'sub');
                 }
-                
+
             } else {
                 alert(data.msg);
             }
@@ -107,7 +107,6 @@ Tuitui.feedItemView = Backbone.View.extend({
             alert("不能超出140个字数");
             return;
         }
-
         var params = {
             bid: data.bid,
             inputs: inputVal,
@@ -117,7 +116,6 @@ Tuitui.feedItemView = Backbone.View.extend({
             if (resp.status == 1) {
                 feed.find('.feed-ft').attr("data-reply", "");
                 input.val('');
-                //后端接口没有返回
                 var commentModel = new Tuitui.commentModel({
                     "h_img": '/avatar.php?uid=' + uid + '&size=small',
                     "h_url": 'tuitui/index.php?c=userblog&a=index&domain=home&uid=' + uid,
@@ -126,8 +124,8 @@ Tuitui.feedItemView = Backbone.View.extend({
                         'username': G_username
                     }
                 });
-                commentsView.addComment(commentModel,true);
-                self.setCounts('replaycount','add');
+                commentsView.addComment(commentModel, true);
+                self.setCounts('replaycount', 'add');
             } else {
                 alert(resp.msg)
             }
@@ -163,7 +161,6 @@ Tuitui.feedItemView = Backbone.View.extend({
                 var html = userView.renderForward(result, true);
                 self.setCounts('forwardcount', 'add');
                 feed.find(".J_forwardList .title").after(html);
-                // ft.find(".J-fNum").text(parseInt(num) + 1);
 
             } else {
                 alert(resp.msg);
@@ -176,10 +173,7 @@ Tuitui.feedItemView = Backbone.View.extend({
     foldFt: function(e) {
         e.preventDefault();
         var target = e.currentTarget;
-        var feed = $(target).parents(".feed");
-        var actionEl = $(target).parents(".feed-ft");
-        actionEl.removeClass('comment-show').removeClass('forward-show');
-        feed.find(".J-actions .feed-act").removeClass('comment-corner').removeClass('forward-corner');
+        $(target).parents(".feed").removeClass('comment_show forward_show');
     },
 
     expandFt: function(e) {
