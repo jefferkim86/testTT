@@ -67,6 +67,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 			'replaycount': this.get('replaycount'),
 			'likecount': this.get('likecount'),
 			'feedForwardContent': this.get('title') || '',
+			'isSelf': this.get('uid') == uid,
 			'isLiked': this.get('likeid') ? 'liked' : '',
 			'forwardData': this.get('repto') || false
 		}
@@ -95,7 +96,8 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'feedContent': repto.body,
 					'title': repto.title,
 					'feedLink': repto.b_url,
-					'isLiked': repto.likeid ? 'liked' : '',
+					'isSelf': repto.uid == uid,
+					'isLiked': repto.likeid ? 'liked' : false,
 					'time': repto.time
 				};
 			} else {
@@ -120,7 +122,8 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'forwardcount': repto.forwardcount,
 					'replaycount': repto.replaycount,
 					'likecount': repto.likecount,
-					'isLiked': repto.likeid ? 'liked' : ''
+					'isSelf': repto.uid == uid,
+					'isLiked': repto.likeid ? 'liked' : false
 				}
 			} else {
 				result = {
@@ -140,8 +143,9 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'goodPic': repto.attr.image,
 					'oprice': repto.attr.oprice || '',
 					'price': repto.attr.price,
-					'feedContent': repto.attr.body,
-					'isLiked': repto.likeid ? 'liked' : ''
+					'feedContent': repto.body,
+					'isSelf': repto.uid == uid,
+					'isLiked': repto.likeid ? 'liked' : false
 				};
 			} else {
 				var attr = this.get('attr');
@@ -155,6 +159,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 				};
 			}
 		}
+
 		return result;
 	},
 

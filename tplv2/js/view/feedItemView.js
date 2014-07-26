@@ -43,8 +43,11 @@ Tuitui.feedItemView = Backbone.View.extend({
         e.preventDefault();
         var target = e.currentTarget;
         var data = this.model.toJSON();
-
+        console.log(data);
         var bid = data.bid;
+        if ($(target).parents('.J-forward-actions').length) {
+            bid = data.repto && data.repto.bid || 1;
+        }
         getApi('blog', 'setLike', {
             'bid': bid
         }, function(data) {

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-26 14:27:14
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-26 16:00:41
          compiled from "tplv2/models/product.html" */ ?>
-<?php /*%%SmartyHeaderCode:40684026653d34a42941e75-29685840%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:180643535853d3602943a122-45902591%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '72975a5995ca04dfccd936e58f59031fcf816404' => 
     array (
       0 => 'tplv2/models/product.html',
-      1 => 1406355982,
+      1 => 1406359474,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '40684026653d34a42941e75-29685840',
+  'nocache_hash' => '180643535853d3602943a122-45902591',
   'function' => 
   array (
   ),
@@ -81,15 +81,12 @@ $(document).ready(function(){
 				<div class="tags clearfix" id="tags">
 					<label>标签（可不选）</label>
 					<ul class="tag-list">
-						<li value="" class="cur">晒单</li>
-						<li value="">晒单</li>
-						<li value="">晒单</li>
-						<li value="">晒单</li>
-						<li value="">晒单</li>
-						<li value="">晒单</li>
+						<li tagVal="艺术" class="cur">艺术</li>
+						<li tagVal="文学">文学</li>
+						<li tagVal="体育">体育</li>
+						<li tagVal="德行">德行</li>
 					</ul>
-					<input type="hidden" name="tag" value="" id="J-tagVal"/>
-
+					<input type="hidden" name="tag" value="艺术," id="J-tagVal"/>
 				</div>
 				<hr/>
 				

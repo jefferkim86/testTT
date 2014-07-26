@@ -35,13 +35,16 @@ Tuitui.publishView = Backbone.View.extend({
         e.preventDefault();
         $('#form1').submit();
     },
-
+    /*
+     * @desc 如果一个标签，需要在之后加一个逗号。。 
+     **/
     selectTag: function(e) {
         var target = e.currentTarget;
         $("#tags li").removeClass('cur');
         $(target).addClass('cur');
-        var tagVal = $(target).attr("value");
-        $("#J-tagVal").val(tagVal);
+        var tagVal = $(target).attr("tagVal");
+        console.log(tagVal);
+        $("#J-tagVal").val(tagVal+",");
     },
 
     getGood: function(link) {

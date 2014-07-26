@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-26 12:24:52
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-26 15:57:45
          compiled from "tplv2/require_feedTemplate.html" */ ?>
-<?php /*%%SmartyHeaderCode:93453343453d32d94caee80-96023768%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:49344369653d35f79a05b85-58996502%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '350be01eeee6d1b227e428bdc9ce144dbf95710b' => 
     array (
       0 => 'tplv2/require_feedTemplate.html',
-      1 => 1406348650,
+      1 => 1406361462,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '93453343453d32d94caee80-96023768',
+  'nocache_hash' => '49344369653d35f79a05b85-58996502',
   'function' => 
   array (
   ),
@@ -38,7 +38,7 @@ $_smarty_tpl->decodeProperties(array (
 
 <script type="text/template" id="J-feedLayout">
 
-    <div class="feed feed-${feedType} clearfix" id="J-blog-${bid}">
+    <div class="feed feed-${feedType} clearfix {@if forwardData}is-forward{@/if}" id="J-blog-${bid}">
         <div class="feed-avatar">
             <a class="blog-avatar" href="${avatarHref}" title="FashionDes">
                 <img src="${avatar}" alt=""/>
@@ -77,8 +77,10 @@ $_smarty_tpl->decodeProperties(array (
                             <div class="feed-actions J-forward-actions clearfix">
                                 <div class="feed-act">
                                     <a href="" class="J_Comment">评论(<span class="J_CmtNum">${forwardData.replaycount}</span>)</a>
+                                    {@if !forwardData.isSelf}
                                     <a href="" class="J_Forward">转发(<span class="J_FwdNum">${forwardData.forwardcount}</span>)</a>
                                     <a href="" class="J_Like ${forwardData.isLiked}">喜欢(<span class="J_LikeNum">${forwardData.likecount}</span>)</a>
+                                    {@/if}
                                 </div>
                             </div>
                         </div>
@@ -113,8 +115,9 @@ $_smarty_tpl->decodeProperties(array (
                 <span class="feed-timestamp"></span>
                 <div class="feed-act">
                     <a href="#" class="J_Comment">评论(<b>${replaycount}</b>)</a>
+                    {@if !isSelf}
                     <a href="#" class="J_Forward">转发(<b>${forwardcount}</b>)</a>
-                    <a href="#" class="J_Like ${isLiked}">喜欢(<b>${likecount}</b>)</a>
+                    <a href="#" class="J_Like ${isLiked}">喜欢(<b>${likecount}</b>)</a>{@/if}
                 </div>
             </div>
         </div>

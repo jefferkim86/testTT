@@ -22,7 +22,8 @@
 .feed .feed-desc{
 	position:relative;float:right;
 	width:768px;
-	background:#fff;border:1px solid #fff;
+	background:#fff;
+	border:1px solid #fff;
 	/*-moz-box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15); 
 	-webkit-box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150,150, 0.15); 
 	box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15); */
@@ -48,7 +49,7 @@
 .feed .pop-corner .outter{position:absolute;left:-16px;top:19px;border:8px dashed transparent;border-right:8px solid #fff;width:0;height:0;overflow:hidden;}
 .feed .pop-corner .inner{position:absolute;left:-13px;top:20px;border:7px dashed transparent;border-right:7px solid #fff;width:0;height:0;overflow:hidden;}
 
-.feed .feed-actions{padding:10px 29px 12px 29px;color:#999999;}
+.feed .feed-actions{padding:10px 14px 12px 29px;color:#999999;}
 .feed .feed-actions .feed-timestamp{float:left;}
 .feed .feed-actions .feed-act{float:right;}
 .feed .feed-actions .feed-act a{
@@ -139,10 +140,13 @@
 	font-size: 18px;
 	color: #777777;
 	padding:10px 0 15px 0;
-	margin: 0 23px 0 29px;
+	margin: 0 0 0 29px;
 	word-break: break-all;
 	word-wrap: break-word;
 	border-bottom: 1px solid #eeeeee;
+}
+.is-forward .feed-title{
+	border-bottom: none;
 }
 .feed .feed-text-title,.feed-forward-layout .feed-text-title{
 	margin-left: 0;
@@ -177,6 +181,9 @@
 }
 .feed .J_forwardFeedfoot .cmt-box .J_CmtCnt{
 	width: 560px;
+}
+.feed .J_forwardFeedfoot .cmt-list li{
+	width: 606px;
 }
 .feed .feed-ft .cmt-box .cmt-submit{}
 .feed .feed-ft .cmt-box .tip-txt{float:left;color:#b2b2b2}
@@ -386,7 +393,9 @@
 	margin: 0 20px 25px 20px;
 	color: #777777;
 	font-size: 12px;
-	z-index:5;}
+	line-height: 16px;
+	z-index:5;
+}
 .feed-good .for-line{padding-top:12px;}
 .feed-good .feed-good-desc .pop-corner-desc{z-index:6;}
 .feed-good .feed-good-desc .pop-corner-desc .outter{position:absolute;left:67px;top:-24px;border:12px dashed transparent;border-bottom:12px solid #e8e8e8;width:0;height:0;overflow:hidden;}
