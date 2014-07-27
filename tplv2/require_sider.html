@@ -91,18 +91,18 @@
 	<div class="user clearfix">
 		<div class="user-info">
 			<div class="logo">
-				<img src="{$syskin}/image/user-logo.png" alt=""/>
+				<img src="{avatar uid=$user.uid size=middle}" alt=""/>
 			</div>
-			<h3 class="user-name">大黑淘外贸</h3>
+			<h3 class="user-name">{$user.username}</h3>
 			<div class="url">
-				http://tui.etao.com/t005546614
+				{$url}/{$user.domain}
 			</div>
 		</div>
 		<div class="user-data">
 			<ul>
-				<li><a href=""><b>18</b><span>推推</span></a></li>
-				<li><a href=""><b>20</b><span>关注</span></a></li>
-				<li class="nr"><a href=""><b>24</b><span>粉丝</span></a></li>
+				<li><a href=""><b>{$user.num}</b><span>推推</span></a></li>
+				<li><a href=""><b>{$user.flow}</b><span>关注</span></a></li>
+				<li class="nr"><a href=""><b>{$myLook}</b><span>粉丝</span></a></li>
 			</ul>
 		</div>
 	</div>
@@ -164,10 +164,10 @@
 		</div>
 		<div class="bd clearfix">
 			<ul>
-				<li><a href="#"><img src="{$syskin}/image/side-logo.png" alt=""/></a></li>
-				<li><a href="#"><img src="{$syskin}/image/side-logo.png" alt=""/></a></li>
-				<li><a href="#"><img src="{$syskin}/image/side-logo.png" alt=""/></a></li>
-				<li><a href="#"><img src="{$syskin}/image/side-logo.png" alt=""/></a></li>
+			{foreach from=$myfollow item=val}
+				<li><a href="{$val.h_url}"><img src="{$val.h_img}" alt="{$val.username}"/></a></li>
+			{/foreach}
+				<!--<li><a href="#"><img src="{$syskin}/image/side-logo.png" alt=""/></a></li>-->
 			</ul>
 		</div>
 	</div>
