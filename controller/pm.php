@@ -29,5 +29,8 @@ class pm extends top
 		$this->touid = $this->spArgs('uid');
 		$this->display('pm_detail.html');
 	}
+	function testmsg(){
+		$this->display('msg_test.html');
+	}
 	
 }

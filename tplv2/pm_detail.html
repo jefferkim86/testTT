@@ -1,38 +1,41 @@
 {include file="require_header.html" loadedit=yes}
-<script>
-{literal}
-$(document).ready(function(){ 
-	var uid = $('#touid').val();
-	pmdetail(uid);
-
-	$('#send_submit').click(function(){
-	if($('#touser').val() == ''){
-		waring('请等待页面载入');
-		return false;
-	}
-		var name = $('#touser').val();
-		var txt  = $('#textarea').val();
-		if(txt == ''){
-			waring('发信内容不能为空');
-			return false;
-		}
-		$('#pm_loading,#send_submit').toggle();
-		$.ybAPI('pm','sendpm',{username:name,body:txt},function(data){
-			$('#pm_loading,#send_submit').toggle();
-			if(data.status == 0){
-				waring(data.msg);
-			}else{
-				$('#niname,#textarea').val('');
-				pmdetail(uid);
-			}
-		});
-	})
-})
-{/literal}
-</script>
 <div id="index">
     <div id="article">
 		
+		<div class="pm-detail">
+			<div id="msg">
+				<div class="hd" id="toid" toid="{$touid}">
+	    			<h2>与<span id="hd-touser"></span>的对话</h2>
+	    			<a href="{spUrl c=pm}" class="msg-hd-link">返回列表</a>
+	    		</div>
+	    		<div class="bd">
+	    			<div class="inputblock">
+	    				<textarea class="textarea" id="textarea"></textarea>
+						<div class="extra">
+							<span class="counter">还可以输入140字</span>
+							<button type="button" id="send_submit">发送</button>
+						</div>
+	    			</div>
+	    			<div class="lists pm-info clearfix">
+	    					<ul id="J-pmInfoList">
+	    						
+
+
+	    					</ul>
+
+
+	    			</div>
+					
+				</div>
+				<input type="hidden" id="touser" title="touser" value="{$tousername}" />
+				<div class="ft" id="J-pagination">
+					
+				</div>
+			</div>
+    	</div>
+
+
+<!-- 
 		<div id="pm_detail">
 		    <div class="det_title">
 			    <div class="det_return"><a href="{spUrl c=pm}" >返回列表</a></div>
@@ -61,7 +64,7 @@ $(document).ready(function(){
 		<div class="pm_none follow_font" id="follow_font" style="display:none;">
 			 <h2>您还没有相关对话</h2>
 		</div>
-			
+			 -->
 		
 
 	</div>
@@ -69,4 +72,29 @@ $(document).ready(function(){
         {include file="require_sider.html"}
     </div>
 </div>
+<script type="text/template" id="J-msgTpl">
+{literal}
+<li class="msg-item clearfix ${det}">
+	<img src="${h_img}" class="avatar" alt=""/>
+	<div class="desc">
+		<span class="pop-corner"><s class="outter"></s></span>
+		<p class="content">${info}</p>
+		<p class="time">${time}</p>
+	</div>
+</li>
+{/literal}
+</script>
+<script type="text/javascript" src="{$syskin}/js/view/messageView.js"></script>
+<script type="text/javascript">
+                console.log('1111uidddddd',$("#toid").attr("toid"));
+
+	var opt = {
+		'touid':$("#toid").attr("toid"),
+		'listEl':'#J-pmInfoList',
+		'pagination':'#J-pagination'
+	};
+	var messageView = new Tuitui.messageView();
+	messageView.getPmInfo(opt);
+</script>
+
 {include file="require_footer.html"}

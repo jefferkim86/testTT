@@ -13,11 +13,24 @@
 
 
 
-.feed-good .feed-good-property .view-good,
+
 .feed-ft .cmt-list li .J_DeleteCmt,
 .feed-ft .cmt-list li .J_DeleteCmt:hover{background:url("images/btns.png") no-repeat scroll 0 0;}
 
-.feed-good .feed-good-property .view-good{background:url("images/icons.png") no-repeat scroll 0 0;}
+.feed-good .feed-good-property .view-good{
+	margin-top: 20px;
+	display: block;
+	width: 90px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+	background:#f5a436;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
 
 .feed .feed-desc{
 	position:relative;float:right;
@@ -412,7 +425,6 @@
 	font-size:14px;
 	color:#ff7b69;
 }
-.feed-good .feed-good-property .view-good{display:block;margin-top:5px;padding-left:24px;width:62px;height:24px;line-height:24px;color:#999999;font-size:12px;background-position:-2px -370px;}
 .feed-good .feed-good-desc-wrap{margin-left:1px;padding-top:17px;color:#333333;}
 .feed-good .feed-good-desc{
 	position:relative;

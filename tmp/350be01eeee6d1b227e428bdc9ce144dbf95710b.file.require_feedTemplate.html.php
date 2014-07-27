@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-27 12:09:47
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-27 12:34:36
          compiled from "tplv2/require_feedTemplate.html" */ ?>
-<?php /*%%SmartyHeaderCode:98726906753d47b8b9a0a23-18481971%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:64663864153d4815cb96f87-79404226%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '350be01eeee6d1b227e428bdc9ce144dbf95710b' => 
     array (
       0 => 'tplv2/require_feedTemplate.html',
-      1 => 1406434185,
+      1 => 1406435671,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '98726906753d47b8b9a0a23-18481971',
+  'nocache_hash' => '64663864153d4815cb96f87-79404226',
   'function' => 
   array (
   ),
@@ -49,7 +49,7 @@ $_smarty_tpl->decodeProperties(array (
                 <s class="outter"></s><s class="inner"></s>
             </span>
             <div class="feed-link">
-                <a href="${feedLink}">${time}</a>
+                <a href="${feedLink}" target="_blank">${time}</a>
             </div>
             <div class="feed-hd">
                 <div class="merc-name"><a href="${avatarHref}">${username}</a></div>
@@ -115,7 +115,7 @@ $_smarty_tpl->decodeProperties(array (
             <div class="page-func">
                 <div class="pagination">
                     <a href="#" class="fold">收起</a>
-                    <a href="${feedLink}#comment" class="comment-more">查看更多</a>
+                    <a href="${feedLink}#comment" target="_blank" class="comment-more">查看更多</a>
                 </div>
             </div>
           </div>
@@ -124,31 +124,13 @@ $_smarty_tpl->decodeProperties(array (
     
 </script>
 
-<script type="text/template" id="J-feedFt">
-
-    <div class="J_Feedfoot feed-ft feed-cmt">
-      <span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
-      <div class="cmtbox">
-        <div class="J_CommentWrap">
-           <div class="cmt-box">
-               <input class="J_CmtCnt" type="text"/>
-                <input type="button" class="cmt-btn J-sendReply" value="评论"/>
-          </div>
-          <ul class="J_CmtList cmt-list clearfix">
-                <li class="loading-list">正在加载列表</li>
-           </ul>
-        </div>
-        </div>
-    </div>
-
-</script>
 <script type="text/template" id="J-feedTxt">
 
   <div class="feed-text-cont clearfix">
-    <h3 class="feed-text-title">${feedTitle}</h3>
+    <h3 class="feed-text-title"><a href="${feedLink}"  target="_blank">${feedTitle}</a></h3>
     <div class="feed-text-p clearfix">
        ${feedContent}
-      <span class="feed-more"><a href="${feedLink}">全部信息...</a></span>
+      <span class="feed-more"><a href="${feedLink}" target="_blank">全部信息...</a></span>
     </div>
    </div>
 
@@ -184,7 +166,7 @@ $_smarty_tpl->decodeProperties(array (
 
     <div class="feed-good-cont clearfix">
        <div class="feed-good-desc clearfix">
-              <p>${feedContent}<span class="feed-more"><a href="${feedLink}">全部信息...</a></span></p>
+              <p>${feedContent}<span class="feed-more"><a href="${feedLink}" target="_blank">全部信息...</a></span></p>
        </div>
        <div class="feed-good-info">
           <div class="feed-good-img">
@@ -199,12 +181,13 @@ $_smarty_tpl->decodeProperties(array (
                         <del>${oprice}</del>元
                     </li>{@/if}
                     {@if price}
-                    <li class="price"><span>促销：</span>
+                    <li class="price"><span>${priceTxt}：</span>
                     <b>${price}元</b></li>{@/if}
                     {@if deliveryFees}
                     <li class="deliveryFees"><span>运费：${deliveryFees}</span>包邮</li>{@/if}
                   </ul>
                </div>
+               <a href="${feedLink}" target="_blank" class="view-good">查看宝贝</a>
           </div>
        </div>
     </div>

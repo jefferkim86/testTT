@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-01-19 22:00:48
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-27 21:58:07
          compiled from "tplv2/pm_detail.html" */ ?>
-<?php /*%%SmartyHeaderCode:15487039952dbda909d10b0-36636225%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:4640936853d5056f0c9fa4-54367915%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'd91a1c2a8dfc01d8b3ec896fc8082777dd94dcf9' => 
     array (
       0 => 'tplv2/pm_detail.html',
-      1 => 1341232434,
+      1 => 1406469486,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '15487039952dbda909d10b0-36636225',
+  'nocache_hash' => '4640936853d5056f0c9fa4-54367915',
   'function' => 
   array (
   ),
@@ -19,40 +19,46 @@ $_smarty_tpl->decodeProperties(array (
 )); /*/%%SmartyHeaderCode%%*/?>
 <?php $_template = new Smarty_Internal_Template("require_header.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
 $_template->assign('loadedit','yes'); echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
-<script>
-
-$(document).ready(function(){ 
-	var uid = $('#touid').val();
-	pmdetail(uid);
-
-	$('#send_submit').click(function(){
-	if($('#touser').val() == ''){
-		waring('请等待页面载入');
-		return false;
-	}
-		var name = $('#touser').val();
-		var txt  = $('#textarea').val();
-		if(txt == ''){
-			waring('发信内容不能为空');
-			return false;
-		}
-		$('#pm_loading,#send_submit').toggle();
-		$.ybAPI('pm','sendpm',{username:name,body:txt},function(data){
-			$('#pm_loading,#send_submit').toggle();
-			if(data.status == 0){
-				waring(data.msg);
-			}else{
-				$('#niname,#textarea').val('');
-				pmdetail(uid);
-			}
-		});
-	})
-})
-
-</script>
 <div id="index">
     <div id="article">
 		
+		<div class="pm-detail">
+			<div id="msg">
+				<div class="hd" id="toid" toid="<?php echo $_smarty_tpl->getVariable('touid')->value;?>
+">
+	    			<h2>与<span id="hd-touser"></span>的对话</h2>
+	    			<a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'pm'),$_smarty_tpl);?>
+" class="msg-hd-link">返回列表</a>
+	    		</div>
+	    		<div class="bd">
+	    			<div class="inputblock">
+	    				<textarea class="textarea" id="textarea"></textarea>
+						<div class="extra">
+							<span class="counter">还可以输入140字</span>
+							<button type="button" id="send_submit">发送</button>
+						</div>
+	    			</div>
+	    			<div class="lists pm-info clearfix">
+	    					<ul id="J-pmInfoList">
+	    						
+
+
+	    					</ul>
+
+
+	    			</div>
+					
+				</div>
+				<input type="hidden" id="touser" title="touser" value="<?php echo $_smarty_tpl->getVariable('tousername')->value;?>
+" />
+				<div class="ft" id="J-pagination">
+					
+				</div>
+			</div>
+    	</div>
+
+
+<!-- 
 		<div id="pm_detail">
 		    <div class="det_title">
 			    <div class="det_return"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'pm'),$_smarty_tpl);?>
@@ -87,7 +93,7 @@ $(document).ready(function(){
 		<div class="pm_none follow_font" id="follow_font" style="display:none;">
 			 <h2>您还没有相关对话</h2>
 		</div>
-			
+			 -->
 		
 
 	</div>
@@ -96,5 +102,31 @@ $(document).ready(function(){
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
     </div>
 </div>
+<script type="text/template" id="J-msgTpl">
+
+<li class="msg-item clearfix ${det}">
+	<img src="${h_img}" class="avatar" alt=""/>
+	<div class="desc">
+		<span class="pop-corner"><s class="outter"></s></span>
+		<p class="content">${info}</p>
+		<p class="time">${time}</p>
+	</div>
+</li>
+
+</script>
+<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/js/view/messageView.js"></script>
+<script type="text/javascript">
+                console.log('1111uidddddd',$("#toid").attr("toid"));
+
+	var opt = {
+		'touid':$("#toid").attr("toid"),
+		'listEl':'#J-pmInfoList',
+		'pagination':'#J-pagination'
+	};
+	var messageView = new Tuitui.messageView();
+	messageView.getPmInfo(opt);
+</script>
+
 <?php $_template = new Smarty_Internal_Template("require_footer.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>

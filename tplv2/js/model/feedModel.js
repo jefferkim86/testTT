@@ -154,6 +154,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'price': repto.attr.price,
 					'feedContent': repto.body,
 					'isSelf': repto.uid == uid,
+					'priceTxt': repto.attr.oprice == repto.attr.price ? '价格' : '促销',
 					'isLiked': repto.likeid ? 'liked' : false
 				};
 			} else {
@@ -163,6 +164,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'goodPic': attr.image,
 					'oprice': attr.oprice || '',
 					'price': attr.price,
+					'priceTxt': attr.oprice == attr.price ? '价格' : '促销',
 					'feed': attr.deliveryFees,
 					'feedContent': this.get('body')
 				};

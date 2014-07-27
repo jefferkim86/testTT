@@ -53,6 +53,7 @@ Tuitui.userView = Backbone.View.extend({
             self.obj.text('加关注');
         });
     },
+   
     /*
      * @desc 用于feed流转发列表用户
      * */
@@ -63,7 +64,7 @@ Tuitui.userView = Backbone.View.extend({
             html += '<li class="title"><span class="J_Forward"><b>' + (len || 0) + '</b></span>个人转发了这条信息</li>';
         }
         for (var i = 0; i < len; i++) {
-            html += '<li><a href="' + data[i].h_url + '"><img src="' + urlpath+data[i].h_img + '"/></a></li>';
+            html += '<li><a href="' + data[i].h_url + '"><img src="' + urlpath + data[i].h_img + '"/></a></li>';
         }
         return html;
     }

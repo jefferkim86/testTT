@@ -14,16 +14,28 @@ Tuitui.headerView = Backbone.View.extend({
 
 
     initialize: function(options) {
-
-        getApi('user', 'checknotice', {}, function(data) {
-            var result = data.body;
-            console.log(result);
-        });
-
+        var self = this;
+        self.getNotice();
+        setInterval(function() {
+            self.getNotice();
+        }, 30000);
     },
 
     getNotice: function() {
-        
+        getApi('user', 'checknotice', {}, function(resp) {
+            var result = resp.body;
+            var counts = '';
+            if (resp.status == 1) {
+                for (var key in result) {
+                    if (result[key]) {
+                        counts = key == 'all_count' ? result[key] : '(' + result[key] + ')';
+                    } else {
+                        counts = '';
+                    }
+                    $(".msg_" + key).text(counts);
+                }
+            }
+        });
     },
 
     showPublish: function(e) {

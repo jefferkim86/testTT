@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-25 01:02:22
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-27 15:02:07
          compiled from "tplv2/require_header.html" */ ?>
-<?php /*%%SmartyHeaderCode:76591705053d13c1ea24529-57506927%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:69052648953d4a3efd29030-12721847%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9d70675b71261ad2692595668063ae27729008f2' => 
     array (
       0 => 'tplv2/require_header.html',
-      1 => 1406221341,
+      1 => 1406444525,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '76591705053d13c1ea24529-57506927',
+  'nocache_hash' => '69052648953d4a3efd29030-12721847',
   'function' => 
   array (
   ),
@@ -113,15 +113,16 @@ if ($_smarty_tpl->_count($_from) > 0){
 						<a href="javascript:void(0);" title="通知">
 				    		<div class="notice-block">
 				    			<span id="notice">消息</span>
-				    			<span id="now_notice">22</span>
+				    			<span id="now_notice" class="msg_all_count"></span>
 				    		</div>
 				    	</a>
 				    	<div class="menu notice_menu" style="display:none;">
 						    <ul>
-						    	<li><a href="#"><span>评论我的</span></a></li>
-						    	<li><a href="#"><span>喜欢我的</span></a></li>
-						    	<li><a href="#"><span>关注我的</span></a></li>
-						    	<li><a href="#"><span>我的私信</span></a></li>
+						    	<li><a href="#"><span>评论我的<b class="msg_reply_count"></b></span></a></li>
+						    	<li><a href="#"><span>喜欢我的<b class="msg_like_count"></b></span></a></li>
+						    	<li><a href="#"><span>关注我的<b class="msg_follow_count"></b></span></a></li>
+						    	<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'pm'),$_smarty_tpl);?>
+"><span>我的私信<b class="msg_pm_count"></b></span></a></li>
 						    </ul>
 						</div>
 					</div>
