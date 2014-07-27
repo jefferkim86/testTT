@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-27 02:01:38
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-27 11:03:51
          compiled from "tplv2/require_feedTemplate.html" */ ?>
-<?php /*%%SmartyHeaderCode:148396215653d3ed0204a0f5-06647660%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:213523945753d46c175e3e19-88158146%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '350be01eeee6d1b227e428bdc9ce144dbf95710b' => 
     array (
       0 => 'tplv2/require_feedTemplate.html',
-      1 => 1406397695,
+      1 => 1406430229,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '148396215653d3ed0204a0f5-06647660',
+  'nocache_hash' => '213523945753d46c175e3e19-88158146',
   'function' => 
   array (
   ),
@@ -90,6 +90,7 @@ $_smarty_tpl->decodeProperties(array (
             <div class="feed-actions J-actions clearfix">
                 <span class="feed-timestamp"></span>
                 <div class="feed-act">
+                    {@if isSelf}<a href="#" class="J_Del">删除</a>{@/if}
                     <a href="#" class="ft-comment J_Comment" type="comment">评论(<b>${replaycount}</b>)</a>
                     <a href="#" class="ft-forward J_Forward" type="forward">转发(<b>${forwardcount}</b>)</a>
                     <a href="#" class="ft-like J_Like ${isLiked}">喜欢(<b>${likecount}</b>)</a>

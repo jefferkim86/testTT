@@ -70,7 +70,7 @@
 }
 
 
-
+.feed .feed-actions .J_Del{ display: none; }
 .feed .feed-actions .feed-act .ft-comment {
 	background-position:  -19px -18px;
 }

@@ -71,6 +71,7 @@
             <div class="feed-actions J-actions clearfix">
                 <span class="feed-timestamp"></span>
                 <div class="feed-act">
+                    {@if isSelf}<a href="#" class="J_Del">删除</a>{@/if}
                     <a href="#" class="ft-comment J_Comment" type="comment">评论(<b>${replaycount}</b>)</a>
                     <a href="#" class="ft-forward J_Forward" type="forward">转发(<b>${forwardcount}</b>)</a>
                     <a href="#" class="ft-like J_Like ${isLiked}">喜欢(<b>${likecount}</b>)</a>

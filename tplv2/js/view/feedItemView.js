@@ -29,7 +29,8 @@ Tuitui.feedItemView = Backbone.View.extend({
         "click .J-sendForward": "sendForward",
         "click .J-sendReply": "submitComment",
         "click .J_Like": "likeFeed",
-        "click .fold": "foldFt"
+        "click .fold": "foldFt",
+        "click .J_Del": "delFeed"
     },
 
 
@@ -39,6 +40,39 @@ Tuitui.feedItemView = Backbone.View.extend({
         this.model.on("change", function() {
             self.triggerDomUpdate();
         });
+        this.model.on("destroy", function() {
+            self.$el.fadeOut('slow',function(){
+                self.$el.remove();
+            });
+        });
+        this.$el.on("hover", function(e) {
+            var del = self.$el.find(".J_Del");
+            if (e.type == 'mouseenter') {
+                del.show();
+            }
+            if (e.type == 'mouseleave') {
+                del.hide();
+            }
+        });
+    },
+    delFeed: function(e) {
+        e.preventDefault();
+        var self = this;
+        var data = this.model.toJSON();
+        if (confirm('确定要删除这条feed')) {
+            getApi('user', 'delblog', {
+                'id': data.bid
+            }, function(resp) {
+                if (resp.status == 1) {
+                    self.model.destroy();
+                } else {
+                    alert(resp.msg);
+                }
+            })
+        }
+    },
+    toggleDel: function(e) {
+        console.log(e);
     },
     /*
      * @desc 根据数据直接渲染
