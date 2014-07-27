@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-25 01:03:01
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-28 00:25:12
          compiled from "/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/index.html" */ ?>
-<?php /*%%SmartyHeaderCode:167182754453d13c45ec1841-57868326%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:7693533353d527e8bde376-30915863%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'fad38b1ce294af42e7720c022db1ac14e054a61f' => 
     array (
       0 => '/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/index.html',
-      1 => 1406221380,
+      1 => 1406478309,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '167182754453d13c45ec1841-57868326',
+  'nocache_hash' => '7693533353d527e8bde376-30915863',
   'function' => 
   array (
   ),
@@ -69,11 +69,13 @@ $_template->assign('top','yes'); echo $_template->getRenderedTemplate();?><?php 
 <script type="text/javascript" src=""></script>
 <script type="text/javascript">
 	//TODO:获取页面
+	var userid = <?php echo $_smarty_tpl->getVariable('user')->value['uid'];?>
+;
     var commentsView = new Tuitui.commentsView();
     var userView = new Tuitui.userView();
     var feedsView = new Tuitui.feedsView();
-    feedsView.getMyFeeds();
-    function G_LoadMore(curPage){
+    feedsView.getMyFeeds(userid);
+    function G_LoadMore(userid,curPage){
         feedsView.getMyFeeds(curPage);
     }
 </script>

@@ -43,11 +43,12 @@
 <script type="text/javascript" src=""></script>
 <script type="text/javascript">
 	//TODO:获取页面
+	var userid = {$user.uid};
     var commentsView = new Tuitui.commentsView();
     var userView = new Tuitui.userView();
     var feedsView = new Tuitui.feedsView();
-    feedsView.getMyFeeds();
-    function G_LoadMore(curPage){
+    feedsView.getMyFeeds(userid);
+    function G_LoadMore(userid,curPage){
         feedsView.getMyFeeds(curPage);
     }
 </script>

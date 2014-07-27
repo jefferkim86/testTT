@@ -44,7 +44,7 @@ Tuitui.feedsView = Backbone.View.extend({
      * @desc 获取个人主页feeds
      * */
 
-    getMyFeeds: function(pageNo) {
+    getMyFeeds: function(uid,pageNo) {
         var self = this;
         getApi('blog', 'feeds', {
             'uid': uid,
