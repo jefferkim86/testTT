@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-27 11:03:51
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-27 12:09:47
          compiled from "tplv2/require_feedTemplate.html" */ ?>
-<?php /*%%SmartyHeaderCode:213523945753d46c175e3e19-88158146%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:98726906753d47b8b9a0a23-18481971%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '350be01eeee6d1b227e428bdc9ce144dbf95710b' => 
     array (
       0 => 'tplv2/require_feedTemplate.html',
-      1 => 1406430229,
+      1 => 1406434185,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '213523945753d46c175e3e19-88158146',
+  'nocache_hash' => '98726906753d47b8b9a0a23-18481971',
   'function' => 
   array (
   ),
@@ -115,7 +115,7 @@ $_smarty_tpl->decodeProperties(array (
             <div class="page-func">
                 <div class="pagination">
                     <a href="#" class="fold">收起</a>
-                    <a href="#" class="comment-more">查看更多</a>
+                    <a href="${feedLink}#comment" class="comment-more">查看更多</a>
                 </div>
             </div>
           </div>

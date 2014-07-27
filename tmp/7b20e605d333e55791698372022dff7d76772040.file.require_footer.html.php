@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-27 01:54:06
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-27 12:11:46
          compiled from "tplv2/require_footer.html" */ ?>
-<?php /*%%SmartyHeaderCode:44185485453d3dec70a38f9-87217070%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:199938387053d47c02ae4995-26243299%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7b20e605d333e55791698372022dff7d76772040' => 
     array (
       0 => 'tplv2/require_footer.html',
-      1 => 1406397232,
+      1 => 1406434304,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '44185485453d3dec70a38f9-87217070',
+  'nocache_hash' => '199938387053d47c02ae4995-26243299',
   'function' => 
   array (
   ),
@@ -46,7 +46,7 @@ $(document).ready(function(){
 				$("html, body").animate({ scrollTop: 0 }, 120);
 		}), $backToTopFun = function() {
 			var st = $(document).scrollTop(), winh = $(window).height();
-			(st > 0)? $backToTopEle.show(): $backToTopEle.hide();    
+			(st > 2*winh)? $backToTopEle.show(): $backToTopEle.hide();    
 			//IE6下的定位
 			if (!window.XMLHttpRequest) {
 				$backToTopEle.css("top", st + winh - 166);    

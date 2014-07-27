@@ -1263,10 +1263,10 @@ border-bottom: 1px solid #eeeeee;
 	text-indent: 14px;
 	font-size:14px; 
 	color: #b7d6e0; 
-	font-family:'Microsoft Yahei','Arail'; 
 }
 .menu_sc .curr { 
 	background-color:#8bb5c3; 
+	color: #fff;
 }
 .menu_sc .btn { 
 	width:15px; 
@@ -1387,7 +1387,7 @@ dl,dt,dd {
 	height: 20px;
 	line-height: 20px;
 	margin: 0 auto;
-	margin-top: 32px;
+	margin-top: 30px;
 }
 #tool .notice #notice {
 	float: left;
@@ -1437,6 +1437,7 @@ dl,dt,dd {
 	position: relative;
 	margin-top: 30px;
 	height: 24px;
+	font-size: 14px;
 	line-height: 24px;
 	padding-right: 15px;
 }
