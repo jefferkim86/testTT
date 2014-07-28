@@ -7,7 +7,7 @@ Tuitui.commentsView = Backbone.View.extend({
     },
 
     events: {
-        
+
     },
 
 
@@ -32,15 +32,7 @@ Tuitui.commentsView = Backbone.View.extend({
         this.el = el;
         this.bid = bid;
         this.totalPage = totalPage;
-        if (pageNo) {
-            this.commentPagination(function(index) {
-                self._queryReply(bid, index);
-            });
-        } else {
-            //_queryReply 会加1
-            pageNo = pageNo || 0;
-            this._queryReply(bid, pageNo);
-        }
+        this._queryReply(bid, pageNo);
     },
 
     _queryReply: function(bid, pageNo) {
@@ -50,6 +42,16 @@ Tuitui.commentsView = Backbone.View.extend({
             page: pageNo + 1
         }, function(data) {
             var result = data.body;
+            if (result.page && !$(self.el).find('.pagination').length) {
+                $(self.el).find('.pagination').twbsPagination({
+                    totalPages: result.page.total_page,
+                    visiblePages: 7,
+                    onPageClick: function(event, page) {
+                        opt.pageNo = page;
+                        self.getPmInfo(opt);
+                    }
+                });
+            }
             self.collection.reset(result.body);
         });
     },

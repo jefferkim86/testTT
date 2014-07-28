@@ -466,7 +466,7 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 	border-radius: 5px;
 	text-align: center;
 	color: #222222;
-	margin: 10px 23px 0 0 ;
+	margin: 10px 0 0 0 ;
 }
 .s_loading { width:100px; height:26px; display:block; background:url(../image/comm/feeds_loading.gif) no-repeat 0 0; margin:10px 190px 0; }
 .sf_loading { width:100px; height:26px; display:block; background:url(../image/comm/feeds_loading.gif) no-repeat 0 0; margin:0 190px 0; }
@@ -951,7 +951,7 @@ border-bottom: 1px solid #eeeeee;
 .follow_list .oper {
 	float: right;
 	margin-right: 10px;
-	width: 150px;
+	width: 100px;
 	text-align: right;
 }
 .follow_list .oper .time {
@@ -1647,18 +1647,26 @@ dl,dt,dd {
 	width: 100px;
 
 }
+.page-pagination {
+	margin-top: 20px;
+}
 .pagination {
 	position: relative;
 	width: 360px;
 	height: 32px;
 	font-size: 14px;
-	margin: 20px auto 0 auto;
+	margin: 0 auto;
 	text-align: center;
 }
 .pagination .first,.pagination .last{
 	display: none;
 }
 .pagination li {
+    margin-right: 5px;
+	margin-bottom: 5px;
+	float: left;
+	width: 30px;
+    height: 30px;
     text-decoration: none;
     background: #fff;
 	color: #555555;
@@ -1666,13 +1674,11 @@ dl,dt,dd {
 
 .pagination a{
     display: block;
-    float: left;
     width: 30px;
     height: 30px;
     line-height: 30px;
     text-align: center;
-    margin-right: 5px;
-	margin-bottom: 5px;
+	background: #fff;
 }
 
 

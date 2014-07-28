@@ -53,6 +53,10 @@ class user extends top
 		$this->myreply_current = 'class="current"';
 		$this->display('user_myreply.html');	
 	}
+	
+	public function mymessage() {
+		$this->display('user_mymessage.html');
+	}
 
 	/*上传头像*/
 	function upavatar(){

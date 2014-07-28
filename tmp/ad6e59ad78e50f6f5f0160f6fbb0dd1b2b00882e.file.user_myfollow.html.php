@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-28 14:04:06
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-28 19:03:54
          compiled from "tplv2/user_myfollow.html" */ ?>
-<?php /*%%SmartyHeaderCode:50889856853d5e7d63fd145-97851528%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:165870245853d62e1a57b1c6-00483720%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ad6e59ad78e50f6f5f0160f6fbb0dd1b2b00882e' => 
     array (
       0 => 'tplv2/user_myfollow.html',
-      1 => 1406527445,
+      1 => 1406545432,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '50889856853d5e7d63fd145-97851528',
+  'nocache_hash' => '165870245853d62e1a57b1c6-00483720',
   'function' => 
   array (
   ),
@@ -75,7 +75,7 @@ function do_run(ty){
 
 <script type="text/template" id="J-followList">
 
- <div class="follow_list" id="myfollow_${uid}">
+ <div class="follow_list ${last}" id="myfollow_${uid}">
 	<div class="follow_con clearfix">
 	 <div class="follow_btn" id="follow_unlink_${uid}">
 	 	<button class="J-follow followed" data-uid="${uid}">取消关注</button>
@@ -136,17 +136,17 @@ function addto_follow(d,type){
 		$('#follow_area').html('');
 		$('#feed_loading').hide();
 		var tpl = juicer($("#J-followList").html());
+		var lastCls = 'last-li';
 		if(d.body.data.length >0){
-			for(var i=0;i<d.body.data.length;i++){
-				d.body.data[i].h_img = urlpath+d.body.data[i].h_img;
-				var html = tpl.render(d.body.data[i])
-				console.log(html);
+			for(var i=0,list = d.body.data;i<list.length;i++){
+				if(i == list.length-1){
+	                list[i].last = lastCls;
+	            }else{
+	                list[i].last = '';
+	            }
+				list[i].h_img = urlpath+list[i].h_img;
+				var html = tpl.render(list[i])
 				$('#follow_area').append($(html));
-			}
-			if(d.body.data.length == 1){
-				$("#follow_area .follow_list").css({
-					"border-bottom":"none"
-				});
 			}
 		}else{
 			$('#follow_font').show();

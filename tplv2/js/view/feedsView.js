@@ -39,7 +39,18 @@ Tuitui.feedsView = Backbone.View.extend({
             self.collection.reset(result.blog);
         });
     },
-
+    /*
+     * @desc 获取我喜欢的feeds
+     * */
+    getFollowFeeds: function(pageNo) {
+        var self = this;
+        getApi('blog', 'followfeeds', {
+            'page': pageNo || 1
+        }, function(data) {
+            var result = data.body;
+            self.collection.reset(result.blog);
+        });
+    },
     /*
      * @desc 获取个人主页feeds
      * */

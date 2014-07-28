@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-28 00:27:18
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-28 19:52:10
          compiled from "tplv2/require_sider.html" */ ?>
-<?php /*%%SmartyHeaderCode:20428723653d52866f01624-55152524%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:97684077553d6396a481fa1-18598926%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0bb71f38ec48f4c0527c2092450118f8bd1842e1' => 
     array (
       0 => 'tplv2/require_sider.html',
-      1 => 1406478412,
+      1 => 1406548329,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '20428723653d52866f01624-55152524',
+  'nocache_hash' => '97684077553d6396a481fa1-18598926',
   'function' => 
   array (
   ),
@@ -139,7 +139,8 @@ if ($_smarty_tpl->_count($_from) > 0){
 	<div class="user clearfix">
 		<div class="user-info">
 			<div class="logo">
-				<img src="<?php echo avatar(array('uid'=>$_smarty_tpl->getVariable('user')->value['uid'],'size'=>'middle'),$_smarty_tpl);?>
+				<img src="<?php echo $_smarty_tpl->getVariable('url')->value;?>
+/<?php echo avatar(array('uid'=>$_smarty_tpl->getVariable('user')->value['uid'],'size'=>'big'),$_smarty_tpl);?>
 " alt=""/>
 			</div>
 			<h3 class="user-name"><?php echo $_smarty_tpl->getVariable('user')->value['username'];?>

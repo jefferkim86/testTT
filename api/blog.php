@@ -65,9 +65,9 @@ class blog extends top
 			$sql .= " and b.uid in ($followuid) and b.open=1 ORDER BY b.time desc";
 			$data['blog'] = spClass('db_blog')->spPager($this->spArgs('page',1),10)->findSql($sql);
 			$data['page'] = spClass('db_blog')->spPager()->getPager();
-			
-			foreach($data['blog'] as &$d){
-				$this->foramt_feeds($d);
+			unset($data['page']['all_pages']);
+			if(!empty($data['blog'])){
+				$data['blog'] = $this->translate_feed($data['blog']);
 			}
 		}
 		$this->api_success($data);

@@ -52,7 +52,7 @@ function do_run(ty){
 
 <script type="text/template" id="J-followList">
 {literal}
- <div class="follow_list" id="myfollow_${uid}">
+ <div class="follow_list ${last}" id="myfollow_${uid}">
 	<div class="follow_con clearfix">
 	 <div class="follow_btn" id="follow_unlink_${uid}">
 	 	<button class="J-follow followed" data-uid="${uid}">取消关注</button>
@@ -111,17 +111,17 @@ function addto_follow(d,type){
 		$('#follow_area').html('');
 		$('#feed_loading').hide();
 		var tpl = juicer($("#J-followList").html());
+		var lastCls = 'last-li';
 		if(d.body.data.length >0){
-			for(var i=0;i<d.body.data.length;i++){
-				d.body.data[i].h_img = urlpath+d.body.data[i].h_img;
-				var html = tpl.render(d.body.data[i])
-				console.log(html);
+			for(var i=0,list = d.body.data;i<list.length;i++){
+				if(i == list.length-1){
+	                list[i].last = lastCls;
+	            }else{
+	                list[i].last = '';
+	            }
+				list[i].h_img = urlpath+list[i].h_img;
+				var html = tpl.render(list[i])
 				$('#follow_area').append($(html));
-			}
-			if(d.body.data.length == 1){
-				$("#follow_area .follow_list").css({
-					"border-bottom":"none"
-				});
 			}
 		}else{
 			$('#follow_font').show();

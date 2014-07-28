@@ -39,10 +39,9 @@ $(document).ready(function(){
 
 					   
 				</div>
-				<div class="ft" id="J-pagination">
-					
-				</div>
+				
 			</div>
+			<div id="J-pagination"></div>
     	</div>
 
 	</div>
@@ -53,7 +52,7 @@ $(document).ready(function(){
 
 <script type="text/template" id="J-followList">
 {literal}
- <div class="follow_list" id="myfollow_${id}">
+ <div class="follow_list ${last}" id="myfollow_${id}">
   <div class="follow_con clearfix">
 	 <div class="avatar">	       
 	  <a href="${h_url}" target="_blank" title="">

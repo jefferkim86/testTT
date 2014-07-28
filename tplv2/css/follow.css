@@ -28,9 +28,13 @@
 }
 .all-msg .list-block .follow_list{
 	width: 800px;
-	margin-left: 0;
 	height: auto;
+	min-height: 100px;
+	_height:100px;
+	_zoom:1;
+	margin-left: 0;
 }
+
 .msg-ft{
 	float: right;
 	position: relative;
@@ -95,4 +99,47 @@
 	color: #ffffff;
 	text-align: center;
 	line-height: 45px;
+}
+.all-msg .follow_list .userinfo .userdata {
+	float: left;
+}
+.all-msg .follow_list .userinfo .username {
+
+}
+.all-msg .follow_list .userinfo .title{
+	height: 20px;
+}
+.all-msg .follow_list .userinfo .title a{
+	float: left;
+}
+.all-msg .follow_list .userinfo .title .action{
+	float:left;
+	font-size: 14px;
+	margin:0 4px;
+	_display:inline;
+}
+.all-msg .follow_list .userinfo .topic{
+	color: #5584a2;
+
+}
+.all-msg .follow_list .not-read {
+	margin:5px 0 0 24px;
+	float: left;
+	width: 14px;
+	height: 14px;
+	background: url('../image/icon-item.png') no-repeat scroll -35px -340px;
+}
+.all-msg .follow_list .userinfo{
+	width: 610px;
+}
+.all-msg #msg .hd h2 {float: none;}
+.all-msg .follow_list .userinfo .title span{
+	font-size: 14px;
+	float:left;
+}
+.all-msg .follow_list .userinfo .action a{
+	margin-left: 2px;
+}
+.all-msg .follow_list .userinfo b{
+	font-weight: normal;
 }

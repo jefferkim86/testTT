@@ -108,6 +108,10 @@
 	background-position: -19px -278px;
 }
 
+.comment_show .feed-desc,.forward_show .feed-desc {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
 .comment_show .J_Comment .pop-foot-corner,
 .comment_show .feed-ft ,
 .comment_show .J_commentList,
@@ -341,11 +345,12 @@
 
 .feed-ft .page-func {
 	height: 45px;
-
+	width: 360px;
+	margin: 0 auto;
 }
 .feed-ft .page-func .fold {
 	position: absolute;
-	left: -120px;
+	left: -180px;
 	top: 0;
 	width: 50px;
 	height: 20px;
@@ -760,6 +765,13 @@ ul,li {
 	width: 120px;
 	height: 120px;
 	margin: 30px auto 0 auto;
+}
+.user .logo img {
+	width: 120px;
+	height: 120px;
+	-moz-border-radius: 120px;
+	-webkit-border-radius: 120px;
+	border-radius: 120px;
 }
 .user .user-name {
 	color: #222222;

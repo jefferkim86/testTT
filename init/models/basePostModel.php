@@ -61,7 +61,7 @@ abstract class basePostModel extends top
 			'top'  =>$this->spArgs('top',0),
         	'link' =>$this->spArgs('link'),
 			'tag'  =>$tag,
-			'body'=>$repto.$bodypre.strreplaces($this->spArgs('content')),
+			'body'=>$repto.$bodypre.strreplaces($this->spArgs('textarea')),
 			'noreply'=>$this->spArgs('noreplay',0),
 			'open' =>$this->spArgs('savetype',1),
 			'time' =>time()

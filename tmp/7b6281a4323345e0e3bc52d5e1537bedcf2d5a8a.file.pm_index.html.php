@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-27 20:11:30
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-28 21:40:42
          compiled from "tplv2/pm_index.html" */ ?>
-<?php /*%%SmartyHeaderCode:171433154353d4ec72ac7520-64167532%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:4247877153d652da877842-38218728%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7b6281a4323345e0e3bc52d5e1537bedcf2d5a8a' => 
     array (
       0 => 'tplv2/pm_index.html',
-      1 => 1406463058,
+      1 => 1406547835,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '171433154353d4ec72ac7520-64167532',
+  'nocache_hash' => '4247877153d652da877842-38218728',
   'function' => 
   array (
   ),
@@ -60,10 +60,9 @@ $(document).ready(function(){
 
 					   
 				</div>
-				<div class="ft" id="J-pagination">
-					
-				</div>
+				
 			</div>
+			<div id="J-pagination"></div>
     	</div>
 
 	</div>
@@ -75,7 +74,7 @@ $(document).ready(function(){
 
 <script type="text/template" id="J-followList">
 
- <div class="follow_list" id="myfollow_${id}">
+ <div class="follow_list ${last}" id="myfollow_${id}">
   <div class="follow_con clearfix">
 	 <div class="avatar">	       
 	  <a href="${h_url}" target="_blank" title="">

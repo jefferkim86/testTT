@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-28 21:37:49
-         compiled from "tplv2/msg_test.html" */ ?>
-<?php /*%%SmartyHeaderCode:105966751953d6522d1652b7-45121478%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-29 00:14:30
+         compiled from "tplv2/user_mymessage.html" */ ?>
+<?php /*%%SmartyHeaderCode:64750829253d676e671f623-99934258%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    'fe85f84d012f48685480ad9e28b528653b9a5aee' => 
+    '8422175a9f72652db45489a042cb4889d853c445' => 
     array (
-      0 => 'tplv2/msg_test.html',
-      1 => 1406554663,
+      0 => 'tplv2/user_mymessage.html',
+      1 => 1406564067,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '105966751953d6522d1652b7-45121478',
+  'nocache_hash' => '64750829253d676e671f623-99934258',
   'function' => 
   array (
   ),
@@ -69,8 +69,7 @@ $_template->assign('loadedit','yes'); echo $_template->getRenderedTemplate();?><
 </div>
 
 <script type="text/template" id="J-msgAllList">
-
- <div class="follow_list clearfix ${last}" data-id="${id}" id="myfollow_${id}">
+ <div class="follow_list clearfix ${last}" data-muid="${muid}" data-bid="${bid}"id="myfollow_${id}">
   <div class="follow_con clearfix">
 	 <div class="avatar">	       
 	  <a href="${h_url}" target="_blank" title="">
@@ -79,7 +78,7 @@ $_template->assign('loadedit','yes'); echo $_template->getRenderedTemplate();?><
 	 </div>	
 	 <div class="userinfo">
 		<li class="title">
-			<a href="${replyUrl}" class="username" target="_blank">${username}</a><span class="action">$${action}</span>
+			<a href="${h_url}" class="username" target="_blank">${username}</a><span class="action">$${action}</span>
 			<a href="${location}" class="topic">${topic}</a>
 			{@if notread}<span class="not-read"></span>{@/if}
 		</li>
@@ -88,23 +87,23 @@ $_template->assign('loadedit','yes'); echo $_template->getRenderedTemplate();?><
 	 <div class="oper">
 	 	<span class="time">${time}</span>
 	 	<div class="handler">
-	 		{@if actionCls}<a href="#" class="reply ${actionCls}">${actionTxt}</a>{@/if}
+	 		{@if actionCls}<a href="#" class="msg-reply ${actionCls}">回复</a>{@/if}
 	 	</div>
 	 </div>
   </div>
 </div>
-
 </script>
-
 <script type="text/template" id="J-ft">
 	<div class="msg-ft" style="display:none;">
 		<span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
 		<div class="textarea">
 			<textarea cols="30" rows="10"></textarea>
-			<input type="button" value="发布" class="submit-btn J-submit-msg"/>
+			<input type="button" value="${actionBtnTxt}" class="submit-btn J-submit-msg"/>
 		</div>
 	</div>
 </script>
+
+
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/view/messageView.js"></script>
 <script type="text/javascript">

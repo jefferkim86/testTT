@@ -11,14 +11,15 @@ Tuitui.messageView = Backbone.View.extend({
         'privateMsg': juicer($("#J-followList").html() || ''),
         'msgItem': juicer($("#J-msgTpl").html() || ''),
         'allMsgItem': juicer($("#J-msgAllList").html() || ''),
-        'msgFt': $("#J-ft").html()
+        'msgFt': juicer($("#J-ft").html() || '')
     },
 
     events: {
         "click #send_submit": "submitPm",
         "click #J-Msgtab li": "getTabMsg",
-        "click .J-msg-reply": "reply",
+        "click .msg-reply": "reply",
         "click .J-submit-msg": "submitMsg"
+
     },
 
 
@@ -77,7 +78,6 @@ Tuitui.messageView = Backbone.View.extend({
         }, function(resp) {
             if (resp.status == 1) {
                 var result = resp.body;
-                console.log(result);
                 self._renderPm(opt, result);
             } else {
                 alert(resp.msg);
@@ -90,6 +90,12 @@ Tuitui.messageView = Backbone.View.extend({
         var list = result.data;
         var html = '';
         for (var i = 0; i < list.length; i++) {
+            if (i == list.length - 1) {
+                list[i].last = 'last-li';
+            } else {
+                list[i].last = '';
+            }
+
             list[i].h_img = urlpath + list[i].h_img;
             list[i].replyUrl = '?c=pm&a=detail&uid=' + list[i].uid;
             html += tpl.render(list[i]);
@@ -106,7 +112,8 @@ Tuitui.messageView = Backbone.View.extend({
     getPmInfo: function(opt) {
         var self = this;
         getApi('pm', 'pminfo', {
-            'uid': opt.touid
+            'uid': opt.touid,
+            'page': opt.pageNo || 1
         }, function(resp) {
             if (resp.status == 1) {
                 var result = resp.body;
@@ -119,13 +126,27 @@ Tuitui.messageView = Backbone.View.extend({
     },
     _renderPmInfo: function(opt, result) {
         var cls, html = '';
+        var self = this;
         var tpl = this.compiled_tpl['msgItem'];
         $("#touser").val(result.args.t_name);
         $("#hd-touser").text(result.args.t_name);
 
+        $(opt.pagination).twbsPagination({
+            totalPages: result.page.total_page,
+            visiblePages: 7,
+            onPageClick: function(event, page) {
+                opt.pageNo = page;
+                self.getPmInfo(opt);
+            }
+        });
+
         var list = result.data;
         for (var i = 0; i < list.length; i++) {
-            console.log('k', list[i]);
+            if (i == list.length - 1) {
+                list[i].last = 'last-li';
+            } else {
+                list[i].last = '';
+            }
             list[i].h_img = urlpath + list[i].h_img;
             cls = list[i].uid == uid ? 'det-me' : 'det-you';
             list[i].det = cls;
@@ -152,33 +173,83 @@ Tuitui.messageView = Backbone.View.extend({
 
 
     },
+    //TODO 拉倒
     _renderMsgByType: function(opt, result, isPrepend) {
         var tpl = this.compiled_tpl['allMsgItem'];
         var list = result[opt.type];
         var html = '';
-        var lastCls = 'last-li';
         var self = this;
-
-        $(opt.pagination).twbsPagination({
-            totalPages: result.page.total_page,
-            visiblePages: 7,
-            onPageClick: function(event, page) {
-                opt.pageNo = page;
-                self.getMsgListByType(opt);
-            }
-        });
-        for (var i = 0; i < list.length; i++) {
-            if(i == list.length-1){
-                list[i].last = lastCls;
-            }else{
-                list[i].last = '';
-            }
-            list[i].topic = 'mock数据，先放上去';
-            list[i].h_img = urlpath + list[i].user.h_img;
-            list[i].h_url = list[i].user.h_url;
-            list[i].replyUrl = '?c=pm&a=detail&uid=' + list[i].uid;
-            html += tpl.render(list[i]);
+        var lastCls = '';
+        var actionMap = {
+            '1': '评论了你的<b>动态</b>',
+            '3': '关注了你',
+            '4': '转发了你的<b>动态</b>',
+            '5': '喜欢了你的<b>动态</b>',
+            '6': '回复了你的<b>评论</b>',
+            'n1': '<span>评论了你的</span><a href="{link}">动态</a>',
+            'n3': '<span>关注了你</span>',
+            'n4': '<span>转发了你的</span><a href="{link}">动态</a>',
+            'n5': '<span>喜欢了你的</span><a href="{link}">动态</a>',
+            'n6': '<span>回复了你的</span><a href="{link}">评论</a>'
+        };
+        var actionClsMap = {
+            'comment': 'J-msg-reply',
+            'forward': 'J-forward-replay',
+            'like': null,
+            'follow': null
         }
+        var totalPages = result.page.total_page;
+        if (parseInt(totalPages) > 1) {
+            $(opt.pagination).twbsPagination({
+                totalPages: totalPages,
+                visiblePages: 7,
+                onPageClick: function(event, page) {
+                    opt.pageNo = page;
+                    self.getMsgListByType(opt);
+                }
+            });
+        }
+        var notread = result.no_read;
+        for (var key in notread) {
+            if (notread[key] != '0') {
+                $(".J-tab-" + key).text('(' + notread[key] + ')');
+            }
+        }
+        var result;
+        for (var i = 0; i < list.length; i++) {
+            if (i == list.length - 1) {
+                lastCls = 'last-li';
+            }
+
+            var actionTmp, reInfo;
+            if (list[i].extend && list[i].extend['info']) {
+                reInfo = '';
+                actionTmp = actionMap[list[i].sys];
+            } else {
+                reInfo = list[i].extend['info'];
+                actionTmp = actionMap['n' + list[i].sys].replace('{link}', list[i].location);
+            }
+
+            result = {
+                'last': lastCls,
+                'muid': list[i].muid,
+                'time': list[i].time,
+                'username': list[i].username,
+                'actionCls': actionClsMap[opt.type],
+                'bid': list[i].extend['bid'],
+                'location':list[i].location,
+                'topic': list[i].extend['info'],
+                'action': actionTmp,
+                'notread': list[i].isread == "0",
+                'info': list[i].info,
+                'reInfo': reInfo,
+                'h_img': urlpath + list[i].user.h_img,
+                'h_url': list[i].user.h_url
+                
+            }
+            html += tpl.render(result);
+        }
+
         if (isPrepend) {
             $(opt.listEl).prepend(html);
         } else {
@@ -189,11 +260,17 @@ Tuitui.messageView = Backbone.View.extend({
     reply: function(e) {
         e.preventDefault();
         var target = e.currentTarget;
-        var ft = this.compiled_tpl['msgFt'];
+        var actionBtnTxt = '发布';
+        if ($(target).hasClass('J-forward-replay')) {
+            actionBtnTxt = '转发';
+        }
+        var ft = this.compiled_tpl['msgFt'].render({
+            'actionBtnTxt': actionBtnTxt
+        });
         var itemWrap = $(target).parents('.follow_list');
         var id = itemWrap.attr("data-id");
         if (!itemWrap.find(".msg-ft").length) {
-            itemWrap.append(ft);
+            itemWrap.append($(ft));
         }
         itemWrap.find(".msg-ft").toggle();
 
@@ -202,7 +279,36 @@ Tuitui.messageView = Backbone.View.extend({
         e.preventDefault();
         var target = e.currentTarget;
         var msgItem = $(target).parents(".follow_list");
+        var ft = msgItem.find('.msg-ft');
         var textarea = msgItem.find('textarea');
+        var inputVal = textarea.val();
+
+        var params;
+
+
+        if (inputVal === "") {
+            alert("请填写评论内容");
+            return;
+        }
+        if (inputVal.replace("/[^/x00-/xff]/g", "**").length > 140) {
+            alert("不能超出140个字数");
+            return;
+        }
+
+
+
+        getApi('blog', 'setReply', {
+            'bid': msgItem.attr('data-bid'),
+            'inputs': _.escape(inputVal),
+            'muid': msgItem.attr('data-muid')
+        }, function(resp) {
+            if (resp.status == '1') {
+                ft.hide();
+            } else {
+                alert(resp.msg);
+            }
+        });
+
 
 
     },

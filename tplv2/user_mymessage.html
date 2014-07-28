@@ -1,9 +1,4 @@
 {include file="require_header.html" loadedit=yes}
-{literal}
-<style type="text/css">
-	#header{display: none;}
-</style>
-{/literal}
 
 <link rel="stylesheet" type="text/css" href="{$syskin}/css/follow.css">
 
@@ -13,17 +8,17 @@
     	<div class="all-msg">
 			<div id="msg">
 				<div class="hd">
-	    			<h2>系统消息 <span>(<b>11</b>)</span></h2>
+	    			<h2>系统消息 <span><b class="J-tab-all_count"></b></span></h2>
 	    		</div>
 	    		<div class="bd" id="J-pmList">
 
 				 <div class="list-block">
 				 	<div class="tab-holder" id="J-Msgtab">
 						<ul>
-							<li class="cur" type="comment"><a href="javascript:void(0)">评论</a></li>
-							<li type="forward"><a href="javascript:void(0)">转发</a></li>
-							<li type="like"><a href="javascript:void(0)">喜欢</a></li>
-							<li type="follow"><a href="javascript:void(0)">关注</a></li>
+							<li class="cur" type="comment"><a href="javascript:void(0)">评论<span class="J-tab-reply_count"></span></a></li>
+							<li type="forward"><a href="javascript:void(0)">转发<span class="J-tab-forward_count"></span></a></li>
+							<li type="like"><a href="javascript:void(0)">喜欢<span class="J-tab-like_count"></span></a></li>
+							<li type="follow"><a href="javascript:void(0)">关注<span class="J-tab-follow_count"></span></a></li>
 						</ul>
 					</div>
 
@@ -40,7 +35,7 @@
 				</div>
 				
 			</div>
-			<div id="J-pagination">
+			<div id="J-pagination" class="page-pagination">
 					
 			</div>
     	</div>
@@ -50,10 +45,9 @@
         {include file="require_sider.html"}
     </div>
 </div>
-
-<script type="text/template" id="J-msgAllList">
 {literal}
- <div class="follow_list clearfix ${last}" data-id="${id}" id="myfollow_${id}">
+<script type="text/template" id="J-msgAllList">
+ <div class="follow_list clearfix ${last}" data-muid="${muid}" data-bid="${bid}"id="myfollow_${id}">
   <div class="follow_con clearfix">
 	 <div class="avatar">	       
 	  <a href="${h_url}" target="_blank" title="">
@@ -62,31 +56,32 @@
 	 </div>	
 	 <div class="userinfo">
 		<li class="title">
-			<a href="${replyUrl}" target="_blank">${tousername}</a>
-			<span>${topic}</span>
+			<a href="${h_url}" class="username" target="_blank">${username}</a><span class="action">$${action}</span>
+			<a href="${location}" class="topic">${topic}</a>
+			{@if notread}<span class="not-read"></span>{@/if}
 		</li>
 		<li class="userdata">${info}</li>
 	 </div>
 	 <div class="oper">
 	 	<span class="time">${time}</span>
 	 	<div class="handler">
-	 		<a href="#" class="reply J-msg-reply">回复</a>
+	 		{@if actionCls}<a href="#" class="msg-reply ${actionCls}">回复</a>{@/if}
 	 	</div>
 	 </div>
   </div>
 </div>
-{/literal}
 </script>
-
 <script type="text/template" id="J-ft">
 	<div class="msg-ft" style="display:none;">
 		<span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
 		<div class="textarea">
 			<textarea cols="30" rows="10"></textarea>
-			<input type="button" value="发布" class="submit-btn J-submit-msg"/>
+			<input type="button" value="${actionBtnTxt}" class="submit-btn J-submit-msg"/>
 		</div>
 	</div>
 </script>
+{/literal}
+
 <script type="text/javascript" src="{$syskin}/js/view/messageView.js"></script>
 <script type="text/javascript">
 	var opt = {

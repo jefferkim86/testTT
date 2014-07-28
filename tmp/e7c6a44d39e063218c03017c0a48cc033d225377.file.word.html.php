@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-26 15:24:42
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-28 19:22:19
          compiled from "tplv2/models/word.html" */ ?>
-<?php /*%%SmartyHeaderCode:69372989953d357bae2e9e0-50163486%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:164624241353d6326b8b8836-74759027%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'e7c6a44d39e063218c03017c0a48cc033d225377' => 
     array (
       0 => 'tplv2/models/word.html',
-      1 => 1406359467,
+      1 => 1406546535,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '69372989953d357bae2e9e0-50163486',
+  'nocache_hash' => '164624241353d6326b8b8836-74759027',
   'function' => 
   array (
   ),
@@ -161,7 +161,6 @@ if ($_smarty_tpl->_count($_from) > 0){
 				</div>
                 <input type="hidden" name="id" value="<?php echo $_smarty_tpl->getVariable('blog')->value['bid'];?>
 " />
-                <input type="hidden" name="tag" id="tag" value="" />
 				
 				
 			</div>

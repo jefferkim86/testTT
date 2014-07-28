@@ -78,17 +78,17 @@ class db_notice extends ybModel
     								);
 
 	/*评论回复列表*/
-	function noticeReplay($row,$title,$msg='')
+	function noticeReplay($row,$info='',$msg='')
 //	function noticeReplay($uid, $imuid, $bid, $title = null)
 	{
-//		$this->noticeReady($uid, self::NOTICE_TYPE_COMMENT, $imuid, '评论通知', $title, 'blog|'.$bid);
-		$this->create(array('uid'=>$_SESSION['uid'],'sys'=>self::NOTICE_TYPE_COMMENT,'foruid'=>$row['foruid'],'title'=>$title,'info'=>$msg,'time'=>time(),'location'=>'blog|'.$row['bid'],'time'=>time()));
+//		$this->noticeReady($_SESSION['uid'], self::NOTICE_TYPE_COMMENT, $row['foruid'], '评论通知', $msg, 'blog|'.$bid, array('bid'=>$bid, 'info'=>$info));
+		$this->create(array('uid'=>$_SESSION['uid'],'sys'=>self::NOTICE_TYPE_COMMENT,'foruid'=>$row['foruid'],'title'=>'回复通知','info'=>$msg,'time'=>time(),'location'=>'blog|'.$row['bid'],'time'=>time()));
 //		$this->sendReplay($_SESSION['uid'],$row['foruid'],$msg,$row['bid']);
 	}
 	
-	function noticeComment($uid, $imuid, $bid, $title = null)
+	function noticeComment($uid, $imuid, $bid, $info = '', $msg='')
 	{
-		$this->noticeReady($uid, self::NOTICE_TYPE_COMMENT, $imuid, '评论通知', $title, 'blog|'.$bid);
+		$this->noticeReady($uid, self::NOTICE_TYPE_COMMENT, $imuid, '评论通知', $msg, 'blog|'.$bid, array('bid'=>$bid, 'info'=>$info));
 //		$this->create(array('uid'=>$_SESSION['uid'],'sys'=>self::NOTICE_TYPE_COMMENT,'foruid'=>$row['foruid'],'title'=>$title,'info'=>$msg,'time'=>time(),'location'=>'blog|'.$row['bid'],'time'=>time()));
 //		$this->sendReplay($_SESSION['uid'],$row['foruid'],$msg,$row['bid']);
 	}
@@ -104,8 +104,8 @@ class db_notice extends ybModel
 		}
 	}
 	
-	function noticeLike($uid, $imuid, $bid, $title = null) {
-		$this->noticeReady($uid, self::NOTICE_TYPE_LIKE, $imuid, "喜欢通知", $title, 'blog|'.$bid);
+	function noticeLike($uid, $imuid, $bid, $info = '', $msg = '') {
+		$this->noticeReady($uid, self::NOTICE_TYPE_LIKE, $imuid, '喜欢通知', $msg, 'blog|'.$bid);
 	}
 	
 	/*审核提示发送*/
@@ -123,8 +123,8 @@ class db_notice extends ybModel
 	 * @param unknown_type $bid
 	 * @param unknown_type $title
 	 */
-	function noticeForward($uid, $imuid, $bid, $newBid, $title = null) {
-		$this->noticeReady($uid, self::NOTICE_TYPE_FORWARD, $imuid, "转发通知", $title, 'blog|'.$newBid, array('bid'=>$bid));
+	function noticeForward($uid, $imuid, $bid, $newBid, $info = '', $msg = '') {
+		$this->noticeReady($uid, self::NOTICE_TYPE_FORWARD, $imuid, '转发通知', $msg, 'blog|'.$newBid, array('bid'=>$bid, 'info'=>$info));
 	}
 	
 	/*creaty ready*/

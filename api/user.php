@@ -385,17 +385,30 @@ class user extends top
 			$sys = $notice_type[$type];
 			$page_no = $this->spArgs('page_no', 1);
 			$page_size = $this->spArgs('page_size', 10);
-			
-			$total = (int)$obj->findCount(array('foruid'=>$this->uid,'sys'=>$sys));
+			$countSql = "SELECT COUNT(*) FROM `".DBPRE."notice` WHERE foruid={$this->uid}";
+			$sql = "SELECT n.*, m.uid as muid, m.username FROM `".DBPRE."notice` AS n LEFT JOIN `".DBPRE."member` AS m ON (n.uid=m.uid) WHERE n.foruid=".$this->uid;
+			if ($sys == 1 or $sys == 6) {
+				$sql .= " AND (sys in(1,6))";
+				$countSql .= " AND (sys in(1,6))";
+			} else {
+				$sql .= " AND sys={$sys}";
+				$countSql .= " AND sys={$sys}";
+			}
+//			$total = (int)$obj->findCount(array('foruid'=>$this->uid,'sys'=>$sys));
+			$total = (int)$obj->findSql($countSql);
 			$page = spPager::pageTool($total, $page_no, $page_size);
-			$rs = $obj->findAll(array('foruid'=>$this->uid,'sys'=>$sys),'isread asc, time desc', null, "{$page['offset']},{$page_size}");
-	
+			$offset = $page['offset'];
+			if ($offset < 0) $offset = 0;
+			$sql = "SELECT n.*, m.uid as muid, m.username,m.domain FROM `".DBPRE."notice` AS n LEFT JOIN `".DBPRE."member` AS m ON (n.uid=m.uid) WHERE n.foruid=".$this->uid." AND sys=".$sys." ORDER BY isread ASC, n.time DESC LIMIT {$offset},{$page_size}";
+//			$rs = $obj->findAll(array('foruid'=>$this->uid,'sys'=>$sys),'isread asc, time desc', null, "{$offset},{$page_size}");
+			$rs = $obj->findSql($sql);
 			$data['page'] = $page['page_data'];
+			$data['no_read'] = $this->getNoticeCount();
 			$data[$type] = array();
 			if(!empty($rs)){
 				foreach($rs as $key=>$d){
-					$d['user']['h_url'] = goUserHome(array('uid'=>$d['user']['uid'], 'domain'=>$d['user']['domain'])); 
-					$d['user']['h_img'] = avatar(array('uid'=>$d['user']['uid'],'size'=>'small'));
+					$d['user']['h_url'] = goUserHome(array('uid'=>$d['uid'], 'domain'=>$d['domain'])); 
+					$d['user']['h_img'] = avatar(array('uid'=>$d['uid'],'size'=>'small'));
 					$d['time'] = ybtime(array('time'=>$d['time']));
 					$d['info'] = $this->parse_uid($d['info']);
 					$href = explode('|',$d['location']);
@@ -406,7 +419,17 @@ class user extends top
 						$d['location'] = goUserHome(array('uid'=>$href[1]));
 					}
 					
+					if ($d['extend']) {
+						$d['extend'] = unserialize($d['extend']);
+					}
+					
 					$data[$type][$key] = $d;
+				}
+				if ($sys == 1 or $sys == 6) {
+					$obj->updateField(array('sys'=>1), 'isread', 1);
+					$obj->updateField(array('sys'=>6), 'isread', 1);
+				} else {
+					$obj->updateField(array('sys'=>$sys), 'isread', 1);
 				}
 			}
 			
@@ -427,29 +450,59 @@ class user extends top
 	}
 	
 	public function checknotice() {
-		$data = array('all_count'=>0, 'reply_count'=>0, 'sys_count'=>0, 'follow_count'=>0, 'forward_count'=>0,'like_count'=>0, 'pm_count'=>0);
-		if (islogin()) {
-			$data['pm_count']    = (int)spCLass('db_pm')->findCount(array('touid'=>$this->uid,'isnew'=>1));
-			$list = spClass('db_notice')->findByall(array('foruid'=>$this->uid,'isread'=>0));
-			$data['all_count'] += $data['pm_count'];
-			foreach ($list as $d) {
-				if($d['sys'] == db_notice::NOTICE_TYPE_COMMENT){
-					$data['reply_count']++;
-				}elseif($d['sys'] == db_notice::NOTICE_TYPE_SYSTEM){
-					$data['sys_count']++;
-				}elseif($d['sys'] == db_notice::NOTICE_TYPE_FOLLOW){
-					$data['follow_count']++;
-				}elseif ($d['sys'] == db_notice::NOTICE_TYPE_FORWARD) {
-					$data['forward_count']++;
-				}elseif ($d['sys'] == db_notice::NOTICE_TYPE_LIKE) {
-					$data['like_count']++;
-				}	
-				$data['all_count'] ++;
-			}
-		}
+//		$data = array('all_count'=>0, 'reply_count'=>0, 'sys_count'=>0, 'follow_count'=>0, 'forward_count'=>0,'like_count'=>0, 'pm_count'=>0);
+//		if (islogin()) {
+//			$data['pm_count']    = (int)spCLass('db_pm')->findCount(array('touid'=>$this->uid,'isnew'=>1));
+//			$list = spClass('db_notice')->findByall(array('foruid'=>$this->uid,'isread'=>0));
+//			$data['all_count'] += $data['pm_count'];
+//			foreach ($list as $d) {
+//				if($d['sys'] == db_notice::NOTICE_TYPE_COMMENT){
+//					$data['reply_count']++;
+//				}elseif($d['sys'] == db_notice::NOTICE_TYPE_SYSTEM){
+//					$data['sys_count']++;
+//				}elseif($d['sys'] == db_notice::NOTICE_TYPE_FOLLOW){
+//					$data['follow_count']++;
+//				}elseif ($d['sys'] == db_notice::NOTICE_TYPE_FORWARD) {
+//					$data['forward_count']++;
+//				}elseif ($d['sys'] == db_notice::NOTICE_TYPE_LIKE) {
+//					$data['like_count']++;
+//				}	
+//				$data['all_count'] ++;
+//			}
+//		}
+
+		$data = $this->getNoticeCount();
 		$this->api_success($data);
 	}
 	
+	
+	public function getNoticeCount() {
+		$data = array('all_count'=>0, 'reply_count'=>0, 'sys_count'=>0, 'follow_count'=>0, 'forward_count'=>0,'like_count'=>0, 'pm_count'=>0);
+		if (islogin()) {
+			
+//			$data['pm_count']    = (int)spCLass('db_pm')->findCount(array('touid'=>$this->uid,'isnew'=>1));
+			$list = spClass('db_notice')->findAll(array('foruid'=>$this->uid,'isread'=>0));
+			$data['all_count'] += $data['pm_count'];
+			foreach ($list as $d) {
+				if($d['sys'] == 1){
+					$data['reply_count']++;
+				}elseif($d['sys'] == 2){
+					$data['sys_count']++;
+				}elseif($d['sys'] == 3){
+					$data['follow_count']++;
+				}elseif ($d['sys'] == 4) {
+					$data['forward_count']++;
+				}elseif ($d['sys'] == 5) {
+					$data['like_count']++;
+				}elseif ($d['sys'] == 6) {
+					$data['reply_count']++;
+				}		
+				$data['all_count'] ++;
+			}
+		}
+		
+		return $data;
+	}
 
 	
 	/*清除我看过的通知*/

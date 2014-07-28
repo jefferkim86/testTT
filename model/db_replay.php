@@ -87,7 +87,7 @@ class db_replay extends ybModel
 		spClass('db_blog')->incrField(array('bid'=>$row['bid']),'replaycount'); //增加回复统计
 		spClass('db_feeds')->replayFeeds($row,$msg,$_SESSION['uid'],$parent_key); //增加回复动态
 		if ($_SESSION['uid'] != $rs['uid']) {
-			spClass('db_notice')->noticeComment($_SESSION['uid'], $rs['uid'], $rs['bid'], $rs['title']);
+			spClass('db_notice')->noticeComment($_SESSION['uid'], $rs['uid'], $rs['bid'], $rs['title'], $row['inputs']);
 		}
 		$_SESSION['reply_'.$row['bid']] = time();
 
