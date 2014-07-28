@@ -995,7 +995,7 @@ border-bottom: 1px solid #eeeeee;
 .follow_font .invite_num span { float:left; padding:0; line-height:35px; height:35px; margin:0 10px 0 0; color:#0099CC; font-size:14px; }
 .follow_font .invite_num font { float:left; margin:0; line-height:35px; font-weight:700; padding:0 0 0 10px; }
 .follow_font .invite_num .invite_url { background:url(../image/comm/btn_bg.png) repeat-x 0 -240px; height:25px; width:360px; border:1px #ccc solid; line-height:25px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; margin:0; padding:5px 10px; float:right; font-family:'Microsoft Yahei','Arail'; font-size:12px; }
-
+.last-li {border-bottom: none;}
 
 .follow_font .no-item { 
 	margin: 50px auto 0 auto;
@@ -1652,17 +1652,19 @@ dl,dt,dd {
 	width: 360px;
 	height: 32px;
 	font-size: 14px;
-	margin: 0 auto;
+	margin: 20px auto 0 auto;
 	text-align: center;
 }
-        
-.pagination a {
+.pagination .first,.pagination .last{
+	display: none;
+}
+.pagination li {
     text-decoration: none;
     background: #fff;
 	color: #555555;
 }
 
-.pagination a, .pagination span {
+.pagination a{
     display: block;
     float: left;
     width: 30px;
@@ -1673,17 +1675,27 @@ dl,dt,dd {
 	margin-bottom: 5px;
 }
 
-.pagination .current {
-    background: #6bbec6;
-    color: #fff;
-}
 
-.pagination .current.prev, .pagination .current.next{
-	color:#999;
-	border-color:#999;
-	background:#fff;
-}
+.pagination .next,.pagination .prev{
 
+
+}
+.pagination .active a{
+	background:#6bbec6;
+	color: #fff;
+}
+.pagination .next a,.pagination .prev a {
+	text-indent: -9999px;
+	overflow: hidden;
+	background: #fff url('../image/icon-item.png') no-repeat scroll 0 0;
+	
+}
+.pagination .next a {
+	background-position: -28px -233px;
+}
+.pagination .prev a {
+	background-position: -27px -171px;
+}
 
 .comment-hide,.forward-hide,.hide{
 	display: none !important;

@@ -26,7 +26,7 @@ class userblog extends top
 		$this->getMyLook();
 		$this->isfollow = $this->isFollow();
 		$this->pmNum();
-
+		
 		//$this->follow = spClass('db_follow')->spLinker()->findAll(array('uid'=>$this->user_data['uid']),'time desc','','20');  //显示我关注的20个
 		$this->display('index.html');
 	}

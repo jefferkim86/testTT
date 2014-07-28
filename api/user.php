@@ -365,11 +365,53 @@ class user extends top
 				}elseif ($d['sys'] == db_notice::NOTICE_TYPE_FORWARD) {
 					$data['forward_count']++;
 					$data['forward'][] = $d;
+				}elseif ($d['sys'] == db_notice::NOTICE_TYPE_LIKE) {
+					$data['like_count']++;
+					$data['like'][] = $d;
 				}	
 				$data['all_count'] ++;
 			}
 		}
 		$this->api_success($data);
+	}
+	
+	public function mynoticebytype() {
+		$type = strtolower($this->spArgs('type'));
+		$obj = spClass('db_notice');
+		$notice_type = db_notice::$noticeType;
+		if (!isset($notice_type[$type])) {
+			$this->api_error('notice type error');
+		} else {
+			$sys = $notice_type[$type];
+			$page_no = $this->spArgs('page_no', 1);
+			$page_size = $this->spArgs('page_size', 10);
+			
+			$total = (int)$obj->findCount(array('foruid'=>$this->uid,'sys'=>$sys));
+			$page = spPager::pageTool($total, $page_no, $page_size);
+			$rs = $obj->findAll(array('foruid'=>$this->uid,'sys'=>$sys),'isread asc, time desc', null, "{$page['offset']},{$page_size}");
+	
+			$data['page'] = $page['page_data'];
+			$data[$type] = array();
+			if(!empty($rs)){
+				foreach($rs as $key=>$d){
+					$d['user']['h_url'] = goUserHome(array('uid'=>$d['user']['uid'], 'domain'=>$d['user']['domain'])); 
+					$d['user']['h_img'] = avatar(array('uid'=>$d['user']['uid'],'size'=>'small'));
+					$d['time'] = ybtime(array('time'=>$d['time']));
+					$d['info'] = $this->parse_uid($d['info']);
+					$href = explode('|',$d['location']);
+					if($href[0] == 'blog'){
+						$d['location'] = goUserBlog(array('bid'=>$href[1]));
+					}
+					if($href[0] == 'user'){
+						$d['location'] = goUserHome(array('uid'=>$href[1]));
+					}
+					
+					$data[$type][$key] = $d;
+				}
+			}
+			
+			$this->api_success($data);
+		}
 	}
 	
 	/*动态推送机制，检查通知和短信是否有新的*/

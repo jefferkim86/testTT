@@ -1,4 +1,10 @@
 {include file="require_header.html" loadedit=yes}
+{literal}
+<style type="text/css">
+	#header{display: none;}
+</style>
+{/literal}
+
 <link rel="stylesheet" type="text/css" href="{$syskin}/css/follow.css">
 
 <div id="index">
@@ -12,12 +18,12 @@
 	    		<div class="bd" id="J-pmList">
 
 				 <div class="list-block">
-				 	<div class="tab-holder">
+				 	<div class="tab-holder" id="J-Msgtab">
 						<ul>
-							<li class="cur" tyep="comment"><a href="javascript:void(0)">评论</a></li>
-							<li tyep="forward"><a href="javascript:void(0)">转发</a></li>
-							<li tyep="like"><a href="javascript:void(0)">喜欢</a></li>
-							<li tyep="attention"><a href="javascript:void(0)">关注</a></li>
+							<li class="cur" type="comment"><a href="javascript:void(0)">评论</a></li>
+							<li type="forward"><a href="javascript:void(0)">转发</a></li>
+							<li type="like"><a href="javascript:void(0)">喜欢</a></li>
+							<li type="follow"><a href="javascript:void(0)">关注</a></li>
 						</ul>
 					</div>
 
@@ -32,9 +38,10 @@
 
 					   
 				</div>
-				<div class="ft" id="J-pagination">
+				
+			</div>
+			<div id="J-pagination">
 					
-				</div>
 			</div>
     	</div>
 
@@ -46,7 +53,7 @@
 
 <script type="text/template" id="J-msgAllList">
 {literal}
- <div class="follow_list clearfix" data-id="${id}" id="myfollow_${id}">
+ <div class="follow_list clearfix ${last}" data-id="${id}" id="myfollow_${id}">
   <div class="follow_con clearfix">
 	 <div class="avatar">	       
 	  <a href="${h_url}" target="_blank" title="">
@@ -84,12 +91,12 @@
 <script type="text/javascript">
 	var opt = {
 		'type':'comment',
+		'pageNo':1,
 		'listEl':'#list-content',
 		'pagination':'#J-pagination'
 	};
 	var messageView = new Tuitui.messageView();
 	messageView.getMsgListByType(opt);
-
-
 </script>
+
 {include file="require_footer.html"}

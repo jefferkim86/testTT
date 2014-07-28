@@ -64,7 +64,10 @@ class yb_product extends basePostModel
 //				if (trim($val->name) == "价格") {
 //					$data['price'] = $val->price;
 //				}
-//			}return $data;
+//			}
+//			$data['content'] = '测试宝贝发布功能';
+//			$data['tag'] = 'HTC,手机';
+//			return $data;
     	$title = $this->spArgs('title');
     	if (empty($title)) return null;
     	$item = array();
@@ -72,6 +75,7 @@ class yb_product extends basePostModel
     	$item['image'] = $this->spArgs('image');
     	$item['deliveryFees'] = $this->spArgs('deliveryFees');
     	$item['price'] = $this->spArgs("price");
+    	$item['producturl'] = $this->spArgs('producturl');
     	return $item;
     }
 	

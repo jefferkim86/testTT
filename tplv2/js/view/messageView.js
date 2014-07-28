@@ -16,7 +16,7 @@ Tuitui.messageView = Backbone.View.extend({
 
     events: {
         "click #send_submit": "submitPm",
-        "click #J-Msgtab li": "getMsg",
+        "click #J-Msgtab li": "getTabMsg",
         "click .J-msg-reply": "reply",
         "click .J-submit-msg": "submitMsg"
     },
@@ -25,11 +25,19 @@ Tuitui.messageView = Backbone.View.extend({
     initialize: function(options) {
 
 
-
     },
 
-    getMsg: function() {
-
+    getTabMsg: function(e) {
+        var target = e.currentTarget;
+        var type = $(target).attr('type');
+        $("#J-Msgtab li").removeClass('cur');
+        $(target).addClass('cur');
+        var opt = {
+            'type': type,
+            'listEl': '#list-content',
+            'pagination': '#J-pagination'
+        };
+        this.getMsgListByType(opt);
     },
     submitPm: function(e) {
         var self = this;
@@ -124,20 +132,15 @@ Tuitui.messageView = Backbone.View.extend({
             html += tpl.render(list[i]);
         }
         $(opt.listEl).html(html);
-
-
     },
 
     getMsgListByType: function(opt) {
         var self = this;
-        var map = {
-            'comment': '',
-            'comment': '',
-            'comment': '',
-            'comment': ''
-        };
-        getApi('pm', 'pmlist', {
-            uid: uid
+        $(opt.listEl).html('<div class="loading">加载中...</div>');
+        getApi('user', 'mynoticebytype', {
+            'type': opt.type,
+            'page_no': opt.pageNo,
+            'page_size': 10
         }, function(resp) {
             if (resp.status == 1) {
                 var result = resp.body;
@@ -146,14 +149,33 @@ Tuitui.messageView = Backbone.View.extend({
                 alert(resp.msg);
             }
         });
+
+
     },
     _renderMsgByType: function(opt, result, isPrepend) {
         var tpl = this.compiled_tpl['allMsgItem'];
-        var list = result.data;
+        var list = result[opt.type];
         var html = '';
+        var lastCls = 'last-li';
+        var self = this;
+
+        $(opt.pagination).twbsPagination({
+            totalPages: result.page.total_page,
+            visiblePages: 7,
+            onPageClick: function(event, page) {
+                opt.pageNo = page;
+                self.getMsgListByType(opt);
+            }
+        });
         for (var i = 0; i < list.length; i++) {
-            list[i].h_img = urlpath + list[i].h_img;
+            if(i == list.length-1){
+                list[i].last = lastCls;
+            }else{
+                list[i].last = '';
+            }
             list[i].topic = 'mock数据，先放上去';
+            list[i].h_img = urlpath + list[i].user.h_img;
+            list[i].h_url = list[i].user.h_url;
             list[i].replyUrl = '?c=pm&a=detail&uid=' + list[i].uid;
             html += tpl.render(list[i]);
         }
@@ -162,26 +184,58 @@ Tuitui.messageView = Backbone.View.extend({
         } else {
             $(opt.listEl).html(html);
         }
+
     },
-    reply:function(e){
+    reply: function(e) {
         e.preventDefault();
         var target = e.currentTarget;
         var ft = this.compiled_tpl['msgFt'];
         var itemWrap = $(target).parents('.follow_list');
         var id = itemWrap.attr("data-id");
-        if(!itemWrap.find(".msg-ft").length){
+        if (!itemWrap.find(".msg-ft").length) {
             itemWrap.append(ft);
         }
         itemWrap.find(".msg-ft").toggle();
 
     },
-    submitMsg:function(e){
+    submitMsg: function(e) {
         e.preventDefault();
         var target = e.currentTarget;
         var msgItem = $(target).parents(".follow_list");
         var textarea = msgItem.find('textarea');
-        
 
+
+    },
+
+    getFollowList: function(opt) {
+
+        getApi('user', 'myfollow', {
+            'type': ty
+        }, function(resp) {
+            if (resp.status == 1) {
+                $('#follow_area').html('');
+                $('#feed_loading').hide();
+                var tpl = juicer($("#J-followList").html());
+                if (d.body.data.length > 0) {
+                    for (var i = 0; i < d.body.data.length; i++) {
+                        d.body.data[i].h_img = urlpath + d.body.data[i].h_img;
+                        var html = tpl.render(d.body.data[i])
+                        console.log(html);
+                        $('#follow_area').append($(html));
+                    }
+                    if (d.body.data.length == 1) {
+                        $("#follow_area .follow_list").css({
+                            "border-bottom": "none"
+                        });
+                    }
+                } else {
+                    $('#follow_font').show();
+                }
+            } else {
+                alert(resp.msg);
+            }
+
+        });
     },
 
     render: function() {

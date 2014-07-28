@@ -557,6 +557,7 @@ class blog extends top
 				$d['repto']['body'] = $tmp_blog['body'];
 				$d['repto']['title'] = $tmp_blog['title'];
 				$d['repto']['attr'] = $tmp_blog['attr'];
+				$d['repto']['tag'] = $tmp_blog['tag'];
 				$d['repto']['likeid'] = null;
 				if (isset($arr_like_bid[$d['source_bid']])) {
 					$d['repto']['islikes'] = $arr_like_bid[$d['source_bid']];

@@ -107,7 +107,6 @@ class pm extends top
 		$this->display('user_mynotice.html');	
 
 	}
-
 	
 		
 	

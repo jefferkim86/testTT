@@ -111,6 +111,7 @@ class spModel {
 		}
 		$sql = "SELECT {$fields} FROM {$this->tbl_name} {$where} {$sort}";
 		if(null != $limit)$sql = $this->_db->setlimit($sql, $limit);
+		
 		return $this->_db->getArray($sql);
 	}
 	/**

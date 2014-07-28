@@ -66,6 +66,16 @@ class db_notice extends ybModel
      * @var unknown_type
      */
     const NOTICE_TYPE_REPLAY = 6;
+    
+    public static $noticeType = array(
+    								'comment'=>self::NOTICE_TYPE_COMMENT,
+    								'system'=>self::NOTICE_TYPE_SYSTEM,
+    								'follow'=>self::NOTICE_TYPE_FOLLOW,
+    								'forward'=>self::NOTICE_TYPE_FORWARD,
+    								'like'=>self::NOTICE_TYPE_LIKE,
+    								'replay'=>self::NOTICE_TYPE_REPLAY,
+    				
+    								);
 
 	/*评论回复列表*/
 	function noticeReplay($row,$title,$msg='')
