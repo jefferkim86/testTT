@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-28 19:44:17
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-29 01:09:10
          compiled from "tplv2/pm_detail.html" */ ?>
-<?php /*%%SmartyHeaderCode:42768243853d63791af3729-51738338%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:22939513853d683b6807ad7-68628693%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'd91a1c2a8dfc01d8b3ec896fc8082777dd94dcf9' => 
     array (
       0 => 'tplv2/pm_detail.html',
-      1 => 1406547856,
+      1 => 1406564645,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '42768243853d63791af3729-51738338',
+  'nocache_hash' => '22939513853d683b6807ad7-68628693',
   'function' => 
   array (
   ),
@@ -40,8 +40,6 @@ $_template->assign('loadedit','yes'); echo $_template->getRenderedTemplate();?><
 	    			</div>
 	    			<div class="lists pm-info clearfix">
 	    					<ul id="J-pmInfoList">
-	    						
-
 
 	    					</ul>
 

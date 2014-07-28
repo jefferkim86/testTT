@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-28 21:40:42
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-29 01:06:42
          compiled from "tplv2/pm_index.html" */ ?>
-<?php /*%%SmartyHeaderCode:4247877153d652da877842-38218728%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:171927028153d683228d2d49-16648354%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7b6281a4323345e0e3bc52d5e1537bedcf2d5a8a' => 
     array (
       0 => 'tplv2/pm_index.html',
-      1 => 1406547835,
+      1 => 1406567201,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '4247877153d652da877842-38218728',
+  'nocache_hash' => '171927028153d683228d2d49-16648354',
   'function' => 
   array (
   ),
@@ -24,7 +24,6 @@ $_template->assign('loadedit','yes'); echo $_template->getRenderedTemplate();?><
 <script>
 
 $(document).ready(function(){ 
-	pmlist();
 	$('#send_submit').click(function(){
 		var name = $('#niname').val();
 		var txt  = $('#textarea').val();
@@ -46,7 +45,7 @@ $(document).ready(function(){
 })
 
 </script>
-<div id="index">
+<div id="index" class="clearfix">
     <div id="article">
 
 
@@ -54,7 +53,7 @@ $(document).ready(function(){
 			<div id="msg">
 				<div class="hd">
 	    			<h2>我的私信 <span>(<b>11</b>)</span></h2>
-	    			<button class="msg-hd-link">发私信</button>
+	    			<button class="msg-hd-link" id="J-pmOverlay">发私信</button>
 	    		</div>
 	    		<div class="bd" id="J-pmList">
 
@@ -71,6 +70,27 @@ $(document).ready(function(){
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
     </div>
 </div>
+
+<script type="text/template" id="J-popPmTpl">
+<div class="pm-pop">
+	<div class="hd">
+		<h3>发私信</h3>
+		<a href="#" class="close-pop">关闭</a>
+	</div>
+	<div class="bd">
+		<div class="title">
+			<label for="J-popPmTitle">对方昵称</label>
+			<input type="text" id="J-popPmTitle" value="输入发送的昵称"/>
+		</div>
+		<div class="content">
+			<label for="J-popPmContent">私信内容</label>
+			<textarea  cols="30" rows="10" id="J-popPmContent"></textarea>
+		</div>
+		<input type="button" id="J-popPmSend" class="pop-submit" value="发送"/>
+	</div>
+</div>
+</script>
+
 
 <script type="text/template" id="J-followList">
 

@@ -18,13 +18,26 @@ Tuitui.messageView = Backbone.View.extend({
         "click #send_submit": "submitPm",
         "click #J-Msgtab li": "getTabMsg",
         "click .msg-reply": "reply",
-        "click .J-submit-msg": "submitMsg"
-
+        "click .J-submit-msg": "submitMsg",
+        "click #J-pmOverlay": "showPop",
+        "click #J-popPmSend": "submitPm",
+        "click .close-pop": function(e) {
+            e.preventDefault();
+            $(".overlay").remove();
+            $(".pm-pop").remove();
+        }
     },
 
 
     initialize: function(options) {
 
+
+    },
+
+    showPop: function(e) {
+        e.preventDefault();
+        $("body").append('<div class="overlay"></div>');
+        $("body").append($($("#J-popPmTpl").html()));
 
     },
 
@@ -43,25 +56,47 @@ Tuitui.messageView = Backbone.View.extend({
     submitPm: function(e) {
         var self = this;
         var target = e.currentTarget;
-        if ($('#touser').val() == '') {
-            waring('请等待页面载入');
-            return false;
+        var param_touserObj;
+        var param_textareaObj;
+
+        if ($(target).hasClass('pop-submit')) {
+            param_touserObj = $('#J-popPmTitle');
+            console.log(param_touserObj);
+            param_textareaObj = $("#J-popPmContent");
+            if (param_touserObj.val() == '') {
+                waring('请输入发送用户');
+                return false;
+            }
+        } else {
+            param_touserObj = $('#touser');
+            param_textareaObj = $("#textarea");
+            if (param_touserObj.val() == '') {
+                waring('请等待页面载入');
+                return false;
+            }
         }
-        var txt = $('#textarea').val();
+
+        var txt = param_textareaObj.val();
         if (txt == '') {
             waring('发信内容不能为空');
             return false;
         }
+
         getApi('pm', 'sendpm', {
-            'username': $('#touser').val(),
+            'username': param_touserObj.val(),
             'body': txt
         }, function(resp) {
             if (resp.status == 1) {
-                self.getPmInfo({
-                    'touid': $("#toid").attr("toid"),
-                    'listEl': '#J-pmInfoList',
-                    'pagination': '#J-pagination'
-                })
+                if ($(target).hasClass('pop-submit')) {
+                    $(".overlay").remove();
+                    $(".pm-pop").remove();
+                } else {
+                    self.getPmInfo({
+                        'touid': $("#toid").attr("toid"),
+                        'listEl': '#J-pmInfoList',
+                        'pagination': '#J-pagination'
+                    })
+                }
 
             } else {
                 alert(resp.msg);
@@ -237,7 +272,7 @@ Tuitui.messageView = Backbone.View.extend({
                 'username': list[i].username,
                 'actionCls': actionClsMap[opt.type],
                 'bid': list[i].extend['bid'],
-                'location':list[i].location,
+                'location': list[i].location,
                 'topic': list[i].extend['info'],
                 'action': actionTmp,
                 'notread': list[i].isread == "0",
@@ -245,7 +280,7 @@ Tuitui.messageView = Backbone.View.extend({
                 'reInfo': reInfo,
                 'h_img': urlpath + list[i].user.h_img,
                 'h_url': list[i].user.h_url
-                
+
             }
             html += tpl.render(result);
         }
