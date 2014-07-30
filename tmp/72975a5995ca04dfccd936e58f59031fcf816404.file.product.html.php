@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-30 00:31:27
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-30 13:31:40
          compiled from "tplv2/models/product.html" */ ?>
-<?php /*%%SmartyHeaderCode:38112532153d7cc5f8e6844-64838495%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:55143407953d8833ca7e273-55450309%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '72975a5995ca04dfccd936e58f59031fcf816404' => 
     array (
       0 => 'tplv2/models/product.html',
-      1 => 1406651461,
+      1 => 1406698016,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '38112532153d7cc5f8e6844-64838495',
+  'nocache_hash' => '55143407953d8833ca7e273-55450309',
   'function' => 
   array (
   ),
@@ -41,7 +41,7 @@ $(document).ready(function(){
 })
 </script>
 <div id="publishGood">
-<form action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'post','a'=>'saved','model'=>5),$_smarty_tpl);?>
+<form action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'post','a'=>'saved','model'=>$_smarty_tpl->getVariable('mid')->value),$_smarty_tpl);?>
 " id="form1" method="post">
 	<div id="article">
 	    <div id="box" class="pub-good">
