@@ -15,10 +15,11 @@ class pm extends top
 	/*获取pm列表*/
 	function pmlist(){
 		$rs = spClass('db_pm')->pmlist($this->uid,$this->spArgs('page',1));
+		$rs['pm_count']    = (int)spCLass('db_pm')->findCount(array('touid'=>$this->uid,'isnew'=>1));
 		if($rs){
 			foreach($rs['data'] as &$d){
 				$d['h_url'] = goUserHome(array('uid'=>$d['touid'], 'domain'=>$d['todoman']));
-				$d['h_img'] = avatar(array('uid'=>$d['touid'],'size'=>'small'));
+				$d['h_img'] = avatar(array('uid'=>$d['touid'],'size'=>'middle'));
 				$d['time'] = ybtime(array('time'=>$d['time']));
 			}
 			$this->api_success($rs);

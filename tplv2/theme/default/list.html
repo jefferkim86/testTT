@@ -1,6 +1,6 @@
 {include file="require_header.html" gallery=yes}
 
-<div id="index">
+<div id="index" class="page-detail clearfix">
     {include file="require_userInfo.html"}
 
     <div id="article">
@@ -29,7 +29,7 @@
 		<div id="feedArea">
 
 		</div>
-		<div id="feed_loading">加载中 ...</div>
+		<div id="feed_loading" style="display:none">加载中 ...</div>
 
 		{if $yb.show_page_mode == 1}
 			<div id="feedAjaxTool" page="2" max="{$yb.show_ajax_to}" area="feedArea"  class="feedajax">
@@ -67,8 +67,8 @@
 {include file="require_footer.html" top=yes}
 
 <script type="text/javascript">
-	  var bid = {$bid};
-    var G_PAGE = 'deatil';
+	var bid = {$bid};
+    var G_PAGE = 'detail';
     $(window).unbind("scroll")
     var commentsView = new Tuitui.commentsView();
     var userView = new Tuitui.userView();

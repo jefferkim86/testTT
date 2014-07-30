@@ -78,9 +78,6 @@ class post extends top
     }
     
     function saved(){
-        print_r($_POST);
-        exit();
-
         $this->_model->saved();
     }
     

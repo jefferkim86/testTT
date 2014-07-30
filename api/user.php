@@ -408,7 +408,7 @@ class user extends top
 			if(!empty($rs)){
 				foreach($rs as $key=>$d){
 					$d['user']['h_url'] = goUserHome(array('uid'=>$d['uid'], 'domain'=>$d['domain'])); 
-					$d['user']['h_img'] = avatar(array('uid'=>$d['uid'],'size'=>'small'));
+					$d['user']['h_img'] = avatar(array('uid'=>$d['uid'],'size'=>'middle'));
 					$d['time'] = ybtime(array('time'=>$d['time']));
 					$d['info'] = $this->parse_uid($d['info']);
 					$href = explode('|',$d['location']);

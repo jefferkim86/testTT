@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-28 19:22:19
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-30 00:25:10
          compiled from "tplv2/models/word.html" */ ?>
-<?php /*%%SmartyHeaderCode:164624241353d6326b8b8836-74759027%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:161528681553d7cae6bebb55-94360014%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'e7c6a44d39e063218c03017c0a48cc033d225377' => 
     array (
       0 => 'tplv2/models/word.html',
-      1 => 1406546535,
+      1 => 1406650960,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '164624241353d6326b8b8836-74759027',
+  'nocache_hash' => '161528681553d7cae6bebb55-94360014',
   'function' => 
   array (
   ),
@@ -78,13 +78,13 @@ $(document).ready(function(){
 			<div id="post_area">
 			
 			    <div class="p_area">
-				    <input type="text" name="title" id="title" class="pub-url" tabindex="1" value="<?php echo $_smarty_tpl->getVariable('blog')->value['title'];?>
-">
+				    <input type="text" name="title" id="title" class="J-pubWordTitle pub-url" tabindex="1" value="">
+				    <div class="default-val">请输入文章标题（可不填）</div>
 				</div>
 				
 				<div class="p_area">
 					<?php if ($_smarty_tpl->getVariable('tpl_config')->value['imguplod']!=0){?>
-					<div id="uploadpic" style="display:none;">
+					<div id="uploadpic">
 					    <span id="upload_bar">
 						    <div class="uploadBtn" id="upload_img"><span>上传图片</span>
 							<input type="file" size="1" name="filedata" ext="<?php if ($_smarty_tpl->getVariable('tpl_config')->value['imagetype']){?><?php echo $_smarty_tpl->getVariable('tpl_config')->value['imagetype'];?>
@@ -142,18 +142,19 @@ if ($_smarty_tpl->_count($_from) > 0){
 				<div class="tags clearfix" id="tags">
 					<label>标签（可不选）</label>
 					<ul class="tag-list">
-						<li tagVal="艺术" class="cur">艺术</li>
-						<li tagVal="文学">文学</li>
-						<li tagVal="体育">体育</li>
-						<li tagVal="德行">德行</li>
+						<li tagVal="晒单">晒单</li>
+						<li tagVal="二手">二手</li>
+						<li tagVal="代购">代购</li>
+						<li tagVal="团购">团购</li>
+						<li tagVal="购物经验">购物经验</li>
 					</ul>
-					<input type="hidden" name="tag" value="艺术," id="J-tagVal"/>
+					<input type="hidden" name="tag" value="" id="J-tagVal"/>
 				</div>
 				<hr/>
 
 				<div class="p_area">
 				    <div id="pb-action-holder">
-					    <a href="#" id="submit" class="btn">发布</a>
+					    <a href="#" id="submit" class="btn" type="word">发布</a>
 						<a href="#" id="preview" class="btn">预览</a>
 						<a href="#" id="cancel" class="btn">取消</a>
 						<span style="display:none;" id="pb-submiting-tip">正在保存</span>

@@ -348,6 +348,9 @@
 	width: 360px;
 	margin: 0 auto;
 }
+.feed-ft .page-func .J-feedPagination{
+	position: relative;
+}
 .feed-ft .page-func .fold {
 	position: absolute;
 	left: -180px;
@@ -372,6 +375,12 @@
 	color: #555555;
 	font-size: 12px;
 	background: none;
+}
+.page-detail .feed-ft .page-func .fold ,.page-detail .feed-ft .page-func .comment-more{
+	display: none;
+}
+.page-detail .feed .feed-link a{
+	cursor: default;
 }
 /*´ý¶¨*/
 .feed .J_Commentshow,.feed .J_Forwardshow,.feed .J_Likeshow{display:block;}

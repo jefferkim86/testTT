@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-27 15:02:07
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-30 01:29:58
          compiled from "tplv2/require_header.html" */ ?>
-<?php /*%%SmartyHeaderCode:69052648953d4a3efd29030-12721847%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:176720686153d7da163f83a5-78216704%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9d70675b71261ad2692595668063ae27729008f2' => 
     array (
       0 => 'tplv2/require_header.html',
-      1 => 1406444525,
+      1 => 1406654997,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '69052648953d4a3efd29030-12721847',
+  'nocache_hash' => '176720686153d7da163f83a5-78216704',
   'function' => 
   array (
   ),
@@ -65,7 +65,8 @@ $_smarty_tpl->decodeProperties(array (
 /image/logo.png" alt="<?php echo $_smarty_tpl->getVariable('title')->value;?>
 "/></a></div>
 		    <div class="my-attention">
-		    	<a href="">我的关注</a>
+		    	<a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'index'),$_smarty_tpl);?>
+">我的关注</a>
 		    </div>
 			<!-- <div id="nav">
 			    <li <?php if ($_smarty_tpl->getVariable('CurrentModule')->value=='index'){?>class="current"<?php }?>><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'index'),$_smarty_tpl);?>
@@ -118,9 +119,12 @@ if ($_smarty_tpl->_count($_from) > 0){
 				    	</a>
 				    	<div class="menu notice_menu" style="display:none;">
 						    <ul>
-						    	<li><a href="#"><span>评论我的<b class="msg_reply_count"></b></span></a></li>
-						    	<li><a href="#"><span>喜欢我的<b class="msg_like_count"></b></span></a></li>
-						    	<li><a href="#"><span>关注我的<b class="msg_follow_count"></b></span></a></li>
+						    	<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'mymessage','tab'=>'comment'),$_smarty_tpl);?>
+"><span>评论我的<b class="msg_reply_count"></b></span></a></li>
+						    	<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'mymessage','tab'=>'like'),$_smarty_tpl);?>
+"><span>喜欢我的<b class="msg_like_count"></b></span></a></li>
+						    	<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'mymessage','tab'=>'follow'),$_smarty_tpl);?>
+"><span>关注我的<b class="msg_follow_count"></b></span></a></li>
 						    	<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'pm'),$_smarty_tpl);?>
 "><span>我的私信<b class="msg_pm_count"></b></span></a></li>
 						    </ul>

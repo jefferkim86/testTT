@@ -100,7 +100,7 @@
 	text-align: center;
 	line-height: 45px;
 }
-.all-msg .follow_list .userinfo .userdata {
+.pm .follow_list .userinfo .userdata,.all-msg .follow_list .userinfo .userdata {
 	float: left;
 }
 .all-msg .follow_list .userinfo .username {
@@ -122,7 +122,11 @@
 	color: #5584a2;
 
 }
-.all-msg .follow_list .not-read {
+.pm .follow_list .userinfo .title a{
+	float: left;
+}
+
+.pm .follow_list .not-read,.all-msg .follow_list .not-read {
 	margin:5px 0 0 24px;
 	float: left;
 	width: 14px;
@@ -139,6 +143,7 @@
 }
 .all-msg .follow_list .userinfo .action a{
 	margin-left: 2px;
+	color: #5584a2;
 }
 .all-msg .follow_list .userinfo b{
 	font-weight: normal;

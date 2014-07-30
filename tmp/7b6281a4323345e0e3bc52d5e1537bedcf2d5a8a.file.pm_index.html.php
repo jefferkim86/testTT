@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-29 01:06:42
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-29 23:21:55
          compiled from "tplv2/pm_index.html" */ ?>
-<?php /*%%SmartyHeaderCode:171927028153d683228d2d49-16648354%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:76053436853d7bc1376f668-12865134%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7b6281a4323345e0e3bc52d5e1537bedcf2d5a8a' => 
     array (
       0 => 'tplv2/pm_index.html',
-      1 => 1406567201,
+      1 => 1406647306,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '171927028153d683228d2d49-16648354',
+  'nocache_hash' => '76053436853d7bc1376f668-12865134',
   'function' => 
   array (
   ),
@@ -52,7 +52,7 @@ $(document).ready(function(){
     	<div class="pm">
 			<div id="msg">
 				<div class="hd">
-	    			<h2>我的私信 <span>(<b>11</b>)</span></h2>
+	    			<h2>我的私信 <span id="J-pmcount"></span></h2>
 	    			<button class="msg-hd-link" id="J-pmOverlay">发私信</button>
 	    		</div>
 	    		<div class="bd" id="J-pmList">
@@ -103,7 +103,8 @@ $(document).ready(function(){
 	 </div>	
 	 <div class="userinfo">
 		<li class="title">
-			<a href="${replyUrl}" target="_blank">${tousername}</a>
+			<a href="${replyUrl}" target="_blank">${tousername}</a> 
+			{@if isNew}<span class="not-read"></span>{@/if}
 		</li>
 		<li class="userdata">${info}</li>
 	 </div>

@@ -30,7 +30,19 @@ Tuitui.messageView = Backbone.View.extend({
 
 
     initialize: function(options) {
-
+        var counter = $(".pm-detail .counter");
+        var max = 140;
+        $(".pm-detail #textarea").on("keyup", function(e) {
+            var val = $(this).val();
+            var len = val.replace("/[^/x00-/xff]/g", "**").length;
+            var num = max - len > 0 ? '还可以输入' + (max - len) + '字' : '已经超过<b>' + (len - max) + '</b>个字';
+            counter.html(num);
+        });
+        $("body").on("click", "#J-popPmTitle", function() {
+            if ($(this).val() == '输入发送的昵称') {
+                $(this).val('');
+            }
+        });
 
     },
 
@@ -88,6 +100,7 @@ Tuitui.messageView = Backbone.View.extend({
         }, function(resp) {
             if (resp.status == 1) {
                 if ($(target).hasClass('pop-submit')) {
+                    waring('发送成功');
                     $(".overlay").remove();
                     $(".pm-pop").remove();
                 } else {
@@ -123,17 +136,28 @@ Tuitui.messageView = Backbone.View.extend({
     _renderPm: function(opt, result, isPrepend) {
         var tpl = this.compiled_tpl['privateMsg'];
         var list = result.data;
-        var html = '';
+
+        if (result.pm_count) {
+            $("#J-pmcount").html('(' + result.pm_count + ')');
+        }
+        var html = '',
+            rdata, lastCls = '';
         for (var i = 0; i < list.length; i++) {
             if (i == list.length - 1) {
-                list[i].last = 'last-li';
-            } else {
-                list[i].last = '';
+                lastCls = 'last-li';
             }
 
-            list[i].h_img = urlpath + list[i].h_img;
-            list[i].replyUrl = '?c=pm&a=detail&uid=' + list[i].uid;
-            html += tpl.render(list[i]);
+            rdata = {
+                'tousername': list[i].tousername,
+                'time': list[i].time,
+                'info': list[i].info,
+                'id': list[i].id,
+                'last': lastCls,
+                'isNew': list[i].isNew,
+                'h_img': urlpath + list[i].h_img,
+                'replyUrl': '?c=pm&a=detail&uid=' + list[i].uid
+            }
+            html += tpl.render(rdata);
         }
         if (isPrepend) {
             $(opt.listEl).prepend(html);
@@ -216,16 +240,16 @@ Tuitui.messageView = Backbone.View.extend({
         var self = this;
         var lastCls = '';
         var actionMap = {
-            '1': '评论了你的<b>动态</b>',
-            '3': '关注了你',
-            '4': '转发了你的<b>动态</b>',
-            '5': '喜欢了你的<b>动态</b>',
-            '6': '回复了你的<b>评论</b>',
-            'n1': '<span>评论了你的</span><a href="{link}">动态</a>',
-            'n3': '<span>关注了你</span>',
-            'n4': '<span>转发了你的</span><a href="{link}">动态</a>',
-            'n5': '<span>喜欢了你的</span><a href="{link}">动态</a>',
-            'n6': '<span>回复了你的</span><a href="{link}">评论</a>'
+            // '1': '评论了你的<b>动态</b>',
+            // '3': '关注了你',
+            // '4': '转发了你的<b>动态</b>',
+            // '5': '喜欢了你的<b>动态</b>',
+            // '6': '回复了你的<b>评论</b>',
+            '1': '<span>评论了你的</span><a href="{link}">动态</a>',
+            '3': '<span>关注了你</span>',
+            '4': '<span>转发了你的</span><a href="{link}">动态</a>',
+            '5': '<span>喜欢了你的</span><a href="{link}">动态</a>',
+            '6': '<span>回复了你的</span><a href="{link}">评论</a>'
         };
         var actionClsMap = {
             'comment': 'J-msg-reply',
@@ -256,14 +280,9 @@ Tuitui.messageView = Backbone.View.extend({
                 lastCls = 'last-li';
             }
 
-            var actionTmp, reInfo;
-            if (list[i].extend && list[i].extend['info']) {
-                reInfo = '';
-                actionTmp = actionMap[list[i].sys];
-            } else {
-                reInfo = list[i].extend['info'];
-                actionTmp = actionMap['n' + list[i].sys].replace('{link}', list[i].location);
-            }
+
+            var reInfo = list[i].extend['info'] || '';
+            var actionTmp = actionMap[list[i].sys].replace('{link}', list[i].location);
 
             result = {
                 'last': lastCls,

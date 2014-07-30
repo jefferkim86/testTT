@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-26 16:12:17
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-30 00:31:32
          compiled from "tplv2/models/photo.html" */ ?>
-<?php /*%%SmartyHeaderCode:41041445853d362e165e1d2-65876041%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:16231387853d7cc64457913-82410945%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '292ff9701216cca091cf17107bdb18e8b0658c5b' => 
     array (
       0 => 'tplv2/models/photo.html',
-      1 => 1406362334,
+      1 => 1406651481,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '41041445853d362e165e1d2-65876041',
+  'nocache_hash' => '16231387853d7cc64457913-82410945',
   'function' => 
   array (
   ),
@@ -133,19 +133,20 @@ if ($_smarty_tpl->_count($_from) > 0){
 				<div class="tags clearfix" id="tags">
 					<label>标签（可不选）</label>
 					<ul class="tag-list">
-						<li tagVal="艺术" class="cur">艺术</li>
-						<li tagVal="文学">文学</li>
-						<li tagVal="体育">体育</li>
-						<li tagVal="德行">德行</li>
+						<li tagVal="晒单">晒单</li>
+						<li tagVal="二手">二手</li>
+						<li tagVal="代购">代购</li>
+						<li tagVal="团购">团购</li>
+						<li tagVal="购物经验">购物经验</li>
 					</ul>
-					<input type="hidden" name="tag" value="艺术," id="J-tagVal"/>
+					<input type="hidden" name="tag" value="" id="J-tagVal"/>
 				</div>
 				<hr/>
 				
 
 				<div class="p_area">
 				    <div id="pb-action-holder">
-					    <a href="#" id="submit" class="btn">发布</a>
+					    <a href="#" id="submit" class="btn" type="photo">发布</a>
 						<a href="#" id="preview" class="btn">预览</a>
 						<a href="#" id="cancel" class="btn">取消</a>
 						<span style="display:none;" id="pb-submiting-tip">正在保存</span>

@@ -105,7 +105,7 @@ class db_notice extends ybModel
 	}
 	
 	function noticeLike($uid, $imuid, $bid, $info = '', $msg = '') {
-		$this->noticeReady($uid, self::NOTICE_TYPE_LIKE, $imuid, '喜欢通知', $msg, 'blog|'.$bid);
+		$this->noticeReady($uid, self::NOTICE_TYPE_LIKE, $imuid, '喜欢通知', $msg, 'blog|'.$bid,array('bid'=>$bid, 'info'=>$info));
 	}
 	
 	/*审核提示发送*/

@@ -84,8 +84,38 @@
 
 <script type="text/javascript" src="{$syskin}/js/view/messageView.js"></script>
 <script type="text/javascript">
+	function getQueryString(name){
+	    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
+	        return '';
+	    }
+	     var queryString = location.href.substring(location.href.indexOf("?")+1);
+	     var parameters = queryString.split("&");
+	    var pos, paraName, paraValue;
+	    for(var i=0; i<parameters.length; i++){
+	        pos = parameters[i].indexOf('=');
+	        if(pos == -1) { continue; }
+	         paraName = parameters[i].substring(0, pos);
+	        paraValue = parameters[i].substring(pos + 1);
+	         if(paraName == name){
+	            return unescape(paraValue.replace(/\+/g, " "));
+	        }
+	    }
+	    return '';
+	};
+	var tabParam = getQueryString('tab');
+	var curTab = tabParam || 'comment';
+	var tabs = $("#J-Msgtab li");
+	tabs.each(function(node){
+		if($(this).attr('type') == curTab){
+			$(this).addClass('cur');
+		}else{	
+			$(this).removeClass('cur');
+		}
+	})
+
+
 	var opt = {
-		'type':'comment',
+		'type':curTab,
 		'pageNo':1,
 		'listEl':'#list-content',
 		'pagination':'#J-pagination'

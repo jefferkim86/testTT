@@ -31,7 +31,7 @@ $(document).ready(function(){
     	<div class="pm">
 			<div id="msg">
 				<div class="hd">
-	    			<h2>我的私信 <span>(<b>11</b>)</span></h2>
+	    			<h2>我的私信 <span id="J-pmcount"></span></h2>
 	    			<button class="msg-hd-link" id="J-pmOverlay">发私信</button>
 	    		</div>
 	    		<div class="bd" id="J-pmList">
@@ -81,7 +81,8 @@ $(document).ready(function(){
 	 </div>	
 	 <div class="userinfo">
 		<li class="title">
-			<a href="${replyUrl}" target="_blank">${tousername}</a>
+			<a href="${replyUrl}" target="_blank">${tousername}</a> 
+			{@if isNew}<span class="not-read"></span>{@/if}
 		</li>
 		<li class="userdata">${info}</li>
 	 </div>

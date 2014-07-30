@@ -62,7 +62,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 			'avatar': urlpath + this.get('h_img'),
 			'avatarHref': this.get('h_url'),
 			'feedType': this.getfeedType(),
-			'feedLink': this.get('b_url'),
+			'feedLink': this.timeLink(),
 			'forwardcount': this.get('forwardcount'),
 			'replaycount': this.get('replaycount'),
 			'likecount': this.get('likecount'),
@@ -71,6 +71,15 @@ Tuitui.feedModel = Backbone.Model.extend({
 			'isLiked': this.get('likeid') ? 'liked' : '',
 			'forwardData': this.get('repto') || false
 		}
+	},
+	timeLink: function() {
+		var feedLink;
+		if (typeof G_PAGE != 'undefined' && G_PAGE == 'detail') {
+			feedLink = 'javascript:void(0)';
+		} else {
+			feedLink = this.get('b_url')
+		}
+		return feedLink;
 	},
 	//获取外层feed数据
 	getFeedNumData: function() {
@@ -136,7 +145,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 				}
 			} else {
 				result = {
-					'feedTitle': this.get('title'),
+					'feedTitle': this.get('title') || '',
 					'feedContent': this.get('body'),
 					'feedLink': this.get('b_url')
 				}

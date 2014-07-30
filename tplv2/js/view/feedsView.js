@@ -89,6 +89,11 @@ Tuitui.feedsView = Backbone.View.extend({
 
     render: function() {
         var self = this;
+        //TODO 不能保证分页是否会出错
+        if(this.collection.length == 0){
+            $("#feedArea").html('<div class="no-item">暂无消息</div>');
+            $("#feed_loading").hide();
+        }
         if(this.collection.length < 10){
             Tuitui.globalData.end = true;
         }

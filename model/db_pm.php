@@ -19,7 +19,7 @@ class db_pm extends spModel
 		$data = array();
 		$column = 'p.id,p.uid,p.touid,m.username as tousername, m.domain as todoman,sum( isnew ) AS isnew,p.num as pmnum,p.info,p.time';
 		//已读
-		$sql = "SELECT $column FROM `".DBPRE."pm` AS p LEFT JOIN `".DBPRE."member` AS m ON p.uid = m.uid 
+		$sql = "SELECT $column FROM (select * from `".DBPRE."pm` where touid='$uid' ORDER BY id DESC) AS p LEFT JOIN `".DBPRE."member` AS m ON p.uid = m.uid 
 				WHERE p.touid = '$uid' and status != '$uid'  GROUP BY p.uid ORDER BY p.isnew desc ,p.time desc ";
 		$data['data'] = $this->spPager($page,10)->findSql($sql);
 		$data['page'] = $this->spPager()->getPager();

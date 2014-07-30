@@ -664,7 +664,11 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 #userfollow .btn_invite { float:right; }
 #userfollow .btn_invite a { height:33px; line-height:33px; padding:0 10px; background:url(../image/comm/avatar_bg.png) repeat-x 0 0; display:block; border:1px #227CAC solid; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; color:#fff; text-shadow:0px 1px 0px #227CAC; margin:7px 15px 0 0; }
 #userfollow .btn_invite a:hover { background:url(../image/comm/avatar_bg.png) repeat-x 0 -75px; border:1px #C64444 solid; text-shadow:0px 1px 0px #C64444; }
-
+#followfeed{
+	-moz-border-top-left-radius: 0;
+	 -webkit-border-top-left-radius: 0;
+	 border-top-left-radius: 0;
+}
 #followfeed,#msg,#pm { 
 	position: relative;
 	z-index: 1;
@@ -675,13 +679,12 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 	 -moz-border-radius:8px; 
 	 -webkit-border-radius:8px; 
 	 border-radius:8px; 
-	 -moz-border-top-left-radius: 0;
+	
+}
+#followfeed{
+	-moz-border-top-left-radius: 0;
 	 -webkit-border-top-left-radius: 0;
 	 border-top-left-radius: 0;
-	/* -moz-box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15); 
-	 -webkit-box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150,150, 0.15); 
-	 box-shadow:1px 2px 1px rgba(150, 150, 150, 0.15), -1px -1px 1px rgba(150, 150, 150, 0.15);
-	 */
 }
 #msg .hd {
 	margin: 20px 30px 0  30px;
@@ -698,6 +701,7 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 	margin-left: 10px;
 	font-size: 14px;
 }
+
 #msg .hd h2 span b{
 	color: #ff7d6c;
 }
@@ -717,7 +721,10 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 	margin-top: 5px;
 	cursor: pointer;
 }
-
+.pm #msg .hd h2 span{
+	margin-left: 0;
+	color:#ff7d6c;
+}
 .pm-info{
 	width: 702px;
 	margin: 0 auto;
@@ -815,6 +822,14 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 .pm-detail .inputblock{
 	width: 790px;
 	margin: 30px auto 0 auto;
+}
+.pm-detail .extra .counter{
+	color: #999;
+	font-size: 12px;
+
+}
+.pm-detail .extra .counter b{
+	color: #E44443;
 }
 .pm-detail .extra button {
 	float:right;
@@ -998,7 +1013,8 @@ border-bottom: 1px solid #eeeeee;
 .follow_font .invite_num .invite_url { background:url(../image/comm/btn_bg.png) repeat-x 0 -240px; height:25px; width:360px; border:1px #ccc solid; line-height:25px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; margin:0; padding:5px 10px; float:right; font-family:'Microsoft Yahei','Arail'; font-size:12px; }
 .last-li {border-bottom: none;}
 
-.follow_font .no-item { 
+
+.no-item { 
 	margin: 50px auto 0 auto;
 	width:130px;
 	height: 32px;

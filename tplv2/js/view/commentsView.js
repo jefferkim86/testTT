@@ -34,21 +34,24 @@ Tuitui.commentsView = Backbone.View.extend({
         this.totalPage = totalPage;
         this._queryReply(bid, pageNo);
     },
-
+    //TODO:两个分页的处理方式
     _queryReply: function(bid, pageNo) {
         var self = this;
+        var feed = self.el.parents('.feed');
+        console.log(typeof G_PAGE != 'undefined' && G_PAGE == 'detail');
+        var isDetailPage = typeof G_PAGE != 'undefined' && G_PAGE == 'detail';
+        
         getApi('blog', 'reply', {
             bid: bid,
-            page: pageNo + 1
+            page: pageNo || 1
         }, function(data) {
             var result = data.body;
-            if (result.page && !$(self.el).find('.pagination').length) {
-                $(self.el).find('.pagination').twbsPagination({
+            if (result.page && isDetailPage && !feed.find('.pagination').length) {
+                feed.find('.J-feedPagination').twbsPagination({
                     totalPages: result.page.total_page,
                     visiblePages: 7,
                     onPageClick: function(event, page) {
-                        opt.pageNo = page;
-                        self.getPmInfo(opt);
+                        self._queryReply(bid,page);
                     }
                 });
             }
@@ -56,27 +59,6 @@ Tuitui.commentsView = Backbone.View.extend({
         });
     },
 
-    commentPagination: function(cb) {
-        var self = this;
-        var bid = this.bid;
-        var el = this.el;
-        var options = {
-            items_per_page: 10,
-            num_display_entries: 10,
-            current_page: 0,
-            num_edge_entries: 0,
-            link_to: "javascript:void(0)",
-            prev_text: "Prev",
-            next_text: "Next",
-            ellipse_text: "...",
-            prev_show_always: true,
-            next_show_always: true,
-            callback: function(index) {
-                cb && cb(index);
-            }
-        };
-        el.find(".pagination").pagination(this.totalPage, options);
-    },
 
     addComment: function(comment, isAdd) {
         var commentView = new Tuitui.commentItemView({

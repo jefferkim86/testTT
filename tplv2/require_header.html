@@ -27,7 +27,7 @@
 	    <div class="header_con">
 		    <div id="logo"><a title="{$title}" href="{spUrl c=main a=index}"><img src="{$syskin}/image/logo.png" alt="{$title}"/></a></div>
 		    <div class="my-attention">
-		    	<a href="">我的关注</a>
+		    	<a href="{spUrl c=main a=index}">我的关注</a>
 		    </div>
 			<!-- <div id="nav">
 			    <li {if $CurrentModule=='index'}class="current"{/if}><a href="{spUrl c=main a=index}">首页</a></li>
@@ -70,9 +70,9 @@
 				    	</a>
 				    	<div class="menu notice_menu" style="display:none;">
 						    <ul>
-						    	<li><a href="#"><span>评论我的<b class="msg_reply_count"></b></span></a></li>
-						    	<li><a href="#"><span>喜欢我的<b class="msg_like_count"></b></span></a></li>
-						    	<li><a href="#"><span>关注我的<b class="msg_follow_count"></b></span></a></li>
+						    	<li><a href="{spUrl c=user a=mymessage tab=comment}"><span>评论我的<b class="msg_reply_count"></b></span></a></li>
+						    	<li><a href="{spUrl c=user a=mymessage tab=like}"><span>喜欢我的<b class="msg_like_count"></b></span></a></li>
+						    	<li><a href="{spUrl c=user a=mymessage tab=follow}"><span>关注我的<b class="msg_follow_count"></b></span></a></li>
 						    	<li><a href="{spUrl c=pm}"><span>我的私信<b class="msg_pm_count"></b></span></a></li>
 						    </ul>
 						</div>

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-29 00:14:30
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-29 22:05:07
          compiled from "tplv2/user_mymessage.html" */ ?>
-<?php /*%%SmartyHeaderCode:64750829253d676e671f623-99934258%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:10556852953d7aa131ed190-21967167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '8422175a9f72652db45489a042cb4889d853c445' => 
     array (
       0 => 'tplv2/user_mymessage.html',
-      1 => 1406564067,
+      1 => 1406642705,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '64750829253d676e671f623-99934258',
+  'nocache_hash' => '10556852953d7aa131ed190-21967167',
   'function' => 
   array (
   ),
@@ -107,8 +107,38 @@ $_template->assign('loadedit','yes'); echo $_template->getRenderedTemplate();?><
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/view/messageView.js"></script>
 <script type="text/javascript">
+	function getQueryString(name){
+	    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
+	        return '';
+	    }
+	     var queryString = location.href.substring(location.href.indexOf("?")+1);
+	     var parameters = queryString.split("&");
+	    var pos, paraName, paraValue;
+	    for(var i=0; i<parameters.length; i++){
+	        pos = parameters[i].indexOf('=');
+	        if(pos == -1) { continue; }
+	         paraName = parameters[i].substring(0, pos);
+	        paraValue = parameters[i].substring(pos + 1);
+	         if(paraName == name){
+	            return unescape(paraValue.replace(/\+/g, " "));
+	        }
+	    }
+	    return '';
+	};
+	var tabParam = getQueryString('tab');
+	var curTab = tabParam || 'comment';
+	var tabs = $("#J-Msgtab li");
+	tabs.each(function(node){
+		if($(this).attr('type') == curTab){
+			$(this).addClass('cur');
+		}else{	
+			$(this).removeClass('cur');
+		}
+	})
+
+
 	var opt = {
-		'type':'comment',
+		'type':curTab,
 		'pageNo':1,
 		'listEl':'#list-content',
 		'pagination':'#J-pagination'
