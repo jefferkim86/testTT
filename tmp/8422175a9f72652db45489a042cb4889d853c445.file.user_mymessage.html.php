@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-29 22:05:07
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-31 00:47:02
          compiled from "tplv2/user_mymessage.html" */ ?>
-<?php /*%%SmartyHeaderCode:10556852953d7aa131ed190-21967167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:77120745753d921863b4ae2-30988286%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '8422175a9f72652db45489a042cb4889d853c445' => 
     array (
       0 => 'tplv2/user_mymessage.html',
-      1 => 1406642705,
+      1 => 1406738821,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '10556852953d7aa131ed190-21967167',
+  'nocache_hash' => '77120745753d921863b4ae2-30988286',
   'function' => 
   array (
   ),
@@ -79,7 +79,7 @@ $_template->assign('loadedit','yes'); echo $_template->getRenderedTemplate();?><
 	 <div class="userinfo">
 		<li class="title">
 			<a href="${h_url}" class="username" target="_blank">${username}</a><span class="action">$${action}</span>
-			<a href="${location}" class="topic">${topic}</a>
+			<a href="${location}" target="_blank" class="topic">${topic}</a>
 			{@if notread}<span class="not-read"></span>{@/if}
 		</li>
 		<li class="userdata">${info}</li>

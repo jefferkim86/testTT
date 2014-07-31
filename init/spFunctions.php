@@ -245,9 +245,13 @@ function spUrl($controller = null, $action = null, $args = null, $anchor = null,
 	}
 	if(null != $anchor) $url .= "#".$anchor;
 	$site_uri = trim(dirname($GLOBALS['G_SP']['url']["url_path_base"]),"\/\\");
-	if( '' == $surl ){ $site_uri = 'http://'.$_SERVER["HTTP_HOST"]; 	}else{ $site_uri = 'http://'.$_SERVER["HTTP_HOST"].'/'.$site_uri; }
+	if( '' == $url ){ 
+		$site_uri = 'http://'.$_SERVER["HTTP_HOST"]; 	
+	}else{
+		$site_uri = 'http://'.$_SERVER["HTTP_HOST"].$url;
+	}
 	
-	return $url;
+	return $site_uri;
 }
 
 

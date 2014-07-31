@@ -52,14 +52,13 @@ $(document).ready(function(){
     
 	<div id="article">
 	    <div id="box">
-	        <h2>分享文字</h2>
+	        <h2>发文章</h2>
 			<div id="post_area">
-			
+				<h3 class="title-t">标题<span>（可不填）</span></h3>
 			    <div class="p_area">
 				    <input type="text" name="title" id="title" class="J-pubWordTitle pub-url" tabindex="1" value="">
-				    <div class="default-val">请输入文章标题（可不填）</div>
 				</div>
-				
+				<h3 class="title-t">正文<span></span></h3>
 				<div class="p_area">
 					{if $tpl_config.imguplod != 0}
 					<div id="uploadpic">
@@ -71,7 +70,10 @@ $(document).ready(function(){
 						<span id="uploading" style="display:none">正在上传...</span>
 					</div>
 					{/if}
-					<textarea name="textarea" id="textarea" style="width:820px">{$body.body}</textarea>
+					<div id="textareaEditor" style="width:820px">
+						
+					</div>
+					<textarea name="textarea" id="textarea" style="display:none">{$body.body}</textarea>
 				
 				</div>
 				
@@ -132,5 +134,22 @@ $(document).ready(function(){
 	</div>
 </form>
 </div>
+<script type="text/javascript">
+
+	// textbody = $("#textarea").xheditor({
+ //        loadCSS: skinpath + "/css/editor.css",
+ //        urlBase: urlpath + "/",
+ //        internalStyle: false,
+ //        tools:'mini',
+ //        upImgUrl:urlpath+'/index.php?c=post&a=uploadimg&model=$mid',
+ //        upImgExt:"jpg,jpeg,gif,png",
+ //    })
+ //    $("#preview").click(function() {
+ //        textbody.exec("Preview")
+ //    });
+ //    $("#cancel").click(function() {
+ //        window.history.go( - 1)
+ //    });
+</script>
 
 {include file="require_pubfooter.html"}

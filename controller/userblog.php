@@ -63,36 +63,36 @@ class userblog extends top
 //		$this->follow = spClass('db_follow')->spLinker()->findAll(array('uid'=>$this->user_data['uid']),'time desc','','24');  //显示我关注的24个
 //	}
 	
-	public function getMyFollow(){
-		$data = array();
-		$sql = "SELECT f.id as fid, f.time as ftime, f.linker as linker, f.uid as fuid , m.*
-				FROM `".DBPRE."follow` AS f
-				LEFT JOIN `".DBPRE."member` AS m ON f.uid = m.uid WHERE f.uid = ".$this->user_data['uid'];
-		
-		$obj = spClass('db_follow');
-		$obj->linker['0']['enabled'] = false;
-		$sql .= " order by ftime DESC limit 0, 6";
-//		print_r($sql);
-		$this->follow = $obj->spLinker()->findSql($sql);
-		
-
-		
-		foreach($this->follow as &$d){
-			
-			$d['h_url'] = goUserHome(array('uid'=>$d['uid'], 'domain'=>$d['domain']));
-			$d['h_img'] = avatar(array('uid'=>$d['uid'],'size'=>'middle'));
-			$d['sign'] = strip_tags($d['sign']);
-			$d['blogtag'] = ($d['blogtag'] != '') ?  explode(',',$d['blogtag']) : '';
-//				$d['touid'] =  $tudo;
-//				unset($tudo,$d['touid']['domain']);
-			$d['time'] = ybtime(array('time'=>$d['ftime']));
-			if($d['linker'] == 1){
-				$d['linker'] = true;
-			}else{
-				$d['linker'] = false;
-			}
-		}
-	}
+//	public function getMyFollow(){
+//		$data = array();
+//		$sql = "SELECT f.id as fid, f.time as ftime, f.linker as linker, f.uid as fuid , m.*
+//				FROM `".DBPRE."follow` AS f
+//				LEFT JOIN `".DBPRE."member` AS m ON f.uid = m.uid WHERE f.uid = ".$this->user_data['uid'];
+//		
+//		$obj = spClass('db_follow');
+//		$obj->linker['0']['enabled'] = false;
+//		$sql .= " order by ftime DESC limit 0, 6";
+////		print_r($sql);
+//		$this->follow = $obj->spLinker()->findSql($sql);
+//		
+//
+//		
+//		foreach($this->follow as &$d){
+//			
+//			$d['h_url'] = goUserHome(array('uid'=>$d['uid'], 'domain'=>$d['domain']));
+//			$d['h_img'] = avatar(array('uid'=>$d['uid'],'size'=>'middle'));
+//			$d['sign'] = strip_tags($d['sign']);
+//			$d['blogtag'] = ($d['blogtag'] != '') ?  explode(',',$d['blogtag']) : '';
+////				$d['touid'] =  $tudo;
+////				unset($tudo,$d['touid']['domain']);
+//			$d['time'] = ybtime(array('time'=>$d['ftime']));
+//			if($d['linker'] == 1){
+//				$d['linker'] = true;
+//			}else{
+//				$d['linker'] = false;
+//			}
+//		}
+//	}
 	
 	/*谁关注我*/
 	private function getMyLook(){

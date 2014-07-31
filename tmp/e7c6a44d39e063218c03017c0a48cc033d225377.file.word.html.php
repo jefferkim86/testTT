@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-30 00:25:10
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-31 15:54:32
          compiled from "tplv2/models/word.html" */ ?>
-<?php /*%%SmartyHeaderCode:161528681553d7cae6bebb55-94360014%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:12685028153d9f6388cd2f0-69823330%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'e7c6a44d39e063218c03017c0a48cc033d225377' => 
     array (
       0 => 'tplv2/models/word.html',
-      1 => 1406650960,
+      1 => 1406793271,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '161528681553d7cae6bebb55-94360014',
+  'nocache_hash' => '12685028153d9f6388cd2f0-69823330',
   'function' => 
   array (
   ),
@@ -74,14 +74,13 @@ $(document).ready(function(){
     
 	<div id="article">
 	    <div id="box">
-	        <h2>分享文字</h2>
+	        <h2>发文章</h2>
 			<div id="post_area">
-			
+				<h3 class="title-t">标题<span>（可不填）</span></h3>
 			    <div class="p_area">
 				    <input type="text" name="title" id="title" class="J-pubWordTitle pub-url" tabindex="1" value="">
-				    <div class="default-val">请输入文章标题（可不填）</div>
 				</div>
-				
+				<h3 class="title-t">正文<span></span></h3>
 				<div class="p_area">
 					<?php if ($_smarty_tpl->getVariable('tpl_config')->value['imguplod']!=0){?>
 					<div id="uploadpic">
@@ -95,7 +94,10 @@ $(document).ready(function(){
 						<span id="uploading" style="display:none">正在上传...</span>
 					</div>
 					<?php }?>
-					<textarea name="textarea" id="textarea" style="width:820px"><?php echo $_smarty_tpl->getVariable('body')->value['body'];?>
+					<div id="textareaEditor" style="width:820px">
+						
+					</div>
+					<textarea name="textarea" id="textarea" style="display:none"><?php echo $_smarty_tpl->getVariable('body')->value['body'];?>
 </textarea>
 				
 				</div>
@@ -170,6 +172,23 @@ if ($_smarty_tpl->_count($_from) > 0){
 	</div>
 </form>
 </div>
+<script type="text/javascript">
+
+	// textbody = $("#textarea").xheditor({
+ //        loadCSS: skinpath + "/css/editor.css",
+ //        urlBase: urlpath + "/",
+ //        internalStyle: false,
+ //        tools:'mini',
+ //        upImgUrl:urlpath+'/index.php?c=post&a=uploadimg&model=$mid',
+ //        upImgExt:"jpg,jpeg,gif,png",
+ //    })
+ //    $("#preview").click(function() {
+ //        textbody.exec("Preview")
+ //    });
+ //    $("#cancel").click(function() {
+ //        window.history.go( - 1)
+ //    });
+</script>
 
 <?php $_template = new Smarty_Internal_Template("require_pubfooter.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>

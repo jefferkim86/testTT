@@ -879,11 +879,13 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 }
 .follow_list { 
 	width: 820px;
-	height: 100px;
+	min-height:100px;
+	_height:100px;
+	_zoom:1;
 	 margin:0; 
 	 margin-left: 15px;
 
-border-bottom: 1px solid #eeeeee;
+	border-bottom: 1px solid #eeeeee;
 }
 .followListCur {
 	background: #f5f5f5;
@@ -1015,7 +1017,7 @@ border-bottom: 1px solid #eeeeee;
 
 
 .no-item { 
-	margin: 50px auto 0 auto;
+	margin: 50px auto 20px auto;
 	width:130px;
 	height: 32px;
 	line-height: 32px;
@@ -1023,6 +1025,14 @@ border-bottom: 1px solid #eeeeee;
 	font-size: 18px;
 	color:#999999;
 	background:url('../image/icon-item.png') no-repeat scroll -21px -23px;
+}
+.msg-loading {
+	width: 100px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	color: #555555;
+	margin:30px auto 20px auto;
 }
 
 .feed_none { width:540px; margin:15px 10px 0 0; float:right; padding:0; min-height:100px; background-color:#fff; -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px; -moz-box-shadow:0px 1px 3px #bbb; -webkit-box-shadow:0px 1px 3px #bbb; box-shadow:0px 1px 3px #bbb; border-bottom:2px #ddd solid\9; }

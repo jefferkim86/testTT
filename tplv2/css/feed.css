@@ -78,6 +78,9 @@
 	color:#999999;
 	background: url("../image/icons.png") no-repeat scroll 0 0;
 }
+.feed .feed-actions .feed-act a b{
+	font-weight: normal;
+}
 .feed .feed-actions .feed-act .J_DeleteFeed{padding-right:0;}
 .feed .feed-actions .feed-act a:hover{
 	color:#0099cc;
@@ -181,7 +184,7 @@
 }
 
 .feed .feed-title,.feed .feed-text-title,.feed-forward-layout .feed-text-title{
-	font-size: 18px;
+	font-size: 12px;
 	color: #777777;
 	padding:10px 0 15px 0;
 	margin: 0 0 0 29px;
@@ -459,6 +462,31 @@
 
 .feed-good .feed-good-txt{font-size:14px;padding:0 32px;line-height:20px;}
 
+.feedWrap .feed-good-info .feed-good-img{
+	width: 290px;
+	height: 290px;
+	overflow: hidden;
+}
+.feedWrap .feed-good-info .feed-good-img img{
+	width: 290px;
+}
+.feedWrap .feed-good .feed-good-info{
+	margin-left: 315px;
+}
+.feedWrap .feed-good .feed-good-info .feed-good-img{
+	left: -300px;
+}
+.feedWrap .feed-good .feed-good-info .feed-good-property{
+	width: 430px;
+}
+
+.feedWrap .feed-good .feed-good-info{
+	min-height: 290px;
+	_height: 290px;
+	_zoom: 1;
+}
+
+
 
 /*feed ÎÄ×Ö*/
 .feed-text .feed-text-title{font-size:18px;color:#333;font-weight:normal;}
@@ -607,6 +635,9 @@ ul,li {
 /*²à±ßÀ¸*/
 .mt20 {
 	margin-top: 20px;
+}
+.mypage #aside .recommend{
+	margin-top: 0;
 }
 .TA-attention {
 }
@@ -891,7 +922,10 @@ ul,li {
 .page-userInfo .handle {
 	margin-top: 18px;
 }
-.page-userInfo .handle button {
+.page-userInfo .handle .J-follow, .page-userInfo .handle .J-msg {
+	float: left;
+	margin-right: 10px;
+	_display:inline;
 	width: 70px;
 	height: 26px;
 	line-height: 26px;
@@ -948,8 +982,6 @@ ul,li {
 
 .feed-good .change-pic #J_ChangeBtn{ width:60px;height:25px;border:none;cursor:pointer;color:#FFFFFF;font-size:12px;background-position:-5px -990px;}
 .feed-good .change-pic .show{display:block;}
-
-
 
 
 

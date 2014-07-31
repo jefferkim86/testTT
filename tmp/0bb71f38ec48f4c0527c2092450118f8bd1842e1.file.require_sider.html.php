@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-30 13:18:41
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-31 20:22:54
          compiled from "tplv2/require_sider.html" */ ?>
-<?php /*%%SmartyHeaderCode:75509943753d880313d8370-64780932%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:26598698753da351e0ec575-29491832%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0bb71f38ec48f4c0527c2092450118f8bd1842e1' => 
     array (
       0 => 'tplv2/require_sider.html',
-      1 => 1406655160,
+      1 => 1406809371,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '75509943753d880313d8370-64780932',
+  'nocache_hash' => '26598698753da351e0ec575-29491832',
   'function' => 
   array (
   ),
@@ -139,7 +139,8 @@ if ($_smarty_tpl->_count($_from) > 0){
 	<div class="user clearfix">
 		<div class="user-info">
 			<div class="logo">
-				<a href=""><img src="<?php echo $_smarty_tpl->getVariable('url')->value;?>
+				<a href="<?php echo goUserHome(array('uid'=>$_smarty_tpl->getVariable('user')->value['uid'],'domain'=>$_smarty_tpl->getVariable('user')->value['domain']),$_smarty_tpl);?>
+"><img src="<?php echo $_smarty_tpl->getVariable('url')->value;?>
 /<?php echo avatar(array('uid'=>$_smarty_tpl->getVariable('user')->value['uid'],'size'=>'big'),$_smarty_tpl);?>
 " alt=""/></a>
 			</div>
@@ -153,11 +154,14 @@ if ($_smarty_tpl->_count($_from) > 0){
 		</div>
 		<div class="user-data">
 			<ul>
-				<li><a href=""><b><?php echo $_smarty_tpl->getVariable('user')->value['num'];?>
+				<li><a href="<?php echo goUserHome(array('uid'=>$_smarty_tpl->getVariable('user')->value['uid'],'domain'=>$_smarty_tpl->getVariable('user')->value['domain']),$_smarty_tpl);?>
+"><b><?php echo $_smarty_tpl->getVariable('user')->value['num'];?>
 </b><span>推推</span></a></li>
-				<li><a href=""><b><?php echo $_smarty_tpl->getVariable('user')->value['flow'];?>
+				<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'myfollow'),$_smarty_tpl);?>
+"><b><?php echo $_smarty_tpl->getVariable('user')->value['flow'];?>
 </b><span>关注</span></a></li>
-				<li class="nr"><a href=""><b><?php echo $_smarty_tpl->getVariable('myLook')->value;?>
+				<li class="nr"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'myfollow'),$_smarty_tpl);?>
+"><b><?php echo $_smarty_tpl->getVariable('myLook')->value;?>
 </b><span>粉丝</span></a></li>
 			</ul>
 		</div>
@@ -172,8 +176,10 @@ if ($_smarty_tpl->_count($_from) > 0){
 			<li  <?php echo $_smarty_tpl->getVariable('mylike_current')->value;?>
 ><a class="my-like" href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'mylikes'),$_smarty_tpl);?>
 "><span>我喜欢的</span></a></li>
-			<li><a href="#" class="my-msg"><span>我的消息</span></a></li>
-			<li class="nb"><a class="my-letter" href="#"><span>我的私信</span></a></li>
+			<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'mymessage'),$_smarty_tpl);?>
+" class="my-msg"><span>我的消息</span></a></li>
+			<li class="nb"><a class="my-letter" href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'pm','a'=>'index'),$_smarty_tpl);?>
+"><span>我的私信</span></a></li>
 		</ul>
 	</div>
 	<div class="sider-mod recommend mt20 clearfix">

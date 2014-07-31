@@ -29,10 +29,12 @@ Tuitui.headerView = Backbone.View.extend({
                 for (var key in result) {
                     if (result[key]) {
                         counts = key == 'all_count' ? result[key] : '(' + result[key] + ')';
+                        $(".msg_" + key).text(counts).show();
                     } else {
                         counts = '';
+                        $(".msg_"+key).hide();
                     }
-                    $(".msg_" + key).text(counts);
+                    
                 }
             }
         });

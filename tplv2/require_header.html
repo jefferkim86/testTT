@@ -11,14 +11,6 @@
 	<link rel="icon" href="{$syskin}/image/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" media="screen" href="{$syskin}/css/common.css" class="cssfx"/>
 	{include file="require_js.html"}
-	{if islogin()}
-	<script type="text/javascript">
-	// $(document).ready(function(){
-	// 	now_notice();
-	// 	setInterval("now_notice()", 30000);
-	// })
-	</script> 
-	{/if}
 </head>
 <body>
 
@@ -65,12 +57,13 @@
 						<a href="javascript:void(0);" title="通知">
 				    		<div class="notice-block">
 				    			<span id="notice">消息</span>
-				    			<span id="now_notice" class="msg_all_count"></span>
+				    			<span id="now_notice" class="msg_all_count" style="display:none;"></span>
 				    		</div>
 				    	</a>
 				    	<div class="menu notice_menu" style="display:none;">
 						    <ul>
 						    	<li><a href="{spUrl c=user a=mymessage tab=comment}"><span>评论我的<b class="msg_reply_count"></b></span></a></li>
+						    	<li><a href="{spUrl c=user a=mymessage tab=forward}"><span>转发我的<b class="msg_forward_count"></b></span></a></li>
 						    	<li><a href="{spUrl c=user a=mymessage tab=like}"><span>喜欢我的<b class="msg_like_count"></b></span></a></li>
 						    	<li><a href="{spUrl c=user a=mymessage tab=follow}"><span>关注我的<b class="msg_follow_count"></b></span></a></li>
 						    	<li><a href="{spUrl c=pm}"><span>我的私信<b class="msg_pm_count"></b></span></a></li>

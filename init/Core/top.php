@@ -58,11 +58,11 @@ class top extends spController
 		
 	}
 	
-public function getMyFollow(){
+	public function getMyFollow(){
 		$data = array();
-		$sql = "SELECT f.id as fid, f.time as ftime, f.linker as linker, f.uid as fuid , m.*
+		$sql = "SELECT f.id as fid, f.time as ftime, touid, f.linker as linker, f.uid as fuid , m.*
 				FROM `".DBPRE."follow` AS f
-				LEFT JOIN `".DBPRE."member` AS m ON f.uid = m.uid WHERE f.uid = ".$this->uid;
+				LEFT JOIN `".DBPRE."member` AS m ON f.touid = m.uid WHERE f.uid = ".$this->uid;
 		
 		$obj = spClass('db_follow');
 		$obj->linker['0']['enabled'] = false;
@@ -74,8 +74,8 @@ public function getMyFollow(){
 		
 		foreach($myfollow as &$d){
 			
-			$d['h_url'] = goUserHome(array('uid'=>$d['uid'], 'domain'=>$d['domain']));
-			$d['h_img'] = avatar(array('uid'=>$d['uid'],'size'=>'middle'));
+			$d['h_url'] = goUserHome(array('uid'=>$d['touid'], 'domain'=>$d['domain']));
+			$d['h_img'] = avatar(array('uid'=>$d['touid'],'size'=>'middle'));
 			$d['sign'] = strip_tags($d['sign']);
 			$d['blogtag'] = ($d['blogtag'] != '') ?  explode(',',$d['blogtag']) : '';
 //				$d['touid'] =  $tudo;

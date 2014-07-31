@@ -14,7 +14,7 @@ class pm extends top
 
 	/*获取pm列表*/
 	function pmlist(){
-		$rs = spClass('db_pm')->pmlist($this->uid,$this->spArgs('page',1));
+		$rs = spClass('db_pm')->pmlist($this->uid,$this->spArgs('page',1),$this->spArgs('page_size',10));
 		$rs['pm_count']    = (int)spCLass('db_pm')->findCount(array('touid'=>$this->uid,'isnew'=>1));
 		if($rs){
 			foreach($rs['data'] as &$d){
@@ -31,6 +31,11 @@ class pm extends top
 	function sendpm(){
 		if($this->spArgs('username') == '' || $this->spArgs('body') == ''){
 			$this->api_error('收信人或内容不能为空');
+		}
+		$body = strreplaces($this->spArgs('body'));
+		preg_match_all("/./us", $body, $match);
+		if (count($match[0]) > 140) {
+			$this->api_error('内容不能超过140个字');
 		}
 		$user = spClass('db_member')->find(array('username'=>strreplaces($this->spArgs('username'))));
 		if(!is_array($user)){

@@ -9,21 +9,21 @@
 		{else}
 		<div class="url">{goUserHome domain=$user.domain uid=$user.uid}</div>
 		{/if}
-		<div class="desc">个性签名：{$usersign}</div>
+		{if $usersign}<div class="desc">{$usersign}</div>{/if}
 		<div class="handle">
 			{if $isfollow == 1}
 			<button class="J-attention J-follow followed" data-uid="{$user.uid}">已关注</button>
 			{else if $isfollow == 0}
 			<button class="J-attention J-follow" data-uid="{$user.uid}">加关注</button>
 			{/if}
-			<button class="J-msg" data-uid="{$user.uid}">发私信</button>
+			<a href="{spUrl c=pm a=detail uid=$user.uid}" class="J-msg" target="_blank">发私信</a>
 		</div>
 	</div>
 	<div class="user-data">
 		<ul>
-			<li><a href=""><b>{$user.num}</b><span>推推</span></a></li>
-			<li><a href=""><b>{$user.flow}</b><span>关注</span></a></li>
-			<li class="nr"><a href=""><b>{$myLook}</b><span>粉丝</span></a></li>
+			<li><b>{$user.num}</b><span>推推</span></li>
+			<li><b>{$user.flow}</b><span>关注</span></li>
+			<li class="nr"><b>{$myLook}</b><span>粉丝</span></li>
 		</ul>
 
 	</div>

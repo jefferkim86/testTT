@@ -16,6 +16,9 @@ a, a:hover { outline:none; cursor:pointer; }
 
 /**resetend**/
 body{ background:url(../image/comm/background.gif) repeat #DCDDE2; font-family:'Microsoft Yahei','Arail'; font-size:12px;}
+
+
+
 #wrap{width:100%;}
 #main{ width:960px; margin:0 auto; position:relative;}
 #main .logo{ width:420px; height:103px; margin:80px auto;}
@@ -127,6 +130,125 @@ body{ background:url(../image/comm/background.gif) repeat #DCDDE2; font-family:'
 .oauth_btn input:active { background:url(../image/login/regbtn.png) no-repeat 0 -80px; }
 
 
+
+.login-page{
+	background: url('../image/bg.jpg') no-repeat scroll center center;
+}
+
+#wrap{
+	position: absolute;
+	top:50%;
+	left: 50%;
+
+	height: 540px;
+	width: 620px;
+	margin: -270px auto 0 -310px;
+}
+#wrap .logo a{
+	display: block;
+	margin: 0 auto;
+	width: 157px;
+	height: 77px;
+	overflow: hidden;
+}
+/*新版登陆注册*/
+.tab-login-reg{
+	width: 600px;
+	margin: 30px auto 0 auto;
+}
+.tab-login-reg .content-c{
+	margin-top: 38px;
+	width: 360px;
+	margin: 30px 0 0 70px;
+}
+.tab-login-reg .content{
+	width: 600px;
+	padding-bottom: 30px;
+	overflow: hidden;
+	background: #fff;
+}
+.tab-login-reg .tab {
+	height: 60px;
+}
+.tab-login-reg .tab li{
+	float: left;
+	width: 300px;
+	height: 60px;
+	cursor: pointer;
+	text-align: center;
+	line-height: 60px;
+	color: #fff;
+	font-size: 16px;
+	background: #89b5c2;
+	color: #fff;
+}
+.tab-login-reg .tab li.cur{
+	background: #ffffff;
+	color: #5385a3;
+}
+
+.tab-login-reg .content .item {
+	margin-top: 10px;
+	height: 45px;
+	width: 380px;
+	overflow: hidden;
+}
+.tab-login-reg .content .item label{
+	float: left;
+	height: 45px;
+	line-height: 45px;
+	width: 80px;
+	text-align: center;
+	color: #222222;
+	font-size: 14px;
+}
+.tab-login-reg .content .item input {
+	outline: none;
+	float: left;
+	width: 280px;
+	height: 35px;
+	padding: 5px 10px;
+	border:none;
+	background: #eeeeee;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
+.tab-login-reg .content .item .submit-btn{
+	background: #6bbec6;
+	font-size: 16px;
+	padding: 0;
+	color: #ffffff;
+	width: 300px;
+	height: 45px;
+}
+.tab-login-reg .content .func{
+	margin-top: 15px;
+	margin-left: 80px;
+	_display: inline;
+	height: 16px;
+	width: 300px;
+}
+.tab-login-reg .content .remeber{
+	float: left;
+	height: 16px;
+	line-height: 16px;
+	color: #777777;
+}
+.tab-login-reg .content .remeber .check-remeber{
+	width: 16px;
+	height: 16px;
+	margin-right: 8px;
+	vertical-align: top;
+}
+.tab-login-reg .content .forget{
+	float: right;
+
+}
+.tab-login-reg .content .forget a {
+	color: #777777;
+	text-decoration: none;
+}
 /*footer_line*/
 #footer_line { width:100%; height:10px; background:url(../image/login/footer_line.png) repeat-x 0 0; margin:20px auto 15px; }
 

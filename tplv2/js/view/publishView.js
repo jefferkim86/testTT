@@ -27,12 +27,6 @@ Tuitui.publishView = Backbone.View.extend({
         $("#producturl").on("blur", function(e) {
             var target = e.currentTarget;
             var http = $(target).val();
-
-            if ($(target).val() == '') {
-                $(target).val('请输入宝贝链接（目前支持淘宝、天猫的宝贝链接）');
-                $("#goodInfoBlock").html('');
-                return;
-            }
             if (!$(target).val().match(urlReg)) {
                 $("#goodInfoBlock").html('<div class="warn-txt">链接不正确!</div>');
                 $(target).addClass('error-input');
@@ -40,24 +34,7 @@ Tuitui.publishView = Backbone.View.extend({
             }
             $("#goodInfoBlock").html('');
             $(target).removeClass('error-input');
-
             self.getGood(http);
-        });
-        $("#producturl").on("click", function() {
-            $(this).removeClass('error-input');
-            if ($(this).val() == "请输入宝贝链接（目前支持淘宝、天猫的宝贝链接）") {
-                $(this).val('');
-            }
-        });
-
-        $(".default-val").on("click", function() {
-            $(this).hide();
-            $(".J-pubWordTitle").focus();
-        });
-        $(".J-pubWordTitle").on("blur", function(e) {
-            if ($(this).val() == '') {
-                $(".default-val").show();
-            }
         });
 
     },
@@ -67,6 +44,7 @@ Tuitui.publishView = Backbone.View.extend({
         var target = e.currentTarget;
         var submitType = $(target).attr('type');
         if (submitType == 'word') {
+            $("#textarea").val(ueditorInstance.getContentTxt());
             var text = $('#textarea').val();
             if (text == '') {
                 tips('内容不能为空喔');

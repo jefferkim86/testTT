@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-30 01:29:58
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-31 00:28:33
          compiled from "tplv2/require_header.html" */ ?>
-<?php /*%%SmartyHeaderCode:176720686153d7da163f83a5-78216704%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:149457512153d91d312a2bb0-81090996%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9d70675b71261ad2692595668063ae27729008f2' => 
     array (
       0 => 'tplv2/require_header.html',
-      1 => 1406654997,
+      1 => 1406737712,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '176720686153d7da163f83a5-78216704',
+  'nocache_hash' => '149457512153d91d312a2bb0-81090996',
   'function' => 
   array (
   ),
@@ -45,14 +45,6 @@ $_smarty_tpl->decodeProperties(array (
 /css/common.css" class="cssfx"/>
 	<?php $_template = new Smarty_Internal_Template("require_js.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
-	<?php if (islogin()){?>
-	<script type="text/javascript">
-	// $(document).ready(function(){
-	// 	now_notice();
-	// 	setInterval("now_notice()", 30000);
-	// })
-	</script> 
-	<?php }?>
 </head>
 <body>
 
@@ -114,13 +106,15 @@ if ($_smarty_tpl->_count($_from) > 0){
 						<a href="javascript:void(0);" title="通知">
 				    		<div class="notice-block">
 				    			<span id="notice">消息</span>
-				    			<span id="now_notice" class="msg_all_count"></span>
+				    			<span id="now_notice" class="msg_all_count" style="display:none;"></span>
 				    		</div>
 				    	</a>
 				    	<div class="menu notice_menu" style="display:none;">
 						    <ul>
 						    	<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'mymessage','tab'=>'comment'),$_smarty_tpl);?>
 "><span>评论我的<b class="msg_reply_count"></b></span></a></li>
+						    	<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'mymessage','tab'=>'forward'),$_smarty_tpl);?>
+"><span>转发我的<b class="msg_forward_count"></b></span></a></li>
 						    	<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'mymessage','tab'=>'like'),$_smarty_tpl);?>
 "><span>喜欢我的<b class="msg_like_count"></b></span></a></li>
 						    	<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'mymessage','tab'=>'follow'),$_smarty_tpl);?>

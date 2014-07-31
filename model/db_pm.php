@@ -12,7 +12,7 @@ class db_pm extends spModel
 
 
 	/*获取我的pmlist*/
-	function pmlist($uid,$page=1)
+	function pmlist($uid,$page=1, $pageSize = 10)
 	{
 	//从2个部分，第一部分只查未读， 第二个sql查找列表
 	
@@ -21,7 +21,7 @@ class db_pm extends spModel
 		//已读
 		$sql = "SELECT $column FROM (select * from `".DBPRE."pm` where touid='$uid' ORDER BY id DESC) AS p LEFT JOIN `".DBPRE."member` AS m ON p.uid = m.uid 
 				WHERE p.touid = '$uid' and status != '$uid'  GROUP BY p.uid ORDER BY p.isnew desc ,p.time desc ";
-		$data['data'] = $this->spPager($page,10)->findSql($sql);
+		$data['data'] = $this->spPager($page,$pageSize)->findSql($sql);
 		$data['page'] = $this->spPager()->getPager();
 		return $data;
 	}

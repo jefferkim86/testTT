@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-30 13:31:40
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-30 23:56:04
          compiled from "tplv2/models/product.html" */ ?>
-<?php /*%%SmartyHeaderCode:55143407953d8833ca7e273-55450309%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:126661215353d9159483ef95-65769040%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '72975a5995ca04dfccd936e58f59031fcf816404' => 
     array (
       0 => 'tplv2/models/product.html',
-      1 => 1406698016,
+      1 => 1406735760,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '55143407953d8833ca7e273-55450309',
+  'nocache_hash' => '126661215353d9159483ef95-65769040',
   'function' => 
   array (
   ),
@@ -45,10 +45,11 @@ $(document).ready(function(){
 " id="form1" method="post">
 	<div id="article">
 	    <div id="box" class="pub-good">
-	        <h2>发布宝贝</h2>
+	        <h2>发宝贝</h2>
 			<div id="post_area">
+				<h3 class="title-t">宝贝链接<span>（目前支持淘宝、天猫的宝贝链接）</span></h3>
 				<div class="p_product">
-					<input type="text" name="producturl" id="producturl" class="pub-url producturl"   value="请输入宝贝链接（目前支持淘宝、天猫的宝贝链接）" />
+					<input type="text" name="producturl" id="producturl" class="pub-url producturl"   value="" />
 				</div>
 				<div id="goodInfoBlock"></div>
 				
@@ -59,7 +60,7 @@ $(document).ready(function(){
 					<input type="hidden" value="" name="deliveryFees" id="J_deliveryFees"/>
 					<input type="hidden" vlaue="" name="image" id="J_image"/>
 				</div>
-				
+				<h3 class="title-t">宝贝说明<span>（可不写）</span></h3>
 				<div class="p_area">
 					<?php if ($_smarty_tpl->getVariable('tpl_config')->value['imguplod']!=0){?>
 					<div id="uploadpic">

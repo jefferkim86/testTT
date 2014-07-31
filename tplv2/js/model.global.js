@@ -87,17 +87,27 @@ $(document).ready(function() {
         return g
     }
     $(".globox .trg:even").addClass("alt-row");
+    
+    // textbody = $("#textarea").xheditor({
+    //     loadCSS: skinpath + "/css/editor.css",
+    //     urlBase: urlpath + "/",
+    //     internalStyle: false,
+    //     //tools:'mini',
+    //     tools:'Bold,Img,Blocktag,List,Pastetext,Source,Fullscreen',
+    //     upImgUrl:"upload.php",
+    //     upImgExt:"jpg,jpeg,gif,png",
+    // })
+
+
+    window.ueditorInstance = UE.getEditor('textareaEditor');
+
+
     $("#preview").click(function() {
         textbody.exec("Preview")
     });
     $("#cancel").click(function() {
         window.history.go( - 1)
     });
-    textbody = $("#textarea").xheditor({
-        loadCSS: skinpath + "/css/editor.css",
-        urlBase: urlpath + "/",
-        internalStyle: false
-    })
 });
 function addtag(a) {
     if (a != undefined) {

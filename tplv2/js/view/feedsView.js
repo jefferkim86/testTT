@@ -48,14 +48,23 @@ Tuitui.feedsView = Backbone.View.extend({
             'page': pageNo || 1
         }, function(data) {
             var result = data.body;
-            self.collection.reset(result.blog);
+            if (result) {
+                self.collection.reset(result.blog);
+            } else {
+                self._nofeed();
+            }
+
         });
+    },
+    _nofeed: function() {
+        $("#feedArea").html('<div class="no-item">暂无消息</div>');
+        $("#feed_loading").hide();
     },
     /*
      * @desc 获取个人主页feeds
      * */
 
-    getMyFeeds: function(uid,pageNo) {
+    getMyFeeds: function(uid, pageNo) {
         var self = this;
         getApi('blog', 'feeds', {
             'uid': uid,
@@ -90,11 +99,10 @@ Tuitui.feedsView = Backbone.View.extend({
     render: function() {
         var self = this;
         //TODO 不能保证分页是否会出错
-        if(this.collection.length == 0){
-            $("#feedArea").html('<div class="no-item">暂无消息</div>');
-            $("#feed_loading").hide();
+        if (this.collection.length == 0) {
+            this._nofeed();
         }
-        if(this.collection.length < 10){
+        if (this.collection.length < 10) {
             Tuitui.globalData.end = true;
         }
         this.collection.each(function(feed) {

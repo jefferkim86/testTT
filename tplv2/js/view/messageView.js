@@ -93,6 +93,10 @@ Tuitui.messageView = Backbone.View.extend({
             waring('发信内容不能为空');
             return false;
         }
+        if(txt.replace("/[^/x00-/xff]/g", "**").length > 140){
+            waring('不能超出140个字数');
+            return;
+        }
 
         getApi('pm', 'sendpm', {
             'username': param_touserObj.val(),
@@ -216,7 +220,7 @@ Tuitui.messageView = Backbone.View.extend({
 
     getMsgListByType: function(opt) {
         var self = this;
-        $(opt.listEl).html('<div class="loading">加载中...</div>');
+        $(opt.listEl).html('<div class="msg-loading">加载中...</div>');
         getApi('user', 'mynoticebytype', {
             'type': opt.type,
             'page_no': opt.pageNo,
@@ -229,8 +233,6 @@ Tuitui.messageView = Backbone.View.extend({
                 alert(resp.msg);
             }
         });
-
-
     },
     //TODO 拉倒
     _renderMsgByType: function(opt, result, isPrepend) {
@@ -240,16 +242,11 @@ Tuitui.messageView = Backbone.View.extend({
         var self = this;
         var lastCls = '';
         var actionMap = {
-            // '1': '评论了你的<b>动态</b>',
-            // '3': '关注了你',
-            // '4': '转发了你的<b>动态</b>',
-            // '5': '喜欢了你的<b>动态</b>',
-            // '6': '回复了你的<b>评论</b>',
-            '1': '<span>评论了你的</span><a href="{link}">动态</a>',
+            '1': '<span>评论了你的</span><a href="{link}" target="_blank">动态</a>',
             '3': '<span>关注了你</span>',
-            '4': '<span>转发了你的</span><a href="{link}">动态</a>',
-            '5': '<span>喜欢了你的</span><a href="{link}">动态</a>',
-            '6': '<span>回复了你的</span><a href="{link}">评论</a>'
+            '4': '<span>转发了你的</span><a href="{link}" target="_blank">动态</a>',
+            '5': '<span>喜欢了你的</span><a href="{link}" target="_blank">动态</a>',
+            '6': '<span>回复了你的</span><a href="{link}" target="_blank">评论</a>'
         };
         var actionClsMap = {
             'comment': 'J-msg-reply',
@@ -257,6 +254,13 @@ Tuitui.messageView = Backbone.View.extend({
             'like': null,
             'follow': null
         }
+        //判断是否为空数据TODO:最好判断total_count
+        if (list.length == 0) {
+            $(opt.listEl).html('<div class="no-item">暂无消息</div>');
+            return;
+        }
+        //mock
+        //result.page.total_page = 100;
         var totalPages = result.page.total_page;
         if (parseInt(totalPages) > 1) {
             $(opt.pagination).twbsPagination({
@@ -336,10 +340,7 @@ Tuitui.messageView = Backbone.View.extend({
         var ft = msgItem.find('.msg-ft');
         var textarea = msgItem.find('textarea');
         var inputVal = textarea.val();
-
         var params;
-
-
         if (inputVal === "") {
             alert("请填写评论内容");
             return;
@@ -349,8 +350,6 @@ Tuitui.messageView = Backbone.View.extend({
             return;
         }
 
-
-
         getApi('blog', 'setReply', {
             'bid': msgItem.attr('data-bid'),
             'inputs': _.escape(inputVal),
@@ -358,6 +357,8 @@ Tuitui.messageView = Backbone.View.extend({
         }, function(resp) {
             if (resp.status == '1') {
                 ft.hide();
+                textarea.val('');
+                waring('回复成功');
             } else {
                 alert(resp.msg);
             }

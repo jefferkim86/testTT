@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-25 22:23:27
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-31 01:00:18
          compiled from "tplv2/require_userInfo.html" */ ?>
-<?php /*%%SmartyHeaderCode:91641603153d2685fa297c0-49783893%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:88640926853d924a243f3c9-26806253%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '20918c0c896e7b5e85c37d1c3f0e3bcc1dcee14f' => 
     array (
       0 => 'tplv2/require_userInfo.html',
-      1 => 1406298206,
+      1 => 1406739617,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '91641603153d2685fa297c0-49783893',
+  'nocache_hash' => '88640926853d924a243f3c9-26806253',
   'function' => 
   array (
   ),
@@ -34,8 +34,8 @@ $_smarty_tpl->decodeProperties(array (
 		<div class="url"><?php echo goUserHome(array('domain'=>$_smarty_tpl->getVariable('user')->value['domain'],'uid'=>$_smarty_tpl->getVariable('user')->value['uid']),$_smarty_tpl);?>
 </div>
 		<?php }?>
-		<div class="desc">个性签名：<?php echo $_smarty_tpl->getVariable('usersign')->value;?>
-</div>
+		<?php if ($_smarty_tpl->getVariable('usersign')->value){?><div class="desc"><?php echo $_smarty_tpl->getVariable('usersign')->value;?>
+</div><?php }?>
 		<div class="handle">
 			<?php if ($_smarty_tpl->getVariable('isfollow')->value==1){?>
 			<button class="J-attention J-follow followed" data-uid="<?php echo $_smarty_tpl->getVariable('user')->value['uid'];?>
@@ -44,8 +44,8 @@ $_smarty_tpl->decodeProperties(array (
 			<button class="J-attention J-follow" data-uid="<?php echo $_smarty_tpl->getVariable('user')->value['uid'];?>
 ">加关注</button>
 			<?php }?>
-			<button class="J-msg" data-uid="<?php echo $_smarty_tpl->getVariable('user')->value['uid'];?>
-">发私信</button>
+			<a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'pm','a'=>'detail','uid'=>$_smarty_tpl->getVariable('user')->value['uid']),$_smarty_tpl);?>
+" class="J-msg" target="_blank">发私信</a>
 		</div>
 	</div>
 	<div class="user-data">

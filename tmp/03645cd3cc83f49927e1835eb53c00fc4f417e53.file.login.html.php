@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-01-19 23:20:25
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-30 22:42:44
          compiled from "tplv2/login.html" */ ?>
-<?php /*%%SmartyHeaderCode:80690188752dbed395b5dd8-01597512%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:163544645853d90464e1d504-21091931%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '03645cd3cc83f49927e1835eb53c00fc4f417e53' => 
     array (
       0 => 'tplv2/login.html',
-      1 => 1390144809,
+      1 => 1406731363,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '80690188752dbed395b5dd8-01597512',
+  'nocache_hash' => '163544645853d90464e1d504-21091931',
   'function' => 
   array (
   ),
@@ -23,7 +23,7 @@ $_smarty_tpl->decodeProperties(array (
 <meta charset="utf-8" />
 <title><?php echo $_smarty_tpl->getVariable('yb')->value['site_title'];?>
  - <?php echo $_smarty_tpl->getVariable('yb')->value['site_titlepre'];?>
- - Powered by 云边轻博客</title>
+</title>
 <meta name="author" content="<?php echo $_smarty_tpl->getVariable('yb')->value['author'];?>
 " />
 <meta name="description" content="<?php echo $_smarty_tpl->getVariable('yb')->value['site_desc'];?>
@@ -41,100 +41,118 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
 
 
 </head>
-<body>
+<body class="login-page">
 <div id="wrap">
-    <div id="rbtn"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'reg'),$_smarty_tpl);?>
-"><span>注册</span></a></div>
-    <div id="main">
-	    <div class="logo"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main'),$_smarty_tpl);?>
+
+	<div class="logo">
+		<a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main'),$_smarty_tpl);?>
 "><img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/image/logo_big.png" width="420" height="103" alt="<?php echo $_smarty_tpl->getVariable('yb')->value['site_title'];?>
+/image/big-logo.png" alt="<?php echo $_smarty_tpl->getVariable('yb')->value['site_title'];?>
 " title="<?php echo $_smarty_tpl->getVariable('yb')->value['site_title'];?>
-" /></a></div>
-		<div class="login">
-		    <form action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'login'),$_smarty_tpl);?>
+" /></a>
+	</div>
+
+	<div class="tab-login-reg">
+		<div class="tab" id="login-reg-tab">
+			<ul>
+				<li>注册</li>
+				<li class="cur">登陆</li>
+			</ul>
+		</div>
+		<div class="content clearfix" id="tabContent">
+			<div id="reg" style="display:none;">
+				<div class="content-c">
+				   <form action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'reg'),$_smarty_tpl);?>
+" method="post" id="regForm" callback="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main'),$_smarty_tpl);?>
+">
+				   		<?php if ($_smarty_tpl->getVariable('yb')->value['invite_switch']==1||$_smarty_tpl->getVariable('invitemode')->value){?>
+						<div class="item invite">
+							<label for="invitecode">邀请码</label>
+							<input type="text" id="invitecode" name="invitecode" class="input tip" tabindex="5" title="输入邀请码才能继续注册" value="<?php echo $_smarty_tpl->getVariable('invitecode')->value;?>
+" />
+                        	<input name="invitemode" id="invitemode" type="hidden" value="<?php echo $_smarty_tpl->getVariable('invitemode')->value;?>
+"/>
+						</div>
+						<?php }?>
+						<div class="item email">
+							<label for="email2">邮箱</label>
+							<input type="text" id="email2" name="email" tabindex="1" autocomplete="off" value="<?php echo $_POST['email'];?>
+" title="请填写常用邮箱帐号" />
+						</div>
+						<div class="item password">
+							<label for="password2">密码</label>
+							<input type="password" id="password2" name="password" tabindex="2" value="<?php echo $_POST['password'];?>
+" title="请输入密码" />
+						</div>
+						<div class="item nick">
+							<label for="nick">昵称</label>
+							<input type="text" id="nick" name="username" class="input tip" tabindex="3" value="<?php echo $_POST['username'];?>
+" title="请输入昵称" />
+						</div>
+						<div class="item login-btn">
+							<label></label>
+							<input type="button" class="submit-btn" name="do"  value="注册" tabindex="5" id="regSumbit"/>
+						</div>
+				  </form>
+			    </div>
+			</div>
+			<div id="login">
+				<div class="content-c">
+					<form action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'login'),$_smarty_tpl);?>
 " method="post" id="loginForm"  callback="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main'),$_smarty_tpl);?>
 ">
-			    <input type="hidden" value="<?php echo $_smarty_tpl->getVariable('callback')->value;?>
+						<input type="hidden" value="<?php echo $_smarty_tpl->getVariable('callback')->value;?>
 " name="callback">
-                <input type="hidden" value="" name="formKey">
-
-				<table cellpadding="0" cellspacing="0" border="0" class="loginarea">				
-                    <tr><td>
-					    <div class="login_email in_put">
-				        <input type="text" id="email" name="email"  class="input tip" title="请输入邮箱地址" tabindex="1" value="<?php if ($_POST['email']){?><?php echo $_POST['email'];?>
+                		<input type="hidden" value="" name="formKey">
+						<div class="item email">
+							<label for="email">邮箱</label>
+							<input type="text" id="email" name="email"  class="input tip" title="请输入邮箱地址" tabindex="1" value="<?php if ($_POST['email']){?><?php echo $_POST['email'];?>
 <?php }else{ ?><?php echo $_smarty_tpl->getVariable('email')->value;?>
-<?php }?>">
-					</div>
-					<div class="login_pw in_put">
-					    <input type="password" id="password" class="input tip" title="请输入密码" value="<?php echo $_POST['password'];?>
-" name="password" tabindex="2">
-					</div>
-					<?php if ($_smarty_tpl->getVariable('yb')->value['loginCodeSwitch']!=0){?>
-					<div class="login_code in_put">
-					    <img src="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'vcode','t'=>$_smarty_tpl->getVariable('time')->value),$_smarty_tpl);?>
+<?php }?>"/>
+						</div>
+						<div class="item password">
+							<label for="password">密码</label>
+							<input id="password" type="password" class="input tip" title="请输入密码" value="<?php echo $_POST['password'];?>
+" name="password" tabindex="2"/>
+						</div>
+						<?php if ($_smarty_tpl->getVariable('yb')->value['loginCodeSwitch']!=0){?>
+						<div class="item login_code">
+						    <img src="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'vcode','t'=>$_smarty_tpl->getVariable('time')->value),$_smarty_tpl);?>
 " class="vericode" onClick="reloadcode('vericode')" title="看不清楚，换一张" id="vericode" />
-						<input type="text" id="verifycode" class="input_code tip" title="请输入验证码"  name="verifycode" tabindex="3">
-					</div>
-					<?php }?>
-					<div class="login_btn in_put">
-					    <input class="subBtn" type="button" name="loginSubmit" id="loginSubmit"  value="登录" />
-					</div>
-					<div class="clear"></div>
-					
-					<div class="save_name in_put">
-					    <label for="autologin" >
-						<a href="#nosave" id="save" onClick="autologin.checked=true">自动登录</a>
-						<a href="#save" id="nosave" onClick="autologin.checked=false">自动登录</a>
-						<input name="autologin" type="checkbox" id="autologin" value="1" checked="checked" title="自动登录"/>
-                        <input name="savename" type="hidden" id="savename" value="1" checked="checked" />
-						</label>
-					</div>
-				    
-					<div class="forget_pw in_put">
-					    <a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'resetpwd'),$_smarty_tpl);?>
-">忘记密码?</a>
-					</div>
-
-					
-					<div class="clear"></div>
-
-					</td></tr>
-                </table>
-
-			</form>
-		</div>
-
-		<div class="user">
-
-		    <?php if ($_smarty_tpl->getVariable('yb')->value['hotuser_switch']==1){?>
-			<div class="container">
-			    <div id="ca-container" class="ca-container">
-				    <div class="ca-wrapper">
-						
-					</div>
+							<input type="text" id="verifycode" class="input_code tip" title="请输入验证码"  name="verifycode" tabindex="3">
+						</div>
+						<?php }?>
+						<div class="item login-btn">
+							<label></label>
+							<input class="submit-btn" type="button" name="loginSubmit" id="loginSubmit"  value="登录"/>
+						</div>
+						<div class="func">
+							<div class="remeber">
+								<input type="checkbox" class="check-remeber" name="autologin" value="1" checked="checked" title="自动登录"/>
+								<span>记住密码</span>
+								<input name="savename" type="hidden" id="savename" value="1" checked="checked" />
+							</div>
+							<div class="forget">
+								<a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'resetpwd'),$_smarty_tpl);?>
+">忘记密码</a>
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
-		<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/jquery.easing.1.3.js"></script>
-		<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/jquery.mousewheel.js"></script>
-		<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/jquery.contentcarousel.js"></script>
+			
+			
+
+		</div>
+	</div>
+
+	
+
+
+
+
+    
 		
-		<script>
-		$(document).ready(function(){
-			$.ybAPI('blog','loginUserHot','',function(data){
-				$('#ca-container .ca-wrapper').html('');
-				for(var i=0;i<data.body.length;i++){
-					$('#ca-container .ca-wrapper').append(tmpl_login_user_hot(data.body[i]));
-				}
-				$('#ca-container').contentcarousel();
-			});
-		});
-		</script>
-		
-		<?php }?>
 		    
 		<?php if ($_smarty_tpl->getVariable('yb')->value['openlogin_qq_open']==1||$_smarty_tpl->getVariable('yb')->value['openlogin_weib_open']==1){?>
 			<div id="openconnent">
@@ -151,11 +169,22 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
 				</div>
 			</div>
 		<?php }?>
-		</div>
-		
-	</div>
 	
-	<div id="footer_line"></div>
+	
+	<script>
+	$(document).ready(function(){
+		var tabs = $("#login-reg-tab li");
+		var tabContents = $("#tabContent>div");
+		tabs.on("click",function(){
+			var index = tabs.index($(this));
+			tabs.removeClass('cur');
+			$(this).addClass('cur');
+			tabContents.hide();
+			tabContents.eq(index).show();
+		})
+	});
+	</script>
+	
 	<?php $_template = new Smarty_Internal_Template("require_footer.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
 </div>

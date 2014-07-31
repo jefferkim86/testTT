@@ -91,7 +91,7 @@
 	<div class="user clearfix">
 		<div class="user-info">
 			<div class="logo">
-				<a href=""><img src="{$url}/{avatar uid=$user.uid size=big}" alt=""/></a>
+				<a href="{goUserHome uid=$user.uid domain=$user.domain}"><img src="{$url}/{avatar uid=$user.uid size=big}" alt=""/></a>
 			</div>
 			<h3 class="user-name">{$user.username}</h3>
 			<div class="url">
@@ -100,9 +100,9 @@
 		</div>
 		<div class="user-data">
 			<ul>
-				<li><a href=""><b>{$user.num}</b><span>推推</span></a></li>
-				<li><a href=""><b>{$user.flow}</b><span>关注</span></a></li>
-				<li class="nr"><a href=""><b>{$myLook}</b><span>粉丝</span></a></li>
+				<li><a href="{goUserHome uid=$user.uid domain=$user.domain}"><b>{$user.num}</b><span>推推</span></a></li>
+				<li><a href="{spUrl c=user a=myfollow}"><b>{$user.flow}</b><span>关注</span></a></li>
+				<li class="nr"><a href="{spUrl c=user a=myfollow}"><b>{$myLook}</b><span>粉丝</span></a></li>
 			</ul>
 		</div>
 	</div>
@@ -112,8 +112,8 @@
 		<ul class="menu-list">
 			<li {$myfollow_current}><a class="my-follow" href="{spUrl c=user a=myfollow}"><span>我关注的</span></a></li>
 			<li  {$mylike_current}><a class="my-like" href="{spUrl c=user a=mylikes}"><span>我喜欢的</span></a></li>
-			<li><a href="#" class="my-msg"><span>我的消息</span></a></li>
-			<li class="nb"><a class="my-letter" href="#"><span>我的私信</span></a></li>
+			<li><a href="{spUrl c=user a=mymessage}" class="my-msg"><span>我的消息</span></a></li>
+			<li class="nb"><a class="my-letter" href="{spUrl c=pm a=index}"><span>我的私信</span></a></li>
 		</ul>
 	</div>
 	<div class="sider-mod recommend mt20 clearfix">

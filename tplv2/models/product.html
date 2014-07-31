@@ -20,10 +20,11 @@ $(document).ready(function(){
 <form action="{spUrl c=post a=saved model=$mid}" id="form1" method="post">
 	<div id="article">
 	    <div id="box" class="pub-good">
-	        <h2>发布宝贝</h2>
+	        <h2>发宝贝</h2>
 			<div id="post_area">
+				<h3 class="title-t">宝贝链接<span>（目前支持淘宝、天猫的宝贝链接）</span></h3>
 				<div class="p_product">
-					<input type="text" name="producturl" id="producturl" class="pub-url producturl"   value="请输入宝贝链接（目前支持淘宝、天猫的宝贝链接）" />
+					<input type="text" name="producturl" id="producturl" class="pub-url producturl"   value="" />
 				</div>
 				<div id="goodInfoBlock"></div>
 				
@@ -34,7 +35,7 @@ $(document).ready(function(){
 					<input type="hidden" value="" name="deliveryFees" id="J_deliveryFees"/>
 					<input type="hidden" vlaue="" name="image" id="J_image"/>
 				</div>
-				
+				<h3 class="title-t">宝贝说明<span>（可不写）</span></h3>
 				<div class="p_area">
 					{if $tpl_config.imguplod != 0}
 					<div id="uploadpic">

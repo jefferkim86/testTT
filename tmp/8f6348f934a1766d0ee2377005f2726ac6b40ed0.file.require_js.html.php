@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-28 15:19:14
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-31 15:48:18
          compiled from "tplv2/require_js.html" */ ?>
-<?php /*%%SmartyHeaderCode:167887553153d5f972affc21-92233604%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:136062563553d9f4c22223c7-17330441%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '8f6348f934a1766d0ee2377005f2726ac6b40ed0' => 
     array (
       0 => 'tplv2/require_js.html',
-      1 => 1406531840,
+      1 => 1406792727,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '167887553153d5f972affc21-92233604',
+  'nocache_hash' => '136062563553d9f4c22223c7-17330441',
   'function' => 
   array (
   ),
@@ -41,9 +41,9 @@ var unit_3 = true;
 /js/dialog.js"></script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/global.js"></script>
-<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+<!-- <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/jquery.mousedelay.js"></script>
-
+ -->
 <!-- <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/model.js"></script>
  --><!-- <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
@@ -65,6 +65,16 @@ var unit_3 = true;
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/jquery.twbsPagination
 .js"></script>
+
+
+
+<!-- 百度编辑器-->
+
+<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/js/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/js/ueditor/ueditor.all.min.js"></script>
+
 
 
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>

@@ -63,7 +63,9 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 #post_area .title { color:#666; font-size:16px; line-height:25px; height:25px; }
 #post_area .title span { color:#999; font-size:12px; line-height:25px; }
 
-#post_area .p_area {position: relative; width:100%; margin:20px 0 0 0; padding:0; }
+#post_area .p_area {position: relative; width:100%; 
+  padding:0; 
+}
 
 #post_area .p_area .default-val{
   position: absolute;
@@ -75,6 +77,18 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
   color: #555555;
   font-size: 14px;
   line-height: 50px;
+}
+
+
+#post_area .title-t{
+  margin:15px 0;
+  color: #666;
+  font-size: 16px;
+  font-weight: normal;
+}
+#post_area .title-t span{
+  color: #999;
+  font-size: 12px;
 }
 /*右侧功能*/
 #aside_box { float:right; width:238px; padding:2px 2px 2px 0; background-color:#fff; -moz-border-radius:0px 8px 8px 0px; -webkit-border-radius:0px 8px 8px 0px; border-radius:0px 8px 8px 0px; -moz-box-shadow:0px 1px 3px #bbb; -webkit-box-shadow:0px 1px 3px #bbb; box-shadow:0px 1px 3px #bbb; border-bottom:2px #ddd solid\9; margin:20px 0 20px; #margin:20px 0 20px -10px; }
