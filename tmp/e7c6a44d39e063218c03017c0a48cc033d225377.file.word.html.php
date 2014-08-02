@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-31 15:54:32
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-01 16:43:07
          compiled from "tplv2/models/word.html" */ ?>
-<?php /*%%SmartyHeaderCode:12685028153d9f6388cd2f0-69823330%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:200381707653db531b3176e6-48338059%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'e7c6a44d39e063218c03017c0a48cc033d225377' => 
     array (
       0 => 'tplv2/models/word.html',
-      1 => 1406793271,
+      1 => 1406882572,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '12685028153d9f6388cd2f0-69823330',
+  'nocache_hash' => '200381707653db531b3176e6-48338059',
   'function' => 
   array (
   ),
@@ -82,23 +82,14 @@ $(document).ready(function(){
 				</div>
 				<h3 class="title-t">正文<span></span></h3>
 				<div class="p_area">
-					<?php if ($_smarty_tpl->getVariable('tpl_config')->value['imguplod']!=0){?>
-					<div id="uploadpic">
-					    <span id="upload_bar">
-						    <div class="uploadBtn" id="upload_img"><span>上传图片</span>
-							<input type="file" size="1" name="filedata" ext="<?php if ($_smarty_tpl->getVariable('tpl_config')->value['imagetype']){?><?php echo $_smarty_tpl->getVariable('tpl_config')->value['imagetype'];?>
-<?php }else{ ?><?php echo $_smarty_tpl->getVariable('yb')->value['addimg_type'];?>
-<?php }?>" />
-							</div>
-						</span>
-						<span id="uploading" style="display:none">正在上传...</span>
-					</div>
-					<?php }?>
-					<div id="textareaEditor" style="width:820px">
+					
+					<div id="textareaEditor" style="width:820px;height:200px;">
 						
 					</div>
 					<textarea name="textarea" id="textarea" style="display:none"><?php echo $_smarty_tpl->getVariable('body')->value['body'];?>
 </textarea>
+
+					<input type="hidden" id="attach" name="attach"/>
 				
 				</div>
 				
@@ -174,20 +165,12 @@ if ($_smarty_tpl->_count($_from) > 0){
 </div>
 <script type="text/javascript">
 
-	// textbody = $("#textarea").xheditor({
- //        loadCSS: skinpath + "/css/editor.css",
- //        urlBase: urlpath + "/",
- //        internalStyle: false,
- //        tools:'mini',
- //        upImgUrl:urlpath+'/index.php?c=post&a=uploadimg&model=$mid',
- //        upImgExt:"jpg,jpeg,gif,png",
- //    })
- //    $("#preview").click(function() {
- //        textbody.exec("Preview")
- //    });
- //    $("#cancel").click(function() {
- //        window.history.go( - 1)
- //    });
+window.ueditorInstance = UE.getEditor('textareaEditor');
+
+
+$("#preview").click(function() {
+	window.ueditorInstance.execCommand("Preview")
+});
 </script>
 
 <?php $_template = new Smarty_Internal_Template("require_pubfooter.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-30 01:18:39
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-01 00:51:37
          compiled from "/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/list.html" */ ?>
-<?php /*%%SmartyHeaderCode:158869333953d7d76f77fae2-26659886%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:194149901353da74199f4b76-59709955%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a73a814515bff07fa19d9f2dcddc54cbeb4e3b95' => 
     array (
       0 => '/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/list.html',
-      1 => 1406654317,
+      1 => 1406825453,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '158869333953d7d76f77fae2-26659886',
+  'nocache_hash' => '194149901353da74199f4b76-59709955',
   'function' => 
   array (
   ),
@@ -52,8 +52,8 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
 		<div id="feedArea">
 
 		</div>
-		<div id="feed_loading" style="display:none">加载中 ...</div>
-
+<!-- 		<div id="feed_loading" style="display:none">加载中 ...</div>
+ -->
 		<?php if ($_smarty_tpl->getVariable('yb')->value['show_page_mode']==1){?>
 			<div id="feedAjaxTool" page="2" max="<?php echo $_smarty_tpl->getVariable('yb')->value['show_ajax_to'];?>
 " area="feedArea"  class="feedajax">
@@ -91,19 +91,39 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
 
 <?php $_template = new Smarty_Internal_Template("require_feedTemplate.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
+<script type="text/javascript">
+	Tuitui.globalData.pageNeedLoading = false;
+</script>
 
 <?php $_template = new Smarty_Internal_Template("require_footer.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
 $_template->assign('top','yes'); echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
 
 <script type="text/javascript">
+function getQueryString(name){
+	    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
+	        return '';
+	    }
+	     var queryString = location.href.substring(location.href.indexOf("?")+1);
+	     var parameters = queryString.split("&");
+	    var pos, paraName, paraValue;
+	    for(var i=0; i<parameters.length; i++){
+	        pos = parameters[i].indexOf('=');
+	        if(pos == -1) { continue; }
+	         paraName = parameters[i].substring(0, pos);
+	        paraValue = parameters[i].substring(pos + 1);
+	         if(paraName == name){
+	            return unescape(paraValue.replace(/\+/g, " "));
+	        }
+	    }
+	    return '';
+	};
+
 	var bid = <?php echo $_smarty_tpl->getVariable('bid')->value;?>
 ;
     var G_PAGE = 'detail';
-    $(window).unbind("scroll")
     var commentsView = new Tuitui.commentsView();
     var userView = new Tuitui.userView();
     var feedsView = new Tuitui.feedsView();
     feedsView.getFeedDetail(bid);
-    
 
 </script>

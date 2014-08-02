@@ -132,11 +132,13 @@ Tuitui.feedModel = Backbone.Model.extend({
 		if (this.getfeedType() == 'text') {
 			var repto = this.get('repto');
 			if (repto) {
+				console.log(repto.attr.length > 0 ? repto.attr[0] : '');
 				result = {
 					'feedTitle': repto.forward_title,
 					'feedContent': repto.body,
 					'feedLink': repto.b_url,
 					'time': repto.time,
+					'pic': repto.attr.length > 0 ? repto.attr[0] : '',
 					'forwardcount': repto.forwardcount,
 					'replaycount': repto.replaycount,
 					'likecount': repto.likecount,
@@ -147,12 +149,14 @@ Tuitui.feedModel = Backbone.Model.extend({
 				result = {
 					'feedTitle': this.get('title') || '',
 					'feedContent': this.get('body'),
+					'pic': this.get('attr').length > 0 ? this.get('attr')[0] : '',
 					'feedLink': this.get('b_url')
 				}
 			}
 
 		}
 		//商品feed
+		//TODO: result 封装成方法，或者加入判断
 		if (this.getfeedType() == 'good') {
 			var repto = this.get('repto');
 			if (repto) {
@@ -161,6 +165,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'goodPic': repto.attr.image,
 					'oprice': repto.attr.oprice || '',
 					'price': repto.attr.price,
+					'producturl': repto.attr.producturl,
 					'feedContent': repto.body,
 					'isSelf': repto.uid == uid,
 					'priceTxt': repto.attr.oprice == repto.attr.price ? '价格' : '促销',
@@ -173,6 +178,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'goodPic': attr.image,
 					'oprice': attr.oprice || '',
 					'price': attr.price,
+					'producturl': attr.producturl,
 					'priceTxt': attr.oprice == attr.price ? '价格' : '促销',
 					'feed': attr.deliveryFees,
 					'feedContent': this.get('body')

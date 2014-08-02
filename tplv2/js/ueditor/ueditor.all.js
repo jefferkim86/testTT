@@ -14624,17 +14624,37 @@ UE.plugin.register('simpleupload', function (){
                             body = (iframe.contentDocument || iframe.contentWindow.document).body,
                             result = body.innerText || body.textContent || '';
                         json = (new Function("return " + result))();
-                        link = me.options.imageUrlPrefix + json.url;
-                        if(json.state == 'SUCCESS' && json.url) {
+                        //TODO 后期通过配置函数名运行
+
+                        // if(json.state == 'SUCCESS' && json.url) {
+                        //     loader = me.document.getElementById(loadingId);
+                        //     loader.setAttribute('src', link);
+                        //     loader.setAttribute('_src', link);
+                        //     loader.setAttribute('title', json.title || '');
+                        //     loader.setAttribute('alt', json.original || '');
+                        //     loader.removeAttribute('id');
+                        //     domUtils.removeClasses(loader, 'loadingclass');
+                        // } else {
+                        //     showErrorLoader && showErrorLoader(json.state);
+                        // }
+
+                        if(json.err == ''){
+                            var urls = json.msg.url.split('||');
+                            var picUrl = urls.length == 2 ? urls[0]:json.msg.url
+                           
+                            link = me.options.imageUrlPrefix +'/'+ picUrl;
+                            $("#attach").val(link)
                             loader = me.document.getElementById(loadingId);
                             loader.setAttribute('src', link);
                             loader.setAttribute('_src', link);
+                            
                             loader.setAttribute('title', json.title || '');
                             loader.setAttribute('alt', json.original || '');
                             loader.removeAttribute('id');
                             domUtils.removeClasses(loader, 'loadingclass');
-                        } else {
-                            showErrorLoader && showErrorLoader(json.state);
+                        }else{
+                            showErrorLoader && showErrorLoader(json.error);
+
                         }
                     }catch(er){
                         showErrorLoader && showErrorLoader(me.getLang('simpleupload.loadError'));

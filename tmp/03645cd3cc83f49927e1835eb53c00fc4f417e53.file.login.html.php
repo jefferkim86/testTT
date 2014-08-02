@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-30 22:42:44
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-02 12:02:03
          compiled from "tplv2/login.html" */ ?>
-<?php /*%%SmartyHeaderCode:163544645853d90464e1d504-21091931%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:176890231953dc62bb1f9fd5-21962408%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '03645cd3cc83f49927e1835eb53c00fc4f417e53' => 
     array (
       0 => 'tplv2/login.html',
-      1 => 1406731363,
+      1 => 1406952121,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '163544645853d90464e1d504-21091931',
+  'nocache_hash' => '176890231953dc62bb1f9fd5-21962408',
   'function' => 
   array (
   ),
@@ -56,7 +56,7 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
 		<div class="tab" id="login-reg-tab">
 			<ul>
 				<li>注册</li>
-				<li class="cur">登陆</li>
+				<li class="cur">登录</li>
 			</ul>
 		</div>
 		<div class="content clearfix" id="tabContent">

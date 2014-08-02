@@ -98,345 +98,123 @@ $(document).ready(function(){
 </script>               
 {/literal}
 
-<div id="user_index">
-    <div id="user_tab">
-	    <div class="set_theme"><a href="{spUrl c=customize}"><span>主题管理</span></a></div>
-	    <li id="tab_person" class="curr"><a href="javascript:void(0)" onclick="SelectPerson(this)">个人资料</a><div class="curpoint"></div></li>
-		<li id="tab_head"><a href="javascript:void(0)" onclick="SelectHead(this)">我的头像</a><div class="curpoint"></div></li>
-		{if $yb.openlogin_qq_open == 1 || $yb.openlogin_weib_open == 1}<li id="tab_invite"><a href="javascript:void(0)" onclick="SelectInvite(this)">账号绑定</a><div class="curpoint"></div></li>{/if}
-		<li id="tab_safe"><a href="javascript:void(0)" onclick="SelectSafe(this)">密码修改</a><div class="curpoint"></div></li>
-		<div class="clear"></div>
+<div id="user_index" class="clearfix" style="height:650px;">
+
+	<div class="page-left">
+		<div class="user-info">
+			<div class="avatar">
+				<img src="http://localhost/tuitui{avatar uid=$smarty.session.uid size=big time=1}" alt="">
+			</div>
+			<h3 class="user-name">大黑淘外贸</h3>
+		</div>
+		<div id="user_tab">
+	        <li id="tab_person" class="curr">
+	        	<a href="javascript:void(0)" onclick="SelectPerson(this)">个人资料</a>
+	        </li>
+			<li id="tab_head">
+				<a href="javascript:void(0)" onclick="SelectHead(this)">修改头像</a>
+			</li>
+			{if $yb.openlogin_qq_open == 1 || $yb.openlogin_weib_open == 1}
+			<li id="tab_invite">
+				<a href="javascript:void(0)" onclick="SelectInvite(this)">账号绑定</a>
+			</li>{/if}
+			<li id="tab_safe">
+				<a href="javascript:void(0)" onclick="SelectSafe(this)">密码修改</a>
+			</li>
+		</div>
 	</div>
+    
 	
+	<!-- 个人资料 -->
     <div id="conPerson">
-	    <div class="con_table">
-		    <div class="user_right">
-			    <input type="text"  class="iptname"  value="{$users.email}" disabled="disabled">
-			</div>
-	        <div class="user_left">我的账号</div>
-		    <div class="clear"></div>
-		</div>
-		
-		<div class="con_table">
-		    <div class="user_right">
-			    <input type="text" name="niname" id="niname" class="iptni"  value="{$users.username}"><span class="info">名称唯一,可修改</span>
-			</div>
-	        <div class="user_left">我的昵称</div>
-		    <div class="clear"></div>
-		</div>
-		
-		<div class="con_table">
-		    <div class="user_right">
-			     <input type="text" class="iptname"  value="{$url}" disabled="disabled" >
-				 <input type="text" name="domain" id="domain" class="ipt"  value="{$users.domain}">
-				 <span class="info">名称唯一,可修改</span>
-			</div>
-	        <div class="user_left">个性域名</div>
-		    <div class="clear"></div>
-		</div>
-		
-		<!-- <div class="con_table">
-		    <div class="user_right">
-			    
-			    <ul class="clearfix" id="system-tag-list">
-				    {foreach from=$systag item=d}
-					{if in_array($d.catename,$blogtag)}
-			        <li tag="{$d.catename}" tid="{$d.cid}" class="current"><a href="javascript:void(0)" onclick="setFolowTag(this)">{$d.catename}</a></li>
-					{else}
-					<li tag="{$d.catename}" tid="{$d.cid}"><a href="javascript:void(0)" onclick="setFolowTag(this)">{$d.catename}</a></li>
-					{/if}
-			        {/foreach}
-					
-				</ul>
-				
+
+		<h2>个人资料</h2>
+	    <div class="con_content clearfix">
+	    	<div class="con_table">
+	    		<div class="user_left">我的账号</div>
+			    <div class="user_right">
+				    <input type="text"  class="iptname"  value="{$users.email}" disabled="disabled">
+				</div>
 			</div>
 			
-	        <div class="user_left">关注分类</div>
-		    <div class="clear"></div>
-		</div> -->
-		
-		<div class="con_table">
-		    <div class="user_right">
-			    <textarea name="textarea" id="pureTextarea" style="width:100%; height:200px" class="pb-input-text" >{$users.sign}</textarea>
-                <input type="hidden" name="tag" id="tag" value="" />
-				 
-			</div>
-	        <div class="user_left">个性签名</div>
-		    <div class="clear"></div>
-		</div>
-		
-		<!-- <div class="con_table">
-		    <div class="user_right">
-			    <h3>请允许以下方式邮件通知我</h3>
-				<div class="check_con">
-					<label>
-					{if $users.m_rep == 1}
-						<input name="m_rep" id="m_rep" type="checkbox" value="1" checked="checked" />
-					{else}
-						<input name="m_rep" id="m_rep" type="checkbox" value="0"/>
-					{/if}
-						
-						<span>回复通知</span>
-					</label>
-					<label>
-					{if $users.m_fow == 1}
-						<input name="m_fow" id="m_fow" type="checkbox" value="1" checked="checked" />
-					{else}
-						<input name="m_fow" id="m_fow" type="checkbox" value="0"/>
-					{/if}
-						<span>关注通知</span>
-					</label>
-					<label>
-					{if $users.m_pm == 1}
-						<input name="m_pm" id="m_pm" type="checkbox" value="1" checked="checked" />
-					{else}
-						<input name="m_pm" id="m_pm" type="checkbox" value="0"/>
-					{/if}
-						<span>私信通知</span>
-					</label>
+			<div class="con_table">
+				<div class="user_left">我的昵称</div>
+			    <div class="user_right">
+				    <input type="text" name="niname" id="niname" class="iptni"  value="{$users.username}"><span class="info">名称唯一,可修改</span>
 				</div>
-				 
 			</div>
-	        <div class="user_left">邮件通知</div>
-		    <div class="clear"></div>
-		</div> -->
-
+			
+			<div class="con_table">
+				<div class="user_left">个性域名</div>
+			    <div class="user_right">
+				     <span class="host">{$url}/</span>
+					 <input type="text" name="domain" class="domain" id="domain" value="{$users.domain}">
+					 <span class="info">名称唯一,可修改</span>
+				</div>
+			</div>
+			
+			
+			<div class="con_table">
+				<div class="user_left">个性签名</div>
+			    <div class="user_right">
+				    <textarea name="textarea" id="pureTextarea" class="user-desc-textarea" >{$users.sign}</textarea>
+	                <input type="hidden" name="tag" id="tag" value="" />
+					 
+				</div>
+			</div>
+	    </div>
+	    
 		
 	</div>
 	
+	<!-- 头像修改 -->
 	<div id="conHead" style="display:none">
-	  
-	     <div class="con_table">
+	  	<h2>修改头像</h2>
+	     <div class="con_table clearfix">
 		    <div class="user_right">
-			    
-                
-                <!-- <div class="head_upload">
-					    <span>
-						    <div class="uploadhead" id="upload_photo"><span></span><input type="file" size="1" name="filedata" ext="jpg|jpeg|png" /></div>
-						</span>
-						<span id="uploading" style="display:none">正在上传...</span>
-						<div class="clear"></div>
+			  
+				<div class="avatar">
+					<img src="http://localhost/tuitui{avatar uid=$smarty.session.uid size=big time=1}" alt=""/>
 				</div>
-                    
-                    
-			    <div class="head_img">
-				    <img name="" id="big_face" rel="{$smarty.session.uid}" src="{avatar uid=$smarty.session.uid size=big time=1}" alt="当前头像" />
+				<div class="adjust-block">
+					<div class="handle">
+						<ul>
+							<li class="cur" id="J-avatarTab-change"><a href="javascript:void(0)">更改头像</a></li>
+							<li id="J-avatarTab-adjust"><a href="javascript:void(0)">调整缩略图</a></li>
+						</ul>
+					</div>
+					<!-- 更换图片 -->
+					<div class="change" id="J-avatarTab-changeC">
+						<div class="upfile"> 
+							<span class="pop-foot-corner"><s class="outter"></s></span>
+					      	<input id="fileupload" size="1" type="file" name="filedata" ext="jpg|jpeg|png"/>
+						</div>
+						<div class="tip">支持jpg、gif、png、bmp格式</div>
+						<div class="progress"> 
+							<span class="bar"></span><span class="percent">0%</span > 
+						</div>
+					    <div class="files"></div>
+					    <div id="preview-avatar">
+					    	<img src="http://localhost/tuitui{avatar uid=$smarty.session.uid size=big time=1}" id="preview-avatar-img" />
+					    </div>
+					</div>
+					<!-- 调整tab -->
+					<div class="adjust"  id="J-avatarTab-adjustC" style="display:none;">
+						<span class="pop-foot-corner"><s class="outter"></s></span>
+						<div id="showimg">
+					    	<img src="http://localhost/tuitui{avatar uid=$smarty.session.uid size=big time=1}" id="cropbox" width="290" height="290"/>
+					    </div>
+					    <input type="hidden" id="src" name="src" value="" />
+						<input type="hidden" id="x" name="x" value="0" />
+						<input type="hidden" id="y" name="y" value="0" />
+						<input type="hidden" id="w" name="w" value="240" />
+						<input type="hidden" id="h" name="h" value="240" />
+					</div>
+
 				</div>
-                
-                <div class="head_img">
-				    <img name="" id="middle_face" src="{avatar uid=$smarty.session.uid size=middle time=1}" alt="当前头像"  />
-				</div>
-                
-                <div class="head_img_small">
-				    <img name=""  id="small_face" src="{avatar uid=$smarty.session.uid size=small time=1}" alt="当前头像"  />
-				</div> -->
-
-
-
 				
-{literal}
-
-<style type="text/css">
-/*上传文件的css*/
-.btn {
-	float:left;
-	position: relative;
-	overflow:hidden;
-	margin-right:4px;
-	display:inline-block;
-*display:inline;
-	padding:4px 10px 4px;
-	font-size:14px;
-	line-height:18px;
-*line-height:20px;
-	color:#fff;
-	text-align:center;
-	vertical-align:middle;
-	cursor:pointer;
-	background-color:#5bb75b;
-	border:1px solid #cccccc;
-	border-color:#e6e6e6 #e6e6e6 #bfbfbf;
-	border-bottom-color:#b3b3b3;
-	-webkit-border-radius:4px;
-	-moz-border-radius:4px;
-	border-radius:4px;
-}
-.btn input {
-	position: absolute;
-	top: 0;
-	right: 0;
-	margin: 0;
-	border: solid transparent;
-	opacity:0;
-	filter:alpha(opacity=0);
-	cursor: pointer;
-}
-.Intercbtn {
-	float:left;
-	background-color:#e38102;
-	color:#FFF;
-	padding:6px 10px 6px 10px;
-	border:0;
-}
-.progress {
-	position:relative;
-	margin-left:100px;
-	margin-top:-24px;
-	width:200px;
-	padding: 1px;
-	border-radius:3px;
-	display:none
-}
-.bar {
-	background-color: green;
-	display:block;
-	width:0%;
-	height:20px;
-	border-radius: 3px;
-}
-.percent {
-	position:absolute;
-	height:20px;
-	display:inline-block;
-	top:3px;
-	left:2%;
-	color:#fff
-}
-.files {
-	height:22px;
-	line-height:22px;
-	margin:10px 0
-}
-.delimg {
-	margin-left:20px;
-	color:#090;
-	cursor:pointer
-}
-</style>
-{/literal}
-
-
-<!-- 新头像系统 -->
-<form action="Modifyface.php" method="post" onSubmit="return checkCoords();">
-  <div class="demo">
-    <div class="btn"> <span>上传图片</span>
-      <input id="fileupload" size="1" type="file" name="filedata" ext="jpg|jpeg|png"/>
-    </div>
-    <input type="submit" value="确认保存" class="Intercbtn" />
-    <div class="progress"> <span class="bar"></span><span class="percent">0%</span > </div>
-    <div class="files"></div>
-    <div id="showimg">
-    	<img src="http://localhost/php-Jcrop/images/01.jpg" /><!--初始图片-->
-    </div>
-  </div>
-  <input type="hidden" id="src" name="src" value="" />
-  <input type="hidden" id="x" name="x" value="0" />
-  <input type="hidden" id="y" name="y" value="0" />
-  <input type="hidden" id="w" name="w" value="240" />
-  <input type="hidden" id="h" name="h" value="240" />
-</form>
-{literal}
-<script>
-	$(document).ready(function(){
-		var bar = $('.bar');
-		var percent = $('.percent');
-		var showimg = $('#showimg');
-		var progress = $(".progress");
-		var files = $(".files");
-		var btn = $(".btn span");
-		$("#fileupload").wrap("<form id='myupload' action='"+urlpath+"/index.php?c=user&a=upavatar' method='post' enctype='multipart/form-data'></form>");
-		$("#fileupload").change(function(){  //选择文件
-			$("#myupload").ajaxSubmit({
-				//dataType:  'json',	//数据格式为json 
-				beforeSend: function() {	//开始上传 
-					showimg.empty();	//清空显示的图片
-					progress.show();	//显示进度条
-					var percentVal = '0%';	//开始进度为0%
-					bar.width(percentVal);	//进度条的宽度
-					percent.html(percentVal);	//显示进度为0% 
-					btn.html("上传中...");	//上传按钮显示上传中
-				},
-				uploadProgress: function(event, position, total, percentComplete) {
-					var percentVal = percentComplete + '%';	//获得进度
-					bar.width(percentVal);	//上传进度条宽度变宽
-					percent.html(percentVal);	//显示上传进度百分比
-				},
-				success: function(resp) {	//成功
-					//获得后台返回的json数据，显示文件名，大小，以及删除按钮
-					
-					var data = eval("("+resp+")");
-					console.log(data);
-					files.html("<b>"+data.msg.localname+"("+data.msg.filesize+"k)</b> <span class='delimg' rel='"+data.msg.url+"'>删除</span>");
-					//显示上传后的图片
-					//var img = "upload/face/"+data.url;
-					var img = urlpath+"/avatar.php?uid="+uid+"&size=big&random="+(new Date()).getTime()
-
-					//判断上传图片的大小 然后设置图片的高与宽的固定宽
-					if (data.width>240 && data.height<240){
-						showimg.html("<img src='"+img+"' id='cropbox' height='240' />");
-					}else if(data.width<240 && data.height>240){
-						showimg.html("<img src='"+img+"' id='cropbox' width='240' />");
-					}else if(data.width<240 && data.height<240){
-						showimg.html("<img src='"+img+"' id='cropbox' width='240' height='240' />");
-					}else{
-						showimg.html("<img src='"+img+"' id='cropbox' />");
-					}
-					//传给php页面，进行保存的图片值
-					$("#src").val(img);
-					//截取图片的js
-					$('#cropbox').Jcrop({
-						aspectRatio: 1,
-						onSelect: updateCoords,
-						minSize:[20,20],
-						maxSize:[140,140],
-						allowSelect:false, //允许选择
-						allowResize:true, //是否允许调整大小
-						setSelect: [ 0, 0, 240, 240 ]
-					});
-					btn.html("上传图片");	//上传按钮还原
-				},
-				error:function(xhr){	//上传失败
-					btn.html("上传失败");
-					bar.width('0')
-					files.html(xhr.responseText);	//返回失败信息
-				}
-			});
-		});
-		
-		$(".delimg").live('click',function(){
-			var pic = $(this).attr("rel");
-			$.post("action.php?act=delimg",{imagename:pic},function(msg){
-				if(msg==1){
-					files.html("删除成功.");
-					showimg.empty();	//清空图片
-					progress.hide();	//隐藏进度条 
-				}else{
-					alert(msg);
-				}
-			});
-		});
-		
-	});
-	
-	function updateCoords(c){
-		$('#x').val(c.x);
-		$('#y').val(c.y);
-		$('#w').val(c.w);
-		$('#h').val(c.h);
-	};
-	
-	function checkCoords(){
-		if (parseInt($('#w').val())) return true;
-		alert('Please select a crop region then press submit.');
-		return false;
-	};
-</script>
-	
-{/literal}
 
 			</div>
-	        <div class="user_left">我的头像</div>
-		    <div class="clear"></div>
 		</div>
 	
 	</div>
@@ -490,27 +268,26 @@ $(document).ready(function(){
 	<div id="conSafe" style="display:none">
 	    
 		<div class="con_table">
+			<div class="user_left">原始密码</div>
 		    <div class="user_right">
-			    <input type="password" id="pwd" class="ipt">
+			    <input type="password" id="pwd">
 			</div>
-	        <div class="user_left">原始密码</div>
-		    <div class="clear"></div>
 		</div>
 		
 		<div class="con_table">
+			<div class="user_left">新密码</div>
 		    <div class="user_right">
-			     <input type="password" name="pwd1" id="pwd1" class="ipt"/>
+			     <input type="password" name="pwd1" id="pwd1"/>
 			</div>
-	        <div class="user_left">新密码</div>
-		    <div class="clear"></div>
+	        
 		</div>
 		
 		<div class="con_table">
+			<div class="user_left">重复密码</div>
 		    <div class="user_right">
-			     <input type="password" name="pwd2" id="pwd2" class="ipt"/>
+			     <input type="password" name="pwd2" id="pwd2"/>
 			</div>
-	        <div class="user_left">重复密码</div>
-		    <div class="clear"></div>
+	        
 		</div>
 
 		<div class="con_last">
@@ -521,13 +298,118 @@ $(document).ready(function(){
 		
 	</div>
 	
-	<div class="con_sub" id="pb-action-holder">
+	<div class="con_sub clearfix" id="pb-action-holder">
 		<a id="submit_baseinfo">保存</a>
-		<a id="cancel">取消</a>
-		<span style="display:none;" id="uploading">正在保存...</span>
+<!-- 		<a id="cancel">取消</a>
+ -->		<span style="display:none;" id="uploading">正在保存...</span>
 		<div class="clear"></div>
 	</div>
 	
 </div>
 
+{literal}
+<script>
+	$(document).ready(function(){	
+		
+
+		var bar = $('.bar');
+		var percent = $('.percent');
+		var showimg = $('#showimg');
+		var progress = $(".progress");
+		var files = $(".files");
+		var btn = $(".btn span");
+		$("#fileupload").wrap("<form id='myupload' action='"+urlpath+"/index.php?c=user&a=upavatar' method='post' enctype='multipart/form-data'></form>");
+		$("#fileupload").change(function(){  //选择文件
+			$("#myupload").ajaxSubmit({
+				//dataType:  'json',	//数据格式为json 
+				beforeSend: function() {	//开始上传 
+					showimg.empty();	//清空显示的图片
+					progress.show();	//显示进度条
+					var percentVal = '0%';	//开始进度为0%
+					bar.width(percentVal);	//进度条的宽度
+					percent.html(percentVal);	//显示进度为0% 
+					btn.html("上传中...");	//上传按钮显示上传中
+				},
+				uploadProgress: function(event, position, total, percentComplete) {
+					var percentVal = percentComplete + '%';	//获得进度
+					bar.width(percentVal);	//上传进度条宽度变宽
+					percent.html(percentVal);	//显示上传进度百分比
+				},
+				success: function(resp) {	//成功
+					var data = eval("("+resp+")");
+					console.log(data);
+					if(data.err == ""){
+						var img = urlpath+"/avatar.php?uid="+uid+"&size=big&random="+(new Date()).getTime()
+							
+							showimg.html("<img src='"+img+"' id='cropbox' width='290' height='290'/>");
+							$("#preview-avatar-img").attr('src',img);
+							//传给php页面，进行保存的图片值
+							$("#src").val(img);
+							//截取图片的js
+							$('#cropbox').Jcrop({
+								aspectRatio: 1,
+								onSelect: updateCoords,
+								minSize:[20,20],
+								maxSize:[140,140],
+								allowSelect:false, //允许选择
+								allowResize:true, //是否允许调整大小
+								setSelect: [ 0, 0, 240, 240 ]
+							});
+					}else{
+						alert(data.err);
+					}
+					
+					//btn.html("上传图片");	//上传按钮还原
+				},
+				error:function(xhr){	//上传失败
+					btn.html("上传失败");
+					bar.width('0')
+					files.html(xhr.responseText);	//返回失败信息
+				}
+			});
+		});
+		
+		
+	});
+	
+	function updateCoords(c){
+		$('#x').val(c.x);
+		$('#y').val(c.y);
+		$('#w').val(c.w);
+		$('#h').val(c.h);
+	};
+	
+	function checkCoords(){
+		if (parseInt($('#w').val())) return true;
+		alert('Please select a crop region then press submit.');
+		return false;
+	};
+
+	var tabs = $(".handle li");
+	$("#J-avatarTab-change").on("click",function(e){
+		e.preventDefault();
+		tabs.removeClass('cur');
+		$(this).addClass('cur');
+		$("#J-avatarTab-adjustC").hide();
+		$("#J-avatarTab-changeC").show();
+	});
+	$("#J-avatarTab-adjust").on("click",function(e){
+		e.preventDefault();
+		tabs.removeClass('cur');
+		$(this).addClass('cur');
+		$("#J-avatarTab-changeC").hide();
+		$("#J-avatarTab-adjustC").show();
+		$('#cropbox').Jcrop({
+			aspectRatio: 1,
+			onSelect: updateCoords,
+			minSize:[20,20],
+			maxSize:[140,140],
+			allowSelect:false, //允许选择
+			allowResize:true, //是否允许调整大小
+			setSelect: [ 0, 0, 240, 240 ]
+		});
+	});
+</script>
+	
+{/literal}
 {include file="require_footer.html"}

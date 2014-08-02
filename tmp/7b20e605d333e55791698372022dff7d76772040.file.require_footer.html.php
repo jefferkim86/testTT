@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-27 12:11:46
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-01 00:48:47
          compiled from "tplv2/require_footer.html" */ ?>
-<?php /*%%SmartyHeaderCode:199938387053d47c02ae4995-26243299%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:91112287653da736f5c3a99-49946713%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7b20e605d333e55791698372022dff7d76772040' => 
     array (
       0 => 'tplv2/require_footer.html',
-      1 => 1406434304,
+      1 => 1406825320,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '199938387053d47c02ae4995-26243299',
+  'nocache_hash' => '91112287653da736f5c3a99-49946713',
   'function' => 
   array (
   ),
@@ -98,14 +98,16 @@ var scrollLoad = {
     }
     
 }
+if(Tuitui.globalData.pageNeedLoading){
+    scrollLoad.init();
+    $(window).bind("scroll",function() {
+        scrollLoad.loadMore();
+    })
+    $(window).bind("resize",function() {
+        scrollLoad.loadMore();
+    });
+}
 
-scrollLoad.init();
-$(window).bind("scroll",function() {
-    scrollLoad.loadMore();
-})
-$(window).bind("resize",function() {
-    scrollLoad.loadMore();
-});
 
 </script>
 <?php }?>

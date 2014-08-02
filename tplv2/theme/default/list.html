@@ -29,8 +29,8 @@
 		<div id="feedArea">
 
 		</div>
-		<div id="feed_loading" style="display:none">加载中 ...</div>
-
+<!-- 		<div id="feed_loading" style="display:none">加载中 ...</div>
+ -->
 		{if $yb.show_page_mode == 1}
 			<div id="feedAjaxTool" page="2" max="{$yb.show_ajax_to}" area="feedArea"  class="feedajax">
 			</div>
@@ -63,17 +63,37 @@
 
 
 {include file="require_feedTemplate.html"}
+<script type="text/javascript">
+	Tuitui.globalData.pageNeedLoading = false;
+</script>
 
 {include file="require_footer.html" top=yes}
 
 <script type="text/javascript">
+function getQueryString(name){
+	    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
+	        return '';
+	    }
+	     var queryString = location.href.substring(location.href.indexOf("?")+1);
+	     var parameters = queryString.split("&");
+	    var pos, paraName, paraValue;
+	    for(var i=0; i<parameters.length; i++){
+	        pos = parameters[i].indexOf('=');
+	        if(pos == -1) { continue; }
+	         paraName = parameters[i].substring(0, pos);
+	        paraValue = parameters[i].substring(pos + 1);
+	         if(paraName == name){
+	            return unescape(paraValue.replace(/\+/g, " "));
+	        }
+	    }
+	    return '';
+	};
+
 	var bid = {$bid};
     var G_PAGE = 'detail';
-    $(window).unbind("scroll")
     var commentsView = new Tuitui.commentsView();
     var userView = new Tuitui.userView();
     var feedsView = new Tuitui.feedsView();
     feedsView.getFeedDetail(bid);
-    
 
 </script>

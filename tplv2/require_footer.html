@@ -69,14 +69,16 @@ var scrollLoad = {
     }
     
 }
+if(Tuitui.globalData.pageNeedLoading){
+    scrollLoad.init();
+    $(window).bind("scroll",function() {
+        scrollLoad.loadMore();
+    })
+    $(window).bind("resize",function() {
+        scrollLoad.loadMore();
+    });
+}
 
-scrollLoad.init();
-$(window).bind("scroll",function() {
-    scrollLoad.loadMore();
-})
-$(window).bind("resize",function() {
-    scrollLoad.loadMore();
-});
 
 </script>
 {/if}

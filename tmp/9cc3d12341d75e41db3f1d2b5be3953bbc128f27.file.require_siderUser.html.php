@@ -1,84 +1,40 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-23 21:45:46
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-31 20:30:51
          compiled from "tplv2/require_siderUser.html" */ ?>
-<?php /*%%SmartyHeaderCode:36381922153cfbc8a6e0903-36422545%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:69156883453da36fbbd8769-45242709%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9cc3d12341d75e41db3f1d2b5be3953bbc128f27' => 
     array (
       0 => 'tplv2/require_siderUser.html',
-      1 => 1406036050,
+      1 => 1406809448,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '36381922153cfbc8a6e0903-36422545',
+  'nocache_hash' => '69156883453da36fbbd8769-45242709',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
-
-<div class="sider-mod recommend mt20 clearfix">
-   <div class="hd"><h3>推荐给您的用户</h3></div>
-   <div class="bd">
-       <ul class="recommend-list clearfix">
-       		<li>
-       			<div class="logo">
-       				<img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/image/side-logo.png" alt=""/>
-       			</div>
-       			<div class="info">
-       				<h4>戴眼镜的男人</h4>
-					<button class="J-follow followed" data-uid="1">取消关注</button>
-       			</div>
-       		</li>
-       		<li>
-       			<div class="logo">
-       				<img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/image/side-logo.png" alt=""/>
-       			</div>
-       			<div class="info">
-       				<h4>戴眼镜的男人</h4>
-					<button class="J-follow" data-uid="2">加关注</button>
-       			</div>
-       		</li>
-       		<li>
-       			<div class="logo">
-       				<img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/image/side-logo.png" alt=""/>
-       			</div>
-       			<div class="info">
-       				<h4>戴眼镜的男人</h4>
-					<button class="J-follow" data-uid="3">加关注</button>
-       			</div>
-       		</li>
-
-       </ul>
-       <div class="ft">
-       	 <a href="#" class="change">换一换</a>
-       </div>
-       
-   </div>
-</div>
-
-
 <div class="sider-mod TA-attention mt20 clearfix">
-	<div class="hd">
-		<h3>他关注的</h3>
-		<a href="#" class="more">全部</a>
-	</div>
-	<div class="bd clearfix">
-		<ul>
-			<li><a href="#"><img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/image/side-logo.png" alt=""/></a></li>
-			<li><a href="#"><img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/image/side-logo.png" alt=""/></a></li>
-			<li><a href="#"><img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/image/side-logo.png" alt=""/></a></li>
-			<li><a href="#"><img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/image/side-logo.png" alt=""/></a></li>
-		</ul>
-	</div>
+      <div class="hd">
+            <h3>他关注的</h3>
+      </div>
+      <div class="bd clearfix">
+            <ul>
+                  <?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->getVariable('myfollow')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+if ($_smarty_tpl->_count($_from) > 0){
+    foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value){
+?>
+                        <li><a href="<?php echo $_smarty_tpl->tpl_vars['val']->value['h_url'];?>
+"><img src="<?php echo $_smarty_tpl->tpl_vars['val']->value['h_img'];?>
+" alt="<?php echo $_smarty_tpl->tpl_vars['val']->value['username'];?>
+"/></a></li>
+                  <?php }} ?>
+            </ul>
+      </div>
 </div>
 
 

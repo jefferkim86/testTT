@@ -41,17 +41,33 @@ Tuitui.publishView = Backbone.View.extend({
 
     submitForm: function(e) {
         e.preventDefault();
+
         var target = e.currentTarget;
+        if ($(target).hasClass('disabled')) {
+            return;
+        }
         var submitType = $(target).attr('type');
+        var textareaVal = ueditorInstance.getContent()
+        var contentReg = /\<\/?(div|script|p|ol|li|ul|br)[^<>]*\>/gi;
+        $("#textarea").val(textareaVal.replace(contentReg, ''));
+
+        var text = $('#textarea').val();
         if (submitType == 'word') {
-            $("#textarea").val(ueditorInstance.getContentTxt());
-            var text = $('#textarea').val();
             if (text == '') {
                 tips('内容不能为空喔');
                 $('#textarea').focus();
+                $(target).removeClass('disabled');
                 return false;
             }
         }
+        if (submitType == 'product') {
+            if ($("#producturl").val() == '') {
+                $("#goodInfoBlock").html('<div class="warn-txt">链接必须填写!</div>');
+                $("#producturl").addClass('error-input');
+                return;
+            }
+        }
+        $(target).addClass('disabled');
         $('#form1').submit();
     },
     /*

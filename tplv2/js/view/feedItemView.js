@@ -59,17 +59,28 @@ Tuitui.feedItemView = Backbone.View.extend({
         e.preventDefault();
         var self = this;
         var data = this.model.toJSON();
-        if (confirm('确定要删除这条feed')) {
-            getApi('user', 'delblog', {
-                'id': data.bid
-            }, function(resp) {
-                if (resp.status == 1) {
-                    self.model.destroy();
-                } else {
-                    alert(resp.msg);
-                }
-            })
-        }
+        artDialog({
+            id: 'Confirm',
+            title: '删除feed',
+            fixed: true,
+            lock: true,
+           // width: '200px',
+            opacity: .1,
+            content: '确定要删除此条feed吗?',
+            ok: function() {
+                getApi('user', 'delblog', {
+                    'id': data.bid
+                }, function(resp) {
+                    if (resp.status == 1) {
+                        self.model.destroy();
+                    } else {
+                        alert(resp.msg);
+                    }
+                })
+            },
+            cancel: function() {}
+        })
+
     },
     toggleDel: function(e) {
         console.log(e);
@@ -210,9 +221,16 @@ Tuitui.feedItemView = Backbone.View.extend({
         $(target).parents(".feed").removeClass('comment_show forward_show');
     },
 
-    expandFt: function(e) {
-        e.preventDefault();
-        var target = e.currentTarget;
+    /*
+     * @desc 详情页要自动展开，后期展开动作封装
+     * */
+    expandFt: function(e,obj) {
+        if(e){
+            e.preventDefault();
+            var target = e.currentTarget;
+        }else{
+            var target = obj;
+        }
         var type = $(target).attr("type");
         var feed = $(target).parents(".feed");
         if (!$(target).find(".pop-foot-corner").length) {

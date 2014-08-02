@@ -495,8 +495,15 @@
 .feed-text .feed-text-cont{padding:12px 29px 0;}
 .feed-text .feed-text-cont .no-mt{margin-top:0;}
 .feed-text .feed-text-p{font-size:14px;margin-top:10px;line-height:22px;color:#333;word-break:break-all;word-wrap:break-word;}
-.feed-text .feed-text-p .p-img{float:left;margin-right:15px;width:220px;overflow:hidden;}
-
+.feed-text .feed-text-p .p-img{
+	float:left;
+	margin-right:25px;
+	width:290px;
+	overflow:hidden;
+}
+.feed-text .feed-text-p .p-img img {
+	max-width: 290px;
+}
 
 /*转发样式*/
 .feed-forward-layout .feed-text-title,.feed-forward-layout .feed-text-p{color:#666;}
@@ -636,9 +643,8 @@ ul,li {
 .mt20 {
 	margin-top: 20px;
 }
-.mypage #aside .recommend{
-	margin-top: 0;
-}
+
+
 .TA-attention {
 }
 .TA-attention .hd {
@@ -673,9 +679,17 @@ ul,li {
 	display: inline-block;
 }
 .TA-attention img {
+	width: 60px;
+	height: 60px;
+	-moz-border-radius: 60px;
+	-webkit-border-radius: 60px;
+	border-radius: 60px;
 	vertical-align: top;
 }
 
+.mypage #aside .recommend,.mypage #aside .TA-attention{
+	margin-top: 0;
+}
 /**/
 .recommend {
 }

@@ -60,20 +60,13 @@ $(document).ready(function(){
 				</div>
 				<h3 class="title-t">正文<span></span></h3>
 				<div class="p_area">
-					{if $tpl_config.imguplod != 0}
-					<div id="uploadpic">
-					    <span id="upload_bar">
-						    <div class="uploadBtn" id="upload_img"><span>上传图片</span>
-							<input type="file" size="1" name="filedata" ext="{if $tpl_config.imagetype}{$tpl_config.imagetype}{else}{$yb.addimg_type}{/if}" />
-							</div>
-						</span>
-						<span id="uploading" style="display:none">正在上传...</span>
-					</div>
-					{/if}
-					<div id="textareaEditor" style="width:820px">
+					
+					<div id="textareaEditor" style="width:820px;height:200px;">
 						
 					</div>
 					<textarea name="textarea" id="textarea" style="display:none">{$body.body}</textarea>
+
+					<input type="hidden" id="attach" name="attach"/>
 				
 				</div>
 				
@@ -136,20 +129,12 @@ $(document).ready(function(){
 </div>
 <script type="text/javascript">
 
-	// textbody = $("#textarea").xheditor({
- //        loadCSS: skinpath + "/css/editor.css",
- //        urlBase: urlpath + "/",
- //        internalStyle: false,
- //        tools:'mini',
- //        upImgUrl:urlpath+'/index.php?c=post&a=uploadimg&model=$mid',
- //        upImgExt:"jpg,jpeg,gif,png",
- //    })
- //    $("#preview").click(function() {
- //        textbody.exec("Preview")
- //    });
- //    $("#cancel").click(function() {
- //        window.history.go( - 1)
- //    });
+window.ueditorInstance = UE.getEditor('textareaEditor');
+
+
+$("#preview").click(function() {
+	window.ueditorInstance.execCommand("Preview")
+});
 </script>
 
 {include file="require_pubfooter.html"}

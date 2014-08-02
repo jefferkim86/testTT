@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-31 01:00:18
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-31 21:31:57
          compiled from "tplv2/require_userInfo.html" */ ?>
-<?php /*%%SmartyHeaderCode:88640926853d924a243f3c9-26806253%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:140866780653da454d99c799-00798588%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '20918c0c896e7b5e85c37d1c3f0e3bcc1dcee14f' => 
     array (
       0 => 'tplv2/require_userInfo.html',
-      1 => 1406739617,
+      1 => 1406813511,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '88640926853d924a243f3c9-26806253',
+  'nocache_hash' => '140866780653da454d99c799-00798588',
   'function' => 
   array (
   ),
@@ -50,12 +50,12 @@ $_smarty_tpl->decodeProperties(array (
 	</div>
 	<div class="user-data">
 		<ul>
-			<li><a href=""><b><?php echo $_smarty_tpl->getVariable('user')->value['num'];?>
-</b><span>推推</span></a></li>
-			<li><a href=""><b><?php echo $_smarty_tpl->getVariable('user')->value['flow'];?>
-</b><span>关注</span></a></li>
-			<li class="nr"><a href=""><b><?php echo $_smarty_tpl->getVariable('myLook')->value;?>
-</b><span>粉丝</span></a></li>
+			<li><b><?php echo $_smarty_tpl->getVariable('user')->value['num'];?>
+</b><span>动态</span></li>
+			<li><b><?php echo $_smarty_tpl->getVariable('user')->value['flow'];?>
+</b><span>关注</span></li>
+			<li class="nr"><b><?php echo $_smarty_tpl->getVariable('myLook')->value;?>
+</b><span>粉丝</span></li>
 		</ul>
 
 	</div>

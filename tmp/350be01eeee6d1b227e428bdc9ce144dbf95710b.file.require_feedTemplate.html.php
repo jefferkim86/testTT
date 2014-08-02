@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-30 01:03:06
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-01 22:44:36
          compiled from "tplv2/require_feedTemplate.html" */ ?>
-<?php /*%%SmartyHeaderCode:31646175053d7d3cab54b27-19986992%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:195051981453dba7d49e52a1-74585382%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '350be01eeee6d1b227e428bdc9ce144dbf95710b' => 
     array (
       0 => 'tplv2/require_feedTemplate.html',
-      1 => 1406653362,
+      1 => 1406904274,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '31646175053d7d3cab54b27-19986992',
+  'nocache_hash' => '195051981453dba7d49e52a1-74585382',
   'function' => 
   array (
   ),
@@ -76,9 +76,9 @@ $_smarty_tpl->decodeProperties(array (
                 {@if forwardData}
                             <div class="feed-actions J-forward-actions clearfix">
                                 <div class="feed-act">
-                                    <a href="${forwardData.b_url}#reply" class="ft-comment">评论(<span class="J_CmtNum">${forwardData.replaycount}</span>)</a>
-                                    <a href="${forwardData.b_url}#forward" class="ft-forward">转发(<span class="J_FwdNum">${forwardData.forwardcount}</span>)</a>
-                                    <a href="${forwardData.b_url}#like" class="ft-like ${forwardData.isLiked}">喜欢(<span class="J_LikeNum">${forwardData.likecount}</span>)</a>
+                                    <a href="${forwardData.b_url}&t=reply" target="_blank" class="ft-comment">评论(<span class="J_CmtNum">${forwardData.replaycount}</span>)</a>
+                                    <a href="${forwardData.b_url}&t=forward" target="_blank" class="ft-forward">转发(<span class="J_FwdNum">${forwardData.forwardcount}</span>)</a>
+                                    <a href="${forwardData.b_url}&t=like" target="_blank" class="ft-like ${forwardData.isLiked}">喜欢(<span class="J_LikeNum">${forwardData.likecount}</span>)</a>
                                 </div>
                             </div>
                         </div>
@@ -129,7 +129,7 @@ $_smarty_tpl->decodeProperties(array (
   <div class="feed-text-cont clearfix">
     <h3 class="feed-text-title"><a href="${feedLink}"  target="_blank">${feedTitle}</a></h3>
     <div class="feed-text-p clearfix">
-       ${feedContent}
+      {@if pic}<div class="p-img"><img src="http://localhost/tuitui/attachs/tmp/1.jpg"/></div>{@/if}${feedContent}
       <span class="feed-more"><a href="${feedLink}" target="_blank">全部信息...</a></span>
     </div>
    </div>
@@ -170,10 +170,10 @@ $_smarty_tpl->decodeProperties(array (
        </div>
        <div class="feed-good-info">
           <div class="feed-good-img">
-              <img src="${goodPic}">
+              <a href="${producturl}" target="_blank"><img src="${goodPic}"></a>
           </div>
           <div class="feed-good-property">
-                <h3 class="feed-good-title">${goodTitle}</h3>
+                <h3 class="feed-good-title"><a href="${producturl}" target="_blank">${goodTitle}</a></h3>
                <div class="feed-good-fee">
                   <ul>
                    {@if oprice}
@@ -187,7 +187,7 @@ $_smarty_tpl->decodeProperties(array (
                     <li class="deliveryFees"><span>运费：${deliveryFees}</span>包邮</li>{@/if}
                   </ul>
                </div>
-               <a href="${feedLink}" target="_blank" class="view-good">查看宝贝</a>
+               <a href="${producturl}" target="_blank" class="view-good">查看宝贝</a>
           </div>
        </div>
     </div>

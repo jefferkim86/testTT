@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-31 20:22:54
+<?php /* Smarty version Smarty-3.0.6, created on 2014-07-31 21:32:00
          compiled from "tplv2/require_sider.html" */ ?>
-<?php /*%%SmartyHeaderCode:26598698753da351e0ec575-29491832%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:50854534453da4550296f79-60902347%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0bb71f38ec48f4c0527c2092450118f8bd1842e1' => 
     array (
       0 => 'tplv2/require_sider.html',
-      1 => 1406809371,
+      1 => 1406813502,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '26598698753da351e0ec575-29491832',
+  'nocache_hash' => '50854534453da4550296f79-60902347',
   'function' => 
   array (
   ),
@@ -156,7 +156,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 			<ul>
 				<li><a href="<?php echo goUserHome(array('uid'=>$_smarty_tpl->getVariable('user')->value['uid'],'domain'=>$_smarty_tpl->getVariable('user')->value['domain']),$_smarty_tpl);?>
 "><b><?php echo $_smarty_tpl->getVariable('user')->value['num'];?>
-</b><span>推推</span></a></li>
+</b><span>动态</span></a></li>
 				<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'myfollow'),$_smarty_tpl);?>
 "><b><?php echo $_smarty_tpl->getVariable('user')->value['flow'];?>
 </b><span>关注</span></a></li>

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-31 15:48:18
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-01 00:48:47
          compiled from "tplv2/require_js.html" */ ?>
-<?php /*%%SmartyHeaderCode:136062563553d9f4c22223c7-17330441%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:207434443853da736f402f79-15564371%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '8f6348f934a1766d0ee2377005f2726ac6b40ed0' => 
     array (
       0 => 'tplv2/require_js.html',
-      1 => 1406792727,
+      1 => 1406825282,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '136062563553d9f4c22223c7-17330441',
+  'nocache_hash' => '207434443853da736f402f79-15564371',
   'function' => 
   array (
   ),
@@ -73,7 +73,7 @@ var unit_3 = true;
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/ueditor/ueditor.config.js"></script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/ueditor/ueditor.all.min.js"></script>
+/js/ueditor/ueditor.all.js"></script>
 
 
 
@@ -84,6 +84,7 @@ var unit_3 = true;
 <script type="text/javascript"> 
 var Tuitui = {};
 Tuitui.globalData = {};
+Tuitui.globalData.pageNeedLoading = true;
 function getApi(c, m, params, fun) {
     if (params == undefined) {
         params = ''

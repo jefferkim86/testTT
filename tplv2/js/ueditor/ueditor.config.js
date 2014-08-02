@@ -9,7 +9,7 @@
  * 当升级编辑器时，可直接使用旧版配置文件替换新版配置文件,不用担心旧版配置文件中因缺少新功能所需的参数而导致脚本报错。
  **************************提示********************************/
 
-(function () {
+(function() {
 
     /**
      * 编辑器资源文件根路径。它所表示的含义是：以编辑器实例化页面为当前路径，指向编辑器资源文件（即dialog等文件夹）的路径。
@@ -24,26 +24,49 @@
     /**
      * 配置项主体。注意，此处所有涉及到路径的配置别遗漏URL变量。
      */
+  
     window.UEDITOR_CONFIG = {
 
         //为编辑器实例添加一个路径，这个不能被注释
         UEDITOR_HOME_URL: URL
 
         // 服务器统一请求接口路径
-        , serverUrl: urlpath+'/index.php?c=post&a=uploadimg&model=1'
+        ,
+        serverUrl: urlpath + '/index.php?c=post&a=uploadimg&model=1'
 
         //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义
-        ,imageFieldName : 'filedata'
+        ,
+        imageFieldName: 'filedata',
+        pasteplain: true,
 
-        , toolbars: [["undo","redo","source","fullscreen","insertunorderedlist","insertorderedlist","unlink","link","simpleupload","bold","underline"]]
+        "imageActionName": "uploadimage",
+        "imageMaxSize": 2048000,
+        "imageAllowFiles": [".png", ".jpg", ".jpeg", ".gif", ".bmp"],
+        "imageInsertAlign": "none",
+        "imageUrlPrefix": urlpath,
+        "imageCompressEnable": false,
+        
+        "imageManagerActionName": "listimage",
+        "imageManagerListSize": 20,
+        "imageManagerUrlPrefix": "",
+        "imageManagerInsertAlign": "none",
+        "imageManagerAllowFiles": [".png", ".jpg", ".jpeg", ".gif", ".bmp"]
+
+
+        ,
+        toolbars: [
+            ["undo", "redo" , "fullscreen", "insertunorderedlist", "insertorderedlist", "unlink", "link", "simpleupload", "bold", "underline"]
+        ]
         //当鼠标放在工具栏上时显示的tooltip提示,留空支持自动多语言配置，否则以配置值为准
         //,labelMap:{
         //    'anchor':'', 'undo':''
         //}
-
+        ,
+        autoHeight: false
         //语言配置项,默认是zh-cn。有需要的话也可以使用如下这样的方式来自动多语言切换，当然，前提条件是lang文件夹下存在对应的语言文件：
         //lang值也可以通过自动获取 (navigator.language||navigator.browserLanguage ||navigator.userLanguage).toLowerCase()
-        ,lang:'en'
+        ,
+        lang: 'en'
         //,langPath:URL +"lang/"
 
         //主题配置项,默认是default。有需要的话也可以使用如下这样的方式来自动多主题切换，当然，前提条件是themes文件夹下存在对应的主题文件：
@@ -203,7 +226,7 @@
 
         var configPath = document.getElementsByTagName('script');
 
-        return configPath[ configPath.length - 1 ].src;
+        return configPath[configPath.length - 1].src;
 
     }
 
@@ -230,7 +253,7 @@
 
     function optimizationPath(path) {
 
-        var protocol = /^[a-z]+:\/\//.exec(path)[ 0 ],
+        var protocol = /^[a-z]+:\/\//.exec(path)[0],
             tmp = null,
             res = [];
 
@@ -238,11 +261,11 @@
 
         path = path.replace(/\\/g, '/').split(/\//);
 
-        path[ path.length - 1 ] = "";
+        path[path.length - 1] = "";
 
         while (path.length) {
 
-            if (( tmp = path.shift() ) === "..") {
+            if ((tmp = path.shift()) === "..") {
                 res.pop();
             } else if (tmp !== ".") {
                 res.push(tmp);

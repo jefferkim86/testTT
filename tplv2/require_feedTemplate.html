@@ -57,9 +57,9 @@
                 {@if forwardData}
                             <div class="feed-actions J-forward-actions clearfix">
                                 <div class="feed-act">
-                                    <a href="${forwardData.b_url}#reply" class="ft-comment">评论(<span class="J_CmtNum">${forwardData.replaycount}</span>)</a>
-                                    <a href="${forwardData.b_url}#forward" class="ft-forward">转发(<span class="J_FwdNum">${forwardData.forwardcount}</span>)</a>
-                                    <a href="${forwardData.b_url}#like" class="ft-like ${forwardData.isLiked}">喜欢(<span class="J_LikeNum">${forwardData.likecount}</span>)</a>
+                                    <a href="${forwardData.b_url}&t=reply" target="_blank" class="ft-comment">评论(<span class="J_CmtNum">${forwardData.replaycount}</span>)</a>
+                                    <a href="${forwardData.b_url}&t=forward" target="_blank" class="ft-forward">转发(<span class="J_FwdNum">${forwardData.forwardcount}</span>)</a>
+                                    <a href="${forwardData.b_url}&t=like" target="_blank" class="ft-like ${forwardData.isLiked}">喜欢(<span class="J_LikeNum">${forwardData.likecount}</span>)</a>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
   <div class="feed-text-cont clearfix">
     <h3 class="feed-text-title"><a href="${feedLink}"  target="_blank">${feedTitle}</a></h3>
     <div class="feed-text-p clearfix">
-       ${feedContent}
+      {@if pic}<div class="p-img"><img src="http://localhost/tuitui/attachs/tmp/1.jpg"/></div>{@/if}${feedContent}
       <span class="feed-more"><a href="${feedLink}" target="_blank">全部信息...</a></span>
     </div>
    </div>
@@ -151,10 +151,10 @@
        </div>
        <div class="feed-good-info">
           <div class="feed-good-img">
-              <img src="${goodPic}">
+              <a href="${producturl}" target="_blank"><img src="${goodPic}"></a>
           </div>
           <div class="feed-good-property">
-                <h3 class="feed-good-title">${goodTitle}</h3>
+                <h3 class="feed-good-title"><a href="${producturl}" target="_blank">${goodTitle}</a></h3>
                <div class="feed-good-fee">
                   <ul>
                    {@if oprice}
@@ -168,7 +168,7 @@
                     <li class="deliveryFees"><span>运费：${deliveryFees}</span>包邮</li>{@/if}
                   </ul>
                </div>
-               <a href="${feedLink}" target="_blank" class="view-good">查看宝贝</a>
+               <a href="${producturl}" target="_blank" class="view-good">查看宝贝</a>
           </div>
        </div>
     </div>

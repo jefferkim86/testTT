@@ -34,7 +34,7 @@ var unit_3 = true;
 <!-- 百度编辑器-->
 
 <script type="text/javascript" src="{$syskin}/js/ueditor/ueditor.config.js"></script>
-<script type="text/javascript" src="{$syskin}/js/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" src="{$syskin}/js/ueditor/ueditor.all.js"></script>
 
 
 
@@ -43,6 +43,7 @@ var unit_3 = true;
 <script type="text/javascript"> 
 var Tuitui = {};
 Tuitui.globalData = {};
+Tuitui.globalData.pageNeedLoading = true;
 function getApi(c, m, params, fun) {
     if (params == undefined) {
         params = ''

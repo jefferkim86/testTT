@@ -38,7 +38,6 @@ Tuitui.commentsView = Backbone.View.extend({
     _queryReply: function(bid, pageNo) {
         var self = this;
         var feed = self.el.parents('.feed');
-        console.log(typeof G_PAGE != 'undefined' && G_PAGE == 'detail');
         var isDetailPage = typeof G_PAGE != 'undefined' && G_PAGE == 'detail';
         
         getApi('blog', 'reply', {

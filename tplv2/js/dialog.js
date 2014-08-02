@@ -483,7 +483,23 @@
             dialogs[id]._reset()
         }
     });
-    artDialog._templates = '<div class="d-outer"><table class="d-border"><tbody><tr><td class="d-nw"></td><td class="d-n"></td><td class="d-ne"></td></tr><tr><td class="d-w"></td><td class="d-c"><div class="d-inner"><table class="d-dialog"><tbody><tr><td class="d-header"><div class="d-titleBar"><div class="d-title"></div><a class="d-close" href="javascript:/*artDialog*/;">\xd7</a></div></td></tr><tr><td class="d-main"><div class="d-content"></div></td></tr><tr><td class="d-footer"><div class="d-buttons"></div></td></tr></tbody></table></div></td><td class="d-e"></td></tr><tr><td class="d-sw"></td><td class="d-s"></td><td class="d-se"></td></tr></tbody></table></div>';
+    artDialog._templates = '<div class="d-outer">'+
+    '<table class="d-border"><tbody><tr><td class="d-nw"></td>'+
+    '<td class="d-n"></td>'+
+    '<td class="d-ne"></td>'+
+    '</tr><tr><td class="d-w"></td>'+
+    '<td class="d-c"><div class="d-inner">'+
+    '<table class="d-dialog"><tbody><tr><td class="d-header">'+
+    '<div class="d-titleBar">'+
+    '<div class="d-title"></div>'+
+    '<a class="d-close" href="javascript:/*artDialog*/;">\xd7</a>'+
+    '</div></td></tr><tr><td class="d-main"><div class="d-content">'+
+    '</div></td></tr><tr><td class="d-footer"><div class="d-buttons">'+
+    '</div></td></tr></tbody></table></div></td><td class="d-e"></td>'+
+    '</tr><tr><td class="d-sw"></td><td class="d-s"></td><td class="d-se"></td>'+
+    '</tr></tbody></table></div>';
+    // artDialog._templates = '<div class="d-outer">'+
+    //                         '<div class="hd"></div><div class="bd"></div>';
     artDialog.defaults = {
         content: '<div class="d-loading"><span>loading..</span></div>',
         title: 'message',
@@ -492,8 +508,8 @@
         cancel: null,
         initialize: null,
         beforeunload: null,
-        okValue: 'ok',
-        cancelValue: 'cancel',
+        okValue: '确定',
+        cancelValue: '取消',
         width: 'auto',
         height: 'auto',
         padding: '20px 25px',

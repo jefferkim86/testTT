@@ -47,18 +47,24 @@ Tuitui.feedsView = Backbone.View.extend({
         getApi('blog', 'followfeeds', {
             'page': pageNo || 1
         }, function(data) {
-            var result = data.body;
-            if (result) {
-                self.collection.reset(result.blog);
+            if (data.status == 1) {
+                var result = data.body;
+                if (result) {
+                    self.collection.reset(result.blog);
+                } else {
+                    self._nofeed('还没有任何关注的人的动态哦～', 'style="width:300px;"');
+                }
             } else {
-                self._nofeed();
-            }
+                self._nofeed('还没有任何关注的人的动态哦', 'style="width:300px;"');
 
+            }
         });
     },
-    _nofeed: function() {
-        $("#feedArea").html('<div class="no-item">暂无消息</div>');
+    _nofeed: function(msg, style) {
+
+        $("#feedArea").html('<div class="no-item" ' + style + '>' + (msg || '暂无消息') + '</div>');
         $("#feed_loading").hide();
+        Tuitui.globalData.end = true;
     },
     /*
      * @desc 获取个人主页feeds
@@ -70,8 +76,16 @@ Tuitui.feedsView = Backbone.View.extend({
             'uid': uid,
             'page': pageNo || 1
         }, function(data) {
-            var result = data.body;
-            self.collection.reset(result.blog);
+            if (data.status == 1) {
+                var result = data.body;
+                if (result) {
+                    self.collection.reset(result.blog);
+                } else {
+                    self._nofeed('Ta还没有发布任何内容哦～', 'style="width:300px;"');
+                }
+            } else {
+                self._nofeed('Ta还没有发布任何内容哦～', 'style="width:300px;"');
+            }
         });
     },
     /*
@@ -82,18 +96,40 @@ Tuitui.feedsView = Backbone.View.extend({
         getApi('user', 'mylikes', {
             'page': pageNo || 1
         }, function(data) {
-            var result = data.body;
-            self.collection.reset(result.blog);
+            if (data.status == 1) {
+                var result = data.body;
+                if (result) {
+                    self.collection.reset(result.blog);
+                } else {
+                    self._nofeed('你还没有喜欢任何用户哦～', 'style="width:300px;"');
+                }
+            } else {
+                self._nofeed('你还没有喜欢任何用户哦～', 'style="width:300px;"');
+            }
+
         });
     },
     /*
      * @desc 增加单个feed
+     *       加入详情页展开评论转发的逻辑
+     *       getQueryString方法详情页再之前引入，后期封装成util方法
      * */
     addFeed: function(feed) {
         var feedItemView = new Tuitui.feedItemView({
             model: feed
         });
         $("#feedArea").append(feedItemView.render());
+        if (typeof G_PAGE != 'undefined' && G_PAGE == 'detail') {
+            var actionType = getQueryString('t');
+            var target;
+            if (actionType == 'reply') {
+                target = $('.feed .J_Comment')[0]
+            }
+            if (actionType == 'forward') {
+                target = $('.feed .J_Forward')[0];
+            }
+            feedItemView.expandFt(null, target);
+        }
     },
 
     render: function() {
@@ -109,5 +145,6 @@ Tuitui.feedsView = Backbone.View.extend({
             self.addFeed(feed);
         });
         Tuitui.globalData.canLoadFeed = true;
+
     }
 });
