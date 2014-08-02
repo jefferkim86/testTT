@@ -257,3 +257,96 @@
 	opacity:0.60;
 
 }
+
+.search-user-page{
+	width: 1140px;
+	min-height: 580px;
+	_height:580px;
+	_zoom:1;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	background: #fff;
+	padding-bottom: 30px;
+}
+.search-user-block .hd{
+	height: 50px;
+	padding: 30px 36px;
+}
+.search-user-block .hd label{
+	float: left;
+	font-size: 18px;
+	color: #555;
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+}
+.search-user-block .hd .search-input{
+	float: left;
+	padding:0;
+	margin:0;
+	border:none;
+	width: 457px;
+	height:50px;
+	padding-left:35px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	font-size: 14px;
+
+	background:#eeeeee url('../image/icon-item.png') no-repeat scroll -20px -582px;
+}
+.search-user-block .hd #search-btn{
+	float: left;
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+	color: #ffffff;
+	font-size: 14px;
+	background: #61c495;
+	text-align: center;
+	-moz-border-top-right-radius: 2px;
+	-webkit-border-top-right-radius: 2px;
+	border-top-right-radius: 2px;
+	-moz-border-bottom-right-radius: 2px;
+	-webkit-border-bottom-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+.search-user-block .hd .searchCount{
+	float: right;
+	width: 170px;
+	height: 50px;
+	line-height: 50px;
+	color: #555555;
+
+}
+.search-user-block .hd .searchCount #count{
+	color: #f98070;
+}
+
+.search-user-block .searchResult{
+	width: 1080px;
+	margin: 0 auto;
+	border-top:2px solid #eeeeee;
+}
+.search-user-page .follow_list .follow_btn, .follow_list .follow_abtn{
+	display: block;
+}
+.search-user-page .follow_list {
+	float: left;
+	_display:inline;
+	margin-top: 20px;
+	margin-left: 20px;
+	width: 528px;
+	height: 103px;
+	border: 1px solid #f0f0f0;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+.search-user-page .even{
+	margin-left: 0;
+}
+.search-user-page .follow_list .userinfo{
+	width: 340px;
+}

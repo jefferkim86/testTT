@@ -19,6 +19,27 @@ class uploadFile {
 	 private $imgresize = TRUE;
 	 private $imgmask   = FALSE;
 	 
+	 private $image_x = 0;
+	 private $image_y = 0;
+	 private $image_w = 0;
+	 private $image_h = 0;
+	 
+	 public function setImageX($x) {
+	 	$this->image_x = $x;
+	 }
+	 
+	 public function setImageY($y) {
+	 	$this->image_y = $y;
+	 }
+	 
+	 public function setImageW($w) {
+	 	$this->image_w = $w;
+	 }
+	 
+	 public function setImageH($h) {
+	 	$this->image_h = $h;
+	 }
+	 
 
 	 
 	 
@@ -181,6 +202,13 @@ class uploadFile {
 						$middle = 'middle_'.$uid.'.jpg'; 
 						$small = 'small_'.$uid.'.jpg'; 
 						$imghd = spClass('image');
+						
+//						if ($this->image_x > 0 && $this->image_y > 0 && $this->image_w > 0 && $this->image_h > 0) {
+//							$imghd->image_x = $this->image_x;
+//							$imghd->image_y = $this->image_y;
+//							$imghd->image_w = $this->image_w;
+//							$imghd->image_h = $this->image_h;
+//						}
 
 						$imghd->load($this->uploaded);
 						

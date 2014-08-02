@@ -945,6 +945,7 @@ background: #fff;
 	width:70px; 
 	margin:16px 15px 0 0; 
 }
+
 .follow_list .follow_btn button { 
 
 	width:70px; 
@@ -977,6 +978,12 @@ background: #fff;
 }
 .follow_list .userinfo .userdata span b {
 	margin-left: 7px;
+}
+.follow_list .userinfo .userdata .blogs b{
+	color: #ff7b69;
+}
+.follow_list .userinfo .desc{
+	color: #999999;
 }
 
 

@@ -671,7 +671,39 @@ class user extends top
 	}
 	
 
-    
+	function upface() {
+		$picname = $_FILES['filedata']['name'];
+		$picsize = $_FILES['filedata']['size'];//print_r($_FILES);exit;
+		if ($picname != "") {
+			if ($picsize > 1024000) {
+//				echo '图片大小不能超过1M';
+//				exit;
+				$this->api_error('图片大小不能超过1M');
+			}
+			$type = strstr($picname, '.');
+			if ($type != ".gif" && $type != ".jpg" && $type != ".png") {
+//				echo '图片格式不对！';
+//				exit;
+				$this->api_error('图片格式不对！');
+			}
+			$rand = rand(100, 999);
+			$pics = date("YmdHis") . $rand . $type;
+			//上传路径
+			$pic_path = "face/upload/face/". $pics;
+			move_uploaded_file($_FILES['filedata']['tmp_name'], $pic_path);
+		}
+		$size = round($picsize/1024,2);
+		$image_size = getimagesize($pic_path);
+		$arr = array(
+			'name'=>$picname,
+			'pic'=>$pics,
+			'size'=>$size,
+			'pic_path'=>$pic_path,
+			'width'=>$image_size[0],
+			'height'=>$image_size[1]
+		);
+		$this->api_success($arr);
+	}
 	
 	
 	

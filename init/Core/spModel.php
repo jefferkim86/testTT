@@ -569,6 +569,7 @@ class spPager {
 			);
 			
 			$data['offset'] = ($pageNo-1)*$pageSize;
+			if ($data['offset'] < 0) $data['offset'] = 0;
 			return $data;
 	}
 

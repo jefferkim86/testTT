@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-28 19:03:54
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-02 20:17:10
          compiled from "tplv2/user_myfollow.html" */ ?>
-<?php /*%%SmartyHeaderCode:165870245853d62e1a57b1c6-00483720%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:79642403953dcd6c6970940-96939518%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ad6e59ad78e50f6f5f0160f6fbb0dd1b2b00882e' => 
     array (
       0 => 'tplv2/user_myfollow.html',
-      1 => 1406545432,
+      1 => 1406883503,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '165870245853d62e1a57b1c6-00483720',
+  'nocache_hash' => '79642403953dcd6c6970940-96939518',
   'function' => 
   array (
   ),
@@ -59,8 +59,7 @@ function do_run(ty){
     
     <div id="article">
 	    <div id="userfollow">
-		  <?php if ($_smarty_tpl->getVariable('yb')->value['invite_switch']!=0){?>  <div class="btn_invite"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'invite','a'=>'myintval'),$_smarty_tpl);?>
-">邀请好友</a></div><?php }?>
+
 	        <div class="post_bg">
 			<a href="javascript:;" onclick="do_run()"><span id="curr_myfollow" <?php echo $_smarty_tpl->getVariable('curr_mefor')->value;?>
 >我关注的</span></a>

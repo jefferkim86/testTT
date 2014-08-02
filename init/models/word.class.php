@@ -36,7 +36,7 @@ class yb_word extends basePostModel
         $used_image = $this->_localImgParse($this->spArgs('textarea'));  //过滤图像资源
         if(is_array($used_image)){
              $bodypre = '[attribute]'.serialize($used_image).'[/attribute]';
-        }
+        }print_r($bodypre);exit;
        if(parent::saved($bodypre)){
            header('Location:'.spUrl('main'));
        }

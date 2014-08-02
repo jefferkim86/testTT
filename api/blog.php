@@ -49,7 +49,7 @@ class blog extends top
 				FROM `".DBPRE."blog` AS b LEFT JOIN `".DBPRE."likes` AS k ON ( b.bid = k.bid AND k.uid ='$this->uid' )
 				LEFT JOIN `".DBPRE."member`  as m on b.uid = m.uid where b.open in (1,-2) and b.bid = '$bid'";
 		$data['blog'] = spClass('db_blog')->findSql($sql);
-		$data['blog'] = $this->translate_feed($data['blog']);
+		$data['blog'] = $this->translate_feed($data['blog'], 0);
 		$this->api_success($data);
 	}
 	
@@ -59,10 +59,11 @@ class blog extends top
 	function followfeeds(){
 		$followuid =  spClass('db_follow')->getFollowUid($this->uid);
 		if($followuid){
+			
 			$sql = "SELECT b. * , k.id AS likeid  ,m.username,m.domain
 					FROM `".DBPRE."blog` AS b LEFT JOIN `".DBPRE."likes` AS k ON ( b.bid = k.bid AND k.uid ='$this->uid' )
 					LEFT JOIN `".DBPRE."member`  as m on b.uid = m.uid where b.open = 1";
-			$sql .= " and b.uid in ($followuid) and b.open=1 ORDER BY b.time desc";
+			$sql .= " and b.uid in ($followuid,$this->uid) and b.open=1 ORDER BY b.time desc";
 			$data['blog'] = spClass('db_blog')->spPager($this->spArgs('page',1),10)->findSql($sql);
 			$data['page'] = spClass('db_blog')->spPager()->getPager();
 			unset($data['page']['all_pages']);
@@ -483,7 +484,7 @@ class blog extends top
 		$d['time_y']  = date('Y.m',$d['time']);
 		$d['time_d']  = date('d',$d['time']);
 		$d['time']  = ybtime(array('time'=>$d['time']));
-		$rs         = split_attribute($d['body']); 
+		$rs         = split_attribute($d['body']);
 		$d['attr']  = $rs['attr'];
 		$d['repto'] = $rs['repto'];
 		if(!empty($d['repto'])){
@@ -526,7 +527,7 @@ class blog extends top
 		}
 	}
 	
-	private function translate_feed($listBlog) {
+	private function translate_feed($listBlog, $split = 1) {
 		$arr_source_blog = array();
 		$likes = spClass("db_likes")->findAll(array('uid'=>$this->uid), null, 'id,bid');
 		$arr_like_bid = array();
@@ -535,11 +536,11 @@ class blog extends top
 		}
 		
 		foreach($listBlog as &$d){
-			$this->foramt_feeds($d);
+			$this->foramt_feeds($d, $split);
 			if ($d['source_bid'] > 0 && $d['source_bid'] != $d['bid']) {
 				if (!isset($arr_source_blog[$d['source_bid']])) {
 					$source_blog = $this->getSourceBlog($d['source_bid']);
-					$this->foramt_feeds($source_blog);
+					$this->foramt_feeds($source_blog, $split);
 					$arr_source_blog[$d['source_bid']] = $source_blog;
 				}
 				$tmp_blog = $arr_source_blog[$d['source_bid']];

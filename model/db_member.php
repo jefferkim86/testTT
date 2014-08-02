@@ -138,7 +138,7 @@ class db_member extends ybModel
 		$_SESSION['uid']      = $result['uid'];
 		$_SESSION['email']    = $result['email'];
 		$_SESSION['domain']   = $result['domain'];
-		$_SESSION['username'] = $result['username'];
+		$_SESSION['username'] = utf8_substr($result['username'], 0, 8);
 		$_SESSION['admin']    = $result['admin'];
 		$_SESSION['user']     = $result;
 		$ip = $this->getIP();

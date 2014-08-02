@@ -57,18 +57,64 @@ class user extends top
 	public function mymessage() {
 		$this->display('user_mymessage.html');
 	}
+	public function searchUser() {
+		$this->display('user_searchUser.html');
+	}
 
 	/*上传头像*/
 	function upavatar(){
-		$upfile = spClass('uploadFile');
-		$upfile->set_filetypes('jpg|png|jpge|bmp');
-		$upfile->set_path(APP_PATH.'/avatar');
-		$upfile->set_imgresize(false);
-		$upfile->set_imgmask(false);
-		$upfile->set_dirtype(5); //设置为上传头像
-		$upfile->set_diydir($this->uid);  //用户id
+//		$upfile = spClass('uploadFile');
+//		$upfile->set_filetypes('jpg|png|jpge|bmp');
+//		$upfile->set_path(APP_PATH.'/avatar');
+//		$upfile->set_imgresize(false);
+//		$upfile->set_imgmask(false);
+//		$upfile->set_dirtype(5); //设置为上传头像
+//		$upfile->set_diydir($this->uid);  //用户id
 		
-		$files = $upfile->fileupload();	
-		echo $files;
+		$uid = sprintf("%09d", $this->uid);
+		$dir1 = substr($uid, 0, 3);
+		$dir2 = substr($uid, 3, 2);
+		$dir3 = substr($uid, 5, 2);
+		$imghd = spClass('image');
+		$imghd->image_x = $this->spArgs('x');
+		$imghd->image_y = $this->spArgs('y');
+		$imghd->image_w = $this->spArgs('w');
+		$imghd->image_h = $this->spArgs('h');
+		$src = $this->spArgs('src');
+		
+		$imgarray = @pathinfo($src);
+						
+		//$dirname = $imgarray['dirname']; //上传目录名称
+		$dirname = APP_PATH.'/avatar/' . $dir1.'/'.$dir2.'/'.$dir3;
+//		$uid = sprintf("%09d", $imgarray['filename']);
+//		$uid = substr($uid, -2);
+		$uid = $this->uid;
+		$big = 'big_'.$uid.'.jpg'; 
+		$middle = 'middle_'.$uid.'.jpg'; 
+		$small = 'small_'.$uid.'.jpg';
+
+		$imghd->load($src);
+		
+		
+		$imghd->resizeToWidth(200);
+		unlink($dirname.'/'.$big);
+		$imghd->save($dirname.'/'.$big);
+		
+		$imghd->load($src);
+		$imghd->square(65);
+		unlink($dirname.'/'.$middle);
+		$imghd->save($dirname.'/'.$middle);
+		
+		$imghd->load($src);
+		$imghd->square(30);
+		unlink($dirname.'/'.$small);
+		$imghd->save($dirname.'/'.$small);
+		
+		unlink($src);
+		
+		//$files = $upfile->fileupload();	
+		//echo $files;
+		header('Location: /index.php?c=user&a=setting');
+		exit;
 	}
 }

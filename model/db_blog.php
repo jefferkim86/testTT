@@ -95,6 +95,7 @@ class db_blog extends ybModel
 		if($rs['uid'] == $_SESSION['uid']){return -2;} //自己的
 		
 		$old_title = $rs['title'];
+		$old_uid = $rs['uid'];
 		if ($rs['source_bid'] > 0) {
 			$source_blog = $this->spLinker()->find(array('bid'=>$rs['source_bid']));
 			if (!$source_blog) return -1;
@@ -135,7 +136,7 @@ class db_blog extends ybModel
 			spClass('db_feeds')->addRep(array('bid'=>$bid),$_SESSION['uid'], $title);
 			$new_bid = $this->create($rs);
 			if ($new_bid) {
-				spClass('db_notice')->noticeForward($_SESSION['uid'], $rs['uid'], $bid, $new_bid, $old_title, $rs['title']);
+				spClass('db_notice')->noticeForward($_SESSION['uid'], $old_uid, $bid, $new_bid, $old_title, $rs['title']);
 			}
 			return 1;
 		}else{

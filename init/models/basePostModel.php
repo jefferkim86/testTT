@@ -14,6 +14,7 @@ abstract class basePostModel extends top
         if($this->uid == 0) prient_jump(spUrl('main'));
         $this->mconfig     = $mconfig;
         $this->mid         = $mconfig['id'];
+        $this->type_name   = $mconfig['icon'];
         $this->tpl_config  = $mconfig['cfg'];
 		$this->myTagUsually = spClass('db_tags')->findeUserTag($this->uid); //获取我使用频率做多的10个标签
      }
@@ -58,6 +59,7 @@ abstract class basePostModel extends top
         $rows = array(
             'title'=>$title, //超过50自动截取
 			'type' =>$this->mid,
+        	'type_name'=>$this->type_name,
 			'top'  =>$this->spArgs('top',0),
         	'link' =>$this->spArgs('link'),
 			'tag'  =>$tag,

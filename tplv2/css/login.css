@@ -221,6 +221,7 @@ body{ background:url(../image/comm/background.gif) repeat #DCDDE2; font-family:'
 	color: #ffffff;
 	width: 300px;
 	height: 45px;
+	cursor: pointer;
 }
 .tab-login-reg .content .func{
 	margin-top: 15px;

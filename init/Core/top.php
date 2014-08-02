@@ -33,7 +33,7 @@ class top extends spController
 				$_SESSION['uid']      = $rs['uid'];
 				$_SESSION['email']    = $rs['email'];
 				$_SESSION['domain']   = $rs['domain'];
-				$_SESSION['username'] = $rs['username'];
+				$_SESSION['username'] = utf8_substr($rs['username'], 0, 8);
 				$_SESSION['admin']    = $rs['admin'];
 				$_SESSION['user']     = $rs;
 			}else{

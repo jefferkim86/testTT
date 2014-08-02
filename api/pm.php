@@ -33,8 +33,7 @@ class pm extends top
 			$this->api_error('收信人或内容不能为空');
 		}
 		$body = strreplaces($this->spArgs('body'));
-		preg_match_all("/./us", $body, $match);
-		if (count($match[0]) > 140) {
+		if (utf8_strlen($body) > 140) {
 			$this->api_error('内容不能超过140个字');
 		}
 		$user = spClass('db_member')->find(array('username'=>strreplaces($this->spArgs('username'))));

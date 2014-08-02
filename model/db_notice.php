@@ -96,11 +96,11 @@ class db_notice extends ybModel
 	/*关注通知*/
 	function noticeFollow($uid,$imuid,$is=1){
 		if($is ==1){
-			$this->noticeReady($imuid,self::NOTICE_TYPE_FOLLOW,$uid,'关注通知','关注了你','user|'.$uid, null);
-			$this->sendFollow($uid,$imuid);
+			$this->noticeReady($imuid,self::NOTICE_TYPE_FOLLOW,$uid,'关注通知','关注了你','user|'.$uid);
+//			$this->sendFollow($uid,$imuid);
 		}else{
-			$this->noticeReady($imuid,self::NOTICE_TYPE_FOLLOW,$uid,'关注通知','互相关注','user|'.$uid, null);
-			$this->sendFollow($uid,$imuid);
+			$this->noticeReady($imuid,self::NOTICE_TYPE_FOLLOW,$uid,'关注通知','互相关注','user|'.$uid);
+//			$this->sendFollow($uid,$imuid);
 		}
 	}
 	

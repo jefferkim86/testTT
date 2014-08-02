@@ -18,6 +18,13 @@ class image {
     var $image_type;
     var $image_quality=90;
     var $true_color = false;
+    
+    var $image_x;
+    var $image_y;
+    var $image_w;
+    var $image_h;
+    var $dst_pic;
+    
     /**
      * 装载图像
      *
@@ -37,8 +44,16 @@ class image {
         }else{
             return false;
         }
+        
         if(function_exists("imagecopyresampled") && function_exists("imagecreatetruecolor") && $this->image_type != IMAGETYPE_GIF){
             $this->true_color = true;
+	        if (!empty($this->image_w) && !empty($this->image_h) && !empty($this->image_x) && !empty($this->image_y)) {
+	        	$this->dst_pic = imagecreatetruecolor($this->image_w, $this->image_h);
+	        	//$tmp = $this->image;
+	        	//$this->image = $this->dst_pic;
+				$r = imagecopyresampled($this->dst_pic,$this->image,0,0,$this->image_x,$this->image_y,$this->image_w,$this->image_h,$this->image_w,$this->image_h);
+				//print_r($r);exit;
+	        }
         }
     }
     
