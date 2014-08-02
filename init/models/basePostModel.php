@@ -82,12 +82,12 @@ abstract class basePostModel extends top
             $bid = spClass('db_blog')->create($rows);
             spClass('db_attach')->changeId($this->uid,$bid);
             
-            $body = $this->tmpfile2attach($bid,$rows['body']);
+            $body = $this->tmpfile2attach($this->uid,$rows['body']);
             spClass('db_blog')->update(array('bid'=>$bid),array('body'=>$body));
             $this->postToConnect($rows,$bodypre);
         }else{
             $bid = $_SESSION['tempid'];
-            $rows['body'] = $this->tmpfile2attach($bid,$rows['body']);
+            $rows['body'] = $this->tmpfile2attach($this->uid,$rows['body']);
             spClass('db_blog')->update(array('bid'=>$bid),$rows,$this->uid);
         }
 		

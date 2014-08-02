@@ -525,6 +525,8 @@ class blog extends top
 		if($split != 1){
 			$d['show_reply'] = 1; //展开评论
 		}
+		
+		$d['attr']['type_name'] = $d['type_name'];
 	}
 	
 	private function translate_feed($listBlog, $split = 1) {

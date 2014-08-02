@@ -128,7 +128,10 @@ Tuitui.feedsView = Backbone.View.extend({
             if (actionType == 'forward') {
                 target = $('.feed .J_Forward')[0];
             }
-            feedItemView.expandFt(null, target);
+            if(actionType){
+                feedItemView.expandFt(null, target);
+            }
+            
         }
     },
 

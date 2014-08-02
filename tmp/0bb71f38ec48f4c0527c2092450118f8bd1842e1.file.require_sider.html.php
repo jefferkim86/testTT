@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-31 21:32:00
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-02 23:42:02
          compiled from "tplv2/require_sider.html" */ ?>
-<?php /*%%SmartyHeaderCode:50854534453da4550296f79-60902347%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:89959184853dd06ca428786-14295248%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0bb71f38ec48f4c0527c2092450118f8bd1842e1' => 
     array (
       0 => 'tplv2/require_sider.html',
-      1 => 1406813502,
+      1 => 1406993903,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '50854534453da4550296f79-60902347',
+  'nocache_hash' => '89959184853dd06ca428786-14295248',
   'function' => 
   array (
   ),
@@ -243,8 +243,6 @@ if ($_smarty_tpl->_count($_from) > 0){
 " alt="<?php echo $_smarty_tpl->tpl_vars['val']->value['username'];?>
 "/></a></li>
 			<?php }} ?>
-				<!--<li><a href="#"><img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/image/side-logo.png" alt=""/></a></li>-->
 			</ul>
 		</div>
 	</div>

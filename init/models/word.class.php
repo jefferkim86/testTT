@@ -77,7 +77,17 @@ class yb_word extends basePostModel
                 }
              }  
              $str .= '\''.$d.'\',';
-            }
+             $tmp_path = pathinfo($d);
+             $tmp_file = 'attachs/tmp/'.$tmp_path['basename'];
+             //var_dump('attachs/tmp/'.$tmp_path['basename'],file_exists('attachs/tmp/'.$tmp_path['basename']));exit;
+             if (file_exists($tmp_file)) {
+             	spClass('uploadFile')->set_diydir($this->uid);
+        		$truefile = spClass('uploadFile')->selectuptype(4);
+        		$tmpfile = spClass('uploadFile')->selectuptype(6);
+        		
+             	rename($tmp_file, $truefile.'/'.$tmp_path['basename']);
+             }
+        }
             
             $str = substr($str,0,-1); //去掉逗号
             if($str){ $where = "`path` not in ($str) and"; } //如果存在 就加限制

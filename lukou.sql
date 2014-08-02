@@ -1019,4 +1019,5 @@ INSERT INTO `yb_theme` VALUES ('1', 'a:6:{s:4:\"user\";N;s:5:\"setup\";N;s:28:\"
 
 
 ### 新增字段
-alter table th_blog add likecount int(10) default 0 COMMENT '喜欢数'
+alter table th_blog add likecount int(10) default 0 COMMENT '喜欢数';
+alter table th_blog add type_name varchar(20) default '' COMMENT '内容类型名称';

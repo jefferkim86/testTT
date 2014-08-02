@@ -147,7 +147,7 @@
 {literal}
     <div class="feed-good-cont clearfix">
        <div class="feed-good-desc clearfix">
-              <p>${feedContent}<span class="feed-more"><a href="${feedLink}" target="_blank">全部信息...</a></span></p>
+              <p>${feedContent}{@if needFeedMore}<span class="feed-more"><a href="${feedLink}" target="_blank">全部信息...</a></span>{@/if}</p>
        </div>
        <div class="feed-good-info">
           <div class="feed-good-img">

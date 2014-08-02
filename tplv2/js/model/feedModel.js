@@ -168,10 +168,13 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'oprice': repto.attr.oprice || '',
 					'price': repto.attr.price,
 					'producturl': repto.attr.producturl,
+					'feedLink': repto.b_url,
 					'feedContent': repto.body,
 					'isSelf': repto.uid == uid,
 					'priceTxt': repto.attr.oprice == repto.attr.price ? '价格' : '促销',
-					'isLiked': repto.likeid ? 'liked' : false
+					'isLiked': repto.likeid ? 'liked' : false,
+					'needFeedMore': repto.more == 1
+
 				};
 			} else {
 				var attr = this.get('attr');
@@ -180,10 +183,12 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'goodPic': attr.image,
 					'oprice': attr.oprice || '',
 					'price': attr.price,
+					'feedLink': this.get('b_url'),
 					'producturl': attr.producturl,
 					'priceTxt': attr.oprice == attr.price ? '价格' : '促销',
 					'feed': attr.deliveryFees,
-					'feedContent': this.get('body')
+					'feedContent': this.get('body'),
+					'needFeedMore': this.get('more') == 1
 				};
 			}
 		}

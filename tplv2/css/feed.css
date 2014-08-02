@@ -426,6 +426,7 @@
 	font-size:14px;
 	color: #222;
 	font-weight:normal;
+	line-height: 20px;
 }
 .feed-good .feed-good-property .feed-good-title a{color:#222;}
 .feed-good .feed-good-property .feed-good-title a:hover{color:#0099cc;}
@@ -484,6 +485,9 @@
 	min-height: 290px;
 	_height: 290px;
 	_zoom: 1;
+}
+.feedWrap .feed-good .feed-forward-layout .feed-good-property{
+	width: 365px;
 }
 
 
@@ -690,6 +694,9 @@ ul,li {
 .mypage #aside .recommend,.mypage #aside .TA-attention{
 	margin-top: 0;
 }
+#index #aside .user-info{
+	margin-top: 0;
+}
 /**/
 .recommend {
 }
@@ -830,11 +837,16 @@ ul,li {
 .user .user-name {
 	color: #222222;
 	font-size: 14px;
+	padding:0;
+	margin:0;
+	width: 100%;
 	text-align: center;
 	margin-top: 15px;
 	height: 22px;
+	border: none;
 	line-height: 22px;
 }
+
 .user .url {
 	height: 20px;
 	line-height: 20px;
