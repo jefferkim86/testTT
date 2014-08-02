@@ -49,9 +49,9 @@ class image {
             $this->true_color = true;
 	        if (!empty($this->image_w) && !empty($this->image_h) && !empty($this->image_x) && !empty($this->image_y)) {
 	        	$this->dst_pic = imagecreatetruecolor($this->image_w, $this->image_h);
-	        	//$tmp = $this->image;
-	        	//$this->image = $this->dst_pic;
-				$r = imagecopyresampled($this->dst_pic,$this->image,0,0,$this->image_x,$this->image_y,$this->image_w,$this->image_h,$this->image_w,$this->image_h);
+	        	$tmp = $this->image;
+	        	$this->image = $this->dst_pic;
+				$r = imagecopyresampled($this->image,$tmp,0,0,$this->image_x,$this->image_y,$this->image_w,$this->image_h,$this->image_w,$this->image_h);
 				//print_r($r);exit;
 	        }
         }

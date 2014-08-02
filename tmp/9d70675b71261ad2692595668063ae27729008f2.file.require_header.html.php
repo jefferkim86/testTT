@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-31 00:28:33
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-02 21:11:18
          compiled from "tplv2/require_header.html" */ ?>
-<?php /*%%SmartyHeaderCode:149457512153d91d312a2bb0-81090996%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:210558799353dce3769a3cc3-62639981%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9d70675b71261ad2692595668063ae27729008f2' => 
     array (
       0 => 'tplv2/require_header.html',
-      1 => 1406737712,
+      1 => 1406985036,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '149457512153d91d312a2bb0-81090996',
+  'nocache_hash' => '210558799353dce3769a3cc3-62639981',
   'function' => 
   array (
   ),
@@ -58,7 +58,7 @@ $_smarty_tpl->decodeProperties(array (
 "/></a></div>
 		    <div class="my-attention">
 		    	<a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'index'),$_smarty_tpl);?>
-">我的关注</a>
+">关注的人</a>
 		    </div>
 			<!-- <div id="nav">
 			    <li <?php if ($_smarty_tpl->getVariable('CurrentModule')->value=='index'){?>class="current"<?php }?>><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'index'),$_smarty_tpl);?>

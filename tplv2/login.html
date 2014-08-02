@@ -13,8 +13,9 @@
 
 
 </head>
-<body class="login-page">
-<div id="wrap">
+<body class="login-page clearfix">
+<!-- <img src="{$syskin}/image/bg.jpg" style="position:absolute;left:0;top:0;" id="bg"/>
+ --><div id="wrap">
 
 	<div class="logo">
 		<a href="{spUrl c=main}"><img src="{$syskin}/image/big-logo.png" alt="{$yb.site_title}" title="{$yb.site_title}" /></a>
@@ -124,6 +125,9 @@
 	{literal}
 	<script>
 	$(document).ready(function(){
+		// var w = $(window).width();
+		// var wh = $(window).height();
+		// $("#bg").css({width:w});
 		var tabs = $("#login-reg-tab li");
 		var tabContents = $("#tabContent>div");
 		tabs.on("click",function(){
@@ -138,5 +142,6 @@
 	{/literal}
 	{include file="require_footer.html"}
 </div>
+
 </body>
 </html>

@@ -21,8 +21,9 @@ class userblog extends top
 	/*显示用户首页 index 采取domain方式显示*/
 	public function index()
 	{		
+		if(!$this->uid >0){prient_jump(spUrl('main'));}
 		$this->getUserSkin(); //获取用户的基本信息，必须头条处理，判断用户是否存在
-		$this->getMyFollow();
+//		$this->getMyFollow();
 		$this->getMyLook();
 		$this->isfollow = $this->isFollow();
 		$this->pmNum();
@@ -37,7 +38,7 @@ class userblog extends top
 	public function show()
 	{
 		$this->getUserSkin($this->spArgs('bid'));
-		$this->getMyFollow();
+//		$this->getMyFollow();
 		$this->getMyLook();
 		$this->pmNum();
 		$this->fava = $this->getBlogFava();
@@ -153,6 +154,40 @@ class userblog extends top
 		$this->user_data = $rs;
 		
 		$this->user_skin = $skin;   //将数据赋值给全局变量
+		
+		$this->getFollowByUid($rs['uid']);
+	}
+	
+	private function getFollowByUid($uid){
+		$data = array();
+		$sql = "SELECT f.id as fid, f.time as ftime, f.touid as touid, f.linker as linker, f.uid as fuid , m.*
+				FROM `".DBPRE."follow` AS f
+				LEFT JOIN `".DBPRE."member` AS m ON f.touid = m.uid WHERE f.uid = ".$uid;
+		
+		$obj = spClass('db_follow');
+		$obj->linker['0']['enabled'] = false;
+		$sql .= " order by ftime DESC limit 0, 6";
+//		print_r($sql);
+		$myfollow = $obj->spLinker()->findSql($sql);
+		
+
+		
+		foreach($myfollow as &$d){
+			
+			$d['h_url'] = goUserHome(array('uid'=>$d['touid'], 'domain'=>$d['domain']));
+			$d['h_img'] = avatar(array('uid'=>$d['touid'],'size'=>'middle'));
+			$d['sign'] = strip_tags($d['sign']);
+			$d['blogtag'] = ($d['blogtag'] != '') ?  explode(',',$d['blogtag']) : '';
+//				$d['touid'] =  $tudo;
+//				unset($tudo,$d['touid']['domain']);
+			$d['time'] = ybtime(array('time'=>$d['ftime']));
+			if($d['linker'] == 1){
+				$d['linker'] = true;
+			}else{
+				$d['linker'] = false;
+			}
+		}
+		$this->myfollow = $myfollow;
 	}
 
 

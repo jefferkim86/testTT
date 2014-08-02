@@ -46,12 +46,11 @@ Tuitui.feedModel = Backbone.Model.extend({
 
 	getfeedType: function() {
 		var feedTypeMap = {
-			'3': 'photo',
-			'1': 'text',
-			'5': 'good'
+			'photo':'photo',
+			'text': 'text',
+			'product': 'good'
 		};
-		//return feedTypeMap[2];
-		return feedTypeMap[this.get('type')];
+		return feedTypeMap[this.get('type_name')];
 	},
 	//TODO: forwardData引用getFeedAttr
 	getfeedData: function() {
@@ -143,14 +142,17 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'replaycount': repto.replaycount,
 					'likecount': repto.likecount,
 					'isSelf': repto.uid == uid,
-					'isLiked': repto.likeid ? 'liked' : false
+					'isLiked': repto.likeid ? 'liked' : false,
+					'needFeedMore': repto.more == 1
+
 				}
 			} else {
 				result = {
 					'feedTitle': this.get('title') || '',
 					'feedContent': this.get('body'),
 					'pic': this.get('attr').length > 0 ? this.get('attr')[0] : '',
-					'feedLink': this.get('b_url')
+					'feedLink': this.get('b_url'),
+					'needFeedMore': this.get('more') == 1
 				}
 			}
 

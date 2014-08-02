@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-02 15:54:57
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-02 22:00:20
          compiled from "tplv2/user_setting.html" */ ?>
-<?php /*%%SmartyHeaderCode:131859300653dc9951d31467-76333221%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:86655078153dceef4882271-76739991%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '74f05d2ba81cd63b42a25ab2f745e8451e1a730c' => 
     array (
       0 => 'tplv2/user_setting.html',
-      1 => 1406966095,
+      1 => 1406988017,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '131859300653dc9951d31467-76333221',
+  'nocache_hash' => '86655078153dceef4882271-76739991',
   'function' => 
   array (
   ),
@@ -199,7 +199,6 @@ $(document).ready(function(){
 	  	<h2>修改头像</h2>
 	     <div class="con_table clearfix">
 		    <div class="user_right">
-			  
 				<div class="avatar">
 					<img src="http://localhost/tuitui<?php echo avatar(array('uid'=>$_SESSION['uid'],'size'=>'big','time'=>1),$_smarty_tpl);?>
 " alt=""/>
@@ -223,12 +222,15 @@ $(document).ready(function(){
 						</div>
 					    <div class="files"></div>
 					    <div id="preview-avatar">
-					    	<img src="http://localhost/tuitui<?php echo avatar(array('uid'=>$_SESSION['uid'],'size'=>'big','time'=>1),$_smarty_tpl);?>
+					    	<img src="<?php echo avatar(array('uid'=>$_smarty_tpl->getVariable('users')->value['uid'],'size'=>'big'),$_smarty_tpl);?>
 " id="preview-avatar-img" />
 					    </div>
 					</div>
 					<!-- 调整tab -->
 					<div class="adjust"  id="J-avatarTab-adjustC" style="display:none;">
+					  <form action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'upavatar'),$_smarty_tpl);?>
+" method="post" onSubmit="return checkCoords();">
+
 						<span class="pop-foot-corner"><s class="outter"></s></span>
 						<div id="showimg">
 					    	<img src="http://localhost/tuitui<?php echo avatar(array('uid'=>$_SESSION['uid'],'size'=>'big','time'=>1),$_smarty_tpl);?>
@@ -239,10 +241,13 @@ $(document).ready(function(){
 						<input type="hidden" id="y" name="y" value="0" />
 						<input type="hidden" id="w" name="w" value="240" />
 						<input type="hidden" id="h" name="h" value="240" />
+
+						<input type="submit" value="确认保存" class="Intercbtn" />
+					 </form>
 					</div>
 
 				</div>
-				
+			
 
 			</div>
 		</div>
@@ -351,7 +356,7 @@ $(document).ready(function(){
 		var progress = $(".progress");
 		var files = $(".files");
 		var btn = $(".btn span");
-		$("#fileupload").wrap("<form id='myupload' action='"+urlpath+"/index.php?c=user&a=upavatar' method='post' enctype='multipart/form-data'></form>");
+		$("#fileupload").wrap("<form id='myupload' action='"+urlpath+"/index.php?c=api&yc=user&ym=upface' method='post' enctype='multipart/form-data'></form>");
 		$("#fileupload").change(function(){  //选择文件
 			$("#myupload").ajaxSubmit({
 				//dataType:  'json',	//数据格式为json 
@@ -370,11 +375,18 @@ $(document).ready(function(){
 				},
 				success: function(resp) {	//成功
 					var data = eval("("+resp+")");
-					console.log(data);
-					if(data.err == ""){
-						var img = urlpath+"/avatar.php?uid="+uid+"&size=big&random="+(new Date()).getTime()
+					if(data.status == "1"){
+						var img = urlpath +'/'+ data.body.pic_path
 							
-							showimg.html("<img src='"+img+"' id='cropbox' width='290' height='290'/>");
+						if (data.body.width>240 && data.body.height<240){
+							showimg.html("<img src='"+img+"' id='cropbox' height='240' />");
+						}else if(data.body.width<240 && data.body.height>240){
+							showimg.html("<img src='"+img+"' id='cropbox' width='240' />");
+						}else if(data.body.width<240 && data.body.height<240){
+							showimg.html("<img src='"+img+"' id='cropbox' width='240' height='240' />");
+						}else{
+							showimg.html("<img src='"+img+"' width='"+data.body.width+"px' height='"+data.body.height+"px'  id='cropbox' />");
+						}
 							$("#preview-avatar-img").attr('src',img);
 							//传给php页面，进行保存的图片值
 							$("#src").val(img);
@@ -382,8 +394,8 @@ $(document).ready(function(){
 							$('#cropbox').Jcrop({
 								aspectRatio: 1,
 								onSelect: updateCoords,
-								minSize:[20,20],
-								maxSize:[140,140],
+								minSize:[240,240],
+								maxSize:[240,240],
 								allowSelect:false, //允许选择
 								allowResize:true, //是否允许调整大小
 								setSelect: [ 0, 0, 240, 240 ]
@@ -406,6 +418,7 @@ $(document).ready(function(){
 	});
 	
 	function updateCoords(c){
+		console.log(c);
 		$('#x').val(c.x);
 		$('#y').val(c.y);
 		$('#w').val(c.w);

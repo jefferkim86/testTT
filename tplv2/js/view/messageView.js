@@ -360,7 +360,7 @@ Tuitui.messageView = Backbone.View.extend({
                 textarea.val('');
                 waring('回复成功');
             } else {
-                alert(resp.msg);
+                tips(resp.msg);
             }
         });
 

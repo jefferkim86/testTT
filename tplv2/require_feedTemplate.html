@@ -110,8 +110,8 @@
   <div class="feed-text-cont clearfix">
     <h3 class="feed-text-title"><a href="${feedLink}"  target="_blank">${feedTitle}</a></h3>
     <div class="feed-text-p clearfix">
-      {@if pic}<div class="p-img"><img src="http://localhost/tuitui/attachs/tmp/1.jpg"/></div>{@/if}${feedContent}
-      <span class="feed-more"><a href="${feedLink}" target="_blank">全部信息...</a></span>
+      {@if pic}<div class="p-img"><img src="${pic}"/></div>{@/if}${feedContent}
+      {@if needFeedMore}<span class="feed-more"><a href="${feedLink}" target="_blank">全部信息...</a></span>{@/if}
     </div>
    </div>
 {/literal}

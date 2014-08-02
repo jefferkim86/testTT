@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-02 12:02:03
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-02 23:04:03
          compiled from "tplv2/login.html" */ ?>
-<?php /*%%SmartyHeaderCode:176890231953dc62bb1f9fd5-21962408%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:75954741753dcfde3de8bd8-88775219%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '03645cd3cc83f49927e1835eb53c00fc4f417e53' => 
     array (
       0 => 'tplv2/login.html',
-      1 => 1406952121,
+      1 => 1406991834,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '176890231953dc62bb1f9fd5-21962408',
+  'nocache_hash' => '75954741753dcfde3de8bd8-88775219',
   'function' => 
   array (
   ),
@@ -41,8 +41,10 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
 
 
 </head>
-<body class="login-page">
-<div id="wrap">
+<body class="login-page clearfix">
+<!-- <img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/image/bg.jpg" style="position:absolute;left:0;top:0;" id="bg"/>
+ --><div id="wrap">
 
 	<div class="logo">
 		<a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main'),$_smarty_tpl);?>
@@ -173,6 +175,9 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
 	
 	<script>
 	$(document).ready(function(){
+		// var w = $(window).width();
+		// var wh = $(window).height();
+		// $("#bg").css({width:w});
 		var tabs = $("#login-reg-tab li");
 		var tabContents = $("#tabContent>div");
 		tabs.on("click",function(){
@@ -188,5 +193,6 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
 	<?php $_template = new Smarty_Internal_Template("require_footer.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
 </div>
+
 </body>
 </html>
