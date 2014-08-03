@@ -133,7 +133,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 			if (repto) {
 				console.log(repto.attr.length > 0 ? repto.attr[0] : '');
 				result = {
-					'feedTitle': repto.forward_title,
+					'feedTitle': repto.forward_title || '',
 					'feedContent': repto.body,
 					'feedLink': repto.b_url,
 					'time': repto.time,

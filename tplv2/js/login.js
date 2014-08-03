@@ -60,6 +60,7 @@ $(document).ready(function() {
 					reloadcode('vericode');
 					waring(data.msg)
 					$(target).val('注册');
+					$(target).removeAttr('disabled');
 				} else {
 					window.location.href = $('#regForm').attr('callback')
 				}
