@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-03 11:52:35
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-03 23:23:16
          compiled from "tplv2/require_feedTemplate.html" */ ?>
-<?php /*%%SmartyHeaderCode:106435822153ddb20395e064-99747409%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:49067074553de53e42ae5d0-49807995%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '350be01eeee6d1b227e428bdc9ce144dbf95710b' => 
     array (
       0 => 'tplv2/require_feedTemplate.html',
-      1 => 1407037953,
+      1 => 1407079393,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '106435822153ddb20395e064-99747409',
+  'nocache_hash' => '49067074553de53e42ae5d0-49807995',
   'function' => 
   array (
   ),
@@ -52,7 +52,7 @@ $_smarty_tpl->decodeProperties(array (
                 <a href="${feedLink}" target="_blank">${time}</a>
             </div>
             <div class="feed-hd">
-                <div class="merc-name"><a href="${avatarHref}">${username}</a></div>
+                <div class="merc-name"><a href="${avatarHref}" target="_blank">${username}</a></div>
             </div>
             <div class="feed-bd">
             {@if forwardData}

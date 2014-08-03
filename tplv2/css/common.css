@@ -862,7 +862,9 @@ background: #fff;
 	border-radius: 2px;
 }
 
-
+.pm-detail .pagination{
+	margin-top: 20px;
+}
 
 
 

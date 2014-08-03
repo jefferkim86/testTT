@@ -16,7 +16,9 @@
 			{else if $isfollow == 0}
 			<button class="J-attention J-follow" data-uid="{$user.uid}">加关注</button>
 			{/if}
+			{if $smarty.session.uid != $user.uid}
 			<a href="{spUrl c=pm a=detail uid=$user.uid}" class="J-msg" target="_blank">发私信</a>
+			{/if}
 		</div>
 	</div>
 	<div class="user-data">

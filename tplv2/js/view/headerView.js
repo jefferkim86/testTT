@@ -19,8 +19,17 @@ Tuitui.headerView = Backbone.View.extend({
         setInterval(function() {
             self.getNotice();
         }, 30000);
+
+        $(".J-recommedChange").on("click", function(e) {
+            e.preventDefault();
+            self.getRecommendList();
+
+        });
     },
 
+    getRecommendList: function() {
+
+    },
     getNotice: function() {
         getApi('user', 'checknotice', {}, function(resp) {
             var result = resp.body;
@@ -32,9 +41,9 @@ Tuitui.headerView = Backbone.View.extend({
                         $(".msg_" + key).text(counts).show();
                     } else {
                         counts = '';
-                        $(".msg_"+key).hide();
+                        $(".msg_" + key).hide();
                     }
-                    
+
                 }
             }
         });

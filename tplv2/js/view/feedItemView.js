@@ -186,17 +186,15 @@ Tuitui.feedItemView = Backbone.View.extend({
         var data = this.model.toJSON();
         var input = feed.find(".J_CmtCnt");
         var inputVal = input.val();
-        if (inputVal === "") {
-            alert("请填写评论内容");
-            return;
-        }
+        
         if (inputVal.replace("/[^/x00-/xff]/g", "**").length > 140) {
             alert("不能超出140个字数");
             return;
         }
+
         getApi('blog', 'repblog', {
             'bid': data.bid,
-            'title': _.escape(inputVal)
+            'title': _.escape(inputVal || '转发动态')
         }, function(resp) {
             if (resp.status == '1') {
                 var result = [{
@@ -206,7 +204,7 @@ Tuitui.feedItemView = Backbone.View.extend({
                 var html = userView.renderForward(result, true);
                 self.setCounts('forwardcount', 'add');
                 feed.find(".J_forwardList .title").after(html);
-
+                tips('转发成功！');
             } else {
                 alert(resp.msg);
             }
