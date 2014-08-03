@@ -65,7 +65,7 @@
 	 <div class="oper">
 	 	<span class="time">${time}</span>
 	 	<div class="handler">
-	 		{@if actionCls}<a href="#" class="msg-reply ${actionCls}">回复</a>{@/if}
+	 		{@if actionCls}<a href="#" class="msg-reply ${actionCls}" data-reply-to="${username}" data-type="${actionCls}">回复</a>{@/if}
 	 	</div>
 	 </div>
   </div>
@@ -76,7 +76,7 @@
 		<span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
 		<div class="textarea">
 			<textarea cols="30" rows="10"></textarea>
-			<input type="button" value="${actionBtnTxt}" class="submit-btn J-submit-msg"/>
+			<input type="button" value="${actionBtnTxt}" data-type="${actionType}" data-reply-to="${replyTo}" class="submit-btn J-submit-msg"/>
 		</div>
 	</div>
 </script>

@@ -2,6 +2,11 @@ Tuitui.headerView = Backbone.View.extend({
 
     el: "body",
 
+    compiled_tpl: {
+        'recommendItem': juicer($("#J-recommendItem").html() || '')
+
+    },
+
     events: {
         "mouseover .publish-menu": "showPublish",
         "mouseout .publish-menu": "hiddenPublish",
@@ -20,14 +25,30 @@ Tuitui.headerView = Backbone.View.extend({
             self.getNotice();
         }, 30000);
 
+        self.getRecommendList();
         $(".J-recommedChange").on("click", function(e) {
             e.preventDefault();
             self.getRecommendList();
-
         });
     },
 
     getRecommendList: function() {
+        var tpl = this.compiled_tpl['recommendItem'];
+        var html = '';
+        $("#J-siderRecommend").html('');
+        getApi('user', 'recommend', {}, function(resp) {
+            if (resp.status == 1) {
+                var list = resp.body;
+                if(list.length == 0){
+                    $("#J-siderRecommend").hide();
+                }
+                for (var i = 0; i < list.length; i++) {
+                    list[i].avatar = urlpath + list[i].h_img;
+                    html += tpl.render(list[i]);
+                }
+                $("#J-siderRecommend").html(html);
+            }
+        })
 
     },
     getNotice: function() {

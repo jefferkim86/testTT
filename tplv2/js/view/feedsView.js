@@ -72,6 +72,7 @@ Tuitui.feedsView = Backbone.View.extend({
 
     getMyFeeds: function(uid, pageNo) {
         var self = this;
+        var pre = G_isSelf ? '你' : 'Ta';
         getApi('blog', 'feeds', {
             'uid': uid,
             'page': pageNo || 1
@@ -81,10 +82,11 @@ Tuitui.feedsView = Backbone.View.extend({
                 if (result) {
                     self.collection.reset(result.blog);
                 } else {
-                    self._nofeed('Ta还没有发布任何内容哦～', 'style="width:300px;"');
+
+                    self._nofeed(pre + '还没有发布任何内容哦～', 'style="width:300px;"');
                 }
             } else {
-                self._nofeed('Ta还没有发布任何内容哦～', 'style="width:300px;"');
+                self._nofeed(pre + '还没有发布任何内容哦～', 'style="width:300px;"');
             }
         });
     },
@@ -129,11 +131,11 @@ Tuitui.feedsView = Backbone.View.extend({
                 target = $('.feed .J_Forward')[0];
             }
             //默认展开评论
-            if(actionType == ''){
+            if (actionType == '') {
                 target = $('.feed .J_Comment')[0]
             }
             feedItemView.expandFt(null, target);
-            
+
         }
     },
 
@@ -143,14 +145,14 @@ Tuitui.feedsView = Backbone.View.extend({
         if (this.collection.length == 0) {
             this._nofeed();
             return;
-        } 
+        }
         this.collection.each(function(feed) {
             self.addFeed(feed);
         });
         if (this.collection.length < 10) {
             Tuitui.globalData.end = true;
             $("#feed_loading").hide();
-        }else{
+        } else {
             Tuitui.globalData.canLoadFeed = true;
         }
 

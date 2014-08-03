@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-01 00:48:47
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-04 01:27:41
          compiled from "tplv2/require_js.html" */ ?>
-<?php /*%%SmartyHeaderCode:207434443853da736f402f79-15564371%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:157275654053de710d8ef236-67197771%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '8f6348f934a1766d0ee2377005f2726ac6b40ed0' => 
     array (
       0 => 'tplv2/require_js.html',
-      1 => 1406825282,
+      1 => 1407086773,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '207434443853da736f402f79-15564371',
+  'nocache_hash' => '157275654053de710d8ef236-67197771',
   'function' => 
   array (
   ),
@@ -27,6 +27,11 @@ var uid = '<?php echo $_SESSION['uid'];?>
 ';
 var G_username ='<?php echo $_SESSION['username'];?>
 ';
+<?php if ($_SESSION['uid']==$_smarty_tpl->getVariable('user')->value['uid']){?> 
+  var G_isSelf = true; 
+<?php }else{ ?>
+  var G_isSelf = false;
+<?php }?>
 <?php if (isset($_smarty_tpl->getVariable('adunit',null,true,false)->value[3])&&$_smarty_tpl->getVariable('adunit')->value[3]['is_show']==1){?>
 var unit_3 = true;
 <?php }?>

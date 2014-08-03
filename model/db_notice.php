@@ -78,11 +78,11 @@ class db_notice extends ybModel
     								);
 
 	/*评论回复列表*/
-	function noticeReplay($row,$info='',$msg='')
-//	function noticeReplay($uid, $imuid, $bid, $title = null)
+//	function noticeReplay($row,$info='',$msg='')
+	function noticeReplay($uid, $imuid, $bid, $info = null, $msg = null)
 	{
-//		$this->noticeReady($_SESSION['uid'], self::NOTICE_TYPE_COMMENT, $row['foruid'], '评论通知', $msg, 'blog|'.$bid, array('bid'=>$bid, 'info'=>$info));
-		$this->create(array('uid'=>$_SESSION['uid'],'sys'=>self::NOTICE_TYPE_COMMENT,'foruid'=>$row['foruid'],'title'=>'回复通知','info'=>$msg,'time'=>time(),'location'=>'blog|'.$row['bid'],'time'=>time()));
+		$this->noticeReady($uid, self::NOTICE_TYPE_REPLAY, $imuid, '回复通知', $msg, 'blog|'.$bid, array('bid'=>$bid, 'info'=>$info));
+//		$this->create(array('uid'=>$_SESSION['uid'],'sys'=>self::NOTICE_TYPE_REPLAY,'foruid'=>$row['foruid'],'title'=>'回复通知','info'=>$msg,'time'=>time(),'location'=>'blog|'.$row['bid'],'time'=>time()));
 //		$this->sendReplay($_SESSION['uid'],$row['foruid'],$msg,$row['bid']);
 	}
 	

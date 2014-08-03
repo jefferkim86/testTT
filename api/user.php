@@ -399,7 +399,7 @@ class user extends top
 			$page = spPager::pageTool($total, $page_no, $page_size);
 			$offset = $page['offset'];
 			if ($offset < 0) $offset = 0;
-			$sql = "SELECT n.*, m.uid as muid, m.username,m.domain FROM `".DBPRE."notice` AS n LEFT JOIN `".DBPRE."member` AS m ON (n.uid=m.uid) WHERE n.foruid=".$this->uid." AND sys=".$sys." ORDER BY isread ASC, n.time DESC LIMIT {$offset},{$page_size}";
+//			$sql = "SELECT n.*, m.uid as muid, m.username,m.domain FROM `".DBPRE."notice` AS n LEFT JOIN `".DBPRE."member` AS m ON (n.uid=m.uid) WHERE n.foruid=".$this->uid." AND sys=".$sys." ORDER BY isread ASC, n.time DESC LIMIT {$offset},{$page_size}";
 //			$rs = $obj->findAll(array('foruid'=>$this->uid,'sys'=>$sys),'isread asc, time desc', null, "{$offset},{$page_size}");
 			$rs = $obj->findSql($sql);
 			$data['page'] = $page['page_data'];
@@ -426,10 +426,10 @@ class user extends top
 					$data[$type][$key] = $d;
 				}
 				if ($sys == 1 or $sys == 6) {
-					$obj->updateField(array('sys'=>1), 'isread', 1);
-					$obj->updateField(array('sys'=>6), 'isread', 1);
+					$obj->updateField(array('foruid'=>$this->uid, 'sys'=>1), 'isread', 1);
+					$obj->updateField(array('foruid'=>$this->uid, 'sys'=>6), 'isread', 1);
 				} else {
-					$obj->updateField(array('sys'=>$sys), 'isread', 1);
+					$obj->updateField(array('foruid'=>$this->uid, 'sys'=>$sys), 'isread', 1);
 				}
 			}
 			
@@ -480,7 +480,7 @@ class user extends top
 		$data = array('all_count'=>0, 'reply_count'=>0, 'sys_count'=>0, 'follow_count'=>0, 'forward_count'=>0,'like_count'=>0, 'pm_count'=>0);
 		if (islogin()) {
 			
-//			$data['pm_count']    = (int)spCLass('db_pm')->findCount(array('touid'=>$this->uid,'isnew'=>1));
+			$data['pm_count']    = (int)spCLass('db_pm')->findCount(array('touid'=>$this->uid,'isnew'=>1));
 			$list = spClass('db_notice')->findAll(array('foruid'=>$this->uid,'isread'=>0));
 			$data['all_count'] += $data['pm_count'];
 			foreach ($list as $d) {

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-31 00:47:02
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-04 00:25:50
          compiled from "tplv2/user_mymessage.html" */ ?>
-<?php /*%%SmartyHeaderCode:77120745753d921863b4ae2-30988286%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:73148737953de628e706f89-97778214%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '8422175a9f72652db45489a042cb4889d853c445' => 
     array (
       0 => 'tplv2/user_mymessage.html',
-      1 => 1406738821,
+      1 => 1407083148,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '77120745753d921863b4ae2-30988286',
+  'nocache_hash' => '73148737953de628e706f89-97778214',
   'function' => 
   array (
   ),
@@ -87,7 +87,7 @@ $_template->assign('loadedit','yes'); echo $_template->getRenderedTemplate();?><
 	 <div class="oper">
 	 	<span class="time">${time}</span>
 	 	<div class="handler">
-	 		{@if actionCls}<a href="#" class="msg-reply ${actionCls}">回复</a>{@/if}
+	 		{@if actionCls}<a href="#" class="msg-reply ${actionCls}" data-reply-to="${username}" data-type="${actionCls}">回复</a>{@/if}
 	 	</div>
 	 </div>
   </div>
@@ -98,7 +98,7 @@ $_template->assign('loadedit','yes'); echo $_template->getRenderedTemplate();?><
 		<span class="pop-foot-corner"><s class="outter"></s><s class="inner"></s></span>
 		<div class="textarea">
 			<textarea cols="30" rows="10"></textarea>
-			<input type="button" value="${actionBtnTxt}" class="submit-btn J-submit-msg"/>
+			<input type="button" value="${actionBtnTxt}" data-type="${actionType}" data-reply-to="${replyTo}" class="submit-btn J-submit-msg"/>
 		</div>
 	</div>
 </script>

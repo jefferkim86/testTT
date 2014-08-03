@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-03 14:35:23
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-04 01:40:23
          compiled from "tplv2/user_setting.html" */ ?>
-<?php /*%%SmartyHeaderCode:134856045353ddd82b822266-34351761%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:35712168253de7407ecc091-15828942%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '74f05d2ba81cd63b42a25ab2f745e8451e1a730c' => 
     array (
       0 => 'tplv2/user_setting.html',
-      1 => 1407047722,
+      1 => 1407087613,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '134856045353ddd82b822266-34351761',
+  'nocache_hash' => '35712168253de7407ecc091-15828942',
   'function' => 
   array (
   ),
@@ -167,7 +167,8 @@ $(document).ready(function(){
 	     <div class="con_table clearfix">
 		    <div class="user_right">
 				<div class="avatar">
-					<img src="http://localhost/tuitui<?php echo avatar(array('uid'=>$_SESSION['uid'],'size'=>'big','time'=>1),$_smarty_tpl);?>
+					<img src="<?php echo $_smarty_tpl->getVariable('url')->value;?>
+<?php echo avatar(array('uid'=>$_smarty_tpl->getVariable('users')->value['uid'],'size'=>'big'),$_smarty_tpl);?>
 " alt=""/>
 				</div>
 				<div class="adjust-block">
@@ -190,7 +191,8 @@ $(document).ready(function(){
 						</div> -->
 					    <div class="files"></div>
 					    <div id="preview-avatar">
-					    	<img src="<?php echo avatar(array('uid'=>$_smarty_tpl->getVariable('users')->value['uid'],'size'=>'big'),$_smarty_tpl);?>
+					    	<img src="<?php echo $_smarty_tpl->getVariable('url')->value;?>
+<?php echo avatar(array('uid'=>$_smarty_tpl->getVariable('users')->value['uid'],'size'=>'big'),$_smarty_tpl);?>
 " id="preview-avatar-img" />
 					    </div>
 					</div>
@@ -201,7 +203,8 @@ $(document).ready(function(){
 
 						<span class="pop-foot-corner"><s class="outter"></s></span>
 						<div id="showimg">
-					    	<img src="http://localhost/tuitui<?php echo avatar(array('uid'=>$_SESSION['uid'],'size'=>'big','time'=>1),$_smarty_tpl);?>
+					    	<img src="<?php echo $_smarty_tpl->getVariable('url')->value;?>
+<?php echo avatar(array('uid'=>$_smarty_tpl->getVariable('users')->value['uid'],'size'=>'big'),$_smarty_tpl);?>
 " id="cropbox" width="290" height="290"/>
 					    </div>
 					    <input type="hidden" id="src" name="src" value="" />

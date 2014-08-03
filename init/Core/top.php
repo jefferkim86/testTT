@@ -101,7 +101,7 @@ class top extends spController
 	
 	//处理内容中的AT
 	protected function parse_uid($info){
-		preg_match("/\[at=(.*?)](.*?)\[\/at\]/i",$info,$msg); //$msg[1]
+		preg_match("/\[at=(.*?)](.*?)\[\/at\]/i",$info,$msg); //print_r($msg);
 		return str_replace($msg[0],'<a href="'.goUserHome(array('uid'=>$msg[1])).'" target="_blank">'.$msg[2].'</a>',$info);
 	}
     

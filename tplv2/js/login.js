@@ -49,12 +49,17 @@ $(document).ready(function() {
 				}
 			})
 	});
-	$('#regSumbit').click(function() {
+	$('#regSumbit').click(function(e) {
+		
+		var target = e.currentTarget;
+		$(target).val('注册中...');
+		$(target).attr('disabled','disabled');
 		getApi('login', 'reg', $('#regForm').serialize(),
 			function(data) {
 				if (data.status != 1) {
 					reloadcode('vericode');
 					waring(data.msg)
+					$(target).val('注册');
 				} else {
 					window.location.href = $('#regForm').attr('callback')
 				}

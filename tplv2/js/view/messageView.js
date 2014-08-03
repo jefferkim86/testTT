@@ -325,11 +325,16 @@ Tuitui.messageView = Backbone.View.extend({
         e.preventDefault();
         var target = e.currentTarget;
         var actionBtnTxt = '发布';
+        var actionType = 'comment';
+        var replyTo = $(target).attr('data-reply-to');
         if ($(target).hasClass('J-forward-replay')) {
             actionBtnTxt = '转发';
+            actionType = 'forward';
         }
         var ft = this.compiled_tpl['msgFt'].render({
-            'actionBtnTxt': actionBtnTxt
+            'actionBtnTxt': actionBtnTxt,
+            'actionType': actionType,
+            'replyTo': replyTo
         });
         var itemWrap = $(target).parents('.follow_list');
         var id = itemWrap.attr("data-id");
@@ -346,6 +351,8 @@ Tuitui.messageView = Backbone.View.extend({
         var ft = msgItem.find('.msg-ft');
         var textarea = msgItem.find('textarea');
         var inputVal = textarea.val();
+        var replyTo = $(target).attr('data-reply-to');
+        var replyContent = $(target).parents('.follow_list').find('.userdata').text();
         var params;
         if (inputVal === "") {
             alert("请填写评论内容");
@@ -358,8 +365,9 @@ Tuitui.messageView = Backbone.View.extend({
 
         getApi('blog', 'setReply', {
             'bid': msgItem.attr('data-bid'),
-            'inputs': _.escape(inputVal),
-            'muid': msgItem.attr('data-muid')
+            'inputs': '@'+replyTo+':'+inputVal,
+            'repcontent' : replyContent,
+            'repuid': msgItem.attr('data-muid')
         }, function(resp) {
             if (resp.status == '1') {
                 ft.hide();

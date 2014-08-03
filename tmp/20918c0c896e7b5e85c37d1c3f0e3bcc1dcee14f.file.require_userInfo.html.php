@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-03 12:01:18
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-04 00:36:02
          compiled from "tplv2/require_userInfo.html" */ ?>
-<?php /*%%SmartyHeaderCode:210017780053ddb40e2d3f11-42321308%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:14823656653de64f22aca68-54399978%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '20918c0c896e7b5e85c37d1c3f0e3bcc1dcee14f' => 
     array (
       0 => 'tplv2/require_userInfo.html',
-      1 => 1407038470,
+      1 => 1407080621,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '210017780053ddb40e2d3f11-42321308',
+  'nocache_hash' => '14823656653de64f22aca68-54399978',
   'function' => 
   array (
   ),
@@ -44,8 +44,10 @@ $_smarty_tpl->decodeProperties(array (
 			<button class="J-attention J-follow" data-uid="<?php echo $_smarty_tpl->getVariable('user')->value['uid'];?>
 ">加关注</button>
 			<?php }?>
+			<?php if ($_SESSION['uid']!=$_smarty_tpl->getVariable('user')->value['uid']){?>
 			<a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'pm','a'=>'detail','uid'=>$_smarty_tpl->getVariable('user')->value['uid']),$_smarty_tpl);?>
 " class="J-msg" target="_blank">发私信</a>
+			<?php }?>
 		</div>
 	</div>
 	<div class="user-data">

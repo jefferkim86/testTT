@@ -58,18 +58,17 @@ class blog extends top
 	//获取我关注的用户feeds
 	function followfeeds(){
 		$followuid =  spClass('db_follow')->getFollowUid($this->uid);
-		if($followuid){
+		$followuid = empty($followuid) ? $this->uid : $followuid.','.$this->uid;
 			
-			$sql = "SELECT b. * , k.id AS likeid  ,m.username,m.domain
-					FROM `".DBPRE."blog` AS b LEFT JOIN `".DBPRE."likes` AS k ON ( b.bid = k.bid AND k.uid ='$this->uid' )
-					LEFT JOIN `".DBPRE."member`  as m on b.uid = m.uid where b.open = 1";
-			$sql .= " and b.uid in ($followuid,$this->uid) and b.open=1 ORDER BY b.time desc";
-			$data['blog'] = spClass('db_blog')->spPager($this->spArgs('page',1),10)->findSql($sql);
-			$data['page'] = spClass('db_blog')->spPager()->getPager();
-			unset($data['page']['all_pages']);
-			if(!empty($data['blog'])){
-				$data['blog'] = $this->translate_feed($data['blog']);
-			}
+		$sql = "SELECT b. * , k.id AS likeid  ,m.username,m.domain
+				FROM `".DBPRE."blog` AS b LEFT JOIN `".DBPRE."likes` AS k ON ( b.bid = k.bid AND k.uid ='$this->uid' )
+				LEFT JOIN `".DBPRE."member`  as m on b.uid = m.uid where b.open = 1";
+		$sql .= " and b.uid in ($followuid) and b.open=1 ORDER BY b.time desc";
+		$data['blog'] = spClass('db_blog')->spPager($this->spArgs('page',1),10)->findSql($sql);
+		$data['page'] = spClass('db_blog')->spPager()->getPager();
+		unset($data['page']['all_pages']);
+		if(!empty($data['blog'])){
+			$data['blog'] = $this->translate_feed($data['blog']);
 		}
 		$this->api_success($data);
 	}
@@ -524,6 +523,7 @@ class blog extends top
 		//如果显示全部则把more改成0
 		if($split != 1){
 			$d['show_reply'] = 1; //展开评论
+			$d['more'] = 0;
 		}
 		
 		//$d['attr']['type_name'] = $d['type_name'];

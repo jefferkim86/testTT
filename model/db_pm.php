@@ -29,11 +29,17 @@ class db_pm extends spModel
 	function pminfo($uid,$touid,$args){
 		$data = array();
 		$page = isset($args['page']) ? $args['page'] : 1;
+		$page_size = isset($args['page_size']) ? $args['page_size'] : 5;
+		$sql_total = "SELECT count(*) FROM `".DBPRE."pm` AS p WHERE p.uid = '$uid' and p.touid = $touid or p.uid = '$touid' and p.touid = $uid and (status > '$uid' or status < '$uid')";
+		
+		$total = $this->findCount("uid = '$uid' and touid = $touid or uid = '$touid' and touid = $uid and (status > '$uid' or status < '$uid')");
+		$page_data = spPager::pageTool($total, $page, $page_size);
+		
 		$column = 'p.id,p.uid,p.touid,m.username as tousername, m.domain as todoman,p.num as pmnum,p.info,p.time';
 		$sql = "SELECT $column FROM `".DBPRE."pm` AS p LEFT JOIN `".DBPRE."member` AS m ON p.uid = m.uid 
-				WHERE p.uid = '$uid' and p.touid = $touid or p.uid = '$touid' and p.touid = $uid and (status > '$uid' or status < '$uid') order by p.time desc ";
-		$data['data'] = $this->spPager($page,5)->findSql($sql);
-		$data['page'] = $this->spPager()->getPager();
+				WHERE p.uid = '$uid' and p.touid = $touid or p.uid = '$touid' and p.touid = $uid and (status > '$uid' or status < '$uid') order by p.time desc limit {$page_data['offset']},$page_size";
+		$data['data'] = $this->findSql($sql);
+		$data['page'] = $page_data['page_data'];
 		return $data;
 	}
 	

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-03 11:42:46
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-04 01:23:34
          compiled from "tplv2/require_sider.html" */ ?>
-<?php /*%%SmartyHeaderCode:59993050853ddafb66ccfb9-09259854%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:22048558753de701671dc25-29917361%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0bb71f38ec48f4c0527c2092450118f8bd1842e1' => 
     array (
       0 => 'tplv2/require_sider.html',
-      1 => 1407037335,
+      1 => 1407086612,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '59993050853ddafb66ccfb9-09259854',
+  'nocache_hash' => '22048558753de701671dc25-29917361',
   'function' => 
   array (
   ),
@@ -168,6 +168,13 @@ if ($_smarty_tpl->_count($_from) > 0){
 	</div>
 	
 
+	
+	
+
+
+
+
+
 	<div class="sider-mod sider-menu mt20">
 		<ul class="menu-list">
 			<li <?php echo $_smarty_tpl->getVariable('myfollow_current')->value;?>
@@ -182,51 +189,48 @@ if ($_smarty_tpl->_count($_from) > 0){
 "><span>我的私信</span></a></li>
 		</ul>
 	</div>
+
+
+
+
+
 	<div class="sider-mod recommend mt20 clearfix">
        <div class="hd"><h3>推荐给您的用户</h3></div>
        <div class="bd">
-           <ul class="recommend-list clearfix">
-           		<li>
-           			<div class="logo">
-           				<img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/image/side-logo.png" alt=""/>
-           			</div>
-           			<div class="info">
-           				<h4>戴眼镜的男人</h4>
-						<button class="J-follow followed" data-uid="1">取消关注</button>
-           			</div>
-           		</li>
-           		<li>
-           			<div class="logo">
-           				<img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/image/side-logo.png" alt=""/>
-           			</div>
-           			<div class="info">
-           				<h4>戴眼镜的男人</h4>
-						<button class="J-follow" data-uid="2">加关注</button>
-           			</div>
-           		</li>
-           		<li>
-           			<div class="logo">
-           				<img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/image/side-logo.png" alt=""/>
-           			</div>
-           			<div class="info">
-           				<h4>戴眼镜的男人</h4>
-						<button class="J-follow" data-uid="3">加关注</button>
-           			</div>
-           		</li>
+           <ul class="recommend-list clearfix" id="J-siderRecommend">
+           		
+           		
 
            </ul>
            <div class="ft">
-           	 <a href="#" class="change">换一换</a>
+           	 <a href="#" class="change J-recommedChange">换一换</a>
            </div>
            
        </div>
     </div>
 	
 
-	<div class="sider-mod TA-attention mt20 clearfix">
+<script type="text/template" id="J-recommendItem">
+<li>
+	<div class="logo">
+		<a href="${h_url}" target="_blank"><img src="${avatar}" alt="${username}"/></a>
+	</div>
+	<div class="info">
+		<h4><a href="${h_url}" target="_blank">${username}</a></h4>
+		<button class="J-follow" data-uid="${uid}">加关注</button>
+	</div>
+</li>
+</script>
+
+           		
+
+
+
+
+
+
+
+	<!-- <div class="sider-mod TA-attention mt20 clearfix">
 		<div class="hd">
 			<h3>他关注的</h3>
 			<a href="#" class="more">全部</a>
@@ -245,7 +249,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 			<?php }} ?>
 			</ul>
 		</div>
-	</div>
+	</div> -->
 
 
 

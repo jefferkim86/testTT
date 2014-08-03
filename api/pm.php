@@ -22,6 +22,10 @@ class pm extends top
 				$d['h_img'] = avatar(array('uid'=>$d['touid'],'size'=>'middle'));
 				$d['time'] = ybtime(array('time'=>$d['time']));
 			}
+			
+			if ($rs['pm_count'] > 0) {
+				spClass('db_pm')->updateField(array('touid'=>$this->uid), 'isnew', 0);
+			}
 			$this->api_success($rs);
 		}
 		$this->api_success('');
