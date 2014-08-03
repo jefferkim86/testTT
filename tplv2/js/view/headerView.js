@@ -41,6 +41,7 @@ Tuitui.headerView = Backbone.View.extend({
                 var list = resp.body;
                 if(list.length == 0){
                     $("#J-siderRecommend").hide();
+                    return;
                 }
                 for (var i = 0; i < list.length; i++) {
                     list[i].avatar = urlpath + list[i].h_img;
