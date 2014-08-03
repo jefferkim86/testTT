@@ -21,7 +21,7 @@
 {literal}
     <div class="feed feed-${feedType} clearfix {@if forwardData}is-forward{@/if}" id="J-blog-${bid}">
         <div class="feed-avatar">
-            <a class="blog-avatar" href="${avatarHref}" title="FashionDes">
+            <a class="blog-avatar" href="${avatarHref}" target="_blank" title="${username}">
                 <img src="${avatar}" alt=""/>
             </a>
         </div>
@@ -110,7 +110,7 @@
   <div class="feed-text-cont clearfix">
     <h3 class="feed-text-title"><a href="${feedLink}"  target="_blank">${feedTitle}</a></h3>
     <div class="feed-text-p clearfix">
-      {@if pic}<div class="p-img"><img src="${pic}"/></div>{@/if}${feedContent}
+      {@if pic}<a href="${feedLink}" target="_blank"><div class="p-img"><img src="${pic}"/></div></a>{@/if}$${feedContent}
       {@if needFeedMore}<span class="feed-more"><a href="${feedLink}" target="_blank">全部信息...</a></span>{@/if}
     </div>
    </div>
@@ -147,7 +147,7 @@
 {literal}
     <div class="feed-good-cont clearfix">
        <div class="feed-good-desc clearfix">
-              <p>${feedContent}{@if needFeedMore}<span class="feed-more"><a href="${feedLink}" target="_blank">全部信息...</a></span>{@/if}</p>
+              <p>$${feedContent}{@if needFeedMore}<span class="feed-more"><a href="${feedLink}" target="_blank">全部信息...</a></span>{@/if}</p>
        </div>
        <div class="feed-good-info">
           <div class="feed-good-img">
@@ -164,8 +164,7 @@
                     {@if price}
                     <li class="price"><span>${priceTxt}：</span>
                     <b>${price}元</b></li>{@/if}
-                    {@if deliveryFees}
-                    <li class="deliveryFees"><span>运费：${deliveryFees}</span>包邮</li>{@/if}
+                    
                   </ul>
                </div>
                <a href="${producturl}" target="_blank" class="view-good">查看宝贝</a>

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-02 22:00:20
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-03 14:35:23
          compiled from "tplv2/user_setting.html" */ ?>
-<?php /*%%SmartyHeaderCode:86655078153dceef4882271-76739991%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:134856045353ddd82b822266-34351761%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '74f05d2ba81cd63b42a25ab2f745e8451e1a730c' => 
     array (
       0 => 'tplv2/user_setting.html',
-      1 => 1406988017,
+      1 => 1407047722,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '86655078153dceef4882271-76739991',
+  'nocache_hash' => '134856045353ddd82b822266-34351761',
   'function' => 
   array (
   ),
@@ -24,33 +24,6 @@ $_template->assign('addcss','yes');$_template->assign('editor','yes'); echo $_te
 <script>
 $(document).ready(function(){
 
- // var jUpload=$('#upload_photo input');
-	// 	jUpload.mousedown().change(function(){
-	// 		var $this=$(this),sExt=$this.attr('ext'),$prev=$this.prev();
-	// 		if($this.val().match(new RegExp('\.('+sExt.replace(/,/g,'|')+')$','i'))){
-	// 			$('#uploading').toggle();
-	// 			var upload=new textbody.html4Upload(this,urlpath+'/index.php?c=user&a=upavatar',function(sText){
-	// 				$('#uploading').toggle();
-	// 				var data=Object,bOK=false;
-				
-	// 				try{data=eval('('+sText+')');}catch(ex){alert(sText)};
-	// 				if(!data.err){
-	// 					var uid = $('#big_face').attr('rel');						
-	// 					$('#big_face').attr('src',urlpath+"/avatar.php?uid="+uid+"&size=big&random="+new Date());
-	// 					$('#middle_face').attr('src',urlpath+"/avatar.php?uid="+uid+"&size=middle&random="+new Date());
-	// 					$('#small_face').attr('src',urlpath+"/avatar.php?uid="+uid+"&size=small&random="+new Date());
-	// 					tips('头像更新成功');
-						
-	// 				}else{
-	// 					tips(data.err);
-	// 				}
-	// 			});
-				
-	// 			upload.start();
-	// 		}
-	// 		else alert('请上传'+sExt+'格式文件');
-	// 	});
-		
 		
 /*保存个人资料修*/
 	$('#submit_baseinfo').click(function(){
@@ -122,13 +95,7 @@ $(document).ready(function(){
 <div id="user_index" class="clearfix" style="height:650px;">
 
 	<div class="page-left">
-		<div class="user-info">
-			<div class="avatar">
-				<img src="http://localhost/tuitui<?php echo avatar(array('uid'=>$_SESSION['uid'],'size'=>'big','time'=>1),$_smarty_tpl);?>
-" alt="">
-			</div>
-			<h3 class="user-name">大黑淘外贸</h3>
-		</div>
+		
 		<div id="user_tab">
 	        <li id="tab_person" class="curr">
 	        	<a href="javascript:void(0)" onclick="SelectPerson(this)">个人资料</a>
@@ -164,7 +131,7 @@ $(document).ready(function(){
 				<div class="user_left">我的昵称</div>
 			    <div class="user_right">
 				    <input type="text" name="niname" id="niname" class="iptni"  value="<?php echo $_smarty_tpl->getVariable('users')->value['username'];?>
-"><span class="info">名称唯一,可修改</span>
+"><span class="info">昵称唯一，可修改</span>
 				</div>
 			</div>
 			
@@ -175,7 +142,7 @@ $(document).ready(function(){
 /</span>
 					 <input type="text" name="domain" class="domain" id="domain" value="<?php echo $_smarty_tpl->getVariable('users')->value['domain'];?>
 ">
-					 <span class="info">名称唯一,可修改</span>
+					 <span class="info">域名唯一，可修改</span>
 				</div>
 			</div>
 			
@@ -215,11 +182,12 @@ $(document).ready(function(){
 						<div class="upfile"> 
 							<span class="pop-foot-corner"><s class="outter"></s></span>
 					      	<input id="fileupload" size="1" type="file" name="filedata" ext="jpg|jpeg|png"/>
+					      	<div class="fileDataImg">选择文件</div>
 						</div>
 						<div class="tip">支持jpg、gif、png、bmp格式</div>
-						<div class="progress"> 
+						<!-- <div class="progress"> 
 							<span class="bar"></span><span class="percent">0%</span > 
-						</div>
+						</div> -->
 					    <div class="files"></div>
 					    <div id="preview-avatar">
 					    	<img src="<?php echo avatar(array('uid'=>$_smarty_tpl->getVariable('users')->value['uid'],'size'=>'big'),$_smarty_tpl);?>

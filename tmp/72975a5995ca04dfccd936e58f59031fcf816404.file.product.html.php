@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-02 11:54:17
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-03 11:11:32
          compiled from "tplv2/models/product.html" */ ?>
-<?php /*%%SmartyHeaderCode:32090033653dc60e9bd5c06-88323080%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:32343413453dda86477c894-62860964%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '72975a5995ca04dfccd936e58f59031fcf816404' => 
     array (
       0 => 'tplv2/models/product.html',
-      1 => 1406883781,
+      1 => 1407035462,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '32090033653dc60e9bd5c06-88323080',
+  'nocache_hash' => '32343413453dda86477c894-62860964',
   'function' => 
   array (
   ),
@@ -85,7 +85,7 @@ $(document).ready(function(){
                     <input type="hidden" name="id" value="<?php echo $_smarty_tpl->getVariable('blog')->value['bid'];?>
 " />
 				</div>
-				<div class="tags clearfix" id="tags">
+				<div class="tags clearfix" id="tags" style="display:none;">
 					<label>标签（可不选）</label>
 					<ul class="tag-list">
 						<li tagVal="晒单">晒单</li>
@@ -141,7 +141,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 				<div class="p_area">
 				    <div id="pb-action-holder">
 					    <a href="#" id="submit" class="btn" type="product">发布</a>
-						<a href="#" id="preview" class="btn">预览</a>
+						<!-- <a href="#" id="preview" class="btn">预览</a> -->
 						<a href="#" id="cancel" class="btn">取消</a>
 						<span style="display:none;" id="pb-submiting-tip">正在保存</span>
 					</div>
@@ -172,7 +172,7 @@ if ($_smarty_tpl->_count($_from) > 0){
                                 <del>${oprice}</del>元
                             </li>{@/if}
                             {@if price}
-                            <li class="price"><span>促销：</span>
+                            <li class="price"><span>价格：</span>
                             <b>${price}元</b></li>{@/if}
                             {@if deliveryFees}
                             <li class="deliveryFees"><span>运费：${deliveryFees}</span>包邮</li>{@/if}

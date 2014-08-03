@@ -980,7 +980,7 @@ background: #fff;
 	margin-left: 7px;
 }
 .follow_list .userinfo .userdata .blogs b{
-	color: #ff7b69;
+	/*color: #ff7b69;*/
 }
 .follow_list .userinfo .desc{
 	color: #999999;
@@ -1083,34 +1083,9 @@ background: #fff;
 	width: 220px;
 	margin: 0 auto;
 }
-.user-info {
-	margin-top: 30px;
+#user_tab {
+	margin-top: 10px;
 }
-.user-info .avatar{
-	width: 120px;
-	margin: 0 auto
-}
-.user-info .user-name{
-	padding-top: 20px;
-	padding-bottom: 35px;
-	width: 220px;
-	height: 25px;
-	text-align: center;
-	font-size: 14px;
-	color: #222222;
-	line-height: 25px;
-	margin-bottom: 10px;
- border-bottom: 1px solid #eeeeee;
-
-}
-.user-info .avatar img {
-	width: 120px;
-	height: 120px;
-	-moz-border-radius: 120px;
-	-webkit-border-radius: 120px;
-	border-radius: 120px;
-}
-
 #user_tab li { 
 width: 220px;
 height: 60px; 
@@ -1222,6 +1197,7 @@ margin:20px 30px 0 30px;
 	height: 120px;
 	background: #eeeeee;
 	border: none;
+	font-size: 14px;
 }
 .con_table .host{
 	position: absolute;
@@ -1248,7 +1224,13 @@ margin:20px 30px 0 30px;
 .con_table .check_con label { float:left; margin:0 30px 0 0; cursor:pointer; }
 .con_table .check_con label input { margin:0; padding:0; }
 
-.con_table .iptname { background-color:#fff; border:none; height:25px; line-height:25px; font-size:14px; }
+.con_table .iptname { 
+	padding:0;
+	margin:0;
+	padding-left: 10px;
+	background-color:#fff;
+	 border:none; 
+	 height:50px; line-height:50px; font-size:14px; }
 .con_table .ipt { background:url(../image/comm/btn_bg.png) repeat-x 0 -240px; height:25px; width:200px; border:1px #ccc solid;  line-height:25px;}
 
 .con_table .qq_connenct { width:70px; height:30px; padding-left:30px; background:url(../image/login/openconnent_login.png) no-repeat 0 0; overflow:hidden; display:block; float:left; margin-left:30px; line-height:30px; margin-top:-3px; }
@@ -1419,6 +1401,9 @@ margin:20px 30px 0 30px;
 	background: #eeeeee;
 }
 #conHead .upfile #fileupload{
+	position: absolute;
+	top: 20px;
+	left: 20px;
 	padding:0;
 	margin:0;
 	width: 90px;
@@ -1427,6 +1412,26 @@ margin:20px 30px 0 30px;
 	-moz-border-radius: 2px;
 	border-radius: 2px; 
 	background: #fff;
+	filter:alpha(opacity=0);
+	-moz-opacity:0; 
+	opacity:0; 
+	z-index: 2;
+}
+#conHead .upfile .fileDataImg{
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	z-index: 1;
+	line-height: 40px;
+	text-align: center;
+	width: 90px;
+	height: 40px;
+	background: #fff;
+	color: #555555;
+	font-size: 14px;
+	-moz-borderra-radius: 2px;
+	-webkit-border-radius:2px;
+	border-radius: 2px;
 }
 #conHead .pop-foot-corner{
 
@@ -1446,7 +1451,16 @@ margin:20px 30px 0 30px;
 	margin-top: 15px;
 }
 
-
+#conHead .adjust .Intercbtn{
+	padding: 0;
+	margin: 0;
+	line-height: 40px;
+	text-align: center;
+	font-size: 14px;
+	color: #fff;
+	background: #6bbec6;
+	cursor: pointer;
+}
 /*页面加载*/
 .feedajax a { width:510px; margin:20px 0 30px 125px; line-height:40px; height:40px; border:1px #bbb solid; float:left; text-align:center; background:url(../image/comm/nav_bg.png) repeat-x 0 0; color:#666; text-shadow:0px 1px 0px #fff; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; -moz-box-shadow:0px 1px 0px #fff; -webkit-box-shadow:0px 1px 0px #fff; box-shadow:0px 1px 0px #fff; display:block; }
 .feedajax a:hover { background-color:#e3e3e3; background-image:none; }
@@ -1914,11 +1928,10 @@ dl,dt,dd {
 	margin-top: 30px;
 }
 #tool .notice #notice {
-	float: left;
-
+	
 }
 #tool .notice #now_notice {
-	float: left;
+	float: right;
 	background: #ff7b69;
 	color: #fff;
 	width: 18px;

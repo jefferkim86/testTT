@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-02 21:11:18
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-03 12:23:12
          compiled from "tplv2/require_header.html" */ ?>
-<?php /*%%SmartyHeaderCode:210558799353dce3769a3cc3-62639981%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:86811331353ddb930cfed21-55743743%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9d70675b71261ad2692595668063ae27729008f2' => 
     array (
       0 => 'tplv2/require_header.html',
-      1 => 1406985036,
+      1 => 1407039768,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '210558799353dce3769a3cc3-62639981',
+  'nocache_hash' => '86811331353ddb930cfed21-55743743',
   'function' => 
   array (
   ),
@@ -58,18 +58,9 @@ $_smarty_tpl->decodeProperties(array (
 "/></a></div>
 		    <div class="my-attention">
 		    	<a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'index'),$_smarty_tpl);?>
-">关注的人</a>
+">我关注的</a>
 		    </div>
-			<!-- <div id="nav">
-			    <li <?php if ($_smarty_tpl->getVariable('CurrentModule')->value=='index'){?>class="current"<?php }?>><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'index'),$_smarty_tpl);?>
-">首页</a></li>
-				<li <?php if ($_smarty_tpl->getVariable('CurrentModule')->value=='recommend'){?>class="current"<?php }?>><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'recommend'),$_smarty_tpl);?>
-">推荐</a></li>
-				<li <?php if ($_smarty_tpl->getVariable('CurrentModule')->value=='discover'){?>class="current"<?php }?>><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'discovery'),$_smarty_tpl);?>
-">发现</a></li>
-				<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'site','a'=>'licenses'),$_smarty_tpl);?>
-">授权</a></li>
-			</div> -->
+		
 			<div id="nav">
 				<div class="nav-search menu_sc" id="search">
 					<input type="button" class="btn" value="搜索" onclick="user_search()"/>
@@ -105,8 +96,8 @@ if ($_smarty_tpl->_count($_from) > 0){
 					<div class="notice">
 						<a href="javascript:void(0);" title="通知">
 				    		<div class="notice-block">
-				    			<span id="notice">消息</span>
-				    			<span id="now_notice" class="msg_all_count" style="display:none;"></span>
+				    			<span id="notice">消息<span id="now_notice" class="msg_all_count" style="display:none;"></span></span>
+				    			
 				    		</div>
 				    	</a>
 				    	<div class="menu notice_menu" style="display:none;">
@@ -140,42 +131,6 @@ if ($_smarty_tpl->_count($_from) > 0){
 						</div>
 					</div>
 					
-					
-					
-
-
-				    <!-- <li class="notice">
-				    	<a href="javascript:void(0);" title="通知">
-				    		<span id="notice"></span>
-				    	</a><span id="now_notice"></span>
-					<div id="f_notice" class="notice_bg" style="display:none;">
-				        <div class="f_corner"></div>
-					    <div class="notice_title">
-						    <div class="notice_right"><a href="javascript:;" onClick="clear_notice_all()">全部清除</a></div>
-						    <div class="notice_left">通知<span>0</span></div>
-						</div>
-						<div class="notice_con">
-						    <div class="loading">加载通知中</div>
-							
-							<div class="notice_system"></div>
-							
-							<div class="notice_replyarea"></div>
-							<div class="notice_followarea"></div>
-							<div class="nonotice">暂无通知</div>
-							
-						</div>
-					</div>
-					</li> -->
-					
-					<!-- <li class="pm"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'pm'),$_smarty_tpl);?>
-" title="私信"><span></span></a><span id="now_pm"></span></li>
-					<?php if ($_smarty_tpl->getVariable('yb')->value['invite_switch']!=0){?><li class="invite"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'invite','a'=>'myintval'),$_smarty_tpl);?>
-" title="邀请"><span></span></a></li><?php }?>
-					<li class="setting"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'setting'),$_smarty_tpl);?>
-" title="设置"><span></span></a></li>
-					<?php if ($_SESSION['admin']==1){?><li class="admin"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'admin'),$_smarty_tpl);?>
-" target="_blank" title="后台"><span></span></a></li><?php }?>
-					<li class="quit"><a href="#nogo" id="logOut" title="退出"><span></span></a></li> -->
 					
 
 				</div>

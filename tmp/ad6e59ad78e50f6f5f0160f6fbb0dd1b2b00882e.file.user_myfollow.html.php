@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-02 20:17:10
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-03 11:51:04
          compiled from "tplv2/user_myfollow.html" */ ?>
-<?php /*%%SmartyHeaderCode:79642403953dcd6c6970940-96939518%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:45822333653ddb1a8752fc9-66971047%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ad6e59ad78e50f6f5f0160f6fbb0dd1b2b00882e' => 
     array (
       0 => 'tplv2/user_myfollow.html',
-      1 => 1406883503,
+      1 => 1407037863,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '79642403953dcd6c6970940-96939518',
+  'nocache_hash' => '45822333653ddb1a8752fc9-66971047',
   'function' => 
   array (
   ),
@@ -33,21 +33,16 @@ function do_run(ty){
 	if(ty == 'follow'){
 		$('#curr_myfollow').removeClass('current');
 		$('#follow_my').addClass('current');
-
-		}else{
-			$('#curr_myfollow').addClass('current');
-			$('#follow_my').removeClass('current');
-		}
-
-		 getApi('user', 'myfollow', {
-            'type':ty
-        }, function(d) {
-            addto_follow(d,ty);
-        });
+	}else{
+		$('#curr_myfollow').addClass('current');
+		$('#follow_my').removeClass('current');
+	}
+	 getApi('user', 'myfollow', {
+        'type':ty
+    }, function(d) {
+        addto_follow(d,ty);
+    });
 	
-		// $.paging({ctn1:"#follow_area",ctn2:"#paging",yc:"user",ym:"myfollow",showpage:true,yprm:{type:ty},ftype:function(d){
-		// 	addto_follow(d,ty);
-		// }});
 }
 
 
@@ -90,7 +85,7 @@ function do_run(ty){
 			<span>(${time}关注)</span>
 		</li>
 		<li class="userdata">
-			<span class="blogs">推推:<b>${num}</b></span>
+			<span class="blogs">动态:<b>${num}</b></span>
 			<span>关注:<b>${likenum}</b></span>
 			<span class="fans">粉丝:<b>${flow}</b></span>
 		</li>
@@ -130,26 +125,32 @@ function do_run(ty){
 /js/view/userView.js"></script>
 
 <script type="text/javascript">
+
 //添加到 follow
 function addto_follow(d,type){
-		$('#follow_area').html('');
-		$('#feed_loading').hide();
-		var tpl = juicer($("#J-followList").html());
-		var lastCls = 'last-li';
-		if(d.body.data.length >0){
-			for(var i=0,list = d.body.data;i<list.length;i++){
-				if(i == list.length-1){
-	                list[i].last = lastCls;
-	            }else{
-	                list[i].last = '';
-	            }
-				list[i].h_img = urlpath+list[i].h_img;
-				var html = tpl.render(list[i])
-				$('#follow_area').append($(html));
-			}
-		}else{
-			$('#follow_font').show();
+	$('#follow_area').html('');
+	$('#feed_loading').hide();
+	var tpl = juicer($("#J-followList").html());
+	var lastCls = 'last-li';
+	if(d.body.data.length >0){
+		for(var i=0,list = d.body.data;i<list.length;i++){
+			if(i == list.length-1){
+                list[i].last = lastCls;
+            }else{
+                list[i].last = '';
+            }
+			list[i].h_img = urlpath+list[i].h_img;
+			var html = tpl.render(list[i])
+			$('#follow_area').append($(html));
 		}
+	}else{
+		var noItemTxt = '还没有关注任何用户';
+		if(type){
+			noItemTxt = '还没有任何粉丝';
+		}
+		$("#follow_font .no-item").css({'width':200}).text(noItemTxt);
+		$('#follow_font').show();
+	}
 }
 	$(document).on("mouseover",".follow_list",function(e){
 		$(this).addClass('followListCur');
@@ -161,6 +162,7 @@ function addto_follow(d,type){
 	});
 
 	new Tuitui.userView();
+
 </script>
 <?php $_template = new Smarty_Internal_Template("require_footer.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>

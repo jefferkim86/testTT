@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-02 22:19:23
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-03 11:52:35
          compiled from "tplv2/require_feedTemplate.html" */ ?>
-<?php /*%%SmartyHeaderCode:6854316153dcf36b073f23-09553600%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:106435822153ddb20395e064-99747409%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '350be01eeee6d1b227e428bdc9ce144dbf95710b' => 
     array (
       0 => 'tplv2/require_feedTemplate.html',
-      1 => 1406989161,
+      1 => 1407037953,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '6854316153dcf36b073f23-09553600',
+  'nocache_hash' => '106435822153ddb20395e064-99747409',
   'function' => 
   array (
   ),
@@ -40,7 +40,7 @@ $_smarty_tpl->decodeProperties(array (
 
     <div class="feed feed-${feedType} clearfix {@if forwardData}is-forward{@/if}" id="J-blog-${bid}">
         <div class="feed-avatar">
-            <a class="blog-avatar" href="${avatarHref}" title="FashionDes">
+            <a class="blog-avatar" href="${avatarHref}" target="_blank" title="${username}">
                 <img src="${avatar}" alt=""/>
             </a>
         </div>
@@ -129,7 +129,7 @@ $_smarty_tpl->decodeProperties(array (
   <div class="feed-text-cont clearfix">
     <h3 class="feed-text-title"><a href="${feedLink}"  target="_blank">${feedTitle}</a></h3>
     <div class="feed-text-p clearfix">
-      {@if pic}<div class="p-img"><img src="${pic}"/></div>{@/if}${feedContent}
+      {@if pic}<a href="${feedLink}" target="_blank"><div class="p-img"><img src="${pic}"/></div></a>{@/if}$${feedContent}
       {@if needFeedMore}<span class="feed-more"><a href="${feedLink}" target="_blank">全部信息...</a></span>{@/if}
     </div>
    </div>
@@ -166,7 +166,7 @@ $_smarty_tpl->decodeProperties(array (
 
     <div class="feed-good-cont clearfix">
        <div class="feed-good-desc clearfix">
-              <p>${feedContent}<span class="feed-more"><a href="${feedLink}" target="_blank">全部信息...</a></span></p>
+              <p>$${feedContent}{@if needFeedMore}<span class="feed-more"><a href="${feedLink}" target="_blank">全部信息...</a></span>{@/if}</p>
        </div>
        <div class="feed-good-info">
           <div class="feed-good-img">
@@ -183,8 +183,7 @@ $_smarty_tpl->decodeProperties(array (
                     {@if price}
                     <li class="price"><span>${priceTxt}：</span>
                     <b>${price}元</b></li>{@/if}
-                    {@if deliveryFees}
-                    <li class="deliveryFees"><span>运费：${deliveryFees}</span>包邮</li>{@/if}
+                    
                   </ul>
                </div>
                <a href="${producturl}" target="_blank" class="view-good">查看宝贝</a>

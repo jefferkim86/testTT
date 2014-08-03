@@ -12,7 +12,7 @@
 		{if $usersign}<div class="desc">{$usersign}</div>{/if}
 		<div class="handle">
 			{if $isfollow == 1}
-			<button class="J-attention J-follow followed" data-uid="{$user.uid}">已关注</button>
+			<button class="J-attention J-follow followed" data-uid="{$user.uid}">取消关注</button>
 			{else if $isfollow == 0}
 			<button class="J-attention J-follow" data-uid="{$user.uid}">加关注</button>
 			{/if}

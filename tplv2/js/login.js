@@ -1,23 +1,23 @@
 $(document).ready(function() {
 	$(":password").dPassword();
 	$("#wrap").append("<div id='titlep'></div>");
-	$(".tip").each(function() {
-		var tipObj = $("#titlep");
-		var _this = $(this);
-		tipObj_height = tipObj.height();
-		_this.hover(function() {
-				p = $(this).offset();
-				pTop = p.top - tipObj_height;
-				pLeft = p.left;
-				tipObj.html(_this.attr("title")).css({
-					"top": pTop,
-					"left": pLeft
-				}).show()
-			},
-			function() {
-				tipObj.hide()
-			})
-	});
+	// $(".tip").each(function() {
+	// 	var tipObj = $("#titlep");
+	// 	var _this = $(this);
+	// 	tipObj_height = tipObj.height();
+	// 	_this.hover(function() {
+	// 			p = $(this).offset();
+	// 			pTop = p.top - tipObj_height;
+	// 			pLeft = p.left;
+	// 			tipObj.html(_this.attr("title")).css({
+	// 				"top": pTop,
+	// 				"left": pLeft
+	// 			}).show()
+	// 		},
+	// 		function() {
+	// 			tipObj.hide()
+	// 		})
+	// });
 	$(".input").focus(function() {
 		$(this).addClass("curr")
 	}).blur(function() {

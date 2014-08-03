@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-01 16:43:07
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-03 11:12:35
          compiled from "tplv2/models/word.html" */ ?>
-<?php /*%%SmartyHeaderCode:200381707653db531b3176e6-48338059%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:15538026453dda8a3097ed3-89645150%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'e7c6a44d39e063218c03017c0a48cc033d225377' => 
     array (
       0 => 'tplv2/models/word.html',
-      1 => 1406882572,
+      1 => 1407035535,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '200381707653db531b3176e6-48338059',
+  'nocache_hash' => '15538026453dda8a3097ed3-89645150',
   'function' => 
   array (
   ),
@@ -26,44 +26,6 @@ $(document).ready(function(){
 		$.isChange.Set("#title,#textarea");
 		$.isChange.unSet("#form1");
 })
-// $(document).ready(function(){
-// 	   	var jUpload=$('#upload_img input');
-// 		jUpload.mousedown(function(){textbody.saveBookmark();}).change(function(){
-// 			var $this=$(this),sExt=$this.attr('ext'),$prev=$this.prev();
-// 			if($this.val().match(new RegExp('\.('+sExt.replace(/,/g,'|')+')$','i'))){
-// 				$('#submit,#preview,#cancel,#pb-submiting-tip,#uploading,#upload_img').toggle();
-// 				var upload=new textbody.html4Upload(this,urlpath+'/index.php?c=post&a=uploadimg&model=1',function(sText){
-// 					$('#submit,#preview,#cancel,#pb-submiting-tip,#uploading,#upload_img').toggle();
-// 					var data=Object,bOK=false;
-				
-// 					try{data=eval('('+sText+')');}catch(ex){alert(sText)};
-// 					if(!data.err){
-// 						textbody.loadBookmark();
-// 						var urls = data.msg.url.split('||');
-// 						if(urls.length ==2)
-// 						{
-// 							if($('#blog-types').val() == 1){$('#attach').val(urls[0]);}
-// 							textbody.pasteHTML('<a href="'+urls[1]+'"><img src="'+urls[0]+'" class="feedimg" /></a>');
-// 						}else{
-// 							if($('#blog-types').val() == 1){$('#attach').val(data.msg.url);}
-// 							textbody.pasteHTML('<img src="'+data.msg.url+'" class="feedimg" />');
-// 						}
-						
-// 					}else{
-// 						alert(data.err);	
-// 					}
-// 				});
-// 				upload.start();
-// 			}
-// 			else alert('请上传'+sExt+'格式文件');
-// 		});
-		
-	 
-// 		离开页面前提示
-// 		$.isChange.Set("#title,#textarea");
-// 		$.isChange.unSet("#form1");
-
-// });
 </script>
 
 
@@ -132,7 +94,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 					</div>
 				</div>
 				<?php }?>
-				<div class="tags clearfix" id="tags">
+				<div class="tags clearfix" id="tags" style="display:none;">
 					<label>标签（可不选）</label>
 					<ul class="tag-list">
 						<li tagVal="晒单">晒单</li>
@@ -148,7 +110,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 				<div class="p_area">
 				    <div id="pb-action-holder">
 					    <a href="#" id="submit" class="btn" type="word">发布</a>
-						<a href="#" id="preview" class="btn">预览</a>
+						<!-- <a href="#" id="preview" class="btn">预览</a> -->
 						<a href="#" id="cancel" class="btn">取消</a>
 						<span style="display:none;" id="pb-submiting-tip">正在保存</span>
 					</div>

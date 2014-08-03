@@ -502,7 +502,7 @@
     //                         '<div class="hd"></div><div class="bd"></div>';
     artDialog.defaults = {
         content: '<div class="d-loading"><span>loading..</span></div>',
-        title: 'message',
+        title: '系统提示',
         button: null,
         ok: null,
         cancel: null,

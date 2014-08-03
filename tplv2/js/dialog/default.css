@@ -40,7 +40,6 @@ body { _margin:0; _height:100%; }/*IE6 BUG*/
  white-space:nowrap; }
 .d-button { 
 
-	margin-left:15px;
 	 padding: 0 15px; 
 	 cursor: pointer; 
 	 display: inline-block;
@@ -55,7 +54,7 @@ body { _margin:0; _height:100%; }/*IE6 BUG*/
 	text-align: center;
 	font-size: 14px;
  	color: #7f7f7f;
- 	margin-left: 20px;
+ 	margin:0 10px;
  	-webkit-border-radius: 2px;
  	-moz-border-radius: 2px;
  	border-radius: 2px;
@@ -72,8 +71,7 @@ body { _margin:0; _height:100%; }/*IE6 BUG*/
  	-webkit-border-radius: 2px;
  	-moz-border-radius: 2px;
  	border-radius: 2px;
-  background: #00aca0; 
-
+  	background: #00aca0; 
 
 }
 .d-state-highlight:hover { color:#FFF; border-color:#0F3A56; }

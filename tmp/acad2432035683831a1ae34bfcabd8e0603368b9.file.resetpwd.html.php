@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-02 17:14:01
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-03 15:20:30
          compiled from "tplv2/resetpwd.html" */ ?>
-<?php /*%%SmartyHeaderCode:146692427053dcabd9719a14-09697606%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:53600007353dde2be4348e1-91342543%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'acad2432035683831a1ae34bfcabd8e0603368b9' => 
     array (
       0 => 'tplv2/resetpwd.html',
-      1 => 1406970838,
+      1 => 1407050429,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '146692427053dcabd9719a14-09697606',
+  'nocache_hash' => '53600007353dde2be4348e1-91342543',
   'function' => 
   array (
   ),
@@ -47,55 +47,66 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
 "><img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /image/big-logo.png" alt="<?php echo $_smarty_tpl->getVariable('yb')->value['site_title'];?>
 " title="<?php echo $_smarty_tpl->getVariable('yb')->value['site_title'];?>
-" /></a>
+" /><span class="beta"></span></a>
         </div>
 
       
-	
-<!--新-->
+	<form action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'login'),$_smarty_tpl);?>
+" method="post" id="findpwdForm">
+                        <input type="hidden" value="<?php echo $_smarty_tpl->getVariable('callback')->value;?>
+" name="callback">
+                        <input type="hidden" value="" name="formKey">
         <div class="tab-login-reg" id="resetPwd">
             <div class="tab" id="login-reg-tab">
                 <h2>找回密码</h2>
             </div>
             <div class="content clearfix" id="tabContent">
             <?php if ($_smarty_tpl->getVariable('err')->value!=''){?>
-             <div class="login_err in_put">
+             <div class="login_err in_put" style="margin-left:25px;">
                     <?php echo $_smarty_tpl->getVariable('err')->value;?>
 
              </div>
-              <?php }else{ ?>
+            <?php }else{ ?>
                 <?php if ($_smarty_tpl->getVariable('do')->value=='submit'){?>   
-                            
-                <div class="login_pw in_put">
-                    <input type="password" id="password" class="input tip" value="<?php echo $_POST['password'];?>
-" name="password" tabindex="1" title="请输入你的新密码">
-                </div>
-                
-                <div class="login_pw in_put">
-                    <input type="password" id="password2" class="input tip" value="<?php echo $_POST['password'];?>
-" name="password2" tabindex="2" title="请再输入一次你的新密码">
-                </div>
-                
-                <div class="login_btn in_put">
-                    <input type="hidden"  name="token" value="<?php echo $_smarty_tpl->getVariable('token')->value;?>
+                <!-- 重设密码 -->
+                <div class="content-c">
+                    <div class="item">
+                        <label for="email">输入密码</label>
+                        <input type="password" id="password" class="input tip" value="<?php echo $_POST['password'];?>
+" name="password" tabindex="1"/>
+                    </div>
+                    
+                    <div class="item">
+                        <label for="email">重复密码</label>
+                        <input type="password" id="password2" class="input tip" value="<?php echo $_POST['password'];?>
+" name="password2" tabindex="2"/>
+                    </div>
+                    
+                    <div class="item">
+                        <label></label>
+                        <input type="hidden"  name="token" value="<?php echo $_smarty_tpl->getVariable('token')->value;?>
 " />
-                    <input class="subBtn" type="button" name="findpwdSubmit" id="findpwdSubmit"  value="修改密码" tabindex="3" />
+                        <input class="submit-btn" type="button" name="findpwdSubmit" id="findpwdSubmit"  value="修改密码" tabindex="3" />
+                    </div>
+                </div>     
+                <div class="go-logiin">
+                    <div class="line"><span>或</span><hr/></div>
+                    <div class="go-login-btn-wrap">
+                        <a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'login'),$_smarty_tpl);?>
+" class="go-login-btn">立刻登录</a>
+                    </div>
                 </div>
-                
-                <div class="forget_pw in_put r_margin">
+                <div class="forget_pw-tip in_put r_margin">
                     您的请求与<?php echo $_smarty_tpl->getVariable('passtime')->value;?>
 过期,请抓紧修改您的密码
                 </div>
 
 
-            <?php }else{ ?> 
+               <?php }else{ ?> 
+               <!-- 找回密码 -->
                <div id="login">
                    <div class="content-c">
-                    <form action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'login'),$_smarty_tpl);?>
-" method="post" id="findpwdForm">
-                        <input type="hidden" value="<?php echo $_smarty_tpl->getVariable('callback')->value;?>
-" name="callback">
-                        <input type="hidden" value="" name="formKey">
+                    
                         <div class="item email">
                             <label for="email">注册邮箱</label>
                             <input type="text" id="email" name="email" class="input tip" autocomplete="off" tabindex="1" title="请输入邮箱" value="请输入您的email地址,系统将发送密码找回邮件"/>
@@ -111,7 +122,7 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
                             <input class="submit-btn" type="button" name="findpwdSubmit" id="findpwdSubmit"  value="发送" />
                         </div>
                         
-                     </form>
+                 
                     </div>
                 </div>
                 <div class="go-logiin">
@@ -124,6 +135,23 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
             <?php }?>
 
         <?php }?>
+
+
+
+
+
+
+
+            
+
+
+
+    </form>
+
+
+
+
+
     </div>
   </div>
 	<?php $_template = new Smarty_Internal_Template("require_footer.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);

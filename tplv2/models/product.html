@@ -57,7 +57,7 @@ $(document).ready(function(){
 					<textarea name="textarea" id="textarea" style="display:none;">{$body.content}</textarea>
                     <input type="hidden" name="id" value="{$blog.bid}" />
 				</div>
-				<div class="tags clearfix" id="tags">
+				<div class="tags clearfix" id="tags" style="display:none;">
 					<label>标签（可不选）</label>
 					<ul class="tag-list">
 						<li tagVal="晒单">晒单</li>
@@ -101,7 +101,7 @@ $(document).ready(function(){
 				<div class="p_area">
 				    <div id="pb-action-holder">
 					    <a href="#" id="submit" class="btn" type="product">发布</a>
-						<a href="#" id="preview" class="btn">预览</a>
+						<!-- <a href="#" id="preview" class="btn">预览</a> -->
 						<a href="#" id="cancel" class="btn">取消</a>
 						<span style="display:none;" id="pb-submiting-tip">正在保存</span>
 					</div>
@@ -132,7 +132,7 @@ $(document).ready(function(){
                                 <del>${oprice}</del>元
                             </li>{@/if}
                             {@if price}
-                            <li class="price"><span>促销：</span>
+                            <li class="price"><span>价格：</span>
                             <b>${price}元</b></li>{@/if}
                             {@if deliveryFees}
                             <li class="deliveryFees"><span>运费：${deliveryFees}</span>包邮</li>{@/if}

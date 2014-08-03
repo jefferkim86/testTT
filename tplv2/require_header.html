@@ -19,14 +19,9 @@
 	    <div class="header_con">
 		    <div id="logo"><a title="{$title}" href="{spUrl c=main a=index}"><img src="{$syskin}/image/logo.png" alt="{$title}"/></a></div>
 		    <div class="my-attention">
-		    	<a href="{spUrl c=main a=index}">关注的人</a>
+		    	<a href="{spUrl c=main a=index}">我关注的</a>
 		    </div>
-			<!-- <div id="nav">
-			    <li {if $CurrentModule=='index'}class="current"{/if}><a href="{spUrl c=main a=index}">首页</a></li>
-				<li {if $CurrentModule=='recommend'}class="current"{/if}><a href="{spUrl c=main a=recommend}">推荐</a></li>
-				<li {if $CurrentModule=='discover'}class="current"{/if}><a href="{spUrl c=main a=discovery}">发现</a></li>
-				<li><a href="{spUrl c=site a=licenses}">授权</a></li>
-			</div> -->
+		
 			<div id="nav">
 				<div class="nav-search menu_sc" id="search">
 					<input type="button" class="btn" value="搜索" onclick="user_search()"/>
@@ -56,8 +51,8 @@
 					<div class="notice">
 						<a href="javascript:void(0);" title="通知">
 				    		<div class="notice-block">
-				    			<span id="notice">消息</span>
-				    			<span id="now_notice" class="msg_all_count" style="display:none;"></span>
+				    			<span id="notice">消息<span id="now_notice" class="msg_all_count" style="display:none;"></span></span>
+				    			
 				    		</div>
 				    	</a>
 				    	<div class="menu notice_menu" style="display:none;">
@@ -83,38 +78,6 @@
 						</div>
 					</div>
 					
-					
-					
-
-
-				    <!-- <li class="notice">
-				    	<a href="javascript:void(0);" title="通知">
-				    		<span id="notice"></span>
-				    	</a><span id="now_notice"></span>
-					<div id="f_notice" class="notice_bg" style="display:none;">
-				        <div class="f_corner"></div>
-					    <div class="notice_title">
-						    <div class="notice_right"><a href="javascript:;" onClick="clear_notice_all()">全部清除</a></div>
-						    <div class="notice_left">通知<span>0</span></div>
-						</div>
-						<div class="notice_con">
-						    <div class="loading">加载通知中</div>
-							
-							<div class="notice_system"></div>
-							
-							<div class="notice_replyarea"></div>
-							<div class="notice_followarea"></div>
-							<div class="nonotice">暂无通知</div>
-							
-						</div>
-					</div>
-					</li> -->
-					
-					<!-- <li class="pm"><a href="{spUrl c=pm}" title="私信"><span></span></a><span id="now_pm"></span></li>
-					{if $yb.invite_switch != 0}<li class="invite"><a href="{spUrl c=invite a=myintval}" title="邀请"><span></span></a></li>{/if}
-					<li class="setting"><a href="{spUrl c=user a=setting}" title="设置"><span></span></a></li>
-					{if $smarty.session.admin ==1}<li class="admin"><a href="{spUrl c=admin}" target="_blank" title="后台"><span></span></a></li>{/if}
-					<li class="quit"><a href="#nogo" id="logOut" title="退出"><span></span></a></li> -->
 					
 
 				</div>

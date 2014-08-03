@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-02 23:42:35
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-03 12:01:18
          compiled from "tplv2/require_userInfo.html" */ ?>
-<?php /*%%SmartyHeaderCode:94425664853dd06eba00483-62315024%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:210017780053ddb40e2d3f11-42321308%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '20918c0c896e7b5e85c37d1c3f0e3bcc1dcee14f' => 
     array (
       0 => 'tplv2/require_userInfo.html',
-      1 => 1406991090,
+      1 => 1407038470,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '94425664853dd06eba00483-62315024',
+  'nocache_hash' => '210017780053ddb40e2d3f11-42321308',
   'function' => 
   array (
   ),
@@ -39,7 +39,7 @@ $_smarty_tpl->decodeProperties(array (
 		<div class="handle">
 			<?php if ($_smarty_tpl->getVariable('isfollow')->value==1){?>
 			<button class="J-attention J-follow followed" data-uid="<?php echo $_smarty_tpl->getVariable('user')->value['uid'];?>
-">已关注</button>
+">取消关注</button>
 			<?php }elseif($_smarty_tpl->getVariable('isfollow')->value==0){?>
 			<button class="J-attention J-follow" data-uid="<?php echo $_smarty_tpl->getVariable('user')->value['uid'];?>
 ">加关注</button>

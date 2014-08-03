@@ -128,9 +128,11 @@ Tuitui.feedsView = Backbone.View.extend({
             if (actionType == 'forward') {
                 target = $('.feed .J_Forward')[0];
             }
-            if(actionType){
-                feedItemView.expandFt(null, target);
+            //默认展开评论
+            if(actionType == ''){
+                target = $('.feed .J_Comment')[0]
             }
+            feedItemView.expandFt(null, target);
             
         }
     },
@@ -140,14 +142,17 @@ Tuitui.feedsView = Backbone.View.extend({
         //TODO 不能保证分页是否会出错
         if (this.collection.length == 0) {
             this._nofeed();
-        }
-        if (this.collection.length < 10) {
-            Tuitui.globalData.end = true;
-        }
+            return;
+        } 
         this.collection.each(function(feed) {
             self.addFeed(feed);
         });
-        Tuitui.globalData.canLoadFeed = true;
+        if (this.collection.length < 10) {
+            Tuitui.globalData.end = true;
+            $("#feed_loading").hide();
+        }else{
+            Tuitui.globalData.canLoadFeed = true;
+        }
 
     }
 });

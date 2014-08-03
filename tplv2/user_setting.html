@@ -3,33 +3,6 @@
 <script>
 $(document).ready(function(){
 
- // var jUpload=$('#upload_photo input');
-	// 	jUpload.mousedown().change(function(){
-	// 		var $this=$(this),sExt=$this.attr('ext'),$prev=$this.prev();
-	// 		if($this.val().match(new RegExp('\.('+sExt.replace(/,/g,'|')+')$','i'))){
-	// 			$('#uploading').toggle();
-	// 			var upload=new textbody.html4Upload(this,urlpath+'/index.php?c=user&a=upavatar',function(sText){
-	// 				$('#uploading').toggle();
-	// 				var data=Object,bOK=false;
-				
-	// 				try{data=eval('('+sText+')');}catch(ex){alert(sText)};
-	// 				if(!data.err){
-	// 					var uid = $('#big_face').attr('rel');						
-	// 					$('#big_face').attr('src',urlpath+"/avatar.php?uid="+uid+"&size=big&random="+new Date());
-	// 					$('#middle_face').attr('src',urlpath+"/avatar.php?uid="+uid+"&size=middle&random="+new Date());
-	// 					$('#small_face').attr('src',urlpath+"/avatar.php?uid="+uid+"&size=small&random="+new Date());
-	// 					tips('头像更新成功');
-						
-	// 				}else{
-	// 					tips(data.err);
-	// 				}
-	// 			});
-				
-	// 			upload.start();
-	// 		}
-	// 		else alert('请上传'+sExt+'格式文件');
-	// 	});
-		
 		
 /*保存个人资料修*/
 	$('#submit_baseinfo').click(function(){
@@ -101,12 +74,7 @@ $(document).ready(function(){
 <div id="user_index" class="clearfix" style="height:650px;">
 
 	<div class="page-left">
-		<div class="user-info">
-			<div class="avatar">
-				<img src="http://localhost/tuitui{avatar uid=$smarty.session.uid size=big time=1}" alt="">
-			</div>
-			<h3 class="user-name">大黑淘外贸</h3>
-		</div>
+		
 		<div id="user_tab">
 	        <li id="tab_person" class="curr">
 	        	<a href="javascript:void(0)" onclick="SelectPerson(this)">个人资料</a>
@@ -140,7 +108,7 @@ $(document).ready(function(){
 			<div class="con_table">
 				<div class="user_left">我的昵称</div>
 			    <div class="user_right">
-				    <input type="text" name="niname" id="niname" class="iptni"  value="{$users.username}"><span class="info">名称唯一,可修改</span>
+				    <input type="text" name="niname" id="niname" class="iptni"  value="{$users.username}"><span class="info">昵称唯一，可修改</span>
 				</div>
 			</div>
 			
@@ -149,7 +117,7 @@ $(document).ready(function(){
 			    <div class="user_right">
 				     <span class="host">{$url}/</span>
 					 <input type="text" name="domain" class="domain" id="domain" value="{$users.domain}">
-					 <span class="info">名称唯一,可修改</span>
+					 <span class="info">域名唯一，可修改</span>
 				</div>
 			</div>
 			
@@ -187,11 +155,12 @@ $(document).ready(function(){
 						<div class="upfile"> 
 							<span class="pop-foot-corner"><s class="outter"></s></span>
 					      	<input id="fileupload" size="1" type="file" name="filedata" ext="jpg|jpeg|png"/>
+					      	<div class="fileDataImg">选择文件</div>
 						</div>
 						<div class="tip">支持jpg、gif、png、bmp格式</div>
-						<div class="progress"> 
+						<!-- <div class="progress"> 
 							<span class="bar"></span><span class="percent">0%</span > 
-						</div>
+						</div> -->
 					    <div class="files"></div>
 					    <div id="preview-avatar">
 					    	<img src="{avatar uid=$users.uid size=big}" id="preview-avatar-img" />

@@ -50,6 +50,7 @@ Tuitui.publishView = Backbone.View.extend({
         var textareaVal = ueditorInstance.getContent()
         var contentReg = /\<\/?(div|script|p|ol|li|ul|br)[^<>]*\>/gi;
         $("#textarea").val(textareaVal.replace(contentReg, ''));
+       // $("#textarea").val(textareaVal);
 
         var text = $('#textarea').val();
         if (submitType == 'word') {

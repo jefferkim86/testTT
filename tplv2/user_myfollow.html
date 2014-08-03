@@ -13,21 +13,16 @@ function do_run(ty){
 	if(ty == 'follow'){
 		$('#curr_myfollow').removeClass('current');
 		$('#follow_my').addClass('current');
-
-		}else{
-			$('#curr_myfollow').addClass('current');
-			$('#follow_my').removeClass('current');
-		}
-
-		 getApi('user', 'myfollow', {
-            'type':ty
-        }, function(d) {
-            addto_follow(d,ty);
-        });
+	}else{
+		$('#curr_myfollow').addClass('current');
+		$('#follow_my').removeClass('current');
+	}
+	 getApi('user', 'myfollow', {
+        'type':ty
+    }, function(d) {
+        addto_follow(d,ty);
+    });
 	
-		// $.paging({ctn1:"#follow_area",ctn2:"#paging",yc:"user",ym:"myfollow",showpage:true,yprm:{type:ty},ftype:function(d){
-		// 	addto_follow(d,ty);
-		// }});
 }
 
 
@@ -68,7 +63,7 @@ function do_run(ty){
 			<span>(${time}关注)</span>
 		</li>
 		<li class="userdata">
-			<span class="blogs">推推:<b>${num}</b></span>
+			<span class="blogs">动态:<b>${num}</b></span>
 			<span>关注:<b>${likenum}</b></span>
 			<span class="fans">粉丝:<b>${flow}</b></span>
 		</li>
@@ -106,26 +101,32 @@ function do_run(ty){
 <script type="text/javascript" src="{$syskin}/js/view/userView.js"></script>
 
 <script type="text/javascript">
+{literal}
 //添加到 follow
 function addto_follow(d,type){
-		$('#follow_area').html('');
-		$('#feed_loading').hide();
-		var tpl = juicer($("#J-followList").html());
-		var lastCls = 'last-li';
-		if(d.body.data.length >0){
-			for(var i=0,list = d.body.data;i<list.length;i++){
-				if(i == list.length-1){
-	                list[i].last = lastCls;
-	            }else{
-	                list[i].last = '';
-	            }
-				list[i].h_img = urlpath+list[i].h_img;
-				var html = tpl.render(list[i])
-				$('#follow_area').append($(html));
-			}
-		}else{
-			$('#follow_font').show();
+	$('#follow_area').html('');
+	$('#feed_loading').hide();
+	var tpl = juicer($("#J-followList").html());
+	var lastCls = 'last-li';
+	if(d.body.data.length >0){
+		for(var i=0,list = d.body.data;i<list.length;i++){
+			if(i == list.length-1){
+                list[i].last = lastCls;
+            }else{
+                list[i].last = '';
+            }
+			list[i].h_img = urlpath+list[i].h_img;
+			var html = tpl.render(list[i])
+			$('#follow_area').append($(html));
 		}
+	}else{
+		var noItemTxt = '还没有关注任何用户';
+		if(type){
+			noItemTxt = '还没有任何粉丝';
+		}
+		$("#follow_font .no-item").css({'width':200}).text(noItemTxt);
+		$('#follow_font').show();
+	}
 }
 	$(document).on("mouseover",".follow_list",function(e){
 		$(this).addClass('followListCur');
@@ -137,5 +138,6 @@ function addto_follow(d,type){
 	});
 
 	new Tuitui.userView();
+{/literal}
 </script>
 {include file="require_footer.html"}

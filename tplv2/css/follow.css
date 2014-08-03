@@ -99,6 +99,7 @@
 	color: #ffffff;
 	text-align: center;
 	line-height: 45px;
+	cursor: pointer;
 }
 .pm .follow_list .userinfo .userdata,.all-msg .follow_list .userinfo .userdata {
 	float: left;

@@ -104,10 +104,12 @@ Tuitui.messageView = Backbone.View.extend({
         }, function(resp) {
             if (resp.status == 1) {
                 if ($(target).hasClass('pop-submit')) {
-                    waring('发送成功');
+                    tips('发送成功');
                     $(".overlay").remove();
                     $(".pm-pop").remove();
                 } else {
+                    param_textareaObj.val('');
+                    tips('发送成功');
                     self.getPmInfo({
                         'touid': $("#toid").attr("toid"),
                         'listEl': '#J-pmInfoList',
@@ -116,7 +118,7 @@ Tuitui.messageView = Backbone.View.extend({
                 }
 
             } else {
-                alert(resp.msg);
+                waring(resp.msg);
             }
         })
     },
@@ -143,6 +145,10 @@ Tuitui.messageView = Backbone.View.extend({
 
         if (result.pm_count) {
             $("#J-pmcount").html('(' + result.pm_count + ')');
+        }
+        if(!list){
+            $(opt.listEl).html('<div class="no-item">暂无消息</div>');
+            return;
         }
         var html = '',
             rdata, lastCls = '';

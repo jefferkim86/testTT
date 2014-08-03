@@ -171,7 +171,9 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'feedLink': repto.b_url,
 					'feedContent': repto.body,
 					'isSelf': repto.uid == uid,
-					'priceTxt': repto.attr.oprice == repto.attr.price ? '价格' : '促销',
+					//'priceTxt': repto.attr.oprice == repto.attr.price ? '价格' : '促销',
+					'priceTxt': repto.attr.oprice == repto.attr.price ? '价格' : '价格',
+
 					'isLiked': repto.likeid ? 'liked' : false,
 					'needFeedMore': repto.more == 1
 
@@ -185,7 +187,8 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'price': attr.price,
 					'feedLink': this.get('b_url'),
 					'producturl': attr.producturl,
-					'priceTxt': attr.oprice == attr.price ? '价格' : '促销',
+					//'priceTxt': attr.oprice == attr.price ? '价格' : '促销',
+					'priceTxt': attr.oprice == attr.price ? '价格' : '价格',
 					'feed': attr.deliveryFees,
 					'feedContent': this.get('body'),
 					'needFeedMore': this.get('more') == 1

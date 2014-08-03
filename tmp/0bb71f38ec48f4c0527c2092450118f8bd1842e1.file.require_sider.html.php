@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-02 23:42:02
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-03 11:42:46
          compiled from "tplv2/require_sider.html" */ ?>
-<?php /*%%SmartyHeaderCode:89959184853dd06ca428786-14295248%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:59993050853ddafb66ccfb9-09259854%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0bb71f38ec48f4c0527c2092450118f8bd1842e1' => 
     array (
       0 => 'tplv2/require_sider.html',
-      1 => 1406993903,
+      1 => 1407037335,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '89959184853dd06ca428786-14295248',
+  'nocache_hash' => '59993050853ddafb66ccfb9-09259854',
   'function' => 
   array (
   ),
@@ -172,7 +172,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 		<ul class="menu-list">
 			<li <?php echo $_smarty_tpl->getVariable('myfollow_current')->value;?>
 ><a class="my-follow" href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'myfollow'),$_smarty_tpl);?>
-"><span>我关注的</span></a></li>
+"><span>关注的人</span></a></li>
 			<li  <?php echo $_smarty_tpl->getVariable('mylike_current')->value;?>
 ><a class="my-like" href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'mylikes'),$_smarty_tpl);?>
 "><span>我喜欢的</span></a></li>

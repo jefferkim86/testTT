@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-02 23:04:03
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-03 13:59:55
          compiled from "tplv2/login.html" */ ?>
-<?php /*%%SmartyHeaderCode:75954741753dcfde3de8bd8-88775219%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:176980529853ddcfdb9beb28-44294022%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '03645cd3cc83f49927e1835eb53c00fc4f417e53' => 
     array (
       0 => 'tplv2/login.html',
-      1 => 1406991834,
+      1 => 1407045585,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '75954741753dcfde3de8bd8-88775219',
+  'nocache_hash' => '176980529853ddcfdb9beb28-44294022',
   'function' => 
   array (
   ),
@@ -42,16 +42,17 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
 
 </head>
 <body class="login-page clearfix">
-<!-- <img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/image/bg.jpg" style="position:absolute;left:0;top:0;" id="bg"/>
- --><div id="wrap">
+ <div class="forbg clearfix">
+ 	
+
+  <div id="wrap">
 
 	<div class="logo">
 		<a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main'),$_smarty_tpl);?>
 "><img src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /image/big-logo.png" alt="<?php echo $_smarty_tpl->getVariable('yb')->value['site_title'];?>
 " title="<?php echo $_smarty_tpl->getVariable('yb')->value['site_title'];?>
-" /></a>
+" /><span class="beta"></span></a>
 	</div>
 
 	<div class="tab-login-reg">
@@ -177,7 +178,7 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
 	$(document).ready(function(){
 		// var w = $(window).width();
 		// var wh = $(window).height();
-		// $("#bg").css({width:w});
+		// $(".login-page").css({'height':wh});
 		var tabs = $("#login-reg-tab li");
 		var tabContents = $("#tabContent>div");
 		tabs.on("click",function(){
@@ -192,7 +193,7 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
 	
 	<?php $_template = new Smarty_Internal_Template("require_footer.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
+  </div>
 </div>
-
 </body>
 </html>
