@@ -35,12 +35,15 @@ Tuitui.headerView = Backbone.View.extend({
     getRecommendList: function() {
         var tpl = this.compiled_tpl['recommendItem'];
         var html = '';
+        //TODO后期去掉
+        $("#J-siderRecommendWrap").hide();
+        return;
         $("#J-siderRecommend").html('');
         getApi('user', 'recommend', {}, function(resp) {
             if (resp.status == 1) {
                 var list = resp.body;
                 if(list.length == 0){
-                    $("#J-siderRecommend").hide();
+                    $("#J-siderRecommendWrap").hide();
                     return;
                 }
                 for (var i = 0; i < list.length; i++) {
