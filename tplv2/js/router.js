@@ -1,17 +1,23 @@
 Tuitui.Router = Backbone.Router.extend({
 
   routes: {
-    "comment":                 "help",    // #help
-    "search/:query":        "search",  // #search/kiwis
-    "search/:query/p:page": "search"   // #search/kiwis/p7
+    "settingProfile": "settingProfile",
+    "settingAvatar": "settingAvatar",
+    "settingInvite": "settingInvite",
+    "settingSafe": "settingSafe"
   },
 
-  help: function() {
-    ...
+  settingProfile: function() {
+    SelectPerson();
   },
-
-  search: function(query, page) {
-    ...
+  settingAvatar: function() {
+    SelectHead();
+  },
+  settingInvite: function() {
+    SelectInvite();
+  },
+  settingSafe: function() {
+    SelectSafe();
   }
 
 });

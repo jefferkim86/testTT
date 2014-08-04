@@ -24,12 +24,16 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 #index { width:1140px; margin:0 auto; }
 #user_index { 
 	width:1140px;
--moz-border-radius: 2px;
--webkit-border-radius: 2px;
-border-radius: 2px;
-background: #fff;
-
- margin:0 auto; }
+	min-height: 500px;
+	_height:500px;
+	_zoom:1;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	background: #fff;
+	padding-bottom: 40px;
+	 margin:0 auto; 
+}
 .fl { float:left; }
 .fr { float:right; }
 
@@ -1330,14 +1334,13 @@ margin:20px 30px 0 30px;
 
 #conHead .avatar{
 	position: absolute;
-	top:-40px;
+	top:0;
 	left: -160px;
 	width: 120px;
 }
 #conHead .user_right{
 	position: relative;
 	margin-left: 160px;
-	margin-top: 40px;
 }
 #conHead .avatar img{
 	width: 120px;
@@ -1378,14 +1381,15 @@ margin:20px 30px 0 30px;
 }
 #conHead .adjust{
 	margin-top: 20px;
-	float: left;
 	position: relative;
+	float: left;
 	padding: 10px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	background: #eeeeee; 
 }
+
 #conHead .adjust .pop-foot-corner{
 	left: 128px;
 }
@@ -1453,15 +1457,18 @@ margin:20px 30px 0 30px;
 	margin-top: 15px;
 }
 
-#conHead .adjust .Intercbtn{
+#conHead .Intercbtn{
+	clear: both;
 	padding: 0;
 	margin: 0;
+	width: 90px;
 	line-height: 40px;
 	text-align: center;
 	font-size: 14px;
 	color: #fff;
 	background: #6bbec6;
 	cursor: pointer;
+	margin-top: 40px;
 }
 /*页面加载*/
 .feedajax a { width:510px; margin:20px 0 30px 125px; line-height:40px; height:40px; border:1px #bbb solid; float:left; text-align:center; background:url(../image/comm/nav_bg.png) repeat-x 0 0; color:#666; text-shadow:0px 1px 0px #fff; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; -moz-box-shadow:0px 1px 0px #fff; -webkit-box-shadow:0px 1px 0px #fff; box-shadow:0px 1px 0px #fff; display:block; }

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-03 23:23:16
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-04 21:54:24
          compiled from "tplv2/require_feedTemplate.html" */ ?>
-<?php /*%%SmartyHeaderCode:49067074553de53e42ae5d0-49807995%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:189822150653df90902cc549-01852753%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '350be01eeee6d1b227e428bdc9ce144dbf95710b' => 
     array (
       0 => 'tplv2/require_feedTemplate.html',
-      1 => 1407079393,
+      1 => 1407160407,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '49067074553de53e42ae5d0-49807995',
+  'nocache_hash' => '189822150653df90902cc549-01852753',
   'function' => 
   array (
   ),

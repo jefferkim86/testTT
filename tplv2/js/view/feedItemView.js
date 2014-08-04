@@ -83,7 +83,7 @@ Tuitui.feedItemView = Backbone.View.extend({
 
     },
     toggleDel: function(e) {
-        console.log(e);
+        
     },
     /*
      * @desc 根据数据直接渲染

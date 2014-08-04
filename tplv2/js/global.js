@@ -1393,7 +1393,7 @@ function tmpl_pmdetail(d, args) {
 }
 function SelectHead() {
     $('#conHead').show();
-    $('#conPerson,#conSafe,#conInvite').hide();
+    $('#conPerson,#conSafe,#conInvite,#submit_baseinfo').hide();
     $('#user_tab li').removeClass('curr');
     $('#tab_head').addClass('curr');
     $('#pb-action-holder').show()
@@ -1401,19 +1401,19 @@ function SelectHead() {
 function SelectPerson() {
     $('#conPerson').show();
     $('#conHead,#conSafe,#conInvite').hide();
-    $('#pb-action-holder').show();
+    $('#pb-action-holder,#submit_baseinfo').show();
     $('#user_tab li').removeClass('curr');
     $('#tab_person').addClass('curr')
 }
 function SelectInvite() {
     $('#conInvite').show();
     $('#conHead,#conSafe,#conPerson').hide();
-    $('#pb-action-holder').show();
+    $('#pb-action-holder,#submit_baseinfo').show();
     $('#user_tab li').removeClass('curr');
     $('#tab_invite').addClass('curr')
 }
 function SelectSafe(that) {
-    $('#conSafe').show();
+    $('#conSafe,#submit_baseinfo').show();
     $('#conPerson,#conHead,#conInvite').hide();
     $('#pb-action-holder').hide();
     $('#user_tab li').removeClass('curr');

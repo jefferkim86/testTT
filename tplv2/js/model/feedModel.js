@@ -2,7 +2,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 
 	initialize: function() {
 
-		console.log("M:feed");
+		
 
 	},
 
@@ -46,7 +46,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 
 	getfeedType: function() {
 		var feedTypeMap = {
-			'photo':'photo',
+			'photo': 'photo',
 			'text': 'text',
 			'product': 'good'
 		};
@@ -61,7 +61,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 			'avatar': urlpath + this.get('h_img'),
 			'avatarHref': this.get('h_url'),
 			'feedType': this.getfeedType(),
-			'feedLink': this.timeLink(),
+			'feedLink': this._isDetail() ? 'javascript:void(0)' : this.get('b_url'),
 			'forwardcount': this.get('forwardcount'),
 			'replaycount': this.get('replaycount'),
 			'likecount': this.get('likecount'),
@@ -71,14 +71,9 @@ Tuitui.feedModel = Backbone.Model.extend({
 			'forwardData': this.get('repto') || false
 		}
 	},
-	timeLink: function() {
-		var feedLink;
-		if (typeof G_PAGE != 'undefined' && G_PAGE == 'detail') {
-			feedLink = 'javascript:void(0)';
-		} else {
-			feedLink = this.get('b_url')
-		}
-		return feedLink;
+
+	_isDetail: function() {
+		return (typeof G_PAGE != 'undefined' && G_PAGE == 'detail');
 	},
 	//获取外层feed数据
 	getFeedNumData: function() {
@@ -133,11 +128,11 @@ Tuitui.feedModel = Backbone.Model.extend({
 			if (repto) {
 				console.log(repto.attr.length > 0 ? repto.attr[0] : '');
 				result = {
-					'feedTitle': repto.forward_title || '',
+					'feedTitle': repto.title || '',
 					'feedContent': repto.body,
-					'feedLink': repto.b_url,
+					'feedLink': this._isDetail() ? 'javascript:void(0)' : repto.b_url,
 					'time': repto.time,
-					'pic': repto.attr.length > 0 ? repto.attr[0] : '',
+					'pic': (repto.attr.length > 0 && !this._isDetail()) ? repto.attr[0] : '',
 					'forwardcount': repto.forwardcount,
 					'replaycount': repto.replaycount,
 					'likecount': repto.likecount,
@@ -147,11 +142,12 @@ Tuitui.feedModel = Backbone.Model.extend({
 
 				}
 			} else {
+				console.log(this._isDetail());
 				result = {
 					'feedTitle': this.get('title') || '',
 					'feedContent': this.get('body'),
-					'pic': this.get('attr').length > 0 ? this.get('attr')[0] : '',
-					'feedLink': this.get('b_url'),
+					'pic': (this.get('attr').length > 0 && !this._isDetail()) ? this.get('attr')[0] : '',
+					'feedLink': this._isDetail() ? 'javascript:void(0)' : this.get('b_url'),
 					'needFeedMore': this.get('more') == 1
 				}
 			}
@@ -197,16 +193,6 @@ Tuitui.feedModel = Backbone.Model.extend({
 		}
 
 		return result;
-	},
-
-	_getTextFeedAttr: function() {
-
-	},
-	_getPhotoFeedAttr: function() {
-
-	},
-	_getGoodFeedAttr: function() {
-
 	}
 
 

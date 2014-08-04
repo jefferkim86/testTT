@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-03 12:23:12
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-04 02:24:58
          compiled from "tplv2/require_header.html" */ ?>
-<?php /*%%SmartyHeaderCode:86811331353ddb930cfed21-55743743%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:82387978653de7e7a473793-15865452%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9d70675b71261ad2692595668063ae27729008f2' => 
     array (
       0 => 'tplv2/require_header.html',
-      1 => 1407039768,
+      1 => 1407088209,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '86811331353ddb930cfed21-55743743',
+  'nocache_hash' => '82387978653de7e7a473793-15865452',
   'function' => 
   array (
   ),
@@ -62,10 +62,10 @@ $_smarty_tpl->decodeProperties(array (
 		    </div>
 		
 			<div id="nav">
-				<div class="nav-search menu_sc" id="search">
+				<!-- <div class="nav-search menu_sc" id="search">
 					<input type="button" class="btn" value="搜索" onclick="user_search()"/>
 					<input type="text" id="searchtag" value="请输入用户昵称" class="ipt">
-				</div>
+				</div> -->
 
 			</div>
 

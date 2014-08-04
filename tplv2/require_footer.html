@@ -98,6 +98,10 @@ if(Tuitui.globalData.pageNeedLoading){
 
 <script type="text/javascript" src="{$syskin}/js/view/userView.js"></script>
 <script type="text/javascript" src="{$syskin}/js/view/headerView.js"></script>
+<script type="text/javascript" src="{$syskin}/js/router.js"></script>
 <script type="text/javascript">
 	new Tuitui.headerView();
+
+    new Tuitui.Router();
+    Backbone.history.start();
 </script>

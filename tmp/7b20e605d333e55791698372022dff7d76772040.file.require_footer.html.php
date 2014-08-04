@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-01 00:48:47
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-04 22:29:26
          compiled from "tplv2/require_footer.html" */ ?>
-<?php /*%%SmartyHeaderCode:91112287653da736f5c3a99-49946713%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:206744226753df98c625f0f9-19699834%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7b20e605d333e55791698372022dff7d76772040' => 
     array (
       0 => 'tplv2/require_footer.html',
-      1 => 1406825320,
+      1 => 1407162562,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '91112287653da736f5c3a99-49946713',
+  'nocache_hash' => '206744226753df98c625f0f9-19699834',
   'function' => 
   array (
   ),
@@ -137,6 +137,11 @@ if(Tuitui.globalData.pageNeedLoading){
 /js/view/userView.js"></script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/view/headerView.js"></script>
+<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/js/router.js"></script>
 <script type="text/javascript">
 	new Tuitui.headerView();
+
+    new Tuitui.Router();
+    Backbone.history.start();
 </script>

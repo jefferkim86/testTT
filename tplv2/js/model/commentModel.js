@@ -2,7 +2,7 @@ Tuitui.commentModel = Backbone.Model.extend({
 
 	initialize: function() {
 
-		console.log("M:feedComment");
+		
 
 	},
 

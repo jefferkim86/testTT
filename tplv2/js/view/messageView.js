@@ -73,7 +73,6 @@ Tuitui.messageView = Backbone.View.extend({
 
         if ($(target).hasClass('pop-submit')) {
             param_touserObj = $('#J-popPmTitle');
-            console.log(param_touserObj);
             param_textareaObj = $("#J-popPmContent");
             if (param_touserObj.val() == '') {
                 waring('请输入发送用户');
@@ -93,7 +92,7 @@ Tuitui.messageView = Backbone.View.extend({
             waring('发信内容不能为空');
             return false;
         }
-        if(txt.replace("/[^/x00-/xff]/g", "**").length > 140){
+        if (txt.replace("/[^/x00-/xff]/g", "**").length > 140) {
             waring('不能超出140个字数');
             return;
         }
@@ -146,7 +145,7 @@ Tuitui.messageView = Backbone.View.extend({
         if (result.pm_count) {
             $("#J-pmcount").html('(' + result.pm_count + ')');
         }
-        if(!list){
+        if (!list) {
             $(opt.listEl).html('<div class="no-item">暂无消息</div>');
             return;
         }
@@ -293,7 +292,7 @@ Tuitui.messageView = Backbone.View.extend({
 
             var reInfo = list[i].extend['info'] || '';
             var actionTmp = actionMap[list[i].sys].replace('{link}', list[i].location);
-
+          
             result = {
                 'last': lastCls,
                 'muid': list[i].muid,
@@ -305,7 +304,7 @@ Tuitui.messageView = Backbone.View.extend({
                 'topic': list[i].extend['info'],
                 'action': actionTmp,
                 'notread': list[i].isread == "0",
-                'info': list[i].info,
+                'info': opt.type != "follow" ? list[i].info : '',
                 'reInfo': reInfo,
                 'h_img': urlpath + list[i].user.h_img,
                 'h_url': list[i].user.h_url
@@ -365,8 +364,8 @@ Tuitui.messageView = Backbone.View.extend({
 
         getApi('blog', 'setReply', {
             'bid': msgItem.attr('data-bid'),
-            'inputs': '@'+replyTo+':'+inputVal,
-            'repcontent' : replyContent,
+            'inputs': '@' + replyTo + ':' + inputVal,
+            'repcontent': replyContent,
             'repuid': msgItem.attr('data-muid')
         }, function(resp) {
             if (resp.status == '1') {
@@ -394,8 +393,7 @@ Tuitui.messageView = Backbone.View.extend({
                 if (d.body.data.length > 0) {
                     for (var i = 0; i < d.body.data.length; i++) {
                         d.body.data[i].h_img = urlpath + d.body.data[i].h_img;
-                        var html = tpl.render(d.body.data[i])
-                        console.log(html);
+                        var html = tpl.render(d.body.data[i]);
                         $('#follow_area').append($(html));
                     }
                     if (d.body.data.length == 1) {

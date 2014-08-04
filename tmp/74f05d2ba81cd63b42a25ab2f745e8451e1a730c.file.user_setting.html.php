@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-04 01:40:23
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-05 00:06:26
          compiled from "tplv2/user_setting.html" */ ?>
-<?php /*%%SmartyHeaderCode:35712168253de7407ecc091-15828942%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:205681424953dfaf82128226-39489957%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '74f05d2ba81cd63b42a25ab2f745e8451e1a730c' => 
     array (
       0 => 'tplv2/user_setting.html',
-      1 => 1407087613,
+      1 => 1407168384,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '35712168253de7407ecc091-15828942',
+  'nocache_hash' => '205681424953dfaf82128226-39489957',
   'function' => 
   array (
   ),
@@ -78,7 +78,6 @@ $(document).ready(function(){
 		}
 		$('#submit_loading,#submit_password').toggle();
 		$.ybAPI('user','save_password',args,function(data){
-			console.log(data);
 			if(data.status == 1 ){
 				alert('密码修改成功,您需要立即重新登录来保障您的安全');
 				window.location.reload();
@@ -92,23 +91,23 @@ $(document).ready(function(){
 </script>               
 
 
-<div id="user_index" class="clearfix" style="height:650px;">
+<div id="user_index" class="clearfix">
 
 	<div class="page-left">
 		
 		<div id="user_tab">
 	        <li id="tab_person" class="curr">
-	        	<a href="javascript:void(0)" onclick="SelectPerson(this)">个人资料</a>
+	        	<a href="#settingProfile">个人资料</a>
 	        </li>
 			<li id="tab_head">
-				<a href="javascript:void(0)" onclick="SelectHead(this)">修改头像</a>
+				<a href="#settingAvatar">修改头像</a>
 			</li>
 			<?php if ($_smarty_tpl->getVariable('yb')->value['openlogin_qq_open']==1||$_smarty_tpl->getVariable('yb')->value['openlogin_weib_open']==1){?>
 			<li id="tab_invite">
-				<a href="javascript:void(0)" onclick="SelectInvite(this)">账号绑定</a>
+				<a href="#settingInvite">账号绑定</a>
 			</li><?php }?>
 			<li id="tab_safe">
-				<a href="javascript:void(0)" onclick="SelectSafe(this)">密码修改</a>
+				<a href="#settingSafe">密码修改</a>
 			</li>
 		</div>
 	</div>
@@ -172,50 +171,61 @@ $(document).ready(function(){
 " alt=""/>
 				</div>
 				<div class="adjust-block">
-					<div class="handle">
-						<ul>
-							<li class="cur" id="J-avatarTab-change"><a href="javascript:void(0)">更改头像</a></li>
-							<li id="J-avatarTab-adjust"><a href="javascript:void(0)">调整缩略图</a></li>
-						</ul>
-					</div>
 					<!-- 更换图片 -->
 					<div class="change" id="J-avatarTab-changeC">
-						<div class="upfile"> 
-							<span class="pop-foot-corner"><s class="outter"></s></span>
-					      	<input id="fileupload" size="1" type="file" name="filedata" ext="jpg|jpeg|png"/>
-					      	<div class="fileDataImg">选择文件</div>
-						</div>
-						<div class="tip">支持jpg、gif、png、bmp格式</div>
-						<!-- <div class="progress"> 
-							<span class="bar"></span><span class="percent">0%</span > 
-						</div> -->
-					    <div class="files"></div>
-					    <div id="preview-avatar">
-					    	<img src="<?php echo $_smarty_tpl->getVariable('url')->value;?>
+							
+							<div class="upfile"> 
+						      	<input id="fileupload" size="1" type="file" name="filedata" ext="jpg|jpeg|png"/>
+						      	<div class="fileDataImg">选择文件</div>
+							</div>
+							<div class="tip">支持jpg、gif、png、bmp格式</div>
+							<!-- <div class="progress"> 
+								<span class="bar"></span><span class="percent">0%</span > 
+							</div> -->
+						    <div class="files"></div>
+						    <!-- <div id="preview-avatar">
+						    	<img src="<?php echo $_smarty_tpl->getVariable('url')->value;?>
 <?php echo avatar(array('uid'=>$_smarty_tpl->getVariable('users')->value['uid'],'size'=>'big'),$_smarty_tpl);?>
 " id="preview-avatar-img" />
-					    </div>
-					</div>
-					<!-- 调整tab -->
-					<div class="adjust"  id="J-avatarTab-adjustC" style="display:none;">
-					  <form action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'upavatar'),$_smarty_tpl);?>
+						    </div> -->
+						<form action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'upavatar'),$_smarty_tpl);?>
 " method="post" onSubmit="return checkCoords();">
+						<div class="adjust">
+						    
+						    <div id="showimg">
+						    	<img src="<?php echo $_smarty_tpl->getVariable('url')->value;?>
+<?php echo avatar(array('uid'=>$_smarty_tpl->getVariable('users')->value['uid'],'size'=>'big'),$_smarty_tpl);?>
+" id="cropbox"/>
+						    </div>
+						    <input type="hidden" id="src" name="src" value="" />
+							<input type="hidden" id="x" name="x" value="0" />
+							<input type="hidden" id="y" name="y" value="0" />
+							<input type="hidden" id="w" name="w" value="" />
+							<input type="hidden" id="h" name="h" value="240" />
+
+					    </div>
+						<input type="submit" value="确认保存" class="Intercbtn" />
+					</form>
+				  </div>
+					<!-- 调整tab -->
+					<!-- <div class="adjust"  id="J-avatarTab-adjustC" style="display:none;">
+						<div class="adjust-c">
+					  
 
 						<span class="pop-foot-corner"><s class="outter"></s></span>
 						<div id="showimg">
 					    	<img src="<?php echo $_smarty_tpl->getVariable('url')->value;?>
 <?php echo avatar(array('uid'=>$_smarty_tpl->getVariable('users')->value['uid'],'size'=>'big'),$_smarty_tpl);?>
-" id="cropbox" width="290" height="290"/>
+" id="cropbox"/>
 					    </div>
 					    <input type="hidden" id="src" name="src" value="" />
 						<input type="hidden" id="x" name="x" value="0" />
 						<input type="hidden" id="y" name="y" value="0" />
-						<input type="hidden" id="w" name="w" value="240" />
+						<input type="hidden" id="w" name="w" value="" />
 						<input type="hidden" id="h" name="h" value="240" />
-
+						</div>
 						<input type="submit" value="确认保存" class="Intercbtn" />
-					 </form>
-					</div>
+					</div> -->
 
 				</div>
 			
@@ -349,30 +359,35 @@ $(document).ready(function(){
 					if(data.status == "1"){
 						var img = urlpath +'/'+ data.body.pic_path
 							
-						if (data.body.width>240 && data.body.height<240){
-							showimg.html("<img src='"+img+"' id='cropbox' height='240' />");
-						}else if(data.body.width<240 && data.body.height>240){
-							showimg.html("<img src='"+img+"' id='cropbox' width='240' />");
-						}else if(data.body.width<240 && data.body.height<240){
-							showimg.html("<img src='"+img+"' id='cropbox' width='240' height='240' />");
-						}else{
+						// if (data.body.width>240 && data.body.height<240){
+						// 	showimg.html("<img src='"+img+"' id='cropbox' height='240' />");
+						// }else if(data.body.width<240 && data.body.height>240){
+						// 	showimg.html("<img src='"+img+"' id='cropbox' width='240' />");
+						// }else if(data.body.width<240 && data.body.height<240){
+						// 	showimg.html("<img src='"+img+"' id='cropbox' width='240' height='240' />");
+						// }else{
+							showimg.attr({
+								'data-w':data.body.width,
+								'data-h':data.body.height
+							});
 							showimg.html("<img src='"+img+"' width='"+data.body.width+"px' height='"+data.body.height+"px'  id='cropbox' />");
-						}
-							$("#preview-avatar-img").attr('src',img);
+						//}
+							//$("#preview-avatar-img").attr('src',img);
 							//传给php页面，进行保存的图片值
 							$("#src").val(img);
 							//截取图片的js
+							var maxWhSize = Math.min(data.body.width,data.body.height);
 							$('#cropbox').Jcrop({
 								aspectRatio: 1,
 								onSelect: updateCoords,
 								minSize:[240,240],
-								maxSize:[240,240],
+								maxSize:[maxWhSize,maxWhSize],
 								allowSelect:false, //允许选择
 								allowResize:true, //是否允许调整大小
 								setSelect: [ 0, 0, 240, 240 ]
 							});
 					}else{
-						alert(data.err);
+						tips(data.msg);
 					}
 					
 					//btn.html("上传图片");	//上传按钮还原
@@ -389,7 +404,6 @@ $(document).ready(function(){
 	});
 	
 	function updateCoords(c){
-		console.log(c);
 		$('#x').val(c.x);
 		$('#y').val(c.y);
 		$('#w').val(c.w);
@@ -402,30 +416,8 @@ $(document).ready(function(){
 		return false;
 	};
 
-	var tabs = $(".handle li");
-	$("#J-avatarTab-change").on("click",function(e){
-		e.preventDefault();
-		tabs.removeClass('cur');
-		$(this).addClass('cur');
-		$("#J-avatarTab-adjustC").hide();
-		$("#J-avatarTab-changeC").show();
-	});
-	$("#J-avatarTab-adjust").on("click",function(e){
-		e.preventDefault();
-		tabs.removeClass('cur');
-		$(this).addClass('cur');
-		$("#J-avatarTab-changeC").hide();
-		$("#J-avatarTab-adjustC").show();
-		$('#cropbox').Jcrop({
-			aspectRatio: 1,
-			onSelect: updateCoords,
-			minSize:[20,20],
-			maxSize:[140,140],
-			allowSelect:false, //允许选择
-			allowResize:true, //是否允许调整大小
-			setSelect: [ 0, 0, 240, 240 ]
-		});
-	});
+	
+	
 </script>
 	
 
