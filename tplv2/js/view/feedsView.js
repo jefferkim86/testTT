@@ -49,7 +49,7 @@ Tuitui.feedsView = Backbone.View.extend({
         }, function(data) {
             if (data.status == 1) {
                 var result = data.body;
-                if (result) {
+                if (result.blog) {
                     self.collection.reset(result.blog);
                 } else {
                     self._nofeed('还没有任何关注的人的动态哦～', 'style="width:300px;"');
@@ -79,10 +79,9 @@ Tuitui.feedsView = Backbone.View.extend({
         }, function(data) {
             if (data.status == 1) {
                 var result = data.body;
-                if (result) {
+                if (result.blog) {
                     self.collection.reset(result.blog);
                 } else {
-
                     self._nofeed(pre + '还没有发布任何内容哦～', 'style="width:300px;"');
                 }
             } else {
@@ -100,7 +99,7 @@ Tuitui.feedsView = Backbone.View.extend({
         }, function(data) {
             if (data.status == 1) {
                 var result = data.body;
-                if (result) {
+                if (result.blog) {
                     self.collection.reset(result.blog);
                 } else {
                     self._nofeed('你还没有喜欢任何用户哦～', 'style="width:300px;"');

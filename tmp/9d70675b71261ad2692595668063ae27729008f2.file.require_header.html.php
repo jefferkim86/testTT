@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-04 02:24:58
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-05 00:25:24
          compiled from "tplv2/require_header.html" */ ?>
-<?php /*%%SmartyHeaderCode:82387978653de7e7a473793-15865452%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:136276570953dfb3f43b3c48-93728885%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9d70675b71261ad2692595668063ae27729008f2' => 
     array (
       0 => 'tplv2/require_header.html',
-      1 => 1407088209,
+      1 => 1407169522,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '82387978653de7e7a473793-15865452',
+  'nocache_hash' => '136276570953dfb3f43b3c48-93728885',
   'function' => 
   array (
   ),
@@ -35,12 +35,12 @@ $_smarty_tpl->decodeProperties(array (
 ,<?php }?><?php if ($_smarty_tpl->getVariable('keyword')->value){?><?php echo $_smarty_tpl->getVariable('keyword')->value;?>
 <?php }?><?php echo $_smarty_tpl->getVariable('yb')->value['site_keyword'];?>
 " />
-    <link rel="shortcut icon" href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+    <!-- <link rel="shortcut icon" href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /image/favicon.ico" type="image/x-icon">
 	<link rel="Bookmark" href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /image/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/image/favicon.ico" type="image/x-icon">
+/image/favicon.ico" type="image/x-icon"> -->
     <link rel="stylesheet" type="text/css" media="screen" href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /css/common.css" class="cssfx"/>
 	<?php $_template = new Smarty_Internal_Template("require_js.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
