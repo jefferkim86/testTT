@@ -46,9 +46,9 @@
 
 .feed .feed-link a{width:21px;height:21px;-moz-border-radius:0 7px 0 7px;-webkit-border-radius:0 7px 0 7px;border-radius:0 7px 0 7px;text-indent:-9999px;overflow:hidden;background-position:-5px -30px;}
 .feed .feed-link-show a{display:block;}
-.feed .feed-hd{padding:20px 26px 0 29px;}
+.feed .feed-hd{padding:20px 25px 10px 25px;}
 
-.feed .feed-forward-layout .feed-hd{padding:20px 0 0 12px;}
+.feed .feed-forward-layout .feed-hd{padding:20px 0 0 25px;}
 .feed .feed-hd .merc-name a,.feed-ft .cmt-list li a{color:#729DB8;}
 
 .feed .feed-hd .merc-name a{
@@ -186,8 +186,8 @@
 .feed .feed-title,.feed .feed-text-title,.feed-forward-layout .feed-text-title{
 	font-size: 12px;
 	color: #777777;
-	padding:10px 0 15px 0;
-	margin: 0 0 0 29px;
+	padding:0 0 15px 0;
+	margin: 0 0 0 25px;
 	word-break: break-all;
 	word-wrap: break-word;
 	border-bottom: 1px solid #eeeeee;
@@ -285,7 +285,7 @@
 .feed-ft .cmt-list .logo {
 	position: absolute;
 	left: 5px !important;
-	top: 0;
+	top: 5px;
 }
 .feed-ft .cmt-list .logo img {
 	width: 40px;
@@ -453,7 +453,7 @@
 .feed-good .feed-good-desc{
 	position:relative;
 	border-bottom:1px solid #dedede;
-	margin: 0 20px 25px 20px;
+	margin: 0 20px 20px 25px;
 	color: #777777;
 	font-size: 12px;
 	line-height: 16px;
@@ -483,7 +483,7 @@
 	width: 290px;
 }
 .feedWrap .feed-good .feed-good-info .feed-good-img{
-	left: -320px;
+	left: -316px;
 }
 .feedWrap .feed-good .feed-good-info .feed-good-property{
 	width: 410px;
@@ -505,7 +505,7 @@
 .feed-text .feed-text-title{font-size:18px;color:#333;font-weight:normal;}
 .feed-text .feed-text-title a{color:#333;}
 .feed-text .feed-text-title a:hover{color:#0099cc;}
-.feed-text .feed-text-cont{padding:12px 29px 0;}
+.feed-text .feed-text-cont{padding:0 25px 0;}
 .feed-text .feed-text-cont .no-mt{margin-top:0;}
 .feed-text .feed-text-p{font-size:14px;margin-top:10px;line-height:22px;color:#333;word-break:break-all;word-wrap:break-word;}
 .feed-text .feed-text-p .p-img{
@@ -571,7 +571,9 @@
 	-moz-border-radius:5px;
 	border-radius:5px;
 }
-.feed-forward-layout .feed-photo-img,.feed-forward-layout .feed-text-cont {padding:10px 12px 0 12px}
+.feed-forward-layout .feed-photo-img,.feed-forward-layout .feed-text-cont {
+	padding:10px 25px 0 25px
+}
 .feed-forward-layout .pop-corner .outter{position:absolute;left:42px;top:-24px;border:12px dashed transparent;border-bottom:12px solid #ebebeb;width:0;height:0;overflow:hidden;}
 .feed-forward-layout .pop-corner .inner{position:absolute;left:42px;top:-22px;border:12px dashed transparent;border-bottom:12px solid #f6f6f6;width:0;height:0;overflow:hidden;}
 

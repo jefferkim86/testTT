@@ -102,10 +102,10 @@ Tuitui.feedsView = Backbone.View.extend({
                 if (result.blog) {
                     self.collection.reset(result.blog);
                 } else {
-                    self._nofeed('你还没有喜欢任何用户哦～', 'style="width:300px;"');
+                    self._nofeed('你还没有喜欢任何动态哦～', 'style="width:300px;"');
                 }
             } else {
-                self._nofeed('你还没有喜欢任何用户哦～', 'style="width:300px;"');
+                self._nofeed('你还没有喜欢任何动态哦～', 'style="width:300px;"');
             }
 
         });

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-28 19:28:40
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-05 01:26:00
          compiled from "/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/index.html" */ ?>
-<?php /*%%SmartyHeaderCode:86399316253d633e8e77f52-93169938%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:76814859553dfc22899af56-86002653%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'fad38b1ce294af42e7720c022db1ac14e054a61f' => 
     array (
       0 => '/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/index.html',
-      1 => 1406546916,
+      1 => 1407173144,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '86399316253d633e8e77f52-93169938',
+  'nocache_hash' => '76814859553dfc22899af56-86002653',
   'function' => 
   array (
   ),
@@ -79,3 +79,5 @@ $_template->assign('top','yes'); echo $_template->getRenderedTemplate();?><?php 
         feedsView.getMyFeeds(userid,curPage);
     }
 </script>
+</body>
+</html>

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-28 19:31:21
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-05 01:24:33
          compiled from "tplv2/index.html" */ ?>
-<?php /*%%SmartyHeaderCode:144847087453d634899b55e5-30681459%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:113256199753dfc1d1ded3a8-61988582%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c1542c66fd69d13319a6782e135b83f629ebe08c' => 
     array (
       0 => 'tplv2/index.html',
-      1 => 1406547078,
+      1 => 1407173072,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '144847087453d634899b55e5-30681459',
+  'nocache_hash' => '113256199753dfc1d1ded3a8-61988582',
   'function' => 
   array (
   ),
@@ -75,3 +75,5 @@ $_template->assign('top','yes'); echo $_template->getRenderedTemplate();?><?php 
         feedsView.getFollowFeeds(curPage);
     }
 </script>
+</body>
+</html>

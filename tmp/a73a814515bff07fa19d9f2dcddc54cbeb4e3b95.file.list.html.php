@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-01 00:51:37
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-05 01:26:23
          compiled from "/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/list.html" */ ?>
-<?php /*%%SmartyHeaderCode:194149901353da74199f4b76-59709955%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:51290254353dfc23fdd6d27-85317222%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a73a814515bff07fa19d9f2dcddc54cbeb4e3b95' => 
     array (
       0 => '/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/list.html',
-      1 => 1406825453,
+      1 => 1407173178,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '194149901353da74199f4b76-59709955',
+  'nocache_hash' => '51290254353dfc23fdd6d27-85317222',
   'function' => 
   array (
   ),
@@ -127,3 +127,5 @@ function getQueryString(name){
     feedsView.getFeedDetail(bid);
 
 </script>
+</body>
+</html>

@@ -33,6 +33,9 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 	background: #fff;
 	padding-bottom: 40px;
 	 margin:0 auto; 
+
+	background:#fff url('../image/line.png') repeat-y scroll -10px  0;
+
 }
 .fl { float:left; }
 .fr { float:right; }
@@ -1083,6 +1086,7 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 .page-left {
 	float: left;
 	width: 240px;
+
 }
 
 .user-info ,#user_tab{
@@ -1133,6 +1137,7 @@ margin:20px 30px 0 30px;
   background-color:#fff;
    overflow:hidden; 
 }
+
 
 #conPerson h2, #conHead h2, #conSafe h2, #conInvite h2{
 	width: 820px;
@@ -1215,7 +1220,7 @@ margin:20px 30px 0 30px;
 	font-size: 14px;
 }
 .con_table .domain{
-	text-indent: 156px;
+	text-indent: 130px;
 }
 .con_sub {
 	float: left;
@@ -1865,6 +1870,9 @@ dl,dt,dd {
 	height: 80px;
 	
 }
+#tool .publish-menu,#tool .notice{
+	background: url('../image/menu-sep.png') no-repeat scroll right center;
+}
 #tool .publish {
 	left: 0;
 }
@@ -2088,6 +2096,10 @@ dl,dt,dd {
 }
 .forward-show .J_forwardList,.forward-corner .J_Forward .pop-foot-corner {
 	display: block !important;
+}
+
+.page-detail .TA-attention{
+	margin-top: 0;
 }
 
 

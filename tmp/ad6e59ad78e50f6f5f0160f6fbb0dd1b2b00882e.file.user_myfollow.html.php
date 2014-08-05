@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-03 11:51:04
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-05 01:27:50
          compiled from "tplv2/user_myfollow.html" */ ?>
-<?php /*%%SmartyHeaderCode:45822333653ddb1a8752fc9-66971047%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:16452290353dfc29636c6f5-58935146%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ad6e59ad78e50f6f5f0160f6fbb0dd1b2b00882e' => 
     array (
       0 => 'tplv2/user_myfollow.html',
-      1 => 1407037863,
+      1 => 1407173233,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '45822333653ddb1a8752fc9-66971047',
+  'nocache_hash' => '16452290353dfc29636c6f5-58935146',
   'function' => 
   array (
   ),
@@ -166,3 +166,5 @@ function addto_follow(d,type){
 </script>
 <?php $_template = new Smarty_Internal_Template("require_footer.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
+</body>
+</html>

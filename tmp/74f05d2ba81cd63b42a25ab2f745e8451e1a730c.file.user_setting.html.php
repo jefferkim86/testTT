@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-05 00:06:26
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-05 21:01:53
          compiled from "tplv2/user_setting.html" */ ?>
-<?php /*%%SmartyHeaderCode:205681424953dfaf82128226-39489957%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:62571081753e0d5c1123a85-84358207%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '74f05d2ba81cd63b42a25ab2f745e8451e1a730c' => 
     array (
       0 => 'tplv2/user_setting.html',
-      1 => 1407168384,
+      1 => 1407243627,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '205681424953dfaf82128226-39489957',
+  'nocache_hash' => '62571081753e0d5c1123a85-84358207',
   'function' => 
   array (
   ),
@@ -285,7 +285,7 @@ $(document).ready(function(){
 	</div>
 	
 	<div id="conSafe" style="display:none">
-	    
+	    <h2>修改密码</h2>
 		<div class="con_table">
 			<div class="user_left">原始密码</div>
 		    <div class="user_right">
@@ -423,3 +423,5 @@ $(document).ready(function(){
 
 <?php $_template = new Smarty_Internal_Template("require_footer.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
+</body>
+</html>
