@@ -3,7 +3,28 @@
 {literal}
 <script type="text/javascript">
 $(document).ready(function(){ 
-	do_run();
+	function getQueryString(name){
+	    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
+	        return '';
+	    }
+	     var queryString = location.href.substring(location.href.indexOf("?")+1);
+	     var parameters = queryString.split("&");
+	    var pos, paraName, paraValue;
+	    for(var i=0; i<parameters.length; i++){
+	        pos = parameters[i].indexOf('=');
+	        if(pos == -1) { continue; }
+	         paraName = parameters[i].substring(0, pos);
+	        paraValue = parameters[i].substring(pos + 1);
+	         if(paraName == name){
+	            return unescape(paraValue.replace(/\+/g, " "));
+	        }
+	    }
+	    return '';
+	};
+	var tabval = getQueryString('tab');
+	var curTab = tabval == '' ? '' : tabval;
+
+	do_run(curTab);
 })
 
 function do_run(ty){
@@ -17,7 +38,7 @@ function do_run(ty){
 		$('#curr_myfollow').addClass('current');
 		$('#follow_my').removeClass('current');
 	}
-	 getApi('user', 'myfollow', {
+	getApi('user', 'myfollow', {
         'type':ty
     }, function(d) {
         addto_follow(d,ty);
@@ -50,7 +71,11 @@ function do_run(ty){
  <div class="follow_list ${last}" id="myfollow_${uid}">
 	<div class="follow_con clearfix">
 	 <div class="follow_btn" id="follow_unlink_${uid}">
+	 	{@if linker}
 	 	<button class="J-follow followed" data-uid="${uid}">取消关注</button>
+	 	{@else}
+	 		<button class="J-follow" data-uid="${uid}">加关注</button>
+	 	{@/if}
 	 </div>
 	<div class="avatar">	       
 	  <a href="${h_url}" target="_blank" title="${username}">
@@ -103,6 +128,8 @@ function do_run(ty){
 <script type="text/javascript">
 {literal}
 //添加到 follow
+
+
 function addto_follow(d,type){
 	$('#follow_area').html('');
 	$('#feed_loading').hide();

@@ -75,6 +75,7 @@ class yb_product extends basePostModel
     	$item['image'] = $this->spArgs('image');
     	$item['deliveryFees'] = $this->spArgs('deliveryFees');
     	$item['price'] = $this->spArgs("price");
+    	$item['discount_price'] = $this->spArgs("discount_price", "");
     	$item['producturl'] = $this->spArgs('producturl');
     	return $item;
     }

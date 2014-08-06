@@ -2,7 +2,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 
 	initialize: function() {
 
-		
+
 
 	},
 
@@ -52,6 +52,18 @@ Tuitui.feedModel = Backbone.Model.extend({
 		};
 		return feedTypeMap[this.get('type_name')];
 	},
+	_getPreForward: function() {
+		var result = '';
+		var repto = this.get('repto');
+		if (repto && repto.forward) {
+			var url = repto.forward.h_url;
+			var username = repto.forward.username;
+			var content = repto.forward.forward_title;
+			result = ' //<a href="' + url + '" target="_blank">' + username + '</a> : ' + content;
+
+		}
+		return result;
+	},
 	//TODO: forwardData引用getFeedAttr
 	getfeedData: function() {
 		return {
@@ -61,6 +73,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 			'avatar': urlpath + this.get('h_img'),
 			'avatarHref': this.get('h_url'),
 			'feedType': this.getfeedType(),
+			'preforwardContent': this._getPreForward(),
 			'feedLink': this._isDetail() ? 'javascript:void(0)' : this.get('b_url'),
 			'forwardcount': this.get('forwardcount'),
 			'replaycount': this.get('replaycount'),
@@ -161,14 +174,14 @@ Tuitui.feedModel = Backbone.Model.extend({
 				result = {
 					'goodTitle': repto.attr.title,
 					'goodPic': repto.attr.image,
-					'oprice': repto.attr.oprice || '',
 					'price': repto.attr.price,
+					'discount_price': repto.attr.discount_price,
 					'producturl': repto.attr.producturl,
 					'feedLink': repto.b_url,
 					'feedContent': repto.body,
 					'isSelf': repto.uid == uid,
-					//'priceTxt': repto.attr.oprice == repto.attr.price ? '价格' : '促销',
-					'priceTxt': repto.attr.oprice == repto.attr.price ? '价格' : '价格',
+					'hasDiscout': repto.attr.discount_price ? 'hasDiscount' : '',
+					//'priceTxt': repto.attr.oprice == repto.attr.price ? '价格' : '价格',
 
 					'isLiked': repto.likeid ? 'liked' : false,
 					'needFeedMore': repto.more == 1
@@ -179,12 +192,12 @@ Tuitui.feedModel = Backbone.Model.extend({
 				result = {
 					'goodTitle': attr.title,
 					'goodPic': attr.image,
-					'oprice': attr.oprice || '',
 					'price': attr.price,
+					'discount_price': attr.discount_price,
 					'feedLink': this.get('b_url'),
 					'producturl': attr.producturl,
-					//'priceTxt': attr.oprice == attr.price ? '价格' : '促销',
-					'priceTxt': attr.oprice == attr.price ? '价格' : '价格',
+					'hasDiscout': attr.discount_price ? 'hasDiscount' : '',
+					//'priceTxt': attr.oprice == attr.price ? '价格' : '价格',
 					'feed': attr.deliveryFees,
 					'feedContent': this.get('body'),
 					'needFeedMore': this.get('more') == 1

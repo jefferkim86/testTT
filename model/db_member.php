@@ -121,7 +121,7 @@ class db_member extends ybModel
 		$_SESSION['uid'] = $uid;
 		$_SESSION['email'] = $row['email'];
 		$_SESSION['domain'] = false;
-		$_SESSION['username'] = utf8_substr($row['username'], 0, 8);
+		$_SESSION['username'] = $row['username'];
 		$_SESSION['firstuid'] = true;  //第一次访问
 		$logintime = 24*60*60;
 		spClass('ybCookie')->set_cookie('sid',$uid);
@@ -138,7 +138,7 @@ class db_member extends ybModel
 		$_SESSION['uid']      = $result['uid'];
 		$_SESSION['email']    = $result['email'];
 		$_SESSION['domain']   = $result['domain'];
-		$_SESSION['username'] = utf8_substr($result['username'], 0, 8);
+		$_SESSION['username'] = $result['username'];
 		$_SESSION['admin']    = $result['admin'];
 		$_SESSION['user']     = $result;
 		$ip = $this->getIP();

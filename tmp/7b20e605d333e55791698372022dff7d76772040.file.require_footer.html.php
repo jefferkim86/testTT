@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-05 01:24:33
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-06 20:58:22
          compiled from "tplv2/require_footer.html" */ ?>
-<?php /*%%SmartyHeaderCode:127500767653dfc1d1eb6543-56608528%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:115636659653e2266e74ffc8-11809886%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7b20e605d333e55791698372022dff7d76772040' => 
     array (
       0 => 'tplv2/require_footer.html',
-      1 => 1407173066,
+      1 => 1407326338,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '127500767653dfc1d1eb6543-56608528',
+  'nocache_hash' => '115636659653e2266e74ffc8-11809886',
   'function' => 
   array (
   ),
@@ -131,4 +131,4 @@ if(Tuitui.globalData.pageNeedLoading){
     new Tuitui.Router();
     Backbone.history.start();
 </script>
-<script type="text/javascript" src="http://tajs.qq.com/stats?sId=35584982" charset="UTF-8"></script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=35585152" charset="UTF-8"></script>

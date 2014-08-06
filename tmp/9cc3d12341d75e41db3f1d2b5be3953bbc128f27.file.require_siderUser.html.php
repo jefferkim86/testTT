@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-07-31 20:30:51
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-07 00:20:25
          compiled from "tplv2/require_siderUser.html" */ ?>
-<?php /*%%SmartyHeaderCode:69156883453da36fbbd8769-45242709%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:85127992753e255c965a766-84780518%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9cc3d12341d75e41db3f1d2b5be3953bbc128f27' => 
     array (
       0 => 'tplv2/require_siderUser.html',
-      1 => 1406809448,
+      1 => 1407341635,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '69156883453da36fbbd8769-45242709',
+  'nocache_hash' => '85127992753e255c965a766-84780518',
   'function' => 
   array (
   ),
@@ -30,7 +30,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 ?>
                         <li><a href="<?php echo $_smarty_tpl->tpl_vars['val']->value['h_url'];?>
 "><img src="<?php echo $_smarty_tpl->tpl_vars['val']->value['h_img'];?>
-" alt="<?php echo $_smarty_tpl->tpl_vars['val']->value['username'];?>
+" title="<?php echo $_smarty_tpl->tpl_vars['val']->value['username'];?>
 "/></a></li>
                   <?php }} ?>
             </ul>

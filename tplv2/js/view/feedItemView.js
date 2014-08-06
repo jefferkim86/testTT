@@ -30,7 +30,8 @@ Tuitui.feedItemView = Backbone.View.extend({
         "click .J-sendReply": "submitComment",
         "click .J_Like": "likeFeed",
         "click .fold": "foldFt",
-        "click .J_Del": "delFeed"
+        "click .J_Del": "delFeed",
+        "click .J_deleteCmt": "removeCommentItem"
     },
 
 
@@ -41,7 +42,7 @@ Tuitui.feedItemView = Backbone.View.extend({
             self.triggerDomUpdate();
         });
         this.model.on("destroy", function() {
-            self.$el.fadeOut('slow',function(){
+            self.$el.fadeOut('slow', function() {
                 self.$el.remove();
             });
         });
@@ -61,12 +62,12 @@ Tuitui.feedItemView = Backbone.View.extend({
         var data = this.model.toJSON();
         artDialog({
             id: 'Confirm',
-            title: '删除feed',
+            title: '删除动态',
             fixed: true,
             lock: true,
-           // width: '200px',
+            // width: '200px',
             opacity: .1,
-            content: '确定要删除此条feed吗?',
+            content: '确定要删除此条动态吗?',
             ok: function() {
                 getApi('user', 'delblog', {
                     'id': data.bid
@@ -83,7 +84,7 @@ Tuitui.feedItemView = Backbone.View.extend({
 
     },
     toggleDel: function(e) {
-        
+
     },
     /*
      * @desc 根据数据直接渲染
@@ -153,18 +154,21 @@ Tuitui.feedItemView = Backbone.View.extend({
             return;
         }
         var params = {
-            bid: data.bid,
-            inputs: inputVal,
-            repuid: feed.find('.feed-ft').attr("data-reply")
+            'bid': data.bid,
+            'inputs': inputVal,
+            'repcontent': $(target).attr('data-c'),
+            'repuid': feed.find('.feed-ft').attr("data-reply")
         };
         getApi('blog', 'setReply', params, function(resp) {
             if (resp.status == 1) {
                 feed.find('.feed-ft').attr("data-reply", "");
                 input.val('');
+                $(target).attr('data-c','');
                 var commentModel = new Tuitui.commentModel({
                     "h_img": '/avatar.php?uid=' + uid + '&size=small',
                     "h_url": 'tuitui/index.php?c=userblog&a=index&domain=home&uid=' + uid,
                     "msg": inputVal,
+                    "time":"刚刚",
                     "user": {
                         'username': G_username
                     }
@@ -186,7 +190,7 @@ Tuitui.feedItemView = Backbone.View.extend({
         var data = this.model.toJSON();
         var input = feed.find(".J_CmtCnt");
         var inputVal = input.val();
-        
+
         if (inputVal.replace("/[^/x00-/xff]/g", "**").length > 140) {
             alert("不能超出140个字数");
             return;
@@ -211,7 +215,36 @@ Tuitui.feedItemView = Backbone.View.extend({
         });
     },
 
+    //评论删除
+    removeCommentItem: function(e) {
+        e.preventDefault();
+        var self = this;
+        var target = e.currentTarget;
+        artDialog({
+            id: 'Confirm',
+            title: '删除评论',
+            fixed: true,
+            lock: true,
+            opacity: .1,
+            content: '确定要删除此条评论吗?',
+            ok: function() {
+                getApi('blog', 'delReply', {
+                    id: $(target).attr("data-id")
+                }, function(resp) {
+                    if (resp.status == 1) {
+                        self.setCounts('replaycount','sub');
+                        $(target).parents('.comment-item').remove();
+                    } else {
+                        tips(data.msg);
+                    }
 
+                })
+            },
+            cancel: function() {}
+        })
+        
+
+    },
 
     foldFt: function(e) {
         e.preventDefault();
@@ -222,11 +255,11 @@ Tuitui.feedItemView = Backbone.View.extend({
     /*
      * @desc 详情页要自动展开，后期展开动作封装
      * */
-    expandFt: function(e,obj) {
-        if(e){
+    expandFt: function(e, obj) {
+        if (e) {
             e.preventDefault();
             var target = e.currentTarget;
-        }else{
+        } else {
             var target = obj;
         }
         var type = $(target).attr("type");

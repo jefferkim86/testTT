@@ -40,9 +40,13 @@ class item extends top
 				$data['title'] = $item->data->itemInfoModel->title;
 				$data['image'] = $item->data->itemInfoModel->picsPath['0'];
 				$data['deliveryFees'] = $stack->data->delivery->deliveryFees['0'];
+				$data['price'] = "";
+				$data['discount_price'] = "";
 				foreach ($stack->data->itemInfoModel->priceUnits as $val) {
 					if (trim($val->name) == "价格") {
 						$data['price'] = $val->price;
+					} else if (empty($data['discount_price']) && trim($val->name) != "手机专项价") {
+						$data['discount_price'] = $val->price;
 					}
 				}
 				

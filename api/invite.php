@@ -16,17 +16,17 @@ class invite extends top
 
     public function getInviteList()
     {
-        $db_invite = spClass('db_invite');
-        $this->api_success($db_invite->initInvite($this->uid));
+        //$db_invite = spClass('db_invite');
+        //$this->api_success($db_invite->initInvite($this->uid));
     }
 
     public function addToFull()
     {
-        if(spClass('db_invite')->addToFull($this->uid) ){
-			 $this->api_success(true);
-		}else{
-			$this->api_error('请稍候再试');
-		}
+//        if(spClass('db_invite')->addToFull($this->uid) ){
+//			 $this->api_success(true);
+//		}else{
+//			$this->api_error('请稍候再试');
+//		}
     }
 
     public function getInvitedFriendList()

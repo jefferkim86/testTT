@@ -107,7 +107,7 @@ $(document).ready(function(){
 			<div class="con_table">
 				<div class="user_left">我的昵称</div>
 			    <div class="user_right">
-				    <input type="text" name="niname" id="niname" class="iptni"  value="{$users.username}"><span class="info">昵称唯一，可修改</span>
+				    <input type="text" name="niname" id="niname" class="iptni"  value="{$users.username}"><span class="info">昵称唯一可修改，2到10个汉字</span>
 				</div>
 			</div>
 			
@@ -116,7 +116,7 @@ $(document).ready(function(){
 			    <div class="user_right">
 				     <span class="host">{$url}/</span>
 					 <input type="text" name="domain" class="domain" id="domain" value="{$users.domain}">
-					 <span class="info">域名唯一，可修改</span>
+					 <span class="info">域名唯一可修改</span>
 				</div>
 			</div>
 			
@@ -150,7 +150,7 @@ $(document).ready(function(){
 						      	<input id="fileupload" size="1" type="file" name="filedata" ext="jpg|jpeg|png"/>
 						      	<div class="fileDataImg">选择文件</div>
 							</div>
-							<div class="tip">支持jpg、gif、png、bmp格式</div>
+							<div class="tip">支持jpg、gif、png、bmp格式，尺寸大于120px*120px，大小小于1M</div>
 							<!-- <div class="progress"> 
 								<span class="bar"></span><span class="percent">0%</span > 
 							</div> -->
@@ -321,24 +321,28 @@ $(document).ready(function(){
 					if(data.status == "1"){
 						var img = urlpath +'/'+ data.body.pic_path
 							
-						// if (data.body.width>240 && data.body.height<240){
-						// 	showimg.html("<img src='"+img+"' id='cropbox' height='240' />");
-						// }else if(data.body.width<240 && data.body.height>240){
-						// 	showimg.html("<img src='"+img+"' id='cropbox' width='240' />");
-						// }else if(data.body.width<240 && data.body.height<240){
-						// 	showimg.html("<img src='"+img+"' id='cropbox' width='240' height='240' />");
-						// }else{
+						if (data.body.width>240 && data.body.height<240){
+							showimg.html("<img src='"+img+"' id='cropbox' height='240' />");
+						}else if(data.body.width<240 && data.body.height>240){
+							showimg.html("<img src='"+img+"' id='cropbox' width='240' />");
+						}else if(data.body.width<240 && data.body.height<240){
+							showimg.html("<img src='"+img+"' id='cropbox' width='240' height='240' />");
+						}else{
 							showimg.attr({
 								'data-w':data.body.width,
 								'data-h':data.body.height
 							});
 							showimg.html("<img src='"+img+"' width='"+data.body.width+"px' height='"+data.body.height+"px'  id='cropbox' />");
-						//}
+						}
 							//$("#preview-avatar-img").attr('src',img);
 							//传给php页面，进行保存的图片值
 							$("#src").val(img);
 							//截取图片的js
+
 							var maxWhSize = Math.min(data.body.width,data.body.height);
+							if(maxWhSize < 240){
+								maxWhSize = 240;
+							}
 							$('#cropbox').Jcrop({
 								aspectRatio: 1,
 								onSelect: updateCoords,

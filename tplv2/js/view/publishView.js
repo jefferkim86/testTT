@@ -86,7 +86,7 @@ Tuitui.publishView = Backbone.View.extend({
         }
 
     },
-
+    //TODO: 渲染model
     getGood: function(link) {
         var goodTpl = this.compiled_tpl['goodTpl'];
         getApi('item', 'get', {
@@ -98,7 +98,9 @@ Tuitui.publishView = Backbone.View.extend({
                 for (var key in result) {
                     $("#J_" + key).val(result[key]);
                 }
-                result.oprice = result.oprice || '';
+
+                result.discountCls = result.discount_price ?'hasDiscount':'';
+
                 result.image = result.image + '_160x160.jpg';
                 var html = goodTpl.render(result);
                 $("#goodInfoBlock").html(html);

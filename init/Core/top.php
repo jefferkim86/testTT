@@ -33,7 +33,7 @@ class top extends spController
 				$_SESSION['uid']      = $rs['uid'];
 				$_SESSION['email']    = $rs['email'];
 				$_SESSION['domain']   = $rs['domain'];
-				$_SESSION['username'] = utf8_substr($rs['username'], 0, 8);
+				$_SESSION['username'] = $rs['username'];
 				$_SESSION['admin']    = $rs['admin'];
 				$_SESSION['user']     = $rs;
 			}else{
@@ -102,6 +102,8 @@ class top extends spController
 	//处理内容中的AT
 	protected function parse_uid($info){
 		preg_match("/\[at=(.*?)](.*?)\[\/at\]/i",$info,$msg); //print_r($msg);
+//		return str_replace($msg[0],$msg[2],$info);
+		
 		return str_replace($msg[0],'<a href="'.goUserHome(array('uid'=>$msg[1])).'" target="_blank">'.$msg[2].'</a>',$info);
 	}
     

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-04 21:54:24
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-07 00:19:43
          compiled from "tplv2/require_feedTemplate.html" */ ?>
-<?php /*%%SmartyHeaderCode:189822150653df90902cc549-01852753%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:35227440553e2559f510876-80832956%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '350be01eeee6d1b227e428bdc9ce144dbf95710b' => 
     array (
       0 => 'tplv2/require_feedTemplate.html',
-      1 => 1407160407,
+      1 => 1407341967,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '189822150653df90902cc549-01852753',
+  'nocache_hash' => '35227440553e2559f510876-80832956',
   'function' => 
   array (
   ),
@@ -20,17 +20,18 @@ $_smarty_tpl->decodeProperties(array (
 <script type="text/template" id="J-cmtList">
 
     <div class="logo">
-        <a href="${logoUrl}">
+        <a href="${logoUrl}" target="_blank">
          <img src="${logo}"/>
         </a>
     </div>
     <div class="cmt-desc">
         <p>
-         <span><a href="#">${userName}</a>:</span>
-            ${msg}
+         <span><a href="${logoUrl}" target="_blank">${userName}</a>:</span>
+            ${msg} (${time})
         </p>
         <div class="reply">
-          <a href="#" class="J_Reply">回复</a>
+          {@if canDel}<a href="#" class="J_deleteCmt" data-id="${id}">删除</a>{@/if}
+          <a href="#" class="J_Reply" data-c="${msg}">回复</a>
         </div>
     </div>
 
@@ -57,16 +58,16 @@ $_smarty_tpl->decodeProperties(array (
             <div class="feed-bd">
             {@if forwardData}
                 <div class="feed-title clearfix">
-                    ${feedForwardContent}
+                    ${feedForwardContent}<span class="preforward">$${preforwardContent}</span>
                 </div>
                 
                  <div  id="J-forwardBlog-${forwardData.bid}" class="feed feed-${feedType} feed-forward-layout clearfix">
                     <div class="feed-desc">
                         <div class="feed-hd">
-                            <div class="merc-name">转自: <a href="${forwardData.h_url}">${forwardData.username}</a></div>
+                            <div class="merc-name">转自: <a href="${forwardData.h_url}" target="_blank">${forwardData.username}</a></div>
                         </div>
                         <div class="feed-link">
-                            <a href="${forwardData.b_url}">${forwardData.time}</a>
+                            <a href="${forwardData.b_url}" target="_blank">${forwardData.time}</a>
                         </div>
                         <div class="feed-bd">
                 {@/if}
@@ -176,14 +177,13 @@ $_smarty_tpl->decodeProperties(array (
                 <h3 class="feed-good-title"><a href="${producturl}" target="_blank">${goodTitle}</a></h3>
                <div class="feed-good-fee">
                   <ul>
-                   {@if oprice}
-                    <li class="oprice"><span>价格：</span>
-                        <del>${oprice}</del>元
+                   {@if price}
+                    <li class="oprice ${hasDiscout}"><span>价格：</span>
+                        <b>${price}元</b>
                     </li>{@/if}
-                    {@if price}
-                    <li class="price"><span>${priceTxt}：</span>
-                    <b>${price}元</b></li>{@/if}
-                    
+                    {@if discount_price}
+                    <li class="price"><span>促销：</span>
+                    <b>${discount_price}</b> 元</li>{@/if}
                   </ul>
                </div>
                <a href="${producturl}" target="_blank" class="view-good">查看宝贝</a>

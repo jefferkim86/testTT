@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-05 01:27:50
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-05 21:49:43
          compiled from "tplv2/user_myfollow.html" */ ?>
-<?php /*%%SmartyHeaderCode:16452290353dfc29636c6f5-58935146%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:213526087153e0e0f77334c4-53182728%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ad6e59ad78e50f6f5f0160f6fbb0dd1b2b00882e' => 
     array (
       0 => 'tplv2/user_myfollow.html',
-      1 => 1407173233,
+      1 => 1407246582,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '16452290353dfc29636c6f5-58935146',
+  'nocache_hash' => '213526087153e0e0f77334c4-53182728',
   'function' => 
   array (
   ),
@@ -23,7 +23,28 @@ $_smarty_tpl->decodeProperties(array (
 
 <script type="text/javascript">
 $(document).ready(function(){ 
-	do_run();
+	function getQueryString(name){
+	    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
+	        return '';
+	    }
+	     var queryString = location.href.substring(location.href.indexOf("?")+1);
+	     var parameters = queryString.split("&");
+	    var pos, paraName, paraValue;
+	    for(var i=0; i<parameters.length; i++){
+	        pos = parameters[i].indexOf('=');
+	        if(pos == -1) { continue; }
+	         paraName = parameters[i].substring(0, pos);
+	        paraValue = parameters[i].substring(pos + 1);
+	         if(paraName == name){
+	            return unescape(paraValue.replace(/\+/g, " "));
+	        }
+	    }
+	    return '';
+	};
+	var tabval = getQueryString('tab');
+	var curTab = tabval == '' ? '' : tabval;
+
+	do_run(curTab);
 })
 
 function do_run(ty){
@@ -37,7 +58,7 @@ function do_run(ty){
 		$('#curr_myfollow').addClass('current');
 		$('#follow_my').removeClass('current');
 	}
-	 getApi('user', 'myfollow', {
+	getApi('user', 'myfollow', {
         'type':ty
     }, function(d) {
         addto_follow(d,ty);
@@ -72,7 +93,11 @@ function do_run(ty){
  <div class="follow_list ${last}" id="myfollow_${uid}">
 	<div class="follow_con clearfix">
 	 <div class="follow_btn" id="follow_unlink_${uid}">
+	 	{@if linker}
 	 	<button class="J-follow followed" data-uid="${uid}">取消关注</button>
+	 	{@else}
+	 		<button class="J-follow" data-uid="${uid}">加关注</button>
+	 	{@/if}
 	 </div>
 	<div class="avatar">	       
 	  <a href="${h_url}" target="_blank" title="${username}">
@@ -127,6 +152,8 @@ function do_run(ty){
 <script type="text/javascript">
 
 //添加到 follow
+
+
 function addto_follow(d,type){
 	$('#follow_area').html('');
 	$('#feed_loading').hide();

@@ -301,7 +301,7 @@ Tuitui.messageView = Backbone.View.extend({
                 'actionCls': actionClsMap[opt.type],
                 'bid': list[i].extend['bid'],
                 'location': list[i].location,
-                'topic': list[i].extend['info'],
+                'topic': list[i].extend['info'] || '',
                 'action': actionTmp,
                 'notread': list[i].isread == "0",
                 'info': opt.type != "follow" ? list[i].info : '',

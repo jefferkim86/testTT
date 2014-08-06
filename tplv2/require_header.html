@@ -68,7 +68,7 @@
 					
 					<!-- 个人中心 -->
 					<div class="userName">
-						<a href="javascript:void(0);" target="_blank" title="我的博客"><span class="login-name">{$smarty.session.username} <s class="arrow"></s></span></a>
+						<a href="javascript:void(0);" target="_blank" title="我的博客"><span class="login-name">{substring str=$smarty.session.username len=8 type=1} <s class="arrow"></s></span></a>
 						<div class="menu userNameMenu" style="display:none;">
 							<ul>
 								<li><a href="{goUserHome domain=$smarty.session.domain uid=$smarty.session.uid}"><span>个人主页</span></a></li>

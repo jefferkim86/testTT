@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-05 00:28:51
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-07 00:13:57
          compiled from "tplv2/require_sider.html" */ ?>
-<?php /*%%SmartyHeaderCode:58590415953dfb4c378dea5-90131418%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:81343468753e25445dbb6f1-35283228%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0bb71f38ec48f4c0527c2092450118f8bd1842e1' => 
     array (
       0 => 'tplv2/require_sider.html',
-      1 => 1407169721,
+      1 => 1407341591,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '58590415953dfb4c378dea5-90131418',
+  'nocache_hash' => '81343468753e25445dbb6f1-35283228',
   'function' => 
   array (
   ),
@@ -41,7 +41,7 @@ $_smarty_tpl->decodeProperties(array (
 				<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'myfollow'),$_smarty_tpl);?>
 "><b><?php echo $_smarty_tpl->getVariable('user')->value['flow'];?>
 </b><span>关注</span></a></li>
-				<li class="nr"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'myfollow'),$_smarty_tpl);?>
+				<li class="nr"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'myfollow','tab'=>'follow'),$_smarty_tpl);?>
 "><b><?php echo $_smarty_tpl->getVariable('myLook')->value;?>
 </b><span>粉丝</span></a></li>
 			</ul>
@@ -94,7 +94,7 @@ $_smarty_tpl->decodeProperties(array (
 <script type="text/template" id="J-recommendItem">
 <li>
 	<div class="logo">
-		<a href="${h_url}" target="_blank"><img src="${avatar}" alt="${username}"/></a>
+		<a href="${h_url}" target="_blank"><img src="${avatar}" title="${username}"/></a>
 	</div>
 	<div class="info">
 		<h4><a href="${h_url}" target="_blank">${username}</a></h4>

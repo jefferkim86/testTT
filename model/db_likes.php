@@ -26,7 +26,7 @@ class db_likes extends ybModel
 	{
 		$result = $this->find(array('bid'=>$rows['bid'],'uid'=>$uid));
 		$rs = spClass('db_blog')->find(array('bid'=>$rows['bid']),'','uid,title,bid');
-		if($rs['uid'] == $uid){return '不能标记自己的内容';}
+//		if($rs['uid'] == $uid){return '不能标记自己的内容';}
 	
 		if(is_array($result)) //如果已经标记喜欢
 		{
@@ -38,7 +38,9 @@ class db_likes extends ybModel
 		}else{
 			$this->create(array('bid'=>$rows['bid'],'uid'=>$uid,'time'=>time()));
 			spClass('db_feeds')->changeFeedsLike($rows,$uid);
-			spClass('db_notice')->noticeLike($uid, $rs['uid'], $rs['bid'], $rs['title']);
+			if ($uid != $rs['uid']) {
+				spClass('db_notice')->noticeLike($uid, $rs['uid'], $rs['bid'], $rs['title']);
+			}
 			spClass('db_member')->incrField(array('uid'=>$uid),'likenum'); //增加回复统计
 			spClass('db_blog')->incrField(array('bid'=>$rows['bid']), 'likecount');
 			return 'add';

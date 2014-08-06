@@ -53,11 +53,11 @@ abstract class basePostModel extends top
             $tag = utf8_substr(substr((strip_tags($this->spArgs('tag'))),0,-1),0,30,0); //超过30自动截取
         }
 		if($this->spArgs('title') != ''){
-			$title = utf8_substr(strip_tags($this->spArgs('title')),0,50,0);
+			$title = utf8_substr(strip_tags($this->spArgs('title')),0,140,0);
 		}
         
         $rows = array(
-            'title'=>$title, //超过50自动截取
+            'title'=>$title, //超过140自动截取
 			'type' =>$this->mid,
         	'type_name'=>$this->type_name,
 			'top'  =>$this->spArgs('top',0),

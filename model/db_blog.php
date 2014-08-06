@@ -92,7 +92,7 @@ class db_blog extends ybModel
 	{
 		$rs = $this->spLinker()->find(array('bid'=>$bid));
 		if(!$rs) { return -1;}
-		if($rs['uid'] == $_SESSION['uid']){return -2;} //自己的
+//		if($rs['uid'] == $_SESSION['uid']){return -2;} //自己的
 		
 		$old_title = $rs['title'];
 		$old_uid = $rs['uid'];
@@ -135,7 +135,7 @@ class db_blog extends ybModel
 			spClass('db_member')->incrField(array('uid'=>$_SESSION['uid']),'num');  //我发布的统计+1
 			spClass('db_feeds')->addRep(array('bid'=>$bid),$_SESSION['uid'], $title);
 			$new_bid = $this->create($rs);
-			if ($new_bid) {
+			if ($new_bid && $_SESSION['uid'] != $old_uid) {
 				spClass('db_notice')->noticeForward($_SESSION['uid'], $old_uid, $bid, $new_bid, $old_title, $rs['title']);
 			}
 			return 1;

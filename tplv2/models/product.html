@@ -34,8 +34,8 @@ $(document).ready(function(){
 				
 				<div style="display:none">
 					<input type="hidden" value="" name="title" id="J_title"/>
+					<input type="hidden" value="" name="discount_price" id="J_discount_price"/>
 					<input type="hidden" value="" name="price" id="J_price"/>
-					<input type="hidden" value="" name="oprice" id="J_oprice"/>
 					<input type="hidden" value="" name="deliveryFees" id="J_deliveryFees"/>
 					<input type="hidden" vlaue="" name="image" id="J_image"/>
 				</div>
@@ -127,13 +127,13 @@ $(document).ready(function(){
                     <h3 class="feed-good-title">${title}</h3>
                     <div class="feed-good-fee">
                         <ul>
-                            {@if oprice}
-                            <li class="oprice"><span>价格：</span>
-                                <del>${oprice}</del>元
-                            </li>{@/if}
                             {@if price}
-                            <li class="price"><span>价格：</span>
-                            <b>${price}元</b></li>{@/if}
+                            <li class="oprice ${discountCls}"><span>价格：</span>
+                                <b>${price}</b>元
+                            </li>{@/if}
+                            {@if discount_price}
+                            <li class="price"><span>促销：</span>
+                            <b>${discount_price}</b> 元</li>{@/if}
                         </ul>
                     </div>
                 </div>

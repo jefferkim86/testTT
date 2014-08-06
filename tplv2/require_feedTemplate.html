@@ -1,17 +1,18 @@
 <script type="text/template" id="J-cmtList">
 {literal}
     <div class="logo">
-        <a href="${logoUrl}">
+        <a href="${logoUrl}" target="_blank">
          <img src="${logo}"/>
         </a>
     </div>
     <div class="cmt-desc">
         <p>
-         <span><a href="#">${userName}</a>:</span>
-            ${msg}
+         <span><a href="${logoUrl}" target="_blank">${userName}</a>:</span>
+            ${msg} (${time})
         </p>
         <div class="reply">
-          <a href="#" class="J_Reply">回复</a>
+          {@if canDel}<a href="#" class="J_deleteCmt" data-id="${id}">删除</a>{@/if}
+          <a href="#" class="J_Reply" data-c="${msg}">回复</a>
         </div>
     </div>
 {/literal}
@@ -38,16 +39,16 @@
             <div class="feed-bd">
             {@if forwardData}
                 <div class="feed-title clearfix">
-                    ${feedForwardContent}
+                    ${feedForwardContent}<span class="preforward">$${preforwardContent}</span>
                 </div>
                 
                  <div  id="J-forwardBlog-${forwardData.bid}" class="feed feed-${feedType} feed-forward-layout clearfix">
                     <div class="feed-desc">
                         <div class="feed-hd">
-                            <div class="merc-name">转自: <a href="${forwardData.h_url}">${forwardData.username}</a></div>
+                            <div class="merc-name">转自: <a href="${forwardData.h_url}" target="_blank">${forwardData.username}</a></div>
                         </div>
                         <div class="feed-link">
-                            <a href="${forwardData.b_url}">${forwardData.time}</a>
+                            <a href="${forwardData.b_url}" target="_blank">${forwardData.time}</a>
                         </div>
                         <div class="feed-bd">
                 {@/if}
@@ -157,14 +158,13 @@
                 <h3 class="feed-good-title"><a href="${producturl}" target="_blank">${goodTitle}</a></h3>
                <div class="feed-good-fee">
                   <ul>
-                   {@if oprice}
-                    <li class="oprice"><span>价格：</span>
-                        <del>${oprice}</del>元
+                   {@if price}
+                    <li class="oprice ${hasDiscout}"><span>价格：</span>
+                        <b>${price}元</b>
                     </li>{@/if}
-                    {@if price}
-                    <li class="price"><span>${priceTxt}：</span>
-                    <b>${price}元</b></li>{@/if}
-                    
+                    {@if discount_price}
+                    <li class="price"><span>促销：</span>
+                    <b>${discount_price}</b> 元</li>{@/if}
                   </ul>
                </div>
                <a href="${producturl}" target="_blank" class="view-good">查看宝贝</a>

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-05 21:01:53
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-06 23:39:29
          compiled from "tplv2/user_setting.html" */ ?>
-<?php /*%%SmartyHeaderCode:62571081753e0d5c1123a85-84358207%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:213312647753e24c31e93220-87206421%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '74f05d2ba81cd63b42a25ab2f745e8451e1a730c' => 
     array (
       0 => 'tplv2/user_setting.html',
-      1 => 1407243627,
+      1 => 1407338796,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '62571081753e0d5c1123a85-84358207',
+  'nocache_hash' => '213312647753e24c31e93220-87206421',
   'function' => 
   array (
   ),
@@ -178,7 +178,7 @@ $(document).ready(function(){
 						      	<input id="fileupload" size="1" type="file" name="filedata" ext="jpg|jpeg|png"/>
 						      	<div class="fileDataImg">选择文件</div>
 							</div>
-							<div class="tip">支持jpg、gif、png、bmp格式</div>
+							<div class="tip">支持jpg、gif、png、bmp格式，尺寸大于120px*120px，大小小于1M</div>
 							<!-- <div class="progress"> 
 								<span class="bar"></span><span class="percent">0%</span > 
 							</div> -->
@@ -359,24 +359,28 @@ $(document).ready(function(){
 					if(data.status == "1"){
 						var img = urlpath +'/'+ data.body.pic_path
 							
-						// if (data.body.width>240 && data.body.height<240){
-						// 	showimg.html("<img src='"+img+"' id='cropbox' height='240' />");
-						// }else if(data.body.width<240 && data.body.height>240){
-						// 	showimg.html("<img src='"+img+"' id='cropbox' width='240' />");
-						// }else if(data.body.width<240 && data.body.height<240){
-						// 	showimg.html("<img src='"+img+"' id='cropbox' width='240' height='240' />");
-						// }else{
+						if (data.body.width>240 && data.body.height<240){
+							showimg.html("<img src='"+img+"' id='cropbox' height='240' />");
+						}else if(data.body.width<240 && data.body.height>240){
+							showimg.html("<img src='"+img+"' id='cropbox' width='240' />");
+						}else if(data.body.width<240 && data.body.height<240){
+							showimg.html("<img src='"+img+"' id='cropbox' width='240' height='240' />");
+						}else{
 							showimg.attr({
 								'data-w':data.body.width,
 								'data-h':data.body.height
 							});
 							showimg.html("<img src='"+img+"' width='"+data.body.width+"px' height='"+data.body.height+"px'  id='cropbox' />");
-						//}
+						}
 							//$("#preview-avatar-img").attr('src',img);
 							//传给php页面，进行保存的图片值
 							$("#src").val(img);
 							//截取图片的js
+
 							var maxWhSize = Math.min(data.body.width,data.body.height);
+							if(maxWhSize < 240){
+								maxWhSize = 240;
+							}
 							$('#cropbox').Jcrop({
 								aspectRatio: 1,
 								onSelect: updateCoords,

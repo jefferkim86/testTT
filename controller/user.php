@@ -57,8 +57,9 @@ class user extends top
 	public function mymessage() {
 		$this->display('user_mymessage.html');
 	}
-	public function searchUser() {
-		$this->display('user_searchUser.html');
+	
+	public function search() {
+		$this->display('user_search.html');
 	}
 
 	/*上传头像*/
@@ -88,10 +89,10 @@ class user extends top
 		$dirname = APP_PATH.'/avatar/' . $dir1.'/'.$dir2.'/'.$dir3;
 //		$uid = sprintf("%09d", $imgarray['filename']);
 //		$uid = substr($uid, -2);
-		$uid = $this->uid;
-		$big = 'big_'.$uid.'.jpg'; 
-		$middle = 'middle_'.$uid.'.jpg'; 
-		$small = 'small_'.$uid.'.jpg';
+//		$uid = $this->uid;
+		$big = 'big_'.substr($uid, -2).'.jpg'; 
+		$middle = 'middle_'.substr($uid, -2).'.jpg'; 
+		$small = 'small_'.substr($uid, -2).'.jpg';
 
 		$imghd->load($src);
 		
@@ -114,7 +115,8 @@ class user extends top
 		
 		//$files = $upfile->fileupload();	
 		//echo $files;
-		header('Location: /index.php?c=user&a=setting');
+//		header('Location: /index.php?c=user&a=setting#settingAvatar');
+		header('Location:'.spUrl('user', 'setting', null, 'settingAvatar'));
 		exit;
 	}
 }

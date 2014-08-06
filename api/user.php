@@ -394,6 +394,8 @@ class user extends top
 				$sql .= " AND sys={$sys}";
 				$countSql .= " AND sys={$sys}";
 			}
+			
+			$sql .= ' order by n.time desc';
 //			$total = (int)$obj->findCount(array('foruid'=>$this->uid,'sys'=>$sys));
 			$total = (int)$obj->findSql($countSql);
 			$page = spPager::pageTool($total, $page_no, $page_size);
@@ -410,7 +412,9 @@ class user extends top
 					$d['user']['h_url'] = goUserHome(array('uid'=>$d['uid'], 'domain'=>$d['domain'])); 
 					$d['user']['h_img'] = avatar(array('uid'=>$d['uid'],'size'=>'middle'));
 					$d['time'] = ybtime(array('time'=>$d['time']));
-					$d['info'] = $this->parse_uid($d['info']);
+					preg_match("/\[at=(.*?)](.*?)\[\/at\]/i",$d['info'],$msg); //print_r($msg);
+//		return str_replace($msg[0],$msg[2],$info);
+					$d['info'] = str_replace($msg[0],$msg[2],$d['info']);
 					$href = explode('|',$d['location']);
 					if($href[0] == 'blog'){
 						$d['location'] = goUserBlog(array('bid'=>$href[1]));

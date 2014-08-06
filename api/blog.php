@@ -49,7 +49,7 @@ class blog extends top
 				FROM `".DBPRE."blog` AS b LEFT JOIN `".DBPRE."likes` AS k ON ( b.bid = k.bid AND k.uid ='$this->uid' )
 				LEFT JOIN `".DBPRE."member`  as m on b.uid = m.uid where b.open in (1,-2) and b.bid = '$bid'";
 		$data['blog'] = spClass('db_blog')->findSql($sql);
-		$data['blog'] = $this->translate_feed($data['blog'], 0);
+		$data['blog'] = $this->translate_feed($data['blog'], 0, true);
 		$this->api_success($data);
 	}
 	
@@ -471,7 +471,7 @@ class blog extends top
 	
 	//处理feeds给前端显示
 	//$split 是否截断内容
-	private function foramt_feeds(& $d,$split=1){
+	private function foramt_feeds(& $d,$split=1,$isDetail=false){
 		
 		$d['more'] = 0;
 		$d['h_url'] =  goUserHome(array('uid'=>$d['uid'], 'domain'=>$d['domain']));
@@ -492,34 +492,36 @@ class blog extends top
 		}else{
 			$d['repto'] = null;
 		}
+		
 		if($split == 1){
 			$d['body'] = utf8_substr(strip_tags($rs['body'],'<br><p><embed>'),0,500);
 		}else{
-			$d['body'] = strip_tags($rs['body'],'<br><p><embed>');
+			//$d['body'] = strip_tags($rs['body'],'<br><p><embed>');
+			$d['body'] = $rs['body'];
 		}
 		if($d['body'] == false){
 			$d['body'] = '';
 		}
 		
 		$d['more'] = (utf8_strlen($rs['body']) > 500) ? 1: 0;
-		//处理音乐和视频
-		if($d['type'] == 2 || $d['type'] == 4){
-			if(count($d['attr']) > 4){
-				$d['mode'] = 1;
-				if($split == 1){
-					$d['attr'] = array_slice($d['attr'],0,4);
-				}
-			}
-		}
-		//处理图片,超过10个就任务more
-		if($d['type'] == 3){
-			if($split == 1){
-				if($d['attr']['count'] > 10){
-					$d['attr']['img'] = array_slice($d['attr']['img'],0,10);
-					$d['mode'] = 1;
-				}
-			}
-		}
+//		//处理音乐和视频
+//		if($d['type'] == 2 || $d['type'] == 4){
+//			if(count($d['attr']) > 4){
+//				$d['mode'] = 1;
+//				if($split == 1){
+//					$d['attr'] = array_slice($d['attr'],0,4);
+//				}
+//			}
+//		}
+//		//处理图片,超过10个就任务more
+//		if($d['type'] == 3){
+//			if($split == 1){
+//				if($d['attr']['count'] > 10){
+//					$d['attr']['img'] = array_slice($d['attr']['img'],0,10);
+//					$d['mode'] = 1;
+//				}
+//			}
+//		}
 		//如果显示全部则把more改成0
 		if($split != 1){
 			$d['show_reply'] = 1; //展开评论
@@ -529,16 +531,20 @@ class blog extends top
 		//$d['attr']['type_name'] = $d['type_name'];
 	}
 	
-	private function translate_feed($listBlog, $split = 1) {
+	private function translate_feed($listBlog, $split = 1, $isDetail = false) {
 		$arr_source_blog = array();
-		$likes = spClass("db_likes")->findAll(array('uid'=>$this->uid), null, 'id,bid');
-		$arr_like_bid = array();
-		foreach ($likes as $like) {
-			$arr_like_bid[$like['bid']] = $like['id'];
-		}
+//		$likes = spClass("db_likes")->findAll(array('uid'=>$this->uid), null, 'id,bid');
+//		$arr_like_bid = array();
+//		foreach ($likes as $like) {
+//			$arr_like_bid[$like['bid']] = $like['id'];
+//		}
 		
 		foreach($listBlog as &$d){
-			$this->foramt_feeds($d, $split);
+			$this->foramt_feeds($d, $split, $isDetail);
+			$rep = null;
+			if (!empty($d['repto']) && $d['source_bid'] != $d['repto']['bid']) {
+				$rep = $d['repto'];
+			}
 			if ($d['source_bid'] > 0 && $d['source_bid'] != $d['bid']) {
 				if (!isset($arr_source_blog[$d['source_bid']])) {
 					$source_blog = $this->getSourceBlog($d['source_bid']);
@@ -561,10 +567,17 @@ class blog extends top
 				$d['repto']['title'] = $tmp_blog['title'];
 				$d['repto']['attr'] = $tmp_blog['attr'];
 				$d['repto']['tag'] = $tmp_blog['tag'];
-				$d['repto']['likeid'] = null;
-				if (isset($arr_like_bid[$d['source_bid']])) {
-					$d['repto']['islikes'] = $arr_like_bid[$d['source_bid']];
+				$d['repto']['more'] = $tmp_blog['more'];
+				$d['repto']['username'] = $tmp_blog['username'];
+				$d['repto']['uid'] = $tmp_blog['uid'];
+				$d['repto']['bid'] = $tmp_blog['bid'];
+				$d['repto']['likeid'] = $tmp_blog['likeid'];
+				if ($rep) {
+					$d['repto']['forward'] = $rep;
 				}
+//				if (isset($arr_like_bid[$d['source_bid']])) {
+//					$d['repto']['islikes'] = $arr_like_bid[$d['source_bid']];
+//				}
 			}
 		}
 		
@@ -572,7 +585,12 @@ class blog extends top
 	}
 	
 	private function getSourceBlog($bid) {
-		return spClass('db_blog')->find(array('bid'=>$bid));
+//		return spClass('db_blog')->find(array('bid'=>$bid));
+		$sql = "SELECT b. * , k.id AS likeid  ,m.username,m.domain
+				FROM `".DBPRE."blog` AS b LEFT JOIN `".DBPRE."likes` AS k ON ( b.bid = k.bid AND k.uid ='$this->uid' )
+				LEFT JOIN `".DBPRE."member`  as m on b.uid = m.uid where b.open in (1,-2) and b.bid = '$bid'";
+		$data = spClass('db_blog')->findSql($sql);
+		return isset($data['0']) ? $data['0'] : array();
 	}
 	
 }

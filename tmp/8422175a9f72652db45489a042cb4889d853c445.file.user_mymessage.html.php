@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-04 00:25:50
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-05 21:38:56
          compiled from "tplv2/user_mymessage.html" */ ?>
-<?php /*%%SmartyHeaderCode:73148737953de628e706f89-97778214%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:84258693053e0de70252576-23151286%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '8422175a9f72652db45489a042cb4889d853c445' => 
     array (
       0 => 'tplv2/user_mymessage.html',
-      1 => 1407083148,
+      1 => 1407173241,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '73148737953de628e706f89-97778214',
+  'nocache_hash' => '84258693053e0de70252576-23151286',
   'function' => 
   array (
   ),
@@ -149,3 +149,5 @@ $_template->assign('loadedit','yes'); echo $_template->getRenderedTemplate();?><
 
 <?php $_template = new Smarty_Internal_Template("require_footer.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
+</body>
+</html>

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-03 11:11:32
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-06 22:13:35
          compiled from "tplv2/models/product.html" */ ?>
-<?php /*%%SmartyHeaderCode:32343413453dda86477c894-62860964%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:32478946253e2380f27ddd6-04532761%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '72975a5995ca04dfccd936e58f59031fcf816404' => 
     array (
       0 => 'tplv2/models/product.html',
-      1 => 1407035462,
+      1 => 1407334411,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '32343413453dda86477c894-62860964',
+  'nocache_hash' => '32478946253e2380f27ddd6-04532761',
   'function' => 
   array (
   ),
@@ -58,8 +58,8 @@ $(document).ready(function(){
 				
 				<div style="display:none">
 					<input type="hidden" value="" name="title" id="J_title"/>
+					<input type="hidden" value="" name="discount_price" id="J_discount_price"/>
 					<input type="hidden" value="" name="price" id="J_price"/>
-					<input type="hidden" value="" name="oprice" id="J_oprice"/>
 					<input type="hidden" value="" name="deliveryFees" id="J_deliveryFees"/>
 					<input type="hidden" vlaue="" name="image" id="J_image"/>
 				</div>
@@ -167,15 +167,13 @@ if ($_smarty_tpl->_count($_from) > 0){
                     <h3 class="feed-good-title">${title}</h3>
                     <div class="feed-good-fee">
                         <ul>
-                            {@if oprice}
-                            <li class="oprice"><span>价格：</span>
-                                <del>${oprice}</del>元
-                            </li>{@/if}
                             {@if price}
-                            <li class="price"><span>价格：</span>
-                            <b>${price}元</b></li>{@/if}
-                            {@if deliveryFees}
-                            <li class="deliveryFees"><span>运费：${deliveryFees}</span>包邮</li>{@/if}
+                            <li class="oprice ${discountCls}"><span>价格：</span>
+                                <b>${price}</b>元
+                            </li>{@/if}
+                            {@if discount_price}
+                            <li class="price"><span>促销：</span>
+                            <b>${discount_price}元</b></li>{@/if}
                         </ul>
                     </div>
                 </div>

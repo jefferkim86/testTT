@@ -9,18 +9,24 @@ Tuitui.commentItemView = Backbone.View.extend({
     },
 
     events: {
-        "click .J_Reply": "replyCmt",
-        "click .J-remove": "_removeItem"
+        "click .J_Reply": "replyCmt"
+        //,"click .J_deleteCmt": "removeItem"
     },
 
     initialize: function() {
-        this.model.on("destroy", this._removeItem, this);
+        var self = this;
+        this.$el.on("hover", function(e) {
+            var del = self.$el.find(".J_deleteCmt");
+            if (e.type == 'mouseenter') {
+                del.show();
+            }
+            if (e.type == 'mouseleave') {
+                del.hide();
+            }
+        });
     },
 
-    _removeItem: function() {
-        
-        
-    },
+   
 
     replyCmt: function(e) {
         e.preventDefault();
@@ -28,8 +34,11 @@ Tuitui.commentItemView = Backbone.View.extend({
         var comment = this.model.toJSON();
         var feed = $(target).parents(".feed");
         var input = feed.find(".J_CmtCnt");
-        feed.find('.feed-ft').attr("data-reply",comment.user.uid);
-        input.val("@"+comment.user.username+":");
+        var commentBtn = feed.find(".J-sendReply");
+        commentBtn.attr("data-c",$(target).attr("data-c"));
+        feed.find('.feed-ft').attr("data-reply", comment.user.uid);
+        input.val("@" + comment.user.username + ":");
+
     },
 
 

@@ -39,7 +39,7 @@ function goUserHome($params)
 	$uid   = $params['uid'];     //判断是否存在uid
 
 	if($domain != '' && $domain !='home')
-	{	//return 'http://'.$_SERVER["HTTP_HOST"] .'/'. $domain;
+	{	return 'http://'.$_SERVER["HTTP_HOST"] .'/'. $domain;
 		return spUrl('userblog','index',array('domain'=>$domain));
 	}else{
 		return spUrl('userblog','index',array('domain'=>'home','uid'=>$uid));
@@ -613,14 +613,14 @@ if(!function_exists('mime_content_type')) {
 
 
 /*将正文和属性剥离出来分别存放*/
-function split_attribute($body)
+function split_attribute($body, $isDetail = false)
 {
 	$body = preg_replace('/[\n\r\t]/', '', $body);
 	preg_match("/\[attribute\](.*?)\[\/attribute\]/i", $body, $matches);
 	if($matches[0]){ $body = str_replace($matches[0],'',$body);}
 	if($matches[1]){ $data['attr'] = mb_unserialize($matches[1]);}else{$data['attr'] = '';}
 	preg_match("/\[repto\](.*?)\[\/repto\]/i", $body, $matches);
-	if($matches[0]){ $body = str_replace($matches[0],'',$body);}
+	if($matches[0] && !$isDetail){ $body = str_replace($matches[0],'',$body);}
 	if($matches[1]){ $data['repto'] = mb_unserialize($matches[1]);}else{$data['repto'] = '';}
 
 	$data['body'] = $body;
@@ -668,6 +668,14 @@ function utf8_strlen($string = null) {
   * @return string 截取的字符串
   * $type=1 等于1时末尾加'...'不然不加
  *********************************/
+ function substring($params) {
+ 	$str = $params['str'];
+ 	$len = $params['len'];
+ 	$type = $params['type'];
+ 	return utf8_substr($str, 0, $len, $type);
+ }
+ 
+ spAddViewFunction('substring','substring');
  function utf8_substr($str, $position, $length,$type=1){
   $startPos = strlen($str);
   $startByte = 0;

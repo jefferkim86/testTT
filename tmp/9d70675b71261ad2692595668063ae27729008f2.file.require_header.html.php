@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-05 00:25:24
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-06 23:39:26
          compiled from "tplv2/require_header.html" */ ?>
-<?php /*%%SmartyHeaderCode:136276570953dfb3f43b3c48-93728885%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:30655182953e24c2ec29b62-98020118%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9d70675b71261ad2692595668063ae27729008f2' => 
     array (
       0 => 'tplv2/require_header.html',
-      1 => 1407169522,
+      1 => 1407339562,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '136276570953dfb3f43b3c48-93728885',
+  'nocache_hash' => '30655182953e24c2ec29b62-98020118',
   'function' => 
   array (
   ),
@@ -118,7 +118,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 					
 					<!-- 个人中心 -->
 					<div class="userName">
-						<a href="javascript:void(0);" target="_blank" title="我的博客"><span class="login-name"><?php echo $_SESSION['username'];?>
+						<a href="javascript:void(0);" target="_blank" title="我的博客"><span class="login-name"><?php echo substring(array('str'=>$_SESSION['username'],'len'=>8,'type'=>1),$_smarty_tpl);?>
  <s class="arrow"></s></span></a>
 						<div class="menu userNameMenu" style="display:none;">
 							<ul>

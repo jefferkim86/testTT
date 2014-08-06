@@ -12,7 +12,7 @@
 			<ul>
 				<li><a href="{goUserHome uid=$user.uid domain=$user.domain}"><b>{$user.num}</b><span>动态</span></a></li>
 				<li><a href="{spUrl c=user a=myfollow}"><b>{$user.flow}</b><span>关注</span></a></li>
-				<li class="nr"><a href="{spUrl c=user a=myfollow}"><b>{$myLook}</b><span>粉丝</span></a></li>
+				<li class="nr"><a href="{spUrl c=user a=myfollow tab=follow}"><b>{$myLook}</b><span>粉丝</span></a></li>
 			</ul>
 		</div>
 	</div>
@@ -57,7 +57,7 @@
 <script type="text/template" id="J-recommendItem">
 <li>
 	<div class="logo">
-		<a href="${h_url}" target="_blank"><img src="${avatar}" alt="${username}"/></a>
+		<a href="${h_url}" target="_blank"><img src="${avatar}" title="${username}"/></a>
 	</div>
 	<div class="info">
 		<h4><a href="${h_url}" target="_blank">${username}</a></h4>
