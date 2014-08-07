@@ -800,8 +800,10 @@ function tag_search(is_local) {
 };
 function user_search(is_local) {
     var tag = $('#searchtag').val();
+    var url = $('#searchtag').attr("data-url");
+
     if (tag == '' || tag == '请输入用户昵称') {
-        tips('搜索的标签不能为空');
+        tips('搜索的用户不能为空');
         return false
     };
     if (is_local == 'local') {
@@ -809,7 +811,7 @@ function user_search(is_local) {
             tag: tag
         })
     } else {
-        window.location.href = 'index.php?c=blog&a=tag&tag=' + tag
+        window.location.href = url + '&name'+tag;
     }
 };
 function ad_aside(div, id, ga) {
@@ -1509,5 +1511,5 @@ function do_run_post(ty) {
     })
 }
 function do_run_like() {
-    yb_load_feeds('user', 'mylikes', '')
+  //  yb_load_feeds('user', 'mylikes', '')
 }

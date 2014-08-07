@@ -168,6 +168,7 @@ Tuitui.feedItemView = Backbone.View.extend({
                     "h_img": '/avatar.php?uid=' + uid + '&size=small',
                     "h_url": 'tuitui/index.php?c=userblog&a=index&domain=home&uid=' + uid,
                     "msg": inputVal,
+                    "del_flag":1,
                     "time":"刚刚",
                     "user": {
                         'username': G_username

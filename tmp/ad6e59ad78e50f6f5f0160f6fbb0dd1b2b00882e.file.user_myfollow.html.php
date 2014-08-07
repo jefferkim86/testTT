@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-05 21:49:43
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-08 00:00:26
          compiled from "tplv2/user_myfollow.html" */ ?>
-<?php /*%%SmartyHeaderCode:213526087153e0e0f77334c4-53182728%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:195001446053e3a29ab4cb21-95663906%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ad6e59ad78e50f6f5f0160f6fbb0dd1b2b00882e' => 
     array (
       0 => 'tplv2/user_myfollow.html',
-      1 => 1407246582,
+      1 => 1407427225,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '213526087153e0e0f77334c4-53182728',
+  'nocache_hash' => '195001446053e3a29ab4cb21-95663906',
   'function' => 
   array (
   ),
@@ -47,7 +47,7 @@ $(document).ready(function(){
 	do_run(curTab);
 })
 
-function do_run(ty){
+function do_run(ty,page){
 	$('#feed_loading').show();
 	$('#follow_font').hide();
 	$('.post_bg').find('span').removeClass('current');
@@ -59,7 +59,8 @@ function do_run(ty){
 		$('#follow_my').removeClass('current');
 	}
 	getApi('user', 'myfollow', {
-        'type':ty
+        'type':ty,
+        'page':page || 1
     }, function(d) {
         addto_follow(d,ty);
     });
@@ -136,7 +137,7 @@ function do_run(ty){
 		</div>
 		 
 		
-		<div id="paging"></div>
+		<div id="paging" style="margin-top:20px;"></div>
 		<div class="clear"></div>
 	</div>
 	
@@ -157,6 +158,7 @@ function do_run(ty){
 function addto_follow(d,type){
 	$('#follow_area').html('');
 	$('#feed_loading').hide();
+	$("#paging").html('');
 	var tpl = juicer($("#J-followList").html());
 	var lastCls = 'last-li';
 	if(d.body.data.length >0){
@@ -166,10 +168,24 @@ function addto_follow(d,type){
             }else{
                 list[i].last = '';
             }
+            //我的关注页面都是关注了的
+            if(type != 'follow'){
+            	list[i].linker = true;
+            }
 			list[i].h_img = urlpath+list[i].h_img;
 			var html = tpl.render(list[i])
 			$('#follow_area').append($(html));
 		}
+		if(d.body.page && d.body.page.total_page > 1){
+			$("#paging").twbsPagination({
+	            totalPages: d.body.page.total_page,
+	            visiblePages: 7,
+	            onPageClick: function(event, page) {
+	                do_run(type,page);
+	            }
+	        });
+		}
+		
 	}else{
 		var noItemTxt = '还没有关注任何用户';
 		if(type){

@@ -27,7 +27,7 @@ $(document).ready(function(){
 	do_run(curTab);
 })
 
-function do_run(ty){
+function do_run(ty,page){
 	$('#feed_loading').show();
 	$('#follow_font').hide();
 	$('.post_bg').find('span').removeClass('current');
@@ -39,7 +39,8 @@ function do_run(ty){
 		$('#follow_my').removeClass('current');
 	}
 	getApi('user', 'myfollow', {
-        'type':ty
+        'type':ty,
+        'page':page || 1
     }, function(d) {
         addto_follow(d,ty);
     });
@@ -114,7 +115,7 @@ function do_run(ty){
 		</div>
 		 
 		
-		<div id="paging"></div>
+		<div id="paging" style="margin-top:20px;"></div>
 		<div class="clear"></div>
 	</div>
 	
@@ -133,6 +134,7 @@ function do_run(ty){
 function addto_follow(d,type){
 	$('#follow_area').html('');
 	$('#feed_loading').hide();
+	$("#paging").html('');
 	var tpl = juicer($("#J-followList").html());
 	var lastCls = 'last-li';
 	if(d.body.data.length >0){
@@ -142,10 +144,24 @@ function addto_follow(d,type){
             }else{
                 list[i].last = '';
             }
+            //我的关注页面都是关注了的
+            if(type != 'follow'){
+            	list[i].linker = true;
+            }
 			list[i].h_img = urlpath+list[i].h_img;
 			var html = tpl.render(list[i])
 			$('#follow_area').append($(html));
 		}
+		if(d.body.page && d.body.page.total_page > 1){
+			$("#paging").twbsPagination({
+	            totalPages: d.body.page.total_page,
+	            visiblePages: 7,
+	            onPageClick: function(event, page) {
+	                do_run(type,page);
+	            }
+	        });
+		}
+		
 	}else{
 		var noItemTxt = '还没有关注任何用户';
 		if(type){

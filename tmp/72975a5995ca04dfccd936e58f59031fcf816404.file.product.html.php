@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-06 22:13:35
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-08 00:36:37
          compiled from "tplv2/models/product.html" */ ?>
-<?php /*%%SmartyHeaderCode:32478946253e2380f27ddd6-04532761%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:187379334253e3ab150b8ad8-35908599%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '72975a5995ca04dfccd936e58f59031fcf816404' => 
     array (
       0 => 'tplv2/models/product.html',
-      1 => 1407334411,
+      1 => 1407334647,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '32478946253e2380f27ddd6-04532761',
+  'nocache_hash' => '187379334253e3ab150b8ad8-35908599',
   'function' => 
   array (
   ),
@@ -173,7 +173,7 @@ if ($_smarty_tpl->_count($_from) > 0){
                             </li>{@/if}
                             {@if discount_price}
                             <li class="price"><span>促销：</span>
-                            <b>${discount_price}元</b></li>{@/if}
+                            <b>${discount_price}</b> 元</li>{@/if}
                         </ul>
                     </div>
                 </div>

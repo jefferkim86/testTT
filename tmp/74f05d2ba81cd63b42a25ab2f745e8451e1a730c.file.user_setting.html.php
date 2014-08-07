@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-06 23:39:29
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-07 23:43:32
          compiled from "tplv2/user_setting.html" */ ?>
-<?php /*%%SmartyHeaderCode:213312647753e24c31e93220-87206421%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:105973289553e39ea4d3e385-73114818%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '74f05d2ba81cd63b42a25ab2f745e8451e1a730c' => 
     array (
       0 => 'tplv2/user_setting.html',
-      1 => 1407338796,
+      1 => 1407426211,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '213312647753e24c31e93220-87206421',
+  'nocache_hash' => '105973289553e39ea4d3e385-73114818',
   'function' => 
   array (
   ),
@@ -130,7 +130,7 @@ $(document).ready(function(){
 				<div class="user_left">我的昵称</div>
 			    <div class="user_right">
 				    <input type="text" name="niname" id="niname" class="iptni"  value="<?php echo $_smarty_tpl->getVariable('users')->value['username'];?>
-"><span class="info">昵称唯一，可修改</span>
+"><span class="info">昵称唯一可修改，2到10个汉字</span>
 				</div>
 			</div>
 			
@@ -141,7 +141,7 @@ $(document).ready(function(){
 /</span>
 					 <input type="text" name="domain" class="domain" id="domain" value="<?php echo $_smarty_tpl->getVariable('users')->value['domain'];?>
 ">
-					 <span class="info">域名唯一，可修改</span>
+					 <span class="info">域名唯一可修改</span>
 				</div>
 			</div>
 			
@@ -200,33 +200,14 @@ $(document).ready(function(){
 						    <input type="hidden" id="src" name="src" value="" />
 							<input type="hidden" id="x" name="x" value="0" />
 							<input type="hidden" id="y" name="y" value="0" />
-							<input type="hidden" id="w" name="w" value="" />
+							<input type="hidden" id="w" name="w" value="240" />
 							<input type="hidden" id="h" name="h" value="240" />
 
 					    </div>
 						<input type="submit" value="确认保存" class="Intercbtn" />
 					</form>
 				  </div>
-					<!-- 调整tab -->
-					<!-- <div class="adjust"  id="J-avatarTab-adjustC" style="display:none;">
-						<div class="adjust-c">
-					  
-
-						<span class="pop-foot-corner"><s class="outter"></s></span>
-						<div id="showimg">
-					    	<img src="<?php echo $_smarty_tpl->getVariable('url')->value;?>
-<?php echo avatar(array('uid'=>$_smarty_tpl->getVariable('users')->value['uid'],'size'=>'big'),$_smarty_tpl);?>
-" id="cropbox"/>
-					    </div>
-					    <input type="hidden" id="src" name="src" value="" />
-						<input type="hidden" id="x" name="x" value="0" />
-						<input type="hidden" id="y" name="y" value="0" />
-						<input type="hidden" id="w" name="w" value="" />
-						<input type="hidden" id="h" name="h" value="240" />
-						</div>
-						<input type="submit" value="确认保存" class="Intercbtn" />
-					</div> -->
-
+					
 				</div>
 			
 

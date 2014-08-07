@@ -197,6 +197,7 @@
 }
 .is-forward .feed-title{
 	border-bottom: none;
+	font-size:14px;
 }
 .feed .feed-text-title,.feed-forward-layout .feed-text-title{
 	margin-left: 0;
@@ -419,23 +420,32 @@
 /*feed±¦±´*/
 
 .feed-good .feed-good-cont{position:relative;padding:0 0 16px 0;}
+#goodInfoBlock .feed-good .feed-good-cont{
+	padding-top: 20px;
+}
 .feed-good .feed-good-info{
 	position:relative;
-	margin-left:198px;
+	margin-left: 25px;
+	_display:inline;
+	/*margin-left:198px;
 	min-height:150px;
 	_height:150px;
-	_zoom:1;
+	_zoom:1;*/
 }
 .feed-good .feed-good-info .feed-good-img{
-	position: absolute;
+	float: left;
+	/*position: absolute;
 	left: -180px;
-	top: 0;
+	top: 0;*//*
 	width: 150px;
-	height: 150px;
+	height: 150px;*/
 	overflow: hidden;
 }
 .feed-good .feed-good-info .feed-good-property{
+	float: left;
 	width: 560px;
+	margin-left: 25px;
+	_display: inline;
 	overflow:hidden;
 }
 
@@ -465,11 +475,16 @@
 .feed-good .feed-good-property .feed-good-fee li {
 	line-height: 30px;
 }
-.feed-good .feed-good-property .feed-good-fee .price b{
+
+.feed-good .feed-good-property .feed-good-fee .oprice b,.feed-good .feed-good-property .feed-good-fee .price b{
 	font-size:18px;
 	color:#ff7b69;
 	font-weight: normal;
 }
+.feed-good .feed-good-property .feed-good-fee .hasDiscount b{
+	color: #797979;
+	font-size: 14px;
+} 
 .feed-good .feed-good-property .feed-good-fee .hasDiscount b{
 	text-decoration: line-through;
 	font-weight: normal;
@@ -501,24 +516,25 @@
 
 .feedWrap .feed-good-info .feed-good-img{
 	width: 290px;
-	height: 290px;
+	/*height: 290px;*/
 	overflow: hidden;
 }
 .feedWrap .feed-good-info .feed-good-img img{
 	width: 290px;
 }
 .feedWrap .feed-good .feed-good-info .feed-good-img{
-	left: -316px;
+	/*left: -316px;*/
+	float: left;
 }
 .feedWrap .feed-good .feed-good-info .feed-good-property{
 	width: 410px;
 }
 
 .feedWrap .feed-good .feed-good-info{
-	margin-left: 340px;
-	min-height: 290px;
-	_height: 290px;
-	_zoom: 1;
+	/*margin-left: 340px;*/
+	/*min-height: 200px;
+	_height: 200px;
+	_zoom: 1;*/
 }
 .feedWrap .feed-good .feed-forward-layout .feed-good-property{
 	width: 365px;

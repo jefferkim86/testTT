@@ -55,7 +55,7 @@
 
         ,
         toolbars: [
-            ["undo", "redo" , "fullscreen", "insertunorderedlist", "insertorderedlist", "unlink", "link", "simpleupload", "bold", "underline"]
+            ["undo", "redo" , "fullscreen",  "unlink", "link", "simpleupload"]
         ]
         //当鼠标放在工具栏上时显示的tooltip提示,留空支持自动多语言配置，否则以配置值为准
         //,labelMap:{

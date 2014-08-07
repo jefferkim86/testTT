@@ -150,7 +150,7 @@
        <div class="feed-good-desc clearfix">
               <p>$${feedContent}{@if needFeedMore}<span class="feed-more"><a href="${feedLink}" target="_blank">全部信息...</a></span>{@/if}</p>
        </div>
-       <div class="feed-good-info">
+       <div class="feed-good-info clearfix">
           <div class="feed-good-img">
               <a href="${producturl}" target="_blank"><img src="${goodPic}"></a>
           </div>
@@ -160,7 +160,7 @@
                   <ul>
                    {@if price}
                     <li class="oprice ${hasDiscout}"><span>价格：</span>
-                        <b>${price}元</b>
+                        <b>${price}</b> 元
                     </li>{@/if}
                     {@if discount_price}
                     <li class="price"><span>促销：</span>

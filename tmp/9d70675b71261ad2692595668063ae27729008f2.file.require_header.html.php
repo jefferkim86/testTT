@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-06 23:39:26
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-08 01:36:29
          compiled from "tplv2/require_header.html" */ ?>
-<?php /*%%SmartyHeaderCode:30655182953e24c2ec29b62-98020118%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:140854943553e3b91d1c3462-33093329%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9d70675b71261ad2692595668063ae27729008f2' => 
     array (
       0 => 'tplv2/require_header.html',
-      1 => 1407339562,
+      1 => 1407432981,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '30655182953e24c2ec29b62-98020118',
+  'nocache_hash' => '140854943553e3b91d1c3462-33093329',
   'function' => 
   array (
   ),
@@ -62,10 +62,11 @@ $_smarty_tpl->decodeProperties(array (
 		    </div>
 		
 			<div id="nav">
-				<!-- <div class="nav-search menu_sc" id="search">
+				<div class="nav-search menu_sc" id="search">
 					<input type="button" class="btn" value="搜索" onclick="user_search()"/>
-					<input type="text" id="searchtag" value="请输入用户昵称" class="ipt">
-				</div> -->
+					<input type="text" id="searchtag" data-url="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'searchUser'),$_smarty_tpl);?>
+" value="请输入用户昵称" class="ipt">
+				</div>
 
 			</div>
 
