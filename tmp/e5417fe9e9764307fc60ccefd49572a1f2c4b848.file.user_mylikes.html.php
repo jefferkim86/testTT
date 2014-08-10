@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-08 01:05:05
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-08 23:23:16
          compiled from "tplv2/user_mylikes.html" */ ?>
-<?php /*%%SmartyHeaderCode:212328368453e3b1c12475f1-67880840%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2933250253e4eb64749704-96417331%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'e5417fe9e9764307fc60ccefd49572a1f2c4b848' => 
     array (
       0 => 'tplv2/user_mylikes.html',
-      1 => 1407173237,
+      1 => 1407511395,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '212328368453e3b1c12475f1-67880840',
+  'nocache_hash' => '2933250253e4eb64749704-96417331',
   'function' => 
   array (
   ),
@@ -37,8 +37,8 @@ $_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?
 " area="feedArea"  class="feedajax">
 			</div>
 			<script>
-			$.feedToolBar.parm.morepage=true;
-			$.feedToolBar.morepage('feedAjaxTool');
+			// $.feedToolBar.parm.morepage=true;
+			// $.feedToolBar.morepage('feedAjaxTool');
 			</script>
 		<?php }else{ ?>
 			

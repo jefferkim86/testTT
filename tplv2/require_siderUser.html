@@ -1,6 +1,11 @@
+{if $myfollow}
 <div class="sider-mod TA-attention mt20 clearfix">
       <div class="hd">
-            <h3>他关注的</h3>
+                  {if $smarty.session.uid==$user.uid}
+                  <h3>我关注的</h3>
+                  {else}
+            <h3>TA关注的</h3>
+                  {/if}
       </div>
       <div class="bd clearfix">
             <ul>
@@ -10,5 +15,6 @@
             </ul>
       </div>
 </div>
+{/if}
 
 

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-07 00:13:57
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-10 11:45:42
          compiled from "tplv2/require_sider.html" */ ?>
-<?php /*%%SmartyHeaderCode:81343468753e25445dbb6f1-35283228%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:169493076653e6eae6617968-38547691%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0bb71f38ec48f4c0527c2092450118f8bd1842e1' => 
     array (
       0 => 'tplv2/require_sider.html',
-      1 => 1407341591,
+      1 => 1407642176,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '81343468753e25445dbb6f1-35283228',
+  'nocache_hash' => '169493076653e6eae6617968-38547691',
   'function' => 
   array (
   ),
@@ -42,7 +42,7 @@ $_smarty_tpl->decodeProperties(array (
 "><b><?php echo $_smarty_tpl->getVariable('user')->value['flow'];?>
 </b><span>关注</span></a></li>
 				<li class="nr"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'myfollow','tab'=>'follow'),$_smarty_tpl);?>
-"><b><?php echo $_smarty_tpl->getVariable('myLook')->value;?>
+"><b><?php echo $_smarty_tpl->getVariable('user')->value['flowme'];?>
 </b><span>粉丝</span></a></li>
 			</ul>
 		</div>

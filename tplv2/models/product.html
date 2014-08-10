@@ -8,13 +8,7 @@ var filext  = '*.jpg;*.jpge;*.png;*.gif';
 var size    = '20480';
 
 </script>
-<script type="text/javascript">
-	
-$(document).ready(function(){
-		$.isChange.Set("#producturl,#textarea");
-		$.isChange.unSet("#form1");
-})
-</script>
+
 {literal}
 <style type="text/css">
 	.pub-good .edui-for-simpleupload {display: none !important;}
@@ -150,7 +144,11 @@ window.ueditorInstance = UE.getEditor('textareaEditor');
 $("#preview").click(function() {
 	window.ueditorInstance.execCommand("Preview")
 });
-
+$(window).on("beforeunload", function() {
+	if($("#J_title").val() != '' || window.ueditorInstance.getContent() != ''){
+   		return "你还有没保存的数据.要退出吗";
+    }
+});
 </script>
 
 

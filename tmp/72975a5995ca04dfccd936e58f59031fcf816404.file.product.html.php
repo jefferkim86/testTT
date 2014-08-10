@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-08 00:36:37
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-10 15:25:15
          compiled from "tplv2/models/product.html" */ ?>
-<?php /*%%SmartyHeaderCode:187379334253e3ab150b8ad8-35908599%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:33496881453e71e5b985b11-08348390%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '72975a5995ca04dfccd936e58f59031fcf816404' => 
     array (
       0 => 'tplv2/models/product.html',
-      1 => 1407334647,
+      1 => 1407655514,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '187379334253e3ab150b8ad8-35908599',
+  'nocache_hash' => '33496881453e71e5b985b11-08348390',
   'function' => 
   array (
   ),
@@ -31,13 +31,7 @@ var filext  = '*.jpg;*.jpge;*.png;*.gif';
 var size    = '20480';
 
 </script>
-<script type="text/javascript">
-	
-$(document).ready(function(){
-		$.isChange.Set("#producturl,#textarea");
-		$.isChange.unSet("#form1");
-})
-</script>
+
 
 <style type="text/css">
 	.pub-good .edui-for-simpleupload {display: none !important;}
@@ -190,7 +184,11 @@ window.ueditorInstance = UE.getEditor('textareaEditor');
 $("#preview").click(function() {
 	window.ueditorInstance.execCommand("Preview")
 });
-
+$(window).on("beforeunload", function() {
+	if($("#J_title").val() != '' || window.ueditorInstance.getContent() != ''){
+   		return "你还有没保存的数据.要退出吗";
+    }
+});
 </script>
 
 

@@ -769,6 +769,10 @@ a:hover { color: #666; text-decoration:none; cursor:pointer; }
 	top: 5px;
 	width: 60px;
 	height: 60px;
+}
+.pm-info .msg-item .avatar img{
+	width: 60px;
+	height: 60px;
 	-moz-border-radius: 60px;
 	-webkit-border-radius: 60px;
 	border-radius: 60px;

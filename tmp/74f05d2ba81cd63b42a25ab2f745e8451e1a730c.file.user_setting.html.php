@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-07 23:43:32
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-11 01:17:54
          compiled from "tplv2/user_setting.html" */ ?>
-<?php /*%%SmartyHeaderCode:105973289553e39ea4d3e385-73114818%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:132007494853e7a94277cec5-76094675%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '74f05d2ba81cd63b42a25ab2f745e8451e1a730c' => 
     array (
       0 => 'tplv2/user_setting.html',
-      1 => 1407426211,
+      1 => 1407691073,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '105973289553e39ea4d3e385-73114818',
+  'nocache_hash' => '132007494853e7a94277cec5-76094675',
   'function' => 
   array (
   ),
@@ -36,7 +36,7 @@ $(document).ready(function(){
 		 chks = /^[a-zA-Z]{1}([a-zA-Z0-9]|[._]){1,15}$/;
 		if(!chks.exec($('#domain').val() )){
 		$('#pb-submiting-tip,#submit_baseinfo,#cancel').toggle();
-		tips('个性域名不符合要求'); return false;
+		tips('个性域名需填写，英文字母开头的4到15位的英文字母和数字'); return false;
 		}
 		var args = {
 			niname : $('#niname').val(),
@@ -141,7 +141,7 @@ $(document).ready(function(){
 /</span>
 					 <input type="text" name="domain" class="domain" id="domain" value="<?php echo $_smarty_tpl->getVariable('users')->value['domain'];?>
 ">
-					 <span class="info">域名唯一可修改</span>
+					 <span class="info">域名唯一可修改，英文字母开头的4到15位的英文字母和数字</span>
 				</div>
 			</div>
 			
@@ -178,7 +178,7 @@ $(document).ready(function(){
 						      	<input id="fileupload" size="1" type="file" name="filedata" ext="jpg|jpeg|png"/>
 						      	<div class="fileDataImg">选择文件</div>
 							</div>
-							<div class="tip">支持jpg、gif、png、bmp格式，尺寸大于120px*120px，大小小于1M</div>
+							<div class="tip">支持jpg、gif、png、bmp格式，尺寸大于200px*200px，大小小于1M</div>
 							<!-- <div class="progress"> 
 								<span class="bar"></span><span class="percent">0%</span > 
 							</div> -->
@@ -200,8 +200,8 @@ $(document).ready(function(){
 						    <input type="hidden" id="src" name="src" value="" />
 							<input type="hidden" id="x" name="x" value="0" />
 							<input type="hidden" id="y" name="y" value="0" />
-							<input type="hidden" id="w" name="w" value="240" />
-							<input type="hidden" id="h" name="h" value="240" />
+							<input type="hidden" id="w" name="w" value="200" />
+							<input type="hidden" id="h" name="h" value="200" />
 
 					    </div>
 						<input type="submit" value="确认保存" class="Intercbtn" />
@@ -310,7 +310,6 @@ $(document).ready(function(){
 
 <script>
 	$(document).ready(function(){	
-		
 
 		var bar = $('.bar');
 		var percent = $('.percent');
@@ -320,6 +319,8 @@ $(document).ready(function(){
 		var btn = $(".btn span");
 		$("#fileupload").wrap("<form id='myupload' action='"+urlpath+"/index.php?c=api&yc=user&ym=upface' method='post' enctype='multipart/form-data'></form>");
 		$("#fileupload").change(function(){  //选择文件
+			console.log('111');
+			if($('#fileupload').val() == ''){return}
 			$("#myupload").ajaxSubmit({
 				//dataType:  'json',	//数据格式为json 
 				beforeSend: function() {	//开始上传 
@@ -340,12 +341,12 @@ $(document).ready(function(){
 					if(data.status == "1"){
 						var img = urlpath +'/'+ data.body.pic_path
 							
-						if (data.body.width>240 && data.body.height<240){
-							showimg.html("<img src='"+img+"' id='cropbox' height='240' />");
-						}else if(data.body.width<240 && data.body.height>240){
-							showimg.html("<img src='"+img+"' id='cropbox' width='240' />");
-						}else if(data.body.width<240 && data.body.height<240){
-							showimg.html("<img src='"+img+"' id='cropbox' width='240' height='240' />");
+						if (data.body.width>200 && data.body.height<200){
+							showimg.html("<img src='"+img+"' id='cropbox' height='200' />");
+						}else if(data.body.width<200 && data.body.height>200){
+							showimg.html("<img src='"+img+"' id='cropbox' width='200' />");
+						}else if(data.body.width<200 && data.body.height<200){
+							showimg.html("<img src='"+img+"' id='cropbox' width='200' height='200' />");
 						}else{
 							showimg.attr({
 								'data-w':data.body.width,
@@ -359,17 +360,17 @@ $(document).ready(function(){
 							//截取图片的js
 
 							var maxWhSize = Math.min(data.body.width,data.body.height);
-							if(maxWhSize < 240){
-								maxWhSize = 240;
+							if(maxWhSize < 200){
+								maxWhSize = 200;
 							}
 							$('#cropbox').Jcrop({
 								aspectRatio: 1,
 								onSelect: updateCoords,
-								minSize:[240,240],
+								minSize:[200,200],
 								maxSize:[maxWhSize,maxWhSize],
 								allowSelect:false, //允许选择
 								allowResize:true, //是否允许调整大小
-								setSelect: [ 0, 0, 240, 240 ]
+								setSelect: [ 0, 0, 200, 200 ]
 							});
 					}else{
 						tips(data.msg);

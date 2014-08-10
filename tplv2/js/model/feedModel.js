@@ -139,11 +139,10 @@ Tuitui.feedModel = Backbone.Model.extend({
 		if (this.getfeedType() == 'text') {
 			var repto = this.get('repto');
 			if (repto) {
-				console.log(repto.attr.length > 0 ? repto.attr[0] : '');
 				result = {
 					'feedTitle': repto.title || '',
 					'feedContent': repto.body,
-					'feedLink': this._isDetail() ? 'javascript:void(0)' : repto.b_url,
+					'feedLink': repto.b_url,
 					'time': repto.time,
 					'pic': (repto.attr.length > 0 && !this._isDetail()) ? repto.attr[0] : '',
 					'forwardcount': repto.forwardcount,
@@ -155,7 +154,6 @@ Tuitui.feedModel = Backbone.Model.extend({
 
 				}
 			} else {
-				console.log(this._isDetail());
 				result = {
 					'feedTitle': this.get('title') || '',
 					'feedContent': this.get('body'),

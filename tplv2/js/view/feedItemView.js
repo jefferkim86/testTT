@@ -163,13 +163,13 @@ Tuitui.feedItemView = Backbone.View.extend({
             if (resp.status == 1) {
                 feed.find('.feed-ft').attr("data-reply", "");
                 input.val('');
-                $(target).attr('data-c','');
+                $(target).attr('data-c', '');
                 var commentModel = new Tuitui.commentModel({
                     "h_img": '/avatar.php?uid=' + uid + '&size=small',
-                    "h_url": 'tuitui/index.php?c=userblog&a=index&domain=home&uid=' + uid,
+                    "h_url": G_domain == '' ? '/index.php?c=userblog&a=index&domain=home&uid=' + uid : window.urlpath + '/' + G_domain,
                     "msg": inputVal,
-                    "del_flag":1,
-                    "time":"刚刚",
+                    "del_flag": 1,
+                    "time": "刚刚",
                     "user": {
                         'username': G_username
                     }
@@ -209,9 +209,10 @@ Tuitui.feedItemView = Backbone.View.extend({
                 var html = userView.renderForward(result, true);
                 self.setCounts('forwardcount', 'add');
                 feed.find(".J_forwardList .title").after(html);
+                input.val('');
                 tips('转发成功！');
             } else {
-                alert(resp.msg);
+                tips(resp.msg);
             }
         });
     },
@@ -233,7 +234,7 @@ Tuitui.feedItemView = Backbone.View.extend({
                     id: $(target).attr("data-id")
                 }, function(resp) {
                     if (resp.status == 1) {
-                        self.setCounts('replaycount','sub');
+                        self.setCounts('replaycount', 'sub');
                         $(target).parents('.comment-item').remove();
                     } else {
                         tips(data.msg);
@@ -243,7 +244,7 @@ Tuitui.feedItemView = Backbone.View.extend({
             },
             cancel: function() {}
         })
-        
+
 
     },
 

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-03 11:12:35
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-10 15:29:47
          compiled from "tplv2/models/word.html" */ ?>
-<?php /*%%SmartyHeaderCode:15538026453dda8a3097ed3-89645150%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:180592256153e71f6b71bb37-51254587%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'e7c6a44d39e063218c03017c0a48cc033d225377' => 
     array (
       0 => 'tplv2/models/word.html',
-      1 => 1407035535,
+      1 => 1407655785,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '15538026453dda8a3097ed3-89645150',
+  'nocache_hash' => '180592256153e71f6b71bb37-51254587',
   'function' => 
   array (
   ),
@@ -20,13 +20,6 @@ $_smarty_tpl->decodeProperties(array (
 <?php if (!is_callable('smarty_modifier_date_format')) include '/Users/jinjianfeng/Documents/work/tuitui/init/Drivers/Smarty/plugins/modifier.date_format.php';
 ?><?php $_template = new Smarty_Internal_Template("require_header.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
 $_template->assign('addcss','yes');$_template->assign('editor','yes');$_template->assign('titlepre',"发布文字 - ".($_SESSION['tempid'])); echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
-
-<script>
-$(document).ready(function(){
-		$.isChange.Set("#title,#textarea");
-		$.isChange.unSet("#form1");
-})
-</script>
 
 
 <div id="publishWord">
@@ -132,6 +125,11 @@ window.ueditorInstance = UE.getEditor('textareaEditor');
 
 $("#preview").click(function() {
 	window.ueditorInstance.execCommand("Preview")
+});
+$(window).on("beforeunload", function() {
+	if($("#title").val() != '' || window.ueditorInstance.getContent() != ''){
+   		return "你还有没保存的数据.要退出吗";
+    }
 });
 </script>
 

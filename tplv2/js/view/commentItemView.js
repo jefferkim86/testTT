@@ -37,7 +37,7 @@ Tuitui.commentItemView = Backbone.View.extend({
         var commentBtn = feed.find(".J-sendReply");
         commentBtn.attr("data-c",$(target).attr("data-c"));
         feed.find('.feed-ft').attr("data-reply", comment.user.uid);
-        input.val("@" + comment.user.username + ":");
+        input.focus().val("@" + comment.user.username + ":");
 
     },
 

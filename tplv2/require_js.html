@@ -4,6 +4,7 @@ var skinpath = '{$syskin}';
 
 var uid = '{$smarty.session.uid}';
 var G_username ='{$smarty.session.username}';
+var G_domain = '{$smarty.session.domain}';
 {if $smarty.session.uid == $user.uid} 
   var G_isSelf = true; 
 {else}
@@ -16,21 +17,13 @@ var unit_3 = true;
 </script>
 
 <script type="text/javascript" src="{$syskin}/js/jquery.js"></script>
-<!-- <script type="text/javascript" src="{$syskin}/js/class.js"></script>
- --><script type="text/javascript" src="{$syskin}/js/dialog.js"></script>
+<script type="text/javascript" src="{$syskin}/js/dialog.js"></script>
 <script type="text/javascript" src="{$syskin}/js/global.js"></script>
-<!-- <script type="text/javascript" src="{$syskin}/js/jquery.mousedelay.js"></script>
- -->
-<!-- <script type="text/javascript" src="{$syskin}/js/model.js"></script>
- --><!-- <script type="text/javascript" src="{$syskin}/js/template.js"></script> -->
-<!-- <script type="text/javascript" src="{$syskin}/js/mustache.js"></script>
- --><script type="text/javascript" src="{$syskin}/js/juicer.js"></script>
+<script type="text/javascript" src="{$syskin}/js/juicer.js"></script>
 
 <link href="{$syskin}/js/dialog/default.css" rel="stylesheet" />
 <link href="{$syskin}/css/feed.css" rel="stylesheet" type="text/css"/>
-<!-- <script type="text/javascript" src="{$syskin}/js/template_models.js"></script>
- <script type="text/javascript" src="{$syskin}/js/jquery.pagination.js"></script>
--->
+
 <script type="text/javascript" src="{$syskin}/js/jquery.twbsPagination
 .js"></script>
 

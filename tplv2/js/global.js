@@ -609,7 +609,7 @@ $.feedToolBar = {
         }
         $(window).bind("scroll",
         function() {
-            getfeeds()
+            //getfeeds()
         })
     },
     continueShow: function(toolbar, _obj, loading, more, nomore, total_page) {

@@ -1,13 +1,13 @@
 <script type="text/template" id="J-cmtList">
 {literal}
     <div class="logo">
-        <a href="${logoUrl}" target="_blank">
+        <a href="${logoUrl}">
          <img src="${logo}"/>
         </a>
     </div>
     <div class="cmt-desc">
         <p>
-         <span><a href="${logoUrl}" target="_blank">${userName}</a>:</span>
+         <span><a href="${logoUrl}">${userName}</a>:</span>
             ${msg} (${time})
         </p>
         <div class="reply">
@@ -22,7 +22,7 @@
 {literal}
     <div class="feed feed-${feedType} clearfix {@if forwardData}is-forward{@/if}" id="J-blog-${bid}">
         <div class="feed-avatar">
-            <a class="blog-avatar" href="${avatarHref}" target="_blank" title="${username}">
+            <a class="blog-avatar" href="${avatarHref}" title="${username}">
                 <img src="${avatar}" alt=""/>
             </a>
         </div>
@@ -31,10 +31,10 @@
                 <s class="outter"></s><s class="inner"></s>
             </span>
             <div class="feed-link">
-                <a href="${feedLink}" target="_blank">${time}</a>
+                <a href="${feedLink}">${time}</a>
             </div>
             <div class="feed-hd">
-                <div class="merc-name"><a href="${avatarHref}" target="_blank">${username}</a></div>
+                <div class="merc-name"><a href="${avatarHref}">${username}</a></div>
             </div>
             <div class="feed-bd">
             {@if forwardData}
@@ -45,10 +45,10 @@
                  <div  id="J-forwardBlog-${forwardData.bid}" class="feed feed-${feedType} feed-forward-layout clearfix">
                     <div class="feed-desc">
                         <div class="feed-hd">
-                            <div class="merc-name">转自: <a href="${forwardData.h_url}" target="_blank">${forwardData.username}</a></div>
+                            <div class="merc-name">转自: <a href="${forwardData.h_url}">${forwardData.username}</a></div>
                         </div>
                         <div class="feed-link">
-                            <a href="${forwardData.b_url}" target="_blank">${forwardData.time}</a>
+                            <a href="${forwardData.b_url}">${forwardData.time}</a>
                         </div>
                         <div class="feed-bd">
                 {@/if}
@@ -58,9 +58,9 @@
                 {@if forwardData}
                             <div class="feed-actions J-forward-actions clearfix">
                                 <div class="feed-act">
-                                    <a href="${forwardData.b_url}&t=reply" target="_blank" class="ft-comment">评论(<span class="J_CmtNum">${forwardData.replaycount}</span>)</a>
-                                    <a href="${forwardData.b_url}&t=forward" target="_blank" class="ft-forward">转发(<span class="J_FwdNum">${forwardData.forwardcount}</span>)</a>
-                                    <a href="${forwardData.b_url}&t=like" target="_blank" class="ft-like ${forwardData.isLiked}">喜欢(<span class="J_LikeNum">${forwardData.likecount}</span>)</a>
+                                    <a href="${forwardData.b_url}&t=reply" class="ft-comment">评论(<span class="J_CmtNum">${forwardData.replaycount}</span>)</a>
+                                    <a href="${forwardData.b_url}&t=forward" class="ft-forward">转发(<span class="J_FwdNum">${forwardData.forwardcount}</span>)</a>
+                                    <a href="${forwardData.b_url}&t=like" class="ft-like ${forwardData.isLiked}">喜欢(<span class="J_LikeNum">${forwardData.likecount}</span>)</a>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +97,7 @@
             <div class="page-func">
                 <div class="J-feedPagination">
                     <a href="#" class="fold">收起</a>
-                    <a href="${feedLink}#comment" target="_blank" class="comment-more">查看更多</a>
+                    <a href="${feedLink}#comment" class="comment-more">查看更多</a>
                 </div>
             </div>
           </div>
@@ -109,10 +109,10 @@
 <script type="text/template" id="J-feedTxt">
 {literal}
   <div class="feed-text-cont clearfix">
-    <h3 class="feed-text-title"><a href="${feedLink}"  target="_blank">${feedTitle}</a></h3>
+    <h3 class="feed-text-title"><a href="${feedLink}">${feedTitle}</a></h3>
     <div class="feed-text-p clearfix">
-      {@if pic}<a href="${feedLink}" target="_blank"><div class="p-img"><img src="${pic}"/></div></a>{@/if}$${feedContent}
-      {@if needFeedMore}<span class="feed-more"><a href="${feedLink}" target="_blank">全部信息...</a></span>{@/if}
+      {@if pic}<a href="${feedLink}"><div class="p-img"><img src="${pic}"/></div></a>{@/if}$${feedContent}
+      {@if needFeedMore}<span class="feed-more"><a href="${feedLink}">全部信息...</a></span>{@/if}
     </div>
    </div>
 {/literal}
@@ -148,7 +148,7 @@
 {literal}
     <div class="feed-good-cont clearfix">
        <div class="feed-good-desc clearfix">
-              <p>$${feedContent}{@if needFeedMore}<span class="feed-more"><a href="${feedLink}" target="_blank">全部信息...</a></span>{@/if}</p>
+              <p>$${feedContent}{@if needFeedMore}<span class="feed-more"><a href="${feedLink}">全部信息...</a></span>{@/if}</p>
        </div>
        <div class="feed-good-info clearfix">
           <div class="feed-good-img">
@@ -167,7 +167,7 @@
                     <b>${discount_price}</b> 元</li>{@/if}
                   </ul>
                </div>
-               <a href="${producturl}" target="_blank" class="view-good">查看宝贝</a>
+               <a href="${producturl}" class="view-good" target="_blank">查看宝贝</a>
           </div>
        </div>
     </div>

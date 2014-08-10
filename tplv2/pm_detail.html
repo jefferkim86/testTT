@@ -31,37 +31,6 @@
     	</div>
 
 
-<!-- 
-		<div id="pm_detail">
-		    <div class="det_title">
-			    <div class="det_return"><a href="{spUrl c=pm}" >返回列表</a></div>
-				<div class="det_info">与 <span id="tousername"></span> 的私信对话</div>
-			</div>
-			<div class="det_con">
-			    <div class="det_post">
-				    <div class="avatar"><a href="{goUserHome domain=$smarty.session.domain uid=$smarty.session.uid}" target="_blank"><img src="{avatar uid=$smarty.session.uid size=middle}" alt="{$smarty.session.username}" class="face"/></a></div>
-				    <div class="postbox"><textarea name="textarea" id="textarea"></textarea></div>
-					<div class="postarea">
-					    <a id="send_submit"><span>发送</span></a>
-						<div class="sub_loading" id="pm_loading" style="margin:0; display:none;"></div>
-						<div class="text_limit">你还可以输入500字</div>
-						<input type="hidden" id="touid" title="touid" value="{$touid}" />
-						<input type="hidden" id="touser" title="touser" value="{$tousername}" />
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div id="feed_loading" style="margin-left:275px;"></div>
-				<div class="det_list"></div>
-			</div>
-			<div id="paging"></div>
-		</div>
-		
-
-		<div class="pm_none follow_font" id="follow_font" style="display:none;">
-			 <h2>您还没有相关对话</h2>
-		</div>
-			 -->
-		
 
 	</div>
 	<div id="aside">
@@ -71,7 +40,7 @@
 <script type="text/template" id="J-msgTpl">
 {literal}
 <li class="msg-item clearfix ${det}">
-	<img src="${h_img}" class="avatar" alt=""/>
+	<a href="${h_url}" class="avatar"><img src="${h_img}" alt=""/></a>
 	<div class="desc">
 		<span class="pop-corner"><s class="outter"></s></span>
 		<p class="content">${info}</p>

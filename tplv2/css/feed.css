@@ -187,11 +187,13 @@
 	font-size: 12px;
 	color: #777777;
 	padding:0 0 15px 0;
-	margin: 0 0 0 25px;
+	margin: 0 25px 0 25px;
+	line-height: 22px;
 	word-break: break-all;
 	word-wrap: break-word;
 	border-bottom: 1px solid #eeeeee;
 }
+.feed-forward-layout .feed-text-title{margin-right: 0;}
 .feed .feed-title .preforward a{
 	color: #0099cc;
 }
@@ -411,6 +413,9 @@
 }*/
 .page-detail .feed .feed-link a,.page-detail .feed .feed-text-title a{
 	cursor: default;
+}
+.page-detail .feed-forward-layout .feed-text-title a,.page-detail .feed-forward-layout .feed-link a{
+	cursor: pointer;
 }
 /*´ý¶¨*/
 .feed .J_Commentshow,.feed .J_Forwardshow,.feed .J_Likeshow{display:block;}
@@ -991,6 +996,9 @@ ul,li {
 .page-userInfo .info h3 {
 	color: #222222;
 	font-size: 18px;
+}
+.page-userInfo .info h3 a{
+	color: #222;
 }
 .page-userInfo .info .desc {
 	height: 20px;

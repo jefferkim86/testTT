@@ -1,12 +1,5 @@
 {include file="require_header.html" addcss=yes editor=yes titlepre="发布文字 - {$smarty.session.tempid}"}
-{literal}
-<script>
-$(document).ready(function(){
-		$.isChange.Set("#title,#textarea");
-		$.isChange.unSet("#form1");
-})
-</script>
-{/literal}
+
 
 <div id="publishWord">
 <form action="{spUrl c=post a=saved model=$mid}" id="form1" method="post">
@@ -96,6 +89,11 @@ window.ueditorInstance = UE.getEditor('textareaEditor');
 
 $("#preview").click(function() {
 	window.ueditorInstance.execCommand("Preview")
+});
+$(window).on("beforeunload", function() {
+	if($("#title").val() != '' || window.ueditorInstance.getContent() != ''){
+   		return "你还有没保存的数据.要退出吗";
+    }
 });
 </script>
 

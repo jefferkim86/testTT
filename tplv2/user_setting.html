@@ -15,7 +15,7 @@ $(document).ready(function(){
 		 chks = /^[a-zA-Z]{1}([a-zA-Z0-9]|[._]){1,15}$/;
 		if(!chks.exec($('#domain').val() )){
 		$('#pb-submiting-tip,#submit_baseinfo,#cancel').toggle();
-		tips('个性域名不符合要求'); return false;
+		tips('个性域名需填写，英文字母开头的4到15位的英文字母和数字'); return false;
 		}
 		var args = {
 			niname : $('#niname').val(),
@@ -116,7 +116,7 @@ $(document).ready(function(){
 			    <div class="user_right">
 				     <span class="host">{$url}/</span>
 					 <input type="text" name="domain" class="domain" id="domain" value="{$users.domain}">
-					 <span class="info">域名唯一可修改</span>
+					 <span class="info">域名唯一可修改，英文字母开头的4到15位的英文字母和数字</span>
 				</div>
 			</div>
 			
@@ -150,7 +150,7 @@ $(document).ready(function(){
 						      	<input id="fileupload" size="1" type="file" name="filedata" ext="jpg|jpeg|png"/>
 						      	<div class="fileDataImg">选择文件</div>
 							</div>
-							<div class="tip">支持jpg、gif、png、bmp格式，尺寸大于120px*120px，大小小于1M</div>
+							<div class="tip">支持jpg、gif、png、bmp格式，尺寸大于200px*200px，大小小于1M</div>
 							<!-- <div class="progress"> 
 								<span class="bar"></span><span class="percent">0%</span > 
 							</div> -->
@@ -167,8 +167,8 @@ $(document).ready(function(){
 						    <input type="hidden" id="src" name="src" value="" />
 							<input type="hidden" id="x" name="x" value="0" />
 							<input type="hidden" id="y" name="y" value="0" />
-							<input type="hidden" id="w" name="w" value="240" />
-							<input type="hidden" id="h" name="h" value="240" />
+							<input type="hidden" id="w" name="w" value="200" />
+							<input type="hidden" id="h" name="h" value="200" />
 
 					    </div>
 						<input type="submit" value="确认保存" class="Intercbtn" />
@@ -274,7 +274,6 @@ $(document).ready(function(){
 {literal}
 <script>
 	$(document).ready(function(){	
-		
 
 		var bar = $('.bar');
 		var percent = $('.percent');
@@ -284,6 +283,8 @@ $(document).ready(function(){
 		var btn = $(".btn span");
 		$("#fileupload").wrap("<form id='myupload' action='"+urlpath+"/index.php?c=api&yc=user&ym=upface' method='post' enctype='multipart/form-data'></form>");
 		$("#fileupload").change(function(){  //选择文件
+			//解决取消按钮图裂的问题
+			if($('#fileupload').val() == ''){return}
 			$("#myupload").ajaxSubmit({
 				//dataType:  'json',	//数据格式为json 
 				beforeSend: function() {	//开始上传 
@@ -304,12 +305,12 @@ $(document).ready(function(){
 					if(data.status == "1"){
 						var img = urlpath +'/'+ data.body.pic_path
 							
-						if (data.body.width>240 && data.body.height<240){
-							showimg.html("<img src='"+img+"' id='cropbox' height='240' />");
-						}else if(data.body.width<240 && data.body.height>240){
-							showimg.html("<img src='"+img+"' id='cropbox' width='240' />");
-						}else if(data.body.width<240 && data.body.height<240){
-							showimg.html("<img src='"+img+"' id='cropbox' width='240' height='240' />");
+						if (data.body.width>200 && data.body.height<200){
+							showimg.html("<img src='"+img+"' id='cropbox' height='200' />");
+						}else if(data.body.width<200 && data.body.height>200){
+							showimg.html("<img src='"+img+"' id='cropbox' width='200' />");
+						}else if(data.body.width<200 && data.body.height<200){
+							showimg.html("<img src='"+img+"' id='cropbox' width='200' height='200' />");
 						}else{
 							showimg.attr({
 								'data-w':data.body.width,
@@ -323,17 +324,17 @@ $(document).ready(function(){
 							//截取图片的js
 
 							var maxWhSize = Math.min(data.body.width,data.body.height);
-							if(maxWhSize < 240){
-								maxWhSize = 240;
+							if(maxWhSize < 200){
+								maxWhSize = 200;
 							}
 							$('#cropbox').Jcrop({
 								aspectRatio: 1,
 								onSelect: updateCoords,
-								minSize:[240,240],
+								minSize:[200,200],
 								maxSize:[maxWhSize,maxWhSize],
 								allowSelect:false, //允许选择
 								allowResize:true, //是否允许调整大小
-								setSelect: [ 0, 0, 240, 240 ]
+								setSelect: [ 0, 0, 200, 200 ]
 							});
 					}else{
 						tips(data.msg);

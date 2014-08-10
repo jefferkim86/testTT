@@ -133,7 +133,7 @@ Tuitui.messageView = Backbone.View.extend({
                 var result = resp.body;
                 self._renderPm(opt, result);
             } else {
-                alert(resp.msg);
+                tips(resp.msg);
             }
         });
     },
@@ -164,6 +164,7 @@ Tuitui.messageView = Backbone.View.extend({
                 'last': lastCls,
                 'isNew': list[i].isNew,
                 'h_img': urlpath + list[i].h_img,
+                'h_url': list[i].h_url,
                 'replyUrl': '?c=pm&a=detail&uid=' + list[i].uid
             }
             html += tpl.render(rdata);
@@ -247,17 +248,23 @@ Tuitui.messageView = Backbone.View.extend({
         var self = this;
         var lastCls = '';
         var actionMap = {
-            '1': '<span>评论了你的</span><a href="{link}" target="_blank">动态</a>',
+            '1': '<span>评论了你的</span><a href="{link}">动态</a>',
             '3': '<span>关注了你</span>',
-            '4': '<span>转发了你的</span><a href="{link}" target="_blank">动态</a>',
-            '5': '<span>喜欢了你的</span><a href="{link}" target="_blank">动态</a>',
-            '6': '<span>回复了你的</span><a href="{link}" target="_blank">评论</a>'
+            '4': '<span>转发了你的</span><a href="{link}">动态</a>',
+            '5': '<span>喜欢了你的</span><a href="{link}">动态</a>',
+            '6': '<span>回复了你的</span><a href="{link}">评论</a>'
         };
         var actionClsMap = {
             'comment': 'J-msg-reply',
             'forward': 'J-forward-replay',
             'like': null,
             'follow': null
+        };
+        var actionName = {
+            'comment': '回复',
+            'forward': '评论',
+            'like': '',
+            'follow': ''
         }
         //判断是否为空数据TODO:最好判断total_count
         if (list.length == 0) {
@@ -292,13 +299,14 @@ Tuitui.messageView = Backbone.View.extend({
 
             var reInfo = list[i].extend['info'] || '';
             var actionTmp = actionMap[list[i].sys].replace('{link}', list[i].location);
-          
+
             result = {
                 'last': lastCls,
                 'muid': list[i].muid,
                 'time': list[i].time,
                 'username': list[i].username,
                 'actionCls': actionClsMap[opt.type],
+                'actionName': actionName[opt.type],
                 'bid': list[i].extend['bid'],
                 'location': list[i].location,
                 'topic': list[i].extend['info'] || '',
@@ -327,7 +335,7 @@ Tuitui.messageView = Backbone.View.extend({
         var actionType = 'comment';
         var replyTo = $(target).attr('data-reply-to');
         if ($(target).hasClass('J-forward-replay')) {
-            actionBtnTxt = '转发';
+            actionBtnTxt = '发布';
             actionType = 'forward';
         }
         var ft = this.compiled_tpl['msgFt'].render({

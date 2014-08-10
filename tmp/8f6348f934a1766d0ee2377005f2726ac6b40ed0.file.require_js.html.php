@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-04 01:27:41
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-08 23:22:52
          compiled from "tplv2/require_js.html" */ ?>
-<?php /*%%SmartyHeaderCode:157275654053de710d8ef236-67197771%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:175534690753e4eb4c590ac9-06608120%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '8f6348f934a1766d0ee2377005f2726ac6b40ed0' => 
     array (
       0 => 'tplv2/require_js.html',
-      1 => 1407086773,
+      1 => 1407511344,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '157275654053de710d8ef236-67197771',
+  'nocache_hash' => '175534690753e4eb4c590ac9-06608120',
   'function' => 
   array (
   ),
@@ -27,6 +27,8 @@ var uid = '<?php echo $_SESSION['uid'];?>
 ';
 var G_username ='<?php echo $_SESSION['username'];?>
 ';
+var G_domain = '<?php echo $_SESSION['domain'];?>
+';
 <?php if ($_SESSION['uid']==$_smarty_tpl->getVariable('user')->value['uid']){?> 
   var G_isSelf = true; 
 <?php }else{ ?>
@@ -40,33 +42,18 @@ var unit_3 = true;
 
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/jquery.js"></script>
-<!-- <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/class.js"></script>
- --><script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/dialog.js"></script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/global.js"></script>
-<!-- <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/jquery.mousedelay.js"></script>
- -->
-<!-- <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/model.js"></script>
- --><!-- <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/template.js"></script> -->
-<!-- <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/mustache.js"></script>
- --><script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/juicer.js"></script>
 
 <link href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/dialog/default.css" rel="stylesheet" />
 <link href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /css/feed.css" rel="stylesheet" type="text/css"/>
-<!-- <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/template_models.js"></script>
- <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/jquery.pagination.js"></script>
--->
+
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/jquery.twbsPagination
 .js"></script>

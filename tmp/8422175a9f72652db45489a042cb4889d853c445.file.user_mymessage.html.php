@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-05 21:38:56
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-10 10:41:52
          compiled from "tplv2/user_mymessage.html" */ ?>
-<?php /*%%SmartyHeaderCode:84258693053e0de70252576-23151286%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:94424019753e6dbf062ffc7-41288575%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '8422175a9f72652db45489a042cb4889d853c445' => 
     array (
       0 => 'tplv2/user_mymessage.html',
-      1 => 1407173241,
+      1 => 1407638511,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '84258693053e0de70252576-23151286',
+  'nocache_hash' => '94424019753e6dbf062ffc7-41288575',
   'function' => 
   array (
   ),
@@ -72,14 +72,14 @@ $_template->assign('loadedit','yes'); echo $_template->getRenderedTemplate();?><
  <div class="follow_list clearfix ${last}" data-muid="${muid}" data-bid="${bid}"id="myfollow_${id}">
   <div class="follow_con clearfix">
 	 <div class="avatar">	       
-	  <a href="${h_url}" target="_blank" title="">
+	  <a href="${h_url}" title="">
 		 	<img src="${h_img}" alt="" title=""/>
 	   </a>
 	 </div>	
 	 <div class="userinfo">
 		<li class="title">
-			<a href="${h_url}" class="username" target="_blank">${username}</a><span class="action">$${action}</span>
-			<a href="${location}" target="_blank" class="topic">${topic}</a>
+			<a href="${h_url}" class="username">${username}</a><span class="action">$${action}</span>
+			<a href="${location}" class="topic">${topic}</a>
 			{@if notread}<span class="not-read"></span>{@/if}
 		</li>
 		<li class="userdata">${info}</li>
@@ -87,7 +87,7 @@ $_template->assign('loadedit','yes'); echo $_template->getRenderedTemplate();?><
 	 <div class="oper">
 	 	<span class="time">${time}</span>
 	 	<div class="handler">
-	 		{@if actionCls}<a href="#" class="msg-reply ${actionCls}" data-reply-to="${username}" data-type="${actionCls}">回复</a>{@/if}
+	 		{@if actionCls}<a href="#" class="msg-reply ${actionCls}" data-reply-to="${username}" data-type="${actionCls}">${actionName}</a>{@/if}
 	 	</div>
 	 </div>
   </div>

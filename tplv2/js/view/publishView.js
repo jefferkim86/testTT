@@ -23,26 +23,32 @@ Tuitui.publishView = Backbone.View.extend({
     initialize: function(options) {
         var self = this;
         //获取商品
-        var urlReg = /(http:\/\/|https:\/\/)((\w|=|\?|\.|\/|&|-)+)/g;
+        
         $("#producturl").on("blur", function(e) {
             var target = e.currentTarget;
             var http = $(target).val();
-            if (!$(target).val().match(urlReg)) {
-                $("#goodInfoBlock").html('<div class="warn-txt">链接不正确!</div>');
-                $(target).addClass('error-input');
-                return;
-            }
-            $("#goodInfoBlock").html('');
-            $(target).removeClass('error-input');
-            self.getGood(http);
+            self._getProductInfo(http);
         });
 
     },
+    _getProductInfo: function(http,cb) {
+        var self = this;
+        var urlReg = /(http:\/\/|https:\/\/)((\w|=|\?|\.|\/|&|-)+)/g;
+        if (!http.match(urlReg)) {
+            $("#goodInfoBlock").html('<div class="warn-txt">链接不正确!</div>');
+            $("#producturl").addClass('error-input');
+            return;
+        }
+        $("#goodInfoBlock").html('');
+        $("#producturl").removeClass('error-input');
+        self.getGood(http,cb);
 
+    },
     submitForm: function(e) {
         e.preventDefault();
-
+        $(window).unbind('beforeunload');
         var target = e.currentTarget;
+        var self = this;
         if ($(target).hasClass('disabled')) {
             return;
         }
@@ -60,6 +66,8 @@ Tuitui.publishView = Backbone.View.extend({
                 $(target).removeClass('disabled');
                 return false;
             }
+            $(target).addClass('disabled');
+            $('#form1').submit();
         }
         if (submitType == 'product') {
             if ($("#producturl").val() == '') {
@@ -67,9 +75,18 @@ Tuitui.publishView = Backbone.View.extend({
                 $("#producturl").addClass('error-input');
                 return;
             }
+            if ($("#J_title").val() == '' && !$("#goodInfoBlock .feed-good").length) {
+                var httpUrl = $("#producturl").val();
+                self._getProductInfo(httpUrl,function(){
+                    $(target).addClass('disabled');
+                    $('#form1').submit();
+                });
+            }else{
+                $(target).addClass('disabled');
+                $('#form1').submit();
+            }
         }
-        $(target).addClass('disabled');
-        $('#form1').submit();
+        
     },
     /*
      * @desc 如果一个标签，需要在之后加一个逗号。。
@@ -87,7 +104,7 @@ Tuitui.publishView = Backbone.View.extend({
 
     },
     //TODO: 渲染model
-    getGood: function(link) {
+    getGood: function(link,cb) {
         var goodTpl = this.compiled_tpl['goodTpl'];
         getApi('item', 'get', {
             'url': link
@@ -99,11 +116,12 @@ Tuitui.publishView = Backbone.View.extend({
                     $("#J_" + key).val(result[key]);
                 }
 
-                result.discountCls = result.discount_price ?'hasDiscount':'';
+                result.discountCls = result.discount_price ? 'hasDiscount' : '';
 
                 result.image = result.image + '_160x160.jpg';
                 var html = goodTpl.render(result);
                 $("#goodInfoBlock").html(html);
+                cb && cb();
             } else {
                 $("#producturl").addClass('error-input');
                 $("#goodInfoBlock").html('<div class="warn-txt">获取宝贝失败!</div>');

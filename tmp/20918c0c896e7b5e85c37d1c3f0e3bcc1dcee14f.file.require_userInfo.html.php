@@ -1,39 +1,41 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-04 00:36:02
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-10 14:52:55
          compiled from "tplv2/require_userInfo.html" */ ?>
-<?php /*%%SmartyHeaderCode:14823656653de64f22aca68-54399978%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:189194466753e716c71ee042-20064152%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '20918c0c896e7b5e85c37d1c3f0e3bcc1dcee14f' => 
     array (
       0 => 'tplv2/require_userInfo.html',
-      1 => 1407080621,
+      1 => 1407642085,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '14823656653de64f22aca68-54399978',
+  'nocache_hash' => '189194466753e716c71ee042-20064152',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_smarty_tpl->getVariable('user')->value['domain']){?>
+<?php $_smarty_tpl->tpl_vars["UserDomain"] = new Smarty_variable(($_smarty_tpl->getVariable('site_uri')->value)."/".($_smarty_tpl->getVariable('user')->value['domain']), null, null);?>
+<?php }else{ ?>
+<?php ob_start();?><?php echo goUserHome(array('domain'=>$_smarty_tpl->getVariable('user')->value['domain'],'uid'=>$_smarty_tpl->getVariable('user')->value['uid']),$_smarty_tpl);?>
+<?php $_tmp1=ob_get_clean();?><?php $_smarty_tpl->tpl_vars["UserDomain"] = new Smarty_variable($_tmp1, null, null);?>
+<?php }?>
 <div class="user page-userInfo">
 	<div class="logo">
-		<img src="<?php echo $_smarty_tpl->getVariable('site_uri')->value;?>
+		<a href="<?php echo $_smarty_tpl->getVariable('UserDomain')->value;?>
+"><img src="<?php echo $_smarty_tpl->getVariable('site_uri')->value;?>
 <?php echo avatar(array('uid'=>$_smarty_tpl->getVariable('user')->value['uid'],'size'=>'big'),$_smarty_tpl);?>
-" alt=""/>
+" alt=""/></a>
 	</div>
 	<div class="info">
-		<h3><?php echo $_smarty_tpl->getVariable('user')->value['username'];?>
-</h3>
-		<?php if ($_smarty_tpl->getVariable('user')->value['domain']){?>
-		<div class="url"><?php echo $_smarty_tpl->getVariable('site_uri')->value;?>
-/<?php echo $_smarty_tpl->getVariable('user')->value['domain'];?>
+		<h3><a href="<?php echo $_smarty_tpl->getVariable('UserDomain')->value;?>
+"><?php echo $_smarty_tpl->getVariable('user')->value['username'];?>
+</a></h3>
+		<div class="url"><?php echo $_smarty_tpl->getVariable('UserDomain')->value;?>
 </div>
-		<?php }else{ ?>
-		<div class="url"><?php echo goUserHome(array('domain'=>$_smarty_tpl->getVariable('user')->value['domain'],'uid'=>$_smarty_tpl->getVariable('user')->value['uid']),$_smarty_tpl);?>
-</div>
-		<?php }?>
 		<?php if ($_smarty_tpl->getVariable('usersign')->value){?><div class="desc"><?php echo $_smarty_tpl->getVariable('usersign')->value;?>
 </div><?php }?>
 		<div class="handle">
@@ -56,7 +58,7 @@ $_smarty_tpl->decodeProperties(array (
 </b><span>动态</span></li>
 			<li><b><?php echo $_smarty_tpl->getVariable('user')->value['flow'];?>
 </b><span>关注</span></li>
-			<li class="nr"><b><?php echo $_smarty_tpl->getVariable('myLook')->value;?>
+			<li class="nr"><b><?php echo $_smarty_tpl->getVariable('user')->value['flowme'];?>
 </b><span>粉丝</span></li>
 		</ul>
 

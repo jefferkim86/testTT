@@ -1,14 +1,15 @@
+{if $user.domain}
+{assign var="UserDomain" value="{$site_uri}/{$user.domain}"}
+{else}
+{assign var="UserDomain" value="{goUserHome domain=$user.domain uid=$user.uid}"}
+{/if}
 <div class="user page-userInfo">
 	<div class="logo">
-		<img src="{$site_uri}{avatar uid=$user.uid size=big}" alt=""/>
+		<a href="{$UserDomain}"><img src="{$site_uri}{avatar uid=$user.uid size=big}" alt=""/></a>
 	</div>
 	<div class="info">
-		<h3>{$user.username}</h3>
-		{if $user.domain}
-		<div class="url">{$site_uri}/{$user.domain}</div>
-		{else}
-		<div class="url">{goUserHome domain=$user.domain uid=$user.uid}</div>
-		{/if}
+		<h3><a href="{$UserDomain}">{$user.username}</a></h3>
+		<div class="url">{$UserDomain}</div>
 		{if $usersign}<div class="desc">{$usersign}</div>{/if}
 		<div class="handle">
 			{if $isfollow == 1}
@@ -25,7 +26,7 @@
 		<ul>
 			<li><b>{$user.num}</b><span>动态</span></li>
 			<li><b>{$user.flow}</b><span>关注</span></li>
-			<li class="nr"><b>{$myLook}</b><span>粉丝</span></li>
+			<li class="nr"><b>{$user.flowme}</b><span>粉丝</span></li>
 		</ul>
 
 	</div>

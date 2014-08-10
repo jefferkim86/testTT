@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-08 00:00:26
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-10 14:53:58
          compiled from "tplv2/user_myfollow.html" */ ?>
-<?php /*%%SmartyHeaderCode:195001446053e3a29ab4cb21-95663906%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:144424175453e71706b36d85-23787413%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ad6e59ad78e50f6f5f0160f6fbb0dd1b2b00882e' => 
     array (
       0 => 'tplv2/user_myfollow.html',
-      1 => 1407427225,
+      1 => 1407642079,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '195001446053e3a29ab4cb21-95663906',
+  'nocache_hash' => '144424175453e71706b36d85-23787413',
   'function' => 
   array (
   ),
@@ -112,8 +112,8 @@ function do_run(ty,page){
 		</li>
 		<li class="userdata">
 			<span class="blogs">动态:<b>${num}</b></span>
-			<span>关注:<b>${likenum}</b></span>
-			<span class="fans">粉丝:<b>${flow}</b></span>
+			<span>关注:<b>${flow}</b></span>
+			<span class="fans">粉丝:<b>${flowme}</b></span>
 		</li>
 	</div>
 
@@ -138,6 +138,7 @@ function do_run(ty,page){
 		 
 		
 		<div id="paging" style="margin-top:20px;"></div>
+		<div id="pagingFollow" style="margin-top:20px;"></div>
 		<div class="clear"></div>
 	</div>
 	
@@ -158,7 +159,6 @@ function do_run(ty,page){
 function addto_follow(d,type){
 	$('#follow_area').html('');
 	$('#feed_loading').hide();
-	$("#paging").html('');
 	var tpl = juicer($("#J-followList").html());
 	var lastCls = 'last-li';
 	if(d.body.data.length >0){
@@ -176,10 +176,20 @@ function addto_follow(d,type){
 			var html = tpl.render(list[i])
 			$('#follow_area').append($(html));
 		}
-		if(d.body.page && d.body.page.total_page > 1){
-			$("#paging").twbsPagination({
+		var paginID = type == 'follow' ? '#pagingFollow' : '#paging';
+		if(type == 'follow'){
+			$("#paging").hide();
+			$("#pagingFollow").show();
+		}else{
+			$("#pagingFollow").hide();
+			$("#paging").show();
+		}
+ 
+		if(d.body.page && d.body.page.total_page > 1 && !$(paginID).find("pagination").length){
+			var t = $(paginID).twbsPagination({
 	            totalPages: d.body.page.total_page,
 	            visiblePages: 7,
+	            startPage:1,
 	            onPageClick: function(event, page) {
 	                do_run(type,page);
 	            }

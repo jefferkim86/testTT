@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-08 01:25:09
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-08 23:26:58
          compiled from "tplv2/require_feedTemplate.html" */ ?>
-<?php /*%%SmartyHeaderCode:8675979853e3b675d05aa2-86934780%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:138048759553e4ec42459a34-05546275%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '350be01eeee6d1b227e428bdc9ce144dbf95710b' => 
     array (
       0 => 'tplv2/require_feedTemplate.html',
-      1 => 1407432308,
+      1 => 1407511614,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '8675979853e3b675d05aa2-86934780',
+  'nocache_hash' => '138048759553e4ec42459a34-05546275',
   'function' => 
   array (
   ),
@@ -20,13 +20,13 @@ $_smarty_tpl->decodeProperties(array (
 <script type="text/template" id="J-cmtList">
 
     <div class="logo">
-        <a href="${logoUrl}" target="_blank">
+        <a href="${logoUrl}">
          <img src="${logo}"/>
         </a>
     </div>
     <div class="cmt-desc">
         <p>
-         <span><a href="${logoUrl}" target="_blank">${userName}</a>:</span>
+         <span><a href="${logoUrl}">${userName}</a>:</span>
             ${msg} (${time})
         </p>
         <div class="reply">
@@ -41,7 +41,7 @@ $_smarty_tpl->decodeProperties(array (
 
     <div class="feed feed-${feedType} clearfix {@if forwardData}is-forward{@/if}" id="J-blog-${bid}">
         <div class="feed-avatar">
-            <a class="blog-avatar" href="${avatarHref}" target="_blank" title="${username}">
+            <a class="blog-avatar" href="${avatarHref}" title="${username}">
                 <img src="${avatar}" alt=""/>
             </a>
         </div>
@@ -50,10 +50,10 @@ $_smarty_tpl->decodeProperties(array (
                 <s class="outter"></s><s class="inner"></s>
             </span>
             <div class="feed-link">
-                <a href="${feedLink}" target="_blank">${time}</a>
+                <a href="${feedLink}">${time}</a>
             </div>
             <div class="feed-hd">
-                <div class="merc-name"><a href="${avatarHref}" target="_blank">${username}</a></div>
+                <div class="merc-name"><a href="${avatarHref}">${username}</a></div>
             </div>
             <div class="feed-bd">
             {@if forwardData}
@@ -64,10 +64,10 @@ $_smarty_tpl->decodeProperties(array (
                  <div  id="J-forwardBlog-${forwardData.bid}" class="feed feed-${feedType} feed-forward-layout clearfix">
                     <div class="feed-desc">
                         <div class="feed-hd">
-                            <div class="merc-name">转自: <a href="${forwardData.h_url}" target="_blank">${forwardData.username}</a></div>
+                            <div class="merc-name">转自: <a href="${forwardData.h_url}">${forwardData.username}</a></div>
                         </div>
                         <div class="feed-link">
-                            <a href="${forwardData.b_url}" target="_blank">${forwardData.time}</a>
+                            <a href="${forwardData.b_url}">${forwardData.time}</a>
                         </div>
                         <div class="feed-bd">
                 {@/if}
@@ -77,9 +77,9 @@ $_smarty_tpl->decodeProperties(array (
                 {@if forwardData}
                             <div class="feed-actions J-forward-actions clearfix">
                                 <div class="feed-act">
-                                    <a href="${forwardData.b_url}&t=reply" target="_blank" class="ft-comment">评论(<span class="J_CmtNum">${forwardData.replaycount}</span>)</a>
-                                    <a href="${forwardData.b_url}&t=forward" target="_blank" class="ft-forward">转发(<span class="J_FwdNum">${forwardData.forwardcount}</span>)</a>
-                                    <a href="${forwardData.b_url}&t=like" target="_blank" class="ft-like ${forwardData.isLiked}">喜欢(<span class="J_LikeNum">${forwardData.likecount}</span>)</a>
+                                    <a href="${forwardData.b_url}&t=reply" class="ft-comment">评论(<span class="J_CmtNum">${forwardData.replaycount}</span>)</a>
+                                    <a href="${forwardData.b_url}&t=forward" class="ft-forward">转发(<span class="J_FwdNum">${forwardData.forwardcount}</span>)</a>
+                                    <a href="${forwardData.b_url}&t=like" class="ft-like ${forwardData.isLiked}">喜欢(<span class="J_LikeNum">${forwardData.likecount}</span>)</a>
                                 </div>
                             </div>
                         </div>
@@ -116,7 +116,7 @@ $_smarty_tpl->decodeProperties(array (
             <div class="page-func">
                 <div class="J-feedPagination">
                     <a href="#" class="fold">收起</a>
-                    <a href="${feedLink}#comment" target="_blank" class="comment-more">查看更多</a>
+                    <a href="${feedLink}#comment" class="comment-more">查看更多</a>
                 </div>
             </div>
           </div>
@@ -128,10 +128,10 @@ $_smarty_tpl->decodeProperties(array (
 <script type="text/template" id="J-feedTxt">
 
   <div class="feed-text-cont clearfix">
-    <h3 class="feed-text-title"><a href="${feedLink}"  target="_blank">${feedTitle}</a></h3>
+    <h3 class="feed-text-title"><a href="${feedLink}">${feedTitle}</a></h3>
     <div class="feed-text-p clearfix">
-      {@if pic}<a href="${feedLink}" target="_blank"><div class="p-img"><img src="${pic}"/></div></a>{@/if}$${feedContent}
-      {@if needFeedMore}<span class="feed-more"><a href="${feedLink}" target="_blank">全部信息...</a></span>{@/if}
+      {@if pic}<a href="${feedLink}"><div class="p-img"><img src="${pic}"/></div></a>{@/if}$${feedContent}
+      {@if needFeedMore}<span class="feed-more"><a href="${feedLink}">全部信息...</a></span>{@/if}
     </div>
    </div>
 
@@ -167,7 +167,7 @@ $_smarty_tpl->decodeProperties(array (
 
     <div class="feed-good-cont clearfix">
        <div class="feed-good-desc clearfix">
-              <p>$${feedContent}{@if needFeedMore}<span class="feed-more"><a href="${feedLink}" target="_blank">全部信息...</a></span>{@/if}</p>
+              <p>$${feedContent}{@if needFeedMore}<span class="feed-more"><a href="${feedLink}">全部信息...</a></span>{@/if}</p>
        </div>
        <div class="feed-good-info clearfix">
           <div class="feed-good-img">
@@ -186,7 +186,7 @@ $_smarty_tpl->decodeProperties(array (
                     <b>${discount_price}</b> 元</li>{@/if}
                   </ul>
                </div>
-               <a href="${producturl}" target="_blank" class="view-good">查看宝贝</a>
+               <a href="${producturl}" class="view-good" target="_blank">查看宝贝</a>
           </div>
        </div>
     </div>

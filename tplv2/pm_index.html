@@ -75,16 +75,16 @@ $(document).ready(function(){
  <div class="follow_list ${last}" id="myfollow_${id}">
   <div class="follow_con clearfix">
 	 <div class="avatar">	       
-	  <a href="${h_url}" target="_blank" title="">
+	  <a href="${replyUrl}" title="">
 		 	<img src="${h_img}" alt="" title=""/>
 	   </a>
 	 </div>	
 	 <div class="userinfo">
 		<li class="title">
-			<a href="${replyUrl}" target="_blank">${tousername}</a> 
+			<a href="${replyUrl}">${tousername}</a> 
 			{@if isNew}<span class="not-read"></span>{@/if}
 		</li>
-		<li class="userdata">${info}</li>
+		<li class="userdata"><a href="${replyUrl}">${info}</a></li>
 	 </div>
 	 <div class="oper">
 	 	<span class="time">${time}</span>

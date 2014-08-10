@@ -35,8 +35,16 @@ Tuitui.feedsView = Backbone.View.extend({
         getApi('blog', 'feeds', {
             'page': pageNo || 1
         }, function(data) {
-            var result = data.body;
-            self.collection.reset(result.blog);
+            if (data.status == 1) {
+                var result = data.body;
+                if (result.blog && result.blog.length > 0) {
+                    self.collection.reset(result.blog);
+                } else {
+                    self._nofeed(pre + '还没有任何关注的人的动态哦～', 'style="width:300px;"');
+                }
+            } else {
+                self._nofeed(pre + '还没有任何关注的人的动态哦～', 'style="width:300px;"');
+            }
         });
     },
     /*
@@ -62,7 +70,7 @@ Tuitui.feedsView = Backbone.View.extend({
     },
     _nofeed: function(msg, style) {
 
-        $("#feedArea").html('<div class="no-item" ' + style + '>' + (msg || '暂无消息') + '</div>');
+        $("#feedArea").append($('<div class="no-item" ' + style + '>' + (msg || '暂无消息') + '</div>'));
         $("#feed_loading").hide();
         Tuitui.globalData.end = true;
     },
@@ -94,7 +102,7 @@ Tuitui.feedsView = Backbone.View.extend({
      * */
     getMyLike: function(pageNo) {
         var self = this;
-        getApi('user', 'mylikes', {
+        getApi('blog', 'mylikes', {
             'page': pageNo || 1
         }, function(data) {
             if (data.status == 1) {
@@ -134,15 +142,15 @@ Tuitui.feedsView = Backbone.View.extend({
                 target = $('.feed .J_Comment')[0]
             }
             feedItemView.expandFt(null, target);
-
         }
     },
 
     render: function() {
         var self = this;
+        $(".no-item").remove();
         //TODO 不能保证分页是否会出错
         if (this.collection.length == 0) {
-            this._nofeed();
+            this._nofeed('没有更多动态了～', 'style="width:220px;"');
             return;
         }
         this.collection.each(function(feed) {
