@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-10 14:53:58
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-11 11:29:15
          compiled from "tplv2/user_myfollow.html" */ ?>
-<?php /*%%SmartyHeaderCode:144424175453e71706b36d85-23787413%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:214683944753e8388bf1e352-50843233%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ad6e59ad78e50f6f5f0160f6fbb0dd1b2b00882e' => 
     array (
       0 => 'tplv2/user_myfollow.html',
-      1 => 1407642079,
+      1 => 1407727754,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '144424175453e71706b36d85-23787413',
+  'nocache_hash' => '214683944753e8388bf1e352-50843233',
   'function' => 
   array (
   ),
@@ -101,13 +101,13 @@ function do_run(ty,page){
 	 	{@/if}
 	 </div>
 	<div class="avatar">	       
-	  <a href="${h_url}" target="_blank" title="${username}">
+	  <a href="${h_url}" title="${username}">
 		 	<img src="${h_img}" alt="${username}" title="${username}" class="face"/>
 	   </a>
 	</div>
 					
 	<div class="userinfo">
-		<li class="title"><a href="${h_url}" target="_blank">${username}</a>
+		<li class="title"><a href="${h_url}">${username}</a>
 			<span>(${time}关注)</span>
 		</li>
 		<li class="userdata">
