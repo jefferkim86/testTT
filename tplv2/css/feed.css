@@ -458,7 +458,7 @@
 .feed-forward-layout .feed-good-info{
 }
 
-.feed-good .feed-good-info .feed-good-img img{
+#goodInfoBlock .feed-good .feed-good-info .feed-good-img img{
 	vertical-align:middle;
 	width: 150px;
 
@@ -523,9 +523,11 @@
 	width: 290px;
 	/*height: 290px;*/
 	overflow: hidden;
+	text-align: center;
 }
 .feedWrap .feed-good-info .feed-good-img img{
-	width: 290px;
+	/*width: 290px;*/
+	text-align: center;
 }
 .feedWrap .feed-good .feed-good-info .feed-good-img{
 	/*left: -316px;*/

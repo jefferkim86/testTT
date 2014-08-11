@@ -14,12 +14,14 @@ class pm extends top
 
 	/*获取pm列表*/
 	function pmlist(){
+//		$page = $this->spArgs('page',1);
+//		$page_size = $this->spArgs('page_size',10);
 		$rs = spClass('db_pm')->pmlist($this->uid,$this->spArgs('page',1),$this->spArgs('page_size',10));
 		$rs['pm_count']    = (int)spCLass('db_pm')->findCount(array('touid'=>$this->uid,'isnew'=>1));
 		if($rs){
 			foreach($rs['data'] as &$d){
-				$d['h_url'] = goUserHome(array('uid'=>$d['touid'], 'domain'=>$d['todoman']));
-				$d['h_img'] = avatar(array('uid'=>$d['touid'],'size'=>'middle'));
+				$d['h_url'] = goUserHome(array('uid'=>$d['uid'], 'domain'=>$d['todoman']));
+				$d['h_img'] = avatar(array('uid'=>$d['uid'],'size'=>'middle'));
 				$d['time'] = ybtime(array('time'=>$d['time']));
 			}
 			
@@ -47,9 +49,9 @@ class pm extends top
 		if($user['uid'] == $_SESSION['uid']){
 			$this->api_error('不能给自己发信');
 		}
-		if($_SESSION['pm_ready'.$user['uid']] > time()){
-			$this->api_error('每次每人发信需要间隔1分钟');
-		}
+//		if($_SESSION['pm_ready'.$user['uid']] > time()){
+//			$this->api_error('每次每人发信需要间隔1分钟');
+//		}
 		
 		spClass('db_pm')->sendpm($_SESSION['uid'], $user['uid'], strreplaces($this->spArgs('body')));
 		$_SESSION['pm_ready'.$user['uid']]  = time()+60;

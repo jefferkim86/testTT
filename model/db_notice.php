@@ -329,18 +329,18 @@ class db_notice extends ybModel
 		$mail->IsHTML(true); // send as HTML
 		if($yb['mail_open'] == 1){
 			if(!@$mail->Send()){
-				$this->mailErrorLog($mail->ErrorInfo);
+//				$this->mailErrorLog($mail->ErrorInfo);
 			}
 		}
-		} catch (phpmailerException $e) {    
-			$this->mailErrorLog($mail->errorMessage());   
+		} catch (Exception $e) {   
+			//$this->mailErrorLog($mail->errorMessage());   
 		}    
 
 	}
 	
 	private function mailErrorLog($log){
-		$file = $GLOBALS['G_SP']['sp_cache'] .'/'. 'mailLog.log';
-		file_put_contents($file,$log,'FILE_APPEND');
+//		$file = $GLOBALS['G_SP']['sp_cache'] .'/'. 'mailLog.log';
+//		file_put_contents($file,$log,'FILE_APPEND');
 	}
 }
 ?>

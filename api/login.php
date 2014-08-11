@@ -41,7 +41,7 @@ class login extends top
 		if($this->spArgs('email') == '' || $this->spArgs('password') == ''|| $this->spArgs('username') == '')  return $this->api_error('用户名、密码、昵称不能为空'); 
 		if(strlen($this->spArgs('email')) < 5 || strlen($this->spArgs('email')) > 30) return $this->api_error('邮箱必须大于5小于30个字符'); 
 		if(!validateEmail($this->spArgs('email'))) return $this->api_error('邮箱格式不符合规范'); 
-		if(strlen($this->spArgs('username')) < 2 || strlen($this->spArgs('username')) > 12) return $this->api_error('昵称最短为2个字符最长为12个字符');
+		if(utf8_strlen($this->spArgs('username')) < 2 || utf8_strlen($this->spArgs('username')) > 10) return $this->api_error('昵称最短为2个字符最长为10个字符');
 		if(strlen($this->spArgs('password')) < 6) return $this->api_error('密码最少6位');
 		$keep =  $this->yb['keep_email'];
 		if($keep != ''){
@@ -51,6 +51,10 @@ class login extends top
 			{
 				$this->api_error('该邮箱帐号前缀被限制注册');
 			}
+		}
+		
+		if (count(explode("路口", $this->spArgs('username'))) > 1) {
+			$this->api_error('昵称中不允许包含路口两个字哦～');
 		}
 
 		if($this->yb['invite_switch'] == 1 || $this->spArgs('invitemode') == 1){
@@ -102,17 +106,17 @@ class login extends top
 		if($this->spArgs('email') == '' || strlen($this->spArgs('email')) < 5)  $this->api_error('请输入正确的邮箱');
 		if(!spClass('spVerifyCode')->verify( $this->spArgs('verifycode')))		$this->api_error('验证码不正确');
 		$result = spClass('db_member')->findBy('email',$this->spArgs('email'));
-		$url = 'http://'.$_SERVER['SERVER_NAME'];
+//		$url = 'http://'.$_SERVER['SERVER_NAME'];
 		if(is_array($result)){
 		
 			if($row = spClass('db_findpwd')->checkToken($result['uid'])){  //如果已经有记录且不过期
 				if($row['mailsend'] > time())  $this->api_error('您已经提交过请求，下次请求请在'.date('Y-m-d H:i:s',$row['mailsend']).'后执行'); 
 				spClass('db_findpwd')->updateMailsendTime($result['uid']);
-				spClass('db_notice')->sendFindPwd($row['uid'],$url.spURl('main','resetpwd',array('token'=>$row['token'])));
+				spClass('db_notice')->sendFindPwd($row['uid'],spURl('main','resetpwd',array('token'=>$row['token'])));
 			}else{
 				$row = spClass('db_findpwd')->createToken($result['uid']);
 				spClass('db_findpwd')->updateMailsendTime($result['uid']); //更新邮件发送时间
-				spClass('db_notice')->sendFindPwd($row,$url.spURl('main','resetpwd',array('token'=>$row['token'],'do'=>'submit')));
+				spClass('db_notice')->sendFindPwd($row,spURl('main','resetpwd',array('token'=>$row['token'],'do'=>'submit')));
 			}
 			if($this->yb['mail_open'] == 0){
 			 $this->api_success('系统没有开启发信功能,请联系系统管理员'); 

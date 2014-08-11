@@ -127,7 +127,8 @@ Tuitui.messageView = Backbone.View.extend({
     getPmList: function(opt) {
         var self = this;
         getApi('pm', 'pmlist', {
-            uid: uid
+            'uid': uid,
+            'page':opt.page || 1
         }, function(resp) {
             if (resp.status == 1) {
                 var result = resp.body;
@@ -141,6 +142,7 @@ Tuitui.messageView = Backbone.View.extend({
     _renderPm: function(opt, result, isPrepend) {
         var tpl = this.compiled_tpl['privateMsg'];
         var list = result.data;
+        var self = this;
 
         if (result.pm_count) {
             $("#J-pmcount").html('(' + result.pm_count + ')');
@@ -174,6 +176,17 @@ Tuitui.messageView = Backbone.View.extend({
         } else {
             $(opt.listEl).html(html);
         }
+        if (result.page && !$("#J-pagination .pagination").length) {
+            $(opt.pagination).twbsPagination({
+                totalPages: result.page.total_page,
+                visiblePages: 7,
+                onPageClick: function(event, page) {
+                    opt.page = page;
+                    self.getPmList(opt);
+                }
+            });
+        }
+
 
 
     },

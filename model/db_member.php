@@ -127,7 +127,7 @@ class db_member extends ybModel
 		spClass('ybCookie')->set_cookie('sid',$uid);
 		spClass('ybCookie')->set_cookie('auth',$password);
 		
-		spClass('db_notice')->sendRegisgtr($uid);
+//		spClass('db_notice')->sendRegisgtr($uid);
 		return $uid;
 	}
 	

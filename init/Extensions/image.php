@@ -47,7 +47,7 @@ class image {
         
         if(function_exists("imagecopyresampled") && function_exists("imagecreatetruecolor") && $this->image_type != IMAGETYPE_GIF){
             $this->true_color = true;
-	        if (!empty($this->image_w) && !empty($this->image_h) && !empty($this->image_x) && !empty($this->image_y)) {
+	        if ($this->image_w > 0 || $this->image_h > 0 || $this->image_x > 0 || $this->image_y > 0) {
 	        	$this->dst_pic = imagecreatetruecolor($this->image_w, $this->image_h);
 	        	$tmp = $this->image;
 	        	$this->image = $this->dst_pic;

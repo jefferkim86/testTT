@@ -45,6 +45,10 @@ class user extends top
 			if(in_array($this->spArgs('niname'),$arr)) {$this->api_error('该昵称被保留或限制');}
 		}
 		
+		if (count(explode("路口", $this->spArgs('niname'))) > 1) {
+			$this->api_error('昵称中不允许包含路口两个字哦～');
+		}
+		
 		if($this->yb['keep_domain'] != ''){
 			$arr = explode(',',$this->yb['keep_domain']);
 			if(in_array($this->spArgs('domain'),$arr))  {$this->api_error('该个性域名被保留或限制');} 
@@ -53,8 +57,11 @@ class user extends top
 		if(utf8_strlen($this->spArgs('niname')) < 2 || utf8_strlen($this->spArgs('niname')) > 10){$this->api_error('昵称最短2位最长10位'); }
 		$niname = spClass('db_member')->find(array('username'=>$this->spArgs('niname')),'','uid,username');
 		if(is_array($niname) && $niname['uid'] != $this->uid){$this->api_error('该昵称已被使用'); } //判断昵称是否被使用
-		if(utf8_strlen($this->spArgs('domain')) < 4 || utf8_strlen($this->spArgs('domain')) > 15){ $this->api_error('个性域名最短4位最长15位'); }
-		if(!preg_match('/^[a-zA-Z]{1}([a-zA-Z0-9]|[._]){1,15}$/',$this->spArgs('domain'))) {$this->api_error('个性域名不符合要求');}
+		if ($this->spArgs('domain') == "" || preg_match("/[\x7f-\xff]/",$this->spArgs('domain'))) {
+			$this->api_error('个性域名不符合要求');
+		}
+		if(utf8_strlen($this->spArgs('domain')) < 4 || utf8_strlen($this->spArgs('domain')) > 15){ $this->api_error('域名唯一可修改，4到15位的英文或数字'); }
+		if(!preg_match('/^[a-zA-Z]{1}[a-zA-Z0-9]{3,14}$/',$this->spArgs('domain'))) {$this->api_error('域名唯一可修改，4到15位的英文或数字');}
 		$domain = spClass('db_member')->find(array('domain'=>$this->spArgs('domain')),'','uid,domain');
 		if(is_array($domain) && $domain['uid'] != $this->uid){ $this->api_error('个性域名已被使用');} //判断个性域名是否被使用
 		if($this->spArgs('tag') != ''){
@@ -141,7 +148,7 @@ class user extends top
 		$sql = "SELECT k.id, k.uid AS likeid,k.time as ktime, b . * , m.username, m.domain
 				FROM `".DBPRE."likes` AS k
 				LEFT JOIN `".DBPRE."blog` AS b ON k.bid = b.bid
-				LEFT JOIN `".DBPRE."member` AS m ON b.uid = m.uid WHERE k.uid = '{$this->uid}'";
+				LEFT JOIN `".DBPRE."member` AS m ON b.uid = m.uid WHERE k.uid = '{$this->uid}' ORDER BY k.time DESC";
 				
 		$data['blog'] = spClass('db_likes')->spPager($this->spArgs('page',1),10)->findSql($sql);
 		foreach($data['blog'] as &$d){
@@ -210,12 +217,10 @@ class user extends top
 			$obj->linker['0']['enabled'] = false;
 			$sql .= "ON f.uid = m.uid WHERE touid = '{$this->uid}'";
 			$total = $obj->spLinker()->findCount(array('touid'=>$this->uid));
-//			$data['data'] = $obj->spLinker()->spPager($this->spArgs('page',1),10)->findAll("`touid` = {$this->uid}  ",'time desc');	
 		}else{
 			$obj->linker['1']['enabled'] = false;
 			$sql .= "ON touid = m.uid WHERE f.uid = '{$this->uid}'";
 			$total = $obj->spLinker()->findCount(array('uid'=>$this->uid));
-//			$data['data'] = $obj->spLinker()->spPager($this->spArgs('page',1),10)->findAll("`uid` = {$this->uid}  ",'time desc');
 		}
 		
 		$page_data = spPager::pageTool($total, $page_no, $page_size);
@@ -384,8 +389,8 @@ class user extends top
 		} else {
 			$sys = $notice_type[$type];
 			$page_no = $this->spArgs('page_no', 1);
-			$page_size = $this->spArgs('page_size', 10);
-			$countSql = "SELECT COUNT(*) FROM `".DBPRE."notice` WHERE foruid={$this->uid}";
+			$page_size = (int)$this->spArgs('page_size', 10);
+			$countSql = "SELECT COUNT(*) as count FROM `".DBPRE."notice` WHERE foruid={$this->uid}";
 			$sql = "SELECT n.*, m.uid as muid, m.username FROM `".DBPRE."notice` AS n LEFT JOIN `".DBPRE."member` AS m ON (n.uid=m.uid) WHERE n.foruid=".$this->uid;
 			if ($sys == 1 or $sys == 6) {
 				$sql .= " AND (sys in(1,6))";
@@ -397,10 +402,12 @@ class user extends top
 			
 			$sql .= ' order by n.time desc';
 //			$total = (int)$obj->findCount(array('foruid'=>$this->uid,'sys'=>$sys));
-			$total = (int)$obj->findSql($countSql);
+			$total = $obj->findSql($countSql);
+			$total = (int)$total['0']['count'];
 			$page = spPager::pageTool($total, $page_no, $page_size);
 			$offset = $page['offset'];
 			if ($offset < 0) $offset = 0;
+			$sql .= " LIMIT {$offset},{$page_size}";
 //			$sql = "SELECT n.*, m.uid as muid, m.username,m.domain FROM `".DBPRE."notice` AS n LEFT JOIN `".DBPRE."member` AS m ON (n.uid=m.uid) WHERE n.foruid=".$this->uid." AND sys=".$sys." ORDER BY isread ASC, n.time DESC LIMIT {$offset},{$page_size}";
 //			$rs = $obj->findAll(array('foruid'=>$this->uid,'sys'=>$sys),'isread asc, time desc', null, "{$offset},{$page_size}");
 			$rs = $obj->findSql($sql);
@@ -418,6 +425,7 @@ class user extends top
 					$href = explode('|',$d['location']);
 					if($href[0] == 'blog'){
 						$d['location'] = goUserBlog(array('bid'=>$href[1]));
+//						$d['bid'] = $href[1];
 					}
 					if($href[0] == 'user'){
 						$d['location'] = goUserHome(array('uid'=>$href[1]));
@@ -425,6 +433,7 @@ class user extends top
 					
 					if ($d['extend']) {
 						$d['extend'] = unserialize($d['extend']);
+						$d['extend']['bid'] = $href[1];
 					}
 					
 					$data[$type][$key] = $d;
@@ -684,11 +693,19 @@ class user extends top
 //				exit;
 				$this->api_error('图片大小不能超过1M');
 			}
-			$type = strstr($picname, '.');
-			if ($type != ".gif" && $type != ".jpg" && $type != ".png") {
+			$type = strrchr($picname, '.');
+			if ($type != ".gif" && $type != ".jpg" && $type != ".png" && $type != ".jpeg") {
 //				echo '图片格式不对！';
 //				exit;
 				$this->api_error('图片格式不对！');
+			}
+			$image = getimagesize($_FILES['filedata']['tmp_name']);
+			if ($image[0] < 200 || $image[1] < 200) {
+				$this->api_error('图片尺寸不能小于200px*200px');
+			}
+			
+			if ($image[0] > 650 || $image[1] > 650) {
+				$this->api_error('图片尺寸不能大于650px*650px');
 			}
 			$rand = rand(100, 999);
 			$pics = date("YmdHis") . $rand . $type;
@@ -710,5 +727,15 @@ class user extends top
 	}
 	
 	
-	
+	function syncFollowData() {
+		$list_uid = spClass('db_member')->findAll(null, null, 'uid');
+		foreach ($list_uid as $user) {
+			$uid = $user['uid'];
+			$my_follow_count = spClass('db_follow')->findCount(array('uid'=>$uid));
+			$follow_me_count = spClass('db_follow')->findCount(array('touid'=>$uid));
+			spClass('db_member')->update(array('uid'=>$uid), array('flow'=>$my_follow_count,'flowme'=>$follow_me_count));
+			$result = "uid={$uid},my_follow_count={$my_follow_count},follow_me_count={$follow_me_count}";
+			print_r($result);
+		}
+	}
 }

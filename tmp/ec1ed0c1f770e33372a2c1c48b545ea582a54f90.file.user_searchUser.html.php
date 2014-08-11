@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-02 20:52:33
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-11 23:02:58
          compiled from "tplv2/user_searchUser.html" */ ?>
-<?php /*%%SmartyHeaderCode:123767713153dcdf119e6e18-95027201%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:151697160253e8db226a1ff2-20568880%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ec1ed0c1f770e33372a2c1c48b545ea582a54f90' => 
     array (
       0 => 'tplv2/user_searchUser.html',
-      1 => 1406983923,
+      1 => 1407769377,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '123767713153dcdf119e6e18-95027201',
+  'nocache_hash' => '151697160253e8db226a1ff2-20568880',
   'function' => 
   array (
   ),
@@ -40,24 +40,19 @@ $_smarty_tpl->decodeProperties(array (
 					<div class="searchResult">
 						
 
-
-
-
-
-
 					</div>
 				</div>
 			</div>
 	
 			<div class="follow_font" id="follow_font" style="display:none">
-			    <div class="no-item">暂无消息</div>
+			    <div class="no-item">没有相关的用户</div>
 			</div>
 		
 			
 		</div>
 		 
 		
-		<div id="paging"></div>
+		<div id="paging" style="margin-top:20px;"></div>
 	</div>
 
 <script type="text/template" id="J-followList">
@@ -95,6 +90,24 @@ $_smarty_tpl->decodeProperties(array (
 /js/view/userView.js"></script>
 
 <script type="text/javascript">
+function getQueryString(name){
+    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
+        return '';
+    }
+     var queryString = location.href.substring(location.href.indexOf("?")+1);
+     var parameters = queryString.split("&");
+    var pos, paraName, paraValue;
+    for(var i=0; i<parameters.length; i++){
+        pos = parameters[i].indexOf('=');
+        if(pos == -1) { continue; }
+         paraName = parameters[i].substring(0, pos);
+        paraValue = parameters[i].substring(pos + 1);
+         if(paraName == name){
+            return unescape(paraValue.replace(/\+/g, " "));
+        }
+    }
+    return '';
+};
 var tpl = juicer($("#J-followList").html());
 $("#search-btn").on("click",function(e){
 	e.preventDefault();
@@ -103,6 +116,12 @@ $("#search-btn").on("click",function(e){
 		searchUser(searchVal);
 	}
 });
+var queryUser = getQueryString('name');
+if(queryUser){
+	searchUser(queryUser);
+}
+
+
 function searchUser(username,pageNo){
 	getApi('user', 'searchbyusername', {
         'username': username,
@@ -111,19 +130,26 @@ function searchUser(username,pageNo){
         
         if(resp.status== '1'){
         	var html = '';
-        	// for(var i = 0,list = resp.body.data; i<list.length; i++){
-        		// if(i%2==0){
-        		// 	list[i].cls = cls;
-        		// }
-        	// 	html += tpl.render(list[i]);
-
-        	// }
-        	for(var i = 0,list = resp.body.data; i<10; i++){
-        		list[0].cls = i%2 == 0 ? 'even' : '';
-        		html += tpl.render(list[0]);
-
+        	if(resp.body.data){
+	        	for(var i = 0,list = resp.body.data; i<list.length; i++){
+	        		list[0].cls = i%2 == 0 ? 'even' : '';
+	        		html += tpl.render(list[i]);
+	        	}
+        		$(".searchResult").html(html);
+        	}else{
+        		$(".searchResult").html('<div class="no-item">没有相关的用户</div>');
         	}
-        	$(".searchResult").html(html);
+        	
+        	//resp.body.page.total_page = 100;
+        	if(resp.body.page && !$(".pagination").length ){
+        		$("#paging").twbsPagination({
+		            totalPages: resp.body.page.total_page,
+		            visiblePages: 7,
+		            onPageClick: function(event, pageNo) {
+		                searchUser(username,pageNo);
+		            }
+		        });
+        	}
 
 
         }else{
@@ -139,3 +165,5 @@ function searchUser(username,pageNo){
 </script>
 <?php $_template = new Smarty_Internal_Template("require_footer.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
+</body>
+</html>

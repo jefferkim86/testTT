@@ -26,14 +26,14 @@
 	<div class="tab-login-reg">
 		<div class="tab" id="login-reg-tab">
 			<ul>
-				<li>注册</li>
-				<li class="cur">登录</li>
+				<li id="J-tab-reg-item">注册</li>
+				<li class="cur" id="J-tab-login-item">登录</li>
 			</ul>
 		</div>
 		<div class="content clearfix" id="tabContent">
 			<div id="reg" style="display:none;">
 				<div class="content-c">
-				   <form action="{spUrl c=main a=reg}" method="post" id="regForm" callback="{spUrl c=main}">
+				   <form action="{spUrl c=login a=reg}" method="post" id="regForm" callback="{spUrl c=main}">
 				   		{if $yb.invite_switch == 1 || $invitemode}
 						<div class="item invite">
 							<label for="invitecode">邀请码</label>
@@ -55,14 +55,14 @@
 						</div>
 						<div class="item login-btn">
 							<label></label>
-							<input type="button" class="submit-btn" name="do"  value="注册" tabindex="5" id="regSumbit"/>
+							<input type="submit" class="submit-btn" name="do"  value="注册" tabindex="5" id="regSumbit1"/>
 						</div>
 				  </form>
 			    </div>
 			</div>
 			<div id="login">
 				<div class="content-c">
-					<form action="{spUrl c=main a=login}" method="post" id="loginForm"  callback="{spUrl c=main}">
+					<form action="{spUrl c=login a=verify}" method="post" id="loginForm"  callback="{spUrl c=main}">
 						<input type="hidden" value="{$callback}" name="callback">
                 		<input type="hidden" value="" name="formKey">
 						<div class="item email">
@@ -81,7 +81,7 @@
 						{/if}
 						<div class="item login-btn">
 							<label></label>
-							<input class="submit-btn" type="button" name="loginSubmit" id="loginSubmit"  value="登录"/>
+							<input class="submit-btn" type="submit" name="loginSubmit" id="loginSubmit"  value="登录"/>
 						</div>
 						<div class="func">
 							<div class="remeber">
@@ -126,12 +126,40 @@
 	
 	{literal}
 	<script>
+	function getQueryString(name){
+	    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
+	        return '';
+	    }
+	     var queryString = location.href.substring(location.href.indexOf("?")+1);
+	     var parameters = queryString.split("&");
+	    var pos, paraName, paraValue;
+	    for(var i=0; i<parameters.length; i++){
+	        pos = parameters[i].indexOf('=');
+	        if(pos == -1) { continue; }
+	         paraName = parameters[i].substring(0, pos);
+	        paraValue = parameters[i].substring(pos + 1);
+	         if(paraName == name){
+	            return unescape(paraValue.replace(/\+/g, " "));
+	        }
+	    }
+	    return '';
+	};
 	$(document).ready(function(){
-		// var w = $(window).width();
-		// var wh = $(window).height();
-		// $(".login-page").css({'height':wh});
 		var tabs = $("#login-reg-tab li");
 		var tabContents = $("#tabContent>div");
+		var curTab = getQueryString('tab');
+		if(curTab){
+			tabs.removeClass('cur');
+			tabContents.hide();
+			if(curTab == 'reg'){
+				$("#J-tab-reg-item").addClass('cur');
+				$("#reg").show();
+			}else{
+				$("#J-tab-login-item").addClass('cur');
+				$("#login").show();
+			}
+		}
+		
 		tabs.on("click",function(){
 			var index = tabs.index($(this));
 			tabs.removeClass('cur');

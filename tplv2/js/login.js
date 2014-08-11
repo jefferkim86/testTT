@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$(":password").dPassword();
+	//$(":password").dPassword();
 	$("#wrap").append("<div id='titlep'></div>");
 	// $(".tip").each(function() {
 	// 	var tipObj = $("#titlep");

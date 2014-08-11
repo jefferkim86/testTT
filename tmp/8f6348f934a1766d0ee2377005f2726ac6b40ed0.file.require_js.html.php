@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-08 23:22:52
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-11 23:29:03
          compiled from "tplv2/require_js.html" */ ?>
-<?php /*%%SmartyHeaderCode:175534690753e4eb4c590ac9-06608120%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:183832454953e8e13f223799-21335422%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '8f6348f934a1766d0ee2377005f2726ac6b40ed0' => 
     array (
       0 => 'tplv2/require_js.html',
-      1 => 1407511344,
+      1 => 1407770941,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '175534690753e4eb4c590ac9-06608120',
+  'nocache_hash' => '183832454953e8e13f223799-21335422',
   'function' => 
   array (
   ),
@@ -43,29 +43,36 @@ var unit_3 = true;
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/jquery.js"></script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/dialog.js"></script>
+/js/dialog.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/global.js"></script>
+/js/global.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/juicer.js"></script>
 
 <link href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/dialog/default.css" rel="stylesheet" />
+/js/dialog/default.css?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+" rel="stylesheet" />
 <link href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/css/feed.css" rel="stylesheet" type="text/css"/>
+/css/feed.css?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+" rel="stylesheet" type="text/css"/>
 
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/jquery.twbsPagination
-.js"></script>
+.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
 
 
 
 <!-- 百度编辑器-->
 
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/ueditor/ueditor.config.js"></script>
+/js/ueditor/ueditor.config.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/ueditor/ueditor.all.js"></script>
+/js/ueditor/ueditor.all.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
 
 
 
@@ -109,40 +116,52 @@ function getApi(c, m, params, fun) {
 
   <?php if ($_smarty_tpl->getVariable('login')->value=='yes'){?>
 	  <script src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/login.js"></script>
+/js/login.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
 	  <script src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/jquery.dpwd.js"></script>
+/js/jquery.dpwd.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
   <?php }else{ ?>
   	<link rel="stylesheet" type="text/css" media="screen" href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/css/page.css" />
+/css/page.css?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+" />
 	<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/jquery.rotate.js"></script>
+/js/jquery.rotate.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
   <?php }?>
 
 
   <?php if ($_smarty_tpl->getVariable('editor')->value=='yes'){?>
   <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/editor/xheditor.js"></script>
+/js/editor/xheditor.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
 
   <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/css/jquery.Jcrop.css"/>
+/css/jquery.Jcrop.css?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"/>
   <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/jquery.Jcrop.js"></script>
+/js/jquery.Jcrop.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
   <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/jquery.form.js"></script>
+/js/jquery.form.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
   <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/model.global.js"></script>
+/js/model.global.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
   <?php }?>
 
   <?php if ($_smarty_tpl->getVariable('custom')->value=='yes'){?>
     <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/custom.js"></script>
+/js/custom.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
     <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/colorselect/jquery.modcoder.excolor.js"></script>
+/js/colorselect/jquery.modcoder.excolor.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
   <?php }?>
 
 
   <?php if ($_smarty_tpl->getVariable('addcss')->value=='yes'){?>
   <link rel="stylesheet" type="text/css" media="screen" href="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/css/add.css" />
+/css/add.css?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+" />
   <?php }?>

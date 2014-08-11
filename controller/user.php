@@ -58,8 +58,8 @@ class user extends top
 		$this->display('user_mymessage.html');
 	}
 	
-	public function search() {
-		$this->display('user_search.html');
+	public function searchUser() {
+		$this->display('user_searchUser.html');
 	}
 
 	/*上传头像*/
@@ -83,6 +83,12 @@ class user extends top
 		$imghd->image_h = $this->spArgs('h');
 		$src = $this->spArgs('src');
 		
+		$file_match = "/(face\/upload\/face)/";
+		if (!preg_match($file_match, $src)) {
+			header('Location:'.spUrl('user', 'setting', null, 'settingAvatar'));
+			exit;
+		}
+		
 		$imgarray = @pathinfo($src);
 						
 		//$dirname = $imgarray['dirname']; //上传目录名称
@@ -94,6 +100,10 @@ class user extends top
 		$middle = 'middle_'.substr($uid, -2).'.jpg'; 
 		$small = 'small_'.substr($uid, -2).'.jpg';
 
+		if (!is_dir($dirname)) {
+			__mkdirs($dirname);
+		}
+		
 		$imghd->load($src);
 		
 		
@@ -116,7 +126,8 @@ class user extends top
 		//$files = $upfile->fileupload();	
 		//echo $files;
 //		header('Location: /index.php?c=user&a=setting#settingAvatar');
-		header('Location:'.spUrl('user', 'setting', null, 'settingAvatar'));
-		exit;
+		$this->success("头像保存成功！", spUrl('user', 'setting', null, 'settingAvatar'));
+		//header('Location:'.spUrl('user', 'setting', null, 'settingAvatar'));
+		//exit;
 	}
 }

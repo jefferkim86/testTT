@@ -19,10 +19,14 @@ class yb_product extends basePostModel
     
     function saved(){
 //		$music = $this->__loadMusicString($this->spArgs('urlmusic'));
-		$music = $this->parseItem();
-        if(is_array($music)){
-             $bodypre = '[attribute]'.serialize($music).'[/attribute]';
-        }//var_dump($bodypre);exit;
+		$item = $this->parseItem();
+		if ($item == null) {
+			header('Location:'.spUrl('post', 'add', array('model'=>$this->mid)));
+			exit;
+		}
+        if(is_array($item)){
+             $bodypre = '[attribute]'.serialize($item).'[/attribute]';
+        }
        if(parent::saved($bodypre)){
            header('Location:'.spUrl('main'));
        }
@@ -46,30 +50,11 @@ class yb_product extends basePostModel
     }
     
     private function parseItem() {
-//    	$id=38217795728;
-//    	$taobao_url = "http://hws.m.taobao.com/cache/wdetail/5.0/?id=".$id."&ttid=2013@taobao_h5_1.0.0&exParams={}";
-//    		$result = file_get_contents($taobao_url);
-//    		if (empty($result)) throw new Exception("item is null", 1000);
-//			
-//    		$item = json_decode($result);
-//			if (empty($item)) throw new Exception("get item error", 1000);
-//			
-//			$stack = json_decode($item->data->apiStack['0']->value);
-//			if (empty($stack)) throw new Exception("item parse error", 1001);
-//			
-//			$data['title'] = $item->data->itemInfoModel->title;
-//			$data['image'] = $item->data->itemInfoModel->picsPath['0'];
-//			$data['deliveryFees'] = $stack->data->delivery->deliveryFees['0'];
-//			foreach ($stack->data->itemInfoModel->priceUnits as $val) {
-//				if (trim($val->name) == "价格") {
-//					$data['price'] = $val->price;
-//				}
-//			}
-//			$data['content'] = '测试宝贝发布功能';
-//			$data['tag'] = 'HTC,手机';
-//			return $data;
+
     	$title = $this->spArgs('title');
-    	if (empty($title)) return null;
+    	$deliveryFees = $this->spArgs('deliveryFees');
+    	$price = $this->spArgs("price");
+    	if (empty($title) || empty($deliveryFees) || empty($price)) return null;
     	$item = array();
     	$item['title'] = $title;
     	$item['image'] = $this->spArgs('image');
@@ -77,6 +62,9 @@ class yb_product extends basePostModel
     	$item['price'] = $this->spArgs("price");
     	$item['discount_price'] = $this->spArgs("discount_price", "");
     	$item['producturl'] = $this->spArgs('producturl');
+    	$image_info = getimagesize($item['image']);
+		$item['image_width'] = $image_info[0];
+		$item['image_height'] = $image_info[1];
     	return $item;
     }
 	

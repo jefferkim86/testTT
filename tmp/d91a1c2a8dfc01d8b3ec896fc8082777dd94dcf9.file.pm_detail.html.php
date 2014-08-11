@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-10 10:50:20
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-11 21:12:57
          compiled from "tplv2/pm_detail.html" */ ?>
-<?php /*%%SmartyHeaderCode:176025188053e6ddec3f8685-88370878%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:9541406253e8c1593187a7-98032007%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'd91a1c2a8dfc01d8b3ec896fc8082777dd94dcf9' => 
     array (
       0 => 'tplv2/pm_detail.html',
-      1 => 1407639018,
+      1 => 1407762163,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '176025188053e6ddec3f8685-88370878',
+  'nocache_hash' => '9541406253e8c1593187a7-98032007',
   'function' => 
   array (
   ),
@@ -76,8 +76,6 @@ $_template->assign('loadedit','yes'); echo $_template->getRenderedTemplate();?><
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/view/messageView.js"></script>
 <script type="text/javascript">
-                console.log('1111uidddddd',$("#toid").attr("toid"));
-
 	var opt = {
 		'touid':$("#toid").attr("toid"),
 		'listEl':'#J-pmInfoList',

@@ -111,7 +111,7 @@
   <div class="feed-text-cont clearfix">
     <h3 class="feed-text-title"><a href="${feedLink}">${feedTitle}</a></h3>
     <div class="feed-text-p clearfix">
-      {@if pic}<a href="${feedLink}"><div class="p-img"><img src="${pic}"/></div></a>{@/if}$${feedContent}
+      {@if pic}<a href="${feedLink}"><div class="p-img"><img src="${pic}" style="${style}"/></div></a>{@/if}$${feedContent}
       {@if needFeedMore}<span class="feed-more"><a href="${feedLink}">全部信息...</a></span>{@/if}
     </div>
    </div>
@@ -152,7 +152,7 @@
        </div>
        <div class="feed-good-info clearfix">
           <div class="feed-good-img">
-              <a href="${producturl}" target="_blank"><img src="${goodPic}"></a>
+              <a href="${producturl}" target="_blank"><img src="${goodPic}" style="${style}"/></a>
           </div>
           <div class="feed-good-property">
                 <h3 class="feed-good-title"><a href="${producturl}" target="_blank">${goodTitle}</a></h3>

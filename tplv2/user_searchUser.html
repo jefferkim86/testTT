@@ -24,14 +24,14 @@
 			</div>
 	
 			<div class="follow_font" id="follow_font" style="display:none">
-			    <div class="no-item">暂无消息</div>
+			    <div class="no-item">没有相关的用户</div>
 			</div>
 		
 			
 		</div>
 		 
 		
-		<div id="paging"></div>
+		<div id="paging" style="margin-top:20px;"></div>
 	</div>
 
 <script type="text/template" id="J-followList">
@@ -68,6 +68,24 @@
 <script type="text/javascript" src="{$syskin}/js/view/userView.js"></script>
 
 <script type="text/javascript">
+function getQueryString(name){
+    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
+        return '';
+    }
+     var queryString = location.href.substring(location.href.indexOf("?")+1);
+     var parameters = queryString.split("&");
+    var pos, paraName, paraValue;
+    for(var i=0; i<parameters.length; i++){
+        pos = parameters[i].indexOf('=');
+        if(pos == -1) { continue; }
+         paraName = parameters[i].substring(0, pos);
+        paraValue = parameters[i].substring(pos + 1);
+         if(paraName == name){
+            return unescape(paraValue.replace(/\+/g, " "));
+        }
+    }
+    return '';
+};
 var tpl = juicer($("#J-followList").html());
 $("#search-btn").on("click",function(e){
 	e.preventDefault();
@@ -76,6 +94,12 @@ $("#search-btn").on("click",function(e){
 		searchUser(searchVal);
 	}
 });
+var queryUser = getQueryString('name');
+if(queryUser){
+	searchUser(queryUser);
+}
+
+
 function searchUser(username,pageNo){
 	getApi('user', 'searchbyusername', {
         'username': username,
@@ -84,13 +108,19 @@ function searchUser(username,pageNo){
         
         if(resp.status== '1'){
         	var html = '';
-        	for(var i = 0,list = resp.body.data; i<list.length; i++){
-        		list[0].cls = i%2 == 0 ? 'even' : '';
-        		html += tpl.render(list[i]);
+        	if(resp.body.data){
+	        	for(var i = 0,list = resp.body.data; i<list.length; i++){
+	        		list[0].cls = i%2 == 0 ? 'even' : '';
+	        		html += tpl.render(list[i]);
+	        	}
+        		$(".searchResult").html(html);
+        	}else{
+        		$(".searchResult").html('<div class="no-item">没有相关的用户</div>');
         	}
         	
+        	//resp.body.page.total_page = 100;
         	if(resp.body.page && !$(".pagination").length ){
-        		$(opt.pagination).twbsPagination({
+        		$("#paging").twbsPagination({
 		            totalPages: resp.body.page.total_page,
 		            visiblePages: 7,
 		            onPageClick: function(event, pageNo) {
@@ -98,8 +128,6 @@ function searchUser(username,pageNo){
 		            }
 		        });
         	}
-
-        	$(".searchResult").html(html);
 
 
         }else{

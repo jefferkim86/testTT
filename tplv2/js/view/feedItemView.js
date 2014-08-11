@@ -144,7 +144,7 @@ Tuitui.feedItemView = Backbone.View.extend({
         var data = this.model.toJSON();
         var feed = $(target).parents(".feed");
         var input = feed.find(".J_CmtCnt");
-        var inputVal = input.val();
+        var inputVal = $.trim(input.val());
         if (inputVal === "") {
             alert("请填写评论内容");
             return;
@@ -190,7 +190,7 @@ Tuitui.feedItemView = Backbone.View.extend({
         var feed = $(target).parents(".feed");
         var data = this.model.toJSON();
         var input = feed.find(".J_CmtCnt");
-        var inputVal = input.val();
+        var inputVal = $.trim(input.val());
 
         if (inputVal.replace("/[^/x00-/xff]/g", "**").length > 140) {
             alert("不能超出140个字数");

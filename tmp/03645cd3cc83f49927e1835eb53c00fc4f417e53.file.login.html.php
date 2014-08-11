@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-03 13:59:55
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-11 23:43:37
          compiled from "tplv2/login.html" */ ?>
-<?php /*%%SmartyHeaderCode:176980529853ddcfdb9beb28-44294022%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:76042991853e8e4a955c848-46008946%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '03645cd3cc83f49927e1835eb53c00fc4f417e53' => 
     array (
       0 => 'tplv2/login.html',
-      1 => 1407045585,
+      1 => 1407771815,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '176980529853ddcfdb9beb28-44294022',
+  'nocache_hash' => '76042991853e8e4a955c848-46008946',
   'function' => 
   array (
   ),
@@ -58,14 +58,14 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
 	<div class="tab-login-reg">
 		<div class="tab" id="login-reg-tab">
 			<ul>
-				<li>注册</li>
-				<li class="cur">登录</li>
+				<li id="J-tab-reg-item">注册</li>
+				<li class="cur" id="J-tab-login-item">登录</li>
 			</ul>
 		</div>
 		<div class="content clearfix" id="tabContent">
 			<div id="reg" style="display:none;">
 				<div class="content-c">
-				   <form action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'reg'),$_smarty_tpl);?>
+				   <form action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'reg'),$_smarty_tpl);?>
 " method="post" id="regForm" callback="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main'),$_smarty_tpl);?>
 ">
 				   		<?php if ($_smarty_tpl->getVariable('yb')->value['invite_switch']==1||$_smarty_tpl->getVariable('invitemode')->value){?>
@@ -94,14 +94,14 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
 						</div>
 						<div class="item login-btn">
 							<label></label>
-							<input type="button" class="submit-btn" name="do"  value="注册" tabindex="5" id="regSumbit"/>
+							<input type="submit" class="submit-btn" name="do"  value="注册" tabindex="5" id="regSumbit1"/>
 						</div>
 				  </form>
 			    </div>
 			</div>
 			<div id="login">
 				<div class="content-c">
-					<form action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'login'),$_smarty_tpl);?>
+					<form action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'verify'),$_smarty_tpl);?>
 " method="post" id="loginForm"  callback="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main'),$_smarty_tpl);?>
 ">
 						<input type="hidden" value="<?php echo $_smarty_tpl->getVariable('callback')->value;?>
@@ -127,7 +127,7 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
 						<?php }?>
 						<div class="item login-btn">
 							<label></label>
-							<input class="submit-btn" type="button" name="loginSubmit" id="loginSubmit"  value="登录"/>
+							<input class="submit-btn" type="submit" name="loginSubmit" id="loginSubmit"  value="登录"/>
 						</div>
 						<div class="func">
 							<div class="remeber">
@@ -175,12 +175,40 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
 	
 	
 	<script>
+	function getQueryString(name){
+	    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
+	        return '';
+	    }
+	     var queryString = location.href.substring(location.href.indexOf("?")+1);
+	     var parameters = queryString.split("&");
+	    var pos, paraName, paraValue;
+	    for(var i=0; i<parameters.length; i++){
+	        pos = parameters[i].indexOf('=');
+	        if(pos == -1) { continue; }
+	         paraName = parameters[i].substring(0, pos);
+	        paraValue = parameters[i].substring(pos + 1);
+	         if(paraName == name){
+	            return unescape(paraValue.replace(/\+/g, " "));
+	        }
+	    }
+	    return '';
+	};
 	$(document).ready(function(){
-		// var w = $(window).width();
-		// var wh = $(window).height();
-		// $(".login-page").css({'height':wh});
 		var tabs = $("#login-reg-tab li");
 		var tabContents = $("#tabContent>div");
+		var curTab = getQueryString('tab');
+		if(curTab){
+			tabs.removeClass('cur');
+			tabContents.hide();
+			if(curTab == 'reg'){
+				$("#J-tab-reg-item").addClass('cur');
+				$("#reg").show();
+			}else{
+				$("#J-tab-login-item").addClass('cur');
+				$("#login").show();
+			}
+		}
+		
 		tabs.on("click",function(){
 			var index = tabs.index($(this));
 			tabs.removeClass('cur');

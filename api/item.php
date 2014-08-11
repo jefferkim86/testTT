@@ -49,7 +49,9 @@ class item extends top
 						$data['discount_price'] = $val->price;
 					}
 				}
-				
+				$image_info = getimagesize($data['image']);
+				$data['image_width'] = $image_info[0];
+				$data['image_height'] = $image_info[1];
 				$this->api_success($data);
     		} catch (Exception $ex) {
     			$this->api_error("获取宝贝失败了！");

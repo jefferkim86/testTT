@@ -53,7 +53,42 @@ class blog extends top
 		$this->api_success($data);
 	}
 	
+
 	
+	
+	function mylikes(){
+		$sql = "SELECT k.id, k.uid AS likeid,k.time as ktime, b . * , m.username, m.domain
+				FROM `".DBPRE."likes` AS k
+				LEFT JOIN `".DBPRE."blog` AS b ON k.bid = b.bid
+				LEFT JOIN `".DBPRE."member` AS m ON b.uid = m.uid WHERE k.uid = '{$this->uid}' ORDER BY k.time DESC";
+				
+		$data['blog'] = spClass('db_likes')->spPager($this->spArgs('page',1),10)->findSql($sql);
+//		foreach($data['blog'] as &$d){
+//			$d['h_url'] =  goUserHome(array('uid'=>$d['uid'], 'domain'=>$d['domain']));
+//			$d['h_img'] = avatar(array('uid'=>$d['uid'],'size'=>'middle'));
+//			$d['b_url'] = goUserBlog(array('bid'=>$d['bid'],'domain'=>$d['domain'],'uid'=>$d['uid']));
+//			$d['tag'] =  ($d['tag'] != '')? explode(',',$d['tag']) : '';
+//			$d['time']  = ybtime(array('time'=>$d['ktime'])); //切换成我喜欢的时间
+//			$rs         = split_attribute($d['body']); 
+//			$d['attr']  = $rs['attr'];
+//			$d['repto'] = $rs['repto'];
+//			if(!empty($d['repto'])){
+//				$d['repto']['h_url'] = goUserHome(array('uid'=>$d['repto']['uid'], 'domain'=>$d['repto']['domain']));
+//				$d['repto']['h_img'] = avatar(array('uid'=>$d['repto']['uid'],'size'=>'small'));
+//			}else{
+//				$d['repto'] = null;
+//			}
+//			$d['body'] = strip_tags($rs['body']);
+//		}
+		$data['page'] = spClass('db_likes')->spPager()->getPager();
+		if(!empty($data['blog'])){
+			$data['blog'] = $this->translate_feed($data['blog']);
+			$this->api_success($data);
+		}else{
+			$this->api_success("");
+		}
+//		$this->api_success($data);
+	}
 	
 	//获取我关注的用户feeds
 	function followfeeds(){
@@ -255,7 +290,7 @@ class blog extends top
 			$d['h_url']    = goUserHome(array('uid'=>$d['uid'], 'domain'=>$d['domain']));
 			$d['h_img']    = avatar(array('uid'=>$d['uid'],'size'=>'small'));
 			$d['time']     = ybtime(array('time'=>$d['time']));
-			$d['del_flag'] = islogin() ? 1:0;
+			$d['del_flag'] = islogin() && ($d['uid'] == $this->uid || $_SESSION['admin'] == 1)? 1:0;
 			$d['rep_flag'] = ( $this->uid != $d['uid'] && $this->uid != '') ? 1:0;
 		}
 		$data['body'] = $result;
@@ -322,8 +357,8 @@ class blog extends top
 			$this->api_error('需要登陆才能继续操作');
 		}
 		$id = $this->spArgs('id');
-		spClass('db_replay')->delReplay($this->spArgs(),$this->uid);
-		$this->api_success(true);
+		$result = spClass('db_replay')->delReplay($this->spArgs(),$this->uid);
+		$this->api_success($result);
 	}
 	
 	
@@ -493,17 +528,33 @@ class blog extends top
 			$d['repto'] = null;
 		}
 		
+		if (isset($d['attr']['image']) && !isset($d['attr']['image_width'])) {
+			$image_info = getimagesize($d['attr']['image']);
+			$d['attr']['image_width'] = $image_info['0'];
+			$d['attr']['image_height'] = $image_info['1'];
+		}
+		
+		if (!empty($d['attr']) && isset($d['attr']['0'])) {
+			$file = $d['attr']['0'];
+			$file_type = strrchr($file, '.');
+			if ($file_type == '.jpg') {
+				$image_info = getimagesize($file);
+				$d['image_info']['image_width'] = $image_info['0'];
+				$d['image_info']['image_height'] = $image_info['1'];
+			}
+		}
+		
 		if($split == 1){
-			$d['body'] = utf8_substr(strip_tags($rs['body'],'<br><p><embed>'),0,500);
+			$d['body'] = utf8_substring(strip_tags($rs['body']),0,300);
 		}else{
 			//$d['body'] = strip_tags($rs['body'],'<br><p><embed>');
 			$d['body'] = $rs['body'];
 		}
 		if($d['body'] == false){
 			$d['body'] = '';
-		}
+		}//print_r(utf8_strlen(strip_tags($rs['body'])));exit;
 		
-		$d['more'] = (utf8_strlen($rs['body']) > 500) ? 1: 0;
+		$d['more'] = (utf8_strlen(strip_tags($rs['body'])) > 300) ? 1: 0;
 //		//处理音乐和视频
 //		if($d['type'] == 2 || $d['type'] == 4){
 //			if(count($d['attr']) > 4){

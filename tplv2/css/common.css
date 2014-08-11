@@ -1875,6 +1875,7 @@ dl,dt,dd {
 	
 }
 #tool .publish-menu,#tool .notice{
+
 	background: url('../image/menu-sep.png') no-repeat scroll right center;
 }
 #tool .publish {
@@ -1900,6 +1901,7 @@ dl,dt,dd {
 }
 #tool .menu {
 	position: absolute;
+	left: 0;
 	top: 80px;
 	width: 100px;
 	height: 120px;
@@ -1987,6 +1989,7 @@ dl,dt,dd {
 	left: 100px;
 }
 #tool .userName {
+	position: relative;
 	float: left;
 	width: 100px;
 	height: 80px;

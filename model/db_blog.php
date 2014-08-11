@@ -122,7 +122,7 @@ class db_blog extends ybModel
 		$rs['uid'] = $_SESSION['uid'];
 		$rs['time'] = time();
 		$rs['title'] = $title;
-		unset($rs['bid'],$rs['forwardcount'],$rs['hitcount'],$rs['feedcount'],$rs['replaycount'],$rs['noreply'],$rs['top'],$rs['user']);
+		unset($rs['bid'],$rs['forwardcount'],$rs['hitcount'],$rs['likecount'],$rs['feedcount'],$rs['replaycount'],$rs['noreply'],$rs['top'],$rs['user']);
 		if($rs)
 		{
 			// 增加转发数量，会增加当前日志和原始日志的转发数

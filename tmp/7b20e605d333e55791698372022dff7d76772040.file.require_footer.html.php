@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-06 20:58:22
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-11 22:11:53
          compiled from "tplv2/require_footer.html" */ ?>
-<?php /*%%SmartyHeaderCode:115636659653e2266e74ffc8-11809886%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:37485776853e8cf29d595c6-19660983%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7b20e605d333e55791698372022dff7d76772040' => 
     array (
       0 => 'tplv2/require_footer.html',
-      1 => 1407326338,
+      1 => 1407766308,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '115636659653e2266e74ffc8-11809886',
+  'nocache_hash' => '37485776853e8cf29d595c6-19660983',
   'function' => 
   array (
   ),
@@ -102,29 +102,40 @@ if(Tuitui.globalData.pageNeedLoading){
 
 
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/model/commentModel.js"></script>
+/js/model/commentModel.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/collection/commentCollection.js"></script>
+/js/collection/commentCollection.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/view/commentItemView.js"></script>
+/js/view/commentItemView.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/view/commentsView.js"></script>
+/js/view/commentsView.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/model/feedModel.js"></script>
+/js/model/feedModel.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/collection/feedCollection.js"></script>
+/js/collection/feedCollection.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/view/feedItemView.js"></script>
+/js/view/feedItemView.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/view/feedsView.js"></script>
+/js/view/feedsView.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
 
 
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/view/userView.js"></script>
+/js/view/userView.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/view/headerView.js"></script>
+/js/view/headerView.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
-/js/router.js"></script>
+/js/router.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
 <script type="text/javascript">
 	new Tuitui.headerView();
 

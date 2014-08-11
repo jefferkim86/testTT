@@ -39,8 +39,7 @@ function goUserHome($params)
 	$uid   = $params['uid'];     //判断是否存在uid
 
 	if($domain != '' && $domain !='home')
-	{	
-		//return 'http://'.$_SERVER["HTTP_HOST"] .'/'. $domain;
+	{	return 'http://'.$_SERVER["HTTP_HOST"] .'/'. $domain;
 		return spUrl('userblog','index',array('domain'=>$domain));
 	}else{
 		return spUrl('userblog','index',array('domain'=>'home','uid'=>$uid));
@@ -181,12 +180,12 @@ function avatar($params)
 	$uid = $params['uid'];
 	$size = $params['size'];
 	$time = $params['time'];
-	if($time ==1)
-	{
+//	if($time ==1)
+//	{
 		return APP_NAME.'avatar.php?uid='.$uid.'&size='.$size.'&random='.time();
-	}else{
-		return APP_NAME.'avatar.php?uid='.$uid.'&size='.$size;
-	}
+//	}else{
+//		return APP_NAME.'avatar.php?uid='.$uid.'&size='.$size;
+//	}
 
 }
 spAddViewFunction('avatar','avatar');
@@ -657,6 +656,18 @@ function arrayPage($arr,$num)
 function utf8_strlen($string = null) {
 	preg_match_all("/./us", $string, $match);
 	return count($match[0]);
+}
+
+function utf8_substring($string, $start, $length, $type = 1) {
+	preg_match_all("/[\x01-\x7f]|[\xc2-\xdf][\x80-\xbf]|[\xe0-\xef][\x80-\xbf]{2}|[\xf0-\xff][\x80-\xbf]{3}/", $string, $match);
+	$count = count($match[0]);
+	if (($count-$start) <= $length) return $string;
+	
+	$arr_str = array_slice($match[0], $start, $length);
+	$str = join("", $arr_str);
+	if ($type == 1) return $str.="...";
+	
+	return $str;
 }
 
 /*针对UTF-8的sub_str*/

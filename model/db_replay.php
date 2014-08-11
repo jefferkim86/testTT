@@ -49,7 +49,7 @@ class db_replay extends ybModel
 	function createReplay($row)
 	{
 		$err =array('err'=>'');
-		$msg = strip_tags(strreplaces($row['inputs']));
+		$msg = trim(strip_tags(strreplaces($row['inputs'])));
 		$repcontent = strip_tags(strreplaces($row['repcontent']));
 
 		$rs = spClass('db_blog')->find(array('bid'=>$row['bid']),'','uid,bid,title,noreply');
@@ -63,9 +63,9 @@ class db_replay extends ybModel
 			if(in_array($row['inputs'],$arr)) { $err['err'] = '含有敏感字符不允许发布'; return $err;}
 		}
 		
-		if($_SESSION['reply_'.$row['bid']] + 30 > time()){
-			$err['err'] = '您的操作过快,请休息半分钟';return $err;
-		}
+//		if($_SESSION['reply_'.$row['bid']] + 30 > time()){
+//			$err['err'] = '您的操作过快,请休息半分钟';return $err;
+//		}
 		
 		if($row['repuid'] != '')  //如果指定了回复者，则进行处理
 		{
@@ -87,7 +87,7 @@ class db_replay extends ybModel
 		
 		spClass('db_blog')->incrField(array('bid'=>$row['bid']),'replaycount'); //增加回复统计
 		spClass('db_feeds')->replayFeeds($row,$msg,$_SESSION['uid'],$parent_key); //增加回复动态
-		if ($_SESSION['uid'] != $rs['uid'] && $row['repuid'] == '') {
+		if ($_SESSION['uid'] != $rs['uid'] && $row['repuid'] != $rs['uid']) {
 			spClass('db_notice')->noticeComment($_SESSION['uid'], $rs['uid'], $rs['bid'], $rs['title'], $row['inputs']);
 		}
 		$_SESSION['reply_'.$row['bid']] = time();
@@ -107,6 +107,10 @@ class db_replay extends ybModel
 			if($rs['blog']['feedcount'] >0 ){ //触发删除动态
 				spClass('db_feeds')->delReplayFeed($row['id'],$rs['bid']);
 			}
+			
+			return true;
+		} else {
+			return false;
 		}
 	}
 	

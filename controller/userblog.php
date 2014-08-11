@@ -24,7 +24,7 @@ class userblog extends top
 		if(!$this->uid >0){prient_jump(spUrl('main'));}
 		$this->getUserSkin(); //获取用户的基本信息，必须头条处理，判断用户是否存在
 //		$this->getMyFollow();
-		$this->getMyLook();
+//		$this->getMyLook();
 		$this->isfollow = $this->isFollow();
 		$this->pmNum();
 		

@@ -102,6 +102,22 @@ Tuitui.feedModel = Backbone.Model.extend({
 		var feedLayoutData = this.feedImgMap[feedLayout];
 		return feedLayoutData;
 	},
+	/*
+	 * @desc
+	 * @params isRepto 是否是转发
+	 * */
+	_style: function(attr) {
+		var ratio = 1,
+			style = '';
+		if (attr) {
+			if (attr.image_width && attr.image_height) {
+				ratio = attr.image_width / attr.image_height;
+			}
+		}
+		style = ratio < 1 ? 'height:290px' : 'width:290px';
+
+		return style;
+	},
 
 	getFeedAttr: function() {
 		var result = {};
@@ -110,7 +126,6 @@ Tuitui.feedModel = Backbone.Model.extend({
 			var repto = this.get('repto');
 			var attr;
 			//转发数据
-
 			if (repto) {
 				attr = repto.attr;
 				result = {
@@ -124,6 +139,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'isSelf': repto.uid == uid,
 					'isLiked': repto.likeid ? 'liked' : false,
 					'time': repto.time
+
 				};
 			} else {
 				attr = this.get('attr');
@@ -135,7 +151,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 			}
 			result.position = this.getPhotoAttr(attr);
 		}
-		//文字feed
+		//文字feed,图片信息在attr字段中
 		if (this.getfeedType() == 'text') {
 			var repto = this.get('repto');
 			if (repto) {
@@ -150,8 +166,8 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'likecount': repto.likecount,
 					'isSelf': repto.uid == uid,
 					'isLiked': repto.likeid ? 'liked' : false,
-					'needFeedMore': repto.more == 1
-
+					'needFeedMore': repto.more == 1,
+					'style': this._style(repto.image_info)
 				}
 			} else {
 				result = {
@@ -159,7 +175,8 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'feedContent': this.get('body'),
 					'pic': (this.get('attr').length > 0 && !this._isDetail()) ? this.get('attr')[0] : '',
 					'feedLink': this._isDetail() ? 'javascript:void(0)' : this.get('b_url'),
-					'needFeedMore': this.get('more') == 1
+					'needFeedMore': this.get('more') == 1,
+					'style': this._style(this.get('image_info'))
 				}
 			}
 
@@ -179,10 +196,9 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'feedContent': repto.body,
 					'isSelf': repto.uid == uid,
 					'hasDiscout': repto.attr.discount_price ? 'hasDiscount' : '',
-					//'priceTxt': repto.attr.oprice == repto.attr.price ? '价格' : '价格',
-
 					'isLiked': repto.likeid ? 'liked' : false,
-					'needFeedMore': repto.more == 1
+					'needFeedMore': repto.more == 1,
+					'style': this._style(repto.attr)
 
 				};
 			} else {
@@ -195,10 +211,10 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'feedLink': this.get('b_url'),
 					'producturl': attr.producturl,
 					'hasDiscout': attr.discount_price ? 'hasDiscount' : '',
-					//'priceTxt': attr.oprice == attr.price ? '价格' : '价格',
 					'feed': attr.deliveryFees,
 					'feedContent': this.get('body'),
-					'needFeedMore': this.get('more') == 1
+					'needFeedMore': this.get('more') == 1,
+					'style': this._style(attr)
 				};
 			}
 		}

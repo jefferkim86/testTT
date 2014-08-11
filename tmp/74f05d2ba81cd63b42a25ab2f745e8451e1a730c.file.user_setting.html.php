@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-11 01:17:54
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-11 21:28:12
          compiled from "tplv2/user_setting.html" */ ?>
-<?php /*%%SmartyHeaderCode:132007494853e7a94277cec5-76094675%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:77359788553e8c4ec3584d4-17154014%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '74f05d2ba81cd63b42a25ab2f745e8451e1a730c' => 
     array (
       0 => 'tplv2/user_setting.html',
-      1 => 1407691073,
+      1 => 1407691099,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '132007494853e7a94277cec5-76094675',
+  'nocache_hash' => '77359788553e8c4ec3584d4-17154014',
   'function' => 
   array (
   ),
@@ -319,7 +319,7 @@ $(document).ready(function(){
 		var btn = $(".btn span");
 		$("#fileupload").wrap("<form id='myupload' action='"+urlpath+"/index.php?c=api&yc=user&ym=upface' method='post' enctype='multipart/form-data'></form>");
 		$("#fileupload").change(function(){  //选择文件
-			console.log('111');
+			//解决取消按钮图裂的问题
 			if($('#fileupload').val() == ''){return}
 			$("#myupload").ajaxSubmit({
 				//dataType:  'json',	//数据格式为json 

@@ -451,7 +451,7 @@ class PHPMailer {
    */
   private function AddAnAddress($kind, $address, $name = '') {
     if (!preg_match('/^(to|cc|bcc|ReplyTo)$/', $kind)) {
-      echo 'Invalid recipient array: ' . kind;
+      //echo 'Invalid recipient array: ' . kind;
       return false;
     }
     $address = trim($address);
@@ -461,7 +461,7 @@ class PHPMailer {
       if ($this->exceptions) {
         throw new phpmailerException($this->Lang('invalid_address').': '.$address);
       }
-      echo $this->Lang('invalid_address').': '.$address;
+      //echo $this->Lang('invalid_address').': '.$address;
       return false;
     }
     if ($kind != 'ReplyTo') {
@@ -493,7 +493,7 @@ class PHPMailer {
       if ($this->exceptions) {
         throw new phpmailerException($this->Lang('invalid_address').': '.$address);
       }
-      echo $this->Lang('invalid_address').': '.$address;
+      //echo $this->Lang('invalid_address').': '.$address;
       return false;
     }
     $this->From = $address;
@@ -583,7 +583,7 @@ class PHPMailer {
       if ($this->exceptions) {
         throw $e;
       }
-      echo $e->getMessage()."\n";
+      //echo $e->getMessage()."\n";
       return false;
     }
   }
@@ -702,6 +702,7 @@ class PHPMailer {
     require_once $this->PluginDir . 'class.smtp.php';
     $bad_rcpt = array();
 
+    
     if(!$this->SmtpConnect()) {
       throw new phpmailerException($this->Lang('smtp_connect_failed'), self::STOP_CRITICAL);
     }
@@ -1367,7 +1368,7 @@ class PHPMailer {
       if ($this->exceptions) {
         throw $e;
       }
-      echo $e->getMessage()."\n";
+     // echo $e->getMessage()."\n";
       if ( $e->getCode() == self::STOP_CRITICAL ) {
         return false;
       }

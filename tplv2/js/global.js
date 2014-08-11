@@ -811,7 +811,7 @@ function user_search(is_local) {
             tag: tag
         })
     } else {
-        window.location.href = url + '&name'+tag;
+        window.location.href = url + '&name='+tag;
     }
 };
 function ad_aside(div, id, ga) {

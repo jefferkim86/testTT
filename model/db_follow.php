@@ -42,6 +42,7 @@ class db_follow extends ybModel
 			if($type != 'link'){
 				$this->delete(array('uid'=>$imuid,'touid'=>$foruid));  //删除我关注他
 				spClass('db_member')->decrField(array('uid'=>$imuid),'flow'); //删除关注统计
+				spClass('db_member')->decrField(array('uid'=>$foruid),'flowme');
 				$this->update(array('uid'=>$foruid,'touid'=>$imuid),array('linker'=>0)); //取消关系
 				
 				return true;
@@ -56,6 +57,7 @@ class db_follow extends ybModel
 			}
 			$this->create(array('uid'=>$imuid,'touid'=>$foruid,'linker'=>$link,'time'=>time()));
 			spClass('db_member')->incrField(array('uid'=>$imuid),'flow'); //增加回复统计
+			spClass('db_member')->incrField(array('uid'=>$foruid),'flowme');
 			spClass('db_notice')->noticeFollow($foruid,$imuid,$pm);//站内发通知
 		}
 		return true;
@@ -68,6 +70,8 @@ class db_follow extends ybModel
 		$this->create(array('uid'=>$touid,'touid'=>$uid,'linker'=>1,'time'=>time()));  //互相关注
 		spClass('db_member')->incrField(array('uid'=>$uid),'flow'); //增加flow统计
 		spClass('db_member')->incrField(array('uid'=>$touid),'flow'); //增加flow统计
+		spClass('db_member')->incrField(array('uid'=>$uid),'flowme'); //增加flowme统计
+		spClass('db_member')->incrField(array('uid'=>$touid),'flowme'); //增加flowme统计
 	}	
 	
 	//获取跟随的用户
