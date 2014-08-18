@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-11 11:28:20
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-12 01:09:54
          compiled from "tplv2/require_siderUser.html" */ ?>
-<?php /*%%SmartyHeaderCode:198106598753e83854a9d8c3-75894303%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:129264587253e8f8e273d2b2-03950548%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9cc3d12341d75e41db3f1d2b5be3953bbc128f27' => 
     array (
       0 => 'tplv2/require_siderUser.html',
-      1 => 1407691878,
+      1 => 1407776130,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '198106598753e83854a9d8c3-75894303',
+  'nocache_hash' => '129264587253e8f8e273d2b2-03950548',
   'function' => 
   array (
   ),
@@ -23,7 +23,7 @@ $_smarty_tpl->decodeProperties(array (
                   <?php if ($_SESSION['uid']==$_smarty_tpl->getVariable('user')->value['uid']){?>
                   <h3>我关注的</h3>
                   <?php }else{ ?>
-            <h3>TA关注的</h3>
+            <h3>Ta关注的</h3>
                   <?php }?>
       </div>
       <div class="bd clearfix">

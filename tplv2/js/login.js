@@ -39,32 +39,55 @@ $(document).ready(function() {
 		}
 	});
 	$('#loginSubmit').click(function() {
-		getApi('login', 'vary', $('#loginForm').serialize(),
-			function(data) {
-				if (data.status != 1) {
-					reloadcode('vericode');
-					waring(data.msg)
-				} else {
-					window.location.href = $('#loginForm').attr('callback')
-				}
-			})
+
+		    var emailReg = /^([a-zA-Z0-9_\-\.])+@([a-zA-Z0-9_-])+\.([a-zA-Z0-9_-])+/;
+			var emailVal = $("#email").val();
+			if(!emailReg.test(emailVal)){
+				tips('登录邮箱格式不正确');
+				return;
+			}
+			if($("#password").val() == ''){
+				tips('请输入密码');
+				return;
+			}
+			$("#loginForm").submit();
+
 	});
 	$('#regSumbit').click(function(e) {
 		
 		var target = e.currentTarget;
+
 		$(target).val('注册中...');
-		$(target).attr('disabled','disabled');
-		getApi('login', 'reg', $('#regForm').serialize(),
-			function(data) {
-				if (data.status != 1) {
-					reloadcode('vericode');
-					waring(data.msg)
-					$(target).val('注册');
-					$(target).removeAttr('disabled');
-				} else {
-					window.location.href = $('#regForm').attr('callback')
-				}
-			})
+		var emailReg = /^([a-zA-Z0-9_\-\.])+@([a-zA-Z0-9_-])+\.([a-zA-Z0-9_-])+/;
+		var emailVal = $("#email2").val();
+		if(!emailReg.test(emailVal)){
+			tips('邮箱格式不正确');
+			$(target).val('注册');
+			return;
+		}
+		if($("#password2").val() == ''){
+			tips('请输入密码');
+			$(target).val('注册');
+			return;
+		}
+		if($("#nick").val() == ''){
+			tips('请输入昵称');
+			$(target).val('注册');
+			return;
+		}
+		$("#regForm").submit();
+		//$(target).attr('disabled','disabled');
+		// getApi('login', 'reg', $('#regForm').serialize(),
+		// 	function(data) {
+		// 		if (data.status != 1) {
+		// 			reloadcode('vericode');
+		// 			waring(data.msg)
+		// 			$(target).val('注册');
+		// 			$(target).removeAttr('disabled');
+		// 		} else {
+		// 			window.location.href = $('#regForm').attr('callback')
+		// 		}
+		// 	})
 	});
 	$('#findpwdSubmit').click(function() {
 		getApi('login', 'findpwd', $('#findpwdForm').serialize(),

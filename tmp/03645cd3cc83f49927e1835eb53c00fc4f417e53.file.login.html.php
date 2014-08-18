@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-11 23:43:37
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-12 00:34:57
          compiled from "tplv2/login.html" */ ?>
-<?php /*%%SmartyHeaderCode:76042991853e8e4a955c848-46008946%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:35404380253e8f0b17a3950-28619759%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '03645cd3cc83f49927e1835eb53c00fc4f417e53' => 
     array (
       0 => 'tplv2/login.html',
-      1 => 1407771815,
+      1 => 1407774756,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '76042991853e8e4a955c848-46008946',
+  'nocache_hash' => '35404380253e8f0b17a3950-28619759',
   'function' => 
   array (
   ),
@@ -94,7 +94,7 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
 						</div>
 						<div class="item login-btn">
 							<label></label>
-							<input type="submit" class="submit-btn" name="do"  value="注册" tabindex="5" id="regSumbit1"/>
+							<input type="button" class="submit-btn" name="do"  value="注册" tabindex="5" id="regSumbit"/>
 						</div>
 				  </form>
 			    </div>
@@ -127,7 +127,7 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
 						<?php }?>
 						<div class="item login-btn">
 							<label></label>
-							<input class="submit-btn" type="submit" name="loginSubmit" id="loginSubmit"  value="登录"/>
+							<input class="submit-btn" type="button" name="loginSubmit" id="loginSubmit"  value="登录"/>
 						</div>
 						<div class="func">
 							<div class="remeber">

@@ -669,6 +669,12 @@ $(document).ready(function() {
     }).blur(function() {
         $(this).removeClass('curr')
     });
+    $("#searchtag").keypress(function(event) {
+        var keycode = event.which;
+        if (keycode == 13) {
+            user_search();
+        }
+    })
     $('#logOut').click(function() {
         artDialog({
             id: 'Confirm',
@@ -814,6 +820,7 @@ function user_search(is_local) {
         window.location.href = url + '&name='+tag;
     }
 };
+
 function ad_aside(div, id, ga) {
     $.ybGetad(id, '',
     function(d) {

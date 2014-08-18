@@ -30,6 +30,8 @@ Tuitui.headerView = Backbone.View.extend({
             e.preventDefault();
             self.getRecommendList();
         });
+
+        
     },
 
     getRecommendList: function() {

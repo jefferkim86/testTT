@@ -39,18 +39,18 @@ Tuitui.commentsView = Backbone.View.extend({
         var self = this;
         var feed = self.el.parents('.feed');
         var isDetailPage = typeof G_PAGE != 'undefined' && G_PAGE == 'detail';
-        
+
         getApi('blog', 'reply', {
             bid: bid,
             page: pageNo || 1
         }, function(data) {
             var result = data.body;
-            if (result.page && isDetailPage && !feed.find('.pagination').length) {
+            if (result.page && result.page.total_page > 1 && isDetailPage && !feed.find('.pagination').length) {
                 feed.find('.J-feedPagination').twbsPagination({
                     totalPages: result.page.total_page,
                     visiblePages: 7,
                     onPageClick: function(event, page) {
-                        self._queryReply(bid,page);
+                        self._queryReply(bid, page);
                     }
                 });
             }

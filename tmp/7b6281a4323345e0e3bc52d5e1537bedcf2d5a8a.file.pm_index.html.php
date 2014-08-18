@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-10 10:48:05
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-12 00:38:10
          compiled from "tplv2/pm_index.html" */ ?>
-<?php /*%%SmartyHeaderCode:53289939953e6dd65ea3438-56346658%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:37436923453e8f1721de814-07809447%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7b6281a4323345e0e3bc52d5e1537bedcf2d5a8a' => 
     array (
       0 => 'tplv2/pm_index.html',
-      1 => 1407638884,
+      1 => 1407775083,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '53289939953e6dd65ea3438-56346658',
+  'nocache_hash' => '37436923453e8f1721de814-07809447',
   'function' => 
   array (
   ),
@@ -61,7 +61,7 @@ $(document).ready(function(){
 				</div>
 				
 			</div>
-			<div id="J-pagination"></div>
+			<div id="J-pagination" style="margin-top:20px;"></div>
     	</div>
 
 	</div>

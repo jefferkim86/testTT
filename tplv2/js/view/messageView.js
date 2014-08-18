@@ -176,7 +176,8 @@ Tuitui.messageView = Backbone.View.extend({
         } else {
             $(opt.listEl).html(html);
         }
-        if (result.page && !$("#J-pagination .pagination").length) {
+       
+        if (result.page.total_page >1 && !$("#J-pagination .pagination").length) {
             $(opt.pagination).twbsPagination({
                 totalPages: result.page.total_page,
                 visiblePages: 7,
