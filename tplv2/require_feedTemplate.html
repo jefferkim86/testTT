@@ -109,10 +109,10 @@
 <script type="text/template" id="J-feedTxt">
 {literal}
   <div class="feed-text-cont clearfix">
-    <h3 class="feed-text-title"><a href="${feedLink}">${feedTitle}</a></h3>
+    <h3 class="feed-text-title"><a href="${feedLink}" target="_blank">${feedTitle}</a></h3>
     <div class="feed-text-p clearfix">
-      {@if pic}<a href="${feedLink}"><div class="p-img"><img src="${pic}" style="${style}"/></div></a>{@/if}$${feedContent}
-      {@if needFeedMore}<span class="feed-more"><a href="${feedLink}">全部信息...</a></span>{@/if}
+      {@if pic}<a href="${feedLink}" target="_blank"><div class="p-img"><img src="${pic}" style="${style}"/></div></a>{@/if}$${feedContent}
+      {@if needFeedMore}<span class="feed-more"><a href="${feedLink}" target="_blank">全部信息...</a></span>{@/if}
     </div>
    </div>
 {/literal}

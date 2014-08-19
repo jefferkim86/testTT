@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-10 10:41:52
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-19 20:46:04
          compiled from "tplv2/user_mymessage.html" */ ?>
-<?php /*%%SmartyHeaderCode:94424019753e6dbf062ffc7-41288575%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:194868795953f3470c8c7f27-83468543%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '8422175a9f72652db45489a042cb4889d853c445' => 
     array (
       0 => 'tplv2/user_mymessage.html',
-      1 => 1407638511,
+      1 => 1408452363,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '94424019753e6dbf062ffc7-41288575',
+  'nocache_hash' => '194868795953f3470c8c7f27-83468543',
   'function' => 
   array (
   ),
@@ -56,7 +56,7 @@ $_template->assign('loadedit','yes'); echo $_template->getRenderedTemplate();?><
 				</div>
 				
 			</div>
-			<div id="J-pagination" class="page-pagination">
+			<div id="J-pagination" class="page-pagination" style="margin-top:20px;">
 					
 			</div>
     	</div>
@@ -111,7 +111,7 @@ $_template->assign('loadedit','yes'); echo $_template->getRenderedTemplate();?><
 	    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
 	        return '';
 	    }
-	     var queryString = location.href.substring(location.href.indexOf("?")+1);
+	     var queryString = location.search.substring(location.href.indexOf("?")+1);
 	     var parameters = queryString.split("&");
 	    var pos, paraName, paraValue;
 	    for(var i=0; i<parameters.length; i++){

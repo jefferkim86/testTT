@@ -61,7 +61,7 @@ class yb_product extends basePostModel
     	$item['deliveryFees'] = $this->spArgs('deliveryFees');
     	$item['price'] = $this->spArgs("price");
     	$item['discount_price'] = $this->spArgs("discount_price", "");
-    	$item['producturl'] = $this->spArgs('producturl');
+    	$item['producturl'] = stristr($this->spArgs('producturl'), "http");
     	$image_info = getimagesize($item['image']);
 		$item['image_width'] = $image_info[0];
 		$item['image_height'] = $image_info[1];

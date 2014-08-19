@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-11 20:51:03
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-19 22:49:18
          compiled from "tplv2/require_feedTemplate.html" */ ?>
-<?php /*%%SmartyHeaderCode:210562133153e8bc37c20b14-31637558%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:106414181653f363eeb8e2c1-32513692%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '350be01eeee6d1b227e428bdc9ce144dbf95710b' => 
     array (
       0 => 'tplv2/require_feedTemplate.html',
-      1 => 1407761462,
+      1 => 1408459388,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '210562133153e8bc37c20b14-31637558',
+  'nocache_hash' => '106414181653f363eeb8e2c1-32513692',
   'function' => 
   array (
   ),
@@ -128,10 +128,10 @@ $_smarty_tpl->decodeProperties(array (
 <script type="text/template" id="J-feedTxt">
 
   <div class="feed-text-cont clearfix">
-    <h3 class="feed-text-title"><a href="${feedLink}">${feedTitle}</a></h3>
+    <h3 class="feed-text-title"><a href="${feedLink}" target="_blank">${feedTitle}</a></h3>
     <div class="feed-text-p clearfix">
-      {@if pic}<a href="${feedLink}"><div class="p-img"><img src="${pic}" style="${style}"/></div></a>{@/if}$${feedContent}
-      {@if needFeedMore}<span class="feed-more"><a href="${feedLink}">全部信息...</a></span>{@/if}
+      {@if pic}<a href="${feedLink}" target="_blank"><div class="p-img"><img src="${pic}" style="${style}"/></div></a>{@/if}$${feedContent}
+      {@if needFeedMore}<span class="feed-more"><a href="${feedLink}" target="_blank">全部信息...</a></span>{@/if}
     </div>
    </div>
 

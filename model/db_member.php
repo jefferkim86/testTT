@@ -107,7 +107,7 @@ class db_member extends ybModel
 	/*用户注册*/
 	function userReg($row)
 	{
-		$ip = $this->getIP();
+		$ip = getIP();
 		$salt = randstr();
 		$password = password_encode($row['password'],$salt);
 		$arr = array('password' => $password,
@@ -141,7 +141,7 @@ class db_member extends ybModel
 		$_SESSION['username'] = $result['username'];
 		$_SESSION['admin']    = $result['admin'];
 		$_SESSION['user']     = $result;
-		$ip = $this->getIP();
+		$ip = getIP();
 		if($savename == 1)
 		{
 			spClass('ybCookie')->set_cookie('unames',$result['email'],1);
@@ -309,27 +309,12 @@ class db_member extends ybModel
 
 	public function ip2name($ip)
 	{
-		$url = "http://www.youdao.com/smartresult-xml/search.s?type=ip&q=".$ip;
-		$doc = new DOMDocument();
-		$doc->load($url);
-		$smartresult = $doc->getElementsByTagName("product");
-		foreach($smartresult as $product)
-		{
-			$locations = $product->getElementsByTagName("location");
-			$location = $locations->item(0)->nodeValue;
-		}
-
-		if($location != "")
-		{
-			$local = explode(' ',$location);
-			return $local[0];
-		}else{
-			return '火星';
-		}
+		return ip2name($ip);
 	}
 
 	public function getIP() {
-		return $_SERVER['REMOTE_ADDR'];
+//		return $_SERVER['REMOTE_ADDR'];
+		return getIP();
 	}
 	
 	/**
@@ -339,16 +324,16 @@ class db_member extends ybModel
 	 * @param int $pageNo
 	 * @param int $pageSize
 	 */
-	public function searchByUsername($username, $pageNo = 1, $pageSize = 10) {
+	public function searchByUsername($uid, $username, $pageNo = 1, $pageSize = 10) {
 		
-		$count_sql = 'SELECT COUNT(*) as total FROM yb_member WHERE username LIKE "%'.$username.'%"';
+		$count_sql = 'SELECT COUNT(*) as total FROM `'.DBPRE.'member` WHERE username LIKE "%'.$username.'%"';
 		$result = $this->findSql($count_sql);//var_dump($total);exit;
 		if ($result == null || count($result) < 1) return null;
 		$total = (int)$result['0']['total'];
 		
 		$pager = spPager::pageTool($total, $pageNo, $pageSize);
 		
-		$find_sql = 'SELECT * FROM yb_member WHERE username LIKE "%'.$username.'%" LIMIT '.$pager['offset'].', '.$pageSize;
+		$find_sql = 'SELECT m.uid as uid, m.username as username, m.domain as domain, m.num as num, m.flow as flow, m.flowme as flowme, m.sign as sign, m.blogtag as blogtag, f.linker as linker, f.id as id, f.uid as fuid, f.touid as touid, f.time as ftime FROM `'.DBPRE.'member` m LEFT JOIN `'.DBPRE.'follow` f ON(f.uid = '.$uid.' and m.uid=f.touid) WHERE username LIKE "%'.$username.'%" LIMIT '.$pager['offset'].', '.$pageSize;
 		$list = $this->findSql($find_sql);
 		return array('data'=>$list, 'page'=>$pager['page_data']);
 	}

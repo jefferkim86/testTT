@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-11 21:28:12
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-18 23:12:56
          compiled from "tplv2/user_setting.html" */ ?>
-<?php /*%%SmartyHeaderCode:77359788553e8c4ec3584d4-17154014%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:208157383153f217f833e7a6-17788674%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '74f05d2ba81cd63b42a25ab2f745e8451e1a730c' => 
     array (
       0 => 'tplv2/user_setting.html',
-      1 => 1407691099,
+      1 => 1408374772,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '77359788553e8c4ec3584d4-17154014',
+  'nocache_hash' => '208157383153f217f833e7a6-17788674',
   'function' => 
   array (
   ),
@@ -137,8 +137,7 @@ $(document).ready(function(){
 			<div class="con_table">
 				<div class="user_left">个性域名</div>
 			    <div class="user_right">
-				     <span class="host"><?php echo $_smarty_tpl->getVariable('url')->value;?>
-/</span>
+				     <span class="host">http://lukou.com/</span>
 					 <input type="text" name="domain" class="domain" id="domain" value="<?php echo $_smarty_tpl->getVariable('users')->value['domain'];?>
 ">
 					 <span class="info">域名唯一可修改，英文字母开头的4到15位的英文字母和数字</span>

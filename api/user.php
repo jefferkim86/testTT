@@ -679,7 +679,22 @@ class user extends top
 		$username = $this->spArgs('username');
 		$page_no = $this->spArgs('page_no', 1);
 		$page_size = $this->spArgs('page_size', 10);
-		$data = spClass('db_member')->searchByUsername($username, $page_no, $page_size);
+		$data = spClass('db_member')->searchByUsername($this->uid, $username, $page_no, $page_size);
+		foreach($data['data'] as &$d){
+			
+			$d['h_url'] = goUserHome(array('uid'=>$d['uid'], 'domain'=>$d['domain']));
+			$d['h_img'] = avatar(array('uid'=>$d['uid'],'size'=>'middle'));
+			$d['sign'] = strip_tags($d['sign']);
+			$d['blogtag'] = ($d['blogtag'] != '') ?  explode(',',$d['blogtag']) : '';
+//				$d['touid'] =  $tudo;
+//				unset($tudo,$d['touid']['domain']);
+			$d['time'] = ybtime(array('time'=>$d['ftime']));
+			if($d['linker'] == 1){
+				$d['linker'] = true;
+			}else{
+				$d['linker'] = false;
+			}
+		}
 		$this->api_success($data);
 	}
 	

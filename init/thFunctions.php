@@ -793,7 +793,8 @@ function validateEmail($email)
       {
          $isValid = false;
       }
-      else if (!preg_match('/^[A-Za-z0-9\\-\\.]+$/', $domain))
+      //else if (!preg_match('/^[A-Za-z0-9\\-\\.]+$/', $domain))
+      else if (!preg_match('/^[A-Za-z0-9\\-]+\\.[A-Za-z]+$/', $domain))
       {
          $isValid = false;
       }
@@ -822,24 +823,39 @@ function validateEmail($email)
 
 function ip2name($ip)
 {
-	$url = "http://www.youdao.com/smartresult-xml/search.s?type=ip&q=".$ip;
-	$doc = new DOMDocument();
-	$doc->load($url);
-	$smartresult = $doc->getElementsByTagName("product");
-	foreach($smartresult as $product)
+	$url = "http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=".$ip;
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_HEADER, 0);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	$location = curl_exec($ch);
+	curl_close($ch);
+	if($location != "")
 	{
-		$locations = $product->getElementsByTagName("location");
-		$location = $locations->item(0)->nodeValue;
-	}
-		if($location != "")
-	{
-		$local = explode(' ',$location);
-		return $local[0];
+		$loacl = json_decode($location);
+		return $loacl->city != null ? $loacl->city : '火星';
 	}else{
 		return '火星';
 	}
 }
 
 function getIP() {
+	if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+		$arr = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+ 
+        foreach ($arr AS $ip)
+        {
+            $ip = trim($ip);
+ 
+            if ($ip != 'unknown')
+            {
+                $realip = $ip;
+ 
+                break;
+            }
+        }
+		return $ip;
+	}
+	
 	return $_SERVER['REMOTE_ADDR'];
 }

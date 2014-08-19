@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-11 23:29:03
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-19 14:54:49
          compiled from "tplv2/require_js.html" */ ?>
-<?php /*%%SmartyHeaderCode:183832454953e8e13f223799-21335422%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:115193523953f2f4b911b765-15267835%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '8f6348f934a1766d0ee2377005f2726ac6b40ed0' => 
     array (
       0 => 'tplv2/require_js.html',
-      1 => 1407770941,
+      1 => 1408431281,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '183832454953e8e13f223799-21335422',
+  'nocache_hash' => '115193523953f2f4b911b765-15267835',
   'function' => 
   array (
   ),
@@ -61,6 +61,9 @@ var unit_3 = true;
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/jquery.twbsPagination
 .js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
+"></script>
+<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/js/jquery.simplePagination.js?t=<?php echo $_smarty_tpl->getVariable('timestamp')->value;?>
 "></script>
 
 

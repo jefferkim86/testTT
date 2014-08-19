@@ -34,6 +34,10 @@ class yb_word extends basePostModel
     
     function saved(){
         $used_image = $this->_localImgParse($this->spArgs('textarea'));  //过滤图像资源
+//        print_r(trim($this->spArgs('title')));print_r(trim($this->spArgs('textarea')));exit;
+        if (trim($this->spArgs('title')) == '' && trim($this->spArgs('textarea')) == '') {
+        	$this->error("内容不能为空哦", spUrl('post', 'add', array('model'=>$this->mid)));
+        }
         if(is_array($used_image)){
              $bodypre = '[attribute]'.serialize($used_image).'[/attribute]';
         }

@@ -129,6 +129,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 			if (repto) {
 				attr = repto.attr;
 				result = {
+					'isDeleted': repto.bid == null,
 					'pics': repto.attr.img,
 					'forwardcount': repto.forwardcount,
 					'replaycount': repto.replaycount,
@@ -139,11 +140,11 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'isSelf': repto.uid == uid,
 					'isLiked': repto.likeid ? 'liked' : false,
 					'time': repto.time
-
 				};
 			} else {
 				attr = this.get('attr');
 				result = {
+					'isDeleted': this.get('bid') == null,
 					'pics': attr.img,
 					'feedLink': this.get('b_url'),
 					'feedContent': this.get('body')
@@ -156,6 +157,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 			var repto = this.get('repto');
 			if (repto) {
 				result = {
+					'isDeleted': repto.bid == null,
 					'feedTitle': repto.title || '',
 					'feedContent': repto.body,
 					'feedLink': repto.b_url,
@@ -171,6 +173,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 				}
 			} else {
 				result = {
+					'isDeleted': this.get('bid') == null,
 					'feedTitle': this.get('title') || '',
 					'feedContent': this.get('body'),
 					'pic': (this.get('attr').length > 0 && !this._isDetail()) ? this.get('attr')[0] : '',
@@ -187,6 +190,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 			var repto = this.get('repto');
 			if (repto) {
 				result = {
+					'isDeleted': repto.bid == null,
 					'goodTitle': repto.attr.title,
 					'goodPic': repto.attr.image,
 					'price': repto.attr.price,
@@ -204,6 +208,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 			} else {
 				var attr = this.get('attr');
 				result = {
+					'isDeleted': this.get('bid') == null,
 					'goodTitle': attr.title,
 					'goodPic': attr.image,
 					'price': attr.price,
@@ -218,7 +223,6 @@ Tuitui.feedModel = Backbone.Model.extend({
 				};
 			}
 		}
-
 		return result;
 	}
 

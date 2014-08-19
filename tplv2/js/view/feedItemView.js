@@ -75,7 +75,7 @@ Tuitui.feedItemView = Backbone.View.extend({
                     if (resp.status == 1) {
                         self.model.destroy();
                     } else {
-                        alert(resp.msg);
+                        tips(resp.msg);
                     }
                 })
             },
@@ -130,7 +130,7 @@ Tuitui.feedItemView = Backbone.View.extend({
                 }
 
             } else {
-                alert(data.msg);
+                tips(data.msg);
             }
         });
     },
@@ -141,18 +141,23 @@ Tuitui.feedItemView = Backbone.View.extend({
     submitComment: function(e) {
         var self = this;
         var target = e.currentTarget;
+        if ($(target).hasClass('disabled')) {
+            return;
+        }
         var data = this.model.toJSON();
         var feed = $(target).parents(".feed");
         var input = feed.find(".J_CmtCnt");
+
         var inputVal = $.trim(input.val());
         if (inputVal === "") {
-            alert("请填写评论内容");
+            tips("请填写评论内容");
             return;
         }
         if (inputVal.replace("/[^/x00-/xff]/g", "**").length > 140) {
-            alert("不能超出140个字数");
+            tips("不能超出140个字数");
             return;
         }
+        $(target).addClass('disabled')
         var params = {
             'bid': data.bid,
             'inputs': inputVal,
@@ -177,8 +182,9 @@ Tuitui.feedItemView = Backbone.View.extend({
                 commentsView.addComment(commentModel, true);
                 self.setCounts('replaycount', 'add');
             } else {
-                alert(resp.msg)
+                tips(resp.msg)
             }
+            $(target).removeClass('disabled')
         });
     },
     /*
@@ -187,15 +193,18 @@ Tuitui.feedItemView = Backbone.View.extend({
     sendForward: function(e) {
         var self = this;
         var target = e.currentTarget;
+        if ($(target).hasClass('disabled')) {
+            return;
+        }
         var feed = $(target).parents(".feed");
         var data = this.model.toJSON();
         var input = feed.find(".J_CmtCnt");
         var inputVal = $.trim(input.val());
-
         if (inputVal.replace("/[^/x00-/xff]/g", "**").length > 140) {
-            alert("不能超出140个字数");
+            tips("不能超出140个字数");
             return;
         }
+        $(target).addClass('disabled');
 
         getApi('blog', 'repblog', {
             'bid': data.bid,
@@ -214,6 +223,7 @@ Tuitui.feedItemView = Backbone.View.extend({
             } else {
                 tips(resp.msg);
             }
+            $(target).removeClass('disabled');
         });
     },
 

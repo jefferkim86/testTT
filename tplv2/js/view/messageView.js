@@ -128,7 +128,7 @@ Tuitui.messageView = Backbone.View.extend({
         var self = this;
         getApi('pm', 'pmlist', {
             'uid': uid,
-            'page':opt.page || 1
+            'page': opt.page || 1
         }, function(resp) {
             if (resp.status == 1) {
                 var result = resp.body;
@@ -176,8 +176,8 @@ Tuitui.messageView = Backbone.View.extend({
         } else {
             $(opt.listEl).html(html);
         }
-       
-        if (result.page.total_page >1 && !$("#J-pagination .pagination").length) {
+
+        if (result.page.total_page > 1 && !$("#J-pagination .pagination").length) {
             $(opt.pagination).twbsPagination({
                 totalPages: result.page.total_page,
                 visiblePages: 7,
@@ -259,6 +259,7 @@ Tuitui.messageView = Backbone.View.extend({
         var tpl = this.compiled_tpl['allMsgItem'];
         var list = result[opt.type];
         var html = '';
+        var oldPagination;
         var self = this;
         var lastCls = '';
         var actionMap = {
@@ -285,19 +286,23 @@ Tuitui.messageView = Backbone.View.extend({
             $(opt.listEl).html('<div class="no-item">暂无消息</div>');
             return;
         }
-        //mock
-        //result.page.total_page = 100;
         var totalPages = result.page.total_page;
-        if (parseInt(totalPages) > 1) {
-            $(opt.pagination).twbsPagination({
-                totalPages: totalPages,
-                visiblePages: 7,
-                onPageClick: function(event, page) {
-                    opt.pageNo = page;
-                    self.getMsgListByType(opt);
-                }
-            });
+        if (parseInt(totalPages) >= 1 && $("#J-pagination").attr('type') != opt.type) {
+            $(opt.pagination).html('');
+            if (totalPages > 1) {
+                $(opt.pagination).pagination({
+                    items: totalPages * 10,
+                    itemsOnPage: 10,
+                    cssStyle: 'light-theme',
+                    onPageClick: function(page, ev) {
+                        opt.pageNo = page;
+                        self.getMsgListByType(opt);
+                    }
+                });
+            }
+            $(opt.pagination).attr('type', opt.type);
         }
+
         var notread = result.no_read;
         for (var key in notread) {
             if (notread[key] != '0') {
@@ -309,8 +314,6 @@ Tuitui.messageView = Backbone.View.extend({
             if (i == list.length - 1) {
                 lastCls = 'last-li';
             }
-
-
             var reInfo = list[i].extend['info'] || '';
             var actionTmp = actionMap[list[i].sys].replace('{link}', list[i].location);
 
@@ -371,24 +374,27 @@ Tuitui.messageView = Backbone.View.extend({
         var msgItem = $(target).parents(".follow_list");
         var ft = msgItem.find('.msg-ft');
         var textarea = msgItem.find('textarea');
-        var inputVal = textarea.val();
+        var inputVal = $.trim(textarea.val());
         var replyTo = $(target).attr('data-reply-to');
         var replyContent = $(target).parents('.follow_list').find('.userdata').text();
         var params;
         if (inputVal === "") {
-            alert("请填写评论内容");
+            tips("请填写评论内容");
             return;
         }
         if (inputVal.replace("/[^/x00-/xff]/g", "**").length > 140) {
-            alert("不能超出140个字数");
+            tips("不能超出140个字数");
             return;
         }
-
+        var submitRepuid = '';
+        if ($(target).attr('data-type') == 'comment') {
+            submitRepuid = msgItem.attr('data-muid')
+        }
         getApi('blog', 'setReply', {
             'bid': msgItem.attr('data-bid'),
             'inputs': '@' + replyTo + ':' + inputVal,
             'repcontent': replyContent,
-            'repuid': msgItem.attr('data-muid')
+            'repuid': submitRepuid
         }, function(resp) {
             if (resp.status == '1') {
                 ft.hide();

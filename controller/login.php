@@ -59,7 +59,7 @@ class login extends top
 			$this->error('昵称最短为2个字符最长为10个字符', $url);
 		}
 		if(strlen($this->spArgs('password')) < 6) {
-			$this->api_error('密码最少6位', $url);
+			$this->error('密码最少6位', $url);
 		} 
 		$keep =  $this->yb['keep_email'];
 		if($keep != ''){

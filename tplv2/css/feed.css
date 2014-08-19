@@ -417,6 +417,9 @@
 .page-detail .feed-forward-layout .feed-text-title a,.page-detail .feed-forward-layout .feed-link a{
 	cursor: pointer;
 }
+.page-detail .feed .feed-link a:hover, .page-detail .feed .feed-text-title a:hover{
+	color: #333;
+}
 /*待定*/
 .feed .J_Commentshow,.feed .J_Forwardshow,.feed .J_Likeshow{display:block;}
 .feed .J_Likeshow .pop-foot-corner .inner{border-bottom:9px solid #fff;}
@@ -645,6 +648,7 @@
 .feed-original-pic .original-desc{margin:8px 0;color:#333333;}
 
 .feed-text-cont .feed-text-p img{max-width:580px;cursor:pointer;}
+.page-detail .feed-text-cont .feed-text-p img{cursor:default;}
 /*定时发布*/
 .page-timing-publish{width:700px;border:1px solid #c5c5c5;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;background:#fff;}
 .page-timing-publish .feed-list{padding-top:18px;}

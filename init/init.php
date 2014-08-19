@@ -52,7 +52,7 @@ if(substr(PHP_VERSION, 0, 3) < '5.3'){
 }
 @set_magic_quotes_runtime(0);
 //禁止代理访问
-if(isset($_SERVER['HTTP_X_FORWARDED_FOR'])) exit('Sorry,This site doesn\'t allowed proxy access');
+//if(isset($_SERVER['HTTP_X_FORWARDED_FOR'])) exit('Sorry,This site doesn\'t allowed proxy access');
 // 自动开启SESSION
 if($GLOBALS['G_SP']['auto_session'])@session_start();
 // 载入核心MVC架构文件

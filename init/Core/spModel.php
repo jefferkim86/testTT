@@ -589,9 +589,10 @@ class spPager {
 		}else{
 			$total_count = $this->model_obj->findCount($conditions);
 		}
-//		if(true){
+		if($total_count > $pageSize){
 			$total_page = ceil( $total_count / $pageSize );
 			$page = min(intval(max($page, 1)), $total_count); // 对页码进行规范运算
+			if ($page < 1) $page = 1;
 			$this->pageData = array(
 				"total_count" => (int)$total_count,                                 // 总记录数
 				"page_size"   => (int)$pageSize,                                    // 分页大小
@@ -608,7 +609,19 @@ class spPager {
 			if ($offset < 0) $offset = 0;
 			$limit = $offset . "," . $pageSize;
 			if('findSql'==$func_name)$conditions = $this->model_obj->_db->setlimit($conditions, $limit);
-//		}
+		} else {
+			$this->pageData = array(
+				"total_count" => (int)$total_count,                                 // 总记录数
+				"page_size"   => (int)$pageSize,                                    // 分页大小
+				"total_page"  => 1,                                  // 总页数
+				"first_page"  => 1,                                            // 第一页
+				"prev_page"   => 1,         // 上一页
+				"next_page"   => 1,     // 下一页
+				"last_page"   => 1,                                  // 最后一页
+				"current_page"=> $page,                                        // 当前页
+				"all_pages"   => array()	                                   // 全部页码
+			);
+		}
 		if('findSql'==$func_name){
 			return $this->model_obj->findSql($conditions);
 		}else{

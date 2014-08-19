@@ -2032,7 +2032,7 @@ dl,dt,dd {
 .page-pagination {
 	margin-top: 20px;
 }
-.pagination {
+.simple-pagination {
 	position: relative;
 	width: 360px;
 	height: 32px;
@@ -2040,10 +2040,10 @@ dl,dt,dd {
 	margin: 0 auto;
 	text-align: center;
 }
-.pagination .first,.pagination .last{
+.simple-pagination .first,.pagination .last{
 	display: none;
 }
-.pagination li {
+.simple-pagination li {
     margin-right: 5px;
 	margin-bottom: 5px;
 	float: left;
@@ -2054,7 +2054,7 @@ dl,dt,dd {
 	color: #555555;
 }
 
-.pagination a{
+.simple-pagination span,.simple-pagination a{
     display: block;
     width: 30px;
     height: 30px;
@@ -2063,27 +2063,24 @@ dl,dt,dd {
 	background: #fff;
 }
 
-
-.pagination .next,.pagination .prev{
-
-
-}
-.pagination .active a{
+.simple-pagination .active span{
 	background:#6bbec6;
 	color: #fff;
 }
-.pagination .next a,.pagination .prev a {
+
+.simple-pagination .next,.simple-pagination .prev,.simple-pagination .active .prev,.simple-pagination .active .next {
 	text-indent: -9999px;
 	overflow: hidden;
 	background: #fff url('../image/icon-item.png') no-repeat scroll 0 0;
-	
 }
-.pagination .next a {
+.simple-pagination .next,.simple-pagination .active .next {
 	background-position: -28px -233px;
 }
-.pagination .prev a {
+.simple-pagination .prev ,.simple-pagination .active .prev{
 	background-position: -27px -171px;
 }
+
+
 
 .comment-hide,.forward-hide,.hide{
 	display: none !important;

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-12 00:34:57
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-18 22:54:49
          compiled from "tplv2/login.html" */ ?>
-<?php /*%%SmartyHeaderCode:35404380253e8f0b17a3950-28619759%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:10218989953f213b982f641-26121465%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '03645cd3cc83f49927e1835eb53c00fc4f417e53' => 
     array (
       0 => 'tplv2/login.html',
-      1 => 1407774756,
+      1 => 1408373686,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '35404380253e8f0b17a3950-28619759',
+  'nocache_hash' => '10218989953f213b982f641-26121465',
   'function' => 
   array (
   ),
@@ -217,6 +217,10 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
 			tabContents.eq(index).show();
 		})
 	});
+
+	function eTips(txt){
+		tips(txt);
+	}
 	</script>
 	
 	<?php $_template = new Smarty_Internal_Template("require_footer.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
