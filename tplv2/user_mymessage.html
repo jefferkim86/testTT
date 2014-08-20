@@ -88,8 +88,10 @@
 	    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
 	        return '';
 	    }
-	     var queryString = location.search.substring(location.href.indexOf("?")+1);
+
+	     var queryString = location.search.substring(location.search.indexOf("?")+1);
 	     var parameters = queryString.split("&");
+
 	    var pos, paraName, paraValue;
 	    for(var i=0; i<parameters.length; i++){
 	        pos = parameters[i].indexOf('=');
@@ -103,6 +105,7 @@
 	    return '';
 	};
 	var tabParam = getQueryString('tab');
+
 	var curTab = tabParam || 'comment';
 	var tabs = $("#J-Msgtab li");
 	tabs.each(function(node){

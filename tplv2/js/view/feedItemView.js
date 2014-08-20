@@ -350,7 +350,16 @@ Tuitui.feedItemView = Backbone.View.extend({
         var layoutTpl = this.compiled_tpl['feedLayout'];
         var tpl = this.compiled_tpl[feedType];
         //渲染内容
-        var feedContent = tpl.render(this.model.getFeedAttr());
+        var feedContent;
+        var feedItemData = this.model.getFeedAttr();
+        if(feedItemData.isDeleted){
+            feedContent = '<div class="deleted-feed">该文章已经被删除</div>';
+        }else{
+            feedContent = tpl.render(feedItemData);
+        }
+        
+        //var feedContent = tpl.render(this.model.getFeedAttr());
+
         var feedData = this.model.getfeedData();
         feedData.feedItemContent = feedContent;
         var layout = layoutTpl.render(feedData);

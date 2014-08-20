@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-05 01:26:23
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-20 22:04:01
          compiled from "/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/list.html" */ ?>
-<?php /*%%SmartyHeaderCode:51290254353dfc23fdd6d27-85317222%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:59373985253f4aad1ed0209-04229731%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a73a814515bff07fa19d9f2dcddc54cbeb4e3b95' => 
     array (
       0 => '/Users/jinjianfeng/Documents/work/tuitui/tplv2/theme/default/list.html',
-      1 => 1407173178,
+      1 => 1408542864,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '51290254353dfc23fdd6d27-85317222',
+  'nocache_hash' => '59373985253f4aad1ed0209-04229731',
   'function' => 
   array (
   ),
@@ -103,7 +103,7 @@ function getQueryString(name){
 	    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
 	        return '';
 	    }
-	     var queryString = location.href.substring(location.href.indexOf("?")+1);
+	     var queryString = location.search.substring(location.search.indexOf("?")+1);
 	     var parameters = queryString.split("&");
 	    var pos, paraName, paraValue;
 	    for(var i=0; i<parameters.length; i++){

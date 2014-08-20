@@ -37,11 +37,11 @@
                 <div class="merc-name"><a href="${avatarHref}">${username}</a></div>
             </div>
             <div class="feed-bd">
-            {@if forwardData}
+                {@if forwardData}
                 <div class="feed-title clearfix">
                     ${feedForwardContent}<span class="preforward">$${preforwardContent}</span>
                 </div>
-                
+                {@if !isDeleted}
                  <div  id="J-forwardBlog-${forwardData.bid}" class="feed feed-${feedType} feed-forward-layout clearfix">
                     <div class="feed-desc">
                         <div class="feed-hd">
@@ -51,11 +51,12 @@
                             <a href="${forwardData.b_url}">${forwardData.time}</a>
                         </div>
                         <div class="feed-bd">
+                    {@/if}
                 {@/if}
                     
                     $${feedItemContent}
 
-                {@if forwardData}
+                {@if forwardData && !isDeleted}
                             <div class="feed-actions J-forward-actions clearfix">
                                 <div class="feed-act">
                                     <a href="${forwardData.b_url}&t=reply" class="ft-comment">评论(<span class="J_CmtNum">${forwardData.replaycount}</span>)</a>

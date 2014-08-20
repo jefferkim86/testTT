@@ -176,16 +176,18 @@ Tuitui.messageView = Backbone.View.extend({
         } else {
             $(opt.listEl).html(html);
         }
+        if (result.page.total_page > 1 && !$("#J-pagination").hasClass('simple-pagination')) {
 
-        if (result.page.total_page > 1 && !$("#J-pagination .pagination").length) {
-            $(opt.pagination).twbsPagination({
-                totalPages: result.page.total_page,
-                visiblePages: 7,
-                onPageClick: function(event, page) {
+            $(opt.pagination).pagination({
+                items: result.page.total_page * 10,
+                itemsOnPage: 10,
+                cssStyle: 'light-theme',
+                onPageClick: function(page, ev) {
                     opt.page = page;
                     self.getPmList(opt);
                 }
             });
+
         }
 
 
@@ -214,14 +216,18 @@ Tuitui.messageView = Backbone.View.extend({
         $("#touser").val(result.args.t_name);
         $("#hd-touser").text(result.args.t_name);
 
-        $(opt.pagination).twbsPagination({
-            totalPages: result.page.total_page,
-            visiblePages: 7,
-            onPageClick: function(event, page) {
-                opt.pageNo = page;
-                self.getPmInfo(opt);
-            }
-        });
+        if(!$("#J-pagination").hasClass('simple-pagination')){
+            $(opt.pagination).pagination({
+                items: result.page.total_page * 10,
+                itemsOnPage: 10,
+                cssStyle: 'light-theme',
+                onPageClick: function(page, ev) {
+                    opt.pageNo = page;
+                    self.getPmInfo(opt);
+                }
+            });
+        }
+        
 
         var list = result.data;
         for (var i = 0; i < list.length; i++) {

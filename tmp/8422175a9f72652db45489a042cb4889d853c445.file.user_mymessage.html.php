@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-19 20:46:04
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-20 21:55:59
          compiled from "tplv2/user_mymessage.html" */ ?>
-<?php /*%%SmartyHeaderCode:194868795953f3470c8c7f27-83468543%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:212203894153f4a8efc114e7-66494451%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '8422175a9f72652db45489a042cb4889d853c445' => 
     array (
       0 => 'tplv2/user_mymessage.html',
-      1 => 1408452363,
+      1 => 1408542943,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '194868795953f3470c8c7f27-83468543',
+  'nocache_hash' => '212203894153f4a8efc114e7-66494451',
   'function' => 
   array (
   ),
@@ -111,8 +111,10 @@ $_template->assign('loadedit','yes'); echo $_template->getRenderedTemplate();?><
 	    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
 	        return '';
 	    }
-	     var queryString = location.search.substring(location.href.indexOf("?")+1);
+
+	     var queryString = location.search.substring(location.search.indexOf("?")+1);
 	     var parameters = queryString.split("&");
+
 	    var pos, paraName, paraValue;
 	    for(var i=0; i<parameters.length; i++){
 	        pos = parameters[i].indexOf('=');
@@ -126,6 +128,7 @@ $_template->assign('loadedit','yes'); echo $_template->getRenderedTemplate();?><
 	    return '';
 	};
 	var tabParam = getQueryString('tab');
+
 	var curTab = tabParam || 'comment';
 	var tabs = $("#J-Msgtab li");
 	tabs.each(function(node){

@@ -130,7 +130,7 @@
 	    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
 	        return '';
 	    }
-	     var queryString = location.href.substring(location.href.indexOf("?")+1);
+	     var queryString = location.search.substring(location.search.indexOf("?")+1);
 	     var parameters = queryString.split("&");
 	    var pos, paraName, paraValue;
 	    for(var i=0; i<parameters.length; i++){

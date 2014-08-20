@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-18 22:54:49
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-20 22:03:19
          compiled from "tplv2/login.html" */ ?>
-<?php /*%%SmartyHeaderCode:10218989953f213b982f641-26121465%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:204882985053f4aaa799c9f8-53565303%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '03645cd3cc83f49927e1835eb53c00fc4f417e53' => 
     array (
       0 => 'tplv2/login.html',
-      1 => 1408373686,
+      1 => 1408542856,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '10218989953f213b982f641-26121465',
+  'nocache_hash' => '204882985053f4aaa799c9f8-53565303',
   'function' => 
   array (
   ),
@@ -179,7 +179,7 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
 	    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
 	        return '';
 	    }
-	     var queryString = location.href.substring(location.href.indexOf("?")+1);
+	     var queryString = location.search.substring(location.search.indexOf("?")+1);
 	     var parameters = queryString.split("&");
 	    var pos, paraName, paraValue;
 	    for(var i=0; i<parameters.length; i++){

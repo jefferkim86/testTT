@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-19 22:49:18
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-20 23:15:51
          compiled from "tplv2/require_feedTemplate.html" */ ?>
-<?php /*%%SmartyHeaderCode:106414181653f363eeb8e2c1-32513692%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:149119173253f4bba777ffc8-37922343%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '350be01eeee6d1b227e428bdc9ce144dbf95710b' => 
     array (
       0 => 'tplv2/require_feedTemplate.html',
-      1 => 1408459388,
+      1 => 1408547746,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '106414181653f363eeb8e2c1-32513692',
+  'nocache_hash' => '149119173253f4bba777ffc8-37922343',
   'function' => 
   array (
   ),
@@ -56,11 +56,11 @@ $_smarty_tpl->decodeProperties(array (
                 <div class="merc-name"><a href="${avatarHref}">${username}</a></div>
             </div>
             <div class="feed-bd">
-            {@if forwardData}
+                {@if forwardData}
                 <div class="feed-title clearfix">
                     ${feedForwardContent}<span class="preforward">$${preforwardContent}</span>
                 </div>
-                
+                {@if !isDeleted}
                  <div  id="J-forwardBlog-${forwardData.bid}" class="feed feed-${feedType} feed-forward-layout clearfix">
                     <div class="feed-desc">
                         <div class="feed-hd">
@@ -70,11 +70,12 @@ $_smarty_tpl->decodeProperties(array (
                             <a href="${forwardData.b_url}">${forwardData.time}</a>
                         </div>
                         <div class="feed-bd">
+                    {@/if}
                 {@/if}
                     
                     $${feedItemContent}
 
-                {@if forwardData}
+                {@if forwardData && !isDeleted}
                             <div class="feed-actions J-forward-actions clearfix">
                                 <div class="feed-act">
                                     <a href="${forwardData.b_url}&t=reply" class="ft-comment">评论(<span class="J_CmtNum">${forwardData.replaycount}</span>)</a>

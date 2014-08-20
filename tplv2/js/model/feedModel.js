@@ -64,6 +64,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 		}
 		return result;
 	},
+	
 	//TODO: forwardData引用getFeedAttr
 	getfeedData: function() {
 		return {
@@ -81,7 +82,8 @@ Tuitui.feedModel = Backbone.Model.extend({
 			'feedForwardContent': this.get('title') || '',
 			'isSelf': this.get('uid') == uid,
 			'isLiked': this.get('likeid') ? 'liked' : '',
-			'forwardData': this.get('repto') || false
+			'forwardData': this.get('repto') || false,
+			'isDeleted': this.get('repto') && !this.get('repto').bid
 		}
 	},
 
@@ -118,7 +120,10 @@ Tuitui.feedModel = Backbone.Model.extend({
 
 		return style;
 	},
-
+	_addLinkToText: function(txt) {
+		var reg = /(http:\/\/|https:\/\/)((\w|=|\?|\.|\/|&|-)+)/g;
+		return txt.replace(reg, '<a href="$1$2" target="_blank">$1$2</a>');
+	},
 	getFeedAttr: function() {
 		var result = {};
 		//图片feed
@@ -134,7 +139,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'forwardcount': repto.forwardcount,
 					'replaycount': repto.replaycount,
 					'likecount': repto.likecount,
-					'feedContent': repto.body,
+					'feedContent': this._addLinkToText(repto.body),
 					'title': repto.title,
 					'feedLink': repto.b_url,
 					'isSelf': repto.uid == uid,
@@ -159,7 +164,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 				result = {
 					'isDeleted': repto.bid == null,
 					'feedTitle': repto.title || '',
-					'feedContent': repto.body,
+					'feedContent': this._addLinkToText(repto.body),
 					'feedLink': repto.b_url,
 					'time': repto.time,
 					'pic': (repto.attr.length > 0 && !this._isDetail()) ? repto.attr[0] : '',
@@ -169,13 +174,13 @@ Tuitui.feedModel = Backbone.Model.extend({
 					'isSelf': repto.uid == uid,
 					'isLiked': repto.likeid ? 'liked' : false,
 					'needFeedMore': repto.more == 1,
-					'style': this._style(repto.image_info)
+					'style': this._style(this.get('image_info'))
 				}
 			} else {
 				result = {
 					'isDeleted': this.get('bid') == null,
 					'feedTitle': this.get('title') || '',
-					'feedContent': this.get('body'),
+					'feedContent': this._addLinkToText(this.get('body')),
 					'pic': (this.get('attr').length > 0 && !this._isDetail()) ? this.get('attr')[0] : '',
 					'feedLink': this._isDetail() ? 'javascript:void(0)' : this.get('b_url'),
 					'needFeedMore': this.get('more') == 1,

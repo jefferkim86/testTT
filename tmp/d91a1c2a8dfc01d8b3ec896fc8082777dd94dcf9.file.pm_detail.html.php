@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-11 21:12:57
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-20 21:29:58
          compiled from "tplv2/pm_detail.html" */ ?>
-<?php /*%%SmartyHeaderCode:9541406253e8c1593187a7-98032007%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:36831765753f4a2d66190f0-04119894%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'd91a1c2a8dfc01d8b3ec896fc8082777dd94dcf9' => 
     array (
       0 => 'tplv2/pm_detail.html',
-      1 => 1407762163,
+      1 => 1408541397,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '9541406253e8c1593187a7-98032007',
+  'nocache_hash' => '36831765753f4a2d66190f0-04119894',
   'function' => 
   array (
   ),
@@ -50,7 +50,7 @@ $_template->assign('loadedit','yes'); echo $_template->getRenderedTemplate();?><
 				<input type="hidden" id="touser" title="touser" value="<?php echo $_smarty_tpl->getVariable('tousername')->value;?>
 " />
 			</div>
-			<div id="J-pagination"></div>
+			<div id="J-pagination" style="margin-top:20px;width:450px;"></div>
     	</div>
 
 

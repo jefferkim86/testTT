@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-11 11:29:15
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-20 21:55:47
          compiled from "tplv2/user_myfollow.html" */ ?>
-<?php /*%%SmartyHeaderCode:214683944753e8388bf1e352-50843233%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:197229232153f4a8e30423f9-48898145%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ad6e59ad78e50f6f5f0160f6fbb0dd1b2b00882e' => 
     array (
       0 => 'tplv2/user_myfollow.html',
-      1 => 1407727754,
+      1 => 1408542869,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '214683944753e8388bf1e352-50843233',
+  'nocache_hash' => '197229232153f4a8e30423f9-48898145',
   'function' => 
   array (
   ),
@@ -27,7 +27,7 @@ $(document).ready(function(){
 	    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
 	        return '';
 	    }
-	     var queryString = location.href.substring(location.href.indexOf("?")+1);
+	     var queryString = location.search.substring(location.search.indexOf("?")+1);
 	     var parameters = queryString.split("&");
 	    var pos, paraName, paraValue;
 	    for(var i=0; i<parameters.length; i++){
@@ -137,8 +137,7 @@ function do_run(ty,page){
 		</div>
 		 
 		
-		<div id="paging" style="margin-top:20px;"></div>
-		<div id="pagingFollow" style="margin-top:20px;"></div>
+		<div id="paging" style="margin-top:20px;width:450px;"></div>
 		<div class="clear"></div>
 	</div>
 	
@@ -176,24 +175,22 @@ function addto_follow(d,type){
 			var html = tpl.render(list[i])
 			$('#follow_area').append($(html));
 		}
-		var paginID = type == 'follow' ? '#pagingFollow' : '#paging';
-		if(type == 'follow'){
-			$("#paging").hide();
-			$("#pagingFollow").show();
-		}else{
-			$("#pagingFollow").hide();
-			$("#paging").show();
-		}
- 
-		if(d.body.page && d.body.page.total_page > 1 && !$(paginID).find("pagination").length){
-			var t = $(paginID).twbsPagination({
-	            totalPages: d.body.page.total_page,
-	            visiblePages: 7,
-	            startPage:1,
-	            onPageClick: function(event, page) {
-	                do_run(type,page);
-	            }
-	        });
+		
+		var paginType = type == 'follow' ? 'tab2Page':'tab1Page';
+
+		if(d.body.page && d.body.page.total_page > 1 && $("#paging").attr('pageType') != paginType){
+			console.log('change');
+			$("#paging").html('');
+			$("#paging").attr('pageType',paginType);
+	        $("#paging").pagination({
+                items: d.body.page.total_page * 10,
+                itemsOnPage: 10,
+                cssStyle: 'light-theme',
+                onPageClick: function(page, ev) {
+                    do_run(type,page);
+                }
+            });
+            
 		}
 		
 	}else{
