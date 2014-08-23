@@ -19,6 +19,12 @@ class invite extends top
         //$db_invite = spClass('db_invite');
         //$this->api_success($db_invite->initInvite($this->uid));
     }
+    
+    public function addCode() {
+    	$num = $this->spArgs('num', 10000);
+    	$db_invite = spClass('db_invite');
+    	$this->api_success($db_invite->addCode(2, $num));
+    }
 
     public function addToFull()
     {

@@ -8,7 +8,7 @@ class uploadFile {
 
 	 private $save_path = '';
 	 private $filesizes = '';
-	 private $filetypes = 'jpg,png,gif,bmp';
+	 private $filetypes = 'jpg,jpeg,png,gif,bmp';
 	 private $fileinput = 'filedata';
 	 private $diydir = '';
 	 private $tmppath = ''; 

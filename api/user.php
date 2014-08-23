@@ -45,8 +45,14 @@ class user extends top
 			if(in_array($this->spArgs('niname'),$arr)) {$this->api_error('该昵称被保留或限制');}
 		}
 		
+		if(utf8_strlen($this->spArgs('niname')) < 2 || utf8_strlen($this->spArgs('niname')) > 10){$this->api_error('昵称最短2位最长10位'); }
+		
 		if (count(explode("路口", $this->spArgs('niname'))) > 1) {
 			$this->api_error('昵称中不允许包含路口两个字哦～');
+		}
+		
+		if (!validateUsername($this->spArgs('niname'))) {
+			$this->api_error("昵称只允许中英文、数字、减号或“_”");
 		}
 		
 		if($this->yb['keep_domain'] != ''){
@@ -54,7 +60,6 @@ class user extends top
 			if(in_array($this->spArgs('domain'),$arr))  {$this->api_error('该个性域名被保留或限制');} 
 		}
 
-		if(utf8_strlen($this->spArgs('niname')) < 2 || utf8_strlen($this->spArgs('niname')) > 10){$this->api_error('昵称最短2位最长10位'); }
 		$niname = spClass('db_member')->find(array('username'=>$this->spArgs('niname')),'','uid,username');
 		if(is_array($niname) && $niname['uid'] != $this->uid){$this->api_error('该昵称已被使用'); } //判断昵称是否被使用
 		if ($this->spArgs('domain') == "" || preg_match("/[\x7f-\xff]/",$this->spArgs('domain'))) {
@@ -212,15 +217,16 @@ class user extends top
 		
 		$page_no = $this->spArgs('page', 1);
 		$page_size = $this->spArgs('page_size', 10);
+		$uid = $this->spArgs('uid', $this->uid);
 		$obj = spClass('db_follow');
 		if($this->spArgs('type') == 'follow'){
 			$obj->linker['0']['enabled'] = false;
-			$sql .= "ON f.uid = m.uid WHERE touid = '{$this->uid}'";
-			$total = $obj->spLinker()->findCount(array('touid'=>$this->uid));
+			$sql .= "ON f.uid = m.uid WHERE touid = '{$uid}'";
+			$total = $obj->spLinker()->findCount(array('touid'=>$uid));
 		}else{
 			$obj->linker['1']['enabled'] = false;
-			$sql .= "ON touid = m.uid WHERE f.uid = '{$this->uid}'";
-			$total = $obj->spLinker()->findCount(array('uid'=>$this->uid));
+			$sql .= "ON touid = m.uid WHERE f.uid = '{$uid}'";
+			$total = $obj->spLinker()->findCount(array('uid'=>$uid));
 		}
 		
 		$page_data = spPager::pageTool($total, $page_no, $page_size);
@@ -709,6 +715,7 @@ class user extends top
 				$this->api_error('图片大小不能超过1M');
 			}
 			$type = strrchr($picname, '.');
+			$type = strtolower($type);
 			if ($type != ".gif" && $type != ".jpg" && $type != ".png" && $type != ".jpeg") {
 //				echo '图片格式不对！';
 //				exit;

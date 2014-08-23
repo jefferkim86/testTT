@@ -39,9 +39,7 @@ function goUserHome($params)
 	$uid   = $params['uid'];     //判断是否存在uid
 
 	if($domain != '' && $domain !='home')
-	{	
-
-		//return 'http://'.$_SERVER["HTTP_HOST"] .'/'. $domain;
+	{	return 'http://'.$_SERVER["HTTP_HOST"] .'/'. $domain;
 		return spUrl('userblog','index',array('domain'=>$domain));
 	}else{
 		return spUrl('userblog','index',array('domain'=>'home','uid'=>$uid));
@@ -821,6 +819,15 @@ function validateEmail($email)
 	  }
    }
    return $isValid;
+}
+
+function validateUsername($username) {
+	$str_len = utf8_strlen($username);
+	if ($str_len < 2 || $str_len > 10) return false;
+	
+	if (!preg_match('/^[0-9a-zA-Z_\-\x{4e00}-\x{9fa5}]+$/u',$username)) return false;
+	
+	return true;
 }
 
 function ip2name($ip)

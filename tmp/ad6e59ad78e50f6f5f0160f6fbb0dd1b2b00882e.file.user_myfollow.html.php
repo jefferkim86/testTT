@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-20 21:55:47
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-23 23:30:21
          compiled from "tplv2/user_myfollow.html" */ ?>
-<?php /*%%SmartyHeaderCode:197229232153f4a8e30423f9-48898145%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:159299687153f8b38d683e50-27688616%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ad6e59ad78e50f6f5f0160f6fbb0dd1b2b00882e' => 
     array (
       0 => 'tplv2/user_myfollow.html',
-      1 => 1408542869,
+      1 => 1408807820,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '197229232153f4a8e30423f9-48898145',
+  'nocache_hash' => '159299687153f8b38d683e50-27688616',
   'function' => 
   array (
   ),
@@ -22,28 +22,35 @@ $_smarty_tpl->decodeProperties(array (
 
 
 <script type="text/javascript">
+function getQueryString(name){
+    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
+        return '';
+    }
+     var queryString = location.search.substring(location.search.indexOf("?")+1);
+     var parameters = queryString.split("&");
+    var pos, paraName, paraValue;
+    for(var i=0; i<parameters.length; i++){
+        pos = parameters[i].indexOf('=');
+        if(pos == -1) { continue; }
+         paraName = parameters[i].substring(0, pos);
+        paraValue = parameters[i].substring(pos + 1);
+         if(paraName == name){
+            return unescape(paraValue.replace(/\+/g, " "));
+        }
+    }
+    return '';
+};
 $(document).ready(function(){ 
-	function getQueryString(name){
-	    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
-	        return '';
-	    }
-	     var queryString = location.search.substring(location.search.indexOf("?")+1);
-	     var parameters = queryString.split("&");
-	    var pos, paraName, paraValue;
-	    for(var i=0; i<parameters.length; i++){
-	        pos = parameters[i].indexOf('=');
-	        if(pos == -1) { continue; }
-	         paraName = parameters[i].substring(0, pos);
-	        paraValue = parameters[i].substring(pos + 1);
-	         if(paraName == name){
-	            return unescape(paraValue.replace(/\+/g, " "));
-	        }
-	    }
-	    return '';
-	};
+	
 	var tabval = getQueryString('tab');
 	var curTab = tabval == '' ? '' : tabval;
-
+    if(G_isSelf){
+    	$("#curr_myfollow").text('我关注的');
+    	$("#follow_my").text('我的粉丝');
+    }else{
+    	$("#curr_myfollow").text('TA关注的');
+    	$("#follow_my").text('TA的粉丝');
+    }
 	do_run(curTab);
 })
 
@@ -58,7 +65,10 @@ function do_run(ty,page){
 		$('#curr_myfollow').addClass('current');
 		$('#follow_my').removeClass('current');
 	}
+	var uid = getQueryString('uid');
+
 	getApi('user', 'myfollow', {
+		'uid': uid || undefined,
         'type':ty,
         'page':page || 1
     }, function(d) {
@@ -73,7 +83,8 @@ function do_run(ty,page){
 
 
 <div id="index">
-    
+    <?php $_template = new Smarty_Internal_Template("require_userInfo.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+ echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
     <div id="article">
 	    <div id="userfollow">
 

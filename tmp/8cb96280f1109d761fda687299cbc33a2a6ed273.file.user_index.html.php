@@ -1,36 +1,50 @@
-{include file="require_header.html"}
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-23 22:32:07
+         compiled from "tplv2/user_index.html" */ ?>
+<?php /*%%SmartyHeaderCode:121801939153f8a5e7f1ca74-20354076%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '8cb96280f1109d761fda687299cbc33a2a6ed273' => 
+    array (
+      0 => 'tplv2/user_index.html',
+      1 => 1408804198,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '121801939153f8a5e7f1ca74-20354076',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+)); /*/%%SmartyHeaderCode%%*/?>
+<?php $_template = new Smarty_Internal_Template("require_header.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+ echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
 
-{literal}
+
+
 <script type="text/javascript">
-function getQueryString(name){
-    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
-        return '';
-    }
-     var queryString = location.search.substring(location.search.indexOf("?")+1);
-     var parameters = queryString.split("&");
-    var pos, paraName, paraValue;
-    for(var i=0; i<parameters.length; i++){
-        pos = parameters[i].indexOf('=');
-        if(pos == -1) { continue; }
-         paraName = parameters[i].substring(0, pos);
-        paraValue = parameters[i].substring(pos + 1);
-         if(paraName == name){
-            return unescape(paraValue.replace(/\+/g, " "));
-        }
-    }
-    return '';
-};
 $(document).ready(function(){ 
-	
+	function getQueryString(name){
+	    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
+	        return '';
+	    }
+	     var queryString = location.search.substring(location.search.indexOf("?")+1);
+	     var parameters = queryString.split("&");
+	    var pos, paraName, paraValue;
+	    for(var i=0; i<parameters.length; i++){
+	        pos = parameters[i].indexOf('=');
+	        if(pos == -1) { continue; }
+	         paraName = parameters[i].substring(0, pos);
+	        paraValue = parameters[i].substring(pos + 1);
+	         if(paraName == name){
+	            return unescape(paraValue.replace(/\+/g, " "));
+	        }
+	    }
+	    return '';
+	};
 	var tabval = getQueryString('tab');
 	var curTab = tabval == '' ? '' : tabval;
-    if(G_isSelf){
-    	$("#curr_myfollow").text('我关注的');
-    	$("#follow_my").text('我的粉丝');
-    }else{
-    	$("#curr_myfollow").text('TA关注的');
-    	$("#follow_my").text('TA的粉丝');
-    }
+
 	do_run(curTab);
 })
 
@@ -45,10 +59,7 @@ function do_run(ty,page){
 		$('#curr_myfollow').addClass('current');
 		$('#follow_my').removeClass('current');
 	}
-	var uid = getQueryString('uid');
-
 	getApi('user', 'myfollow', {
-		'uid': uid || undefined,
         'type':ty,
         'page':page || 1
     }, function(d) {
@@ -59,17 +70,21 @@ function do_run(ty,page){
 
 
 </script>
-{/literal}
+
 
 
 <div id="index">
-    {include file="require_userInfo.html"}
+    <?php $_template = new Smarty_Internal_Template("require_userInfo.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+ echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
+
     <div id="article">
 	    <div id="userfollow">
 
 	        <div class="post_bg">
-			<a href="javascript:;" onclick="do_run()"><span id="curr_myfollow" {$curr_mefor}>我关注的</span></a>
-			<a href="javascript:;" onclick="do_run('follow')"><span id="follow_my" {$curr_forme}>我的粉丝</span></a>
+			<a href="javascript:;" onclick="do_run()"><span id="curr_myfollow" <?php echo $_smarty_tpl->getVariable('curr_mefor')->value;?>
+>我关注的</span></a>
+			<a href="javascript:;" onclick="do_run('follow')"><span id="follow_my" <?php echo $_smarty_tpl->getVariable('curr_forme')->value;?>
+>我的粉丝</span></a>
 		    </div>
 	    </div>
 		
@@ -78,7 +93,7 @@ function do_run(ty,page){
 
 
 <script type="text/template" id="J-followList">
-{literal}
+
  <div class="follow_list ${last}" id="myfollow_${uid}">
 	<div class="follow_con clearfix">
 	 <div class="follow_btn" id="follow_unlink_${uid}">
@@ -108,7 +123,7 @@ function do_run(ty,page){
 	</div>
 
 </div>
-{/literal}
+
 
 </script>
 
@@ -131,13 +146,15 @@ function do_run(ty,page){
 	
 	
 	<div id="aside">
-        {include file="require_sider.html"}
+        <?php $_template = new Smarty_Internal_Template("require_sider.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+ echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
     </div>
 </div>
-<script type="text/javascript" src="{$syskin}/js/view/userView.js"></script>
+<script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
+/js/view/userView.js"></script>
 
 <script type="text/javascript">
-{literal}
+
 //添加到 follow
 
 
@@ -198,8 +215,9 @@ function addto_follow(d,type){
 	});
 
 	new Tuitui.userView();
-{/literal}
+
 </script>
-{include file="require_footer.html"}
+<?php $_template = new Smarty_Internal_Template("require_footer.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+ echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
 </body>
 </html>

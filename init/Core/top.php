@@ -12,7 +12,7 @@ class top extends spController
 		parent::__construct(); 
 		$this->checkLogin();
 		$this->yb = $GLOBALS['YB'];
-		$this->timestamp = 201408182204;
+		$this->timestamp = 201408211208;
 		if(!spAccess('r','ybmodel')){  //读取设置
             $this->mconfig = spClass('db_models')->getModel();
             spAccess('w','ybmodel',$mconfig,-1);

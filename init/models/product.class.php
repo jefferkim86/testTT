@@ -62,6 +62,13 @@ class yb_product extends basePostModel
     	$item['price'] = $this->spArgs("price");
     	$item['discount_price'] = $this->spArgs("discount_price", "");
     	$item['producturl'] = stristr($this->spArgs('producturl'), "http");
+    	if (preg_match("/[tmall|taobao]\.com/", $item['producturl'])) {
+	    	preg_match_all("/\id=([0-9]{3,})/", $item['producturl'], $matches);
+	    	if ($matches['1']['0']) {
+	    		$id = $matches['1']['0'];
+	    		$item['producturl'] = "http://item.taobao.com/item.htm?id=".$id;
+	    	}
+    	}
     	$image_info = getimagesize($item['image']);
 		$item['image_width'] = $image_info[0];
 		$item['image_height'] = $image_info[1];

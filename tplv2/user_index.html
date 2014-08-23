@@ -1,36 +1,30 @@
 {include file="require_header.html"}
 
+
 {literal}
 <script type="text/javascript">
-function getQueryString(name){
-    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
-        return '';
-    }
-     var queryString = location.search.substring(location.search.indexOf("?")+1);
-     var parameters = queryString.split("&");
-    var pos, paraName, paraValue;
-    for(var i=0; i<parameters.length; i++){
-        pos = parameters[i].indexOf('=');
-        if(pos == -1) { continue; }
-         paraName = parameters[i].substring(0, pos);
-        paraValue = parameters[i].substring(pos + 1);
-         if(paraName == name){
-            return unescape(paraValue.replace(/\+/g, " "));
-        }
-    }
-    return '';
-};
 $(document).ready(function(){ 
-	
+	function getQueryString(name){
+	    if(location.href.indexOf("?")==-1 || location.href.indexOf(name+'=')==-1) {
+	        return '';
+	    }
+	     var queryString = location.search.substring(location.search.indexOf("?")+1);
+	     var parameters = queryString.split("&");
+	    var pos, paraName, paraValue;
+	    for(var i=0; i<parameters.length; i++){
+	        pos = parameters[i].indexOf('=');
+	        if(pos == -1) { continue; }
+	         paraName = parameters[i].substring(0, pos);
+	        paraValue = parameters[i].substring(pos + 1);
+	         if(paraName == name){
+	            return unescape(paraValue.replace(/\+/g, " "));
+	        }
+	    }
+	    return '';
+	};
 	var tabval = getQueryString('tab');
 	var curTab = tabval == '' ? '' : tabval;
-    if(G_isSelf){
-    	$("#curr_myfollow").text('我关注的');
-    	$("#follow_my").text('我的粉丝');
-    }else{
-    	$("#curr_myfollow").text('TA关注的');
-    	$("#follow_my").text('TA的粉丝');
-    }
+
 	do_run(curTab);
 })
 
@@ -45,10 +39,7 @@ function do_run(ty,page){
 		$('#curr_myfollow').addClass('current');
 		$('#follow_my').removeClass('current');
 	}
-	var uid = getQueryString('uid');
-
 	getApi('user', 'myfollow', {
-		'uid': uid || undefined,
         'type':ty,
         'page':page || 1
     }, function(d) {
@@ -64,6 +55,7 @@ function do_run(ty,page){
 
 <div id="index">
     {include file="require_userInfo.html"}
+
     <div id="article">
 	    <div id="userfollow">
 

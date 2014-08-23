@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-10 14:52:55
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-23 22:55:26
          compiled from "tplv2/require_userInfo.html" */ ?>
-<?php /*%%SmartyHeaderCode:189194466753e716c71ee042-20064152%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:183434125953f8ab5e9656e2-57695108%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '20918c0c896e7b5e85c37d1c3f0e3bcc1dcee14f' => 
     array (
       0 => 'tplv2/require_userInfo.html',
-      1 => 1407642085,
+      1 => 1408805702,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '189194466753e716c71ee042-20064152',
+  'nocache_hash' => '183434125953f8ab5e9656e2-57695108',
   'function' => 
   array (
   ),
@@ -56,10 +56,12 @@ $_smarty_tpl->decodeProperties(array (
 		<ul>
 			<li><b><?php echo $_smarty_tpl->getVariable('user')->value['num'];?>
 </b><span>动态</span></li>
-			<li><b><?php echo $_smarty_tpl->getVariable('user')->value['flow'];?>
-</b><span>关注</span></li>
-			<li class="nr"><b><?php echo $_smarty_tpl->getVariable('user')->value['flowme'];?>
-</b><span>粉丝</span></li>
+			<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'myfollow','uid'=>$_smarty_tpl->getVariable('user')->value['uid']),$_smarty_tpl);?>
+"><b><?php echo $_smarty_tpl->getVariable('user')->value['flow'];?>
+</b><span>关注</span></a></li>
+			<li class="nr"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'user','a'=>'myfollow','uid'=>$_smarty_tpl->getVariable('user')->value['uid'],'tab'=>'follow'),$_smarty_tpl);?>
+"><b><?php echo $_smarty_tpl->getVariable('user')->value['flowme'];?>
+</b><span>粉丝</span></a></li>
 		</ul>
 
 	</div>

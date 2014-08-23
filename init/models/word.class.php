@@ -82,14 +82,19 @@ class yb_word extends basePostModel
              }  
              $str .= '\''.$d.'\',';
              $tmp_path = pathinfo($d);
-             $tmp_file = 'attachs/tmp/'.$tmp_path['basename'];
+             $params = spExt('aUpload');
+             $tmp_file = $params['tmppath'] . '/' .$tmp_path['basename'];
              //var_dump('attachs/tmp/'.$tmp_path['basename'],file_exists('attachs/tmp/'.$tmp_path['basename']));exit;
              if (file_exists($tmp_file)) {
-             	spClass('uploadFile')->set_diydir($this->uid);
-        		$truefile = spClass('uploadFile')->selectuptype(4);
-        		$tmpfile = spClass('uploadFile')->selectuptype(6);
-        		
-             	rename($tmp_file, $truefile.'/'.$tmp_path['basename']);
+             	
+             	$save_path = $params['savepath'].'/'.$params['savedir']. '/' .date('y',time()) . '/' . date('n',time()). '/' . date('d',time()).'/'.$this->uid;
+             	$this->mkdirs($save_path);
+				//$returndir = $params['savedir']. '/' .date('y',time()) . '/' . date('n',time()). '/' .  date('d',time()) . '/' . $this->uid;
+             	//spClass('uploadFile')->set_diydir($this->uid);
+        		//$truefile = spClass('uploadFile')->selectuptype(4);
+        		//$tmpfile = spClass('uploadFile')->selectuptype(6);
+        		//var_dump($save_path);exit;
+             	rename($tmp_file, $save_path.'/'.$tmp_path['basename']);
              }
         }
             
@@ -108,5 +113,14 @@ class yb_word extends basePostModel
     }
 
 
+	private function mkdirs($dir,$mode= 0777)
+	{
+         if (!is_dir($dir)) {
+            $this->mkdirs(dirname($dir), $mode);
+            @mkdir($dir, $mode);
+            return fclose(fopen($dir.'/index.html', 'w'));
+        }
+        return true;    
+	}
 }
 ?>

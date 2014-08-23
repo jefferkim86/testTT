@@ -32,6 +32,7 @@ class userblog extends top
 		$this->display('index.html');
 	}
 	
+	
 
 	
 	/*显示某一条记录*/

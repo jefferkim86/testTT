@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-18 23:12:56
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-21 20:21:55
          compiled from "tplv2/user_setting.html" */ ?>
-<?php /*%%SmartyHeaderCode:208157383153f217f833e7a6-17788674%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:43591050553f5e463e1e823-20409246%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '74f05d2ba81cd63b42a25ab2f745e8451e1a730c' => 
     array (
       0 => 'tplv2/user_setting.html',
-      1 => 1408374772,
+      1 => 1408623713,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '208157383153f217f833e7a6-17788674',
+  'nocache_hash' => '43591050553f5e463e1e823-20409246',
   'function' => 
   array (
   ),
@@ -174,7 +174,7 @@ $(document).ready(function(){
 					<div class="change" id="J-avatarTab-changeC">
 							
 							<div class="upfile"> 
-						      	<input id="fileupload" size="1" type="file" name="filedata" ext="jpg|jpeg|png"/>
+						      	<input id="fileupload" size="1" type="file" name="filedata" ext="jpg|jpeg|png|JPG|JPEG"/>
 						      	<div class="fileDataImg">选择文件</div>
 							</div>
 							<div class="tip">支持jpg、gif、png、bmp格式，尺寸大于200px*200px，大小小于1M</div>

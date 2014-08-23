@@ -31,7 +31,10 @@ class user extends top
 	/*显示首页界面我关注的*/
 	public function myfollow(){
 		$this->myfollow_current = 'class="current"';
-		$this->getMyFollow();
+//		$this->getMyFollow();
+		$uid = $this->spArgs('uid', $this->uid);
+		$this->user = spClass('db_member')->find(array('uid'=>$uid)); //用户信息
+			
 		$this->display('user_myfollow.html');	
 	}
 	

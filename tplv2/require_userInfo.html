@@ -25,8 +25,8 @@
 	<div class="user-data">
 		<ul>
 			<li><b>{$user.num}</b><span>动态</span></li>
-			<li><b>{$user.flow}</b><span>关注</span></li>
-			<li class="nr"><b>{$user.flowme}</b><span>粉丝</span></li>
+			<li><a href="{spUrl c=user a=myfollow uid=$user.uid}"><b>{$user.flow}</b><span>关注</span></a></li>
+			<li class="nr"><a href="{spUrl c=user a=myfollow uid=$user.uid tab=follow}"><b>{$user.flowme}</b><span>粉丝</span></a></li>
 		</ul>
 
 	</div>

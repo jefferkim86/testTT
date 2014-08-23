@@ -58,9 +58,21 @@ class login extends top
 		if(utf8_strlen($this->spArgs('username')) < 2 || utf8_strlen($this->spArgs('username')) > 10) {
 			$this->error('昵称最短为2个字符最长为10个字符', $url);
 		}
+		if (!validateUsername($this->spArgs('username'))) {
+			$this->error("昵称只允许中英文、数字、减号或“_”");
+		}
+		if($this->yb['keep_niname'] != ''){
+			$arr = explode(',',$this->yb['keep_niname']);
+			if(in_array($this->spArgs('username'),$arr)) {$this->error('该昵称被保留或限制');}
+		}
 		if(strlen($this->spArgs('password')) < 6) {
 			$this->error('密码最少6位', $url);
-		} 
+		}
+		
+		if (count(explode("路口", $this->spArgs('username'))) > 1) {
+			$this->error('昵称中不允许包含路口两个字哦～', $url);
+		}
+		 
 		$keep =  $this->yb['keep_email'];
 		if($keep != ''){
 			$keeparray = explode(',',$keep);
@@ -69,10 +81,6 @@ class login extends top
 			{
 				$this->error('该邮箱帐号前缀被限制注册', $url);
 			}
-		}
-		
-		if (count(explode("路口", $this->spArgs('username'))) > 1) {
-			$this->error('昵称中不允许包含路口两个字哦～', $url);
 		}
 
 		if($this->yb['invite_switch'] == 1 || $this->spArgs('invitemode') == 1){

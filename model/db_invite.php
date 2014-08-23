@@ -42,6 +42,18 @@ class db_invite extends ybModel
             'invite_code'     => $invite_code, //所有的邀请码
         );
     }
+    
+    public function addCode($uid, $num = 10000) {
+    	for ($i = 0; $i < $num; $i++) {
+                $ret = array(
+                    'uid'        => $uid,
+                    'inviteCode' => $this->makeInviteCode(),
+                    'exptime'    => time() + ($this->invite_expiration * 24 * 60 * 60)
+                );
+				$this->create($ret);
+            }
+        return true;
+    }
 
 	//给某个用户填充邀请码
 	public function addToFull($uid){
