@@ -64,7 +64,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 		}
 		return result;
 	},
-	
+
 	//TODO: forwardData引用getFeedAttr
 	getfeedData: function() {
 		return {
@@ -122,7 +122,11 @@ Tuitui.feedModel = Backbone.Model.extend({
 	},
 	_addLinkToText: function(txt) {
 		var reg = /(http:\/\/|https:\/\/)((\w|=|\?|\.|\/|&|-)+)/g;
-		return txt.replace(reg, '<a href="$1$2" target="_blank">$1$2</a>');
+		var picReg = /(?:\.jpg|png|jpeg|bmp|gif)$/g;
+		var r = txt.replace(reg, function(link) {
+			return picReg.test(link) ? link : '<a href="' + link + '" target="_blank">' + link + '</a>';
+		});
+		return r;
 	},
 	getFeedAttr: function() {
 		var result = {};
