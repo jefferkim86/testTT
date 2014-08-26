@@ -232,6 +232,11 @@ Tuitui.feedModel = Backbone.Model.extend({
 				};
 			}
 		}
+		if (this.getfeedType() == undefined) {
+			result = {
+				'isDeleted': true
+			};
+		}
 		return result;
 	}
 

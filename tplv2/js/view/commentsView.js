@@ -45,10 +45,10 @@ Tuitui.commentsView = Backbone.View.extend({
             page: pageNo || 1
         }, function(data) {
             var result = data.body;
-
-            if (result.page && result.page.total_page > 1 && isDetailPage && !feed.find('.J-feedPagination').hasClass('simple-pagination')) {
-                
-                feed.find('.J-feedPagination').pagination({
+            if (result.page && result.page.total_page > 1 && isDetailPage && !feed.find('.J-commentPagination').hasClass('simple-pagination')) {
+                feed.find('.J-forwardPagination').hide();
+                feed.find('.J-commentPagination').show();
+                feed.find('.J-commentPagination').pagination({
                     items: result.page.total_page * 10,
                     itemsOnPage: 10,
                     cssStyle: 'light-theme',
@@ -56,7 +56,6 @@ Tuitui.commentsView = Backbone.View.extend({
                         self._queryReply(bid, page);
                     }
                 });
-
             }
             self.collection.reset(result.body);
         });

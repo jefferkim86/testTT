@@ -654,7 +654,10 @@
 .loaded .loaded-msg{display:block;}
 .loaded .loading-more,.loaded .error-msg{display:none;}
 
-
+#J-blog-null .feed-hd,#J-blog-null .feed-actions,#J-blog-null .feed-link{display: none;}
+#J-blog-null .feed-bd{
+	padding: 20px 0;
+}
 /*feedÍ¼Æ¬Õ¹¿ª*/
 .feed-original-pic  .feed-original-cell{text-align:left;overflow:hidden;}
 .feed-original-pic .original-desc{margin:8px 0;color:#333333;}

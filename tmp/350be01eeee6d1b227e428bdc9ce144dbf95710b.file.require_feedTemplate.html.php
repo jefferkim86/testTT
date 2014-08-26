@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-20 23:15:51
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-26 00:57:46
          compiled from "tplv2/require_feedTemplate.html" */ ?>
-<?php /*%%SmartyHeaderCode:149119173253f4bba777ffc8-37922343%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:197865687753fb6b0af32ee6-01271106%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '350be01eeee6d1b227e428bdc9ce144dbf95710b' => 
     array (
       0 => 'tplv2/require_feedTemplate.html',
-      1 => 1408547746,
+      1 => 1408985745,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '149119173253f4bba777ffc8-37922343',
+  'nocache_hash' => '197865687753fb6b0af32ee6-01271106',
   'function' => 
   array (
   ),
@@ -115,10 +115,11 @@ $_smarty_tpl->decodeProperties(array (
                </ul>
             </div>
             <div class="page-func">
-                <div class="J-feedPagination">
+                <div class="J-feedPagination J-commentPagination">
                     <a href="#" class="fold">收起</a>
                     <a href="${feedLink}#comment" class="comment-more">查看更多</a>
                 </div>
+                <div class="J-feedPagination J-forwardPagination" style="display:none;"></div>
             </div>
           </div>
         </div>

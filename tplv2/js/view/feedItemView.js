@@ -286,6 +286,7 @@ Tuitui.feedItemView = Backbone.View.extend({
             feed.toggleClass("forward_show");
             feed.removeClass("comment_show");
         }
+        //$(".J-feedPagination").html('');
         this['get' + type + 'List'](feed);
     },
     /*
@@ -304,17 +305,34 @@ Tuitui.feedItemView = Backbone.View.extend({
     /*
      * @desc 读取转发列表
      * */
-    getforwardList: function(feed) {
+    getforwardList: function(feed, pageNo) {
+        var self = this;
         var data = this.model.toJSON();
+        var isDetailPage = typeof G_PAGE != 'undefined' && G_PAGE == 'detail';
+
         if ($('.J_forwardList .loading-list').length) {
             getApi('blog', 'getforward', {
                 'bid': data.bid,
-                'page': 1,
+                'page': pageNo || 1,
                 'limit': 30
             }, function(resp) {
                 var result = resp.body.body;
+                var page = resp.body.page;
+                page.total_page = 10;
                 var html = userView.renderForward(result);
                 feed.find('.J_forwardList').html(html);
+                if (page && page.total_page > 1 && isDetailPage && !feed.find('.J-forwardPagination').hasClass('simple-pagination')) {
+                    feed.find('.J-commentPagination').hide();
+                    feed.find('.J-forwardPagination').show();
+                    feed.find('.J-forwardPagination').pagination({
+                        items: page.total_page * 30,
+                        itemsOnPage: 30,
+                        cssStyle: 'light-theme',
+                        onPageClick: function(page, ev) {
+                            self.getforwardList(feed, page);
+                        }
+                    });
+                }
             });
         }
     },
@@ -352,17 +370,20 @@ Tuitui.feedItemView = Backbone.View.extend({
         //渲染内容
         var feedContent;
         var feedItemData = this.model.getFeedAttr();
-        if(feedItemData.isDeleted){
+        if (feedItemData.isDeleted) {
             feedContent = '<div class="deleted-feed">该文章已经被删除</div>';
-        }else{
+        } else {
             feedContent = tpl.render(feedItemData);
         }
-        
-        //var feedContent = tpl.render(this.model.getFeedAttr());
-
         var feedData = this.model.getfeedData();
-        feedData.feedItemContent = feedContent;
-        var layout = layoutTpl.render(feedData);
+        var layout;
+        if (feedData.isDeleted) {
+            layout = '<div class="deleted-feed">该文章已经被删除</div>';
+        } else {
+            feedData.feedItemContent = feedContent;
+            layout = layoutTpl.render(feedData);
+        }
+
         return this.$el.html(layout);
     }
 

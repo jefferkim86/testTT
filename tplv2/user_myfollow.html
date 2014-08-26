@@ -165,7 +165,6 @@ function addto_follow(d,type){
 		var paginType = type == 'follow' ? 'tab2Page':'tab1Page';
 
 		if(d.body.page && d.body.page.total_page > 1 && $("#paging").attr('pageType') != paginType){
-			console.log('change');
 			$("#paging").html('');
 			$("#paging").attr('pageType',paginType);
 	        $("#paging").pagination({
