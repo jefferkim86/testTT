@@ -2,8 +2,6 @@ Tuitui.feedModel = Backbone.Model.extend({
 
 	initialize: function() {
 
-
-
 	},
 
 	feedImgMap: {
@@ -83,7 +81,8 @@ Tuitui.feedModel = Backbone.Model.extend({
 			'isSelf': this.get('uid') == uid,
 			'isLiked': this.get('likeid') ? 'liked' : '',
 			'forwardData': this.get('repto') || false,
-			'isDeleted': this.get('repto') && !this.get('repto').bid
+			'isDeleted': this.get('bid') == null,
+			'isForwardDeleted': this.get('repto') && this.get('repto').bid == null
 		}
 	},
 
@@ -201,7 +200,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 				result = {
 					'isDeleted': repto.bid == null,
 					'goodTitle': repto.attr.title,
-					'goodPic': repto.attr.image,
+					'goodPic': repto.attr.image + '_300x1000.jpg',
 					'price': repto.attr.price,
 					'discount_price': repto.attr.discount_price,
 					'producturl': repto.attr.producturl,
@@ -219,7 +218,7 @@ Tuitui.feedModel = Backbone.Model.extend({
 				result = {
 					'isDeleted': this.get('bid') == null,
 					'goodTitle': attr.title,
-					'goodPic': attr.image,
+					'goodPic': attr.image + '_300x1000.jpg',
 					'price': attr.price,
 					'discount_price': attr.discount_price,
 					'feedLink': this.get('b_url'),

@@ -18,10 +18,10 @@ class blog extends top
 			$uid = (int) $this->spArgs('uid');
 			$cond = "and b.uid = '$uid'";
 		}
-		if($this->spArgs('pagelimit')){
-			$pageLimit = ($this->spArgs('pagelimit') < 30) ? $this->spArgs('pagelimit') : 30 ;  //自定义分页
+		if($this->spArgs('page_size')){
+			$pageLimit = ($this->spArgs('page_size') < 10) ? $this->spArgs('page_size') : 10 ;  //自定义分页
 		}else{
-			$pageLimit = $this->yb['show_page_num'];
+			$pageLimit = 10;
 		}
 
 
@@ -537,7 +537,10 @@ class blog extends top
 		if (!empty($d['attr']) && isset($d['attr']['0'])) {
 			$file = $d['attr']['0'];
 			$file_type = strrchr($file, '.');
-			if ($file_type == '.jpg') {
+			$fileInfo=pathinfo($file);
+			$extension=strtolower($fileInfo['extension']);
+			
+			if (preg_match('/'.str_replace(',','|','jpg,jpeg,png,gif,bmp').'/i',$extension)) {
 				$image_info = getimagesize($file);
 				$d['image_info']['image_width'] = $image_info['0'];
 				$d['image_info']['image_height'] = $image_info['1'];

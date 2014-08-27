@@ -33,9 +33,29 @@ class user extends top
 		$this->myfollow_current = 'class="current"';
 //		$this->getMyFollow();
 		$uid = $this->spArgs('uid', $this->uid);
-		$this->user = spClass('db_member')->find(array('uid'=>$uid)); //用户信息
-			
+		if ($uid != $this->uid) {
+			$this->user = spClass('db_member')->find(array('uid'=>$uid)); //用户信息
+		}
+		
+		$this->isfollow = $this->isFollow($uid);
 		$this->display('user_myfollow.html');	
+	}
+	
+	private function isFollow($uid)
+	{
+		if($_SESSION['uid'] == $uid){
+			return -1;  //自己
+		}
+		$my_follow_uid = spClass('db_follow')->getFollowUid($_SESSION['uid']);
+		if (empty($my_follow_uid)) return 0;
+		if (in_array($uid, explode(',', $my_follow_uid))) return 1;
+		
+		return 0;
+//		$follow = spClass('db_follow')->find( array('uid'=>$_SESSION['uid'],'touid'=>$this->user_data['uid']));
+//		if(is_array($follow)){
+//			return 1;  //已关注
+//		}
+//		return 0;
 	}
 	
 	/*我喜欢的*/

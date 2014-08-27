@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-26 00:57:46
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-27 23:02:46
          compiled from "tplv2/require_feedTemplate.html" */ ?>
-<?php /*%%SmartyHeaderCode:197865687753fb6b0af32ee6-01271106%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:173309584953fdf316842388-77317549%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '350be01eeee6d1b227e428bdc9ce144dbf95710b' => 
     array (
       0 => 'tplv2/require_feedTemplate.html',
-      1 => 1408985745,
+      1 => 1409151765,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '197865687753fb6b0af32ee6-01271106',
+  'nocache_hash' => '173309584953fdf316842388-77317549',
   'function' => 
   array (
   ),
@@ -60,7 +60,7 @@ $_smarty_tpl->decodeProperties(array (
                 <div class="feed-title clearfix">
                     ${feedForwardContent}<span class="preforward">$${preforwardContent}</span>
                 </div>
-                {@if !isDeleted}
+                {@if !isForwardDeleted}
                  <div  id="J-forwardBlog-${forwardData.bid}" class="feed feed-${feedType} feed-forward-layout clearfix">
                     <div class="feed-desc">
                         <div class="feed-hd">
@@ -75,7 +75,7 @@ $_smarty_tpl->decodeProperties(array (
                     
                     $${feedItemContent}
 
-                {@if forwardData && !isDeleted}
+                {@if forwardData && !isForwardDeleted}
                             <div class="feed-actions J-forward-actions clearfix">
                                 <div class="feed-act">
                                     <a href="${forwardData.b_url}&t=reply" class="ft-comment">评论(<span class="J_CmtNum">${forwardData.replaycount}</span>)</a>

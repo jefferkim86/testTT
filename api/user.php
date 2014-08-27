@@ -51,6 +51,10 @@ class user extends top
 			$this->api_error('昵称中不允许包含路口两个字哦～');
 		}
 		
+		if (count(explode("路囗", $this->spArgs('niname'))) > 1) {
+			$this->api_error('昵称中不允许包含路囗两个字哦～');
+		}
+		
 		if (!validateUsername($this->spArgs('niname'))) {
 			$this->api_error("昵称只允许中英文、数字、减号或“_”");
 		}

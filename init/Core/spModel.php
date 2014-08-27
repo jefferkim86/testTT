@@ -564,7 +564,7 @@ class spPager {
 				"prev_page"   => ( ( 1 == $pageNo ) ? 1 : ($pageNo - 1) ),         // 上一页
 				"next_page"   => ( ( $pageNo == $total_page ) ? $total_page : ($pageNo + 1)),     // 下一页
 				"last_page"   => $total_page,                                  // 最后一页
-				"current_page"=> $pageNo,                                        // 当前页
+				"current_page"=> (int)$pageNo,                                        // 当前页
 			//	"all_pages"   => array()	                                   // 全部页码
 			);
 			
@@ -596,12 +596,12 @@ class spPager {
 			$this->pageData = array(
 				"total_count" => (int)$total_count,                                 // 总记录数
 				"page_size"   => (int)$pageSize,                                    // 分页大小
-				"total_page"  => $total_page,                                  // 总页数
+				"total_page"  => (int)$total_page,                                  // 总页数
 				"first_page"  => 1,                                            // 第一页
 				"prev_page"   => ( ( 1 == $page ) ? 1 : ($page - 1) ),         // 上一页
 				"next_page"   => ( ( $page == $total_page ) ? $total_page : ($page + 1)),     // 下一页
 				"last_page"   => $total_page,                                  // 最后一页
-				"current_page"=> $page,                                        // 当前页
+				"current_page"=> (int)$page,                                        // 当前页
 			//	"all_pages"   => array()	                                   // 全部页码
 			);
 			for($i=1; $i <= $total_page; $i++)$this->pageData['all_pages'][] = $i;
@@ -618,7 +618,7 @@ class spPager {
 				"prev_page"   => 1,         // 上一页
 				"next_page"   => 1,     // 下一页
 				"last_page"   => 1,                                  // 最后一页
-				"current_page"=> $page,                                        // 当前页
+				"current_page"=> (int)$page,                                        // 当前页
 				"all_pages"   => array()	                                   // 全部页码
 			);
 		}

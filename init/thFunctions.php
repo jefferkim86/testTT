@@ -39,7 +39,7 @@ function goUserHome($params)
 	$uid   = $params['uid'];     //判断是否存在uid
 
 	if($domain != '' && $domain !='home')
-	{	//return 'http://'.$_SERVER["HTTP_HOST"] .'/'. $domain;
+	{	return 'http://'.$_SERVER["HTTP_HOST"] .'/'. $domain;
 		return spUrl('userblog','index',array('domain'=>$domain));
 	}else{
 		return spUrl('userblog','index',array('domain'=>'home','uid'=>$uid));

@@ -15,6 +15,11 @@ class main extends top
 		if($this->uid == 0){
 			$display = ($this->yb['guestMode'] == 1) ? 'index' : 'login';
 			$this->email = spClass('ybCookie')->get_cookie('unames');
+			$str_err = $this->spArgs('err');
+			if (!empty($str_err)) {
+				$json_err = json_decode($str_err);
+				$this->errMsg = $json_err->msg;
+			}
 		}else{
 			$this->memberinfo();
 			$this->getMyFollow();

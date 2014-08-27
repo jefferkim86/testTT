@@ -41,7 +41,7 @@
                 <div class="feed-title clearfix">
                     ${feedForwardContent}<span class="preforward">$${preforwardContent}</span>
                 </div>
-                {@if !isDeleted}
+                {@if !isForwardDeleted}
                  <div  id="J-forwardBlog-${forwardData.bid}" class="feed feed-${feedType} feed-forward-layout clearfix">
                     <div class="feed-desc">
                         <div class="feed-hd">
@@ -56,7 +56,7 @@
                     
                     $${feedItemContent}
 
-                {@if forwardData && !isDeleted}
+                {@if forwardData && !isForwardDeleted}
                             <div class="feed-actions J-forward-actions clearfix">
                                 <div class="feed-act">
                                     <a href="${forwardData.b_url}&t=reply" class="ft-comment">评论(<span class="J_CmtNum">${forwardData.replaycount}</span>)</a>

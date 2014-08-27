@@ -54,7 +54,7 @@ class yb_product extends basePostModel
     	$title = $this->spArgs('title');
     	$deliveryFees = $this->spArgs('deliveryFees');
     	$price = $this->spArgs("price");
-    	if (empty($title) || empty($deliveryFees) || empty($price)) return null;
+    	if (empty($title) || empty($price)) return null;
     	$item = array();
     	$item['title'] = $title;
     	$item['image'] = $this->spArgs('image');

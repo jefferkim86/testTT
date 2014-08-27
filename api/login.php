@@ -56,6 +56,10 @@ class login extends top
 		if (count(explode("路口", $this->spArgs('username'))) > 1) {
 			$this->api_error('昵称中不允许包含路口两个字哦～');
 		}
+		
+		if (count(explode("路囗", $this->spArgs('username'))) > 1) {
+			$this->api_error('昵称中不允许包含路囗两个字哦～');
+		}
 
 		if($this->yb['invite_switch'] == 1 || $this->spArgs('invitemode') == 1){
 		

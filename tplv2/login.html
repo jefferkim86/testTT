@@ -79,10 +79,14 @@
 							<input type="text" id="verifycode" class="input_code tip" title="请输入验证码"  name="verifycode" tabindex="3">
 						</div>
 						{/if}
+						<div class="error-msg">
+							{$errMsg}
+						</div>
 						<div class="item login-btn">
 							<label></label>
 							<input class="submit-btn" type="button" name="loginSubmit" id="loginSubmit"  value="登录"/>
 						</div>
+						
 						<div class="func">
 							<div class="remeber">
 								<input type="checkbox" class="check-remeber" name="autologin" value="1" checked="checked" title="自动登录"/>

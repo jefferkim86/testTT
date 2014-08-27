@@ -301,6 +301,11 @@ Tuitui.feedItemView = Backbone.View.extend({
         if (el.find('.loading-list').length) {
             commentsView.getReplys(data.bid, el, data.feedcount);
         }
+
+        if(typeof G_PAGE != 'undefined' && G_PAGE == 'detail'){
+            $(".J-commentPagination").show();
+            $(".J-forwardPagination").hide();
+        }
     },
     /*
      * @desc 读取转发列表
@@ -318,12 +323,10 @@ Tuitui.feedItemView = Backbone.View.extend({
             }, function(resp) {
                 var result = resp.body.body;
                 var page = resp.body.page;
-                page.total_page = 10;
                 var html = userView.renderForward(result);
                 feed.find('.J_forwardList').html(html);
                 if (page && page.total_page > 1 && isDetailPage && !feed.find('.J-forwardPagination').hasClass('simple-pagination')) {
-                    feed.find('.J-commentPagination').hide();
-                    feed.find('.J-forwardPagination').show();
+                    
                     feed.find('.J-forwardPagination').pagination({
                         items: page.total_page * 30,
                         itemsOnPage: 30,
@@ -334,6 +337,11 @@ Tuitui.feedItemView = Backbone.View.extend({
                     });
                 }
             });
+        }
+
+        if(isDetailPage){
+            feed.find('.J-commentPagination').hide();
+            feed.find('.J-forwardPagination').show();
         }
     },
 
@@ -367,7 +375,7 @@ Tuitui.feedItemView = Backbone.View.extend({
         var feedType = this.model.getfeedType();
         var layoutTpl = this.compiled_tpl['feedLayout'];
         var tpl = this.compiled_tpl[feedType];
-        //渲染内容
+        //渲染内容,中间
         var feedContent;
         var feedItemData = this.model.getFeedAttr();
         if (feedItemData.isDeleted) {
@@ -375,10 +383,11 @@ Tuitui.feedItemView = Backbone.View.extend({
         } else {
             feedContent = tpl.render(feedItemData);
         }
+        //外层数据
         var feedData = this.model.getfeedData();
         var layout;
         if (feedData.isDeleted) {
-            layout = '<div class="deleted-feed">该文章已经被删除</div>';
+            layout = '<div class="out-deleted-feed">该文章已经被删除</div>';
         } else {
             feedData.feedItemContent = feedContent;
             layout = layoutTpl.render(feedData);

@@ -1,8 +1,4 @@
-{if $user.domain}
-{assign var="UserDomain" value="{$site_uri}/{$user.domain}"}
-{else}
 {assign var="UserDomain" value="{goUserHome domain=$user.domain uid=$user.uid}"}
-{/if}
 <div class="user page-userInfo">
 	<div class="logo">
 		<a href="{$UserDomain}"><img src="{$site_uri}{avatar uid=$user.uid size=big}" alt=""/></a>
@@ -12,9 +8,9 @@
 		<div class="url">{$UserDomain}</div>
 		{if $usersign}<div class="desc">{$usersign}</div>{/if}
 		<div class="handle">
-			{if $isfollow == 1}
+			{if $smarty.session.uid != $user.uid && $isfollow == 1}
 			<button class="J-attention J-follow followed" data-uid="{$user.uid}">取消关注</button>
-			{else if $isfollow == 0}
+			{else if $smarty.session.uid != $user.uid && $isfollow == 0}
 			<button class="J-attention J-follow" data-uid="{$user.uid}">加关注</button>
 			{/if}
 			{if $smarty.session.uid != $user.uid}
@@ -24,7 +20,7 @@
 	</div>
 	<div class="user-data">
 		<ul>
-			<li><b>{$user.num}</b><span>动态</span></li>
+			<li><a href="{$UserDomain}"><b>{$user.num}</b></a><span>动态</span></li>
 			<li><a href="{spUrl c=user a=myfollow uid=$user.uid}"><b>{$user.flow}</b><span>关注</span></a></li>
 			<li class="nr"><a href="{spUrl c=user a=myfollow uid=$user.uid tab=follow}"><b>{$user.flowme}</b><span>粉丝</span></a></li>
 		</ul>

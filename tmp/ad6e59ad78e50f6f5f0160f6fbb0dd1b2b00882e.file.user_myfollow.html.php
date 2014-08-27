@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-08-23 23:30:21
+<?php /* Smarty version Smarty-3.0.6, created on 2014-08-27 22:32:28
          compiled from "tplv2/user_myfollow.html" */ ?>
-<?php /*%%SmartyHeaderCode:159299687153f8b38d683e50-27688616%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:51031599353fdebfc2b0d46-94340560%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ad6e59ad78e50f6f5f0160f6fbb0dd1b2b00882e' => 
     array (
       0 => 'tplv2/user_myfollow.html',
-      1 => 1408807820,
+      1 => 1409149947,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '159299687153f8b38d683e50-27688616',
+  'nocache_hash' => '51031599353fdebfc2b0d46-94340560',
   'function' => 
   array (
   ),
@@ -79,6 +79,9 @@ function do_run(ty,page){
 
 
 </script>
+<style type="text/css">
+	.follow_list{width: 1100px;}
+</style>
 
 
 
@@ -96,7 +99,7 @@ function do_run(ty,page){
 		    </div>
 	    </div>
 		
-	    <div id="followfeed">
+	    <div id="followfeed" style="width:1138px;">
 
 
 
@@ -153,10 +156,7 @@ function do_run(ty,page){
 	</div>
 	
 	
-	<div id="aside">
-        <?php $_template = new Smarty_Internal_Template("require_sider.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
- echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
-    </div>
+	
 </div>
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('syskin')->value;?>
 /js/view/userView.js"></script>
@@ -190,7 +190,6 @@ function addto_follow(d,type){
 		var paginType = type == 'follow' ? 'tab2Page':'tab1Page';
 
 		if(d.body.page && d.body.page.total_page > 1 && $("#paging").attr('pageType') != paginType){
-			console.log('change');
 			$("#paging").html('');
 			$("#paging").attr('pageType',paginType);
 	        $("#paging").pagination({

@@ -357,6 +357,7 @@
 .feed .forward-show .cmt-list{border-top:1px solid #d0d0d0;padding:10px 27px 15px 27px;}
 .feed .forward-show .cmt-list li{float:left;display:inline;border:none;padding:0;margin:0;margin-left:2px;width:42px;height:42px;}
 .feed .forward-show h5{margin:5px 0;}
+.out-deleted-feed{display: none; }
 .feed .deleted-feed{
 	width: 695px;
 	background:#f5f5f5;

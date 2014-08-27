@@ -32,7 +32,6 @@ class userblog extends top
 		$this->display('index.html');
 	}
 	
-	
 
 	
 	/*显示某一条记录*/
@@ -107,11 +106,16 @@ class userblog extends top
 		if($_SESSION['uid'] == $this->user_data['uid']){
 			return -1;  //自己
 		}
-		$follow = spCLass('db_follow')->find( array('uid'=>$_SESSION['uid'],'touid'=>$this->user_data['uid']));
-		if(is_array($follow)){
-			return 1;  //已关注
-		}
+		$my_follow_uid = spClass('db_follow')->getFollowUid($_SESSION['uid']);
+		if (empty($my_follow_uid)) return 0;
+		if (in_array($this->user_data['uid'], explode(',', $my_follow_uid))) return 1;
+		
 		return 0;
+//		$follow = spClass('db_follow')->find( array('uid'=>$_SESSION['uid'],'touid'=>$this->user_data['uid']));
+//		if(is_array($follow)){
+//			return 1;  //已关注
+//		}
+//		return 0;
 	}
 	
 	/*我与某人的私心数量*/

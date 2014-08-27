@@ -393,12 +393,16 @@ Tuitui.messageView = Backbone.View.extend({
             return;
         }
         var submitRepuid = '';
+        var submitInputsVal = '';
         if ($(target).attr('data-type') == 'comment') {
-            submitRepuid = msgItem.attr('data-muid')
+            submitRepuid = msgItem.attr('data-muid');
+            submitInputsVal = '@' + replyTo + ':' + inputVal;
+        }else{
+            submitInputsVal = inputVal;
         }
         getApi('blog', 'setReply', {
             'bid': msgItem.attr('data-bid'),
-            'inputs': '@' + replyTo + ':' + inputVal,
+            'inputs': submitInputsVal,
             'repcontent': replyContent,
             'repuid': submitRepuid
         }, function(resp) {
